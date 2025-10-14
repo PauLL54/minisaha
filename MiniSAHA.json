@@ -3763,7 +3763,7 @@
         "width": 0,
         "height": 0,
         "name": "Auteur",
-        "label": "Geimplementeerd door de Digidokters Son en Breugel.",
+        "label": "Geimplementeerd door de Digidokters SONENBREUGELVERBINDT.",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "style": false,
