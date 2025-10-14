@@ -3905,9 +3905,11 @@
         "oldrc": false,
         "name": "Restart node-red",
         "x": 570,
-        "y": 600,
+        "y": 620,
         "wires": [
-            [],
+            [
+                "027b1a140dd7dc77"
+            ],
             [],
             []
         ]
@@ -3991,7 +3993,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 320,
+        "x": 300,
         "y": 500,
         "wires": [
             [
@@ -4011,7 +4013,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
+        "x": 470,
         "y": 500,
         "wires": [
             [
@@ -4024,7 +4026,7 @@
         "type": "function",
         "z": "6704eb581e929d50",
         "name": "Update?",
-        "func": "var current = global.get(\"version\");\nvar latest = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", latest: \" + latest    });\n\nif (latest > current) {\n    var msg2 = { payload: \"Nieuwe versie; restart duurt even...\"};\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { payload: \"Geen nieuwe versie beschikbaar.\"};\n   return [null, msg2]; \n}\nreturn msg;",
+        "func": "var current = global.get(\"version\");\nvar latest = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", latest: \" + latest    });\n\nif (latest > current) {\n    var msg2 = { payload: \"Nieuwe versie; restart duurt even...\"};\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { payload: \"Geen nieuwere versie beschikbaar.\"};\n   return [null, msg2]; \n}\nreturn msg;",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -4056,7 +4058,7 @@
         "oldrc": false,
         "name": "rm old",
         "x": 110,
-        "y": 600,
+        "y": 620,
         "wires": [
             [
                 "7e07d7a6bdba2943"
@@ -4078,7 +4080,7 @@
         "oldrc": false,
         "name": "get update",
         "x": 250,
-        "y": 600,
+        "y": 620,
         "wires": [
             [
                 "9cfd73ed0ee11f63"
@@ -4100,13 +4102,42 @@
         "oldrc": false,
         "name": "Install",
         "x": 390,
-        "y": 600,
+        "y": 620,
         "wires": [
             [
                 "1c5298aaeffe9816"
             ],
             [],
             []
+        ]
+    },
+    {
+        "id": "486934f2c5223615",
+        "type": "inject",
+        "z": "6704eb581e929d50",
+        "name": "OnStart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 560,
+        "wires": [
+            [
+                "027b1a140dd7dc77"
+            ]
         ]
     }
 ]
