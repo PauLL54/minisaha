@@ -3621,26 +3621,6 @@
         "wires": []
     },
     {
-        "id": "ba631b7b44e93b04",
-        "type": "function",
-        "z": "6704eb581e929d50",
-        "name": "disable",
-        "func": "var msg = { enabled: false };\nreturn msg;\n\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 240,
-        "y": 220,
-        "wires": [
-            [
-                "47943aa523823552"
-            ]
-        ]
-    },
-    {
         "id": "dfeb2cc1fccb52a4",
         "type": "inject",
         "z": "6704eb581e929d50",
@@ -3665,7 +3645,7 @@
         "y": 220,
         "wires": [
             [
-                "ba631b7b44e93b04"
+                "f08179ae4e90e482"
             ]
         ]
     },
@@ -3700,10 +3680,12 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 400,
-        "y": 220,
+        "x": 80,
+        "y": 380,
         "wires": [
-            []
+            [
+                "37d158cbe55e10b8"
+            ]
         ]
     },
     {
@@ -3724,9 +3706,9 @@
         "color": "#717171",
         "wrapText": false,
         "className": "",
-        "value": "payloads",
+        "value": "payload",
         "valueType": "msg",
-        "x": 390,
+        "x": 610,
         "y": 40,
         "wires": []
     },
@@ -3739,18 +3721,18 @@
         "width": 0,
         "height": 0,
         "name": "Versie",
-        "label": "Versie: 2025-10-09",
+        "label": "",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "layout": "row-left",
         "style": false,
         "font": "",
         "fontSize": 16,
         "color": "#717171",
         "wrapText": false,
         "className": "",
-        "value": "payloads",
+        "value": "payload",
         "valueType": "msg",
-        "x": 390,
+        "x": 610,
         "y": 160,
         "wires": []
     },
@@ -3772,10 +3754,359 @@
         "color": "#717171",
         "wrapText": false,
         "className": "",
-        "value": "payloads",
+        "value": "payload",
         "valueType": "msg",
-        "x": 390,
+        "x": 610,
         "y": 100,
         "wires": []
+    },
+    {
+        "id": "194dc6083c642f13",
+        "type": "exec",
+        "z": "6704eb581e929d50",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/version.txt",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get latest",
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "d859262679d5d5ee"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b5540454c8cac192",
+        "type": "function",
+        "z": "6704eb581e929d50",
+        "name": "rm \\n",
+        "func": "msg.payload = msg.payload.replace(/[\\r\\n]+/g, '');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "cbe7cb51422db443",
+                "9d2a3c84535fc679"
+            ]
+        ]
+    },
+    {
+        "id": "f08179ae4e90e482",
+        "type": "file in",
+        "z": "6704eb581e929d50",
+        "name": "current version",
+        "filename": ".node-red/projects/MiniSAHA/version.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "b5540454c8cac192"
+            ]
+        ]
+    },
+    {
+        "id": "cbe7cb51422db443",
+        "type": "change",
+        "z": "6704eb581e929d50",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "version",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d0543ac551c1831b",
+        "type": "ui-text",
+        "z": "6704eb581e929d50",
+        "group": "adc719ee09b9438b",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "Update msg",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 690,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "9d2a3c84535fc679",
+        "type": "function",
+        "z": "6704eb581e929d50",
+        "name": "Versie:",
+        "func": "msg.payload = \"Versie: \" + msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "4f16ec403f8cbe15"
+            ]
+        ]
+    },
+    {
+        "id": "1c5298aaeffe9816",
+        "type": "exec",
+        "z": "6704eb581e929d50",
+        "command": "sudo systemctl restart nodered.service&",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Restart node-red",
+        "x": 570,
+        "y": 600,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "37d158cbe55e10b8",
+        "type": "exec",
+        "z": "6704eb581e929d50",
+        "command": "rm version.txt*",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rm old",
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "194dc6083c642f13"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d859262679d5d5ee",
+        "type": "file in",
+        "z": "6704eb581e929d50",
+        "name": "latest",
+        "filename": "version.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 490,
+        "y": 380,
+        "wires": [
+            [
+                "31242adc69983722"
+            ]
+        ]
+    },
+    {
+        "id": "31242adc69983722",
+        "type": "function",
+        "z": "6704eb581e929d50",
+        "name": "rm \\n",
+        "func": "msg.payload = msg.payload.replace(/[\\r\\n]+/g, '');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 380,
+        "wires": [
+            [
+                "f390bd5b6bf9df42"
+            ]
+        ]
+    },
+    {
+        "id": "e75286af5c023e85",
+        "type": "delay",
+        "z": "6704eb581e929d50",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 400,
+        "y": 500,
+        "wires": [
+            [
+                "027b1a140dd7dc77"
+            ]
+        ]
+    },
+    {
+        "id": "027b1a140dd7dc77",
+        "type": "function",
+        "z": "6704eb581e929d50",
+        "name": "clear",
+        "func": "msg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 500,
+        "wires": [
+            [
+                "d0543ac551c1831b"
+            ]
+        ]
+    },
+    {
+        "id": "f390bd5b6bf9df42",
+        "type": "function",
+        "z": "6704eb581e929d50",
+        "name": "Update?",
+        "func": "var current = global.get(\"version\");\nvar latest = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", latest: \" + latest    });\n\nif (latest > current) {\n    var msg2 = { payload: \"Nieuwe versie; restart duurt even...\"};\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { payload: \"Geen nieuwe versie beschikbaar.\"};\n   return [null, msg2]; \n}\nreturn msg;",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 460,
+        "wires": [
+            [
+                "6a1bfe342df7d826"
+            ],
+            [
+                "e75286af5c023e85",
+                "d0543ac551c1831b"
+            ]
+        ]
+    },
+    {
+        "id": "6a1bfe342df7d826",
+        "type": "exec",
+        "z": "6704eb581e929d50",
+        "command": "rm MiniSAHA.json*",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rm old",
+        "x": 110,
+        "y": 600,
+        "wires": [
+            [
+                "7e07d7a6bdba2943"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7e07d7a6bdba2943",
+        "type": "exec",
+        "z": "6704eb581e929d50",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/MiniSAHA.json",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get update",
+        "x": 250,
+        "y": 600,
+        "wires": [
+            [
+                "9cfd73ed0ee11f63"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9cfd73ed0ee11f63",
+        "type": "exec",
+        "z": "6704eb581e929d50",
+        "command": "cp -f version.txt MiniSAHA.json .node-red/projects/MiniSAHA",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Install",
+        "x": 390,
+        "y": 600,
+        "wires": [
+            [
+                "1c5298aaeffe9816"
+            ],
+            [],
+            []
+        ]
     }
 ]
