@@ -1,0 +1,3781 @@
+[
+    {
+        "id": "7b281fcff852c1ee",
+        "type": "tab",
+        "label": "MiniSAHA",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c55e2c22aaa2b36d",
+        "type": "tab",
+        "label": "UI_Home",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "096868c8e9519de1",
+        "type": "tab",
+        "label": "UI_Instellingen",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ba4416c1c0bfe46f",
+        "type": "tab",
+        "label": "UI_Power",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f4a38d3e242d940e",
+        "type": "tab",
+        "label": "UI_Thuis?",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3287d548aa736494",
+        "type": "tab",
+        "label": "Email",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6704eb581e929d50",
+        "type": "tab",
+        "label": "UI_About",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bd2a966b.302e18",
+        "type": "subflow",
+        "name": "CheckIsAtHome",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "41839ea3.d361b"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1040,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "f98fba99.4f5198",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1080,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "f98fba99.4f5198",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 1090,
+                "y": 460,
+                "wires": [
+                    {
+                        "id": "9c091226.6a239",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 410,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "41839ea3.d361b",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "inputLabels": [
+            "Create CheckAlive script"
+        ],
+        "outputLabels": [
+            "IsAtHome",
+            "SuccededPingCount",
+            "Result start script",
+            "Debug"
+        ],
+        "status": {
+            "x": 1040,
+            "y": 180,
+            "wires": [
+                {
+                    "id": "f98fba99.4f5198",
+                    "port": 2
+                }
+            ]
+        }
+    },
+    {
+        "id": "0839f7b4c0cbb0a8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7c806c323bf3f841",
+        "type": "global-config",
+        "env": []
+    },
+    {
+        "id": "6c1d30b5f16932dd",
+        "type": "ui-base",
+        "name": "Help IP adres",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": true
+    },
+    {
+        "id": "72011230335eaee3",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "d0f6689a06670cb7",
+        "type": "ui-page",
+        "name": "Power",
+        "ui": "6c1d30b5f16932dd",
+        "path": "/page3",
+        "icon": "power",
+        "layout": "grid",
+        "theme": "72011230335eaee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 3,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "74e147230f204214",
+        "type": "ui-page",
+        "name": "MiniSAHA",
+        "ui": "6c1d30b5f16932dd",
+        "path": "/page1",
+        "icon": "account-question",
+        "layout": "grid",
+        "theme": "72011230335eaee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "5"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "ab8f5143a421d4e8",
+        "type": "ui-page",
+        "name": "Instellingen",
+        "ui": "6c1d30b5f16932dd",
+        "path": "/page2",
+        "icon": "cog-outline",
+        "layout": "grid",
+        "theme": "72011230335eaee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "5"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "4"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "62dcfc2bccdba69b",
+        "type": "ui-page",
+        "name": "Thuis?",
+        "ui": "6c1d30b5f16932dd",
+        "path": "/page4",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "72011230335eaee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 4,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "1dd0da4fdcd94089",
+        "type": "ui-page",
+        "name": "About",
+        "ui": "6c1d30b5f16932dd",
+        "path": "/page5",
+        "icon": "information",
+        "layout": "grid",
+        "theme": "72011230335eaee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 5,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "1770a740435c7f75",
+        "type": "ui-group",
+        "name": "Power",
+        "page": "d0f6689a06670cb7",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "4de3d58d68afebf3",
+        "type": "ui-group",
+        "name": "MiniSAHA",
+        "page": "74e147230f204214",
+        "width": "5",
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "a50d14b208aa0231",
+        "type": "ui-group",
+        "name": "Instellingen",
+        "page": "ab8f5143a421d4e8",
+        "width": "5",
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "5e23302aa37603c6",
+        "type": "ui-group",
+        "name": "Is thuis",
+        "page": "62dcfc2bccdba69b",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "adc719ee09b9438b",
+        "type": "ui-group",
+        "name": "About",
+        "page": "1dd0da4fdcd94089",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "41839ea3.d361b",
+        "type": "function",
+        "z": "bd2a966b.302e18",
+        "name": "create checkIsAtHome script",
+        "func": "var pingCount = msg.payload.PingCount;\nvar ipAddress = msg.payload.IPAddress;\nflow.set(\"IPAddress\", ipAddress);\n\nvar scriptFileName = \"checkIsAtHome\" + ipAddress;\nmsg = { filename:  scriptFileName };\n\nmsg.payload = \"#!/bin/bash\\nwhile true; do sudo arping -c \" + \npingCount + \n\" \" + ipAddress +\n\" > checkIsAtHome\" + ipAddress +\n\".temp ; cp checkIsAtHome\" + ipAddress + \".temp \" + \n\"checkIsAtHome\" + ipAddress + \".output; done\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 200,
+        "y": 360,
+        "wires": [
+            [
+                "902e5ac4.84f2b"
+            ]
+        ]
+    },
+    {
+        "id": "902e5ac4.84f2b",
+        "type": "file",
+        "z": "bd2a966b.302e18",
+        "name": "store in file",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 430,
+        "y": 360,
+        "wires": [
+            [
+                "74c702c8.65efb4"
+            ]
+        ]
+    },
+    {
+        "id": "36d25876.739588",
+        "type": "exec",
+        "z": "bd2a966b.302e18",
+        "command": "chmod +x ",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "make file executable",
+        "x": 800,
+        "y": 360,
+        "wires": [
+            [],
+            [],
+            [
+                "5f4eee7c.2e29a"
+            ]
+        ]
+    },
+    {
+        "id": "8f57678f.b55d08",
+        "type": "exec",
+        "z": "bd2a966b.302e18",
+        "command": "pkill -f ",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "stop previous process",
+        "x": 360,
+        "y": 460,
+        "wires": [
+            [
+                "c4a15a03.9be1e"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9c091226.6a239",
+        "type": "exec",
+        "z": "bd2a966b.302e18",
+        "command": "bash -c ",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "start checkIsAtHome in background",
+        "x": 820,
+        "y": 440,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c4a15a03.9be1e",
+        "type": "function",
+        "z": "bd2a966b.302e18",
+        "name": "get cmd string",
+        "func": "var ipAddress = flow.get(\"IPAddress\");\n\nmsg.payload = \" \\\"exec -a checkIsAtHome\" + ipAddress + \n              \" ./checkIsAtHome\" + ipAddress + \"\\\"&\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 580,
+        "y": 440,
+        "wires": [
+            [
+                "9c091226.6a239"
+            ]
+        ]
+    },
+    {
+        "id": "faaf1234.933d38",
+        "type": "comment",
+        "z": "bd2a966b.302e18",
+        "name": "Start checkIsAtHome script in the background upon startup",
+        "info": "",
+        "x": 250,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "74f775fe.79f4cc",
+        "type": "comment",
+        "z": "bd2a966b.302e18",
+        "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
+        "info": "",
+        "x": 350,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b34deede.8145b",
+        "type": "inject",
+        "z": "bd2a966b.302e18",
+        "name": "Regularly (30 s)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "95f84901.8005a8"
+            ]
+        ]
+    },
+    {
+        "id": "3da93624.ce870a",
+        "type": "file in",
+        "z": "bd2a966b.302e18",
+        "name": "read file",
+        "filename": "filename",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 480,
+        "y": 100,
+        "wires": [
+            [
+                "f98fba99.4f5198"
+            ]
+        ]
+    },
+    {
+        "id": "f98fba99.4f5198",
+        "type": "function",
+        "z": "bd2a966b.302e18",
+        "name": "Return IsAtHome, SucceededPingCount, status",
+        "func": "// get the ping count:\nvar succeededPingCount = 0;\nvar pos = 0;\nvar i = -1;\n\nwhile (pos != -1) {\n  pos = msg.payload.indexOf(\"index=\", i + 1);\n  if (pos != -1) succeededPingCount += 1;\n  i = pos;\n}\n\nvar result = succeededPingCount > 0 ? 1 : 0;\nmsg = { payload: result, topic: flow.get(\"IPAddress\") };\n\nvar msg_SucceededPingCount = { payload: succeededPingCount };\n\nvar msg_Status = { payload: flow.get(\"IPAddress\") + \", \" + Boolean(result) + \", \" + succeededPingCount};\n\nreturn [ msg, msg_SucceededPingCount, msg_Status ];\n",
+        "outputs": 3,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 100,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8dca38e7.59b758",
+        "type": "comment",
+        "z": "bd2a966b.302e18",
+        "name": "Check if person is at home",
+        "info": "",
+        "x": 150,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "95f84901.8005a8",
+        "type": "function",
+        "z": "bd2a966b.302e18",
+        "name": "Get filename",
+        "func": "var fileName = \"checkIsAtHome\" + flow.get(\"IPAddress\") + \".output\";\n\nmsg = { filename:  fileName };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 330,
+        "y": 100,
+        "wires": [
+            [
+                "3da93624.ce870a"
+            ]
+        ]
+    },
+    {
+        "id": "74c702c8.65efb4",
+        "type": "function",
+        "z": "bd2a966b.302e18",
+        "name": "get scriptName",
+        "func": "msg.payload = \"checkIsAtHome\" + flow.get(\"IPAddress\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 360,
+        "wires": [
+            [
+                "36d25876.739588"
+            ]
+        ]
+    },
+    {
+        "id": "5f4eee7c.2e29a",
+        "type": "function",
+        "z": "bd2a966b.302e18",
+        "name": "get scriptName",
+        "func": "msg.payload = \"checkIsAtHome\" + flow.get(\"IPAddress\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 160,
+        "y": 460,
+        "wires": [
+            [
+                "8f57678f.b55d08"
+            ]
+        ]
+    },
+    {
+        "id": "153279e2ddb9bf63",
+        "type": "inject",
+        "z": "7b281fcff852c1ee",
+        "name": "Every 1 min.",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "8debf8374f7055b0"
+            ]
+        ]
+    },
+    {
+        "id": "842cf2986f30adea",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "tijd OK?",
+        "func": "// wanneer is het tijd om de vraag te stellen?\nvar startTijdVraag_ms = tijdNaarMs(global.get(\"TijdOK\"));\n\n// wanneer is het tijd om een email te sturen naar de sleutelbewaarders (als niet gereageerd is)?\nvar eindTijdVraag_ms = startTijdVraag_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\n\n// hoe laat is het nu?\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nvar nu_ms = tijdNaarMs(tijd_nu);\n\nvar isInMeldingsPeriode = (nu_ms >= startTijdVraag_ms) && (nu_ms <= eindTijdVraag_ms);\n\nif (isInMeldingsPeriode) {\n    flow.set(\"isInMeldingsPeriode\", true);\n\n    if (flow.get(\"VraagBeantwoord\")) {\n        node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode: Vraag beantwoord\" });\n        return; // klaar\n    }\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode: Vraag nog niet beantwoord\" });\n    // stuur een email uit:\n    return [msg, null]; \n} else {\n    // meldingstijd net afgelopen?\n    if (flow.get(\"isInMeldingsPeriode\"))  {\n        flow.set(\"isInMeldingsPeriode\", false);\n\n        if (!flow.get(\"VraagBeantwoord\")) {\n            node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": Vraag niet op tijd beantwoord\" });\n            return [null, msg]; // tijd om een email te sturen naar de sleutelbewaarders\n        }\n        node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode voorbij\" });\n        flow.set(\"VraagBeantwoord\", false);\n        return;\n    }\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": niet in MeldingsPeriode\" });\n}\nreturn;\n\nfunction tijdNaarMs(tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n}",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 280,
+        "wires": [
+            [
+                "926106aa4212ab45",
+                "0eb31871384b7b17",
+                "79c1ada20ccf5b7f"
+            ],
+            [
+                "9e676d2de906fc76"
+            ]
+        ]
+    },
+    {
+        "id": "62dfed959bfd2fce",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Dank je wel",
+        "func": "msg.payload = \"Dank je wel! Fijne Dag.\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "c63a75761a2f95ca"
+            ]
+        ]
+    },
+    {
+        "id": "7850aeab6bcc3005",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Clear",
+        "func": "msg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 860,
+        "wires": [
+            [
+                "cc9d28ff8d42949d"
+            ]
+        ]
+    },
+    {
+        "id": "7e695d44273a60bb",
+        "type": "mqtt in",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Home_JaClicked",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 500,
+        "wires": [
+            [
+                "62dfed959bfd2fce"
+            ]
+        ]
+    },
+    {
+        "id": "81755f0261d42585",
+        "type": "mqtt in",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Home_NeeClicked",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "b8f54f09cd387ac0"
+            ]
+        ]
+    },
+    {
+        "id": "f8bae653d73fdff1",
+        "type": "mqtt out",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Home_Ja",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 740,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "926106aa4212ab45",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Enable buttons",
+        "func": "msg.payload = { enabled: true };\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 260,
+        "wires": [
+            [
+                "f8bae653d73fdff1",
+                "bcc53190d0745b9e"
+            ]
+        ]
+    },
+    {
+        "id": "bcc53190d0745b9e",
+        "type": "mqtt out",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Home_Nee",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 750,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "9486c809d0329fc7",
+        "type": "mqtt out",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Home_Vraag",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 750,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "0eb31871384b7b17",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Vraag: Ben je OK?",
+        "func": "msg.payload = \"Beste \" + global.get(\"VoornaamGebruiker\") + \", ben je OK?\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 180,
+        "wires": [
+            [
+                "9486c809d0329fc7"
+            ]
+        ]
+    },
+    {
+        "id": "03d61b4464b9eca9",
+        "type": "mqtt out",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Home_Ja",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 740,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "be1459b8dedaad5a",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Disable button",
+        "func": "msg.topic = \"dashboard/buttonState\";\nmsg.payload = { enabled: false};\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 780,
+        "wires": [
+            [
+                "03d61b4464b9eca9",
+                "0a83120a42e25c81"
+            ]
+        ]
+    },
+    {
+        "id": "0a83120a42e25c81",
+        "type": "mqtt out",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Home_Nee",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 750,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "e15ebee831361c2a",
+        "type": "mqtt out",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Home_Vraag",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 750,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "795516d87be8eea1",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Geen vraag voor nu",
+        "func": "msg.payload = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n              \", er is geen vraag voor nu.\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 680,
+        "wires": [
+            [
+                "e15ebee831361c2a"
+            ]
+        ]
+    },
+    {
+        "id": "2f51ac78262f8063",
+        "type": "mqtt out",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Home_Response",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 770,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "b8f54f09cd387ac0",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Wat vervelend",
+        "func": "msg.payload = \"Wat vervelend!\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 560,
+        "wires": [
+            [
+                "c63a75761a2f95ca"
+            ]
+        ]
+    },
+    {
+        "id": "79c1ada20ccf5b7f",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Email gebruiker: OK?",
+        "func": "var text = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n           \", \\n\\n\" + \n           \"Ben je OK? Open de MiniSAHA app en bevestig.\";\n\nmsg.payload = {\n    to: global.get(\"EmailGebruiker\"),\n    cc: global.get(\"EmailSleutelbewaarder2\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    text: text\n}\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 340,
+        "wires": [
+            [
+                "f6ae07e3ee62a322"
+            ]
+        ]
+    },
+    {
+        "id": "cc9d28ff8d42949d",
+        "type": "mqtt out",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Home_Response",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 770,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "657f662a9738629f",
+        "type": "mqtt in",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Home_ResponseShown",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 740,
+        "wires": [
+            [
+                "7850aeab6bcc3005",
+                "795516d87be8eea1",
+                "be1459b8dedaad5a"
+            ]
+        ]
+    },
+    {
+        "id": "f6ae07e3ee62a322",
+        "type": "mqtt out",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Email",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 730,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "e3524e41e1ab0862",
+        "type": "comment",
+        "z": "7b281fcff852c1ee",
+        "name": "https://www.w3schools.com/js/js_date_reference.asp",
+        "info": "",
+        "x": 250,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "8debf8374f7055b0",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Als Systerm is On en is thuis",
+        "func": "var now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\n\nvar isSystemOn = global.get(\"SystemOn\");\nif (!isSystemOn) {\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": System is Off\" });\n    return;\n}\n\nvar isThuis = global.get(\"GebruikerIsAtHome\");\nvar isThuisString = isThuis ? \": is thuis\" : \": niet thuis\";\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: tijd_nu + isThuisString\n    });\n\nif (isThuis)\n    return msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 100,
+        "wires": [
+            [
+                "842cf2986f30adea"
+            ]
+        ]
+    },
+    {
+        "id": "6af8619a9ca76178",
+        "type": "comment",
+        "z": "7b281fcff852c1ee",
+        "name": "Verwijder vraag:",
+        "info": "",
+        "x": 100,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "806e5360f5f69bf5",
+        "type": "inject",
+        "z": "7b281fcff852c1ee",
+        "name": "OnStartup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 40,
+        "wires": [
+            [
+                "bf3d3c641f3bc0ef"
+            ]
+        ]
+    },
+    {
+        "id": "c63a75761a2f95ca",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "VraagBeantwoord=true",
+        "func": "var now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\n\nflow.set(\"VraagBeantwoord\", true);\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: tijd_nu + \": VraagBeantwoord=true\" });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 520,
+        "wires": [
+            [
+                "2f51ac78262f8063"
+            ]
+        ]
+    },
+    {
+        "id": "9e676d2de906fc76",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Alarm email",
+        "func": "var bericht = global.get(\"VoornaamGebruiker\") + \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft niet gereageerd op OK vraag.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht + \n              \"\\nBel hem op nummer: \" +\n              global.get(\"MobielGebruiker\");\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({ fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 400,
+        "wires": [
+            [
+                "6096c4a0909147f8"
+            ]
+        ]
+    },
+    {
+        "id": "6096c4a0909147f8",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "To: Sleutelbewaarders",
+        "func": "var text = msg.payload;\n\nmsg.payload = {\n    to: global.get(\"EmailSleutelbewaarder1\"),\n    cc: global.get(\"EmailSleutelbewaarder2\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    text: text\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 400,
+        "wires": [
+            [
+                "f6ae07e3ee62a322"
+            ]
+        ]
+    },
+    {
+        "id": "ccf4febf0e3ff4f6",
+        "type": "comment",
+        "z": "7b281fcff852c1ee",
+        "name": "en dan?",
+        "info": "",
+        "x": 460,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "bf3d3c641f3bc0ef",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Init flow variables",
+        "func": "flow.set(\"VraagBeantwoord\", false);\nflow.set(\"isInMeldingsPeriode\", false);\nnode.status({ fill: \"blue\", shape: \"ring\", text: \"done\" });\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3e9f24436a66f6d7",
+        "type": "mqtt in",
+        "z": "c55e2c22aaa2b36d",
+        "name": "",
+        "topic": "Home_Vraag",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "1bb053d9514016f9"
+            ]
+        ]
+    },
+    {
+        "id": "953574e3b6615c5f",
+        "type": "mqtt in",
+        "z": "c55e2c22aaa2b36d",
+        "name": "",
+        "topic": "Home_Ja",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "c77978018a4ea8e6"
+            ]
+        ]
+    },
+    {
+        "id": "47ad032b4d309e64",
+        "type": "mqtt in",
+        "z": "c55e2c22aaa2b36d",
+        "name": "",
+        "topic": "Home_Nee",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "68d1307097b46832"
+            ]
+        ]
+    },
+    {
+        "id": "034eefce36addcb3",
+        "type": "mqtt in",
+        "z": "c55e2c22aaa2b36d",
+        "name": "",
+        "topic": "Home_Response",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "fc4df117b0720376",
+                "2fec3becf0c29e5b"
+            ]
+        ]
+    },
+    {
+        "id": "41d021359a7dc170",
+        "type": "mqtt out",
+        "z": "c55e2c22aaa2b36d",
+        "name": "",
+        "topic": "Home_JaClicked",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 790,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "372f6f493cfd3af8",
+        "type": "mqtt out",
+        "z": "c55e2c22aaa2b36d",
+        "name": "",
+        "topic": "Home_NeeClicked",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 790,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c77978018a4ea8e6",
+        "type": "function",
+        "z": "c55e2c22aaa2b36d",
+        "name": "enabled/disabled",
+        "func": "var buttonEnabled = msg.payload.enabled;\nvar msg = { enabled: buttonEnabled };\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "0449a3ade84e2f5a"
+            ]
+        ]
+    },
+    {
+        "id": "68d1307097b46832",
+        "type": "function",
+        "z": "c55e2c22aaa2b36d",
+        "name": "enabled/disabled",
+        "func": "var buttonEnabled = msg.payload.enabled;\nvar msg = { enabled: buttonEnabled };\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 200,
+        "wires": [
+            [
+                "b5a8c40b73fc399f"
+            ]
+        ]
+    },
+    {
+        "id": "2fec3becf0c29e5b",
+        "type": "function",
+        "z": "c55e2c22aaa2b36d",
+        "name": "If not Empty",
+        "func": "if (msg.payload === \"\") return;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 360,
+        "wires": [
+            [
+                "1069be9892a20e83"
+            ]
+        ]
+    },
+    {
+        "id": "6020103a8c1b0296",
+        "type": "mqtt out",
+        "z": "c55e2c22aaa2b36d",
+        "name": "",
+        "topic": "Home_ResponseShown",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 810,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "1069be9892a20e83",
+        "type": "trigger",
+        "z": "c55e2c22aaa2b36d",
+        "name": "Wacht even",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "5",
+        "extend": true,
+        "overrideDelay": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 510,
+        "y": 360,
+        "wires": [
+            [
+                "6020103a8c1b0296"
+            ]
+        ]
+    },
+    {
+        "id": "6221f5a7ee544f19",
+        "type": "inject",
+        "z": "c55e2c22aaa2b36d",
+        "name": "OnStartup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Welkom!",
+        "payloadType": "str",
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "2fec3becf0c29e5b",
+                "37b1a9572c1469d0"
+            ]
+        ]
+    },
+    {
+        "id": "30cb43cc68d6d7a3",
+        "type": "comment",
+        "z": "c55e2c22aaa2b36d",
+        "name": "icons: https://pictogrammers.com/library/mdi/",
+        "info": "",
+        "x": 210,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "06b4fd8a70455414",
+        "type": "change",
+        "z": "c55e2c22aaa2b36d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "SystemOn",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37b1a9572c1469d0",
+        "type": "change",
+        "z": "c55e2c22aaa2b36d",
+        "name": "SystemOn",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SystemOn",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 620,
+        "wires": [
+            [
+                "bbeb6ade0432171b"
+            ]
+        ]
+    },
+    {
+        "id": "9126a3c6c50b9a2d",
+        "type": "function",
+        "z": "c55e2c22aaa2b36d",
+        "name": "Systeem in/uit geschakeld",
+        "func": "var bericht = \"Systeem uitgeschakeld.\";\nif (msg.payload) bericht = \"Systeem ingeschakeld.\";\n\nmsg.payload = bericht;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 680,
+        "wires": [
+            [
+                "ea796bf499cb07f1"
+            ]
+        ]
+    },
+    {
+        "id": "ea796bf499cb07f1",
+        "type": "mqtt out",
+        "z": "c55e2c22aaa2b36d",
+        "name": "",
+        "topic": "Home_Response",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 790,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "b5a8c40b73fc399f",
+        "type": "ui-button",
+        "z": "c55e2c22aaa2b36d",
+        "group": "4de3d58d68afebf3",
+        "name": "Nee",
+        "label": "Nee",
+        "order": 3,
+        "width": "2",
+        "height": "2",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "custom-button-font",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "372f6f493cfd3af8"
+            ]
+        ]
+    },
+    {
+        "id": "0449a3ade84e2f5a",
+        "type": "ui-button",
+        "z": "c55e2c22aaa2b36d",
+        "group": "4de3d58d68afebf3",
+        "name": "Ja",
+        "label": "Ja",
+        "order": 2,
+        "width": "2",
+        "height": "2",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "custom-button-font",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 510,
+        "y": 140,
+        "wires": [
+            [
+                "41d021359a7dc170"
+            ]
+        ]
+    },
+    {
+        "id": "bbeb6ade0432171b",
+        "type": "ui-switch",
+        "z": "c55e2c22aaa2b36d",
+        "name": "Systeem actief",
+        "label": "Systeem actief:   ",
+        "group": "4de3d58d68afebf3",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-left",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 540,
+        "y": 620,
+        "wires": [
+            [
+                "06b4fd8a70455414",
+                "9126a3c6c50b9a2d"
+            ]
+        ]
+    },
+    {
+        "id": "1bb053d9514016f9",
+        "type": "ui-text",
+        "z": "c55e2c22aaa2b36d",
+        "group": "4de3d58d68afebf3",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "name": "Vraag",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 510,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "fc4df117b0720376",
+        "type": "ui-text",
+        "z": "c55e2c22aaa2b36d",
+        "group": "4de3d58d68afebf3",
+        "order": 4,
+        "width": "4",
+        "height": "1",
+        "name": "Response",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 520,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d17a7b1069e71992",
+        "type": "ui-text",
+        "z": "c55e2c22aaa2b36d",
+        "group": "4de3d58d68afebf3",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 520,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "fb6acf17bdbaa22d",
+        "type": "ui-text",
+        "z": "c55e2c22aaa2b36d",
+        "group": "4de3d58d68afebf3",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 520,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "dfaf991a9dccd0dc",
+        "type": "ui-text",
+        "z": "c55e2c22aaa2b36d",
+        "group": "4de3d58d68afebf3",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 520,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "0e739374325889c3",
+        "type": "ui-text",
+        "z": "c55e2c22aaa2b36d",
+        "group": "4de3d58d68afebf3",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 520,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "d2425eb7ccf4cd25",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "TijdOK",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "083f72e15ea0723b",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "VoornaamGebruiker",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9f3bf238546e912c",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "EmailGebruiker",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "41b0f757747e9627",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "EmailSleutelbewaarder2",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0c63dc227ed051ec",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "EmailSleutelbewaarder1",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bd8abc9558d2c3b1",
+        "type": "function",
+        "z": "096868c8e9519de1",
+        "name": "Instellingen aangepast",
+        "func": "msg.payload = \"Instellingen aangepast.\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "bbfc4c8eecf9815c"
+            ]
+        ]
+    },
+    {
+        "id": "bbfc4c8eecf9815c",
+        "type": "mqtt out",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "topic": "Home_Response",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 770,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "44cb6045db02f177",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "VoornaamGebruiker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "VoornaamGebruiker",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 180,
+        "y": 100,
+        "wires": [
+            [
+                "5d3a90fa5699523e"
+            ]
+        ]
+    },
+    {
+        "id": "50491a6738ce54e0",
+        "type": "inject",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 40,
+        "wires": [
+            [
+                "9ffb11186e14f1f0"
+            ]
+        ]
+    },
+    {
+        "id": "a5f714ac9b80bc9d",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "EmailGebruiker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "EmailGebruiker",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "774a198c9b03e253"
+            ]
+        ]
+    },
+    {
+        "id": "fbc99a67429ba764",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "EmailSleutelbewaarder1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "EmailSleutelbewaarder1",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 190,
+        "y": 540,
+        "wires": [
+            [
+                "c5b40e5e62641f88"
+            ]
+        ]
+    },
+    {
+        "id": "f02b7e4ac3f7cb0b",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "EmailSleutelbewaarder2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "EmailSleutelbewaarder2",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 190,
+        "y": 600,
+        "wires": [
+            [
+                "750c8b6efa75837e"
+            ]
+        ]
+    },
+    {
+        "id": "c7b90c38f6aa3e95",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "TijdOK",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "TijdOK",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 130,
+        "y": 720,
+        "wires": [
+            [
+                "390e40fad13b5f46"
+            ]
+        ]
+    },
+    {
+        "id": "1870abe6ec3075c6",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MobielGebruiker",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "01b068742a933a63",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "MobielGebruiker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "MobielGebruiker",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "800ffd60de56d101"
+            ]
+        ]
+    },
+    {
+        "id": "58f4654d196c3723",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "IP_Mobiel",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "23c4351646fe1ee5",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "IP_Mobiel",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "IP_Mobiel",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "d784d99c86ee8fc4"
+            ]
+        ]
+    },
+    {
+        "id": "8b9395508a3c50ad",
+        "type": "function",
+        "z": "096868c8e9519de1",
+        "name": "help tekst",
+        "func": "msg.payload = \n\"<b>Het IP-adres van de WIFI verbinding van je telefoon wordt gebruikt om te zien of je in huis bent. \" +\n\"Als je niet thuis bent, ontvang je geen vraag (email) of je OK bent.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dit IP-adres kan je vinden bij Instellingen. \" +\n\"Voor ieder merk en type telefoon is dat anders.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Het vinden gaat ongeveer zo:</b><br>\"+\n\"<b>1. Instellingen --> Verbindingen --> WIFI.</b><br>\" +\n\"<b>2. Tik op het verbonden netwerk.</b><br>\" +\n\"<b>3. Je ziet het IP-adres ergens onder 'Geavanceerd' of bij 'Details'.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Voorbeeld van een IP-adres is: '192.168.2.68'.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 400,
+        "wires": [
+            [
+                "73985c103e8b0074"
+            ]
+        ]
+    },
+    {
+        "id": "26fc6ad48f8a2f13",
+        "type": "function",
+        "z": "096868c8e9519de1",
+        "name": "Spaces",
+        "func": "// verwijder spaties\nlet origineleString = msg.payload;\nif (origineleString == undefined) return;\nlet zonderSpaties = origineleString.replace(/\\s+/g, \"\");\nmsg.payload = zonderSpaties;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 360,
+        "wires": [
+            [
+                "58f4654d196c3723"
+            ]
+        ]
+    },
+    {
+        "id": "c38c45eedb601d7a",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MeldPeriodeInMinuten",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9c5b038760ea0a48",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "MeldPeriodeInMinuten",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "MeldPeriodeInMinuten",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 180,
+        "y": 780,
+        "wires": [
+            [
+                "cf890f93acd6d7ad"
+            ]
+        ]
+    },
+    {
+        "id": "0699abdad798df54",
+        "type": "function",
+        "z": "096868c8e9519de1",
+        "name": "help tekst",
+        "func": "msg.payload = \n\"<b>De gebruiker ontvangt een email met de vraag 'Ben je OK?' op het gespecificeerde tijdstip.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>De gebruiker moet binnen de meldperiode (b.v. 60 minuten) reageren in deze app.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Zo niet, dat wordt er een email gestuurd naar de sleutelbewaarder(s).</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 820,
+        "wires": [
+            [
+                "f509606cd543389d"
+            ]
+        ]
+    },
+    {
+        "id": "9ffb11186e14f1f0",
+        "type": "link out",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "mode": "link",
+        "links": [
+            "7817af36419ae0d6",
+            "421a32d84f153daa",
+            "f53423baeda36785",
+            "3eead49db43de10f",
+            "cb27757b1efc7008",
+            "68e21213a51b13c3",
+            "3ef1e998ce753579",
+            "09b5cfc4be1bd1ac"
+        ],
+        "x": 225,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "7817af36419ae0d6",
+        "type": "link in",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "links": [
+            "9ffb11186e14f1f0"
+        ],
+        "x": 45,
+        "y": 780,
+        "wires": [
+            [
+                "9c5b038760ea0a48"
+            ]
+        ]
+    },
+    {
+        "id": "421a32d84f153daa",
+        "type": "link in",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "links": [
+            "9ffb11186e14f1f0"
+        ],
+        "x": 45,
+        "y": 100,
+        "wires": [
+            [
+                "44cb6045db02f177"
+            ]
+        ]
+    },
+    {
+        "id": "f53423baeda36785",
+        "type": "link in",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "links": [
+            "9ffb11186e14f1f0"
+        ],
+        "x": 45,
+        "y": 240,
+        "wires": [
+            [
+                "a5f714ac9b80bc9d"
+            ]
+        ]
+    },
+    {
+        "id": "3eead49db43de10f",
+        "type": "link in",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "links": [
+            "9ffb11186e14f1f0"
+        ],
+        "x": 45,
+        "y": 300,
+        "wires": [
+            [
+                "01b068742a933a63"
+            ]
+        ]
+    },
+    {
+        "id": "cb27757b1efc7008",
+        "type": "link in",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "links": [
+            "9ffb11186e14f1f0"
+        ],
+        "x": 45,
+        "y": 360,
+        "wires": [
+            [
+                "23c4351646fe1ee5"
+            ]
+        ]
+    },
+    {
+        "id": "68e21213a51b13c3",
+        "type": "link in",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "links": [
+            "9ffb11186e14f1f0"
+        ],
+        "x": 45,
+        "y": 540,
+        "wires": [
+            [
+                "fbc99a67429ba764"
+            ]
+        ]
+    },
+    {
+        "id": "3ef1e998ce753579",
+        "type": "link in",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "links": [
+            "9ffb11186e14f1f0"
+        ],
+        "x": 45,
+        "y": 600,
+        "wires": [
+            [
+                "f02b7e4ac3f7cb0b"
+            ]
+        ]
+    },
+    {
+        "id": "09b5cfc4be1bd1ac",
+        "type": "link in",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "links": [
+            "9ffb11186e14f1f0"
+        ],
+        "x": 45,
+        "y": 720,
+        "wires": [
+            [
+                "c7b90c38f6aa3e95"
+            ]
+        ]
+    },
+    {
+        "id": "5d3a90fa5699523e",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Voornaam gebruiker",
+        "label": "Voornaam gebruiker",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": "2000",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "083f72e15ea0723b",
+                "bd8abc9558d2c3b1"
+            ]
+        ]
+    },
+    {
+        "id": "774a198c9b03e253",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Email gebruiker",
+        "label": "Email adres gebruiker",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "email",
+        "tooltip": "",
+        "delay": "2000",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "9f3bf238546e912c"
+            ]
+        ]
+    },
+    {
+        "id": "750c8b6efa75837e",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Email sleutelbewaarder 2",
+        "label": "Email adres sleutelbewaarder 2",
+        "order": 8,
+        "width": "0",
+        "height": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": "2000",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 430,
+        "y": 600,
+        "wires": [
+            [
+                "41b0f757747e9627"
+            ]
+        ]
+    },
+    {
+        "id": "390e40fad13b5f46",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Tijd OK",
+        "label": "Tijdstip: ben je OK?",
+        "order": 10,
+        "width": "0",
+        "height": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "time",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": false,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 380,
+        "y": 720,
+        "wires": [
+            [
+                "d2425eb7ccf4cd25"
+            ]
+        ]
+    },
+    {
+        "id": "c5b40e5e62641f88",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Email sleutelbewaarder 1",
+        "label": "Email adres sleutelbewaarder 1",
+        "order": 7,
+        "width": "0",
+        "height": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": "2000",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 430,
+        "y": 540,
+        "wires": [
+            [
+                "0c63dc227ed051ec"
+            ]
+        ]
+    },
+    {
+        "id": "800ffd60de56d101",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Mobiel gebruiker",
+        "label": "06 nummer gebruiker",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": "2000",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": false,
+        "sendOnEnter": false,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "1870abe6ec3075c6"
+            ]
+        ]
+    },
+    {
+        "id": "d784d99c86ee8fc4",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "IP adres",
+        "label": "WIFI IP adres van deze telefoon",
+        "order": 4,
+        "width": "4",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": "500",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": false,
+        "sendOnEnter": false,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 380,
+        "y": 360,
+        "wires": [
+            [
+                "26fc6ad48f8a2f13"
+            ]
+        ]
+    },
+    {
+        "id": "cf890f93acd6d7ad",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Meldperiode (in minuten)",
+        "label": "Meldperiode (in minuten)",
+        "order": 11,
+        "width": "4",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "number",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": false,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 430,
+        "y": 780,
+        "wires": [
+            [
+                "c38c45eedb601d7a"
+            ]
+        ]
+    },
+    {
+        "id": "e18ca8c1d271831b",
+        "type": "ui-button",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Help IP",
+        "label": "?",
+        "order": 5,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "8b9395508a3c50ad"
+            ]
+        ]
+    },
+    {
+        "id": "fbac595f4e9d1b74",
+        "type": "ui-button",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Help Meldperiode",
+        "label": "?",
+        "order": 12,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 410,
+        "y": 820,
+        "wires": [
+            [
+                "0699abdad798df54"
+            ]
+        ]
+    },
+    {
+        "id": "4df79464d8932823",
+        "type": "ui-text",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 380,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "51637d13d29540bf",
+        "type": "ui-text",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 380,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "73985c103e8b0074",
+        "type": "ui-notification",
+        "z": "096868c8e9519de1",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 770,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f509606cd543389d",
+        "type": "ui-notification",
+        "z": "096868c8e9519de1",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 770,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cfd534c4.f4d138",
+        "type": "exec",
+        "z": "ba4416c1c0bfe46f",
+        "command": "sudo shutdown -h now",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Execute shutdown",
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ec82005b.4a23a",
+        "type": "exec",
+        "z": "ba4416c1c0bfe46f",
+        "command": "sudo reboot -f",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Execute restart",
+        "x": 400,
+        "y": 300,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b4e98755712b6343",
+        "type": "ui-button",
+        "z": "ba4416c1c0bfe46f",
+        "group": "1770a740435c7f75",
+        "name": "Shutdown computer",
+        "label": "Shutdown",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 200,
+        "y": 220,
+        "wires": [
+            [
+                "cfd534c4.f4d138"
+            ]
+        ]
+    },
+    {
+        "id": "231ae2d6186d2767",
+        "type": "ui-button",
+        "z": "ba4416c1c0bfe46f",
+        "group": "1770a740435c7f75",
+        "name": "Restart computer",
+        "label": "Restart",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "ec82005b.4a23a"
+            ]
+        ]
+    },
+    {
+        "id": "968c0b18722d2125",
+        "type": "ui-text",
+        "z": "ba4416c1c0bfe46f",
+        "group": "1770a740435c7f75",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Uitleg",
+        "label": "Nadat het systeem uitgeschakeld is, kan je hem weer aan zetten door de voeding los te koppelen en weer aan te sluiten.",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 170,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "731129ca4104f456",
+        "type": "subflow:bd2a966b.302e18",
+        "z": "f4a38d3e242d940e",
+        "name": "",
+        "env": [],
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "4ecf7cc65fce921a",
+                "fc975b0cf121d8e8"
+            ],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8a25bda3bf068ff3",
+        "type": "inject",
+        "z": "f4a38d3e242d940e",
+        "name": "At startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 100,
+        "y": 240,
+        "wires": [
+            [
+                "c9799e7e1e6b2666",
+                "4d320e0260d1cd44"
+            ]
+        ]
+    },
+    {
+        "id": "c9799e7e1e6b2666",
+        "type": "function",
+        "z": "f4a38d3e242d940e",
+        "name": "IP adres & PingCount",
+        "func": "var ipAddress = global.get(\"IP_Mobiel\");\nvar pingCount = msg.payload;\n\nmsg.payload = { IPAddress: ipAddress, PingCount: pingCount };\n\nnode.status({ fill:\"blue\", shape:\"ring\", \ntext: ipAddress + \", pingCount: \" + pingCount });\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 160,
+        "wires": [
+            [
+                "731129ca4104f456"
+            ]
+        ]
+    },
+    {
+        "id": "4d320e0260d1cd44",
+        "type": "function",
+        "z": "f4a38d3e242d940e",
+        "name": "GebruikerIsAtHome=false",
+        "func": "global.set(\"GebruikerIsAtHome\", false);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4ecf7cc65fce921a",
+        "type": "function",
+        "z": "f4a38d3e242d940e",
+        "name": "set global GebruikerIsAtHome",
+        "func": "global.set(\"GebruikerIsAtHome\", (msg.payload == 1));\nnode.status({ fill: \"blue\", shape: \"ring\", text: (msg.payload == 1) ? \"thuis\" : \"niet thuis\" });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37885293ee3d4b1e",
+        "type": "function",
+        "z": "f4a38d3e242d940e",
+        "name": "clear",
+        "func": "msg.payload = [];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 320,
+        "wires": [
+            [
+                "fc975b0cf121d8e8"
+            ]
+        ]
+    },
+    {
+        "id": "e33dab69f79ade92",
+        "type": "inject",
+        "z": "f4a38d3e242d940e",
+        "name": "Clear",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 320,
+        "wires": [
+            [
+                "ede063a0fb85e476"
+            ]
+        ]
+    },
+    {
+        "id": "3b72b1f82fae63be",
+        "type": "comment",
+        "z": "f4a38d3e242d940e",
+        "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
+        "info": "",
+        "x": 230,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "ca43201b21a177ac",
+        "type": "inject",
+        "z": "f4a38d3e242d940e",
+        "name": "Na 1 min",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "60",
+        "topic": "",
+        "payload": "20",
+        "payloadType": "num",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "c9799e7e1e6b2666"
+            ]
+        ]
+    },
+    {
+        "id": "ede063a0fb85e476",
+        "type": "ui-button",
+        "z": "f4a38d3e242d940e",
+        "group": "5e23302aa37603c6",
+        "name": "Clear",
+        "label": "Wis grafiek",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 370,
+        "y": 320,
+        "wires": [
+            [
+                "37885293ee3d4b1e"
+            ]
+        ]
+    },
+    {
+        "id": "fc975b0cf121d8e8",
+        "type": "ui-chart",
+        "z": "f4a38d3e242d940e",
+        "group": "5e23302aa37603c6",
+        "name": "",
+        "label": "Is de telefoon is in huis?",
+        "order": 1,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "1",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "24",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "1000",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": "3",
+        "className": "",
+        "interpolation": "linear",
+        "x": 790,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9fa2f4d4e8b0e50a",
+        "type": "mqtt in",
+        "z": "3287d548aa736494",
+        "name": "",
+        "topic": "Email",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "cd97cc97738d69ea"
+            ]
+        ]
+    },
+    {
+        "id": "0bd299d21a89669e",
+        "type": "e-mail",
+        "z": "3287d548aa736494",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "",
+        "x": 410,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "cd97cc97738d69ea",
+        "type": "function",
+        "z": "3287d548aa736494",
+        "name": "Convert",
+        "func": "msg.to = msg.payload.to;\nmsg.cc = msg.payload.cc;\nmsg.from = msg.payload.from;\nmsg.topic = msg.payload.topic;\nmsg.payload = msg.payload.text;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 100,
+        "wires": [
+            [
+                "0bd299d21a89669e"
+            ]
+        ]
+    },
+    {
+        "id": "1758c5392d3a672e",
+        "type": "comment",
+        "z": "3287d548aa736494",
+        "name": "Settings->Meldingen->Geavanceerd->Meldingscategorien voor elke app beheren",
+        "info": "",
+        "x": 340,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "fa12fac4af55236f",
+        "type": "comment",
+        "z": "3287d548aa736494",
+        "name": "Settings->Apps->GMail->Meldingscategorien->E-mail->Geluid",
+        "info": "",
+        "x": 280,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "bf168f60cdb9455d",
+        "type": "comment",
+        "z": "3287d548aa736494",
+        "name": "Per app een geluid kiezen op Android:",
+        "info": "",
+        "x": 210,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "7f90b5bd35aa5aec",
+        "type": "comment",
+        "z": "3287d548aa736494",
+        "name": "Userid: safeathomealone@gmail.com, \tPassword: xxx",
+        "info": "",
+        "x": 260,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ddba3f030506d8e8",
+        "type": "comment",
+        "z": "3287d548aa736494",
+        "name": "Zet synchronisatie aan voor alle labels Open Gmail → Menu → Instellingen → Selecteer je account →",
+        "info": "",
+        "x": 410,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1fe6ebd2b15a81d1",
+        "type": "comment",
+        "z": "3287d548aa736494",
+        "name": "Tik op elk label (zoals “Primair”, “Updates”, “Forums”) → Zet “Synchroniseren” aan → Kies “Alle meldingen”.",
+        "info": "",
+        "x": 420,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "ba631b7b44e93b04",
+        "type": "function",
+        "z": "6704eb581e929d50",
+        "name": "disable",
+        "func": "var msg = { enabled: false };\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 220,
+        "wires": [
+            [
+                "47943aa523823552"
+            ]
+        ]
+    },
+    {
+        "id": "dfeb2cc1fccb52a4",
+        "type": "inject",
+        "z": "6704eb581e929d50",
+        "name": "OnStart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 220,
+        "wires": [
+            [
+                "ba631b7b44e93b04"
+            ]
+        ]
+    },
+    {
+        "id": "47943aa523823552",
+        "type": "ui-button",
+        "z": "6704eb581e929d50",
+        "group": "adc719ee09b9438b",
+        "name": "Update",
+        "label": "Update",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 400,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e4e55026b83f9040",
+        "type": "ui-text",
+        "z": "6704eb581e929d50",
+        "group": "adc719ee09b9438b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "About",
+        "label": "De MiniSAHA app implementeert het WhatsApp \"Samen Veilig Protocol\".",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 390,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "4f16ec403f8cbe15",
+        "type": "ui-text",
+        "z": "6704eb581e929d50",
+        "group": "adc719ee09b9438b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Versie",
+        "label": "Versie: 2025-10-09",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 390,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "acf9abc16cd06289",
+        "type": "ui-text",
+        "z": "6704eb581e929d50",
+        "group": "adc719ee09b9438b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Auteur",
+        "label": "Geimplementeerd door de Digidokters Son en Breugel.",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 390,
+        "y": 100,
+        "wires": []
+    }
+]

@@ -1,0 +1,14 @@
+{
+    "name": "MiniSAHA",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "dependencies": {
+        "node-red-node-email": "3.0.3"
+    },
+    "node-red": {
+        "settings": {
+            "flowFile": "MiniSAHA.json",
+            "credentialsFile": "MiniSAHA_cred.json"
+        }
+    }
+}
