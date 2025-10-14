@@ -3642,7 +3642,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 100,
-        "y": 220,
+        "y": 260,
         "wires": [
             [
                 "f08179ae4e90e482"
@@ -3795,7 +3795,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 220,
+        "y": 260,
         "wires": [
             [
                 "cbe7cb51422db443",
@@ -3816,7 +3816,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 260,
-        "y": 220,
+        "y": 260,
         "wires": [
             [
                 "b5540454c8cac192"
@@ -3884,7 +3884,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
+        "x": 490,
         "y": 160,
         "wires": [
             [
@@ -4137,6 +4137,42 @@
         "wires": [
             [
                 "027b1a140dd7dc77"
+            ]
+        ]
+    },
+    {
+        "id": "eafab6bc29a601c0",
+        "type": "catch",
+        "z": "6704eb581e929d50",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "ad5e665d71d56957"
+            ]
+        ]
+    },
+    {
+        "id": "ad5e665d71d56957",
+        "type": "function",
+        "z": "6704eb581e929d50",
+        "name": "0000-00-00",
+        "func": "msg.payload = \"0000-00-00\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "9d2a3c84535fc679",
+                "cbe7cb51422db443"
             ]
         ]
     }
