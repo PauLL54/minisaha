@@ -797,7 +797,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 500,
+        "y": 560,
         "wires": [
             [
                 "c63a75761a2f95ca"
@@ -838,7 +838,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 100,
-        "y": 500,
+        "y": 560,
         "wires": [
             [
                 "62dfed959bfd2fce"
@@ -859,7 +859,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 560,
+        "y": 500,
         "wires": [
             [
                 "b8f54f09cd387ac0"
@@ -1079,7 +1079,7 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "Wat vervelend",
-        "func": "msg.payload = \"Wat vervelend!\";\nreturn msg;",
+        "func": "msg.payload = \"Wat vervelend! Een bericht is gestuurd naar de sleutelbewaarder(s).\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1087,10 +1087,11 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 560,
+        "y": 500,
         "wires": [
             [
-                "c63a75761a2f95ca"
+                "c63a75761a2f95ca",
+                "1cfddf3691d5bb91"
             ]
         ]
     },
@@ -1274,7 +1275,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
+        "x": 310,
         "y": 400,
         "wires": [
             [
@@ -1287,7 +1288,7 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "To: Sleutelbewaarders",
-        "func": "var text = msg.payload;\n\nmsg.payload = {\n    to: global.get(\"EmailSleutelbewaarder1\"),\n    cc: global.get(\"EmailSleutelbewaarder2\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    text: text\n}\nreturn msg;",
+        "func": "var text = msg.payload;\n\nmsg.payload = {\n    to: global.get(\"EmailSleutelbewaarder1\"),\n    cc: global.get(\"EmailSleutelbewaarder2\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    text: text\n}\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({ fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1301,16 +1302,6 @@
                 "f6ae07e3ee62a322"
             ]
         ]
-    },
-    {
-        "id": "ccf4febf0e3ff4f6",
-        "type": "comment",
-        "z": "7b281fcff852c1ee",
-        "name": "en dan?",
-        "info": "",
-        "x": 460,
-        "y": 580,
-        "wires": []
     },
     {
         "id": "bf3d3c641f3bc0ef",
@@ -1328,6 +1319,26 @@
         "y": 40,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "1cfddf3691d5bb91",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Niet OK",
+        "func": "var bericht = global.get(\"VoornaamGebruiker\") + \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft NEE geantwoord op de vraag of hij OK was.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht + \n              \"\\nBel hem op nummer: \" +\n              global.get(\"MobielGebruiker\");\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({ fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 440,
+        "wires": [
+            [
+                "6096c4a0909147f8"
+            ]
         ]
     },
     {
