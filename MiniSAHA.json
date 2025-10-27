@@ -3697,7 +3697,7 @@
         "width": 0,
         "height": 0,
         "name": "About",
-        "label": "De MiniSAHA app implementeert het WhatsApp \"Samen Veilig Protocol\".",
+        "label": "De MiniSAHA app is bedoeld voor de alleenstaande oudere. Met deze app kan je instellen hoelaat je een melding wilt ontvangen op je telefoon om te controleren of het goed met je gaat. Mocht je niet binnen een bepaalde tijd reageren, dan ontvangt een andere persoon (met huissleutel) een email met de vraag om te kijken hoe het met je gaat.",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "style": false,
