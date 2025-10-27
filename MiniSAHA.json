@@ -1099,7 +1099,7 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "Email gebruiker: OK?",
-        "func": "var text = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n           \", \\n\\n\" + \n           \"Ben je OK? Open de MiniSAHA app en bevestig.\";\n\nmsg.payload = {\n    to: global.get(\"EmailGebruiker\"),\n    cc: global.get(\"EmailSleutelbewaarder2\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    text: text\n}\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu});\nreturn msg;",
+        "func": "var text = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n           \", \\n\\n\" + \n           \"Ben je OK? Open de MiniSAHA app en bevestig.\";\n\nmsg.payload = {\n    to: global.get(\"EmailGebruiker\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    text: text\n}\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu});\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
