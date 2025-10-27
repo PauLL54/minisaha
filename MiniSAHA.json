@@ -3772,7 +3772,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "get latest",
-        "x": 340,
+        "x": 380,
         "y": 380,
         "wires": [
             [
@@ -3926,7 +3926,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm old",
-        "x": 210,
+        "x": 250,
         "y": 380,
         "wires": [
             [
@@ -3948,7 +3948,7 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 490,
+        "x": 530,
         "y": 380,
         "wires": [
             [
@@ -3968,7 +3968,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 650,
         "y": 380,
         "wires": [
             [
@@ -4173,6 +4173,35 @@
             [
                 "9d2a3c84535fc679",
                 "cbe7cb51422db443"
+            ]
+        ]
+    },
+    {
+        "id": "8c8c0287436687b8",
+        "type": "inject",
+        "z": "6704eb581e929d50",
+        "name": "At 00:00",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 00 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 320,
+        "wires": [
+            [
+                "37d158cbe55e10b8"
             ]
         ]
     }
