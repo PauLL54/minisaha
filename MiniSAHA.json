@@ -2375,7 +2375,7 @@
         "type": "function",
         "z": "096868c8e9519de1",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>Het IP-adres van de WIFI verbinding van je telefoon wordt gebruikt om te zien of je in huis bent. \" +\n\"Als je niet thuis bent, ontvang je geen vraag (email) of je OK bent.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dit IP-adres kan je vinden bij Instellingen. \" +\n\"Voor ieder merk en type telefoon is dat anders.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Het vinden gaat ongeveer zo:</b><br>\"+\n\"<b>1. Instellingen --> Verbindingen --> WIFI.</b><br>\" +\n\"<b>2. Tik op het verbonden netwerk.</b><br>\" +\n\"<b>3. Je ziet het IP-adres ergens onder 'Geavanceerd' of bij 'Details'.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Voorbeeld van een IP-adres is: '192.168.2.68'.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>Het IP-adres van de WIFI verbinding van je telefoon wordt gebruikt om te zien of je in huis bent. \" +\n\"Als je niet thuis bent, ontvang je geen vraag (email) of je OK bent.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dit IP-adres kan je vinden bij Instellingen. \" +\n\"Voor ieder merk en type telefoon is dat anders.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Het vinden gaat ongeveer zo:</b><br>\"+\n\"<b>1. Instellingen --> Verbindingen --> WIFI.</b><br>\" +\n\"<b>2. Tik op het verbonden netwerk (of Instellingen daarnaast).</b><br>\" +\n\"<b>3. Daar zie je ergens het IP-adres staan'.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Voorbeeld van een IP-adres is: '192.168.2.68'.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3591,16 +3591,6 @@
         "wires": []
     },
     {
-        "id": "7f90b5bd35aa5aec",
-        "type": "comment",
-        "z": "3287d548aa736494",
-        "name": "Userid: safeathomealone@gmail.com, \tPassword: xxx",
-        "info": "",
-        "x": 260,
-        "y": 180,
-        "wires": []
-    },
-    {
         "id": "ddba3f030506d8e8",
         "type": "comment",
         "z": "3287d548aa736494",
@@ -3618,6 +3608,16 @@
         "info": "",
         "x": 420,
         "y": 480,
+        "wires": []
+    },
+    {
+        "id": "7f90b5bd35aa5aec",
+        "type": "comment",
+        "z": "3287d548aa736494",
+        "name": "Userid: safeathomealone@gmail.com, \tPassword: xxx",
+        "info": "",
+        "x": 260,
+        "y": 180,
         "wires": []
     },
     {
