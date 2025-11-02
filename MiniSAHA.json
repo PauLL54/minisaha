@@ -1591,7 +1591,8 @@
         "wires": [
             [
                 "2fec3becf0c29e5b",
-                "37b1a9572c1469d0"
+                "37b1a9572c1469d0",
+                "cb7801cd0eacb03c"
             ]
         ]
     },
@@ -1874,7 +1875,7 @@
         "color": "#717171",
         "wrapText": false,
         "className": "",
-        "value": "payloads",
+        "value": "payload",
         "valueType": "msg",
         "x": 520,
         "y": 460,
@@ -1885,7 +1886,7 @@
         "type": "ui-text",
         "z": "c55e2c22aaa2b36d",
         "group": "4de3d58d68afebf3",
-        "order": 8,
+        "order": 7,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -1898,7 +1899,7 @@
         "color": "#717171",
         "wrapText": false,
         "className": "",
-        "value": "payloads",
+        "value": "payload",
         "valueType": "msg",
         "x": 520,
         "y": 500,
@@ -1922,7 +1923,7 @@
         "color": "#717171",
         "wrapText": false,
         "className": "",
-        "value": "payloads",
+        "value": "payload",
         "valueType": "msg",
         "x": 520,
         "y": 540,
@@ -1933,24 +1934,83 @@
         "type": "ui-text",
         "z": "c55e2c22aaa2b36d",
         "group": "4de3d58d68afebf3",
-        "order": 7,
+        "order": 8,
         "width": 0,
         "height": 0,
-        "name": "lege regel",
-        "label": "",
+        "name": "Persoon thuis?",
+        "label": "Mobiel is in huis gedetecteerd: ",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "layout": "row-left",
         "style": false,
         "font": "",
         "fontSize": 16,
         "color": "#717171",
         "wrapText": false,
         "className": "",
-        "value": "payloads",
+        "value": "payload",
         "valueType": "msg",
-        "x": 520,
+        "x": 540,
         "y": 580,
         "wires": []
+    },
+    {
+        "id": "36ce77a23c371b81",
+        "type": "mqtt out",
+        "z": "c55e2c22aaa2b36d",
+        "name": "",
+        "topic": "Home_Response",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 790,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "09c3d5d3dd183bd3",
+        "type": "mqtt in",
+        "z": "c55e2c22aaa2b36d",
+        "name": "",
+        "topic": "PersoonThuis",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 580,
+        "wires": [
+            [
+                "cb7801cd0eacb03c"
+            ]
+        ]
+    },
+    {
+        "id": "cb7801cd0eacb03c",
+        "type": "function",
+        "z": "c55e2c22aaa2b36d",
+        "name": "Ja/Nee",
+        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\nvar msg = { payload: isThuis? \"ja.\" : \"nee.\" };\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 580,
+        "wires": [
+            [
+                "0e739374325889c3"
+            ]
+        ]
     },
     {
         "id": "d2425eb7ccf4cd25",
@@ -1972,7 +2032,7 @@
         "to": "",
         "reg": false,
         "x": 770,
-        "y": 720,
+        "y": 760,
         "wires": [
             []
         ]
@@ -2047,7 +2107,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 600,
+        "y": 640,
         "wires": [
             []
         ]
@@ -2072,7 +2132,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 540,
+        "y": 580,
         "wires": [
             []
         ]
@@ -2218,7 +2278,7 @@
         "to": "",
         "reg": false,
         "x": 190,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "c5b40e5e62641f88"
@@ -2245,7 +2305,7 @@
         "to": "",
         "reg": false,
         "x": 190,
-        "y": 600,
+        "y": 640,
         "wires": [
             [
                 "750c8b6efa75837e"
@@ -2272,7 +2332,7 @@
         "to": "",
         "reg": false,
         "x": 130,
-        "y": 720,
+        "y": 760,
         "wires": [
             [
                 "390e40fad13b5f46"
@@ -2351,7 +2411,7 @@
         "to": "",
         "reg": false,
         "x": 780,
-        "y": 360,
+        "y": 400,
         "wires": [
             []
         ]
@@ -2376,7 +2436,7 @@
         "to": "",
         "reg": false,
         "x": 140,
-        "y": 360,
+        "y": 400,
         "wires": [
             [
                 "d784d99c86ee8fc4"
@@ -2396,7 +2456,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 400,
+        "y": 440,
         "wires": [
             [
                 "73985c103e8b0074"
@@ -2416,10 +2476,11 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 360,
+        "y": 400,
         "wires": [
             [
-                "58f4654d196c3723"
+                "58f4654d196c3723",
+                "c82fd5bed742b4a9"
             ]
         ]
     },
@@ -2443,7 +2504,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 780,
+        "y": 820,
         "wires": [
             []
         ]
@@ -2468,7 +2529,7 @@
         "to": "",
         "reg": false,
         "x": 180,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "cf890f93acd6d7ad"
@@ -2488,7 +2549,7 @@
         "finalize": "",
         "libs": [],
         "x": 580,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "f509606cd543389d"
@@ -2524,7 +2585,7 @@
             "9ffb11186e14f1f0"
         ],
         "x": 45,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "9c5b038760ea0a48"
@@ -2588,7 +2649,7 @@
             "9ffb11186e14f1f0"
         ],
         "x": 45,
-        "y": 360,
+        "y": 400,
         "wires": [
             [
                 "23c4351646fe1ee5"
@@ -2604,7 +2665,7 @@
             "9ffb11186e14f1f0"
         ],
         "x": 45,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "fbc99a67429ba764"
@@ -2620,7 +2681,7 @@
             "9ffb11186e14f1f0"
         ],
         "x": 45,
-        "y": 600,
+        "y": 640,
         "wires": [
             [
                 "f02b7e4ac3f7cb0b"
@@ -2636,7 +2697,7 @@
             "9ffb11186e14f1f0"
         ],
         "x": 45,
-        "y": 720,
+        "y": 760,
         "wires": [
             [
                 "c7b90c38f6aa3e95"
@@ -2736,7 +2797,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 430,
-        "y": 600,
+        "y": 640,
         "wires": [
             [
                 "41b0f757747e9627"
@@ -2769,7 +2830,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 380,
-        "y": 720,
+        "y": 760,
         "wires": [
             [
                 "d2425eb7ccf4cd25"
@@ -2802,7 +2863,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 430,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "0c63dc227ed051ec"
@@ -2868,7 +2929,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 380,
-        "y": 360,
+        "y": 400,
         "wires": [
             [
                 "26fc6ad48f8a2f13"
@@ -2901,7 +2962,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 430,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "c38c45eedb601d7a"
@@ -2940,7 +3001,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 380,
-        "y": 400,
+        "y": 440,
         "wires": [
             [
                 "8b9395508a3c50ad"
@@ -2979,7 +3040,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 410,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "0699abdad798df54"
@@ -3007,7 +3068,7 @@
         "value": "payloads",
         "valueType": "msg",
         "x": 380,
-        "y": 480,
+        "y": 520,
         "wires": []
     },
     {
@@ -3031,7 +3092,7 @@
         "value": "payloads",
         "valueType": "msg",
         "x": 380,
-        "y": 660,
+        "y": 700,
         "wires": []
     },
     {
@@ -3053,7 +3114,7 @@
         "className": "",
         "name": "",
         "x": 770,
-        "y": 400,
+        "y": 440,
         "wires": [
             []
         ]
@@ -3077,10 +3138,28 @@
         "className": "",
         "name": "",
         "x": 770,
-        "y": 820,
+        "y": 860,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "c82fd5bed742b4a9",
+        "type": "mqtt out",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "topic": "IPAdressUser",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 760,
+        "y": 360,
+        "wires": []
     },
     {
         "id": "cfd534c4.f4d138",
@@ -3233,7 +3312,8 @@
         "wires": [
             [
                 "4ecf7cc65fce921a",
-                "fc975b0cf121d8e8"
+                "fc975b0cf121d8e8",
+                "c37f0dae058a6ece"
             ],
             [],
             [],
@@ -3514,6 +3594,45 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "efd03ec3481da08e",
+        "type": "mqtt in",
+        "z": "f4a38d3e242d940e",
+        "name": "",
+        "topic": "IPAdressUser",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 100,
+        "wires": [
+            [
+                "c9799e7e1e6b2666"
+            ]
+        ]
+    },
+    {
+        "id": "c37f0dae058a6ece",
+        "type": "mqtt out",
+        "z": "f4a38d3e242d940e",
+        "name": "",
+        "topic": "PersoonThuis",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 740,
+        "y": 80,
+        "wires": []
     },
     {
         "id": "9fa2f4d4e8b0e50a",
