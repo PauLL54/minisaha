@@ -764,20 +764,20 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "tijd OK?",
-        "func": "// wanneer is het tijd om de vraag te stellen?\nvar startTijdVraag_ms = tijdNaarMs(global.get(\"TijdOK\"));\n\n// wanneer is het tijd om een email te sturen naar de sleutelbewaarders (als niet gereageerd is)?\nvar eindTijdVraag_ms = startTijdVraag_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\n\n// hoe laat is het nu?\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nvar nu_ms = tijdNaarMs(tijd_nu);\n\nvar isInMeldingsPeriode = (nu_ms >= startTijdVraag_ms) && (nu_ms <= eindTijdVraag_ms);\n\nif (isInMeldingsPeriode) {\n    flow.set(\"isInMeldingsPeriode\", true);\n\n    if (flow.get(\"VraagBeantwoord\")) {\n        node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode: Vraag beantwoord\" });\n        return; // klaar\n    }\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode: Vraag nog niet beantwoord\" });\n    // stuur een email uit:\n    return [msg, null]; \n} else {\n    // meldingstijd net afgelopen?\n    if (flow.get(\"isInMeldingsPeriode\"))  {\n        flow.set(\"isInMeldingsPeriode\", false);\n\n        if (!flow.get(\"VraagBeantwoord\")) {\n            node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": Vraag niet op tijd beantwoord\" });\n            return [null, msg]; // tijd om een email te sturen naar de sleutelbewaarders\n        }\n        node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode voorbij\" });\n        flow.set(\"VraagBeantwoord\", false);\n        return;\n    }\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": niet in MeldingsPeriode\" });\n}\nreturn;\n\nfunction tijdNaarMs(tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n}",
+        "func": "// wanneer is het tijd om de vraag te stellen?\nvar startTijdVraag_ms = tijdNaarMs(global.get(\"TijdOK\"));\n\n// wanneer is het tijd om een email te sturen naar de sleutelbewaarders (als niet gereageerd is)?\nvar eindTijdVraag_ms = startTijdVraag_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\n\n// hoe laat is het nu?\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nvar nu_ms = tijdNaarMs(tijd_nu);\n\nvar isInMeldingsPeriode = (nu_ms >= startTijdVraag_ms) && (nu_ms <= eindTijdVraag_ms);\n\nif (isInMeldingsPeriode) {\n    flow.set(\"isInMeldingsPeriode\", true);\n\n    if (flow.get(\"VraagBeantwoord\")) {\n        node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode: Vraag beantwoord\" });\n        return; // klaar\n    }\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode: Vraag nog niet beantwoord\" });\n    // stuur een email uit:\n    msg.rate = global.get(\"Herinnering\") * 60000;\n    return [msg, null]; \n} else {\n    // meldingstijd net afgelopen?\n    if (flow.get(\"isInMeldingsPeriode\"))  {\n        flow.set(\"isInMeldingsPeriode\", false);\n\n        if (!flow.get(\"VraagBeantwoord\")) {\n            node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": Vraag niet op tijd beantwoord\" });\n            return [null, msg]; // tijd om een email te sturen naar de sleutelbewaarders\n        }\n        node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode voorbij\" });\n        flow.set(\"VraagBeantwoord\", false);\n        return;\n    }\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": niet in MeldingsPeriode\" });\n}\nreturn;\n\nfunction tijdNaarMs(tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n}",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 140,
+        "x": 120,
         "y": 280,
         "wires": [
             [
                 "926106aa4212ab45",
                 "0eb31871384b7b17",
-                "79c1ada20ccf5b7f"
+                "aaf524aeed3150cd"
             ],
             [
                 "9e676d2de906fc76"
@@ -1189,7 +1189,7 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "Als Systerm is On en is thuis",
-        "func": "var now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\n\nvar isSystemOn = global.get(\"SystemOn\");\nif (!isSystemOn) {\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": System is Off\" });\n    return;\n}\n\nvar isThuis = global.get(\"GebruikerIsAtHome\");\nvar isThuisString = isThuis ? \": is thuis\" : \": niet thuis\";\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: tijd_nu + isThuisString\n    });\n\nif (isThuis)\n    return msg;",
+        "func": "var now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\n\nvar isSystemOn = global.get(\"SystemOn\");\nif (!isSystemOn) {\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": System is Off\" });\n    return;\n}\n\nvar isThuis = global.get(\"GebruikerIsAtHome\");\nvar isThuisString = isThuis ? \": is thuis\" : \": niet thuis\";\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: tijd_nu + isThuisString\n    });\n\nif (isThuis) {\n    return msg;\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1338,6 +1338,31 @@
         "wires": [
             [
                 "6096c4a0909147f8"
+            ]
+        ]
+    },
+    {
+        "id": "aaf524aeed3150cd",
+        "type": "delay",
+        "z": "7b281fcff852c1ee",
+        "name": "Rate limit",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": true,
+        "outputs": 1,
+        "x": 320,
+        "y": 340,
+        "wires": [
+            [
+                "79c1ada20ccf5b7f"
             ]
         ]
     },
@@ -2570,7 +2595,8 @@
             "cb27757b1efc7008",
             "68e21213a51b13c3",
             "3ef1e998ce753579",
-            "09b5cfc4be1bd1ac"
+            "09b5cfc4be1bd1ac",
+            "87ee3d99cb5c8041"
         ],
         "x": 225,
         "y": 40,
@@ -3160,6 +3186,127 @@
         "x": 760,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "97d34753021466be",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Herinnering",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "981d804fce872bad",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "Herinnering",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Herinnering",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 150,
+        "y": 920,
+        "wires": [
+            [
+                "dc6fd396917636db"
+            ]
+        ]
+    },
+    {
+        "id": "87ee3d99cb5c8041",
+        "type": "link in",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "links": [
+            "9ffb11186e14f1f0"
+        ],
+        "x": 45,
+        "y": 920,
+        "wires": [
+            [
+                "981d804fce872bad"
+            ]
+        ]
+    },
+    {
+        "id": "dada12c55a3ce225",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Herinnering",
+        "label": "Alarm herhalen na (in minuten)",
+        "order": 13,
+        "width": "0",
+        "height": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "number",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": false,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 390,
+        "y": 920,
+        "wires": [
+            [
+                "97d34753021466be"
+            ]
+        ]
+    },
+    {
+        "id": "dc6fd396917636db",
+        "type": "function",
+        "z": "096868c8e9519de1",
+        "name": "default 5",
+        "func": "if (msg.payload == null) msg.payload = 5;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 980,
+        "wires": [
+            [
+                "dada12c55a3ce225"
+            ]
+        ]
     },
     {
         "id": "cfd534c4.f4d138",
