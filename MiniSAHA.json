@@ -197,15 +197,15 @@
         "type": "ui-theme",
         "name": "Default Theme",
         "colors": {
-            "surface": "#ffffff",
+            "surface": "#c80909",
             "primary": "#0094ce",
-            "bgPage": "#eeeeee",
-            "groupBg": "#ffffff",
-            "groupOutline": "#cccccc"
+            "bgPage": "#c80909",
+            "groupBg": "#0d19c9",
+            "groupOutline": "#0d19c9"
         },
         "sizes": {
             "density": "default",
-            "pagePadding": "12px",
+            "pagePadding": "0px",
             "groupGap": "12px",
             "groupBorderRadius": "4px",
             "widgetGap": "12px"
@@ -260,7 +260,7 @@
             {
                 "name": "Default",
                 "px": "0",
-                "cols": "5"
+                "cols": "4"
             },
             {
                 "name": "Tablet",
@@ -752,7 +752,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 100,
+        "y": 160,
         "wires": [
             [
                 "8debf8374f7055b0"
@@ -764,20 +764,24 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "tijd OK?",
-        "func": "// wanneer is het tijd om de vraag te stellen?\nvar startTijdVraag_ms = tijdNaarMs(global.get(\"TijdOK\"));\n\n// wanneer is het tijd om een email te sturen naar de sleutelbewaarders (als niet gereageerd is)?\nvar eindTijdVraag_ms = startTijdVraag_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\n\n// hoe laat is het nu?\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nvar nu_ms = tijdNaarMs(tijd_nu);\n\nvar isInMeldingsPeriode = (nu_ms >= startTijdVraag_ms) && (nu_ms <= eindTijdVraag_ms);\n\nif (isInMeldingsPeriode) {\n    flow.set(\"isInMeldingsPeriode\", true);\n\n    if (flow.get(\"VraagBeantwoord\")) {\n        node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode: Vraag beantwoord\" });\n        return; // klaar\n    }\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode: Vraag nog niet beantwoord\" });\n    // stuur een email uit:\n    msg.rate = global.get(\"Herinnering\") * 60000;\n    return [msg, null]; \n} else {\n    // meldingstijd net afgelopen?\n    if (flow.get(\"isInMeldingsPeriode\"))  {\n        flow.set(\"isInMeldingsPeriode\", false);\n\n        if (!flow.get(\"VraagBeantwoord\")) {\n            node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": Vraag niet op tijd beantwoord\" });\n            return [null, msg]; // tijd om een email te sturen naar de sleutelbewaarders\n        }\n        node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode voorbij\" });\n        flow.set(\"VraagBeantwoord\", false);\n        return;\n    }\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": niet in MeldingsPeriode\" });\n}\nreturn;\n\nfunction tijdNaarMs(tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n}",
-        "outputs": 2,
+        "func": "// wanneer is het tijd om de vraag te stellen?\nvar startTijdVraag_ms = tijdNaarMs(global.get(\"TijdOK\"));\n\n// wanneer is het tijd om een email te sturen naar de sleutelbewaarders (als niet gereageerd is)?\nvar eindTijdVraag_ms = startTijdVraag_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\n\n// hoe laat is het nu?\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nvar nu_ms = tijdNaarMs(tijd_nu);\n\nvar isEnableButtonPeriode = (nu_ms >= (startTijdVraag_ms - 120*60000)) && (nu_ms <= eindTijdVraag_ms);\nvar isInMeldingsPeriode = (nu_ms >= startTijdVraag_ms) && (nu_ms <= eindTijdVraag_ms);\n\nif (isEnableButtonPeriode) {\n    flow.set(\"isInMeldingsPeriode\", true);\n\n    if (flow.get(\"VraagBeantwoord\")) {\n        node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isEnableButtonPeriode: Vraag beantwoord\" });\n        return; // klaar\n    }\n\n    node.status({ fill: \"blue\", shape: \"ring\", text: isEnableButtonPeriode });\n    \n    if (isInMeldingsPeriode) {\n        node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode\" });\n        msg.rate = global.get(\"Herinnering\") * 60000;\n        return [msg, msg, null];\n    }    \n    // only enable buttons:\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isEnableButtonPeriode\" });\n    return [msg, null, null]; \n}\nelse {\n    // meldingstijd net afgelopen?\n    if (flow.get(\"isInMeldingsPeriode\"))  {\n        flow.set(\"isInMeldingsPeriode\", false);\n\n        if (!flow.get(\"VraagBeantwoord\")) {\n            node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": Vraag niet op tijd beantwoord\" });\n            return [null, null, msg]; // tijd om een email te sturen naar de sleutelbewaarders\n        }\n        node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": isInMeldingsPeriode voorbij\" });\n        flow.set(\"VraagBeantwoord\", false);\n        return;\n    }\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": niet in isEnableButtonPeriode\" });\n}\nreturn;\n\nfunction tijdNaarMs(tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n}",
+        "outputs": 3,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 120,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
                 "926106aa4212ab45",
+                "0eb31871384b7b17"
+            ],
+            [
+                "aaf524aeed3150cd",
                 "0eb31871384b7b17",
-                "aaf524aeed3150cd"
+                "926106aa4212ab45"
             ],
             [
                 "9e676d2de906fc76"
@@ -797,7 +801,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 560,
+        "y": 620,
         "wires": [
             [
                 "c63a75761a2f95ca"
@@ -817,7 +821,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 860,
+        "y": 920,
         "wires": [
             [
                 "cc9d28ff8d42949d"
@@ -838,7 +842,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 100,
-        "y": 560,
+        "y": 620,
         "wires": [
             [
                 "62dfed959bfd2fce"
@@ -859,7 +863,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 500,
+        "y": 560,
         "wires": [
             [
                 "b8f54f09cd387ac0"
@@ -881,7 +885,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 740,
-        "y": 240,
+        "y": 300,
         "wires": []
     },
     {
@@ -897,7 +901,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 260,
+        "y": 320,
         "wires": [
             [
                 "f8bae653d73fdff1",
@@ -920,7 +924,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 750,
-        "y": 300,
+        "y": 360,
         "wires": []
     },
     {
@@ -938,7 +942,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 750,
-        "y": 180,
+        "y": 240,
         "wires": []
     },
     {
@@ -954,7 +958,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "9486c809d0329fc7"
@@ -976,7 +980,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 740,
-        "y": 740,
+        "y": 800,
         "wires": []
     },
     {
@@ -992,7 +996,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 780,
+        "y": 840,
         "wires": [
             [
                 "03d61b4464b9eca9",
@@ -1015,7 +1019,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 750,
-        "y": 800,
+        "y": 860,
         "wires": []
     },
     {
@@ -1033,7 +1037,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 750,
-        "y": 680,
+        "y": 740,
         "wires": []
     },
     {
@@ -1049,7 +1053,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 680,
+        "y": 740,
         "wires": [
             [
                 "e15ebee831361c2a"
@@ -1071,7 +1075,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 770,
-        "y": 520,
+        "y": 580,
         "wires": []
     },
     {
@@ -1087,7 +1091,7 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 500,
+        "y": 560,
         "wires": [
             [
                 "c63a75761a2f95ca",
@@ -1108,7 +1112,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 340,
+        "y": 400,
         "wires": [
             [
                 "f6ae07e3ee62a322"
@@ -1130,7 +1134,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 770,
-        "y": 860,
+        "y": 920,
         "wires": []
     },
     {
@@ -1147,7 +1151,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 740,
+        "y": 800,
         "wires": [
             [
                 "7850aeab6bcc3005",
@@ -1171,7 +1175,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 730,
-        "y": 360,
+        "y": 420,
         "wires": []
     },
     {
@@ -1181,7 +1185,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 250,
-        "y": 920,
+        "y": 980,
         "wires": []
     },
     {
@@ -1189,7 +1193,7 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "Als Systerm is On en is thuis",
-        "func": "var now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\n\nvar isSystemOn = global.get(\"SystemOn\");\nif (!isSystemOn) {\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": System is Off\" });\n    return;\n}\n\nvar isThuis = global.get(\"GebruikerIsAtHome\");\nvar isThuisString = isThuis ? \": is thuis\" : \": niet thuis\";\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: tijd_nu + isThuisString\n    });\n\nif (isThuis) {\n    return msg;\n}",
+        "func": "var now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\n\nvar isSystemOn = global.get(\"SystemOn\");\nif (!isSystemOn) {\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": System is Off\" });\n    return;\n}\n//return msg;\n\nvar isThuis = global.get(\"GebruikerIsAtHome\");\nvar isThuisString = isThuis ? \": is thuis\" : \": niet thuis\";\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: tijd_nu + isThuisString\n    });\n\nif (isThuis) {\n    return msg;\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1197,7 +1201,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 100,
+        "y": 160,
         "wires": [
             [
                 "842cf2986f30adea"
@@ -1211,7 +1215,7 @@
         "name": "Verwijder vraag:",
         "info": "",
         "x": 100,
-        "y": 700,
+        "y": 760,
         "wires": []
     },
     {
@@ -1236,7 +1240,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 110,
-        "y": 40,
+        "y": 100,
         "wires": [
             [
                 "bf3d3c641f3bc0ef"
@@ -1256,7 +1260,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "2f51ac78262f8063"
@@ -1268,7 +1272,7 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "Alarm email",
-        "func": "var bericht = global.get(\"VoornaamGebruiker\") + \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft niet gereageerd op OK vraag.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht + \n              \"\\nBel hem op nummer: \" +\n              global.get(\"MobielGebruiker\");\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({ fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "var bericht = \"Beste sleutelbewaarder, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" want hij heeft niet gereageerd op de dagelijkse melding.\";\n\nvar eenSleutelbewaarder = (global.get(\"EmailSleutelbewaarder1\") != \"\" && \n                           global.get(\"EmailSleutelbewaarder1\") != null);\n\n\nif ((global.get(\"EmailSleutelbewaarder2\") != \"\") &&\n    (global.get(\"EmailSleutelbewaarder2\") != null)) {\n  bericht = \"Beste eerste sleutelbewaarder, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") + \n    \" want hij heeft niet gereageerd op de dagelijkse melding.\" +\n    \"\\nStuur ook (via een reply to all) een bericht naar \" +\n    global.get(\"EmailSleutelbewaarder2\") + \n    \" dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede sleutelbewaarder,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht hebben ontvangen van de eerste sleutelbewaarder, neem dan zelf contact op met de gebruiker en laat dat de eerste sleutelbewaarder ook weten.\"\n}\n\nmsg.topic = \"MiniSAHA: er is niet gereageerd\";\nmsg.payload = bericht + \n\"\\n\\n Telefoon gebruiker: \" +\nglobal.get(\"MobielGebruiker\");\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({ fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1276,7 +1280,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "6096c4a0909147f8"
@@ -1296,7 +1300,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "f6ae07e3ee62a322"
@@ -1316,7 +1320,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 40,
+        "y": 80,
         "wires": [
             []
         ]
@@ -1334,7 +1338,7 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
                 "6096c4a0909147f8"
@@ -1359,12 +1363,43 @@
         "allowrate": true,
         "outputs": 1,
         "x": 320,
-        "y": 340,
+        "y": 400,
         "wires": [
             [
                 "79c1ada20ccf5b7f"
             ]
         ]
+    },
+    {
+        "id": "8673991568eb79f9",
+        "type": "mqtt in",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "SettingChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "bf3d3c641f3bc0ef"
+            ]
+        ]
+    },
+    {
+        "id": "de86f85c295c9eb7",
+        "type": "comment",
+        "z": "7b281fcff852c1ee",
+        "name": "foutmelding bij geen sleutelbewaarders",
+        "info": "",
+        "x": 630,
+        "y": 80,
+        "wires": []
     },
     {
         "id": "3e9f24436a66f6d7",
@@ -1727,7 +1762,7 @@
         "z": "c55e2c22aaa2b36d",
         "group": "4de3d58d68afebf3",
         "name": "Nee",
-        "label": "Nee",
+        "label": "NEE",
         "order": 3,
         "width": "2",
         "height": "2",
@@ -1743,7 +1778,7 @@
         "topic": "topic",
         "topicType": "msg",
         "buttonColor": "",
-        "textColor": "",
+        "textColor": "yellow",
         "iconColor": "",
         "enableClick": true,
         "enablePointerdown": false,
@@ -1766,7 +1801,7 @@
         "z": "c55e2c22aaa2b36d",
         "group": "4de3d58d68afebf3",
         "name": "Ja",
-        "label": "Ja",
+        "label": "JA",
         "order": 2,
         "width": "2",
         "height": "2",
@@ -1774,7 +1809,7 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "custom-button-font",
+        "className": "JaButton",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -1782,7 +1817,7 @@
         "topic": "topic",
         "topicType": "msg",
         "buttonColor": "",
-        "textColor": "",
+        "textColor": "yellow",
         "iconColor": "",
         "enableClick": true,
         "enablePointerdown": false,
@@ -2057,7 +2092,7 @@
         "to": "",
         "reg": false,
         "x": 770,
-        "y": 760,
+        "y": 820,
         "wires": [
             []
         ]
@@ -2132,7 +2167,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 640,
+        "y": 700,
         "wires": [
             []
         ]
@@ -2157,7 +2192,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 580,
+        "y": 640,
         "wires": [
             []
         ]
@@ -2303,7 +2338,7 @@
         "to": "",
         "reg": false,
         "x": 190,
-        "y": 580,
+        "y": 640,
         "wires": [
             [
                 "c5b40e5e62641f88"
@@ -2330,7 +2365,7 @@
         "to": "",
         "reg": false,
         "x": 190,
-        "y": 640,
+        "y": 700,
         "wires": [
             [
                 "750c8b6efa75837e"
@@ -2357,7 +2392,7 @@
         "to": "",
         "reg": false,
         "x": 130,
-        "y": 760,
+        "y": 820,
         "wires": [
             [
                 "390e40fad13b5f46"
@@ -2384,7 +2419,7 @@
         "to": "",
         "reg": false,
         "x": 800,
-        "y": 300,
+        "y": 360,
         "wires": [
             []
         ]
@@ -2409,7 +2444,7 @@
         "to": "",
         "reg": false,
         "x": 160,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "800ffd60de56d101"
@@ -2436,7 +2471,7 @@
         "to": "",
         "reg": false,
         "x": 780,
-        "y": 400,
+        "y": 460,
         "wires": [
             []
         ]
@@ -2461,7 +2496,7 @@
         "to": "",
         "reg": false,
         "x": 140,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "d784d99c86ee8fc4"
@@ -2473,18 +2508,18 @@
         "type": "function",
         "z": "096868c8e9519de1",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>Het IP-adres van de WIFI verbinding van je telefoon wordt gebruikt om te zien of je in huis bent. \" +\n\"Als je niet thuis bent, ontvang je geen vraag (email) of je OK bent.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dit IP-adres kan je vinden bij Instellingen. \" +\n\"Voor ieder merk en type telefoon is dat anders.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Het vinden gaat ongeveer zo:</b><br>\"+\n\"<b>1. Instellingen --> Verbindingen --> WIFI.</b><br>\" +\n\"<b>2. Tik op het verbonden netwerk (of Instellingen daarnaast).</b><br>\" +\n\"<b>3. Daar zie je ergens het IP-adres staan'.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Voorbeeld van een IP-adres is: '192.168.2.68'.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>Maak een email adres die alleen voor meldingen van deze app gebruikt gaat worden. \" +\n\"Want je wilt voor meldingen een uniek geluid kunnen kiezen.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dat kan je doen door voor dit email adres een andere email app te gebruiken. \" +\n\"Vervolgens stel je voor deze email app een uniek geluid in.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 440,
+        "x": 600,
+        "y": 280,
         "wires": [
             [
-                "73985c103e8b0074"
+                "c63e174e14603383"
             ]
         ]
     },
@@ -2501,7 +2536,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "58f4654d196c3723",
@@ -2529,7 +2564,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 820,
+        "y": 1000,
         "wires": [
             []
         ]
@@ -2554,7 +2589,7 @@
         "to": "",
         "reg": false,
         "x": 180,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
                 "cf890f93acd6d7ad"
@@ -2566,7 +2601,7 @@
         "type": "function",
         "z": "096868c8e9519de1",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>De gebruiker ontvangt een email met de vraag 'Ben je OK?' op het gespecificeerde tijdstip.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>De gebruiker moet binnen de meldperiode (b.v. 60 minuten) reageren in deze app.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Zo niet, dat wordt er een email gestuurd naar de sleutelbewaarder(s).</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>De gebruiker moet binnen de meldperiode (b.v. 60 minuten) reageren in deze app.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Zo niet, dat wordt er een email gestuurd naar de sleutelbewaarder(s).</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2574,7 +2609,7 @@
         "finalize": "",
         "libs": [],
         "x": 580,
-        "y": 860,
+        "y": 1080,
         "wires": [
             [
                 "f509606cd543389d"
@@ -2611,7 +2646,7 @@
             "9ffb11186e14f1f0"
         ],
         "x": 45,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
                 "9c5b038760ea0a48"
@@ -2659,7 +2694,7 @@
             "9ffb11186e14f1f0"
         ],
         "x": 45,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "01b068742a933a63"
@@ -2675,7 +2710,7 @@
             "9ffb11186e14f1f0"
         ],
         "x": 45,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "23c4351646fe1ee5"
@@ -2691,7 +2726,7 @@
             "9ffb11186e14f1f0"
         ],
         "x": 45,
-        "y": 580,
+        "y": 640,
         "wires": [
             [
                 "fbc99a67429ba764"
@@ -2707,7 +2742,7 @@
             "9ffb11186e14f1f0"
         ],
         "x": 45,
-        "y": 640,
+        "y": 700,
         "wires": [
             [
                 "f02b7e4ac3f7cb0b"
@@ -2723,7 +2758,7 @@
             "9ffb11186e14f1f0"
         ],
         "x": 45,
-        "y": 760,
+        "y": 820,
         "wires": [
             [
                 "c7b90c38f6aa3e95"
@@ -2772,8 +2807,8 @@
         "name": "Email gebruiker",
         "label": "Email adres gebruiker",
         "order": 2,
-        "width": "0",
-        "height": "0",
+        "width": "4",
+        "height": "1",
         "topic": "topic",
         "topicType": "msg",
         "mode": "email",
@@ -2804,6 +2839,73 @@
         "group": "a50d14b208aa0231",
         "name": "Email sleutelbewaarder 2",
         "label": "Email adres sleutelbewaarder 2",
+        "order": 9,
+        "width": "0",
+        "height": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": "2000",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 430,
+        "y": 700,
+        "wires": [
+            [
+                "41b0f757747e9627"
+            ]
+        ]
+    },
+    {
+        "id": "390e40fad13b5f46",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Tijd OK",
+        "label": "Tijdstip: ben je OK?",
+        "order": 11,
+        "width": "4",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "time",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": false,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 380,
+        "y": 820,
+        "wires": [
+            [
+                "d2425eb7ccf4cd25",
+                "b6e5c1add6308660"
+            ]
+        ]
+    },
+    {
+        "id": "c5b40e5e62641f88",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Email sleutelbewaarder 1",
+        "label": "Email adres sleutelbewaarder 1",
         "order": 8,
         "width": "0",
         "height": "0",
@@ -2826,72 +2928,6 @@
         "y": 640,
         "wires": [
             [
-                "41b0f757747e9627"
-            ]
-        ]
-    },
-    {
-        "id": "390e40fad13b5f46",
-        "type": "ui-text-input",
-        "z": "096868c8e9519de1",
-        "group": "a50d14b208aa0231",
-        "name": "Tijd OK",
-        "label": "Tijdstip: ben je OK?",
-        "order": 10,
-        "width": "0",
-        "height": "0",
-        "topic": "topic",
-        "topicType": "msg",
-        "mode": "time",
-        "tooltip": "",
-        "delay": 300,
-        "passthru": true,
-        "sendOnDelay": true,
-        "sendOnBlur": true,
-        "sendOnEnter": false,
-        "className": "",
-        "clearable": false,
-        "sendOnClear": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "x": 380,
-        "y": 760,
-        "wires": [
-            [
-                "d2425eb7ccf4cd25"
-            ]
-        ]
-    },
-    {
-        "id": "c5b40e5e62641f88",
-        "type": "ui-text-input",
-        "z": "096868c8e9519de1",
-        "group": "a50d14b208aa0231",
-        "name": "Email sleutelbewaarder 1",
-        "label": "Email adres sleutelbewaarder 1",
-        "order": 7,
-        "width": "0",
-        "height": "0",
-        "topic": "topic",
-        "topicType": "msg",
-        "mode": "text",
-        "tooltip": "",
-        "delay": "2000",
-        "passthru": true,
-        "sendOnDelay": true,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "sendOnClear": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "x": 430,
-        "y": 580,
-        "wires": [
-            [
                 "0c63dc227ed051ec"
             ]
         ]
@@ -2903,7 +2939,7 @@
         "group": "a50d14b208aa0231",
         "name": "Mobiel gebruiker",
         "label": "06 nummer gebruiker",
-        "order": 3,
+        "order": 4,
         "width": "0",
         "height": "0",
         "topic": "topic",
@@ -2922,7 +2958,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 410,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "1870abe6ec3075c6"
@@ -2936,7 +2972,7 @@
         "group": "a50d14b208aa0231",
         "name": "IP adres",
         "label": "WIFI IP adres van deze telefoon",
-        "order": 4,
+        "order": 5,
         "width": "4",
         "height": "1",
         "topic": "topic",
@@ -2955,7 +2991,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 380,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "26fc6ad48f8a2f13"
@@ -2969,7 +3005,7 @@
         "group": "a50d14b208aa0231",
         "name": "Meldperiode (in minuten)",
         "label": "Meldperiode (in minuten)",
-        "order": 11,
+        "order": 13,
         "width": "4",
         "height": "1",
         "topic": "topic",
@@ -2988,10 +3024,11 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 430,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
-                "c38c45eedb601d7a"
+                "c38c45eedb601d7a",
+                "2d55863c36c1bc06"
             ]
         ]
     },
@@ -3002,7 +3039,7 @@
         "group": "a50d14b208aa0231",
         "name": "Help IP",
         "label": "?",
-        "order": 5,
+        "order": 6,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -3027,10 +3064,10 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 380,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
-                "8b9395508a3c50ad"
+                "eb3e2dbac90ec184"
             ]
         ]
     },
@@ -3040,6 +3077,319 @@
         "z": "096868c8e9519de1",
         "group": "a50d14b208aa0231",
         "name": "Help Meldperiode",
+        "label": "?",
+        "order": 14,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 410,
+        "y": 1080,
+        "wires": [
+            [
+                "0699abdad798df54"
+            ]
+        ]
+    },
+    {
+        "id": "4df79464d8932823",
+        "type": "ui-text",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 380,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "51637d13d29540bf",
+        "type": "ui-text",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 380,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "73985c103e8b0074",
+        "type": "ui-notification",
+        "z": "096868c8e9519de1",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 770,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f509606cd543389d",
+        "type": "ui-notification",
+        "z": "096868c8e9519de1",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 770,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c82fd5bed742b4a9",
+        "type": "mqtt out",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "topic": "IPAdressUser",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 760,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "97d34753021466be",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Herinnering",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "981d804fce872bad",
+        "type": "change",
+        "z": "096868c8e9519de1",
+        "name": "Herinnering",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Herinnering",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 150,
+        "y": 1140,
+        "wires": [
+            [
+                "dc6fd396917636db"
+            ]
+        ]
+    },
+    {
+        "id": "87ee3d99cb5c8041",
+        "type": "link in",
+        "z": "096868c8e9519de1",
+        "name": "OnStartup",
+        "links": [
+            "9ffb11186e14f1f0"
+        ],
+        "x": 45,
+        "y": 1140,
+        "wires": [
+            [
+                "981d804fce872bad"
+            ]
+        ]
+    },
+    {
+        "id": "dada12c55a3ce225",
+        "type": "ui-text-input",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Herinnering",
+        "label": "Alarm herhalen na (in minuten)",
+        "order": 15,
+        "width": "0",
+        "height": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "number",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": false,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 390,
+        "y": 1140,
+        "wires": [
+            [
+                "97d34753021466be",
+                "b71115e025b88cad"
+            ]
+        ]
+    },
+    {
+        "id": "dc6fd396917636db",
+        "type": "function",
+        "z": "096868c8e9519de1",
+        "name": "default 5",
+        "func": "if (msg.payload == null) msg.payload = 5;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 1200,
+        "wires": [
+            [
+                "dada12c55a3ce225"
+            ]
+        ]
+    },
+    {
+        "id": "b6e5c1add6308660",
+        "type": "mqtt out",
+        "z": "096868c8e9519de1",
+        "name": "",
+        "topic": "SettingChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 760,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "b06d4411dffe1fd3",
+        "type": "function",
+        "z": "096868c8e9519de1",
+        "name": "help tekst",
+        "func": "msg.payload = \n\"<b>Vanaf dit moment ontvang je meldingen via email met de vraag of je OK bent.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Echter al 2 uur voor dit tijdstip kan je in de app aangeven dat je OK bent. Je krijgt dan ook geen meldingen meer.</b><br>\"\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 920,
+        "wires": [
+            [
+                "53f9336deaa98757"
+            ]
+        ]
+    },
+    {
+        "id": "e347b07c44f14588",
+        "type": "ui-button",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Help tijd OK",
         "label": "?",
         "order": 12,
         "width": "1",
@@ -3065,64 +3415,16 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 410,
-        "y": 860,
+        "x": 390,
+        "y": 920,
         "wires": [
             [
-                "0699abdad798df54"
+                "b06d4411dffe1fd3"
             ]
         ]
     },
     {
-        "id": "4df79464d8932823",
-        "type": "ui-text",
-        "z": "096868c8e9519de1",
-        "group": "a50d14b208aa0231",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "name": "lege regel",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payloads",
-        "valueType": "msg",
-        "x": 380,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "51637d13d29540bf",
-        "type": "ui-text",
-        "z": "096868c8e9519de1",
-        "group": "a50d14b208aa0231",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "lege regel",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payloads",
-        "valueType": "msg",
-        "x": 380,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "73985c103e8b0074",
+        "id": "53f9336deaa98757",
         "type": "ui-notification",
         "z": "096868c8e9519de1",
         "ui": "6c1d30b5f16932dd",
@@ -3140,41 +3442,17 @@
         "className": "",
         "name": "",
         "x": 770,
-        "y": 440,
+        "y": 920,
         "wires": [
             []
         ]
     },
     {
-        "id": "f509606cd543389d",
-        "type": "ui-notification",
-        "z": "096868c8e9519de1",
-        "ui": "6c1d30b5f16932dd",
-        "position": "top right",
-        "colorDefault": true,
-        "color": "#000000",
-        "displayTime": "60",
-        "showCountdown": true,
-        "outputs": 1,
-        "allowDismiss": true,
-        "dismissText": "Close",
-        "allowConfirm": false,
-        "confirmText": "Confirm",
-        "raw": false,
-        "className": "",
-        "name": "",
-        "x": 770,
-        "y": 860,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c82fd5bed742b4a9",
+        "id": "2d55863c36c1bc06",
         "type": "mqtt out",
         "z": "096868c8e9519de1",
         "name": "",
-        "topic": "IPAdressUser",
+        "topic": "SettingChanged",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -3184,128 +3462,108 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 760,
-        "y": 360,
+        "y": 1040,
         "wires": []
     },
     {
-        "id": "97d34753021466be",
-        "type": "change",
+        "id": "b71115e025b88cad",
+        "type": "mqtt out",
         "z": "096868c8e9519de1",
         "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "Herinnering",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 780,
-        "y": 920,
-        "wires": [
-            []
-        ]
+        "topic": "SettingChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 760,
+        "y": 1180,
+        "wires": []
     },
     {
-        "id": "981d804fce872bad",
-        "type": "change",
-        "z": "096868c8e9519de1",
-        "name": "Herinnering",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "Herinnering",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 150,
-        "y": 920,
-        "wires": [
-            [
-                "dc6fd396917636db"
-            ]
-        ]
-    },
-    {
-        "id": "87ee3d99cb5c8041",
-        "type": "link in",
-        "z": "096868c8e9519de1",
-        "name": "OnStartup",
-        "links": [
-            "9ffb11186e14f1f0"
-        ],
-        "x": 45,
-        "y": 920,
-        "wires": [
-            [
-                "981d804fce872bad"
-            ]
-        ]
-    },
-    {
-        "id": "dada12c55a3ce225",
-        "type": "ui-text-input",
-        "z": "096868c8e9519de1",
-        "group": "a50d14b208aa0231",
-        "name": "Herinnering",
-        "label": "Alarm herhalen na (in minuten)",
-        "order": 13,
-        "width": "0",
-        "height": "0",
-        "topic": "topic",
-        "topicType": "msg",
-        "mode": "number",
-        "tooltip": "",
-        "delay": 300,
-        "passthru": true,
-        "sendOnDelay": true,
-        "sendOnBlur": true,
-        "sendOnEnter": false,
-        "className": "",
-        "clearable": false,
-        "sendOnClear": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "x": 390,
-        "y": 920,
-        "wires": [
-            [
-                "97d34753021466be"
-            ]
-        ]
-    },
-    {
-        "id": "dc6fd396917636db",
+        "id": "eb3e2dbac90ec184",
         "type": "function",
         "z": "096868c8e9519de1",
-        "name": "default 5",
-        "func": "if (msg.payload == null) msg.payload = 5;\nreturn msg;",
+        "name": "help tekst",
+        "func": "msg.payload = \n\"<b>Het IP-adres van de WIFI verbinding van je telefoon wordt gebruikt om te zien of je in huis bent. \" +\n\"Als je niet thuis bent, ontvang je geen vraag (email) of je OK bent.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dit IP-adres kan je vinden bij Instellingen van je mobiel. \" +\n\"Voor ieder merk en type telefoon is dat anders.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Het vinden gaat ongeveer zo:</b><br>\"+\n\"<b>1. Instellingen --> Verbindingen --> WIFI.</b><br>\" +\n\"<b>2. Tik op het verbonden netwerk (of Instellingen daarnaast).</b><br>\" +\n\"<b>3. Daar zie je ergens het IP-adres staan'.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Voorbeeld van een IP-adres is: '192.168.2.68'.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 260,
-        "y": 980,
+        "x": 560,
+        "y": 500,
         "wires": [
             [
-                "dada12c55a3ce225"
+                "73985c103e8b0074"
             ]
+        ]
+    },
+    {
+        "id": "c062dc17508768d4",
+        "type": "ui-button",
+        "z": "096868c8e9519de1",
+        "group": "a50d14b208aa0231",
+        "name": "Help Email gebruiker",
+        "label": "?",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "8b9395508a3c50ad"
+            ]
+        ]
+    },
+    {
+        "id": "c63e174e14603383",
+        "type": "ui-notification",
+        "z": "096868c8e9519de1",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 770,
+        "y": 280,
+        "wires": [
+            []
         ]
     },
     {
@@ -3484,9 +3742,9 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "0.1",
+        "onceDelay": "0.2",
         "topic": "",
-        "payload": "5",
+        "payload": "4",
         "payloadType": "num",
         "x": 100,
         "y": 240,
@@ -3616,7 +3874,7 @@
         "id": "ca43201b21a177ac",
         "type": "inject",
         "z": "f4a38d3e242d940e",
-        "name": "Na 1 min",
+        "name": "Na 2 min",
         "props": [
             {
                 "p": "payload"
@@ -3629,7 +3887,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "60",
+        "onceDelay": "120",
         "topic": "",
         "payload": "20",
         "payloadType": "num",
@@ -3759,7 +4017,7 @@
         "y": 100,
         "wires": [
             [
-                "c9799e7e1e6b2666"
+                "41095cbb320c760d"
             ]
         ]
     },
@@ -3780,6 +4038,26 @@
         "x": 740,
         "y": 80,
         "wires": []
+    },
+    {
+        "id": "41095cbb320c760d",
+        "type": "function",
+        "z": "f4a38d3e242d940e",
+        "name": "pingcount",
+        "func": "msg.payload = 4;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "c9799e7e1e6b2666"
+            ]
+        ]
     },
     {
         "id": "9fa2f4d4e8b0e50a",
