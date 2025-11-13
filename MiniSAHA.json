@@ -734,7 +734,7 @@
         "id": "153279e2ddb9bf63",
         "type": "inject",
         "z": "7b281fcff852c1ee",
-        "name": "Every 1 min.",
+        "name": "Every 20 s",
         "props": [
             {
                 "p": "payload"
@@ -744,15 +744,15 @@
                 "vt": "str"
             }
         ],
-        "repeat": "60",
+        "repeat": "20",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 160,
+        "x": 110,
+        "y": 180,
         "wires": [
             [
                 "8debf8374f7055b0"
@@ -784,7 +784,8 @@
                 "926106aa4212ab45"
             ],
             [
-                "9e676d2de906fc76"
+                "9e676d2de906fc76",
+                "402862f9e78e42f1"
             ]
         ]
     },
@@ -793,7 +794,7 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "Dank je wel",
-        "func": "msg.payload = \"Dank je wel! Fijne Dag.\";\nreturn msg;",
+        "func": "flow.set(\"Antwoord\", \"JA\");\nmsg.payload = \"Dank je wel! Fijne Dag.\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -801,7 +802,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 620,
+        "y": 700,
         "wires": [
             [
                 "c63a75761a2f95ca"
@@ -821,7 +822,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 920,
+        "y": 1040,
         "wires": [
             [
                 "cc9d28ff8d42949d"
@@ -842,7 +843,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 100,
-        "y": 620,
+        "y": 700,
         "wires": [
             [
                 "62dfed959bfd2fce"
@@ -863,7 +864,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 560,
+        "y": 640,
         "wires": [
             [
                 "b8f54f09cd387ac0"
@@ -885,7 +886,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 740,
-        "y": 300,
+        "y": 320,
         "wires": []
     },
     {
@@ -901,7 +902,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 320,
+        "y": 340,
         "wires": [
             [
                 "f8bae653d73fdff1",
@@ -924,7 +925,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 750,
-        "y": 360,
+        "y": 380,
         "wires": []
     },
     {
@@ -942,7 +943,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 750,
-        "y": 240,
+        "y": 260,
         "wires": []
     },
     {
@@ -950,7 +951,7 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "Vraag: Ben je OK?",
-        "func": "msg.payload = \"Beste \" + global.get(\"VoornaamGebruiker\") + \", ben je OK?\";\nreturn msg;",
+        "func": "msg.payload = \"Beste \" + global.get(\"VoornaamGebruiker\") + \", ben je OK?\";\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -958,7 +959,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 240,
+        "y": 260,
         "wires": [
             [
                 "9486c809d0329fc7"
@@ -980,7 +981,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 740,
-        "y": 800,
+        "y": 920,
         "wires": []
     },
     {
@@ -996,7 +997,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 840,
+        "y": 960,
         "wires": [
             [
                 "03d61b4464b9eca9",
@@ -1019,7 +1020,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 750,
-        "y": 860,
+        "y": 980,
         "wires": []
     },
     {
@@ -1037,7 +1038,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 750,
-        "y": 740,
+        "y": 860,
         "wires": []
     },
     {
@@ -1045,7 +1046,7 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "Geen vraag voor nu",
-        "func": "msg.payload = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n              \", er is geen vraag voor nu.\";\nreturn msg;",
+        "func": "msg.payload = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n              \", er is geen vraag voor nu.\";\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1053,7 +1054,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 740,
+        "y": 860,
         "wires": [
             [
                 "e15ebee831361c2a"
@@ -1075,7 +1076,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 770,
-        "y": 580,
+        "y": 660,
         "wires": []
     },
     {
@@ -1083,7 +1084,7 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "Wat vervelend",
-        "func": "msg.payload = \"Wat vervelend! Een bericht is gestuurd naar de sleutelbewaarder(s).\";\nreturn msg;",
+        "func": "flow.set(\"Antwoord\", \"NEE\");\nmsg.payload = \"Wat vervelend! Een bericht is gestuurd naar de sleutelbewaarder(s).\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1091,7 +1092,7 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 560,
+        "y": 640,
         "wires": [
             [
                 "c63a75761a2f95ca",
@@ -1112,7 +1113,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "f6ae07e3ee62a322"
@@ -1134,7 +1135,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 770,
-        "y": 920,
+        "y": 1040,
         "wires": []
     },
     {
@@ -1151,7 +1152,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 800,
+        "y": 920,
         "wires": [
             [
                 "7850aeab6bcc3005",
@@ -1175,7 +1176,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 730,
-        "y": 420,
+        "y": 480,
         "wires": []
     },
     {
@@ -1184,8 +1185,8 @@
         "z": "7b281fcff852c1ee",
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
-        "x": 250,
-        "y": 980,
+        "x": 230,
+        "y": 1100,
         "wires": []
     },
     {
@@ -1193,7 +1194,7 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "Als Systerm is On en is thuis",
-        "func": "var now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\n\nvar isSystemOn = global.get(\"SystemOn\");\nif (!isSystemOn) {\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": System is Off\" });\n    return;\n}\n//return msg;\n\nvar isThuis = global.get(\"GebruikerIsAtHome\");\nvar isThuisString = isThuis ? \": is thuis\" : \": niet thuis\";\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: tijd_nu + isThuisString\n    });\n\nif (isThuis) {\n    return msg;\n}",
+        "func": "var now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\n\nvar isSystemOn = global.get(\"SystemOn\");\nif (!isSystemOn) {\n    node.status({ fill: \"blue\", shape: \"ring\", text: tijd_nu + \": System is Off\" });\n    return;\n}\n\nvar isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar ipMobiel = global.get(\"IP_Mobiel\");\nif (!(ipMobiel && ipMobiel.length > 0)) {\n    isThuis= true;\n}\n\nvar isThuisString = isThuis ? \": is thuis\" : \": niet thuis\";\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: tijd_nu + isThuisString\n    });\n\nif (isThuis) {\n    return msg;\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1201,7 +1202,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 160,
+        "y": 180,
         "wires": [
             [
                 "842cf2986f30adea"
@@ -1215,7 +1216,7 @@
         "name": "Verwijder vraag:",
         "info": "",
         "x": 100,
-        "y": 760,
+        "y": 880,
         "wires": []
     },
     {
@@ -1251,19 +1252,23 @@
         "id": "c63a75761a2f95ca",
         "type": "function",
         "z": "7b281fcff852c1ee",
-        "name": "VraagBeantwoord=true",
-        "func": "var now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\n\nflow.set(\"VraagBeantwoord\", true);\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: tijd_nu + \": VraagBeantwoord=true\" });\nreturn msg;",
-        "outputs": 1,
+        "name": "isInMeldingsPeriode?",
+        "func": "var now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\n\nflow.set(\"VraagBeantwoord\", true);\n\nif (flow.get(\"isInMeldingsPeriode\")) {\n    node.status({\n        fill: \"blue\", shape: \"ring\",\n        text: tijd_nu + \": isInMeldingsPeriode\"\n    });\n    return [msg, null];\n}\nelse {\n    node.status({\n        fill: \"blue\", shape: \"ring\",\n        text: tijd_nu + \": ! isInMeldingsPeriode\"\n    });\n    msg.payload = \"Er is een email gestuurd naar de sleutelbewaarder(s) dat U toch nog met \" + \n    flow.get(\"Antwoord\") + \" heeft geantwoord na de meldingsperiode.\"\n    return [null, msg]   \n}\n\nreturn msg;",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 580,
+        "x": 520,
+        "y": 660,
         "wires": [
             [
                 "2f51ac78262f8063"
+            ],
+            [
+                "2f51ac78262f8063",
+                "091d79b9224dcfd9"
             ]
         ]
     },
@@ -1279,8 +1284,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 460,
+        "x": 250,
+        "y": 520,
         "wires": [
             [
                 "6096c4a0909147f8"
@@ -1300,7 +1305,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 460,
+        "y": 540,
         "wires": [
             [
                 "f6ae07e3ee62a322"
@@ -1319,8 +1324,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 80,
+        "x": 330,
+        "y": 100,
         "wires": [
             []
         ]
@@ -1330,15 +1335,15 @@
         "type": "function",
         "z": "7b281fcff852c1ee",
         "name": "Niet OK",
-        "func": "var bericht = global.get(\"VoornaamGebruiker\") + \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft NEE geantwoord op de vraag of hij OK was.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht + \n              \"\\nBel hem op nummer: \" +\n              global.get(\"MobielGebruiker\");\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({ fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "if (!flow.get(\"isInMeldingsPeriode\")) {\n    node.status({\n        fill: \"blue\", shape: \"ring\",\n        text: tijd_nu + \": ! isInMeldingsPeriode\"\n    });\n    return;\n}\n\nvar bericht = global.get(\"VoornaamGebruiker\") + \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft NEE geantwoord op de vraag of hij OK was.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht + \n              \"\\nBel hem op nummer: \" +\n              global.get(\"MobielGebruiker\");\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({ fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 500,
+        "x": 240,
+        "y": 580,
         "wires": [
             [
                 "6096c4a0909147f8"
@@ -1362,8 +1367,8 @@
         "drop": true,
         "allowrate": true,
         "outputs": 1,
-        "x": 320,
-        "y": 400,
+        "x": 340,
+        "y": 460,
         "wires": [
             [
                 "79c1ada20ccf5b7f"
@@ -1402,6 +1407,113 @@
         "wires": []
     },
     {
+        "id": "402862f9e78e42f1",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Over tijd!",
+        "func": "msg.payload = \"Beste \" + global.get(\"VoornaamGebruiker\") + \", ben je OK?\" +\n\"\\nEr is inmiddels een email gestuurd naar de sleutelbewaarder(s) omdat je te laat reageerde.\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "9486c809d0329fc7"
+            ]
+        ]
+    },
+    {
+        "id": "535e1694dac493bd",
+        "type": "inject",
+        "z": "7b281fcff852c1ee",
+        "name": "At 0:00",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 00 * * *",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 140,
+        "wires": [
+            [
+                "bf3d3c641f3bc0ef"
+            ]
+        ]
+    },
+    {
+        "id": "091d79b9224dcfd9",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "Niet isInMeldingsPeriode",
+        "func": "var bericht = global.get(\"VoornaamGebruiker\") + \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft alsnog \" + flow.get(\"Antwoord\") + \" geantwoord op de vraag of hij OK was.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht;\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({ fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 780,
+        "wires": [
+            [
+                "c148caf182470caf"
+            ]
+        ]
+    },
+    {
+        "id": "c148caf182470caf",
+        "type": "function",
+        "z": "7b281fcff852c1ee",
+        "name": "To: Sleutelbewaarders",
+        "func": "var text = msg.payload;\n\nmsg.payload = {\n    to: global.get(\"EmailSleutelbewaarder1\"),\n    cc: global.get(\"EmailSleutelbewaarder2\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    text: text\n}\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + now.getMinutes();\nnode.status({ fill: \"blue\", shape: \"ring\", text: \"Send: \" + tijd_nu });\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 780,
+        "wires": [
+            [
+                "7cb275da8a1b437c"
+            ]
+        ]
+    },
+    {
+        "id": "7cb275da8a1b437c",
+        "type": "mqtt out",
+        "z": "7b281fcff852c1ee",
+        "name": "",
+        "topic": "Email",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 730,
+        "y": 780,
+        "wires": []
+    },
+    {
         "id": "3e9f24436a66f6d7",
         "type": "mqtt in",
         "z": "c55e2c22aaa2b36d",
@@ -1418,7 +1530,8 @@
         "y": 80,
         "wires": [
             [
-                "1bb053d9514016f9"
+                "1bb053d9514016f9",
+                "a7fcafa3d88f162f"
             ]
         ]
     },
@@ -1609,7 +1722,7 @@
         "op2": "",
         "op1type": "nul",
         "op2type": "pay",
-        "duration": "5",
+        "duration": "9",
         "extend": true,
         "overrideDelay": true,
         "units": "s",
@@ -1710,7 +1823,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 310,
+        "x": 330,
         "y": 620,
         "wires": [
             [
@@ -1875,8 +1988,8 @@
         "z": "c55e2c22aaa2b36d",
         "group": "4de3d58d68afebf3",
         "order": 1,
-        "width": "0",
-        "height": "0",
+        "width": "4",
+        "height": "2",
         "name": "Vraag",
         "label": "",
         "format": "{{msg.payload}}",
@@ -1885,7 +1998,7 @@
         "font": "",
         "fontSize": 16,
         "color": "#717171",
-        "wrapText": false,
+        "wrapText": true,
         "className": "",
         "value": "payload",
         "valueType": "msg",
@@ -1998,7 +2111,7 @@
         "width": 0,
         "height": 0,
         "name": "Persoon thuis?",
-        "label": "Mobiel is in huis gedetecteerd: ",
+        "label": "",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": false,
@@ -2011,24 +2124,6 @@
         "valueType": "msg",
         "x": 540,
         "y": 580,
-        "wires": []
-    },
-    {
-        "id": "36ce77a23c371b81",
-        "type": "mqtt out",
-        "z": "c55e2c22aaa2b36d",
-        "name": "",
-        "topic": "Home_Response",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0839f7b4c0cbb0a8",
-        "x": 790,
-        "y": 520,
         "wires": []
     },
     {
@@ -2057,20 +2152,36 @@
         "type": "function",
         "z": "c55e2c22aaa2b36d",
         "name": "Ja/Nee",
-        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\nvar msg = { payload: isThuis? \"ja.\" : \"nee.\" };\nreturn msg;\n\n",
+        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar text = \"FOUT: geen IP adres opgegeven van je mobiel.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    text = isThuis ? \n    \"Je mobiel wordt in huis gedetecteerd.\" : \n    \"FOUT: mobiel niet in huis gedetecteerd!\" ;\n}\n\nvar msg = { payload: text };\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
+        "x": 320,
         "y": 580,
         "wires": [
             [
                 "0e739374325889c3"
             ]
         ]
+    },
+    {
+        "id": "a7fcafa3d88f162f",
+        "type": "debug",
+        "z": "c55e2c22aaa2b36d",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 60,
+        "wires": []
     },
     {
         "id": "d2425eb7ccf4cd25",
@@ -2508,7 +2619,7 @@
         "type": "function",
         "z": "096868c8e9519de1",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>Maak een email adres die alleen voor meldingen van deze app gebruikt gaat worden. \" +\n\"Want je wilt voor meldingen een uniek geluid kunnen kiezen.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dat kan je doen door voor dit email adres een andere email app te gebruiken. \" +\n\"Vervolgens stel je voor deze email app een uniek geluid in.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>Maak een email adres aan die alleen voor meldingen van deze app gebruikt gaat worden. \" +\n\"Want je wilt voor meldingen een uniek geluid kunnen kiezen.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dat kan je doen door voor dit email adres een andere email app te gebruiken dan de standaard app. \" +\n\"Vervolgens stel je voor deze email app een uniek geluid in.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2601,7 +2712,7 @@
         "type": "function",
         "z": "096868c8e9519de1",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>De gebruiker moet binnen de meldperiode (b.v. 60 minuten) reageren in deze app.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Zo niet, dat wordt er een email gestuurd naar de sleutelbewaarder(s).</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>De gebruiker moet binnen de meldperiode (b.v. 60 minuten) reageren in deze app.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Zo niet, dat wordt er een email gestuurd naar de sleutelbewaarder(s) met het verzoek contact met je op te nemen.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4213,7 +4324,7 @@
         "group": "adc719ee09b9438b",
         "name": "Update",
         "label": "Update",
-        "order": 4,
+        "order": 5,
         "width": 0,
         "height": 0,
         "emulateClick": false,
@@ -4274,7 +4385,7 @@
         "type": "ui-text",
         "z": "6704eb581e929d50",
         "group": "adc719ee09b9438b",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "Versie",
@@ -4410,7 +4521,7 @@
         "type": "ui-text",
         "z": "6704eb581e929d50",
         "group": "adc719ee09b9438b",
-        "order": 5,
+        "order": 6,
         "width": 0,
         "height": 0,
         "name": "Update msg",
@@ -4760,6 +4871,31 @@
             [
                 "37d158cbe55e10b8"
             ]
+        ]
+    },
+    {
+        "id": "f9a44abf0a9b6aaf",
+        "type": "ui-template",
+        "z": "6704eb581e929d50",
+        "d": true,
+        "group": "adc719ee09b9438b",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <Teleport v-if=\"mounted\" to=\"#app-bar-title\">\n        <img src=\"/images/mijnfoto.png\" style=\"width:200px;\" />\n    </Teleport>\n</template>\n\n<script>\n    export default {\n        data() {\n            return {\n                mounted: false\n            }\n        },\n        mounted() {\n            this.mounted = true;\n        }\n    }\n</script>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 620,
+        "y": 280,
+        "wires": [
+            []
         ]
     }
 ]
