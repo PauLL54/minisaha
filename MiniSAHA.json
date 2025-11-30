@@ -48,6 +48,14 @@
         "env": []
     },
     {
+        "id": "eb60a9ea21d42f29",
+        "type": "tab",
+        "label": "Tester",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "bd2a966b.302e18",
         "type": "subflow",
         "name": "CheckIsAtHome",
@@ -239,11 +247,6 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
-    },
-    {
-        "id": "7c806c323bf3f841",
-        "type": "global-config",
-        "env": []
     },
     {
         "id": "6c1d30b5f16932dd",
@@ -525,6 +528,56 @@
         "type": "ui-group",
         "name": "About",
         "page": "1dd0da4fdcd94089",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "c5ea61b98d8ee55d",
+        "type": "ui-page",
+        "name": "Tester",
+        "ui": "6c1d30b5f16932dd",
+        "path": "/page6",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "72011230335eaee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 6,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "b71c0e77d9debcfd",
+        "type": "ui-group",
+        "name": "Tester",
+        "page": "c5ea61b98d8ee55d",
         "width": 6,
         "height": 1,
         "order": 1,
@@ -1216,8 +1269,8 @@
         "type": "function",
         "z": "a380efb730bea147",
         "name": "Gebruiker",
-        "func": "var text = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n           \", \\n\\n\" + \n           \"Ben je OK? Open de MiniSAHA app en bevestig.\";\n\nmsg = {\n    to: global.get(\"EmailGebruiker\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    payload: text\n}\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({ text: \"Send: \" + tijd_nu});\nreturn msg;",
-        "outputs": 1,
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet text = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n           \", \\n\\n\" + \n\n           \"Ben je OK? Open de MiniSAHA app en bevestig.\";\n\nlet emailGebruiker = global.get(\"EmailGebruiker\") || \"\";\nif (emailGebruiker.indexOf(\"@\") !== -1) {\n    msg.payload = \"Geen email gebruiker opgegeven.\"\n    node.status({ text: \"Send: \" + tijd_nu + \" no emailgebruiker\"});\n    return [null, msg];\n}\n\nmsg = {\n    to: emailGebruiker,\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu});\nreturn [msg, null];",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
@@ -1228,6 +1281,9 @@
         "wires": [
             [
                 "df1878820d0f62c5"
+            ],
+            [
+                "d2cb97a83ac20cfa"
             ]
         ]
     },
@@ -1237,8 +1293,8 @@
         "z": "a380efb730bea147",
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
-        "x": 230,
-        "y": 860,
+        "x": 190,
+        "y": 1060,
         "wires": []
     },
     {
@@ -1266,7 +1322,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "name": "Alarm email",
-        "func": "var bericht = \"Beste mantelzorger, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" want hij heeft niet gereageerd op de dagelijkse melding.\";\n\nvar eenMantelzorger = (global.get(\"EmailSleutelbewaarder1\") != \"\" && \n  global.get(\"EmailSleutelbewaarder1\") != null);\n\n\nif ((global.get(\"EmailSleutelbewaarder2\") != \"\") &&\n  (global.get(\"EmailSleutelbewaarder2\") != null)) {\n  bericht = \"Beste eerste Mantelzorger, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") + \n    \" want hij heeft niet gereageerd op de dagelijkse melding.\" +\n    \"\\nStuur ook (via een reply to all) een bericht naar \" +\n    global.get(\"EmailSleutelbewaarder2\") + \n    \" dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede Mantelzorger,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht hebben ontvangen van de eerste Mantelzorger, neem dan zelf contact op met de gebruiker en laat dat de eerste Mantelzorger ook weten.\"\n}\n\nmsg.topic = \"MiniSAHA: er is niet gereageerd\";\nmsg.payload = bericht + \n  \"\\n\\n Telefoon \" + global.get(\"VoornaamGebruiker\")  + \":\" +\nglobal.get(\"MobielGebruiker\");\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen mantelzorgers\"});\n  return;\n}\n\nvar bericht = \"Beste mantelzorger, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" want hij heeft niet gereageerd op de dagelijkse melding.\";\n\nif (emailSleutelbewaarder2 != \"\") {\n  bericht = \"Beste eerste Mantelzorger, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") + \n    \" want hij heeft niet gereageerd op de dagelijkse melding.\" +\n    \"\\nStuur ook (via een reply to all) een bericht naar \" +\n    emailSleutelbewaarder2 + \n    \" dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede Mantelzorger,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht hebben ontvangen van de eerste Mantelzorger, neem dan zelf contact op met de gebruiker en laat dat de eerste Mantelzorger ook weten.\"\n}\n\nmsg.topic = \"MiniSAHA: er is niet gereageerd\";\nmsg.payload = bericht + \n  \"\\n\\n Telefoon \" + global.get(\"VoornaamGebruiker\")  + \": \" +\nglobal.get(\"MobielGebruiker\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1286,7 +1342,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "name": "Sleutelbewaarders",
-        "func": "var text = msg.payload;\n\nmsg = {\n    to: global.get(\"EmailSleutelbewaarder1\"),\n    cc: global.get(\"EmailSleutelbewaarder2\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
+        "func": "var text = msg.payload;\n\nmsg = {\n    to: global.get(\"EmailSleutelbewaarder1\"),\n    cc: global.get(\"EmailSleutelbewaarder2\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1326,7 +1382,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "name": "Niet OK",
-        "func": "var now = new Date();\nvar tijd_nu = now.getHours() + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nvar bericht = global.get(\"VoornaamGebruiker\") + \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft NEE geantwoord op de vraag of hij OK was.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht + \n              \"\\nBel hem op nummer: \" +\n              global.get(\"MobielGebruiker\");\n\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "var bericht = global.get(\"VoornaamGebruiker\") + \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft NEE geantwoord op de vraag of hij OK was.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht + \n              \"\\nBel hem op nummer: \" +\n              global.get(\"MobielGebruiker\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1396,7 +1452,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "name": "Overtijd",
-        "func": "var bericht = \"Beste mantelzorger(s), \"+ \n    global.get(\"VoornaamGebruiker\") + \n    \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft alsnog \" + msg.payload + \n    \" geantwoord op de vraag of hij OK was.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht;\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "var bericht = \"Beste mantelzorger(s), \"+ \n    global.get(\"VoornaamGebruiker\") + \n    \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft alsnog \" + msg.payload + \n    \" geantwoord op de vraag of hij OK was.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")(); \nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1424,8 +1480,8 @@
         "tls": true,
         "name": "",
         "dname": "",
-        "x": 730,
-        "y": 660,
+        "x": 750,
+        "y": 740,
         "wires": []
     },
     {
@@ -1504,12 +1560,13 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 560,
-        "y": 840,
+        "x": 280,
+        "y": 920,
         "wires": [
             [
-                "8322868abe70e928",
-                "c62f2246190847d4"
+                "c62f2246190847d4",
+                "cf1901877bfe59a8",
+                "8322868abe70e928"
             ]
         ]
     },
@@ -1517,7 +1574,7 @@
         "id": "8322868abe70e928",
         "type": "debug",
         "z": "a380efb730bea147",
-        "name": "Email error",
+        "name": "Error",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -1527,7 +1584,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 750,
-        "y": 900,
+        "y": 980,
         "wires": []
     },
     {
@@ -1544,8 +1601,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 750,
-        "y": 840,
+        "x": 770,
+        "y": 920,
         "wires": []
     },
     {
@@ -1582,7 +1639,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "name": "Set global functions",
-        "func": "global.set(\"tijdNaarMs\", function (tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n});\n\nglobal.set(\"getTime\", function () {\n    let now = new Date();\n    return ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n});\n\nglobal.set(\"states\", {\n    IDLE: \"Idle\",\n    TOONOKVRAAG: \"ToonOkVraag\",\n    MELDGEBRUIKER: \"MeldGebruiker\",\n    ISOK: \"IsOk\",\n    ISNOTOK: \"IsNotOk\",\n    ISOK_OVERTIJD: \"IsOk_OverTijd\",\n    ISNOTOK_OVERTIJD: \"IsNotOk_OverTijd\",\n    OVERTIJD: \"OverTijd\"\n});\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" global functions created\"});\n\n//msg.payload = tijd_nu;\nreturn msg;\n",
+        "func": "global.set(\"tijdNaarMs\", function (tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n});\n\nglobal.set(\"getTime\", function () {\n    let now = new Date();\n    return ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n});\n\nglobal.set(\"states\", {\n    IDLE: \"Idle\",\n    TOONOKVRAAG: \"ToonOkVraag\",\n    MELDGEBRUIKER: \"MeldGebruiker\",\n    ISOK: \"IsOk\",\n    ISNOTOK: \"IsNotOk\",\n    ISOK_OVERTIJD: \"IsOk_OverTijd\",\n    ISNOTOK_OVERTIJD: \"IsNotOk_OverTijd\",\n    OVERTIJD: \"OverTijd\"\n});\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" global functions created\"});\n\nglobal.set(\"currentState\", global.get(\"currentState\") ?? \"Idle\");\nglobal.set(\"TijdOK\", global.get(\"TijdOK\") ?? \" \");\nglobal.set(\"VoornaamGebruiker\", global.get(\"VoornaamGebruiker\") ?? \"\");\nglobal.set(\"EmailGebruiker\", global.get(\"EmailGebruiker\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder1\", global.get(\"EmailSleutelbewaarder1\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder2\", global.get(\"EmailSleutelbewaarder2\") ?? \"\");\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1621,6 +1678,69 @@
                 "94fd03500445951f"
             ]
         ]
+    },
+    {
+        "id": "cf1901877bfe59a8",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "name": "Paul",
+        "func": "var text = msg.payload.error + \", \" +\nmsg.payload.error.source.name + \", \";\n\nmsg = {\n    to: \"paullangemeijer@hotmail.com\",\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: fout\",\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 860,
+        "wires": [
+            [
+                "4f39baa7dbd5d547"
+            ]
+        ]
+    },
+    {
+        "id": "4f39baa7dbd5d547",
+        "type": "delay",
+        "z": "a380efb730bea147",
+        "name": "Rate limit",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "hour",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 860,
+        "wires": [
+            [
+                "df1878820d0f62c5"
+            ]
+        ]
+    },
+    {
+        "id": "d2cb97a83ac20cfa",
+        "type": "mqtt out",
+        "z": "a380efb730bea147",
+        "name": "",
+        "topic": "EmailError",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 750,
+        "y": 600,
+        "wires": []
     },
     {
         "id": "86d57ce8cd9b65da",
@@ -2242,7 +2362,7 @@
         "type": "function",
         "z": "1e372cb3d08d9182",
         "name": "error",
-        "func": "if (global.get(\"EmailGebruiker\") == \"\")\n    msg.payload = \"Fout: geen email adres gebruiker.\";\nelse if ((global.get(\"EmailSleutelbewaarder1\") == \"\") && \n          (global.get(\"EmailSleutelbewaarder2\") == \"\"))\n    msg.payload = \"Fout: geen email adres mantelzorgers.\";\nelse\n    msg.payload = \"Onbekende fout.\";\n\nreturn msg;\n",
+        "func": "let emailGebruiker = global.get(\"EmailGebruiker\") || \"\";\nlet emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\n\nif (!emailGebruiker.includes(\"@\")) {\n    msg.payload = \"Fout: geen email adres gebruiker.\";\n}\n\nif ((!emailSleutelbewaarder1.includes(\"@\")) && \n    (!emailSleutelbewaarder1.includes(\"@\"))) {\n    msg.payload = \"Fout: geen email adres mantelzorgers.\";\n}\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4372,7 +4492,7 @@
         "type": "ui-text",
         "z": "af31bf2fe058f803",
         "group": "adc719ee09b9438b",
-        "order": 6,
+        "order": 5,
         "width": 0,
         "height": 0,
         "name": "Versie",
@@ -4396,7 +4516,7 @@
         "type": "ui-text",
         "z": "af31bf2fe058f803",
         "group": "adc719ee09b9438b",
-        "order": 5,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "Auteur",
@@ -4426,8 +4546,8 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "get latest",
-        "x": 380,
+        "name": "get version.txt",
+        "x": 400,
         "y": 560,
         "wires": [
             [
@@ -4523,7 +4643,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 630,
+        "x": 650,
         "y": 680,
         "wires": []
     },
@@ -4559,8 +4679,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Restart node-red",
-        "x": 570,
-        "y": 840,
+        "x": 710,
+        "y": 1000,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -4603,7 +4723,7 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 530,
+        "x": 550,
         "y": 560,
         "wires": [
             [
@@ -4623,7 +4743,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
+        "x": 670,
         "y": 560,
         "wires": [
             [
@@ -4704,15 +4824,15 @@
         "id": "d7ff5ad4b1b79918",
         "type": "exec",
         "z": "af31bf2fe058f803",
-        "command": "rm MiniSAHA.json*",
+        "command": "rm MiniSAHA.json",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "rm old",
-        "x": 110,
+        "name": "rm MiniSAHA.json",
+        "x": 150,
         "y": 840,
         "wires": [
             [
@@ -4733,12 +4853,12 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "get update",
-        "x": 250,
+        "name": "get MiniSAHA.json",
+        "x": 370,
         "y": 840,
         "wires": [
             [
-                "02d2ac26c698a195"
+                "28228f40169db06d"
             ],
             [],
             []
@@ -4748,16 +4868,16 @@
         "id": "02d2ac26c698a195",
         "type": "exec",
         "z": "af31bf2fe058f803",
-        "command": "cp -f version.txt MiniSAHA.json Logo.png .node-red/projects/MiniSAHA",
+        "command": "cp -f version.txt MiniSAHA_cred.json MiniSAHA.json Logo.png .node-red/projects/MiniSAHA",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "Install",
-        "x": 390,
-        "y": 840,
+        "name": "Install new files",
+        "x": 500,
+        "y": 1000,
         "wires": [
             [
                 "07af420f98d0e89a"
@@ -4806,7 +4926,8 @@
         "y": 340,
         "wires": [
             [
-                "4d1dba90ae296567"
+                "4d1dba90ae296567",
+                "3a750c7cbf887af3"
             ]
         ]
     },
@@ -4822,7 +4943,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
+        "x": 290,
         "y": 340,
         "wires": [
             [
@@ -4895,7 +5016,7 @@
         "order": 3,
         "width": "3",
         "height": "3",
-        "format": "<div style=\"text-align:center;\">\n    <img src=\"http://minisaha.taild16943.ts.net:1880/images/Logo.png\" \n         style=\"max-width:40%; height:auto;\" />\n</div>",
+        "format": "<div style=\"text-align:center;\">\n    <img src=\"http://127.0.0.0:1880/images/Logo.png\" \n         style=\"max-width:40%; height:auto;\" />\n</div>",
         "storeOutMessages": true,
         "passthru": true,
         "templateScope": "local",
@@ -4954,7 +5075,7 @@
         "type": "ui-text",
         "z": "af31bf2fe058f803",
         "group": "adc719ee09b9438b",
-        "order": 2,
+        "order": 6,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -4978,7 +5099,7 @@
         "type": "ui-text",
         "z": "af31bf2fe058f803",
         "group": "adc719ee09b9438b",
-        "order": 4,
+        "order": 2,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -4996,5 +5117,872 @@
         "x": 620,
         "y": 220,
         "wires": []
+    },
+    {
+        "id": "477a82641741c1d2",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/Logo.png",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get Logo.png",
+        "x": 310,
+        "y": 1000,
+        "wires": [
+            [
+                "02d2ac26c698a195"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6ba99393e4c393d8",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "command": "rm Logo.png",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rm Logo.png",
+        "x": 130,
+        "y": 1000,
+        "wires": [
+            [
+                "477a82641741c1d2"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "28228f40169db06d",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "command": "rm MiniSAHA_cred.json",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rm MiniSAHA_cred.json",
+        "x": 170,
+        "y": 920,
+        "wires": [
+            [
+                "62cf14493c558309"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "62cf14493c558309",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/MiniSAHA_cred.json",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get MiniSAHA_cred.json",
+        "x": 430,
+        "y": 920,
+        "wires": [
+            [
+                "6ba99393e4c393d8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3a750c7cbf887af3",
+        "type": "debug",
+        "z": "af31bf2fe058f803",
+        "name": "catch all About",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "5624329dd5cb5b0a",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "name": "OnStart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "97382ae72dc98a86"
+            ]
+        ]
+    },
+    {
+        "id": "ac6f3d5c09bce733",
+        "type": "ui-button",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "name": "Test update",
+        "label": "Test update ",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "buttonupdate",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 110,
+        "y": 400,
+        "wires": [
+            [
+                "148566cf72b33e1a"
+            ]
+        ]
+    },
+    {
+        "id": "6fb7570706461807",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "About",
+        "label": "Deze pagina is alleen bedoeld voor testers.",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 670,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "29faaa6a019e0e9b",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Test versie",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 690,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "6f0b74ba5a27cc3e",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/version_test.txt",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get version_test.txt",
+        "x": 430,
+        "y": 400,
+        "wires": [
+            [
+                "98ddd266a3e4c998"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2c5db89378881214",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "rm \\n",
+        "func": "msg.payload = msg.payload.replace(/[\\r\\n]+/g, '');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "2d76e161b54a56ff",
+                "e3e7c591d92d8d6d"
+            ]
+        ]
+    },
+    {
+        "id": "97382ae72dc98a86",
+        "type": "file in",
+        "z": "eb60a9ea21d42f29",
+        "name": "current test version",
+        "filename": ".node-red/projects/MiniSAHA/version_test.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 290,
+        "y": 220,
+        "wires": [
+            [
+                "2c5db89378881214"
+            ]
+        ]
+    },
+    {
+        "id": "2d76e161b54a56ff",
+        "type": "change",
+        "z": "eb60a9ea21d42f29",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "version_test",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d171fe450c7a81f",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Update msg",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 690,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "e767f97b37bd3e7f",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "sudo systemctl restart nodered.service&",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Restart node-red",
+        "x": 730,
+        "y": 840,
+        "wires": [
+            [
+                "aefcaf0124832705"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "148566cf72b33e1a",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "rm version_test.txt",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rm old",
+        "x": 270,
+        "y": 400,
+        "wires": [
+            [
+                "6f0b74ba5a27cc3e"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "98ddd266a3e4c998",
+        "type": "file in",
+        "z": "eb60a9ea21d42f29",
+        "name": "latest",
+        "filename": "version_test.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 590,
+        "y": 400,
+        "wires": [
+            [
+                "bce54c96101eb7b7"
+            ]
+        ]
+    },
+    {
+        "id": "bce54c96101eb7b7",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "rm \\n",
+        "func": "msg.payload = msg.payload.replace(/[\\r\\n]+/g, '');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 400,
+        "wires": [
+            [
+                "59d5c77dc1dc2a60"
+            ]
+        ]
+    },
+    {
+        "id": "db6b4ac55c770429",
+        "type": "delay",
+        "z": "eb60a9ea21d42f29",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 320,
+        "y": 560,
+        "wires": [
+            [
+                "aefcaf0124832705"
+            ]
+        ]
+    },
+    {
+        "id": "aefcaf0124832705",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "clear",
+        "func": "msg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 560,
+        "wires": [
+            [
+                "8d171fe450c7a81f"
+            ]
+        ]
+    },
+    {
+        "id": "59d5c77dc1dc2a60",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "Update?",
+        "func": "var current = global.get(\"version_test\");\nvar latest = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", latest: \" + latest    });\n\nif (latest > current) {\n    var msg2 = { payload: \"Test update wordt geinstalleerd...\"};\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { payload: \"Geen nieuwere test versie beschikbaar.\"};\n   return [null, msg2]; \n}\nreturn msg;",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 520,
+        "wires": [
+            [
+                "e4030f3dae1eb9a5"
+            ],
+            [
+                "db6b4ac55c770429",
+                "8d171fe450c7a81f"
+            ]
+        ]
+    },
+    {
+        "id": "e4030f3dae1eb9a5",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "rm MiniSAHA.json",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rm MiniSAHA.json",
+        "x": 170,
+        "y": 680,
+        "wires": [
+            [
+                "01c9f9d135d750e0"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "01c9f9d135d750e0",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/MiniSAHA.json",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get MiniSAHA.json",
+        "x": 390,
+        "y": 680,
+        "wires": [
+            [
+                "ee8a0693e25115af"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cd4dcc62417a8f98",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "cp -f version_test.txt MiniSAHA_cred.json MiniSAHA.json Logo.png .node-red/projects/MiniSAHA",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Install new files",
+        "x": 520,
+        "y": 840,
+        "wires": [
+            [
+                "e767f97b37bd3e7f"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ca12465c285a07be",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "name": "OnStart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 320,
+        "y": 620,
+        "wires": [
+            [
+                "aefcaf0124832705"
+            ]
+        ]
+    },
+    {
+        "id": "6cdb9cd1a55cd9dd",
+        "type": "catch",
+        "z": "eb60a9ea21d42f29",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "5fe7d4a09964b635",
+                "233943e79ec596cb"
+            ]
+        ]
+    },
+    {
+        "id": "5fe7d4a09964b635",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "0000-00-00",
+        "func": "msg.payload = \"0000-00-00\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "2d76e161b54a56ff",
+                "e3e7c591d92d8d6d"
+            ]
+        ]
+    },
+    {
+        "id": "82ea9c0c0b1c8052",
+        "type": "ui-template",
+        "z": "eb60a9ea21d42f29",
+        "group": "",
+        "page": "c5ea61b98d8ee55d",
+        "ui": "",
+        "name": "CSS button",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": ".buttonupdate button {\n    font-size: 1.7em;\n}",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "page:style",
+        "className": "buttonupdate",
+        "x": 110,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c0a40759fa63b7d2",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/Logo.png",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get Logo.png",
+        "x": 330,
+        "y": 840,
+        "wires": [
+            [
+                "cd4dcc62417a8f98"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2ff6443c3045fe74",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "rm Logo.png",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rm Logo.png",
+        "x": 150,
+        "y": 840,
+        "wires": [
+            [
+                "c0a40759fa63b7d2"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ee8a0693e25115af",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "rm MiniSAHA_cred.json",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rm MiniSAHA_cred.json",
+        "x": 190,
+        "y": 760,
+        "wires": [
+            [
+                "a2f6500a90a362f9"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a2f6500a90a362f9",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/MiniSAHA_cred.json",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get MiniSAHA_cred.json",
+        "x": 450,
+        "y": 760,
+        "wires": [
+            [
+                "2ff6443c3045fe74"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "233943e79ec596cb",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "name": "catch all About",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "b477d9c9bf066a14",
+        "type": "change",
+        "z": "eb60a9ea21d42f29",
+        "name": "currentState",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "currentState",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "d583ac186ef8a881"
+            ]
+        ]
+    },
+    {
+        "id": "cf26a57d1005572c",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "current state",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 690,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e3e7c591d92d8d6d",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "Test versie:",
+        "func": "msg.payload = \"Test versie: \" + msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 120,
+        "wires": [
+            [
+                "29faaa6a019e0e9b"
+            ]
+        ]
+    },
+    {
+        "id": "cce32751f5f910d1",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "name": "OnStart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "b477d9c9bf066a14"
+            ]
+        ]
+    },
+    {
+        "id": "d583ac186ef8a881",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "Current state:",
+        "func": "msg.payload = \"Current state: \" + msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 280,
+        "wires": [
+            [
+                "cf26a57d1005572c"
+            ]
+        ]
     }
 ]
