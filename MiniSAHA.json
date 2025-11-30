@@ -4643,7 +4643,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 650,
+        "x": 630,
         "y": 680,
         "wires": []
     },
@@ -5016,7 +5016,7 @@
         "order": 3,
         "width": "3",
         "height": "3",
-        "format": "<div style=\"text-align:center;\">\n    <img src=\"http://127.0.0.0:1880/images/Logo.png\" \n         style=\"max-width:40%; height:auto;\" />\n</div>",
+        "format": "<div style=\"text-align:center;\">\n    <img src=\"http://minisaha.taild16943.ts.net:1880/images/Logo.png\" \n         style=\"max-width:40%; height:auto;\" />\n</div>",
         "storeOutMessages": true,
         "passthru": true,
         "templateScope": "local",
