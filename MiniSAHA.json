@@ -56,6 +56,14 @@
         "env": []
     },
     {
+        "id": "0282675846d16486",
+        "type": "tab",
+        "label": "NoodDialoog",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "bd2a966b.302e18",
         "type": "subflow",
         "name": "CheckIsAtHome",
@@ -251,7 +259,7 @@
     {
         "id": "6c1d30b5f16932dd",
         "type": "ui-base",
-        "name": "Help IP adres",
+        "name": "ui_page",
         "path": "/dashboard",
         "appIcon": "",
         "includeClientData": true,
@@ -356,8 +364,8 @@
         ],
         "order": 1,
         "className": "",
-        "visible": "true",
-        "disabled": "false"
+        "visible": true,
+        "disabled": false
     },
     {
         "id": "ab8f5143a421d4e8",
@@ -464,8 +472,8 @@
         ],
         "order": 5,
         "className": "",
-        "visible": "true",
-        "disabled": "false"
+        "visible": true,
+        "disabled": false
     },
     {
         "id": "1770a740435c7f75",
@@ -570,8 +578,8 @@
         ],
         "order": 6,
         "className": "",
-        "visible": "true",
-        "disabled": "false"
+        "visible": true,
+        "disabled": false
     },
     {
         "id": "b71c0e77d9debcfd",
@@ -582,6 +590,56 @@
         "height": 1,
         "order": 1,
         "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "83758077b83a78e9",
+        "type": "ui-page",
+        "name": "Dialoog",
+        "ui": "6c1d30b5f16932dd",
+        "path": "/page7",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "72011230335eaee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 7,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "e8b35f4f98bab0c7",
+        "type": "ui-group",
+        "name": "NoodDialoog",
+        "page": "83758077b83a78e9",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
         "className": "",
         "visible": "true",
         "disabled": "false",
@@ -1260,7 +1318,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 760,
+        "x": 780,
         "y": 260,
         "wires": []
     },
@@ -1269,7 +1327,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "name": "Gebruiker",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet text = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n           \", \\n\\n\" + \n\n           \"Ben je OK? Open de MiniSAHA app en bevestig.\";\n\nlet emailGebruiker = global.get(\"EmailGebruiker\") || \"\";\nif (emailGebruiker.indexOf(\"@\") !== -1) {\n    msg.payload = \"Geen email gebruiker opgegeven.\"\n    node.status({ text: \"Send: \" + tijd_nu + \" no emailgebruiker\"});\n    return [null, msg];\n}\n\nmsg = {\n    to: emailGebruiker,\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu});\nreturn [msg, null];",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet text = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n           \", \\n\\n\" + \n\n           \"Ben je OK? Open de MiniSAHA app en bevestig.\";\n\nlet emailGebruiker = global.get(\"EmailGebruiker\") || \"\";\nif (emailGebruiker.indexOf(\"@\") == -1) {\n    msg.payload = \"Geen email gebruiker opgegeven.\"\n    node.status({ text: \"Send: \" + tijd_nu + \n    \" no emailgebruiker: \" + emailGebruiker });\n    return [null, msg];\n}\n\nmsg = {\n    to: emailGebruiker,\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu});\nreturn [msg, null];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -1738,8 +1796,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 750,
-        "y": 600,
+        "x": 770,
+        "y": 560,
         "wires": []
     },
     {
@@ -1881,7 +1939,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 860,
+        "x": 820,
         "y": 680,
         "wires": [
             []
@@ -1906,7 +1964,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 390,
+        "x": 350,
         "y": 660,
         "wires": [
             [
@@ -2038,7 +2096,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 620,
+        "x": 580,
         "y": 660,
         "wires": [
             [
@@ -2076,7 +2134,7 @@
         "type": "ui-text",
         "z": "1e372cb3d08d9182",
         "group": "4de3d58d68afebf3",
-        "order": 7,
+        "order": 4,
         "width": "5",
         "height": "2",
         "name": "Response",
@@ -2100,7 +2158,7 @@
         "type": "ui-text",
         "z": "1e372cb3d08d9182",
         "group": "4de3d58d68afebf3",
-        "order": 4,
+        "order": 7,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -2117,30 +2175,6 @@
         "valueType": "msg",
         "x": 600,
         "y": 340,
-        "wires": []
-    },
-    {
-        "id": "6f8f801a8da23037",
-        "type": "ui-text",
-        "z": "1e372cb3d08d9182",
-        "group": "4de3d58d68afebf3",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "lege regel",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 560,
         "wires": []
     },
     {
@@ -2163,7 +2197,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 620,
+        "x": 580,
         "y": 600,
         "wires": []
     },
@@ -2200,7 +2234,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
+        "x": 340,
         "y": 600,
         "wires": [
             [
@@ -2280,7 +2314,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
+        "x": 450,
         "y": 720,
         "wires": [
             [
@@ -2361,7 +2395,7 @@
         "name": "ALARM",
         "label": "ALARM",
         "order": 5,
-        "width": "4",
+        "width": "2",
         "height": "2",
         "emulateClick": false,
         "tooltip": "",
@@ -2385,6 +2419,43 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 600,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7d9adb1d8b871f0c",
+        "type": "ui-button",
+        "z": "1e372cb3d08d9182",
+        "group": "4de3d58d68afebf3",
+        "name": "CANCEL",
+        "label": "CANCEL",
+        "order": 6,
+        "width": "2",
+        "height": "2",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "JaNeeButton",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "neePressed",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "yellow",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 760,
         "y": 400,
         "wires": [
             []
@@ -5996,6 +6067,104 @@
             [
                 "cf26a57d1005572c"
             ]
+        ]
+    },
+    {
+        "id": "a5daa188cea35ac9",
+        "type": "ui-button",
+        "z": "0282675846d16486",
+        "group": "e8b35f4f98bab0c7",
+        "name": "Ja",
+        "label": "JA",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "JaNeeButton",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "jaPressed",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "yellow",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 290,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "84ce04926b18e09f",
+        "type": "ui-button",
+        "z": "0282675846d16486",
+        "group": "e8b35f4f98bab0c7",
+        "name": "Nee",
+        "label": "NEE",
+        "order": 2,
+        "width": "2",
+        "height": "2",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "JaNeeButton",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "neePressed",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "yellow",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 290,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "13e8dafc871f69f1",
+        "type": "ui-template",
+        "z": "0282675846d16486",
+        "group": "",
+        "page": "83758077b83a78e9",
+        "ui": "",
+        "name": "CSS button",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": ".JaNeeButton button {\n    font-size: 2.5em;\n}",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "page:style",
+        "className": "",
+        "x": 310,
+        "y": 240,
+        "wires": [
+            []
         ]
     }
 ]
