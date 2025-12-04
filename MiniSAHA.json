@@ -5481,15 +5481,15 @@
         "id": "e767f97b37bd3e7f",
         "type": "exec",
         "z": "eb60a9ea21d42f29",
-        "command": "sudo systemctl restart nodered.service&",
+        "command": "sudo reboot",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "Restart node-red",
-        "x": 730,
+        "name": "Reboot",
+        "x": 700,
         "y": 840,
         "wires": [
             [
