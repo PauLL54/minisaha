@@ -6010,5 +6010,34 @@
                 "cf26a57d1005572c"
             ]
         ]
+    },
+    {
+        "id": "bb38bf4d651c4d16",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "name": "At 00:00",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 00 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "148566cf72b33e1a"
+            ]
+        ]
     }
 ]
