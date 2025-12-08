@@ -1322,7 +1322,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "name": "Alarm email",
-        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen mantelzorgers\"});\n  return;\n}\n\nvar bericht = \"Beste mantelzorger, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" want hij heeft niet gereageerd op de dagelijkse melding.\";\n\nif (emailSleutelbewaarder2 != \"\") {\n  bericht = \"Beste eerste Mantelzorger, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") + \n    \" want hij heeft niet gereageerd op de dagelijkse melding.\" +\n    \"\\nStuur ook (via een reply to all) een bericht naar \" +\n    emailSleutelbewaarder2 + \n    \" dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede Mantelzorger,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht hebben ontvangen van de eerste Mantelzorger, neem dan zelf contact op met de gebruiker en laat dat de eerste Mantelzorger ook weten.\"\n}\n\nmsg.topic = \"MiniSAHA: er is niet gereageerd\";\nmsg.payload = bericht + \n  \"\\n\\n Telefoon \" + global.get(\"VoornaamGebruiker\")  + \": \" +\nglobal.get(\"MobielGebruiker\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen mantelzorgers\"});\n  return;\n}\n\nvar bericht = \"Beste mantelzorger, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" want hij heeft niet gereageerd op de dagelijkse melding.\";\n\nif (emailSleutelbewaarder2 != \"\") {\n  bericht = \"Beste eerste Mantelzorger, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") + \n    \" want hij heeft niet gereageerd op de dagelijkse melding.\" +\n    \"\\nStuur ook (via een reply to all) een bericht naar \" +\n    emailSleutelbewaarder2 + \n    \" dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede Mantelzorger,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht hebben ontvangen van de eerste Mantelzorger, neem dan zelf contact op met de gebruiker en laat dat de eerste Mantelzorger ook weten.\"\n}\n\nmsg.topic = \"MiniSAHA: er is niet gereageerd\";\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1452,7 +1452,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "name": "Overtijd",
-        "func": "var bericht = \"Beste mantelzorger(s), \"+ \n    global.get(\"VoornaamGebruiker\") + \n    \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft alsnog \" + msg.payload + \n    \" geantwoord op de vraag of hij OK was.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")(); \nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "msg.topic = \"MiniSAHA: alsnog op \" + msg.payload + \" gedrukt\";\n\nvar bericht = \"Beste mantelzorger(s), \\n\\n\"+ \n    global.get(\"VoornaamGebruiker\") + \n    \", heeft alsnog \" + msg.payload + \n    \" geantwoord op de vraag of hij OK was.\"\n\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")(); \nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1844,7 +1844,7 @@
         "payload": "Welkom!",
         "payloadType": "str",
         "x": 130,
-        "y": 680,
+        "y": 400,
         "wires": [
             [
                 "5f66bb58047a17de",
@@ -1859,7 +1859,7 @@
         "name": "icons: https://pictogrammers.com/library/mdi/",
         "info": "",
         "x": 210,
-        "y": 800,
+        "y": 520,
         "wires": []
     },
     {
@@ -1882,7 +1882,7 @@
         "to": "",
         "reg": false,
         "x": 880,
-        "y": 680,
+        "y": 400,
         "wires": [
             []
         ]
@@ -1907,7 +1907,7 @@
         "to": "",
         "reg": false,
         "x": 330,
-        "y": 680,
+        "y": 400,
         "wires": [
             [
                 "00e6d8a574603f71"
@@ -2039,7 +2039,7 @@
         "officon": "",
         "offcolor": "",
         "x": 640,
-        "y": 680,
+        "y": 400,
         "wires": [
             [
                 "55d46207a0c02be9",
@@ -2106,7 +2106,7 @@
         "name": "Alarm bericht",
         "label": "",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "layout": "row-left",
         "style": false,
         "font": "",
         "fontSize": 16,
@@ -2115,8 +2115,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 630,
-        "y": 460,
+        "x": 730,
+        "y": 740,
         "wires": []
     },
     {
@@ -2140,7 +2140,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 640,
-        "y": 740,
+        "y": 460,
         "wires": []
     },
     {
@@ -2157,7 +2157,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 740,
+        "y": 460,
         "wires": [
             [
                 "b2ce6b3ac89473bf"
@@ -2177,7 +2177,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 740,
+        "y": 460,
         "wires": [
             [
                 "f720e78159430790"
@@ -2236,11 +2236,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
+        "x": 430,
         "y": 260,
         "wires": [
             [
-                "1c70b188ec53d6ab"
+                "1c70b188ec53d6ab",
+                "0436958281830a8e"
             ]
         ]
     },
@@ -2257,7 +2258,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 680,
+        "y": 400,
         "wires": [
             [
                 "55706aed47335f02"
@@ -2360,10 +2361,14 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 620,
-        "y": 360,
+        "x": 100,
+        "y": 600,
         "wires": [
-            []
+            [
+                "bf9647efa558a7d3",
+                "4b53939b9023b8c0",
+                "848574e93a41e0cc"
+            ]
         ]
     },
     {
@@ -2397,10 +2402,221 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 620,
-        "y": 400,
+        "x": 100,
+        "y": 660,
         "wires": [
-            []
+            [
+                "f84bc5be2fce9d39",
+                "074f5b05354c5090",
+                "848574e93a41e0cc"
+            ]
+        ]
+    },
+    {
+        "id": "229bc4f563105a3f",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "name": "Sleutelbewaarders",
+        "func": "var text = msg.payload;\n\nmsg = {\n    to: global.get(\"EmailSleutelbewaarder1\"),\n    cc: global.get(\"EmailSleutelbewaarder2\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 620,
+        "wires": [
+            [
+                "c519aa60e02572b1"
+            ]
+        ]
+    },
+    {
+        "id": "c519aa60e02572b1",
+        "type": "e-mail",
+        "z": "1e372cb3d08d9182",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "",
+        "x": 790,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "bf9647efa558a7d3",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "name": "Alarm tekst",
+        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen mantelzorgers\"});\n  return;\n}\n\nvar bericht = \"Beste mantelzorger, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" want hij heeft op de Alarm knop gedrukt.\";\n\nif (emailSleutelbewaarder2 != \"\") {\n  bericht = \"Beste eerste Mantelzorger, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") + \n    \" want hij heeft op de noodknop gedrukt.\" +\n    \"\\nStuur ook (via een reply to all) een bericht naar \" +\n    emailSleutelbewaarder2 + \n    \" dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede Mantelzorger,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht hebben ontvangen van de eerste Mantelzorger, neem dan zelf contact op met de gebruiker en laat dat de eerste Mantelzorger ook weten.\"\n}\n\nmsg.topic = \"MiniSAHA: op Alarm knop gedrukt\";\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 600,
+        "wires": [
+            [
+                "229bc4f563105a3f"
+            ]
+        ]
+    },
+    {
+        "id": "f84bc5be2fce9d39",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "name": "Cancel Alarm",
+        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen mantelzorgers\"});\n  return;\n}\n\nvar bericht = \"Beste mantelzorger, \" +\n    \"\\n\\n \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" heeft op Cancel Alarm gedrukt.\";\n\nmsg.topic = \"MiniSAHA: op Cancel Alarm gedrukt\";\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 660,
+        "wires": [
+            [
+                "229bc4f563105a3f"
+            ]
+        ]
+    },
+    {
+        "id": "4b53939b9023b8c0",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "name": "feedback",
+        "func": "msg.payload = global.get(\"getTime\")() + \": Alarm email gestuurd.\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 720,
+        "wires": [
+            [
+                "b81cb7c076621c31"
+            ]
+        ]
+    },
+    {
+        "id": "074f5b05354c5090",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "name": "feedback",
+        "func": "msg.payload = global.get(\"getTime\")() +\": Cancel email gestuurd.\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 780,
+        "wires": [
+            [
+                "b81cb7c076621c31"
+            ]
+        ]
+    },
+    {
+        "id": "f85ce69846f65989",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "name": "clear",
+        "func": "msg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 840,
+        "wires": [
+            [
+                "b81cb7c076621c31"
+            ]
+        ]
+    },
+    {
+        "id": "848574e93a41e0cc",
+        "type": "delay",
+        "z": "1e372cb3d08d9182",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 840,
+        "wires": [
+            [
+                "f85ce69846f65989"
+            ]
+        ]
+    },
+    {
+        "id": "6c02930ddcad9dd8",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "name": "clear",
+        "func": "msg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 320,
+        "wires": [
+            [
+                "1c70b188ec53d6ab"
+            ]
+        ]
+    },
+    {
+        "id": "0436958281830a8e",
+        "type": "delay",
+        "z": "1e372cb3d08d9182",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 510,
+        "y": 320,
+        "wires": [
+            [
+                "6c02930ddcad9dd8"
+            ]
         ]
     },
     {
