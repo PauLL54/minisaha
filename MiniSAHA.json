@@ -1382,7 +1382,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "name": "Niet OK",
-        "func": "var bericht = global.get(\"VoornaamGebruiker\") + \", (\" + global.get(\"EmailGebruiker\") + \")\" +\n    \" heeft NEE geantwoord op de vraag of hij OK was.\"\n\nmsg.topic = \"MiniSAHA: \" + bericht;\n\nmsg.payload = bericht + \n              \"\\nBel hem op nummer: \" +\n              global.get(\"MobielGebruiker\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "msg.topic = \"MiniSAHA: \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" is niet OK\";\n\nvar bericht = \"Beste mantelzorger,\\n\\n\"+\n    global.get(\"VoornaamGebruiker\") + \n    \" heeft NEE geantwoord op de vraag of hij OK was.\"\n\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1844,7 +1844,7 @@
         "payload": "Welkom!",
         "payloadType": "str",
         "x": 130,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "5f66bb58047a17de",
@@ -1859,7 +1859,7 @@
         "name": "icons: https://pictogrammers.com/library/mdi/",
         "info": "",
         "x": 210,
-        "y": 520,
+        "y": 580,
         "wires": []
     },
     {
@@ -1882,7 +1882,7 @@
         "to": "",
         "reg": false,
         "x": 880,
-        "y": 400,
+        "y": 460,
         "wires": [
             []
         ]
@@ -1907,7 +1907,7 @@
         "to": "",
         "reg": false,
         "x": 330,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "00e6d8a574603f71"
@@ -2039,7 +2039,7 @@
         "officon": "",
         "offcolor": "",
         "x": 640,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "55d46207a0c02be9",
@@ -2116,7 +2116,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 730,
-        "y": 740,
+        "y": 800,
         "wires": []
     },
     {
@@ -2140,7 +2140,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 640,
-        "y": 460,
+        "y": 520,
         "wires": []
     },
     {
@@ -2157,7 +2157,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 460,
+        "y": 520,
         "wires": [
             [
                 "b2ce6b3ac89473bf"
@@ -2169,7 +2169,7 @@
         "type": "function",
         "z": "1e372cb3d08d9182",
         "name": "Ja/Nee",
-        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar text = \"FOUT: geen IP adres opgegeven van je mobiel.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    text = isThuis ? \n    \"Mobiel gedetecteerd.\" : \n    \"Mobiel NIET gedetecteerd!\" ;\n}\n\nvar msg = { payload: text };\nnode.status({ text: text });\nreturn msg;\n\n",
+        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    text = isThuis ? \n    \"Mobiel gedetecteerd.\" : \n    \"Mobiel NIET gedetecteerd!\" ;\n}\n\nvar msg = { payload: text };\nnode.status({ text: text });\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2177,7 +2177,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 460,
+        "y": 520,
         "wires": [
             [
                 "f720e78159430790"
@@ -2258,7 +2258,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "55706aed47335f02"
@@ -2362,7 +2362,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 100,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "bf9647efa558a7d3",
@@ -2403,7 +2403,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 100,
-        "y": 660,
+        "y": 720,
         "wires": [
             [
                 "f84bc5be2fce9d39",
@@ -2425,7 +2425,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 620,
+        "y": 680,
         "wires": [
             [
                 "c519aa60e02572b1"
@@ -2446,7 +2446,7 @@
         "name": "",
         "dname": "",
         "x": 790,
-        "y": 620,
+        "y": 680,
         "wires": []
     },
     {
@@ -2462,7 +2462,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "229bc4f563105a3f"
@@ -2482,7 +2482,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 660,
+        "y": 720,
         "wires": [
             [
                 "229bc4f563105a3f"
@@ -2502,7 +2502,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 720,
+        "y": 780,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -2522,7 +2522,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 780,
+        "y": 840,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -2542,7 +2542,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 840,
+        "y": 900,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -2567,7 +2567,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 380,
-        "y": 840,
+        "y": 900,
         "wires": [
             [
                 "f85ce69846f65989"
@@ -2620,27 +2620,27 @@
         ]
     },
     {
-        "id": "2cc45e38e6071359",
+        "id": "d6b298f8ec85d61c",
         "type": "ui-text",
         "z": "1e372cb3d08d9182",
         "group": "4de3d58d68afebf3",
         "order": 8,
-        "width": "0",
-        "height": "0",
+        "width": 0,
+        "height": 0,
         "name": "lege regel",
         "label": "",
         "format": "{{msg.payload}}",
-        "layout": "row-left",
+        "layout": "row-spread",
         "style": false,
         "font": "",
         "fontSize": 16,
         "color": "#717171",
         "wrapText": false,
         "className": "",
-        "value": "payload",
+        "value": "payloads",
         "valueType": "msg",
         "x": 620,
-        "y": 520,
+        "y": 380,
         "wires": []
     },
     {
@@ -3080,7 +3080,7 @@
         "type": "function",
         "z": "5c14e0941d341b42",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>Maak een email adres aan die alleen voor meldingen van deze app gebruikt gaat worden. \" +\n\"Want je wilt voor meldingen een uniek geluid kunnen kiezen.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dat kan je doen door voor dit email adres een andere email app te gebruiken dan de standaard app. \" +\n\"Vervolgens stel je voor deze email app een uniek geluid in.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>Maak een email adres aan die alleen voor meldingen van deze app gebruikt gaat worden. \" +\n\"Want je wilt voor meldingen een uniek geluid kunnen kiezen.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Tip: gebruik op Android geluid: 'Schat'.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dat kan je doen door voor dit email adres een andere email app te gebruiken dan de standaard app. \" +\n\"Vervolgens stel je voor deze email app een uniek geluid in.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3345,8 +3345,8 @@
         "name": "Voornaam gebruiker",
         "label": "Voornaam gebruiker",
         "order": 1,
-        "width": "0",
-        "height": "0",
+        "width": "2",
+        "height": "1",
         "topic": "topic",
         "topicType": "msg",
         "mode": "text",
@@ -3378,7 +3378,7 @@
         "group": "a50d14b208aa0231",
         "name": "Email gebruiker",
         "label": "Email adres gebruiker",
-        "order": 2,
+        "order": 3,
         "width": "4",
         "height": "1",
         "topic": "topic",
@@ -3511,9 +3511,9 @@
         "group": "a50d14b208aa0231",
         "name": "Mobiel gebruiker",
         "label": "06 nummer gebruiker",
-        "order": 4,
-        "width": "0",
-        "height": "0",
+        "order": 2,
+        "width": "3",
+        "height": "1",
         "topic": "topic",
         "topicType": "msg",
         "mode": "text",
@@ -4044,7 +4044,7 @@
         "group": "a50d14b208aa0231",
         "name": "Help Email gebruiker",
         "label": "?",
-        "order": 3,
+        "order": 4,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -4179,8 +4179,8 @@
         "timer": "",
         "oldrc": false,
         "name": "Execute shutdown",
-        "x": 410,
-        "y": 220,
+        "x": 350,
+        "y": 180,
         "wires": [
             [],
             [],
@@ -4198,7 +4198,7 @@
         "timer": "",
         "oldrc": false,
         "name": "Execute restart",
-        "x": 400,
+        "x": 340,
         "y": 300,
         "wires": [
             [],
@@ -4213,14 +4213,14 @@
         "group": "1770a740435c7f75",
         "name": "Shutdown computer",
         "label": "Shutdown",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "emulateClick": false,
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
+        "className": "PowerButton",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -4237,8 +4237,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 200,
-        "y": 220,
+        "x": 140,
+        "y": 180,
         "wires": [
             [
                 "aba5079d86842d48"
@@ -4252,14 +4252,14 @@
         "group": "1770a740435c7f75",
         "name": "Restart computer",
         "label": "Restart",
-        "order": 3,
+        "order": 5,
         "width": 0,
         "height": 0,
         "emulateClick": false,
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
+        "className": "PowerButton",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -4276,7 +4276,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 190,
+        "x": 130,
         "y": 300,
         "wires": [
             [
@@ -4296,6 +4296,30 @@
         "label": "Nadat het systeem uitgeschakeld is, kan je hem weer aan zetten door de voeding los te koppelen en weer aan te sluiten.",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
+        "style": true,
+        "font": "",
+        "fontSize": "18",
+        "color": "#ffffff",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 90,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "28dbad54dd69a6c7",
+        "type": "ui-text",
+        "z": "805ca89d3f050d7e",
+        "group": "1770a740435c7f75",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
         "style": false,
         "font": "",
         "fontSize": 16,
@@ -4304,8 +4328,56 @@
         "className": "",
         "value": "payloads",
         "valueType": "msg",
-        "x": 170,
+        "x": 100,
         "y": 120,
+        "wires": []
+    },
+    {
+        "id": "55efa9814ea24de9",
+        "type": "ui-template",
+        "z": "805ca89d3f050d7e",
+        "group": "",
+        "page": "d0f6689a06670cb7",
+        "ui": "",
+        "name": "CSS button",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": ".PowerButton button {\n    font-size: 1.5em;\n}\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "page:style",
+        "className": "",
+        "x": 110,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5ee3435a600772f9",
+        "type": "ui-text",
+        "z": "805ca89d3f050d7e",
+        "group": "1770a740435c7f75",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 100,
+        "y": 240,
         "wires": []
     },
     {
@@ -4697,7 +4769,7 @@
         "group": "adc719ee09b9438b",
         "name": "Update",
         "label": "Update",
-        "order": 7,
+        "order": 6,
         "width": 0,
         "height": 0,
         "emulateClick": false,
@@ -4738,19 +4810,19 @@
         "width": 0,
         "height": 0,
         "name": "About",
-        "label": "De MiniSAHA app is bedoeld voor de alleenstaande oudere. Met deze app kan je instellen hoe laat je een melding wilt ontvangen op je telefoon om te controleren of het goed met je gaat. Mocht je niet binnen een bepaalde tijd reageren, dan ontvangt een andere persoon (met huissleutel) een email met de vraag om te kijken hoe het met je gaat.",
+        "label": "De MiniSAHA app is bedoeld voor de alleenstaande oudere. Met deze app kan je instellen hoe laat je een melding wilt ontvangen op je telefoon om te controleren of het goed met je gaat. Mocht je niet binnen een bepaalde tijd reageren, dan ontvangt een andere persoon een email met de vraag om te kijken hoe het met je gaat.",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "style": false,
+        "style": true,
         "font": "",
-        "fontSize": 16,
-        "color": "#717171",
+        "fontSize": "18",
+        "color": "#ffffff",
         "wrapText": false,
         "className": "",
         "value": "payload",
         "valueType": "msg",
         "x": 610,
-        "y": 40,
+        "y": 60,
         "wires": []
     },
     {
@@ -4764,7 +4836,7 @@
         "name": "Versie",
         "label": "",
         "format": "{{msg.payload}}",
-        "layout": "row-left",
+        "layout": "row-center",
         "style": false,
         "font": "",
         "fontSize": 16,
@@ -4786,9 +4858,9 @@
         "width": 0,
         "height": 0,
         "name": "Auteur",
-        "label": "Geimplementeerd door de Digidokters SONENBREUGELVERBINDT.",
+        "label": "Digidokters SONENBREUGELVERBINDT",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "layout": "row-center",
         "style": false,
         "font": "",
         "fontSize": 16,
@@ -4894,7 +4966,7 @@
         "type": "ui-text",
         "z": "af31bf2fe058f803",
         "group": "adc719ee09b9438b",
-        "order": 8,
+        "order": 7,
         "width": 0,
         "height": 0,
         "name": "Update msg",
@@ -5282,107 +5354,16 @@
         "order": 3,
         "width": "3",
         "height": "3",
-        "format": "<div style=\"text-align:center;\">\n    <img src=\"http://127.0.0.0:1880/images/Logo.png\" \n         style=\"max-width:40%; height:auto;\" />\n</div>",
+        "format": "<template>\n    <div style=\"text-align:center;\">\n        <img src=\"/logo\" \n             style=\"max-width:40%; height:auto;\" />\n    </div>\n</template>\n",
         "storeOutMessages": true,
         "passthru": true,
         "templateScope": "local",
         "className": "",
         "x": 650,
-        "y": 160,
+        "y": 180,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "http_in",
-        "type": "http in",
-        "z": "af31bf2fe058f803",
-        "name": "get",
-        "url": "/images/Logo.png",
-        "method": "get",
-        "upload": false,
-        "skipBodyParsing": false,
-        "swaggerDoc": "",
-        "x": 190,
-        "y": 160,
-        "wires": [
-            [
-                "file_in"
-            ]
-        ]
-    },
-    {
-        "id": "file_in",
-        "type": "file in",
-        "z": "af31bf2fe058f803",
-        "name": "filename",
-        "filename": "/home/pi/.node-red/projects/MiniSAHA/Logo.png",
-        "filenameType": "str",
-        "format": "",
-        "allProps": false,
-        "x": 320,
-        "y": 160,
-        "wires": [
-            [
-                "http_response"
-            ]
-        ]
-    },
-    {
-        "id": "http_response",
-        "type": "http response",
-        "z": "af31bf2fe058f803",
-        "x": 450,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "0ba4fb53b2295e43",
-        "type": "ui-text",
-        "z": "af31bf2fe058f803",
-        "group": "adc719ee09b9438b",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "lege regel",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payloads",
-        "valueType": "msg",
-        "x": 620,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "2d1123c7d83fdc23",
-        "type": "ui-text",
-        "z": "af31bf2fe058f803",
-        "group": "adc719ee09b9438b",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "lege regel",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payloads",
-        "valueType": "msg",
-        "x": 620,
-        "y": 220,
-        "wires": []
     },
     {
         "id": "477a82641741c1d2",
@@ -5487,6 +5468,79 @@
         "statusType": "auto",
         "x": 280,
         "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b66ec02ddb299fb9",
+        "type": "http in",
+        "z": "af31bf2fe058f803",
+        "name": "Get",
+        "url": "/logo",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "8ce06555f0c049ea"
+            ]
+        ]
+    },
+    {
+        "id": "8ce06555f0c049ea",
+        "type": "file in",
+        "z": "af31bf2fe058f803",
+        "name": "path Logo",
+        "filename": "/home/pi/.node-red/projects/MiniSAHA/Logo.png",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 300,
+        "y": 180,
+        "wires": [
+            [
+                "8d1f7a72eda8b85e"
+            ]
+        ]
+    },
+    {
+        "id": "8d1f7a72eda8b85e",
+        "type": "http response",
+        "z": "af31bf2fe058f803",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 430,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "89c7af3d87bd6dfe",
+        "type": "ui-text",
+        "z": "af31bf2fe058f803",
+        "group": "adc719ee09b9438b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 620,
+        "y": 120,
         "wires": []
     },
     {
