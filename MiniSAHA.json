@@ -1516,7 +1516,7 @@
         "op2type": "str",
         "duration": "5",
         "extend": false,
-        "overrideDelay": false,
+        "overrideDelay": true,
         "units": "min",
         "reset": "",
         "bytopic": "all",
@@ -1740,6 +1740,37 @@
         "broker": "0839f7b4c0cbb0a8",
         "x": 770,
         "y": 560,
+        "wires": []
+    },
+    {
+        "id": "1cbae632c31ff2b0",
+        "type": "mqtt in",
+        "z": "a380efb730bea147",
+        "name": "",
+        "topic": "HerinneringChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 500,
+        "wires": [
+            [
+                "97cd5aa2eb055baf"
+            ]
+        ]
+    },
+    {
+        "id": "3ff757892e808eec",
+        "type": "comment",
+        "z": "a380efb730bea147",
+        "name": "Luidspreker",
+        "info": "",
+        "x": 770,
+        "y": 680,
         "wires": []
     },
     {
@@ -3892,7 +3923,8 @@
         "y": 1160,
         "wires": [
             [
-                "f487e19abb196edc"
+                "f487e19abb196edc",
+                "3d702f0ad5e3389a"
             ]
         ]
     },
@@ -4135,7 +4167,7 @@
         "type": "function",
         "z": "5c14e0941d341b42",
         "name": "set InitTijdOK",
-        "func": "flow.set(\"InitTijdOK\", msg.payload);\nreturn msg;",
+        "func": "if (msg.payload == null) msg.payload = \"09:00\";\nflow.set(\"InitTijdOK\", msg.payload);\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4167,6 +4199,24 @@
                 "4a202b76747eac9b"
             ]
         ]
+    },
+    {
+        "id": "3d702f0ad5e3389a",
+        "type": "mqtt out",
+        "z": "5c14e0941d341b42",
+        "name": "",
+        "topic": "HerinneringChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 820,
+        "y": 1220,
+        "wires": []
     },
     {
         "id": "aba5079d86842d48",
