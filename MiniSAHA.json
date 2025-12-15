@@ -2675,6 +2675,68 @@
         "wires": []
     },
     {
+        "id": "bd60c97adc37bf3b",
+        "type": "ui-control",
+        "z": "1e372cb3d08d9182",
+        "name": "",
+        "ui": "6c1d30b5f16932dd",
+        "events": "all",
+        "x": 660,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "79cda76e1cdcc076",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "name": "set page Instellingen",
+        "func": "msg.payload = \"Instellingen\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 980,
+        "wires": [
+            [
+                "bd60c97adc37bf3b"
+            ]
+        ]
+    },
+    {
+        "id": "7e2f3d7baaebee6d",
+        "type": "inject",
+        "z": "1e372cb3d08d9182",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 980,
+        "wires": [
+            [
+                "79cda76e1cdcc076"
+            ]
+        ]
+    },
+    {
         "id": "dba3182f449692bb",
         "type": "change",
         "z": "5c14e0941d341b42",
@@ -5592,6 +5654,35 @@
         "x": 620,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "303fedb30576538b",
+        "type": "inject",
+        "z": "af31bf2fe058f803",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 380,
+        "wires": [
+            [
+                "4d1dba90ae296567"
+            ]
+        ]
     },
     {
         "id": "5624329dd5cb5b0a",
