@@ -64,14 +64,6 @@
         "env": []
     },
     {
-        "id": "57f1a56696ebb92a",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "bd2a966b.302e18",
         "type": "subflow",
         "name": "CheckIsAtHome",
@@ -6550,7 +6542,7 @@
         "z": "eb60a9ea21d42f29",
         "group": "b71c0e77d9debcfd",
         "name": "Bluetooth",
-        "label": "Scan en Pair Bluetooth speaker",
+        "label": "Verbind speaker",
         "order": 9,
         "width": 0,
         "height": 0,
@@ -6575,12 +6567,10 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 100,
-        "y": 1140,
+        "x": 120,
+        "y": 1100,
         "wires": [
-            [
-                "110bdf4034e3ab4f"
-            ]
+            []
         ]
     },
     {
