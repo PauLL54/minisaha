@@ -6533,11 +6533,10 @@
         "oldrc": false,
         "name": "Scan",
         "x": 250,
-        "y": 1080,
+        "y": 1360,
         "wires": [
             [
-                "2af38ce51395b9c9",
-                "09627144b1c29332"
+                "2af38ce51395b9c9"
             ],
             [
                 "8f3165806354c545"
@@ -6551,7 +6550,7 @@
         "z": "eb60a9ea21d42f29",
         "group": "b71c0e77d9debcfd",
         "name": "Bluetooth",
-        "label": "Bluetooth scan",
+        "label": "Scan en Pair Bluetooth speaker",
         "order": 9,
         "width": 0,
         "height": 0,
@@ -6577,11 +6576,10 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 100,
-        "y": 1080,
+        "y": 1140,
         "wires": [
             [
-                "03a42d264b339cc7",
-                "16e8314d67b36854"
+                "110bdf4034e3ab4f"
             ]
         ]
     },
@@ -6590,7 +6588,7 @@
         "type": "function",
         "z": "eb60a9ea21d42f29",
         "name": "mac",
-        "func": "let nameSpeaker = global.get(\"BluetoothName\");\nmsg.payload = msg.payload.split('\\n').slice(1).join('\\n');\n\nlet parsed = parseBluetoothLine(msg.payload);\nnode.status({ text: \"name: \" + parsed.name });\n\nif (parsed == null || \n    !parsed.name.toLowerCase().includes(nameSpeaker.toLowerCase())) {\n    msg.payload = \"Geen speaker gevonden: \" + nameSpeaker;\n}\nelse {\n    msg.payload = parsed.mac;\n}\n\nfunction parseBluetoothLine(line) {\n    // Trim whitespace\n    const cleaned = line.trim();\n\n    // Regex voor een geldig MAC-adres\n    const macRegex = /^([0-9A-F]{2}:){5}[0-9A-F]{2}$/i;\n\n    // Split op whitespace (tabs/spaties)\n    const parts = cleaned.split(/\\s+/);\n\n    // Eerste deel moet een MAC-adres zijn, anders is het geen device-regel\n    if (!macRegex.test(parts[0])) {\n        return null; // \"Scanning ...\" of andere ruis\n    }\n\n    const mac = parts[0];\n    const name = parts.slice(1).join(\" \");\n\n    return { mac, name };\n}\n\nreturn msg;\n\n\n\n\n/*\n    // Trim whitespace (tabs, newlines, spaces)\n    const cleaned = msg.payload.trim();\n\n    // Split op één of meer whitespace (tabs/spaces)\n    const parts = cleaned.split(/\\s+/);\n\n    // Eerste deel = MAC, rest = naam\n    var mac = parts[0];\n    var name = parts.slice(1).join(\" \");\n\nif (mac == \"Scanning\") {\n    mac = \"geen speaker gevonden\";\n}\nmsg.payload = \" \" + mac;\n\nreturn msg;\n*/",
+        "func": "node.status({ text: \"parsing\" });\n\nlet nameSpeaker = global.get(\"BluetoothName\");\n\n// remove first line(s):\nmsg.payload = msg.payload.split('\\n').slice(1).join('\\n');\n\nif (msg.payload.includes(\"Scanning\"))\n    msg.payload = msg.payload.split('\\n').slice(1).join('\\n');\n\nlet parsed = parseBluetoothLine(msg.payload);\nif (parsed == null || parsed.name == \"\") {\n    msg.payload = \"Geen speaker gevonden: \" + nameSpeaker;\n    node.status({ text: msg.pauload });\n    return msg;\n}\n\nif (!parsed.name.toLowerCase().includes(nameSpeaker.toLowerCase())) {\n    msg.payload = \"Geen speaker gevonden: \" + nameSpeaker;\n    node.status({ text: \"Geen speaker gevonden: \" + parsed.name + \". Probeer nog eens.\"});\n}\nelse {\n    global.set(\"BluetoothMac\", parsed.mac);\n    msg.payload = parsed.mac + \" \" + parsed.name;\n    node.status({ text: \"Gevonden: \" + parsed.name });\n}\nreturn msg;\n\n\nfunction parseBluetoothLine(line) {\n    // Trim whitespace\n    const cleaned = line.trim();\n\n    // Regex voor een geldig MAC-adres\n    const macRegex = /^([0-9A-F]{2}:){5}[0-9A-F]{2}$/i;\n\n    // Split op whitespace (tabs/spaties)\n    const parts = cleaned.split(/\\s+/);\n\n    // Eerste deel moet een MAC-adres zijn, anders is het geen device-regel\n    if (!macRegex.test(parts[0])) {\n        node.status({ text: \"parsing5\" });\n        return null; // \"Scanning ...\" of andere ruis\n    }\n\n    const mac = parts[0];\n    const name = parts.slice(1).join(\" \");\n\n    return { mac, name };\n}\n\n\n\n\n\n/*\n    // Trim whitespace (tabs, newlines, spaces)\n    const cleaned = msg.payload.trim();\n\n    // Split op één of meer whitespace (tabs/spaces)\n    const parts = cleaned.split(/\\s+/);\n\n    // Eerste deel = MAC, rest = naam\n    var mac = parts[0];\n    var name = parts.slice(1).join(\" \");\n\nif (mac == \"Scanning\") {\n    mac = \"geen speaker gevonden\";\n}\nmsg.payload = \" \" + mac;\n\nreturn msg;\n*/",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6598,11 +6596,10 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 1040,
+        "y": 1320,
         "wires": [
             [
-                "28a6aa2dcc9a5975",
-                "fcd1b9dc67e39a1c"
+                "28a6aa2dcc9a5975"
             ]
         ]
     },
@@ -6626,15 +6623,15 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 730,
-        "y": 1100,
+        "x": 650,
+        "y": 1160,
         "wires": []
     },
     {
         "id": "16e8314d67b36854",
         "type": "function",
         "z": "eb60a9ea21d42f29",
-        "name": "clear",
+        "name": "Scanning...",
         "func": "msg.payload = \" Scanning ...\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -6642,12 +6639,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 1140,
+        "x": 290,
+        "y": 1420,
         "wires": [
-            [
-                "fcd1b9dc67e39a1c"
-            ]
+            []
         ]
     },
     {
@@ -6659,7 +6654,7 @@
         "width": 0,
         "height": 0,
         "name": "Zet speaker aan",
-        "label": "Zet Bluetooth speaker eerst aan!",
+        "label": "Zet speaker aan en druk gelijk op Scan en Pair",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": false,
@@ -6670,8 +6665,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 760,
-        "y": 1060,
+        "x": 680,
+        "y": 1100,
         "wires": []
     },
     {
@@ -6694,8 +6689,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 750,
-        "y": 1020,
+        "x": 670,
+        "y": 1060,
         "wires": []
     },
     {
@@ -6711,11 +6706,9 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 1100,
+        "y": 1380,
         "wires": [
-            [
-                "fcd1b9dc67e39a1c"
-            ]
+            []
         ]
     },
     {
@@ -6736,10 +6729,10 @@
         "allowrate": false,
         "outputs": 1,
         "x": 570,
-        "y": 1040,
+        "y": 1320,
         "wires": [
             [
-                "fcd1b9dc67e39a1c"
+                "3051b7fc1269ac68"
             ]
         ]
     },
@@ -6869,7 +6862,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
+        "x": 120,
         "y": 920,
         "wires": [
             [
@@ -6889,9 +6882,197 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
-        "y": 1160,
+        "x": 580,
+        "y": 1240,
         "wires": []
+    },
+    {
+        "id": "3ee7ceaf52f74dd6",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "rfkill list; sudo rfkill unblock bluetooth",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Power on",
+        "x": 280,
+        "y": 1260,
+        "wires": [
+            [
+                "03a42d264b339cc7"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4a9632cf0aa0e66d",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Pair",
+        "x": 410,
+        "y": 1500,
+        "wires": [
+            [
+                "80ca0a7afb2af87e"
+            ],
+            [
+                "80ca0a7afb2af87e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3051b7fc1269ac68",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "Pair",
+        "func": "msg.payload =\n    'echo -e \"power on' + \n    '\\npair ' + global.get(\"BluetoothMac\") + \n    '\\ntrust ' + global.get(\"BluetoothMac\") + \n    '\\nconnect ' + global.get(\"BluetoothMac\") + '\" | bluetoothctl';\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 1500,
+        "wires": [
+            [
+                "4a9632cf0aa0e66d",
+                "58077e6a35baf0a5"
+            ]
+        ]
+    },
+    {
+        "id": "80ca0a7afb2af87e",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "58077e6a35baf0a5",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "0ad586e68ebf9dbc",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "name": "OnStart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 460,
+        "y": 1440,
+        "wires": [
+            [
+                "a510652f2413734a"
+            ]
+        ]
+    },
+    {
+        "id": "a510652f2413734a",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "Clear",
+        "func": "msg.payload = \" \";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 1440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "626453ea1608d365",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": ".node-red/projects/MiniSAHA/bluetooth.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Connect",
+        "x": 380,
+        "y": 1140,
+        "wires": [
+            [
+                "09627144b1c29332"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "110bdf4034e3ab4f",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "Get name",
+        "func": "msg.payload = global.get(\"BluetoothName\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1140,
+        "wires": [
+            [
+                "626453ea1608d365"
+            ]
+        ]
     },
     {
         "id": "inject-mac",
