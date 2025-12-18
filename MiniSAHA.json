@@ -56,6 +56,22 @@
         "env": []
     },
     {
+        "id": "ce724907bfebf75c",
+        "type": "tab",
+        "label": "Bluetooth",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "57f1a56696ebb92a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "bd2a966b.302e18",
         "type": "subflow",
         "name": "CheckIsAtHome",
@@ -1561,7 +1577,7 @@
         "scope": null,
         "uncaught": false,
         "x": 280,
-        "y": 920,
+        "y": 960,
         "wires": [
             [
                 "c62f2246190847d4",
@@ -1584,7 +1600,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 750,
-        "y": 980,
+        "y": 1040,
         "wires": []
     },
     {
@@ -1602,7 +1618,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 770,
-        "y": 920,
+        "y": 980,
         "wires": []
     },
     {
@@ -1692,7 +1708,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 860,
+        "y": 920,
         "wires": [
             [
                 "4f39baa7dbd5d547"
@@ -1717,7 +1733,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 580,
-        "y": 860,
+        "y": 920,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -1772,6 +1788,55 @@
         "x": 770,
         "y": 680,
         "wires": []
+    },
+    {
+        "id": "da8fec47862aa2f5",
+        "type": "inject",
+        "z": "a380efb730bea147",
+        "name": "Weekly",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 12 * * 0",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 860,
+        "wires": [
+            [
+                "cfa6b22427e3edc3"
+            ]
+        ]
+    },
+    {
+        "id": "cfa6b22427e3edc3",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "name": "MiniSAHA actief",
+        "func": "msg.topic = \"MiniSAHA: nog steeds actief bij \" + global.get(\"VoornaamGebruiker\");\n\nmsg.payload = \"Beste mantelzorger,\\n\\n\" + \n  \"Eens per week wordt dit bericht naar je gestuurd.\\n\" + \n  \"Zo weet je dat het MiniSAHA systeem nog steeds actief is bij \" + \n  global.get(\"VoornaamGebruiker\") + \".\\n\\n\" +\n\" Mocht je dit bericht niet meer ontvangen op zondag rond 12:00, neem dan contact op met hem.\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 860,
+        "wires": [
+            [
+                "0d0b3ee379dc41b0"
+            ]
+        ]
     },
     {
         "id": "86d57ce8cd9b65da",
@@ -3059,7 +3124,6 @@
         "y": 820,
         "wires": [
             [
-                "0d14b59266171697",
                 "655933cca9c65716"
             ]
         ]
@@ -4236,10 +4300,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
+        "x": 260,
         "y": 860,
         "wires": [
-            []
+            [
+                "0d14b59266171697"
+            ]
         ]
     },
     {
@@ -5121,15 +5187,15 @@
         "id": "07af420f98d0e89a",
         "type": "exec",
         "z": "af31bf2fe058f803",
-        "command": "sudo systemctl restart nodered.service&",
+        "command": "sudo reboot",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "Restart node-red",
-        "x": 710,
+        "name": "Reboot",
+        "x": 680,
         "y": 1000,
         "wires": [
             [
@@ -5682,6 +5748,26 @@
             [
                 "4d1dba90ae296567"
             ]
+        ]
+    },
+    {
+        "id": "2888205ab81df7ad",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "command": "npm install @flowfuse/node-red-dashboard@latest",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "install dashboard@latest",
+        "x": 410,
+        "y": 1100,
+        "wires": [
+            [],
+            [],
+            []
         ]
     },
     {
@@ -6431,6 +6517,552 @@
         "wires": [
             [
                 "d583ac186ef8a881"
+            ]
+        ]
+    },
+    {
+        "id": "03a42d264b339cc7",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "sudo hcitool scan",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Scan",
+        "x": 250,
+        "y": 1080,
+        "wires": [
+            [
+                "2af38ce51395b9c9",
+                "09627144b1c29332"
+            ],
+            [
+                "8f3165806354c545"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "dd6bc6bc886f7c69",
+        "type": "ui-button",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "name": "Bluetooth",
+        "label": "Bluetooth scan",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "buttonupdate",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 100,
+        "y": 1080,
+        "wires": [
+            [
+                "03a42d264b339cc7",
+                "16e8314d67b36854"
+            ]
+        ]
+    },
+    {
+        "id": "2af38ce51395b9c9",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "mac",
+        "func": "let nameSpeaker = global.get(\"BluetoothName\");\nmsg.payload = msg.payload.split('\\n').slice(1).join('\\n');\n\nlet parsed = parseBluetoothLine(msg.payload);\nnode.status({ text: \"name: \" + parsed.name });\n\nif (parsed == null || \n    !parsed.name.toLowerCase().includes(nameSpeaker.toLowerCase())) {\n    msg.payload = \"Geen speaker gevonden: \" + nameSpeaker;\n}\nelse {\n    msg.payload = parsed.mac;\n}\n\nfunction parseBluetoothLine(line) {\n    // Trim whitespace\n    const cleaned = line.trim();\n\n    // Regex voor een geldig MAC-adres\n    const macRegex = /^([0-9A-F]{2}:){5}[0-9A-F]{2}$/i;\n\n    // Split op whitespace (tabs/spaties)\n    const parts = cleaned.split(/\\s+/);\n\n    // Eerste deel moet een MAC-adres zijn, anders is het geen device-regel\n    if (!macRegex.test(parts[0])) {\n        return null; // \"Scanning ...\" of andere ruis\n    }\n\n    const mac = parts[0];\n    const name = parts.slice(1).join(\" \");\n\n    return { mac, name };\n}\n\nreturn msg;\n\n\n\n\n/*\n    // Trim whitespace (tabs, newlines, spaces)\n    const cleaned = msg.payload.trim();\n\n    // Split op één of meer whitespace (tabs/spaces)\n    const parts = cleaned.split(/\\s+/);\n\n    // Eerste deel = MAC, rest = naam\n    var mac = parts[0];\n    var name = parts.slice(1).join(\" \");\n\nif (mac == \"Scanning\") {\n    mac = \"geen speaker gevonden\";\n}\nmsg.payload = \" \" + mac;\n\nreturn msg;\n*/",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 1040,
+        "wires": [
+            [
+                "28a6aa2dcc9a5975",
+                "fcd1b9dc67e39a1c"
+            ]
+        ]
+    },
+    {
+        "id": "fcd1b9dc67e39a1c",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "Mac ",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 730,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "16e8314d67b36854",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "clear",
+        "func": "msg.payload = \" Scanning ...\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 1140,
+        "wires": [
+            [
+                "fcd1b9dc67e39a1c"
+            ]
+        ]
+    },
+    {
+        "id": "561b31480f3dfcd2",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "Zet speaker aan",
+        "label": "Zet Bluetooth speaker eerst aan!",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 760,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "46c9ddd5191b8738",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "empty line",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 750,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "8f3165806354c545",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "fout",
+        "func": "msg.payload = \"Fout: is de speaker aan?\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 1100,
+        "wires": [
+            [
+                "fcd1b9dc67e39a1c"
+            ]
+        ]
+    },
+    {
+        "id": "28a6aa2dcc9a5975",
+        "type": "delay",
+        "z": "eb60a9ea21d42f29",
+        "name": "delay",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 1040,
+        "wires": [
+            [
+                "fcd1b9dc67e39a1c"
+            ]
+        ]
+    },
+    {
+        "id": "f44dfdb82dc5c7b5",
+        "type": "ui-text-input",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "name": "Naam Bluetooth speaker",
+        "label": "Naam Bluetooth speaker bevat",
+        "order": 7,
+        "width": "4",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": "500",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": false,
+        "sendOnEnter": false,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 490,
+        "y": 980,
+        "wires": [
+            [
+                "c37ad7e7cb744576"
+            ]
+        ]
+    },
+    {
+        "id": "c37ad7e7cb744576",
+        "type": "change",
+        "z": "eb60a9ea21d42f29",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "BluetoothName",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "364806660f4b7812",
+        "type": "change",
+        "z": "eb60a9ea21d42f29",
+        "name": "BluetoothName",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "BluetoothName",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 120,
+        "y": 980,
+        "wires": [
+            [
+                "c870a55735bf0aa7"
+            ]
+        ]
+    },
+    {
+        "id": "c870a55735bf0aa7",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "init",
+        "func": "if (!msg.payload || msg.payload.trim() === \"\" ) \n    msg.payload = \"Speaker\";\n\nglobal.set(\"BluetoothName\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 980,
+        "wires": [
+            [
+                "f44dfdb82dc5c7b5"
+            ]
+        ]
+    },
+    {
+        "id": "60b5cbb3f2f21686",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "name": "OnStart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 920,
+        "wires": [
+            [
+                "364806660f4b7812"
+            ]
+        ]
+    },
+    {
+        "id": "09627144b1c29332",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "inject-mac",
+        "type": "inject",
+        "z": "ce724907bfebf75c",
+        "name": "Start pairing",
+        "props": [
+            {
+                "p": "mac",
+                "v": "XX:XX:XX:XX:XX:XX",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "pair-seq"
+            ]
+        ]
+    },
+    {
+        "id": "pair-seq",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "Build bluetoothctl script",
+        "func": "msg.payload = `power on\nagent on\ndefault-agent\nscan on\npair ${msg.mac}\ntrust ${msg.mac}\nconnect ${msg.mac}\nscan off\nquit`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "exec-bluetooth"
+            ]
+        ]
+    },
+    {
+        "id": "exec-bluetooth",
+        "type": "exec",
+        "z": "ce724907bfebf75c",
+        "command": "bluetoothctl",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Run bluetoothctl",
+        "x": 620,
+        "y": 80,
+        "wires": [
+            [
+                "debug-out"
+            ],
+            [
+                "debug-out"
+            ],
+            [
+                "debug-out"
+            ]
+        ]
+    },
+    {
+        "id": "debug-out",
+        "type": "debug",
+        "z": "ce724907bfebf75c",
+        "name": "Output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9fd7b0d172db68a4",
+        "type": "inject",
+        "z": "ce724907bfebf75c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "adcfb6c9b0f4bde4"
+            ]
+        ]
+    },
+    {
+        "id": "99f7746e7dfb7f26",
+        "type": "exec",
+        "z": "ce724907bfebf75c",
+        "command": "sudo hcitool scan | grep Speaker",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 600,
+        "y": 180,
+        "wires": [
+            [
+                "0fa2590b74e365cd"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0fa2590b74e365cd",
+        "type": "debug",
+        "z": "ce724907bfebf75c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "adcfb6c9b0f4bde4",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "Build bluetoothctl script",
+        "func": "msg.payload = `power on\nagent on\ndefault-agent\nscan on\ndevices\nquit`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "99f7746e7dfb7f26"
             ]
         ]
     }
