@@ -1320,7 +1320,8 @@
         "y": 360,
         "wires": [
             [
-                "72150be82696bdfc"
+                "72150be82696bdfc",
+                "313cf387f324c108"
             ]
         ]
     },
@@ -1918,6 +1919,39 @@
         "wires": [
             [
                 "0d0b3ee379dc41b0"
+            ]
+        ]
+    },
+    {
+        "id": "77aa1d93b953c278",
+        "type": "ui-control",
+        "z": "a380efb730bea147",
+        "name": "",
+        "ui": "6c1d30b5f16932dd",
+        "events": "all",
+        "x": 760,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "313cf387f324c108",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "name": "set page Favoriet",
+        "func": "if (global.get(\"JaFavoriet\") === true) {\n    msg.payload = \"Favoriet\";\n    node.status({ text: \"Favoriet\" });\n    return msg;\n}\nelse \n    return null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 460,
+        "wires": [
+            [
+                "77aa1d93b953c278"
             ]
         ]
     },
@@ -3444,7 +3478,8 @@
             "5c2edaa6489039d0",
             "26417c5cfef73e15",
             "bdebfa0f1e99fc2e",
-            "a0c6644cc6697a01"
+            "a0c6644cc6697a01",
+            "28dea8812b21d550"
         ],
         "x": 225,
         "y": 40,
@@ -4506,8 +4541,8 @@
         "name": "Favoriet",
         "label": "Favoriete website",
         "order": 16,
-        "width": "0",
-        "height": "0",
+        "width": "4",
+        "height": "1",
         "topic": "topic",
         "topicType": "msg",
         "mode": "text",
@@ -4569,6 +4604,108 @@
         "x": 810,
         "y": 1360,
         "wires": []
+    },
+    {
+        "id": "8928742cb3e0322b",
+        "type": "ui-switch",
+        "z": "5c14e0941d341b42",
+        "name": "",
+        "label": "JA",
+        "group": "a50d14b208aa0231",
+        "order": 17,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 430,
+        "y": 1420,
+        "wires": [
+            [
+                "a6bd0970b812f6ca"
+            ]
+        ]
+    },
+    {
+        "id": "a6bd0970b812f6ca",
+        "type": "change",
+        "z": "5c14e0941d341b42",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "JaFavoriet",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 1420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4829a44abc3c757b",
+        "type": "change",
+        "z": "5c14e0941d341b42",
+        "name": "Favoriet",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Favoriet",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 140,
+        "y": 1420,
+        "wires": [
+            [
+                "8928742cb3e0322b"
+            ]
+        ]
+    },
+    {
+        "id": "28dea8812b21d550",
+        "type": "link in",
+        "z": "5c14e0941d341b42",
+        "name": "OnStartup",
+        "links": [
+            "4abb19d96b88ba67"
+        ],
+        "x": 35,
+        "y": 1420,
+        "wires": [
+            [
+                "4829a44abc3c757b"
+            ]
+        ]
     },
     {
         "id": "5a792b79ee924fcc",
