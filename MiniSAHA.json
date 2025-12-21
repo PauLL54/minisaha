@@ -4693,13 +4693,13 @@
         "id": "4829a44abc3c757b",
         "type": "change",
         "z": "5c14e0941d341b42",
-        "name": "Favoriet",
+        "name": "JaFavoriet",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "Favoriet",
+                "to": "JaFavoriet",
                 "tot": "global"
             }
         ],
@@ -4708,7 +4708,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 140,
+        "x": 150,
         "y": 1420,
         "wires": [
             [
@@ -4744,7 +4744,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
+        "x": 290,
         "y": 1440,
         "wires": [
             [
