@@ -4712,7 +4712,7 @@
         "y": 1420,
         "wires": [
             [
-                "8928742cb3e0322b"
+                "462df61b5a68b62c"
             ]
         ]
     },
@@ -4729,6 +4729,26 @@
         "wires": [
             [
                 "4829a44abc3c757b"
+            ]
+        ]
+    },
+    {
+        "id": "462df61b5a68b62c",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "name": "true",
+        "func": "if (msg.payload == null) \n    msg.payload = true;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 1440,
+        "wires": [
+            [
+                "8928742cb3e0322b"
             ]
         ]
     },
