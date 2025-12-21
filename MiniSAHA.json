@@ -5578,7 +5578,7 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "cp -f version.txt MiniSAHA_cred.json MiniSAHA.json Logo.png bluetooth.py .node-red/projects/MiniSAHA",
+        "command": "cp -f version.txt version_test.txt  MiniSAHA_cred.json MiniSAHA.json Logo.png bluetooth.py .node-red/projects/MiniSAHA",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -5590,7 +5590,7 @@
         "y": 1180,
         "wires": [
             [
-                "2888205ab81df7ad"
+                "07af420f98d0e89a"
             ],
             [],
             []
@@ -5969,7 +5969,7 @@
         "oldrc": false,
         "name": "install dashboard@latest",
         "x": 530,
-        "y": 1180,
+        "y": 1220,
         "wires": [
             [
                 "07af420f98d0e89a"
