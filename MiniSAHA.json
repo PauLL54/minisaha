@@ -24,22 +24,6 @@
         "env": []
     },
     {
-        "id": "805ca89d3f050d7e",
-        "type": "tab",
-        "label": "UI_Power",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "672443afdce2e6a4",
-        "type": "tab",
-        "label": "UI_Thuis?",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "af31bf2fe058f803",
         "type": "tab",
         "label": "UI_About",
@@ -59,6 +43,14 @@
         "id": "ce724907bfebf75c",
         "type": "tab",
         "label": "Bluetooth",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "823fac899a3ba496",
+        "type": "tab",
+        "label": "Favoriet",
         "disabled": false,
         "info": "",
         "env": []
@@ -226,6 +218,105 @@
         }
     },
     {
+        "id": "6bde74f61fffc171",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "9c9d4e18a631cc15",
+            "6ccc00486baecf9d",
+            "ebd1eb7739312b3d",
+            "1029c725dc625feb",
+            "849129e5cd170f06",
+            "30a234133bcbd597",
+            "fa66a05f8c746a83",
+            "b0067e5db1bb638b",
+            "3758cdea9d5d1d01",
+            "61806882e2c16761",
+            "728339c56b6087ec"
+        ],
+        "x": 24,
+        "y": 599,
+        "w": 932,
+        "h": 262
+    },
+    {
+        "id": "289d8e4b5f966496",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "5624329dd5cb5b0a",
+            "ac6f3d5c09bce733",
+            "29faaa6a019e0e9b",
+            "6f0b74ba5a27cc3e",
+            "2c5db89378881214",
+            "97382ae72dc98a86",
+            "2d76e161b54a56ff",
+            "8d171fe450c7a81f",
+            "148566cf72b33e1a",
+            "98ddd266a3e4c998",
+            "bce54c96101eb7b7",
+            "db6b4ac55c770429",
+            "aefcaf0124832705",
+            "59d5c77dc1dc2a60",
+            "ca12465c285a07be",
+            "6cdb9cd1a55cd9dd",
+            "5fe7d4a09964b635",
+            "82ea9c0c0b1c8052",
+            "233943e79ec596cb",
+            "e3e7c591d92d8d6d",
+            "b6d0686a4823c0c2"
+        ],
+        "x": 14,
+        "y": 19,
+        "w": 832,
+        "h": 562
+    },
+    {
+        "id": "d344da1eff713941",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "9efaa0c2fd872693",
+            "6d496dbb394b2888",
+            "f1ad8f74c46f6314",
+            "c8412ad60f0dd6e1",
+            "7b981f6f76e5f9f4",
+            "ee5730149418dfeb",
+            "7ea37518e7e677d7"
+        ],
+        "x": 34,
+        "y": 939,
+        "w": 452,
+        "h": 262
+    },
+    {
         "id": "0839f7b4c0cbb0a8",
         "type": "mqtt-broker",
         "name": "",
@@ -296,42 +387,6 @@
         }
     },
     {
-        "id": "d0f6689a06670cb7",
-        "type": "ui-page",
-        "name": "Power",
-        "ui": "6c1d30b5f16932dd",
-        "path": "/page3",
-        "icon": "power",
-        "layout": "grid",
-        "theme": "72011230335eaee3",
-        "breakpoints": [
-            {
-                "name": "Default",
-                "px": "0",
-                "cols": "3"
-            },
-            {
-                "name": "Tablet",
-                "px": "576",
-                "cols": "6"
-            },
-            {
-                "name": "Small Desktop",
-                "px": "768",
-                "cols": "9"
-            },
-            {
-                "name": "Desktop",
-                "px": "1024",
-                "cols": "12"
-            }
-        ],
-        "order": 3,
-        "className": "",
-        "visible": "true",
-        "disabled": "false"
-    },
-    {
         "id": "74e147230f204214",
         "type": "ui-page",
         "name": "Safe At Home Alone",
@@ -398,51 +453,15 @@
                 "cols": "4"
             }
         ],
-        "order": 2,
+        "order": 3,
         "className": "",
         "visible": true,
         "disabled": false
     },
     {
-        "id": "62dcfc2bccdba69b",
-        "type": "ui-page",
-        "name": "Thuis?",
-        "ui": "6c1d30b5f16932dd",
-        "path": "/page4",
-        "icon": "home",
-        "layout": "grid",
-        "theme": "72011230335eaee3",
-        "breakpoints": [
-            {
-                "name": "Default",
-                "px": "0",
-                "cols": "3"
-            },
-            {
-                "name": "Tablet",
-                "px": "576",
-                "cols": "6"
-            },
-            {
-                "name": "Small Desktop",
-                "px": "768",
-                "cols": "9"
-            },
-            {
-                "name": "Desktop",
-                "px": "1024",
-                "cols": "12"
-            }
-        ],
-        "order": 4,
-        "className": "",
-        "visible": "true",
-        "disabled": "false"
-    },
-    {
         "id": "1dd0da4fdcd94089",
         "type": "ui-page",
-        "name": "About",
+        "name": "Over deze app",
         "ui": "6c1d30b5f16932dd",
         "path": "/page5",
         "icon": "information",
@@ -452,7 +471,7 @@
             {
                 "name": "Default",
                 "px": "0",
-                "cols": "3"
+                "cols": "4"
             },
             {
                 "name": "Tablet",
@@ -470,24 +489,10 @@
                 "cols": "12"
             }
         ],
-        "order": 5,
+        "order": 6,
         "className": "",
         "visible": true,
         "disabled": false
-    },
-    {
-        "id": "1770a740435c7f75",
-        "type": "ui-group",
-        "name": "Power",
-        "page": "d0f6689a06670cb7",
-        "width": 6,
-        "height": 1,
-        "order": 1,
-        "showTitle": false,
-        "className": "",
-        "visible": "true",
-        "disabled": "false",
-        "groupType": "default"
     },
     {
         "id": "4de3d58d68afebf3",
@@ -518,25 +523,11 @@
         "groupType": "default"
     },
     {
-        "id": "5e23302aa37603c6",
-        "type": "ui-group",
-        "name": "Is thuis",
-        "page": "62dcfc2bccdba69b",
-        "width": 6,
-        "height": 1,
-        "order": 1,
-        "showTitle": false,
-        "className": "",
-        "visible": "true",
-        "disabled": "false",
-        "groupType": "default"
-    },
-    {
         "id": "adc719ee09b9438b",
         "type": "ui-group",
         "name": "About",
         "page": "1dd0da4fdcd94089",
-        "width": 6,
+        "width": "4",
         "height": 1,
         "order": 1,
         "showTitle": false,
@@ -558,7 +549,7 @@
             {
                 "name": "Default",
                 "px": "0",
-                "cols": "3"
+                "cols": "4"
             },
             {
                 "name": "Tablet",
@@ -576,16 +567,116 @@
                 "cols": "12"
             }
         ],
-        "order": 6,
+        "order": 5,
         "className": "",
-        "visible": true,
-        "disabled": false
+        "visible": "false",
+        "disabled": "false"
     },
     {
         "id": "b71c0e77d9debcfd",
         "type": "ui-group",
         "name": "Tester",
         "page": "c5ea61b98d8ee55d",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "e9d32d9d636d4a34",
+        "type": "ui-page",
+        "name": "Bluetooth",
+        "ui": "6c1d30b5f16932dd",
+        "path": "/page7",
+        "icon": "bluetooth",
+        "layout": "grid",
+        "theme": "72011230335eaee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "4"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 4,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "549f1fa0e59e6a04",
+        "type": "ui-group",
+        "name": "Bluetooth",
+        "page": "e9d32d9d636d4a34",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "2a36538d72f26608",
+        "type": "ui-page",
+        "name": "Favoriet",
+        "ui": "6c1d30b5f16932dd",
+        "path": "/page8",
+        "icon": "heart",
+        "layout": "grid",
+        "theme": "72011230335eaee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "4"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "673ea3674d399963",
+        "type": "ui-group",
+        "name": "Favoriet",
+        "page": "2a36538d72f26608",
         "width": 6,
         "height": 1,
         "order": 1,
@@ -3352,7 +3443,8 @@
             "eb5258117d95a7ad",
             "5c2edaa6489039d0",
             "26417c5cfef73e15",
-            "bdebfa0f1e99fc2e"
+            "bdebfa0f1e99fc2e",
+            "a0c6644cc6697a01"
         ],
         "x": 225,
         "y": 40,
@@ -4058,8 +4150,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 260,
-        "y": 1220,
+        "x": 280,
+        "y": 1200,
         "wires": [
             [
                 "eecb60f839dc5afc"
@@ -4273,7 +4365,7 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 1060,
+        "y": 1040,
         "wires": [
             [
                 "163dbba3527a1208"
@@ -4339,538 +4431,133 @@
         "wires": []
     },
     {
-        "id": "aba5079d86842d48",
-        "type": "exec",
-        "z": "805ca89d3f050d7e",
-        "command": "sudo shutdown -h now",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "Execute shutdown",
-        "x": 350,
-        "y": 180,
+        "id": "cf9ea414de04bb0e",
+        "type": "change",
+        "z": "5c14e0941d341b42",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Favoriet",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 1300,
         "wires": [
-            [],
-            [],
             []
         ]
     },
     {
-        "id": "bf7e25c268706ad2",
-        "type": "exec",
-        "z": "805ca89d3f050d7e",
-        "command": "sudo reboot -f",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "Execute restart",
-        "x": 340,
-        "y": 300,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "1579019aa55421de",
-        "type": "ui-button",
-        "z": "805ca89d3f050d7e",
-        "group": "1770a740435c7f75",
-        "name": "Shutdown computer",
-        "label": "Shutdown",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "PowerButton",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
+        "id": "6fd2f6f9520b12a5",
+        "type": "change",
+        "z": "5c14e0941d341b42",
+        "name": "Favoriet",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Favoriet",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
         "x": 140,
-        "y": 180,
+        "y": 1300,
         "wires": [
             [
-                "aba5079d86842d48"
+                "3c8985df0a067001"
             ]
         ]
     },
     {
-        "id": "ea4bde27920587bf",
-        "type": "ui-button",
-        "z": "805ca89d3f050d7e",
-        "group": "1770a740435c7f75",
-        "name": "Restart computer",
-        "label": "Restart",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "PowerButton",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "str",
+        "id": "a0c6644cc6697a01",
+        "type": "link in",
+        "z": "5c14e0941d341b42",
+        "name": "OnStartup",
+        "links": [
+            "4abb19d96b88ba67"
+        ],
+        "x": 35,
+        "y": 1300,
+        "wires": [
+            [
+                "6fd2f6f9520b12a5"
+            ]
+        ]
+    },
+    {
+        "id": "9b3dd558871b3535",
+        "type": "ui-text-input",
+        "z": "5c14e0941d341b42",
+        "group": "a50d14b208aa0231",
+        "name": "Favoriet",
+        "label": "Favoriete website",
+        "order": 16,
+        "width": "0",
+        "height": "0",
         "topic": "topic",
         "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 130,
-        "y": 300,
-        "wires": [
-            [
-                "bf7e25c268706ad2"
-            ]
-        ]
-    },
-    {
-        "id": "bb4fbd48b1bbeea0",
-        "type": "ui-text",
-        "z": "805ca89d3f050d7e",
-        "group": "1770a740435c7f75",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "Uitleg",
-        "label": "Nadat het systeem uitgeschakeld is, kan je hem weer aan zetten door de voeding los te koppelen en weer aan te sluiten.",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": true,
-        "font": "",
-        "fontSize": "18",
-        "color": "#ffffff",
-        "wrapText": false,
-        "className": "",
-        "value": "payloads",
-        "valueType": "msg",
-        "x": 90,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "28dbad54dd69a6c7",
-        "type": "ui-text",
-        "z": "805ca89d3f050d7e",
-        "group": "1770a740435c7f75",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "lege regel",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payloads",
-        "valueType": "msg",
-        "x": 100,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "55efa9814ea24de9",
-        "type": "ui-template",
-        "z": "805ca89d3f050d7e",
-        "group": "",
-        "page": "d0f6689a06670cb7",
-        "ui": "",
-        "name": "CSS button",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": ".PowerButton button {\n    font-size: 1.5em;\n}\n",
-        "storeOutMessages": true,
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
         "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "page:style",
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": false,
         "className": "",
-        "x": 110,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "5ee3435a600772f9",
-        "type": "ui-text",
-        "z": "805ca89d3f050d7e",
-        "group": "1770a740435c7f75",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "lege regel",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payloads",
-        "valueType": "msg",
-        "x": 100,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "9c9d4e18a631cc15",
-        "type": "subflow:7a37030e3e3276d9",
-        "z": "672443afdce2e6a4",
-        "name": "",
-        "env": [],
-        "x": 520,
-        "y": 160,
-        "wires": [
-            [
-                "849129e5cd170f06",
-                "b0067e5db1bb638b",
-                "61806882e2c16761"
-            ],
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "6ccc00486baecf9d",
-        "type": "inject",
-        "z": "672443afdce2e6a4",
-        "name": "At startup",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "0.2",
-        "topic": "",
-        "payload": "4",
-        "payloadType": "num",
-        "x": 100,
-        "y": 240,
-        "wires": [
-            [
-                "ebd1eb7739312b3d",
-                "1029c725dc625feb"
-            ]
-        ]
-    },
-    {
-        "id": "ebd1eb7739312b3d",
-        "type": "function",
-        "z": "672443afdce2e6a4",
-        "name": "IP adres & PingCount",
-        "func": "var ipAddress = global.get(\"IP_Mobiel\");\nvar pingCount = msg.payload;\n\nmsg.payload = { IPAddress: ipAddress, PingCount: pingCount };\n\nnode.status({ fill:\"blue\", shape:\"ring\", \ntext: ipAddress + \", pingCount: \" + pingCount });\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 300,
-        "y": 160,
-        "wires": [
-            [
-                "9c9d4e18a631cc15"
-            ]
-        ]
-    },
-    {
-        "id": "1029c725dc625feb",
-        "type": "function",
-        "z": "672443afdce2e6a4",
-        "name": "GebruikerIsAtHome=false",
-        "func": "global.set(\"GebruikerIsAtHome\", false);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 310,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "849129e5cd170f06",
-        "type": "function",
-        "z": "672443afdce2e6a4",
-        "name": "set global GebruikerIsAtHome",
-        "func": "global.set(\"GebruikerIsAtHome\", (msg.payload == 1));\nnode.status({ fill: \"blue\", shape: \"ring\", text: (msg.payload == 1) ? \"thuis\" : \"niet thuis\" });\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6583ee879c9828e3",
-        "type": "function",
-        "z": "672443afdce2e6a4",
-        "name": "clear",
-        "func": "msg.payload = [];\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 320,
-        "wires": [
-            [
-                "b0067e5db1bb638b"
-            ]
-        ]
-    },
-    {
-        "id": "35d2feef4b4e5406",
-        "type": "inject",
-        "z": "672443afdce2e6a4",
-        "name": "Clear",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 230,
-        "y": 320,
-        "wires": [
-            [
-                "3df9955a75963923"
-            ]
-        ]
-    },
-    {
-        "id": "30a234133bcbd597",
-        "type": "comment",
-        "z": "672443afdce2e6a4",
-        "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
-        "info": "",
-        "x": 230,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "fa66a05f8c746a83",
-        "type": "inject",
-        "z": "672443afdce2e6a4",
-        "name": "Na 2 min",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "120",
-        "topic": "",
-        "payload": "15",
-        "payloadType": "num",
-        "x": 100,
-        "y": 160,
-        "wires": [
-            [
-                "ebd1eb7739312b3d"
-            ]
-        ]
-    },
-    {
-        "id": "3df9955a75963923",
-        "type": "ui-button",
-        "z": "672443afdce2e6a4",
-        "group": "5e23302aa37603c6",
-        "name": "Clear",
-        "label": "Wis grafiek",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
         "icon": "",
         "iconPosition": "left",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 370,
-        "y": 320,
+        "iconInnerPosition": "inside",
+        "x": 420,
+        "y": 1300,
         "wires": [
             [
-                "6583ee879c9828e3"
+                "cf9ea414de04bb0e",
+                "10385f32ca54626c"
             ]
         ]
     },
     {
-        "id": "b0067e5db1bb638b",
-        "type": "ui-chart",
-        "z": "672443afdce2e6a4",
-        "group": "5e23302aa37603c6",
-        "name": "",
-        "label": "Is de telefoon is in huis?",
-        "order": 1,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "auto",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "0",
-        "ymax": "1",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "circle",
-        "pointRadius": 4,
-        "showLegend": true,
-        "removeOlder": "24",
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "1000",
-        "colors": [
-            "#0095ff",
-            "#ff0000",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#666666"
-        ],
-        "textColorDefault": true,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": 6,
-        "height": "3",
-        "className": "",
-        "interpolation": "linear",
-        "x": 790,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3758cdea9d5d1d01",
-        "type": "mqtt in",
-        "z": "672443afdce2e6a4",
-        "name": "",
-        "topic": "IPAdressUser",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "0839f7b4c0cbb0a8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 90,
-        "y": 100,
+        "id": "3c8985df0a067001",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "name": "Default",
+        "func": "if (msg.payload == null) \n    msg.payload = \"www.dommelhuis.nl/agenda\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 1340,
         "wires": [
             [
-                "728339c56b6087ec"
+                "9b3dd558871b3535"
             ]
         ]
     },
     {
-        "id": "61806882e2c16761",
+        "id": "10385f32ca54626c",
         "type": "mqtt out",
-        "z": "672443afdce2e6a4",
+        "z": "5c14e0941d341b42",
         "name": "",
-        "topic": "PersoonThuis",
+        "topic": "FavorietChanged",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -4879,29 +4566,9 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 740,
-        "y": 80,
+        "x": 810,
+        "y": 1360,
         "wires": []
-    },
-    {
-        "id": "728339c56b6087ec",
-        "type": "function",
-        "z": "672443afdce2e6a4",
-        "name": "pingcount",
-        "func": "msg.payload = 4;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 240,
-        "y": 100,
-        "wires": [
-            [
-                "ebd1eb7739312b3d"
-            ]
-        ]
     },
     {
         "id": "5a792b79ee924fcc",
@@ -4940,8 +4607,8 @@
         "name": "Update",
         "label": "Update",
         "order": 6,
-        "width": 0,
-        "height": 0,
+        "width": "2",
+        "height": "1",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
@@ -5001,12 +4668,12 @@
         "z": "af31bf2fe058f803",
         "group": "adc719ee09b9438b",
         "order": 5,
-        "width": 0,
-        "height": 0,
+        "width": "2",
+        "height": "1",
         "name": "Versie",
         "label": "",
         "format": "{{msg.payload}}",
-        "layout": "row-center",
+        "layout": "row-left",
         "style": false,
         "font": "",
         "fontSize": 16,
@@ -5151,7 +4818,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 650,
+        "x": 690,
         "y": 680,
         "wires": []
     },
@@ -5187,8 +4854,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Reboot",
-        "x": 680,
-        "y": 1000,
+        "x": 720,
+        "y": 1180,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -5276,7 +4943,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 300,
+        "x": 360,
         "y": 720,
         "wires": [
             [
@@ -5296,7 +4963,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
+        "x": 550,
         "y": 720,
         "wires": [
             [
@@ -5316,7 +4983,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 120,
+        "x": 160,
         "y": 680,
         "wires": [
             [
@@ -5340,8 +5007,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm MiniSAHA.json",
-        "x": 150,
-        "y": 840,
+        "x": 250,
+        "y": 860,
         "wires": [
             [
                 "7a258c3a06322d6a"
@@ -5362,8 +5029,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get MiniSAHA.json",
-        "x": 370,
-        "y": 840,
+        "x": 510,
+        "y": 860,
         "wires": [
             [
                 "28228f40169db06d"
@@ -5376,19 +5043,19 @@
         "id": "02d2ac26c698a195",
         "type": "exec",
         "z": "af31bf2fe058f803",
-        "command": "cp -f version.txt MiniSAHA_cred.json MiniSAHA.json Logo.png .node-red/projects/MiniSAHA",
+        "command": "cp -f version.txt MiniSAHA_cred.json MiniSAHA.json Logo.png bluetooth.py .node-red/projects/MiniSAHA",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "Install new files",
-        "x": 500,
-        "y": 1000,
+        "name": "Install all files",
+        "x": 230,
+        "y": 1180,
         "wires": [
             [
-                "07af420f98d0e89a"
+                "2888205ab81df7ad"
             ],
             [],
             []
@@ -5415,8 +5082,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 300,
-        "y": 780,
+        "x": 360,
+        "y": 760,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -5522,8 +5189,8 @@
         "ui": "",
         "name": "Afbeelding tonen",
         "order": 3,
-        "width": "3",
-        "height": "3",
+        "width": "0",
+        "height": "0",
         "format": "<template>\n    <div style=\"text-align:center;\">\n        <img src=\"/logo\" \n             style=\"max-width:40%; height:auto;\" />\n    </div>\n</template>\n",
         "storeOutMessages": true,
         "passthru": true,
@@ -5547,11 +5214,11 @@
         "winHide": false,
         "oldrc": false,
         "name": "get Logo.png",
-        "x": 310,
-        "y": 1000,
+        "x": 490,
+        "y": 1020,
         "wires": [
             [
-                "02d2ac26c698a195"
+                "b119fd4598e51e41"
             ],
             [],
             []
@@ -5569,8 +5236,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm Logo.png",
-        "x": 130,
-        "y": 1000,
+        "x": 230,
+        "y": 1020,
         "wires": [
             [
                 "477a82641741c1d2"
@@ -5591,8 +5258,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm MiniSAHA_cred.json",
-        "x": 170,
-        "y": 920,
+        "x": 270,
+        "y": 940,
         "wires": [
             [
                 "62cf14493c558309"
@@ -5613,8 +5280,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get MiniSAHA_cred.json",
-        "x": 430,
-        "y": 920,
+        "x": 530,
+        "y": 940,
         "wires": [
             [
                 "6ba99393e4c393d8"
@@ -5754,18 +5421,187 @@
         "winHide": false,
         "oldrc": false,
         "name": "install dashboard@latest",
-        "x": 410,
-        "y": 1100,
+        "x": 510,
+        "y": 1180,
         "wires": [
-            [],
+            [
+                "07af420f98d0e89a"
+            ],
             [],
             []
+        ]
+    },
+    {
+        "id": "21fbed526374f182",
+        "type": "inject",
+        "z": "af31bf2fe058f803",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 1240,
+        "wires": [
+            [
+                "2888205ab81df7ad"
+            ]
+        ]
+    },
+    {
+        "id": "34d7ae63b33b2312",
+        "type": "mqtt in",
+        "z": "af31bf2fe058f803",
+        "name": "",
+        "topic": "Update",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 70,
+        "y": 860,
+        "wires": [
+            [
+                "d7ff5ad4b1b79918"
+            ]
+        ]
+    },
+    {
+        "id": "b119fd4598e51e41",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "command": "rm bluetooth.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rm bluetooth.py",
+        "x": 240,
+        "y": 1100,
+        "wires": [
+            [
+                "05d5a950f617317c"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "05d5a950f617317c",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/bluetooth.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get bluetooth.py",
+        "x": 500,
+        "y": 1100,
+        "wires": [
+            [
+                "02d2ac26c698a195"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1eec94c61974cd1c",
+        "type": "ui-control",
+        "z": "af31bf2fe058f803",
+        "name": "",
+        "ui": "6c1d30b5f16932dd",
+        "events": "all",
+        "x": 380,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b6944b93af04a874",
+        "type": "function",
+        "z": "af31bf2fe058f803",
+        "name": "set page Tester",
+        "func": "msg.payload = \"Tester\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 80,
+        "wires": [
+            [
+                "1eec94c61974cd1c"
+            ]
+        ]
+    },
+    {
+        "id": "6ad9e51e2daa380d",
+        "type": "ui-button",
+        "z": "af31bf2fe058f803",
+        "group": "adc719ee09b9438b",
+        "name": "Tester",
+        "label": "Tester",
+        "order": 8,
+        "width": "0",
+        "height": "0",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "buttonupdate",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 70,
+        "y": 80,
+        "wires": [
+            [
+                "b6944b93af04a874"
+            ]
         ]
     },
     {
         "id": "5624329dd5cb5b0a",
         "type": "inject",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "OnStart",
         "props": [
             {
@@ -5784,7 +5620,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "97382ae72dc98a86"
@@ -5795,10 +5631,11 @@
         "id": "ac6f3d5c09bce733",
         "type": "ui-button",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
         "name": "Test update",
         "label": "Test update ",
-        "order": 5,
+        "order": 3,
         "width": 0,
         "height": 0,
         "emulateClick": false,
@@ -5823,7 +5660,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 110,
-        "y": 400,
+        "y": 300,
         "wires": [
             [
                 "148566cf72b33e1a"
@@ -5831,33 +5668,10 @@
         ]
     },
     {
-        "id": "6fb7570706461807",
-        "type": "ui-text",
-        "z": "eb60a9ea21d42f29",
-        "group": "b71c0e77d9debcfd",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "About",
-        "label": "Deze pagina is alleen bedoeld voor testers.",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 670,
-        "y": 60,
-        "wires": []
-    },
-    {
         "id": "29faaa6a019e0e9b",
         "type": "ui-text",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
         "order": 2,
         "width": 0,
@@ -5882,6 +5696,7 @@
         "id": "6f0b74ba5a27cc3e",
         "type": "exec",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/version_test.txt",
         "addpay": "",
         "append": "",
@@ -5891,7 +5706,7 @@
         "oldrc": false,
         "name": "get version_test.txt",
         "x": 430,
-        "y": 400,
+        "y": 300,
         "wires": [
             [
                 "98ddd266a3e4c998"
@@ -5904,6 +5719,7 @@
         "id": "2c5db89378881214",
         "type": "function",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "rm \\n",
         "func": "msg.payload = msg.payload.replace(/[\\r\\n]+/g, '');\nreturn msg;",
         "outputs": 1,
@@ -5913,7 +5729,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -5925,6 +5741,7 @@
         "id": "97382ae72dc98a86",
         "type": "file in",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "current test version",
         "filename": ".node-red/projects/MiniSAHA/version_test.txt",
         "filenameType": "str",
@@ -5934,7 +5751,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 290,
-        "y": 220,
+        "y": 200,
         "wires": [
             [
                 "2c5db89378881214"
@@ -5945,6 +5762,7 @@
         "id": "2d76e161b54a56ff",
         "type": "change",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "",
         "rules": [
             {
@@ -5970,6 +5788,7 @@
         "id": "8d171fe450c7a81f",
         "type": "ui-text",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
         "order": 4,
         "width": 0,
@@ -5986,34 +5805,15 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 690,
-        "y": 520,
+        "x": 670,
+        "y": 440,
         "wires": []
-    },
-    {
-        "id": "e767f97b37bd3e7f",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": "sudo reboot",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Reboot",
-        "x": 700,
-        "y": 840,
-        "wires": [
-            [],
-            [],
-            []
-        ]
     },
     {
         "id": "148566cf72b33e1a",
         "type": "exec",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "command": "rm version_test.txt",
         "addpay": "",
         "append": "",
@@ -6023,7 +5823,7 @@
         "oldrc": false,
         "name": "rm old",
         "x": 270,
-        "y": 400,
+        "y": 300,
         "wires": [
             [
                 "6f0b74ba5a27cc3e"
@@ -6036,6 +5836,7 @@
         "id": "98ddd266a3e4c998",
         "type": "file in",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "latest",
         "filename": "version_test.txt",
         "filenameType": "str",
@@ -6045,7 +5846,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 590,
-        "y": 400,
+        "y": 300,
         "wires": [
             [
                 "bce54c96101eb7b7"
@@ -6056,6 +5857,7 @@
         "id": "bce54c96101eb7b7",
         "type": "function",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "rm \\n",
         "func": "msg.payload = msg.payload.replace(/[\\r\\n]+/g, '');\nreturn msg;",
         "outputs": 1,
@@ -6065,7 +5867,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 400,
+        "y": 300,
         "wires": [
             [
                 "59d5c77dc1dc2a60"
@@ -6076,9 +5878,10 @@
         "id": "db6b4ac55c770429",
         "type": "delay",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "",
         "pauseType": "delay",
-        "timeout": "5",
+        "timeout": "30",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -6090,7 +5893,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 320,
-        "y": 560,
+        "y": 480,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -6101,6 +5904,7 @@
         "id": "aefcaf0124832705",
         "type": "function",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "clear",
         "func": "msg.payload = \"\";\nreturn msg;",
         "outputs": 1,
@@ -6110,7 +5914,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 560,
+        "y": 480,
         "wires": [
             [
                 "8d171fe450c7a81f"
@@ -6121,6 +5925,7 @@
         "id": "59d5c77dc1dc2a60",
         "type": "function",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "Update?",
         "func": "var current = global.get(\"version_test\");\nvar latest = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", latest: \" + latest    });\n\nif (latest > current) {\n    var msg2 = { payload: \"Test update wordt geinstalleerd...\"};\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { payload: \"Geen nieuwere test versie beschikbaar.\"};\n   return [null, msg2]; \n}\nreturn msg;",
         "outputs": 2,
@@ -6130,10 +5935,10 @@
         "finalize": "",
         "libs": [],
         "x": 140,
-        "y": 520,
+        "y": 420,
         "wires": [
             [
-                "e4030f3dae1eb9a5"
+                "b6d0686a4823c0c2"
             ],
             [
                 "db6b4ac55c770429",
@@ -6142,75 +5947,10 @@
         ]
     },
     {
-        "id": "e4030f3dae1eb9a5",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": "rm MiniSAHA.json",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "rm MiniSAHA.json",
-        "x": 170,
-        "y": 680,
-        "wires": [
-            [
-                "01c9f9d135d750e0"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "01c9f9d135d750e0",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/MiniSAHA.json",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "get MiniSAHA.json",
-        "x": 390,
-        "y": 680,
-        "wires": [
-            [
-                "e4aa96fb7a69092f"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "cd4dcc62417a8f98",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": "cp -f version_test.txt MiniSAHA_cred.json MiniSAHA.json Logo.png .node-red/projects/MiniSAHA",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Install new files",
-        "x": 520,
-        "y": 840,
-        "wires": [
-            [
-                "e767f97b37bd3e7f"
-            ],
-            [],
-            []
-        ]
-    },
-    {
         "id": "ca12465c285a07be",
         "type": "inject",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "OnStart",
         "props": [
             {
@@ -6229,7 +5969,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 320,
-        "y": 620,
+        "y": 540,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -6240,6 +5980,7 @@
         "id": "6cdb9cd1a55cd9dd",
         "type": "catch",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "",
         "scope": null,
         "uncaught": false,
@@ -6256,6 +5997,7 @@
         "id": "5fe7d4a09964b635",
         "type": "function",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "0000-00-00",
         "func": "msg.payload = \"0000-00-00\";\nreturn msg;",
         "outputs": 1,
@@ -6277,6 +6019,7 @@
         "id": "82ea9c0c0b1c8052",
         "type": "ui-template",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "group": "",
         "page": "c5ea61b98d8ee55d",
         "ui": "",
@@ -6292,96 +6035,8 @@
         "templateScope": "page:style",
         "className": "buttonupdate",
         "x": 110,
-        "y": 440,
+        "y": 340,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c0a40759fa63b7d2",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/Logo.png",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "get Logo.png",
-        "x": 330,
-        "y": 840,
-        "wires": [
-            [
-                "cd4dcc62417a8f98"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "2ff6443c3045fe74",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": "rm Logo.png",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "rm Logo.png",
-        "x": 150,
-        "y": 840,
-        "wires": [
-            [
-                "c0a40759fa63b7d2"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "ee8a0693e25115af",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": "rm MiniSAHA_cred.json",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "rm MiniSAHA_cred.json",
-        "x": 190,
-        "y": 760,
-        "wires": [
-            [
-                "a2f6500a90a362f9"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "a2f6500a90a362f9",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/MiniSAHA_cred.json",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "get MiniSAHA_cred.json",
-        "x": 450,
-        "y": 760,
-        "wires": [
-            [
-                "2ff6443c3045fe74"
-            ],
-            [],
             []
         ]
     },
@@ -6389,6 +6044,7 @@
         "id": "233943e79ec596cb",
         "type": "debug",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "catch all About",
         "active": true,
         "tosidebar": true,
@@ -6403,33 +6059,10 @@
         "wires": []
     },
     {
-        "id": "cf26a57d1005572c",
-        "type": "ui-text",
-        "z": "eb60a9ea21d42f29",
-        "group": "b71c0e77d9debcfd",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "current state",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 690,
-        "y": 280,
-        "wires": []
-    },
-    {
         "id": "e3e7c591d92d8d6d",
         "type": "function",
         "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
         "name": "Test versie:",
         "func": "msg.payload = \"Test versie: \" + msg.payload;\nreturn msg;",
         "outputs": 1,
@@ -6447,56 +6080,245 @@
         ]
     },
     {
-        "id": "d583ac186ef8a881",
+        "id": "b6d0686a4823c0c2",
+        "type": "mqtt out",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "name": "",
+        "topic": "Update",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 400,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "9c9d4e18a631cc15",
+        "type": "subflow:7a37030e3e3276d9",
+        "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
+        "name": "",
+        "env": [],
+        "x": 550,
+        "y": 740,
+        "wires": [
+            [
+                "849129e5cd170f06",
+                "b0067e5db1bb638b",
+                "61806882e2c16761"
+            ],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6ccc00486baecf9d",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
+        "name": "At startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.2",
+        "topic": "",
+        "payload": "4",
+        "payloadType": "num",
+        "x": 130,
+        "y": 820,
+        "wires": [
+            [
+                "ebd1eb7739312b3d",
+                "1029c725dc625feb"
+            ]
+        ]
+    },
+    {
+        "id": "ebd1eb7739312b3d",
         "type": "function",
         "z": "eb60a9ea21d42f29",
-        "name": "Current state:",
-        "func": "msg.payload = \"Current state: \" + global.get(\"currentState\");\nreturn msg;",
+        "g": "6bde74f61fffc171",
+        "name": "IP adres & PingCount",
+        "func": "var ipAddress = global.get(\"IP_Mobiel\");\nvar pingCount = msg.payload;\n\nmsg.payload = { IPAddress: ipAddress, PingCount: pingCount };\n\nnode.status({ fill:\"blue\", shape:\"ring\", \ntext: ipAddress + \", pingCount: \" + pingCount });\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 740,
+        "wires": [
+            [
+                "9c9d4e18a631cc15"
+            ]
+        ]
+    },
+    {
+        "id": "1029c725dc625feb",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
+        "name": "GebruikerIsAtHome=false",
+        "func": "global.set(\"GebruikerIsAtHome\", false);\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 280,
+        "x": 340,
+        "y": 820,
         "wires": [
-            [
-                "cf26a57d1005572c"
-            ]
+            []
         ]
     },
     {
-        "id": "e4aa96fb7a69092f",
-        "type": "delay",
+        "id": "849129e5cd170f06",
+        "type": "function",
         "z": "eb60a9ea21d42f29",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "3",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
+        "g": "6bde74f61fffc171",
+        "name": "set global GebruikerIsAtHome",
+        "func": "global.set(\"GebruikerIsAtHome\", (msg.payload == 1));\nnode.status({ fill: \"blue\", shape: \"ring\", text: (msg.payload == 1) ? \"thuis\" : \"niet thuis\" });\nreturn msg;",
         "outputs": 1,
-        "x": 580,
-        "y": 680,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30a234133bcbd597",
+        "type": "comment",
+        "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
+        "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
+        "info": "",
+        "x": 260,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "fa66a05f8c746a83",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
+        "name": "Na 2 min",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "120",
+        "topic": "",
+        "payload": "15",
+        "payloadType": "num",
+        "x": 130,
+        "y": 740,
         "wires": [
             [
-                "ee8a0693e25115af"
+                "ebd1eb7739312b3d"
             ]
         ]
     },
     {
-        "id": "77c215ccfe6da5af",
+        "id": "b0067e5db1bb638b",
+        "type": "ui-chart",
+        "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
+        "group": "b71c0e77d9debcfd",
+        "name": "",
+        "label": "Is de telefoon is in huis?",
+        "order": 1,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "1",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "24",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "1000",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": "3",
+        "className": "",
+        "interpolation": "linear",
+        "x": 820,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3758cdea9d5d1d01",
         "type": "mqtt in",
         "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
         "name": "",
-        "topic": "StateChanged",
+        "topic": "IPAdressUser",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "0839f7b4c0cbb0a8",
@@ -6504,53 +6326,110 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 110,
-        "y": 280,
+        "x": 120,
+        "y": 680,
         "wires": [
             [
-                "d583ac186ef8a881"
+                "728339c56b6087ec"
             ]
         ]
     },
     {
-        "id": "03a42d264b339cc7",
+        "id": "61806882e2c16761",
+        "type": "mqtt out",
+        "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
+        "name": "",
+        "topic": "PersoonThuis",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 770,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "728339c56b6087ec",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
+        "name": "pingcount",
+        "func": "msg.payload = 4;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 680,
+        "wires": [
+            [
+                "ebd1eb7739312b3d"
+            ]
+        ]
+    },
+    {
+        "id": "9efaa0c2fd872693",
         "type": "exec",
         "z": "eb60a9ea21d42f29",
-        "command": "sudo hcitool scan",
-        "addpay": "",
+        "g": "d344da1eff713941",
+        "command": "sudo shutdown -h now",
+        "addpay": false,
         "append": "",
         "useSpawn": "false",
         "timer": "",
-        "winHide": false,
         "oldrc": false,
-        "name": "Scan",
-        "x": 250,
-        "y": 1360,
+        "name": "Execute shutdown",
+        "x": 370,
+        "y": 1040,
         "wires": [
-            [
-                "2af38ce51395b9c9"
-            ],
-            [
-                "8f3165806354c545"
-            ],
+            [],
+            [],
             []
         ]
     },
     {
-        "id": "dd6bc6bc886f7c69",
+        "id": "6d496dbb394b2888",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "g": "d344da1eff713941",
+        "command": "sudo reboot -f",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Execute restart",
+        "x": 360,
+        "y": 1100,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f1ad8f74c46f6314",
         "type": "ui-button",
         "z": "eb60a9ea21d42f29",
+        "g": "d344da1eff713941",
         "group": "b71c0e77d9debcfd",
-        "name": "Bluetooth",
-        "label": "Verbind speaker",
-        "order": 9,
-        "width": 0,
-        "height": 0,
+        "name": "Shutdown computer",
+        "label": "Shutdown",
+        "order": 7,
+        "width": "2",
+        "height": "1",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "buttonupdate",
+        "className": "PowerButton",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -6567,110 +6446,117 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 120,
-        "y": 1100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2af38ce51395b9c9",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "name": "mac",
-        "func": "node.status({ text: \"parsing\" });\n\nlet nameSpeaker = global.get(\"BluetoothName\");\n\n// remove first line(s):\nmsg.payload = msg.payload.split('\\n').slice(1).join('\\n');\n\nif (msg.payload.includes(\"Scanning\"))\n    msg.payload = msg.payload.split('\\n').slice(1).join('\\n');\n\nlet parsed = parseBluetoothLine(msg.payload);\nif (parsed == null || parsed.name == \"\") {\n    msg.payload = \"Geen speaker gevonden: \" + nameSpeaker;\n    node.status({ text: msg.pauload });\n    return msg;\n}\n\nif (!parsed.name.toLowerCase().includes(nameSpeaker.toLowerCase())) {\n    msg.payload = \"Geen speaker gevonden: \" + nameSpeaker;\n    node.status({ text: \"Geen speaker gevonden: \" + parsed.name + \". Probeer nog eens.\"});\n}\nelse {\n    global.set(\"BluetoothMac\", parsed.mac);\n    msg.payload = parsed.mac + \" \" + parsed.name;\n    node.status({ text: \"Gevonden: \" + parsed.name });\n}\nreturn msg;\n\n\nfunction parseBluetoothLine(line) {\n    // Trim whitespace\n    const cleaned = line.trim();\n\n    // Regex voor een geldig MAC-adres\n    const macRegex = /^([0-9A-F]{2}:){5}[0-9A-F]{2}$/i;\n\n    // Split op whitespace (tabs/spaties)\n    const parts = cleaned.split(/\\s+/);\n\n    // Eerste deel moet een MAC-adres zijn, anders is het geen device-regel\n    if (!macRegex.test(parts[0])) {\n        node.status({ text: \"parsing5\" });\n        return null; // \"Scanning ...\" of andere ruis\n    }\n\n    const mac = parts[0];\n    const name = parts.slice(1).join(\" \");\n\n    return { mac, name };\n}\n\n\n\n\n\n/*\n    // Trim whitespace (tabs, newlines, spaces)\n    const cleaned = msg.payload.trim();\n\n    // Split op één of meer whitespace (tabs/spaces)\n    const parts = cleaned.split(/\\s+/);\n\n    // Eerste deel = MAC, rest = naam\n    var mac = parts[0];\n    var name = parts.slice(1).join(\" \");\n\nif (mac == \"Scanning\") {\n    mac = \"geen speaker gevonden\";\n}\nmsg.payload = \" \" + mac;\n\nreturn msg;\n*/",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 430,
-        "y": 1320,
+        "x": 160,
+        "y": 1040,
         "wires": [
             [
-                "28a6aa2dcc9a5975"
+                "9efaa0c2fd872693"
             ]
         ]
     },
     {
-        "id": "fcd1b9dc67e39a1c",
-        "type": "ui-text",
+        "id": "c8412ad60f0dd6e1",
+        "type": "ui-button",
         "z": "eb60a9ea21d42f29",
+        "g": "d344da1eff713941",
         "group": "b71c0e77d9debcfd",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "name": "Mac ",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 650,
-        "y": 1160,
-        "wires": []
-    },
-    {
-        "id": "16e8314d67b36854",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "name": "Scanning...",
-        "func": "msg.payload = \" Scanning ...\";\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 290,
-        "y": 1420,
+        "name": "Restart computer",
+        "label": "Restart",
+        "order": 8,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "PowerButton",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 150,
+        "y": 1100,
         "wires": [
-            []
+            [
+                "6d496dbb394b2888"
+            ]
         ]
     },
     {
-        "id": "561b31480f3dfcd2",
+        "id": "7b981f6f76e5f9f4",
         "type": "ui-text",
         "z": "eb60a9ea21d42f29",
-        "group": "b71c0e77d9debcfd",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "name": "Zet speaker aan",
-        "label": "Zet speaker aan en druk gelijk op Scan en Pair",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 680,
-        "y": 1100,
-        "wires": []
-    },
-    {
-        "id": "46c9ddd5191b8738",
-        "type": "ui-text",
-        "z": "eb60a9ea21d42f29",
+        "g": "d344da1eff713941",
         "group": "b71c0e77d9debcfd",
         "order": 6,
         "width": 0,
         "height": 0,
-        "name": "empty line",
+        "name": "Uitleg",
+        "label": "Nadat het systeem uitgeschakeld is, kan je hem weer aan zetten door de voeding los te koppelen en weer aan te sluiten.",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": true,
+        "font": "",
+        "fontSize": "18",
+        "color": "#ffffff",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 110,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "ee5730149418dfeb",
+        "type": "ui-template",
+        "z": "eb60a9ea21d42f29",
+        "g": "d344da1eff713941",
+        "group": "",
+        "page": "c5ea61b98d8ee55d",
+        "ui": "",
+        "name": "CSS button",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": ".PowerButton button {\n    font-size: 1.5em;\n}\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "page:style",
+        "className": "",
+        "x": 130,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7ea37518e7e677d7",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "g": "d344da1eff713941",
+        "group": "b71c0e77d9debcfd",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
         "label": "",
         "format": "{{msg.payload}}",
-        "layout": "row-left",
+        "layout": "row-spread",
         "style": false,
         "font": "",
         "fontSize": 16,
@@ -6679,90 +6565,578 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 670,
-        "y": 1060,
+        "x": 280,
+        "y": 980,
         "wires": []
     },
     {
-        "id": "8f3165806354c545",
+        "id": "0af8df52052ef366",
         "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "name": "fout",
-        "func": "msg.payload = \"Fout: is de speaker aan?\";\n\nreturn msg;\n",
+        "z": "ce724907bfebf75c",
+        "name": "get devices",
+        "func": "msg.payload = 'echo -e \"devices\\nquit\" | bluetoothctl';\nnode.status({ text: \"Connect \" + msg.payload });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 1380,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "28a6aa2dcc9a5975",
-        "type": "delay",
-        "z": "eb60a9ea21d42f29",
-        "name": "delay",
-        "pauseType": "delay",
-        "timeout": "3",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 570,
-        "y": 1320,
+        "x": 330,
+        "y": 760,
         "wires": [
             [
-                "3051b7fc1269ac68"
+                "a6248e8d64acb74f"
             ]
         ]
     },
     {
-        "id": "f44dfdb82dc5c7b5",
-        "type": "ui-text-input",
-        "z": "eb60a9ea21d42f29",
-        "group": "b71c0e77d9debcfd",
-        "name": "Naam Bluetooth speaker",
-        "label": "Naam Bluetooth speaker bevat",
+        "id": "a6248e8d64acb74f",
+        "type": "exec",
+        "z": "ce724907bfebf75c",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "bluetoothctl",
+        "x": 490,
+        "y": 760,
+        "wires": [
+            [
+                "43862d3b661a9960"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "43862d3b661a9960",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "mac/name",
+        "func": "let str = Buffer.from(msg.payload).toString(\"utf8\");\nlet clean = stripAnsi(str);\n\nlet results = [];\nconst regex = /Device\\s+([0-9A-F:]{17})\\s+(.+)/gi;\nlet matches = clean.matchAll(regex);\n\nfor (const m of matches) {\n    results.push({\n        mac: m[1],\n        name: m[2]\n    });\n}\nmsg.devices = results;\n\n/*\nif (match) {\n    const mac = match[1];\n    const name = match[2];\n    node.status({ text: \"mac: \" + mac + \", name: \" + name });\n\n    global.set(\"BluetoothMac\", mac);\n    global.set(\"BluetoothName\", name);\n\n    msg.payload = { \n        mac: mac,\n        name: name\n    }\n} else {\n    msg.payload = {\n        mac: \"\",\n        name: \"\"\n    }\n    node.status({ text: \"Geen device gevonden\" });\n}\n*/\nreturn msg;\n\nfunction stripAnsi(str) {\n    return str.replace(/\\x1B\\[[0-9;]*[A-Za-z]/g, '');\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 760,
+        "wires": [
+            [
+                "070ce4d9b1f1776d",
+                "6c6ddae7e8f18ccf"
+            ]
+        ]
+    },
+    {
+        "id": "070ce4d9b1f1776d",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "get status",
+        "func": "let devices = msg.devices;\nif (Array.isArray(devices) && devices.length === 0) {\n    node.status({ text: \"geen devices gekoppeld\" });\n    msg.payload = \"bluetoothctl quit\";    \n    return msg;\n}\n\nlet cmd = \"\";\nfor (const device of devices) {\n    cmd += \"bluetoothctl info \" + device.mac + \";\";\n}\nmsg.payload = cmd;\nnode.status({ text: \"bluetoothctl info ...\" });\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 860,
+        "wires": [
+            [
+                "f5c783e435202cc2",
+                "c063b84db9d7a7b0"
+            ]
+        ]
+    },
+    {
+        "id": "f5c783e435202cc2",
+        "type": "exec",
+        "z": "ce724907bfebf75c",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "bluetoothctl",
+        "x": 490,
+        "y": 860,
+        "wires": [
+            [
+                "e110dd782e4ed389",
+                "567eeb4826101140"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e110dd782e4ed389",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "Connected?",
+        "func": "let devices = [];\n\nif (msg.payload == \"\") {\n    node.status({ text: \"payload empty\" });\n    msg.payload = devices;\n    return msg;\n}\n\nconst text = msg.payload;\n\nconst blocks = text.split(/(?=Device\\s+[0-9A-F:]{17})/gi);\n\nfor (const block of blocks) {\n    // MAC-adres\n    const macMatch = block.match(/Device\\s+([0-9A-F:]{17})/i);\n    if (!macMatch) continue;\n\n    // Naam\n    const nameMatch = block.match(/Name:\\s*(.+)/i);\n    const name = nameMatch ? nameMatch[1].trim() : null;\n\n    // Connected-status\n    const connMatch = block.match(/Connected:\\s*(yes|no)/i);\n    const connected = connMatch ? connMatch[1].toLowerCase() : null;\n\n    devices.push({\n        mac: macMatch[1],\n        name,\n        connected\n    });\n}\n\nmsg.payload = devices;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 880,
+        "wires": [
+            [
+                "2d29289272c0345f"
+            ]
+        ]
+    },
+    {
+        "id": "d3ac11cb5dc0efbc",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "kill",
+        "func": "msg.kill = \"SIGTERM\";   // of \"SIGKILL\", \"SIGINT\", etc.\nmsg.payload = \"Gestopt\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 320,
+        "wires": [
+            [
+                "d611838783d29255",
+                "c8459650666a969b",
+                "25b2f4f138e92a11"
+            ]
+        ]
+    },
+    {
+        "id": "c4bdb95a0f7c3226",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "start",
+        "func": "if (msg.topic == \"$pageview\" && \n    msg.payload.page.name == \"Bluetooth\")\n    return msg;\nelse return null;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 560,
+        "wires": [
+            [
+                "04ad4a712d3067e5"
+            ]
+        ]
+    },
+    {
+        "id": "36e8febe859fd540",
+        "type": "ui-event",
+        "z": "ce724907bfebf75c",
+        "ui": "6c1d30b5f16932dd",
+        "name": "",
+        "x": 70,
+        "y": 580,
+        "wires": [
+            [
+                "c4bdb95a0f7c3226",
+                "480d9f15b0563c9c",
+                "22770249ce47f8c1"
+            ]
+        ]
+    },
+    {
+        "id": "2d29289272c0345f",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "Toon Naam en Verbonden",
+        "func": "// Vertaal velden + voeg actie-knop toe\nmsg.payload = msg.payload.map(d => ({\n    mac: d.mac,\n    naam: d.name,\n    verbonden: d.connected === \"yes\" ? \"ja\" : \"nee\",\n    actie: \"❌\"\n}));\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 940,
+        "wires": [
+            [
+                "t1"
+            ]
+        ]
+    },
+    {
+        "id": "04ad4a712d3067e5",
+        "type": "trigger",
+        "z": "ce724907bfebf75c",
+        "name": "Repeat 5s",
+        "op1": "Toon status",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 430,
+        "y": 580,
+        "wires": [
+            [
+                "e830c7baebfa9b32"
+            ],
+            [
+                "7463d453bcf5cff1"
+            ]
+        ]
+    },
+    {
+        "id": "480d9f15b0563c9c",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "reset",
+        "func": "if (msg.topic == \"$pageleave\" && \n    msg.payload.page.name == \"Bluetooth\") {\n        msg.reset = true;\n        return msg;\n    }\nelse \n    return null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 600,
+        "wires": [
+            [
+                "04ad4a712d3067e5"
+            ]
+        ]
+    },
+    {
+        "id": "7463d453bcf5cff1",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "loop back",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 520,
+        "wires": [
+            [
+                "04ad4a712d3067e5"
+            ]
+        ]
+    },
+    {
+        "id": "df6e998b6d564fcf",
+        "type": "inject",
+        "z": "ce724907bfebf75c",
+        "name": "Startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 760,
+        "wires": [
+            [
+                "0af8df52052ef366"
+            ]
+        ]
+    },
+    {
+        "id": "t1",
+        "type": "ui-table",
+        "z": "ce724907bfebf75c",
+        "group": "549f1fa0e59e6a04",
+        "name": "Device Table",
+        "label": "",
+        "order": 8,
+        "width": "0",
+        "height": "0",
+        "maxrows": "",
+        "autocols": false,
+        "showSearch": false,
+        "deselect": true,
+        "selectionType": "none",
+        "columns": [
+            {
+                "title": "Naam:",
+                "key": "naam",
+                "keyType": "key",
+                "type": "text",
+                "width": ""
+            },
+            {
+                "title": "Verbonden:",
+                "key": "verbonden",
+                "keyType": "key",
+                "type": "text",
+                "width": ""
+            },
+            {
+                "title": "Verwijder:",
+                "key": "actie",
+                "keyType": "key",
+                "type": "button",
+                "width": "",
+                "align": "start"
+            }
+        ],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "x": 690,
+        "y": 940,
+        "wires": [
+            [
+                "67633cd44823bbd2"
+            ]
+        ]
+    },
+    {
+        "id": "67633cd44823bbd2",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "Verwijder",
+        "func": "msg.payload = \"bluetoothctl remove \" + msg.payload.mac;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 1000,
+        "wires": [
+            [
+                "f1378f5cb764a371"
+            ]
+        ]
+    },
+    {
+        "id": "f1378f5cb764a371",
+        "type": "exec",
+        "z": "ce724907bfebf75c",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "bluetoothctl",
+        "x": 490,
+        "y": 1000,
+        "wires": [
+            [
+                "0af8df52052ef366"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d611838783d29255",
+        "type": "exec",
+        "z": "ce724907bfebf75c",
+        "command": ".node-red/projects/MiniSAHA/bluetooth.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Pair & Connect",
+        "x": 620,
+        "y": 200,
+        "wires": [
+            [
+                "6054eae0fe0bbb10"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4d4f78505bcbf29e",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "Get name",
+        "func": "msg.payload = global.get(\"BluetoothName\");\nnode.status({ text: \"Connect \" + msg.payload });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 293.66668701171875,
+        "y": 187.66668701171875,
+        "wires": [
+            [
+                "d611838783d29255",
+                "ad04926aacf33a5d"
+            ]
+        ]
+    },
+    {
+        "id": "22770249ce47f8c1",
+        "type": "debug",
+        "z": "ce724907bfebf75c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 220,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8580b318e864ef11",
+        "type": "ui-button",
+        "z": "ce724907bfebf75c",
+        "group": "549f1fa0e59e6a04",
+        "name": "",
+        "label": "Toon verbonden",
         "order": 7,
-        "width": "4",
+        "width": "0",
+        "height": "0",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 100,
+        "y": 720,
+        "wires": [
+            [
+                "0af8df52052ef366"
+            ]
+        ]
+    },
+    {
+        "id": "6c320f8b9fa94d70",
+        "type": "ui-button",
+        "z": "ce724907bfebf75c",
+        "group": "549f1fa0e59e6a04",
+        "name": "",
+        "label": "Voeg apparaat toe",
+        "order": 3,
+        "width": "2",
         "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 103.66668701171875,
+        "y": 187.66668701171875,
+        "wires": [
+            [
+                "4d4f78505bcbf29e"
+            ]
+        ]
+    },
+    {
+        "id": "f5960bb1164b1dbb",
+        "type": "ui-text-input",
+        "z": "ce724907bfebf75c",
+        "group": "549f1fa0e59e6a04",
+        "name": "Zoek op naam",
+        "label": "Zoek op (gedeelte van) naam",
+        "order": 2,
+        "width": "0",
+        "height": "0",
         "topic": "topic",
         "topicType": "msg",
         "mode": "text",
         "tooltip": "",
-        "delay": "500",
+        "delay": 300,
         "passthru": true,
-        "sendOnDelay": true,
-        "sendOnBlur": false,
-        "sendOnEnter": false,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
         "className": "",
         "clearable": false,
         "sendOnClear": false,
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 490,
-        "y": 980,
+        "x": 660,
+        "y": 120,
         "wires": [
             [
-                "c37ad7e7cb744576"
+                "e265ce7aeafc81cf"
             ]
         ]
     },
     {
-        "id": "c37ad7e7cb744576",
+        "id": "e265ce7aeafc81cf",
         "type": "change",
-        "z": "eb60a9ea21d42f29",
+        "z": "ce724907bfebf75c",
         "name": "",
         "rules": [
             {
@@ -6778,17 +7152,37 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 750,
-        "y": 980,
+        "x": 870,
+        "y": 120,
         "wires": [
             []
         ]
     },
     {
-        "id": "364806660f4b7812",
+        "id": "a382f332dd3ab477",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "set BluetoothNaam",
+        "func": "if (msg.payload == null) msg.payload = \"Speaker\";\nflow.set(\"BluetoothName\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 120,
+        "wires": [
+            [
+                "f5960bb1164b1dbb"
+            ]
+        ]
+    },
+    {
+        "id": "20aee768ba9e2512",
         "type": "change",
-        "z": "eb60a9ea21d42f29",
-        "name": "BluetoothName",
+        "z": "ce724907bfebf75c",
+        "name": "BluetoothNaam",
         "rules": [
             {
                 "t": "set",
@@ -6803,39 +7197,19 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 120,
-        "y": 980,
+        "x": 280,
+        "y": 120,
         "wires": [
             [
-                "c870a55735bf0aa7"
+                "a382f332dd3ab477"
             ]
         ]
     },
     {
-        "id": "c870a55735bf0aa7",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "name": "init",
-        "func": "if (!msg.payload || msg.payload.trim() === \"\" ) \n    msg.payload = \"Speaker\";\n\nglobal.set(\"BluetoothName\", msg.payload);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 290,
-        "y": 980,
-        "wires": [
-            [
-                "f44dfdb82dc5c7b5"
-            ]
-        ]
-    },
-    {
-        "id": "60b5cbb3f2f21686",
+        "id": "17b078a9c4215d63",
         "type": "inject",
-        "z": "eb60a9ea21d42f29",
-        "name": "OnStart",
+        "z": "ce724907bfebf75c",
+        "name": "At Startup",
         "props": [
             {
                 "p": "payload"
@@ -6852,19 +7226,206 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 920,
+        "x": 110,
+        "y": 120,
         "wires": [
             [
-                "364806660f4b7812"
+                "20aee768ba9e2512"
             ]
         ]
     },
     {
-        "id": "09627144b1c29332",
+        "id": "c8459650666a969b",
+        "type": "ui-text",
+        "z": "ce724907bfebf75c",
+        "group": "549f1fa0e59e6a04",
+        "order": 5,
+        "width": "0",
+        "height": "0",
+        "name": "progress",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 613.6666870117188,
+        "y": 267.66668701171875,
+        "wires": []
+    },
+    {
+        "id": "b6db4fba6aab59b3",
+        "type": "ui-button",
+        "z": "ce724907bfebf75c",
+        "group": "549f1fa0e59e6a04",
+        "name": "",
+        "label": "Annuleer",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 80,
+        "y": 320,
+        "wires": [
+            [
+                "d3ac11cb5dc0efbc"
+            ]
+        ]
+    },
+    {
+        "id": "ad04926aacf33a5d",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "Scanning...",
+        "func": "msg.payload = \"Scanning...\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "c8459650666a969b"
+            ]
+        ]
+    },
+    {
+        "id": "25b2f4f138e92a11",
+        "type": "delay",
+        "z": "ce724907bfebf75c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "6ab57893a1727021"
+            ]
+        ]
+    },
+    {
+        "id": "6ab57893a1727021",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "clear",
+        "func": "msg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 380,
+        "wires": [
+            [
+                "c8459650666a969b"
+            ]
+        ]
+    },
+    {
+        "id": "7d5983d557669a6c",
+        "type": "ui-template",
+        "z": "ce724907bfebf75c",
+        "group": "",
+        "page": "",
+        "ui": "6c1d30b5f16932dd",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<script>\n(function(scope) {\n\n    // Verstuur event wanneer de pagina geladen is\n    scope.$socket.emit(\"page_loaded\", {\n        page: \"Bluetooth\"\n    });\n\n    // Verstuur event bij elke klik op de pagina\n    document.addEventListener(\"click\", function(e) {\n        scope.$socket.emit(\"page_click\", {\n            tag: e.target.tagName,\n            class: e.target.className,\n            text: e.target.innerText\n        });\n    });\n\n})(scope);\n</script>\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "widget:ui",
+        "className": "",
+        "x": 740,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "16c0807580a7c2a0",
+        "type": "ui-control",
+        "z": "ce724907bfebf75c",
+        "name": "",
+        "ui": "6c1d30b5f16932dd",
+        "events": "change",
+        "x": 900,
+        "y": 540,
+        "wires": [
+            [
+                "2e189f3ce88031b6"
+            ]
+        ]
+    },
+    {
+        "id": "2e189f3ce88031b6",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "page clicked",
+        "func": "if (msg.socketid && msg.payload) {\n\n    if (msg.payload.event === \"page_loaded\") {\n        msg.topic = \"page_loaded\";\n        msg.page = msg.payload.data.page;\n        return msg;\n    }\n\n    if (msg.payload.event === \"page_click\") {\n        msg.topic = \"page_click\";\n        msg.click = msg.payload.data;\n        return msg;\n    }\n}\n\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 540,
+        "wires": [
+            [
+                "abfdc701c0c076ca"
+            ]
+        ]
+    },
+    {
+        "id": "abfdc701c0c076ca",
         "type": "debug",
-        "z": "eb60a9ea21d42f29",
-        "name": "debug 2",
+        "z": "ce724907bfebf75c",
+        "name": "debug 6",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -6872,82 +7433,15 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 580,
-        "y": 1240,
+        "x": 1200,
+        "y": 540,
         "wires": []
     },
     {
-        "id": "3ee7ceaf52f74dd6",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": "rfkill list; sudo rfkill unblock bluetooth",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Power on",
-        "x": 280,
-        "y": 1260,
-        "wires": [
-            [
-                "03a42d264b339cc7"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "4a9632cf0aa0e66d",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": "",
-        "addpay": "payload",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Pair",
-        "x": 410,
-        "y": 1500,
-        "wires": [
-            [
-                "80ca0a7afb2af87e"
-            ],
-            [
-                "80ca0a7afb2af87e"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "3051b7fc1269ac68",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "name": "Pair",
-        "func": "msg.payload =\n    'echo -e \"power on' + \n    '\\npair ' + global.get(\"BluetoothMac\") + \n    '\\ntrust ' + global.get(\"BluetoothMac\") + \n    '\\nconnect ' + global.get(\"BluetoothMac\") + '\" | bluetoothctl';\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 270,
-        "y": 1500,
-        "wires": [
-            [
-                "4a9632cf0aa0e66d",
-                "58077e6a35baf0a5"
-            ]
-        ]
-    },
-    {
-        "id": "80ca0a7afb2af87e",
+        "id": "e830c7baebfa9b32",
         "type": "debug",
-        "z": "eb60a9ea21d42f29",
-        "name": "debug 3",
+        "z": "ce724907bfebf75c",
+        "name": "debug 4",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -6956,30 +7450,48 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 600,
-        "y": 1500,
+        "y": 600,
         "wires": []
     },
     {
-        "id": "58077e6a35baf0a5",
-        "type": "debug",
-        "z": "eb60a9ea21d42f29",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 420,
-        "y": 1580,
+        "id": "6e70d09531a84ce8",
+        "type": "comment",
+        "z": "ce724907bfebf75c",
+        "name": "De verbinding tussen de dashboard‑client en de ui‑event node wordt niet opnieuw opgezet na een deploy",
+        "info": "",
+        "x": 1000,
+        "y": 500,
         "wires": []
     },
     {
-        "id": "0ad586e68ebf9dbc",
+        "id": "9a9cc08da2b8ef61",
+        "type": "ui-text",
+        "z": "ce724907bfebf75c",
+        "group": "549f1fa0e59e6a04",
+        "order": 6,
+        "width": "5",
+        "height": "1",
+        "name": "Lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 90,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d1c5073f0e9b7976",
         "type": "inject",
-        "z": "eb60a9ea21d42f29",
-        "name": "OnStart",
+        "z": "ce724907bfebf75c",
+        "name": "At Startup",
         "props": [
             {
                 "p": "payload"
@@ -6996,148 +7508,109 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 460,
-        "y": 1440,
+        "x": 350,
+        "y": 380,
         "wires": [
             [
-                "a510652f2413734a"
+                "6ab57893a1727021"
             ]
         ]
     },
     {
-        "id": "a510652f2413734a",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "name": "Clear",
-        "func": "msg.payload = \" \";\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 590,
-        "y": 1440,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "626453ea1608d365",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": ".node-red/projects/MiniSAHA/bluetooth.py",
-        "addpay": "payload",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Connect",
-        "x": 380,
-        "y": 1140,
-        "wires": [
-            [
-                "09627144b1c29332"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "110bdf4034e3ab4f",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "name": "Get name",
-        "func": "msg.payload = global.get(\"BluetoothName\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 240,
-        "y": 1140,
-        "wires": [
-            [
-                "626453ea1608d365"
-            ]
-        ]
-    },
-    {
-        "id": "inject-mac",
-        "type": "inject",
+        "id": "b699f11b580a05af",
+        "type": "ui-text",
         "z": "ce724907bfebf75c",
-        "name": "Start pairing",
-        "props": [
-            {
-                "p": "mac",
-                "v": "XX:XX:XX:XX:XX:XX",
-                "vt": "str"
-            }
+        "group": "549f1fa0e59e6a04",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Verbind met netadapter en zet speaker aan.",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6054eae0fe0bbb10",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "name": "clear",
+        "func": "msg.payload = \"Verbonden\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 200,
+        "wires": [
+            [
+                "c8459650666a969b",
+                "c9aa4babb452e660"
+            ]
+        ]
+    },
+    {
+        "id": "f1aeced22e9fa07f",
+        "type": "link in",
+        "z": "ce724907bfebf75c",
+        "name": "connected",
+        "links": [
+            "c9aa4babb452e660"
         ],
-        "repeat": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 130,
-        "y": 80,
+        "x": 145,
+        "y": 800,
         "wires": [
             [
-                "pair-seq"
+                "0af8df52052ef366"
             ]
         ]
     },
     {
-        "id": "pair-seq",
-        "type": "function",
+        "id": "c9aa4babb452e660",
+        "type": "link out",
         "z": "ce724907bfebf75c",
-        "name": "Build bluetoothctl script",
-        "func": "msg.payload = `power on\nagent on\ndefault-agent\nscan on\npair ${msg.mac}\ntrust ${msg.mac}\nconnect ${msg.mac}\nscan off\nquit`;\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 370,
-        "y": 80,
-        "wires": [
-            [
-                "exec-bluetooth"
-            ]
-        ]
+        "name": "connected",
+        "mode": "link",
+        "links": [
+            "f1aeced22e9fa07f"
+        ],
+        "x": 925,
+        "y": 200,
+        "wires": []
     },
     {
-        "id": "exec-bluetooth",
-        "type": "exec",
-        "z": "ce724907bfebf75c",
-        "command": "bluetoothctl",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "Run bluetoothctl",
-        "x": 620,
-        "y": 80,
-        "wires": [
-            [
-                "debug-out"
-            ],
-            [
-                "debug-out"
-            ],
-            [
-                "debug-out"
-            ]
-        ]
-    },
-    {
-        "id": "debug-out",
+        "id": "6c6ddae7e8f18ccf",
         "type": "debug",
         "z": "ce724907bfebf75c",
-        "name": "Output",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "567eeb4826101140",
+        "type": "debug",
+        "z": "ce724907bfebf75c",
+        "name": "debug 8",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -7146,15 +7619,52 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 840,
-        "y": 80,
+        "x": 700,
+        "y": 820,
         "wires": []
     },
     {
-        "id": "9fd7b0d172db68a4",
-        "type": "inject",
+        "id": "c063b84db9d7a7b0",
+        "type": "debug",
         "z": "ce724907bfebf75c",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 160,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "cce0fd7af36985a5",
+        "type": "mqtt in",
+        "z": "823fac899a3ba496",
         "name": "",
+        "topic": "FavorietChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "533f1ccbf9e93e73"
+            ]
+        ]
+    },
+    {
+        "id": "4f47a278f8c3681e",
+        "type": "inject",
+        "z": "823fac899a3ba496",
+        "name": "Startup",
         "props": [
             {
                 "p": "payload"
@@ -7166,75 +7676,88 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "once": true,
+        "onceDelay": "2",
         "topic": "",
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 180,
+        "y": 140,
         "wires": [
             [
-                "adcfb6c9b0f4bde4"
+                "976aaee7a4a5167c"
             ]
         ]
     },
     {
-        "id": "99f7746e7dfb7f26",
-        "type": "exec",
-        "z": "ce724907bfebf75c",
-        "command": "sudo hcitool scan | grep Speaker",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 600,
-        "y": 180,
+        "id": "976aaee7a4a5167c",
+        "type": "change",
+        "z": "823fac899a3ba496",
+        "name": "Favoriet",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Favoriet",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 140,
         "wires": [
             [
-                "0fa2590b74e365cd"
-            ],
-            [],
-            []
+                "533f1ccbf9e93e73"
+            ]
         ]
     },
     {
-        "id": "0fa2590b74e365cd",
-        "type": "debug",
-        "z": "ce724907bfebf75c",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 840,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "adcfb6c9b0f4bde4",
+        "id": "533f1ccbf9e93e73",
         "type": "function",
-        "z": "ce724907bfebf75c",
-        "name": "Build bluetoothctl script",
-        "func": "msg.payload = `power on\nagent on\ndefault-agent\nscan on\ndevices\nquit`;\nreturn msg;",
+        "z": "823fac899a3ba496",
+        "name": "https://",
+        "func": "msg.payload = \"https://\" + msg.payload;\nreturn msg;",
         "outputs": 1,
-        "timeout": "",
+        "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 180,
+        "x": 390,
+        "y": 100,
         "wires": [
             [
-                "99f7746e7dfb7f26"
+                "1fca7002be1614bc"
             ]
+        ]
+    },
+    {
+        "id": "1fca7002be1614bc",
+        "type": "ui-template",
+        "z": "823fac899a3ba496",
+        "group": "673ea3674d399963",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <div style=\"height: 100%; width: 100%; display: flex; flex-direction: column;\">\n        <iframe \n            :src=\"msg.payload\" \n            style=\"width:100%; height:80vh; border:none;\">\n        </iframe>\n    </div>\n</template>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 520,
+        "y": 100,
+        "wires": [
+            []
         ]
     }
 ]
