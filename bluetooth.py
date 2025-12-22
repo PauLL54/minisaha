@@ -44,6 +44,7 @@ def main():
     while True:
         line = proc.stdout.readline()
         if not line:
+            print("bluetoothctl gestopt")
             # bluetoothctl gestopt
             break
 
