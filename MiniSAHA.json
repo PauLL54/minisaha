@@ -523,12 +523,13 @@
             "21fbed526374f182",
             "34d7ae63b33b2312",
             "b119fd4598e51e41",
-            "05d5a950f617317c"
+            "05d5a950f617317c",
+            "c4571cfee0924b57"
         ],
         "x": 14,
         "y": 811.5,
         "w": 812,
-        "h": 469.5
+        "h": 477
     },
     {
         "id": "5bb2b589a301c7c8",
@@ -5699,7 +5700,7 @@
         "y": 1180,
         "wires": [
             [
-                "07af420f98d0e89a"
+                "c4571cfee0924b57"
             ],
             [],
             []
@@ -6077,8 +6078,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "install dashboard@latest",
-        "x": 530,
-        "y": 1220,
+        "x": 510,
+        "y": 1240,
         "wires": [
             [
                 "07af420f98d0e89a"
@@ -6255,6 +6256,29 @@
             [
                 "b6944b93af04a874"
             ]
+        ]
+    },
+    {
+        "id": "c4571cfee0924b57",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "chmod +x .node-red/projects/MiniSAHA/bluetooth.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "chmod +x",
+        "x": 500,
+        "y": 1180,
+        "wires": [
+            [
+                "07af420f98d0e89a"
+            ],
+            [],
+            []
         ]
     },
     {
