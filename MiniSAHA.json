@@ -6911,7 +6911,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "name": "Update?",
-        "func": "var current = global.get(\"version_test\");\nvar latest = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", latest: \" + latest    });\n\nif (latest > current) {\n    var msg2 = { payload: \"Test update wordt geinstalleerd...\"};\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { payload: \"Geen nieuwere test versie beschikbaar.\"};\n   return [null, msg2]; \n}\nreturn msg;",
+        "func": "var current = global.get(\"version_test\");\nvar latest = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", latest: \" + latest    });\n\nif (latest > current) {\n    var msg2 = { payload: \"Nieuwe test versie wordt geinstalleerd...\"};\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { payload: \"Geen nieuwere test versie beschikbaar.\"};\n   return [null, msg2]; \n}\nreturn msg;",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
