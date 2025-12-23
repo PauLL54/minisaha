@@ -6540,7 +6540,7 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "cp -f *.mp3 .node-red/projects/MiniSAHA/sounds",
+        "command": "mkdir .node-red/projects/MiniSAHA/sounds; cp -f *.mp3 .node-red/projects/MiniSAHA/sounds",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
