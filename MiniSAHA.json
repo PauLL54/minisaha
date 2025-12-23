@@ -56,6 +56,14 @@
         "env": []
     },
     {
+        "id": "bf57a768b975c2e6",
+        "type": "tab",
+        "label": "Meldingsgeluiden",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "bd2a966b.302e18",
         "type": "subflow",
         "name": "CheckIsAtHome",
@@ -533,7 +541,8 @@
             "041075a0f4b32a3b",
             "363ef96aac78d4e7",
             "9328b12c82bcdb88",
-            "e17df78fc7db3f2e"
+            "e17df78fc7db3f2e",
+            "844e46423aa3ee91"
         ],
         "x": 14,
         "y": 879,
@@ -631,7 +640,7 @@
             "a9b3d569ef1ff64c"
         ],
         "x": 14,
-        "y": 1039,
+        "y": 859,
         "w": 1072,
         "h": 522
     },
@@ -677,12 +686,13 @@
             "574eb541beac3d21",
             "e1ee20adb971c3d5",
             "77f6b3f3956f0d15",
-            "fd7a048b60fd40cc"
+            "fd7a048b60fd40cc",
+            "9da522779ab11e8c"
         ],
         "x": 14,
         "y": 19,
         "w": 1192,
-        "h": 629.5
+        "h": 642
     },
     {
         "id": "f37a603ed66fd806",
@@ -728,27 +738,115 @@
             "color": "#a4a4a4"
         },
         "nodes": [
-            "f700dd8a0fc784e4",
-            "2a3c0e75d5c7e099",
-            "62c92172e16d9ba3",
-            "e9d5f1e96bbfab79",
-            "597a0a5d1509ed4e",
-            "33eb30aad82c6369",
-            "f50c57615ece6e61",
-            "af0ba764328559bd",
-            "68f8d9f685b8df57",
-            "5b220edef38ed0ea",
-            "d5144160a738c441",
-            "b43f98a578c11484",
-            "d0beb70e5e1d5cc4",
-            "ed80b7d04d5d3306",
             "861d995a8063ca2d",
-            "7fca3ce7b6e0f6e2"
+            "43f0b3674c4fcca2",
+            "a3da71f32673dfd7",
+            "e68d3d081a706fa9"
         ],
         "x": 14,
         "y": 699,
-        "w": 1012,
+        "w": 652,
+        "h": 122
+    },
+    {
+        "id": "3856d925f2c69025",
+        "type": "group",
+        "z": "bf57a768b975c2e6",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "de3f35eb8cc6cc74",
+            "50dd2fd4a701d53d",
+            "fb00403833140d8b",
+            "7d08a46ad06a9fe9",
+            "0d7df80c86a6453d",
+            "098f8c595d14aaa5",
+            "121eeb47240d2a87",
+            "3410874898204686",
+            "48db1c2e18f88696",
+            "034d3d2d8b8a62ca",
+            "e438e1a719031b77",
+            "2b8910900d4bbdc5",
+            "8c04f7e36a9c4acb",
+            "292f906d0611558c",
+            "2e14724e3c3ae983",
+            "0a60a836b38547df",
+            "f071260bdcdcd056"
+        ],
+        "x": 34,
+        "y": 59,
+        "w": 1032,
         "h": 282
+    },
+    {
+        "id": "e9121fbc4482804f",
+        "type": "group",
+        "z": "bf57a768b975c2e6",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "ac3df9612f272925",
+            "d886cc1affb2bca7",
+            "411d40273f5f425f",
+            "4991f7f568969713",
+            "776ed147123b92b8",
+            "c2ddecb04917163d",
+            "6d21e3f54526cbb1",
+            "a0f17d909e19d179",
+            "2912eea2927befa7",
+            "1ee1bd387c952be2"
+        ],
+        "x": 54,
+        "y": 751.5,
+        "w": 792,
+        "h": 309.5
+    },
+    {
+        "id": "852f70d81ad10832",
+        "type": "group",
+        "z": "bf57a768b975c2e6",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "4a80936a1117d160",
+            "a6ad4310a571b04f",
+            "ff4b91c6f803a3cb",
+            "2f60b40d268db108",
+            "ec36fc960434517b",
+            "7b381f39c3109c7b",
+            "4ce40f669f564d3c",
+            "e8dcf9dab51432cf",
+            "19674a84640dbeb7",
+            "34a8c9383eec9020",
+            "c7a079d11845588a",
+            "9f7d3fb78648fc41",
+            "8fbf837b995b0dd9"
+        ],
+        "x": 54,
+        "y": 379,
+        "w": 852,
+        "h": 329.5
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -853,8 +951,8 @@
         ],
         "order": 1,
         "className": "",
-        "visible": true,
-        "disabled": false
+        "visible": "true",
+        "disabled": "false"
     },
     {
         "id": "ab8f5143a421d4e8",
@@ -1112,6 +1210,56 @@
         "name": "Favoriet",
         "page": "2a36538d72f26608",
         "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "bed8396ac6babffc",
+        "type": "ui-page",
+        "name": "Meldingsgeluiden",
+        "ui": "6c1d30b5f16932dd",
+        "path": "/page9",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "72011230335eaee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "4"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 7,
+        "className": "",
+        "visible": "false",
+        "disabled": "false"
+    },
+    {
+        "id": "aae22fe947be766e",
+        "type": "ui-group",
+        "name": "Meldingsgeluiden",
+        "page": "bed8396ac6babffc",
+        "width": "5",
         "height": 1,
         "order": 1,
         "showTitle": false,
@@ -2445,16 +2593,16 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "random?",
-        "func": "let random = global.get(\"BluetoothRandomSound\");\nnode.status({ text: \"random=\" + random });\n\nif (random)\n  return [msg, null];\nelse {\n  msg.payload = global.get(\"Sound\");\n  return [null, msg]\n}\n",
+        "name": "default or random?",
+        "func": "let random = global.get(\"BluetoothRandomSound\");\nnode.status({ text: \"random=\" + random });\n\nif (random)\n  return [msg, null];\nelse {\n  msg.payload = global.get(\"BluetoothSound\");\n  return [null, msg]\n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 160,
-        "y": 1220,
+        "x": 150,
+        "y": 1200,
         "wires": [
             [
                 "494c0e1626e74b03"
@@ -2500,7 +2648,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
+        "x": 500,
         "y": 1180,
         "wires": [
             [
@@ -2521,7 +2669,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 650,
         "y": 1220,
         "wires": [
             [
@@ -2544,7 +2692,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 770,
+        "x": 790,
         "y": 1220,
         "wires": []
     },
@@ -6552,7 +6700,7 @@
         "y": 1380,
         "wires": [
             [
-                "041075a0f4b32a3b"
+                "844e46423aa3ee91"
             ],
             [],
             []
@@ -6576,6 +6724,29 @@
         "wires": [
             [
                 "9328b12c82bcdb88"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "844e46423aa3ee91",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "npm install node-red-contrib-watchdirectory",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Install watchdirectory",
+        "x": 260,
+        "y": 1460,
+        "wires": [
+            [
+                "041075a0f4b32a3b"
             ],
             [],
             []
@@ -7698,7 +7869,7 @@
         "finalize": "",
         "libs": [],
         "x": 250,
-        "y": 1440,
+        "y": 1260,
         "wires": [
             [
                 "d611838783d29255",
@@ -7723,8 +7894,7 @@
         "y": 160,
         "wires": [
             [
-                "04ad4a712d3067e5",
-                "e9d5f1e96bbfab79"
+                "04ad4a712d3067e5"
             ]
         ]
     },
@@ -7761,7 +7931,8 @@
         "y": 540,
         "wires": [
             [
-                "t1"
+                "t1",
+                "9da522779ab11e8c"
             ]
         ]
     },
@@ -7975,7 +8146,7 @@
         "oldrc": false,
         "name": "Pair & Connect",
         "x": 540,
-        "y": 1260,
+        "y": 1080,
         "wires": [
             [
                 "6054eae0fe0bbb10",
@@ -7999,7 +8170,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 1260,
+        "y": 1080,
         "wires": [
             [
                 "d611838783d29255",
@@ -8058,7 +8229,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "",
         "label": "Voeg apparaat toe",
-        "order": 13,
+        "order": 8,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -8083,7 +8254,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 1260,
+        "y": 1080,
         "wires": [
             [
                 "4d4f78505bcbf29e"
@@ -8098,7 +8269,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "Zoek op naam",
         "label": "Zoek op (gedeelte van) naam",
-        "order": 11,
+        "order": 6,
         "width": "3",
         "height": "1",
         "topic": "topic",
@@ -8117,7 +8288,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 680,
-        "y": 1200,
+        "y": 1020,
         "wires": [
             [
                 "e265ce7aeafc81cf"
@@ -8145,7 +8316,7 @@
         "to": "",
         "reg": false,
         "x": 890,
-        "y": 1200,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -8164,7 +8335,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 1200,
+        "y": 1020,
         "wires": [
             [
                 "f5960bb1164b1dbb"
@@ -8192,7 +8363,7 @@
         "to": "",
         "reg": false,
         "x": 300,
-        "y": 1200,
+        "y": 1020,
         "wires": [
             [
                 "a382f332dd3ab477"
@@ -8222,7 +8393,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 1200,
+        "y": 1020,
         "wires": [
             [
                 "20aee768ba9e2512"
@@ -8235,7 +8406,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 15,
+        "order": 10,
         "width": "0",
         "height": "0",
         "name": "progress",
@@ -8251,7 +8422,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 940,
-        "y": 1360,
+        "y": 1180,
         "wires": []
     },
     {
@@ -8262,7 +8433,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "",
         "label": "Annuleer",
-        "order": 14,
+        "order": 9,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -8287,7 +8458,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 100,
-        "y": 1440,
+        "y": 1260,
         "wires": [
             [
                 "d3ac11cb5dc0efbc"
@@ -8308,7 +8479,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 1360,
+        "y": 1180,
         "wires": [
             [
                 "c8459650666a969b"
@@ -8334,7 +8505,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 780,
-        "y": 1440,
+        "y": 1260,
         "wires": [
             [
                 "6ab57893a1727021"
@@ -8355,7 +8526,7 @@
         "finalize": "",
         "libs": [],
         "x": 930,
-        "y": 1440,
+        "y": 1260,
         "wires": [
             [
                 "c8459650666a969b"
@@ -8474,7 +8645,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 110,
-        "y": 1520,
+        "y": 1340,
         "wires": []
     },
     {
@@ -8500,7 +8671,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 770,
-        "y": 1500,
+        "y": 1320,
         "wires": [
             [
                 "6ab57893a1727021"
@@ -8513,7 +8684,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 10,
+        "order": 5,
         "width": 0,
         "height": 0,
         "name": "",
@@ -8529,7 +8700,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 170,
-        "y": 1140,
+        "y": 960,
         "wires": []
     },
     {
@@ -8546,7 +8717,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 1320,
+        "y": 1140,
         "wires": [
             [
                 "93aefc9fdd10a3a9",
@@ -8583,7 +8754,7 @@
             "f1aeced22e9fa07f"
         ],
         "x": 745,
-        "y": 1320,
+        "y": 1140,
         "wires": []
     },
     {
@@ -8605,7 +8776,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 740,
-        "y": 1280,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -8624,7 +8795,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 1440,
+        "y": 1260,
         "wires": [
             [
                 "70b734ee6121d475"
@@ -8650,7 +8821,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 420,
-        "y": 1440,
+        "y": 1260,
         "wires": [
             [
                 "c86740ad60f14028"
@@ -8671,7 +8842,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 1400,
+        "y": 1220,
         "wires": [
             [
                 "70b734ee6121d475"
@@ -8709,7 +8880,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 920,
-        "y": 1240,
+        "y": 1060,
         "wires": []
     },
     {
@@ -8735,7 +8906,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1300,
+        "y": 1120,
         "wires": [
             [
                 "4d4f78505bcbf29e"
@@ -8756,7 +8927,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 1380,
+        "y": 1200,
         "wires": [
             [
                 "c8459650666a969b",
@@ -8770,7 +8941,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 9,
+        "order": 11,
         "width": "5",
         "height": "1",
         "name": "Lege regel",
@@ -8786,7 +8957,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 270,
-        "y": 1520,
+        "y": 1340,
         "wires": []
     },
     {
@@ -8797,7 +8968,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "Help naam",
         "label": "?",
-        "order": 12,
+        "order": 7,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -8822,7 +8993,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 670,
-        "y": 1140,
+        "y": 960,
         "wires": [
             [
                 "3edb32cf296b125f"
@@ -8843,7 +9014,7 @@
         "finalize": "",
         "libs": [],
         "x": 820,
-        "y": 1140,
+        "y": 960,
         "wires": [
             [
                 "1314c5376597aa78"
@@ -8870,80 +9041,9 @@
         "className": "",
         "name": "",
         "x": 980,
-        "y": 1140,
+        "y": 960,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "f700dd8a0fc784e4",
-        "type": "ui-button",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "group": "549f1fa0e59e6a04",
-        "name": "",
-        "label": "Test geluid",
-        "order": 7,
-        "width": "2",
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 110,
-        "y": 840,
-        "wires": [
-            [
-                "af0ba764328559bd"
-            ]
-        ]
-    },
-    {
-        "id": "2a3c0e75d5c7e099",
-        "type": "ui-dropdown",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "group": "549f1fa0e59e6a04",
-        "name": "",
-        "label": "Kies meldingsgeluid:",
-        "tooltip": "",
-        "order": 5,
-        "width": "3",
-        "height": "1",
-        "passthru": false,
-        "multiple": false,
-        "chips": false,
-        "clearable": false,
-        "options": [],
-        "payload": "",
-        "topic": "topic",
-        "topicType": "msg",
-        "className": "",
-        "typeIsComboBox": false,
-        "msgTrigger": "onChange",
-        "x": 640,
-        "y": 880,
-        "wires": [
-            [
-                "f50c57615ece6e61"
-            ]
         ]
     },
     {
@@ -8965,7 +9065,7 @@
         "name": "Verbinden met een nieuw apparaat",
         "info": "",
         "x": 180,
-        "y": 1080,
+        "y": 900,
         "wires": []
     },
     {
@@ -9066,173 +9166,27 @@
         "wires": []
     },
     {
-        "id": "62c92172e16d9ba3",
-        "type": "inject",
+        "id": "861d995a8063ca2d",
+        "type": "comment",
         "z": "ce724907bfebf75c",
         "g": "e2e84e52f82b08ea",
-        "name": "Startup",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 900,
-        "wires": [
-            [
-                "e9d5f1e96bbfab79",
-                "d0beb70e5e1d5cc4"
-            ]
-        ]
+        "name": "https://pixabay.com/nl/music/search/ringtones/",
+        "info": "",
+        "x": 350,
+        "y": 780,
+        "wires": []
     },
     {
-        "id": "e9d5f1e96bbfab79",
-        "type": "exec",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "command": "ls .node-red/projects/MiniSAHA/sounds",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "ls sounds",
-        "x": 280,
-        "y": 880,
-        "wires": [
-            [
-                "597a0a5d1509ed4e"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "597a0a5d1509ed4e",
-        "type": "function",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "name": "split",
-        "func": "msg.options = msg.payload.split(/\\s+/);\nmsg.payload = global.get(\"Sound\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 880,
-        "wires": [
-            [
-                "2a3c0e75d5c7e099"
-            ]
-        ]
-    },
-    {
-        "id": "33eb30aad82c6369",
-        "type": "exec",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "command": "",
-        "addpay": "payload",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "play sound",
-        "x": 470,
-        "y": 820,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "f50c57615ece6e61",
-        "type": "function",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "name": "set Sound",
-        "func": "global.set(\"Sound\", msg.payload);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 840,
-        "y": 880,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "af0ba764328559bd",
-        "type": "function",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "name": "get Sound",
-        "func": "msg.payload = \"mpg123 -q .node-red/projects/MiniSAHA/sounds/\" +\n  global.get(\"Sound\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 290,
-        "y": 820,
-        "wires": [
-            [
-                "33eb30aad82c6369"
-            ]
-        ]
-    },
-    {
-        "id": "68f8d9f685b8df57",
-        "type": "function",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "name": "kill",
-        "func": "msg.kill = \"SIGTERM\";   // of \"SIGKILL\", \"SIGINT\", etc.\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 270,
-        "y": 740,
-        "wires": [
-            [
-                "33eb30aad82c6369"
-            ]
-        ]
-    },
-    {
-        "id": "5b220edef38ed0ea",
+        "id": "43f0b3674c4fcca2",
         "type": "ui-button",
         "z": "ce724907bfebf75c",
         "g": "e2e84e52f82b08ea",
         "group": "549f1fa0e59e6a04",
         "name": "",
-        "label": "Stop",
-        "order": 8,
-        "width": "2",
-        "height": "1",
+        "label": "Beheer meldingsgeluiden",
+        "order": 12,
+        "width": "0",
+        "height": "0",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
@@ -9254,156 +9208,65 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 90,
+        "x": 150,
         "y": 740,
         "wires": [
             [
-                "68f8d9f685b8df57"
+                "a3da71f32673dfd7"
             ]
         ]
     },
     {
-        "id": "d5144160a738c441",
-        "type": "ui-switch",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "name": "",
-        "label": "Rnd",
-        "group": "549f1fa0e59e6a04",
-        "order": 6,
-        "width": "1",
-        "height": "1",
-        "passthru": false,
-        "decouple": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "className": "",
-        "layout": "row-left",
-        "clickableArea": "switch",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 690,
-        "y": 940,
-        "wires": [
-            [
-                "b43f98a578c11484"
-            ]
-        ]
-    },
-    {
-        "id": "b43f98a578c11484",
-        "type": "change",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "name": "BluetoothRandomSound",
-        "rules": [
-            {
-                "t": "set",
-                "p": "BluetoothRandomSound",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 890,
-        "y": 940,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d0beb70e5e1d5cc4",
-        "type": "change",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "name": "BluetoothRandomSound",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "BluetoothRandomSound",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 330,
-        "y": 940,
-        "wires": [
-            [
-                "ed80b7d04d5d3306"
-            ]
-        ]
-    },
-    {
-        "id": "ed80b7d04d5d3306",
+        "id": "a3da71f32673dfd7",
         "type": "function",
         "z": "ce724907bfebf75c",
         "g": "e2e84e52f82b08ea",
-        "name": "false",
-        "func": "if (msg.payload == null) {\n    msg.payload = false;\n    global.set(\"BluetoothRandomSound\", msg.payload);\n    node.status({ text: msg.payload });\n}\nreturn msg;",
+        "name": "set page Beheer",
+        "func": "msg.payload = \"Meldingsgeluiden\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 940,
+        "x": 380,
+        "y": 740,
         "wires": [
             [
-                "d5144160a738c441"
+                "e68d3d081a706fa9"
             ]
         ]
     },
     {
-        "id": "861d995a8063ca2d",
-        "type": "comment",
-        "z": "ce724907bfebf75c",
-        "g": "e2e84e52f82b08ea",
-        "name": "https://pixabay.com/nl/music/search/ringtones/",
-        "info": "",
-        "x": 750,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "7fca3ce7b6e0f6e2",
-        "type": "mqtt in",
+        "id": "e68d3d081a706fa9",
+        "type": "ui-control",
         "z": "ce724907bfebf75c",
         "g": "e2e84e52f82b08ea",
         "name": "",
-        "topic": "PlaySound",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "0839f7b4c0cbb0a8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 100,
-        "y": 780,
+        "ui": "6c1d30b5f16932dd",
+        "events": "all",
+        "x": 580,
+        "y": 740,
         "wires": [
-            [
-                "af0ba764328559bd"
-            ]
+            []
         ]
+    },
+    {
+        "id": "9da522779ab11e8c",
+        "type": "debug",
+        "z": "ce724907bfebf75c",
+        "g": "b653e740e9531504",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 620,
+        "wires": []
     },
     {
         "id": "cce0fd7af36985a5",
@@ -9530,5 +9393,962 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "de3f35eb8cc6cc74",
+        "type": "ui-button",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "group": "aae22fe947be766e",
+        "name": "",
+        "label": "Test geluid",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "121eeb47240d2a87"
+            ]
+        ]
+    },
+    {
+        "id": "50dd2fd4a701d53d",
+        "type": "ui-dropdown",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "group": "aae22fe947be766e",
+        "name": "",
+        "label": "Kies meldingsgeluid:",
+        "tooltip": "",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "multiple": false,
+        "chips": false,
+        "clearable": false,
+        "options": [],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "typeIsComboBox": false,
+        "msgTrigger": "onChange",
+        "x": 680,
+        "y": 240,
+        "wires": [
+            [
+                "098f8c595d14aaa5"
+            ]
+        ]
+    },
+    {
+        "id": "fb00403833140d8b",
+        "type": "exec",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "command": "ls .node-red/projects/MiniSAHA/sounds",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "ls sounds",
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "7d08a46ad06a9fe9"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7d08a46ad06a9fe9",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "split",
+        "func": "msg.options = msg.payload.split(/\\s+/);\n\nlet selected = global.get(\"BluetoothSound\"); \n\nif (msg.options.includes(selected)) {\n    msg.payload = global.get(\"BluetoothSound\");\n}\nelse {\n    if (msg.options.length > 0) {\n        msg.payload = msg.options[0];\n        global.set(\"BluetoothSound\", msg.payload);\n    }\n    else\n        msg.payload = \"\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "50dd2fd4a701d53d"
+            ]
+        ]
+    },
+    {
+        "id": "0d7df80c86a6453d",
+        "type": "exec",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "play sound",
+        "x": 510,
+        "y": 180,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "098f8c595d14aaa5",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "set BluetoothSound",
+        "func": "global.set(\"BluetoothSound\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "121eeb47240d2a87",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "get Sound",
+        "func": "msg.payload = \"mpg123 -q .node-red/projects/MiniSAHA/sounds/\" +\n  global.get(\"BluetoothSound\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "0d7df80c86a6453d"
+            ]
+        ]
+    },
+    {
+        "id": "3410874898204686",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "kill",
+        "func": "msg.kill = \"SIGTERM\";   // of \"SIGKILL\", \"SIGINT\", etc.\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "0d7df80c86a6453d"
+            ]
+        ]
+    },
+    {
+        "id": "48db1c2e18f88696",
+        "type": "ui-button",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "group": "aae22fe947be766e",
+        "name": "",
+        "label": "Stop",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "3410874898204686"
+            ]
+        ]
+    },
+    {
+        "id": "034d3d2d8b8a62ca",
+        "type": "ui-switch",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "",
+        "label": "Rnd",
+        "group": "aae22fe947be766e",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-left",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 730,
+        "y": 300,
+        "wires": [
+            [
+                "e438e1a719031b77"
+            ]
+        ]
+    },
+    {
+        "id": "e438e1a719031b77",
+        "type": "change",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "BluetoothRandomSound",
+        "rules": [
+            {
+                "t": "set",
+                "p": "BluetoothRandomSound",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2b8910900d4bbdc5",
+        "type": "change",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "BluetoothRandomSound",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "BluetoothRandomSound",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "8c04f7e36a9c4acb"
+            ]
+        ]
+    },
+    {
+        "id": "8c04f7e36a9c4acb",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "false",
+        "func": "if (msg.payload == null) {\n    msg.payload = false;\n    global.set(\"BluetoothRandomSound\", msg.payload);\n    node.status({ text: msg.payload });\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 300,
+        "wires": [
+            [
+                "034d3d2d8b8a62ca"
+            ]
+        ]
+    },
+    {
+        "id": "292f906d0611558c",
+        "type": "comment",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "https://pixabay.com/nl/music/search/ringtones/",
+        "info": "",
+        "x": 790,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2e14724e3c3ae983",
+        "type": "mqtt in",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "",
+        "topic": "PlaySound",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "121eeb47240d2a87"
+            ]
+        ]
+    },
+    {
+        "id": "ac3df9612f272925",
+        "type": "exec",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "command": "ls .node-red/projects/MiniSAHA/sounds/*.mp3",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "ls sounds",
+        "x": 300,
+        "y": 800,
+        "wires": [
+            [
+                "411d40273f5f425f"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d886cc1affb2bca7",
+        "type": "ui-table",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "group": "aae22fe947be766e",
+        "name": "Device Table",
+        "label": "",
+        "order": 8,
+        "width": "0",
+        "height": "0",
+        "maxrows": "",
+        "autocols": false,
+        "showSearch": false,
+        "deselect": true,
+        "selectionType": "none",
+        "columns": [
+            {
+                "title": "Naam:",
+                "key": "shortName",
+                "keyType": "key",
+                "type": "text",
+                "width": ""
+            },
+            {
+                "title": "Verwijder:",
+                "key": "actie",
+                "keyType": "key",
+                "type": "button",
+                "width": "",
+                "align": "start"
+            }
+        ],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "x": 750,
+        "y": 800,
+        "wires": [
+            [
+                "4991f7f568969713"
+            ]
+        ]
+    },
+    {
+        "id": "411d40273f5f425f",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "name": "Toon Naam en Verbonden",
+        "func": "let filenames = msg.payload.split(/\\r?\\n/);\nif (filenames.length > 1) {\n    filenames = filenames.slice(0, -1);\n}\nnode.status({ text: filenames.length });\n\nlet data = [];\nfilenames.forEach(function(filename) {\n    let short = filename.split('/').pop();\n    short = short.split('.').slice(0, -1).join('.')\n    data.push({\n        filename: filename,\n        shortName: short,\n        actie: \"❌\"\n    });\n}\n);\nmsg.payload = data;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 800,
+        "wires": [
+            [
+                "d886cc1affb2bca7"
+            ]
+        ]
+    },
+    {
+        "id": "4a80936a1117d160",
+        "type": "ui-text",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "group": "aae22fe947be766e",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "Voortgang",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 810,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a6ad4310a571b04f",
+        "type": "ui-button",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "group": "aae22fe947be766e",
+        "name": "",
+        "label": "Kopieer alle MP3 bestanden van USB stick",
+        "order": 6,
+        "width": "0",
+        "height": "0",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 250,
+        "y": 600,
+        "wires": [
+            [
+                "ec36fc960434517b"
+            ]
+        ]
+    },
+    {
+        "id": "4991f7f568969713",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "name": "remove device",
+        "func": "global.set(\"BluetoothConnectedName\", \"\");\nglobal.set(\"BluetoothPaired\", \"no\");\nglobal.set(\"BluetoothConnected\", \"no\");\n\nmsg.payload = 'rm \"' + msg.payload.filename + '\"';\nnode.status({ text: msg.payload });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 920,
+        "wires": [
+            [
+                "776ed147123b92b8"
+            ]
+        ]
+    },
+    {
+        "id": "776ed147123b92b8",
+        "type": "exec",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "exec",
+        "x": 710,
+        "y": 900,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ff4b91c6f803a3cb",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "name": "USB disk",
+        "func": "let usb = msg.payload.slice(0, -1);\nusb = usb.replace(/ /, \"\\\\ \");\n\nnode.status({ text: usb });\nmsg.payload = 'cp -r /media/pi/' + usb +\n    '/*.mp3 /home/pi/.node-red/projects/MiniSAHA/sounds/'\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 660,
+        "wires": [
+            [
+                "2f60b40d268db108"
+            ]
+        ]
+    },
+    {
+        "id": "2f60b40d268db108",
+        "type": "exec",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "exec",
+        "x": 710,
+        "y": 660,
+        "wires": [
+            [
+                "19674a84640dbeb7"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ec36fc960434517b",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "name": "Find USB",
+        "func": "msg.payload = \"ls /media/pi\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 600,
+        "wires": [
+            [
+                "7b381f39c3109c7b"
+            ]
+        ]
+    },
+    {
+        "id": "7b381f39c3109c7b",
+        "type": "exec",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "exec",
+        "x": 710,
+        "y": 600,
+        "wires": [
+            [
+                "ff4b91c6f803a3cb"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c2ddecb04917163d",
+        "type": "watch-directory",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "folder": ".node-red/projects/MiniSAHA/sounds",
+        "recursive": 0,
+        "typeEvent": "create",
+        "ignoreInitial": false,
+        "ignoredFiles": "",
+        "ignoredFilesType": "re",
+        "name": "",
+        "x": 220,
+        "y": 940,
+        "wires": [
+            [
+                "a0f17d909e19d179"
+            ]
+        ]
+    },
+    {
+        "id": "6d21e3f54526cbb1",
+        "type": "watch-directory",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "folder": ".node-red/projects/MiniSAHA/sounds",
+        "recursive": 0,
+        "typeEvent": "delete",
+        "ignoreInitial": false,
+        "ignoredFiles": "",
+        "ignoredFilesType": "re",
+        "name": "",
+        "x": 220,
+        "y": 1020,
+        "wires": [
+            [
+                "a0f17d909e19d179"
+            ]
+        ]
+    },
+    {
+        "id": "a0f17d909e19d179",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "name": "join",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1000,
+        "wires": [
+            [
+                "2912eea2927befa7"
+            ]
+        ]
+    },
+    {
+        "id": "2912eea2927befa7",
+        "type": "link out",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "name": "Changed",
+        "mode": "link",
+        "links": [
+            "1ee1bd387c952be2",
+            "0a60a836b38547df",
+            "4ce40f669f564d3c"
+        ],
+        "x": 585,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "1ee1bd387c952be2",
+        "type": "link in",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "name": "link in 1",
+        "links": [
+            "2912eea2927befa7"
+        ],
+        "x": 145,
+        "y": 800,
+        "wires": [
+            [
+                "ac3df9612f272925"
+            ]
+        ]
+    },
+    {
+        "id": "0a60a836b38547df",
+        "type": "link in",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "link in 2",
+        "links": [
+            "2912eea2927befa7"
+        ],
+        "x": 155,
+        "y": 240,
+        "wires": [
+            [
+                "fb00403833140d8b"
+            ]
+        ]
+    },
+    {
+        "id": "f071260bdcdcd056",
+        "type": "inject",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "Startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "2b8910900d4bbdc5"
+            ]
+        ]
+    },
+    {
+        "id": "4ce40f669f564d3c",
+        "type": "link in",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "name": "link in 3",
+        "links": [
+            "2912eea2927befa7"
+        ],
+        "x": 125,
+        "y": 420,
+        "wires": [
+            [
+                "e8dcf9dab51432cf"
+            ]
+        ]
+    },
+    {
+        "id": "e8dcf9dab51432cf",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "name": "klaar",
+        "func": "msg.payload = \"klaar\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 420,
+        "wires": [
+            [
+                "9f7d3fb78648fc41"
+            ]
+        ]
+    },
+    {
+        "id": "19674a84640dbeb7",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "name": "bezig",
+        "func": "msg.payload = \"bezig...\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 460,
+        "wires": [
+            [
+                "9f7d3fb78648fc41"
+            ]
+        ]
+    },
+    {
+        "id": "34a8c9383eec9020",
+        "type": "delay",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 660,
+        "y": 480,
+        "wires": [
+            [
+                "c7a079d11845588a"
+            ]
+        ]
+    },
+    {
+        "id": "c7a079d11845588a",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "name": "clear",
+        "func": "msg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 480,
+        "wires": [
+            [
+                "4a80936a1117d160"
+            ]
+        ]
+    },
+    {
+        "id": "9f7d3fb78648fc41",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "name": "join",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 420,
+        "wires": [
+            [
+                "4a80936a1117d160",
+                "34a8c9383eec9020"
+            ]
+        ]
+    },
+    {
+        "id": "8fbf837b995b0dd9",
+        "type": "ui-text",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "group": "aae22fe947be766e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "leeg",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 130,
+        "y": 640,
+        "wires": []
     }
 ]
