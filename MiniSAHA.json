@@ -530,12 +530,15 @@
             "05d5a950f617317c",
             "c4571cfee0924b57",
             "ba410ac8c1a26bad",
-            "041075a0f4b32a3b"
+            "041075a0f4b32a3b",
+            "363ef96aac78d4e7",
+            "9328b12c82bcdb88",
+            "e17df78fc7db3f2e"
         ],
         "x": 14,
         "y": 879,
-        "w": 812,
-        "h": 622
+        "w": 792,
+        "h": 689.5
     },
     {
         "id": "5bb2b589a301c7c8",
@@ -5654,8 +5657,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Reboot",
-        "x": 740,
-        "y": 1300,
+        "x": 720,
+        "y": 1460,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -6248,7 +6251,7 @@
         "oldrc": false,
         "name": "install dashboard@latest",
         "x": 510,
-        "y": 1440,
+        "y": 1520,
         "wires": [
             [
                 "07af420f98d0e89a"
@@ -6279,8 +6282,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 280,
-        "y": 1460,
+        "x": 300,
+        "y": 1520,
         "wires": [
             [
                 "2888205ab81df7ad"
@@ -6447,7 +6450,7 @@
         "y": 1300,
         "wires": [
             [
-                "07af420f98d0e89a"
+                "363ef96aac78d4e7"
             ],
             [],
             []
@@ -6499,10 +6502,81 @@
         "winHide": false,
         "oldrc": false,
         "name": "install mpg123",
-        "x": 260,
+        "x": 480,
+        "y": 1460,
+        "wires": [
+            [
+                "07af420f98d0e89a"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "363ef96aac78d4e7",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/dynamic-chime-274587.mp3",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get sounds",
+        "x": 150,
         "y": 1380,
         "wires": [
+            [
+                "e17df78fc7db3f2e"
+            ],
             [],
+            []
+        ]
+    },
+    {
+        "id": "9328b12c82bcdb88",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "cp -f *.mp3 .node-red/projects/MiniSAHA/sounds",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Install sounds",
+        "x": 520,
+        "y": 1380,
+        "wires": [
+            [
+                "041075a0f4b32a3b"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e17df78fc7db3f2e",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Zin-in_Rogier-van-der-Erve.mp3",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get sounds",
+        "x": 330,
+        "y": 1380,
+        "wires": [
+            [
+                "9328b12c82bcdb88"
+            ],
             [],
             []
         ]
