@@ -637,11 +637,12 @@
             "620e6a6d64aff30d",
             "3edb32cf296b125f",
             "1314c5376597aa78",
-            "a9b3d569ef1ff64c"
+            "a9b3d569ef1ff64c",
+            "a312655bf01fb8e3"
         ],
-        "x": 14,
+        "x": -6,
         "y": 859,
-        "w": 1072,
+        "w": 1112,
         "h": 522
     },
     {
@@ -674,7 +675,6 @@
             "t1",
             "67633cd44823bbd2",
             "f1378f5cb764a371",
-            "8580b318e864ef11",
             "7d5983d557669a6c",
             "16c0807580a7c2a0",
             "2e189f3ce88031b6",
@@ -687,7 +687,8 @@
             "e1ee20adb971c3d5",
             "77f6b3f3956f0d15",
             "fd7a048b60fd40cc",
-            "9da522779ab11e8c"
+            "9da522779ab11e8c",
+            "9a51eef86507a1f1"
         ],
         "x": 14,
         "y": 19,
@@ -811,7 +812,7 @@
             "1ee1bd387c952be2"
         ],
         "x": 54,
-        "y": 751.5,
+        "y": 831.5,
         "w": 792,
         "h": 309.5
     },
@@ -841,12 +842,17 @@
             "34a8c9383eec9020",
             "c7a079d11845588a",
             "9f7d3fb78648fc41",
-            "8fbf837b995b0dd9"
+            "8fbf837b995b0dd9",
+            "c0ef744af7819d7c",
+            "c0dfb882e72c4bd7",
+            "c5dbb4558df77bc6",
+            "25d743058464db66",
+            "746b7471fda81cac"
         ],
         "x": 54,
         "y": 379,
         "w": 852,
-        "h": 329.5
+        "h": 442
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -951,8 +957,8 @@
         ],
         "order": 1,
         "className": "",
-        "visible": "true",
-        "disabled": "false"
+        "visible": true,
+        "disabled": false
     },
     {
         "id": "ab8f5143a421d4e8",
@@ -5589,7 +5595,7 @@
         "width": 0,
         "height": 0,
         "name": "About",
-        "label": "De MiniSAHA app is bedoeld voor de alleenstaande oudere. Met deze app kan je instellen hoe laat je een melding wilt ontvangen op je telefoon om te controleren of het goed met je gaat. Mocht je niet binnen een bepaalde tijd reageren, dan ontvangt een andere persoon een email met de vraag om te kijken hoe het met je gaat.",
+        "label": "De MiniSAHA app is bedoeld voor de alleenstaande oudere. Met deze app kan je instellen hoe laat je een melding wilt ontvangen op je telefoon en/of Bluetooth speaker om te controleren of het goed met je gaat. Mocht je niet binnen een bepaalde tijd reageren, dan ontvangt een andere persoon een email met de vraag om te kijken hoe het met je gaat.",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "style": true,
@@ -6548,7 +6554,7 @@
         "g": "f37a603ed66fd806",
         "group": "adc719ee09b9438b",
         "name": "Tester",
-        "label": "Tester",
+        "label": "Voor testers",
         "order": 8,
         "width": "0",
         "height": "0",
@@ -7954,8 +7960,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 450,
-        "y": 200,
+        "x": 410,
+        "y": 220,
         "wires": [
             [
                 "0af8df52052ef366"
@@ -8162,7 +8168,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "name": "msg",
-        "func": "msg.payload = global.get(\"BluetoothName\");\nif (msg.payload === undefined) { msg.payload = \"\"; }\n\nlet bluetoothConnectedName = global.get(\"BluetoothConnectedName\");\nif (bluetoothConnectedName === undefined) { bluetoothConnectedName = \"\"; }\n\n\nlet paired = global.get(\"BluetoothPaired\");\nif (paired === undefined) { paired = \"no\"; }\n\nlet connected = global.get(\"BluetoothConnected\");\nif (connected === undefined) { connected = \"no\"; }\n\nif (bluetoothConnectedName.toLowerCase().includes(msg.payload.toLowerCase())) { \n    if (connected == \"no\" && paired == \"yes\") {\n        msg.payload = \"Zet \" + bluetoothConnectedName + \n        \" aan en wacht 1 minuut.\"\n        node.status({ text: msg.payload });\n        return [null, msg];\n    }\n    else {\n        msg.payload = bluetoothConnectedName + \" is al verbonden.\"\n        node.status({ text: msg.payload });\n        return [null, msg];\n    }\n}\nelse { // nieuwe naam\n    if (global.get(\"BluetoothPaired\") == \"yes\") { \n        msg.payload = \"Verwijder eerst \" + bluetoothConnectedName;\n        node.status({ text: msg.payload });\n        return [null, msg];\n    }\n    node.status({ text: \"Connect \" + msg.payload });\n}\n\nreturn [msg, null];",
+        "func": "msg.payload = global.get(\"BluetoothName\");\nif (msg.payload === undefined) { msg.payload = \"\"; }\nmsg.payload = '\"' + msg.payload + '\"';\n\nlet bluetoothConnectedName = global.get(\"BluetoothConnectedName\");\nif (bluetoothConnectedName === undefined) { bluetoothConnectedName = \"\"; }\n\n\nlet paired = global.get(\"BluetoothPaired\");\nif (paired === undefined) { paired = \"no\"; }\n\nlet connected = global.get(\"BluetoothConnected\");\nif (connected === undefined) { connected = \"no\"; }\n\nif (bluetoothConnectedName.toLowerCase().includes(msg.payload.toLowerCase())) { \n    if (connected == \"no\" && paired == \"yes\") {\n        msg.payload = \"Zet \" + bluetoothConnectedName + \n        \" aan en wacht 1 minuut.\"\n        node.status({ text: msg.payload });\n        return [null, msg];\n    }\n    else {\n        msg.payload = bluetoothConnectedName + \" is al verbonden.\"\n        node.status({ text: msg.payload });\n        return [null, msg];\n    }\n}\nelse { // nieuwe naam\n    if (global.get(\"BluetoothPaired\") == \"yes\") { \n        msg.payload = \"Verwijder eerst \" + bluetoothConnectedName;\n        node.status({ text: msg.payload });\n        return [null, msg];\n    }\n    node.status({ text: \"Connect \" + msg.payload });\n}\nnode.status({ text: \"Connect \" + msg.payload });\nreturn [msg, null];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -8178,46 +8184,6 @@
             ],
             [
                 "988de3a578461499"
-            ]
-        ]
-    },
-    {
-        "id": "8580b318e864ef11",
-        "type": "ui-button",
-        "z": "ce724907bfebf75c",
-        "g": "b653e740e9531504",
-        "group": "549f1fa0e59e6a04",
-        "name": "",
-        "label": "Toon gekoppelde apparaten",
-        "order": 1,
-        "width": "3",
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 160,
-        "y": 300,
-        "wires": [
-            [
-                "0af8df52052ef366"
             ]
         ]
     },
@@ -8855,14 +8821,14 @@
         "z": "ce724907bfebf75c",
         "g": "b653e740e9531504",
         "name": "debug 1",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
+        "x": 860,
         "y": 420,
         "wires": []
     },
@@ -9006,7 +8972,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>De naam van de Bluetooth speaker vind je in de handleiding. Bijvoorbeeld: VL 2 Speaker.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Je hoeft maar een gedeelte van de naam op te geven. Bijvoorbeeld: speaker.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Als je geen handleiding meer hebt, kan je op je mobiel kijken \" +\n\"welke naam te voorschijn komt (maar niet koppelen, hoor!).</b><br>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>De Bluetooth speaker moet in de buurt van het meegeleverde computertje staan. \" + \n\"Bluetooth heeft een bereik van ongeveer 10 m.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>De naam van de Bluetooth speaker vind je in de handleiding. Bijvoorbeeld: HEMA BT Speaker.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Je hoeft maar een gedeelte van de naam op te geven. Bijvoorbeeld: speaker.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Als je geen handleiding meer hebt, kan je op je mobiel kijken \" +\n\"welke naam te voorschijn komt (maar niet koppelen, hoor!).</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Je kan maar 1 apparaat tegelijk koppelen. Dus als je een nieuw apparaat wil koppelen, moet je eerst de oude verwijderen.</b><br>\";;\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -9040,7 +9006,7 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 980,
+        "x": 990,
         "y": 960,
         "wires": [
             []
@@ -9072,6 +9038,7 @@
         "id": "574eb541beac3d21",
         "type": "ui-button",
         "z": "ce724907bfebf75c",
+        "d": true,
         "g": "b653e740e9531504",
         "group": "549f1fa0e59e6a04",
         "name": "Help Toon...",
@@ -9100,11 +9067,12 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 510,
+        "x": 490,
         "y": 300,
         "wires": [
             [
-                "e1ee20adb971c3d5"
+                "e1ee20adb971c3d5",
+                "0af8df52052ef366"
             ]
         ]
     },
@@ -9112,6 +9080,7 @@
         "id": "e1ee20adb971c3d5",
         "type": "function",
         "z": "ce724907bfebf75c",
+        "d": true,
         "g": "b653e740e9531504",
         "name": "help tekst",
         "func": "msg.payload = \n\"<b>Als de lijst leeg is, moet je eeerst een Bluetooth speaker koppelen.</b><br>\" +\n\"<b></b><br>\" +\n\"<b>Als een speaker niet verbonden is, dan staat hij niet aan of is niet in het bereik van het computertje bij de router.</b><br>\" +\n\"<b></b><br>\" +\n\"<b>Als hij verbonden is, zou je met een geluid moeten kunnen testen.</b><br>\" +\n\"<b></b><br>\" +\n\"<b>Je kan instellen dat er steeds een random geluid gekozen wordt voor een melding.</b><br>\" +\n\"<b></b><br>\" +\n\"<b>Je kan maar 1 apparaat tegelijk koppelen. Dus als je een nieuw apparaat wil koppelen, moet je eerst de oude verwijderen.</b><br>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
@@ -9133,6 +9102,7 @@
         "id": "77f6b3f3956f0d15",
         "type": "ui-notification",
         "z": "ce724907bfebf75c",
+        "d": true,
         "g": "b653e740e9531504",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
@@ -9148,7 +9118,7 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 820,
+        "x": 830,
         "y": 300,
         "wires": [
             []
@@ -9267,6 +9237,62 @@
         "x": 740,
         "y": 620,
         "wires": []
+    },
+    {
+        "id": "9a51eef86507a1f1",
+        "type": "ui-text",
+        "z": "ce724907bfebf75c",
+        "d": true,
+        "g": "b653e740e9531504",
+        "group": "549f1fa0e59e6a04",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Gekoppelde apparaten:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 150,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a312655bf01fb8e3",
+        "type": "inject",
+        "z": "ce724907bfebf75c",
+        "g": "04fd012f1107245e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1220,
+        "wires": [
+            [
+                "d3ac11cb5dc0efbc"
+            ]
+        ]
     },
     {
         "id": "cce0fd7af36985a5",
@@ -9788,7 +9814,7 @@
         "oldrc": false,
         "name": "ls sounds",
         "x": 300,
-        "y": 800,
+        "y": 880,
         "wires": [
             [
                 "411d40273f5f425f"
@@ -9805,7 +9831,7 @@
         "group": "aae22fe947be766e",
         "name": "Device Table",
         "label": "",
-        "order": 8,
+        "order": 9,
         "width": "0",
         "height": "0",
         "maxrows": "",
@@ -9834,7 +9860,7 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "x": 750,
-        "y": 800,
+        "y": 880,
         "wires": [
             [
                 "4991f7f568969713"
@@ -9855,7 +9881,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 800,
+        "y": 880,
         "wires": [
             [
                 "d886cc1affb2bca7"
@@ -9868,7 +9894,7 @@
         "z": "bf57a768b975c2e6",
         "g": "852f70d81ad10832",
         "group": "aae22fe947be766e",
-        "order": 7,
+        "order": 8,
         "width": 0,
         "height": 0,
         "name": "Voortgang",
@@ -9941,7 +9967,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 920,
+        "y": 960,
         "wires": [
             [
                 "776ed147123b92b8"
@@ -9962,7 +9988,7 @@
         "oldrc": false,
         "name": "exec",
         "x": 710,
-        "y": 900,
+        "y": 960,
         "wires": [
             [],
             [],
@@ -10070,7 +10096,7 @@
         "ignoredFilesType": "re",
         "name": "",
         "x": 220,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "a0f17d909e19d179"
@@ -10090,7 +10116,7 @@
         "ignoredFilesType": "re",
         "name": "",
         "x": 220,
-        "y": 1020,
+        "y": 1100,
         "wires": [
             [
                 "a0f17d909e19d179"
@@ -10111,7 +10137,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 1000,
+        "y": 1080,
         "wires": [
             [
                 "2912eea2927befa7"
@@ -10131,7 +10157,7 @@
             "4ce40f669f564d3c"
         ],
         "x": 585,
-        "y": 1000,
+        "y": 1080,
         "wires": []
     },
     {
@@ -10144,7 +10170,7 @@
             "2912eea2927befa7"
         ],
         "x": 145,
-        "y": 800,
+        "y": 880,
         "wires": [
             [
                 "ac3df9612f272925"
@@ -10348,7 +10374,138 @@
         "value": "payload",
         "valueType": "msg",
         "x": 130,
-        "y": 640,
+        "y": 780,
         "wires": []
+    },
+    {
+        "id": "c0ef744af7819d7c",
+        "type": "ui-button",
+        "z": "bf57a768b975c2e6",
+        "d": true,
+        "g": "852f70d81ad10832",
+        "group": "aae22fe947be766e",
+        "name": "",
+        "label": "Hoe kopieer ik MP3 bestanden vanaf mijn PC?",
+        "order": 7,
+        "width": "0",
+        "height": "0",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 260,
+        "y": 720,
+        "wires": [
+            [
+                "746b7471fda81cac"
+            ]
+        ]
+    },
+    {
+        "id": "c0dfb882e72c4bd7",
+        "type": "ui-notification",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 710,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5dbb4558df77bc6",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "name": "help tekst",
+        "func": "msg.payload = \n\"<b>Je kan MP3 bestanden ook kopieren vanaf je PC.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>In Windows Explorer typ in de adres balk: \\\\\\\\\" + msg.payload + \"\\\\sounds\" + \"</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Log in als gebruiker 'user' met wachtwoord 'user'.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 780,
+        "wires": [
+            [
+                "c0dfb882e72c4bd7"
+            ]
+        ]
+    },
+    {
+        "id": "25d743058464db66",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "name": "IP adres",
+        "func": "msg.payload = msg.payload.split(/\\s+/)[0];\nnode.status({ text: msg.payload });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 720,
+        "wires": [
+            [
+                "c5dbb4558df77bc6"
+            ]
+        ]
+    },
+    {
+        "id": "746b7471fda81cac",
+        "type": "exec",
+        "z": "bf57a768b975c2e6",
+        "g": "852f70d81ad10832",
+        "command": "hostname -I  ",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "hostname -I  ",
+        "x": 550,
+        "y": 720,
+        "wires": [
+            [
+                "25d743058464db66"
+            ],
+            [],
+            []
+        ]
     }
 ]
