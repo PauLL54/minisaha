@@ -546,8 +546,8 @@
         ],
         "x": 14,
         "y": 879,
-        "w": 792,
-        "h": 689.5
+        "w": 772,
+        "h": 769.5
     },
     {
         "id": "5bb2b589a301c7c8",
@@ -638,9 +638,10 @@
             "3edb32cf296b125f",
             "1314c5376597aa78",
             "a9b3d569ef1ff64c",
-            "a312655bf01fb8e3"
+            "a312655bf01fb8e3",
+            "c307ebad62357506"
         ],
-        "x": -6,
+        "x": 14,
         "y": 859,
         "w": 1112,
         "h": 522
@@ -952,13 +953,13 @@
             {
                 "name": "Desktop",
                 "px": "1024",
-                "cols": "12"
+                "cols": "4"
             }
         ],
         "order": 1,
         "className": "",
-        "visible": true,
-        "disabled": false
+        "visible": "true",
+        "disabled": "false"
     },
     {
         "id": "ab8f5143a421d4e8",
@@ -978,17 +979,17 @@
             {
                 "name": "Tablet",
                 "px": "576",
-                "cols": "6"
+                "cols": "5"
             },
             {
                 "name": "Small Desktop",
                 "px": "768",
-                "cols": "9"
+                "cols": "5"
             },
             {
                 "name": "Desktop",
                 "px": "1024",
-                "cols": "4"
+                "cols": "5"
             }
         ],
         "order": 3,
@@ -1014,17 +1015,17 @@
             {
                 "name": "Tablet",
                 "px": "576",
-                "cols": "6"
+                "cols": "4"
             },
             {
                 "name": "Small Desktop",
                 "px": "768",
-                "cols": "9"
+                "cols": "4"
             },
             {
                 "name": "Desktop",
                 "px": "1024",
-                "cols": "12"
+                "cols": "4"
             }
         ],
         "order": 6,
@@ -1092,23 +1093,23 @@
             {
                 "name": "Tablet",
                 "px": "576",
-                "cols": "6"
+                "cols": "4"
             },
             {
                 "name": "Small Desktop",
                 "px": "768",
-                "cols": "9"
+                "cols": "4"
             },
             {
                 "name": "Desktop",
                 "px": "1024",
-                "cols": "12"
+                "cols": "4"
             }
         ],
         "order": 5,
         "className": "",
-        "visible": "false",
-        "disabled": "false"
+        "visible": false,
+        "disabled": false
     },
     {
         "id": "b71c0e77d9debcfd",
@@ -1142,17 +1143,17 @@
             {
                 "name": "Tablet",
                 "px": "576",
-                "cols": "6"
+                "cols": "4"
             },
             {
                 "name": "Small Desktop",
                 "px": "768",
-                "cols": "9"
+                "cols": "4"
             },
             {
                 "name": "Desktop",
                 "px": "1024",
-                "cols": "12"
+                "cols": "4"
             }
         ],
         "order": 4,
@@ -1192,23 +1193,23 @@
             {
                 "name": "Tablet",
                 "px": "576",
-                "cols": "6"
+                "cols": "4"
             },
             {
                 "name": "Small Desktop",
                 "px": "768",
-                "cols": "9"
+                "cols": "4"
             },
             {
                 "name": "Desktop",
                 "px": "1024",
-                "cols": "12"
+                "cols": "4"
             }
         ],
         "order": 2,
         "className": "",
-        "visible": "true",
-        "disabled": "false"
+        "visible": true,
+        "disabled": false
     },
     {
         "id": "673ea3674d399963",
@@ -1242,17 +1243,17 @@
             {
                 "name": "Tablet",
                 "px": "576",
-                "cols": "6"
+                "cols": "4"
             },
             {
                 "name": "Small Desktop",
                 "px": "768",
-                "cols": "9"
+                "cols": "4"
             },
             {
                 "name": "Desktop",
                 "px": "1024",
-                "cols": "12"
+                "cols": "4"
             }
         ],
         "order": 7,
@@ -5811,8 +5812,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Reboot",
-        "x": 720,
-        "y": 1460,
+        "x": 700,
+        "y": 1300,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -6405,7 +6406,7 @@
         "oldrc": false,
         "name": "install dashboard@latest",
         "x": 510,
-        "y": 1520,
+        "y": 1600,
         "wires": [
             [
                 "07af420f98d0e89a"
@@ -6437,7 +6438,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 300,
-        "y": 1520,
+        "y": 1600,
         "wires": [
             [
                 "2888205ab81df7ad"
@@ -6604,7 +6605,7 @@
         "y": 1300,
         "wires": [
             [
-                "363ef96aac78d4e7"
+                "07af420f98d0e89a"
             ],
             [],
             []
@@ -6657,11 +6658,9 @@
         "oldrc": false,
         "name": "install mpg123",
         "x": 480,
-        "y": 1460,
+        "y": 1540,
         "wires": [
-            [
-                "07af420f98d0e89a"
-            ],
+            [],
             [],
             []
         ]
@@ -6680,7 +6679,7 @@
         "oldrc": false,
         "name": "get sounds",
         "x": 150,
-        "y": 1380,
+        "y": 1460,
         "wires": [
             [
                 "e17df78fc7db3f2e"
@@ -6703,7 +6702,7 @@
         "oldrc": false,
         "name": "Install sounds",
         "x": 520,
-        "y": 1380,
+        "y": 1460,
         "wires": [
             [
                 "844e46423aa3ee91"
@@ -6726,7 +6725,7 @@
         "oldrc": false,
         "name": "get sounds",
         "x": 330,
-        "y": 1380,
+        "y": 1460,
         "wires": [
             [
                 "9328b12c82bcdb88"
@@ -6749,7 +6748,7 @@
         "oldrc": false,
         "name": "Install watchdirectory",
         "x": 260,
-        "y": 1460,
+        "y": 1540,
         "wires": [
             [
                 "041075a0f4b32a3b"
@@ -7874,7 +7873,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
+        "x": 270,
         "y": 1260,
         "wires": [
             [
@@ -8151,7 +8150,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "Pair & Connect",
-        "x": 540,
+        "x": 560,
         "y": 1080,
         "wires": [
             [
@@ -8175,7 +8174,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 330,
         "y": 1080,
         "wires": [
             [
@@ -8219,7 +8218,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 130,
+        "x": 150,
         "y": 1080,
         "wires": [
             [
@@ -8253,7 +8252,7 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 680,
+        "x": 700,
         "y": 1020,
         "wires": [
             [
@@ -8281,7 +8280,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 890,
+        "x": 910,
         "y": 1020,
         "wires": [
             []
@@ -8300,7 +8299,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
+        "x": 510,
         "y": 1020,
         "wires": [
             [
@@ -8328,7 +8327,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 300,
+        "x": 320,
         "y": 1020,
         "wires": [
             [
@@ -8358,7 +8357,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
+        "x": 150,
         "y": 1020,
         "wires": [
             [
@@ -8387,7 +8386,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 940,
+        "x": 960,
         "y": 1180,
         "wires": []
     },
@@ -8423,7 +8422,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 100,
+        "x": 120,
         "y": 1260,
         "wires": [
             [
@@ -8444,7 +8443,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 590,
         "y": 1180,
         "wires": [
             [
@@ -8470,7 +8469,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 780,
+        "x": 800,
         "y": 1260,
         "wires": [
             [
@@ -8491,7 +8490,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 930,
+        "x": 950,
         "y": 1260,
         "wires": [
             [
@@ -8610,7 +8609,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 110,
+        "x": 130,
         "y": 1340,
         "wires": []
     },
@@ -8636,7 +8635,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 770,
+        "x": 790,
         "y": 1320,
         "wires": [
             [
@@ -8665,7 +8664,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 170,
+        "x": 190,
         "y": 960,
         "wires": []
     },
@@ -8682,7 +8681,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 590,
         "y": 1140,
         "wires": [
             [
@@ -8699,7 +8698,8 @@
         "g": "b653e740e9531504",
         "name": "connected",
         "links": [
-            "c9aa4babb452e660"
+            "c9aa4babb452e660",
+            "c307ebad62357506"
         ],
         "x": 165,
         "y": 400,
@@ -8719,7 +8719,7 @@
         "links": [
             "f1aeced22e9fa07f"
         ],
-        "x": 745,
+        "x": 765,
         "y": 1140,
         "wires": []
     },
@@ -8741,7 +8741,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 740,
+        "x": 760,
         "y": 1100,
         "wires": [
             []
@@ -8760,7 +8760,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 590,
         "y": 1260,
         "wires": [
             [
@@ -8786,7 +8786,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 420,
+        "x": 440,
         "y": 1260,
         "wires": [
             [
@@ -8807,7 +8807,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 590,
         "y": 1220,
         "wires": [
             [
@@ -8821,7 +8821,7 @@
         "z": "ce724907bfebf75c",
         "g": "b653e740e9531504",
         "name": "debug 1",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -8845,7 +8845,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 920,
+        "x": 940,
         "y": 1060,
         "wires": []
     },
@@ -8871,7 +8871,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
+        "x": 140,
         "y": 1120,
         "wires": [
             [
@@ -8892,7 +8892,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
+        "x": 770,
         "y": 1200,
         "wires": [
             [
@@ -8922,7 +8922,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 270,
+        "x": 290,
         "y": 1340,
         "wires": []
     },
@@ -8958,11 +8958,12 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 670,
+        "x": 690,
         "y": 960,
         "wires": [
             [
-                "3edb32cf296b125f"
+                "3edb32cf296b125f",
+                "c307ebad62357506"
             ]
         ]
     },
@@ -8979,7 +8980,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
+        "x": 840,
         "y": 960,
         "wires": [
             [
@@ -9006,7 +9007,7 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 990,
+        "x": 1010,
         "y": 960,
         "wires": [
             []
@@ -9030,7 +9031,7 @@
         "g": "04fd012f1107245e",
         "name": "Verbinden met een nieuw apparaat",
         "info": "",
-        "x": 180,
+        "x": 200,
         "y": 900,
         "wires": []
     },
@@ -9286,13 +9287,27 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
+        "x": 120,
         "y": 1220,
         "wires": [
             [
                 "d3ac11cb5dc0efbc"
             ]
         ]
+    },
+    {
+        "id": "c307ebad62357506",
+        "type": "link out",
+        "z": "ce724907bfebf75c",
+        "g": "04fd012f1107245e",
+        "name": "connected",
+        "mode": "link",
+        "links": [
+            "f1aeced22e9fa07f"
+        ],
+        "x": 795,
+        "y": 900,
+        "wires": []
     },
     {
         "id": "cce0fd7af36985a5",
@@ -10381,7 +10396,6 @@
         "id": "c0ef744af7819d7c",
         "type": "ui-button",
         "z": "bf57a768b975c2e6",
-        "d": true,
         "g": "852f70d81ad10832",
         "group": "aae22fe947be766e",
         "name": "",
