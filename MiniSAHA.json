@@ -48,14 +48,6 @@
         "env": []
     },
     {
-        "id": "823fac899a3ba496",
-        "type": "tab",
-        "label": "Favoriet",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "bf57a768b975c2e6",
         "type": "tab",
         "label": "Meldingsgeluiden",
@@ -349,15 +341,12 @@
             "e95199098a8ec21d",
             "98a637c918e7ffb3",
             "93e66aed5528479a",
-            "391e6a39648d43b8",
-            "77aa1d93b953c278",
-            "313cf387f324c108",
-            "54f63c7cc99e2f63"
+            "391e6a39648d43b8"
         ],
         "x": 14,
         "y": 19,
         "w": 892,
-        "h": 482
+        "h": 462
     },
     {
         "id": "2ce41e3897fb35ce",
@@ -483,31 +472,6 @@
         "y": 19,
         "w": 992,
         "h": 622
-    },
-    {
-        "id": "635f0783e7918690",
-        "type": "group",
-        "z": "823fac899a3ba496",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "cce0fd7af36985a5",
-            "4f47a278f8c3681e",
-            "976aaee7a4a5167c",
-            "533f1ccbf9e93e73",
-            "1fca7002be1614bc"
-        ],
-        "x": 14,
-        "y": 39,
-        "w": 592,
-        "h": 142
     },
     {
         "id": "a49df4f119bb186e",
@@ -992,7 +956,7 @@
                 "cols": "5"
             }
         ],
-        "order": 3,
+        "order": 2,
         "className": "",
         "visible": true,
         "disabled": false
@@ -1028,7 +992,7 @@
                 "cols": "4"
             }
         ],
-        "order": 6,
+        "order": 5,
         "className": "",
         "visible": true,
         "disabled": false
@@ -1106,7 +1070,7 @@
                 "cols": "4"
             }
         ],
-        "order": 5,
+        "order": 4,
         "className": "",
         "visible": false,
         "disabled": false
@@ -1156,7 +1120,7 @@
                 "cols": "4"
             }
         ],
-        "order": 4,
+        "order": 3,
         "className": "",
         "visible": true,
         "disabled": false
@@ -1166,56 +1130,6 @@
         "type": "ui-group",
         "name": "Bluetooth",
         "page": "e9d32d9d636d4a34",
-        "width": 6,
-        "height": 1,
-        "order": 1,
-        "showTitle": false,
-        "className": "",
-        "visible": "true",
-        "disabled": "false",
-        "groupType": "default"
-    },
-    {
-        "id": "2a36538d72f26608",
-        "type": "ui-page",
-        "name": "Favoriet",
-        "ui": "6c1d30b5f16932dd",
-        "path": "/page8",
-        "icon": "heart",
-        "layout": "grid",
-        "theme": "72011230335eaee3",
-        "breakpoints": [
-            {
-                "name": "Default",
-                "px": "0",
-                "cols": "4"
-            },
-            {
-                "name": "Tablet",
-                "px": "576",
-                "cols": "4"
-            },
-            {
-                "name": "Small Desktop",
-                "px": "768",
-                "cols": "4"
-            },
-            {
-                "name": "Desktop",
-                "px": "1024",
-                "cols": "4"
-            }
-        ],
-        "order": 2,
-        "className": "",
-        "visible": true,
-        "disabled": false
-    },
-    {
-        "id": "673ea3674d399963",
-        "type": "ui-group",
-        "name": "Favoriet",
-        "page": "2a36538d72f26608",
         "width": 6,
         "height": 1,
         "order": 1,
@@ -1256,7 +1170,7 @@
                 "cols": "4"
             }
         ],
-        "order": 7,
+        "order": 6,
         "className": "",
         "visible": "false",
         "disabled": "false"
@@ -1912,8 +1826,7 @@
         "y": 380,
         "wires": [
             [
-                "72150be82696bdfc",
-                "54f63c7cc99e2f63"
+                "72150be82696bdfc"
             ]
         ]
     },
@@ -2510,67 +2423,6 @@
         "wires": [
             [
                 "0d0b3ee379dc41b0"
-            ]
-        ]
-    },
-    {
-        "id": "77aa1d93b953c278",
-        "type": "ui-control",
-        "z": "a380efb730bea147",
-        "g": "4e4ef64c30555769",
-        "name": "",
-        "ui": "6c1d30b5f16932dd",
-        "events": "all",
-        "x": 780,
-        "y": 460,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "313cf387f324c108",
-        "type": "function",
-        "z": "a380efb730bea147",
-        "g": "4e4ef64c30555769",
-        "name": "set page Favoriet",
-        "func": "if (global.get(\"JaFavoriet\") === true) {\n    msg.payload = \"Favoriet\";\n    node.status({ text: \"Favoriet\" });\n    return msg;\n}\nelse \n    return null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 610,
-        "y": 460,
-        "wires": [
-            [
-                "77aa1d93b953c278"
-            ]
-        ]
-    },
-    {
-        "id": "54f63c7cc99e2f63",
-        "type": "delay",
-        "z": "a380efb730bea147",
-        "g": "4e4ef64c30555769",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 440,
-        "y": 460,
-        "wires": [
-            [
-                "313cf387f324c108"
             ]
         ]
     },
@@ -5253,268 +5105,6 @@
         "x": 900,
         "y": 1220,
         "wires": []
-    },
-    {
-        "id": "cf9ea414de04bb0e",
-        "type": "change",
-        "z": "5c14e0941d341b42",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "Favoriet",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 890,
-        "y": 1300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6fd2f6f9520b12a5",
-        "type": "change",
-        "z": "5c14e0941d341b42",
-        "name": "Favoriet",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "Favoriet",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 140,
-        "y": 1300,
-        "wires": [
-            [
-                "3c8985df0a067001"
-            ]
-        ]
-    },
-    {
-        "id": "a0c6644cc6697a01",
-        "type": "link in",
-        "z": "5c14e0941d341b42",
-        "name": "OnStartup",
-        "links": [
-            "4abb19d96b88ba67"
-        ],
-        "x": 35,
-        "y": 1300,
-        "wires": [
-            [
-                "6fd2f6f9520b12a5"
-            ]
-        ]
-    },
-    {
-        "id": "9b3dd558871b3535",
-        "type": "ui-text-input",
-        "z": "5c14e0941d341b42",
-        "group": "a50d14b208aa0231",
-        "name": "Favoriet",
-        "label": "Favoriete website als je op JA drukt",
-        "order": 16,
-        "width": "4",
-        "height": "1",
-        "topic": "topic",
-        "topicType": "msg",
-        "mode": "text",
-        "tooltip": "",
-        "delay": 300,
-        "passthru": true,
-        "sendOnDelay": true,
-        "sendOnBlur": true,
-        "sendOnEnter": false,
-        "className": "",
-        "clearable": false,
-        "sendOnClear": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "x": 500,
-        "y": 1300,
-        "wires": [
-            [
-                "cf9ea414de04bb0e",
-                "10385f32ca54626c"
-            ]
-        ]
-    },
-    {
-        "id": "3c8985df0a067001",
-        "type": "function",
-        "z": "5c14e0941d341b42",
-        "name": "dommelhuis",
-        "func": "if (msg.payload == null) {\n    msg.payload = \"dommelhuis.nl/agenda\";\n    global.set(\"Favoriet\", msg.payload);\n    node.status({ text: msg.payload });\n}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 1300,
-        "wires": [
-            [
-                "9b3dd558871b3535"
-            ]
-        ]
-    },
-    {
-        "id": "10385f32ca54626c",
-        "type": "mqtt out",
-        "z": "5c14e0941d341b42",
-        "name": "",
-        "topic": "FavorietChanged",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0839f7b4c0cbb0a8",
-        "x": 890,
-        "y": 1360,
-        "wires": []
-    },
-    {
-        "id": "8928742cb3e0322b",
-        "type": "ui-switch",
-        "z": "5c14e0941d341b42",
-        "name": "",
-        "label": "JA",
-        "group": "a50d14b208aa0231",
-        "order": 17,
-        "width": "1",
-        "height": "1",
-        "passthru": false,
-        "decouple": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "className": "",
-        "layout": "row-spread",
-        "clickableArea": "switch",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 490,
-        "y": 1420,
-        "wires": [
-            [
-                "a6bd0970b812f6ca"
-            ]
-        ]
-    },
-    {
-        "id": "a6bd0970b812f6ca",
-        "type": "change",
-        "z": "5c14e0941d341b42",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "JaFavoriet",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 900,
-        "y": 1420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4829a44abc3c757b",
-        "type": "change",
-        "z": "5c14e0941d341b42",
-        "name": "JaFavoriet",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "JaFavoriet",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 150,
-        "y": 1420,
-        "wires": [
-            [
-                "462df61b5a68b62c"
-            ]
-        ]
-    },
-    {
-        "id": "28dea8812b21d550",
-        "type": "link in",
-        "z": "5c14e0941d341b42",
-        "name": "OnStartup",
-        "links": [
-            "4abb19d96b88ba67"
-        ],
-        "x": 35,
-        "y": 1420,
-        "wires": [
-            [
-                "4829a44abc3c757b"
-            ]
-        ]
-    },
-    {
-        "id": "462df61b5a68b62c",
-        "type": "function",
-        "z": "5c14e0941d341b42",
-        "name": "true",
-        "func": "if (msg.payload == null) {\n    msg.payload = true;\n    global.set(\"JaFavoriet\", msg.payload);\n    node.status({ text: msg.payload });\n}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 310,
-        "y": 1420,
-        "wires": [
-            [
-                "8928742cb3e0322b"
-            ]
-        ]
     },
     {
         "id": "5a792b79ee924fcc",
@@ -9308,132 +8898,6 @@
         "x": 795,
         "y": 900,
         "wires": []
-    },
-    {
-        "id": "cce0fd7af36985a5",
-        "type": "mqtt in",
-        "z": "823fac899a3ba496",
-        "g": "635f0783e7918690",
-        "name": "",
-        "topic": "FavorietChanged",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "0839f7b4c0cbb0a8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 120,
-        "y": 80,
-        "wires": [
-            [
-                "533f1ccbf9e93e73"
-            ]
-        ]
-    },
-    {
-        "id": "4f47a278f8c3681e",
-        "type": "inject",
-        "z": "823fac899a3ba496",
-        "g": "635f0783e7918690",
-        "name": "Startup",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "2",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 140,
-        "wires": [
-            [
-                "976aaee7a4a5167c"
-            ]
-        ]
-    },
-    {
-        "id": "976aaee7a4a5167c",
-        "type": "change",
-        "z": "823fac899a3ba496",
-        "g": "635f0783e7918690",
-        "name": "Favoriet",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "Favoriet",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 260,
-        "y": 140,
-        "wires": [
-            [
-                "533f1ccbf9e93e73"
-            ]
-        ]
-    },
-    {
-        "id": "533f1ccbf9e93e73",
-        "type": "function",
-        "z": "823fac899a3ba496",
-        "g": "635f0783e7918690",
-        "name": "https://",
-        "func": "msg.payload = \"https://\" + msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 100,
-        "wires": [
-            [
-                "1fca7002be1614bc"
-            ]
-        ]
-    },
-    {
-        "id": "1fca7002be1614bc",
-        "type": "ui-template",
-        "z": "823fac899a3ba496",
-        "g": "635f0783e7918690",
-        "group": "673ea3674d399963",
-        "page": "",
-        "ui": "",
-        "name": "",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n    <div style=\"height: 100%; width: 100%; display: flex; flex-direction: column;\">\n        <iframe \n            :src=\"msg.payload\" \n            style=\"width:100%; height:80vh; border:none;\">\n        </iframe>\n    </div>\n</template>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 520,
-        "y": 100,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "de3f35eb8cc6cc74",
