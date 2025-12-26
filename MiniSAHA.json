@@ -4118,9 +4118,7 @@
             "eb5258117d95a7ad",
             "5c2edaa6489039d0",
             "26417c5cfef73e15",
-            "bdebfa0f1e99fc2e",
-            "a0c6644cc6697a01",
-            "28dea8812b21d550"
+            "bdebfa0f1e99fc2e"
         ],
         "x": 225,
         "y": 40,
@@ -7435,7 +7433,7 @@
         "z": "ce724907bfebf75c",
         "g": "b653e740e9531504",
         "name": "Connected?",
-        "func": "let devices = [];\n\nif (msg.payload == \"\") {\n    node.status({ text: \"payload empty\" });\n    msg.payload = devices;\n    return msg;\n}\n\nconst text = msg.payload;\nnode.status({ text: text });\nconst blocks = text.split(/(?=Device\\s+[0-9A-F:]{17})/gi);\n\nfor (const block of blocks) {\n    // MAC-adres\n    const macMatch = block.match(/Device\\s+([0-9A-F:]{17})/i);\n    if (!macMatch) continue;\n\n    // Naam\n    const nameMatch = block.match(/Name:\\s*(.+)/i);\n    const name = nameMatch ? nameMatch[1].trim() : null;\n\n    // Paired-status\n    const pairedMatch = block.match(/Paired:\\s*(yes|no)/i);\n    const paired = pairedMatch ? pairedMatch[1].toLowerCase() : null;\n\n    // Connected-status\n    const connMatch = block.match(/Connected:\\s*(yes|no)/i);\n    const connected = connMatch ? connMatch[1].toLowerCase() : null;\n\n    if (paired == \"yes\") {\n        devices.push({\n            mac: macMatch[1],\n            name,\n            paired,\n            connected\n        });\n    }\n\n    if (connected == \"yes\") {\n        node.status({ text: \"Connected: \" + name });\n        global.set(\"BluetoothConnectedName\", name);\n        global.set(\"BluetoothPaired\", paired);\n        global.set(\"BluetoothConnected\", connected);\n    }\n    else {\n        if (name == global.get(\"BluetoothConnectedName\")) {\n            global.set(\"BluetoothPaired\", paired);\n            global.set(\"BluetoothConnected\", connected);\n        }\n    }\n}\n\nmsg.payload = devices;\nreturn msg;",
+        "func": "let devices = [];\n\nif (msg.payload == \"\") {\n    global.set(\"BluetoothConnected\", \"no\");\n    global.set(\"BluetoothPaired\", \"no\");\n    global.set(\"BluetoothConnectedName\", \"\");\n    node.status({ text: \"payload empty\" });\n    msg.payload = devices;\n    return msg;\n}\n\nconst text = msg.payload;\nnode.status({ text: text });\nconst blocks = text.split(/(?=Device\\s+[0-9A-F:]{17})/gi);\n\nfor (const block of blocks) {\n    // MAC-adres\n    const macMatch = block.match(/Device\\s+([0-9A-F:]{17})/i);\n    if (!macMatch) continue;\n\n    // Naam\n    const nameMatch = block.match(/Name:\\s*(.+)/i);\n    const name = nameMatch ? nameMatch[1].trim() : null;\n\n    // Paired-status\n    const pairedMatch = block.match(/Paired:\\s*(yes|no)/i);\n    const paired = pairedMatch ? pairedMatch[1].toLowerCase() : null;\n\n    // Connected-status\n    const connMatch = block.match(/Connected:\\s*(yes|no)/i);\n    const connected = connMatch ? connMatch[1].toLowerCase() : null;\n\n    if (paired == \"yes\") {\n        devices.push({\n            mac: macMatch[1],\n            name,\n            paired,\n            connected\n        });\n    }\n\n    if (connected == \"yes\") {\n        node.status({ text: \"Connected: \" + name });\n        global.set(\"BluetoothConnectedName\", name);\n        global.set(\"BluetoothPaired\", paired);\n        global.set(\"BluetoothConnected\", connected);\n    }\n    else {\n        if (name == global.get(\"BluetoothConnectedName\")) {\n            global.set(\"BluetoothPaired\", paired);\n            global.set(\"BluetoothConnected\", connected);\n        }\n    }\n}\n\nmsg.payload = devices;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -9142,7 +9140,7 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "",
-        "label": "Rnd",
+        "label": "Rand",
         "group": "aae22fe947be766e",
         "order": 2,
         "width": "1",
