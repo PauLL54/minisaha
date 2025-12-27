@@ -346,7 +346,7 @@
         "x": 14,
         "y": 19,
         "w": 892,
-        "h": 462
+        "h": 442
     },
     {
         "id": "2ce41e3897fb35ce",
@@ -374,7 +374,6 @@
             "c9f88ef493593187",
             "f07ba5eecb0df09e",
             "8322868abe70e928",
-            "c62f2246190847d4",
             "cf1901877bfe59a8",
             "4f39baa7dbd5d547",
             "1cbae632c31ff2b0",
@@ -388,7 +387,7 @@
             "a9d22c1ccafb666e"
         ],
         "x": 14,
-        "y": 599,
+        "y": 499,
         "w": 872,
         "h": 662
     },
@@ -590,7 +589,6 @@
             "b699f11b580a05af",
             "6054eae0fe0bbb10",
             "c9aa4babb452e660",
-            "93aefc9fdd10a3a9",
             "c86740ad60f14028",
             "c4556470956a2dd7",
             "988de3a578461499",
@@ -603,12 +601,13 @@
             "1314c5376597aa78",
             "a9b3d569ef1ff64c",
             "a312655bf01fb8e3",
-            "c307ebad62357506"
+            "c307ebad62357506",
+            "d3191e422f60972d"
         ],
         "x": 14,
         "y": 859,
-        "w": 1112,
-        "h": 522
+        "w": 1092,
+        "h": 582
     },
     {
         "id": "b653e740e9531504",
@@ -744,12 +743,19 @@
             "292f906d0611558c",
             "2e14724e3c3ae983",
             "0a60a836b38547df",
-            "f071260bdcdcd056"
+            "f071260bdcdcd056",
+            "ad3cf096050d54e2",
+            "3fe4ddc223bcbaeb",
+            "4653356d90a8a897",
+            "27336a80e583f921",
+            "e1471d5c735bd6d3",
+            "d722b84b332a8bb8",
+            "7cb194b63eb56afd"
         ],
         "x": 34,
-        "y": 59,
+        "y": 19,
         "w": 1032,
-        "h": 282
+        "h": 422
     },
     {
         "id": "e9121fbc4482804f",
@@ -776,8 +782,8 @@
             "2912eea2927befa7",
             "1ee1bd387c952be2"
         ],
-        "x": 54,
-        "y": 831.5,
+        "x": 34,
+        "y": 931.5,
         "w": 792,
         "h": 309.5
     },
@@ -814,8 +820,8 @@
             "25d743058464db66",
             "746b7471fda81cac"
         ],
-        "x": 54,
-        "y": 379,
+        "x": 34,
+        "y": 459,
         "w": 852,
         "h": 442
     },
@@ -1801,7 +1807,7 @@
         "finalize": "",
         "libs": [],
         "x": 210,
-        "y": 320,
+        "y": 300,
         "wires": [
             [
                 "72150be82696bdfc"
@@ -1823,7 +1829,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 200,
-        "y": 380,
+        "y": 360,
         "wires": [
             [
                 "72150be82696bdfc"
@@ -1845,7 +1851,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 210,
-        "y": 440,
+        "y": 420,
         "wires": [
             [
                 "72150be82696bdfc"
@@ -1885,7 +1891,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 660,
+        "y": 560,
         "wires": [
             [
                 "df1878820d0f62c5",
@@ -1904,7 +1910,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 270,
-        "y": 1100,
+        "y": 1000,
         "wires": []
     },
     {
@@ -1942,7 +1948,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 760,
+        "y": 660,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -1963,7 +1969,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 820,
+        "y": 720,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2005,7 +2011,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 820,
+        "y": 720,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2026,7 +2032,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 380,
+        "y": 360,
         "wires": [
             [
                 "94fd03500445951f",
@@ -2048,7 +2054,7 @@
         "finalize": "",
         "libs": [],
         "x": 150,
-        "y": 780,
+        "y": 680,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2078,7 +2084,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 880,
+        "y": 780,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2100,7 +2106,7 @@
         "name": "",
         "dname": "",
         "x": 770,
-        "y": 820,
+        "y": 720,
         "wires": []
     },
     {
@@ -2144,7 +2150,7 @@
         "topic": "topic",
         "outputs": 2,
         "x": 360,
-        "y": 660,
+        "y": 560,
         "wires": [
             [
                 "6c1f652de628f1be"
@@ -2168,7 +2174,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 720,
+        "y": 620,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2184,7 +2190,7 @@
         "scope": null,
         "uncaught": false,
         "x": 300,
-        "y": 1040,
+        "y": 940,
         "wires": [
             [
                 "cf1901877bfe59a8",
@@ -2207,26 +2213,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 770,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "c62f2246190847d4",
-        "type": "mqtt out",
-        "z": "a380efb730bea147",
-        "g": "2ce41e3897fb35ce",
-        "name": "",
-        "topic": "EmailError",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0839f7b4c0cbb0a8",
-        "x": 790,
-        "y": 1020,
+        "y": 940,
         "wires": []
     },
     {
@@ -2320,7 +2307,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 1000,
+        "y": 900,
         "wires": [
             [
                 "4f39baa7dbd5d547"
@@ -2346,7 +2333,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 600,
-        "y": 1000,
+        "y": 900,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2368,7 +2355,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 640,
+        "y": 540,
         "wires": [
             [
                 "97cd5aa2eb055baf"
@@ -2398,7 +2385,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 940,
+        "y": 840,
         "wires": [
             [
                 "cfa6b22427e3edc3"
@@ -2419,7 +2406,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 940,
+        "y": 840,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2432,7 +2419,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Sound?",
-        "func": "let connected = global.get(\"BluetoothConnected\");\nnode.status({ text: \"connected=\" + connected });\nif (connected == \"yes\")   \n    return msg;\nelse\n    return null;\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nlet connected = global.get(\"BluetoothConnected\");\nnode.status({ text: tijd_nu + \" connected=\" + connected });\nif (connected == \"yes\")   \n    return msg;\nelse\n    return null;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2440,7 +2427,7 @@
         "finalize": "",
         "libs": [],
         "x": 720,
-        "y": 660,
+        "y": 560,
         "wires": [
             [
                 "d5df2f8a93d16c6a"
@@ -2461,7 +2448,7 @@
         "finalize": "",
         "libs": [],
         "x": 150,
-        "y": 1200,
+        "y": 1100,
         "wires": [
             [
                 "494c0e1626e74b03"
@@ -2485,7 +2472,7 @@
         "oldrc": false,
         "name": "ls sounds",
         "x": 340,
-        "y": 1180,
+        "y": 1080,
         "wires": [
             [
                 "6e3e1642880f5295"
@@ -2508,7 +2495,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 1180,
+        "y": 1080,
         "wires": [
             [
                 "9a6d5159979437b8"
@@ -2520,8 +2507,8 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "cmd",
-        "func": "node.status({ text: msg.payload });\n\nmsg.payload = \"mpg123 -q .node-red/projects/MiniSAHA/sounds/\" +\n  msg.payload;\nreturn msg;",
+        "name": "join",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", \" + msg.payload });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2529,7 +2516,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 1220,
+        "y": 1120,
         "wires": [
             [
                 "a9d22c1ccafb666e"
@@ -2552,7 +2539,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 790,
-        "y": 1220,
+        "y": 1120,
         "wires": []
     },
     {
@@ -2623,7 +2610,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Enable/Disable",
-        "func": "var msg = { enabled: false, \n    ui_update: { textColor: \"gray\" } };\n            \nlet states = global.get(\"states\");\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG:\n    case states.MELDGEBRUIKER: \n    case states.OVERTIJD: {\n        var msg = {\n            enabled: true,\n            ui_update: { textColor: \"white\" } };\n        break;\n    }\n    default: {\n        break;\n    }\n}\n\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n\n/*\n\"red\"\n\"blue\"\n\"green\"\n\"yellow\"\n\"orange\"\n\"purple\"\n\"pink\"\n\"brown\"\n\"black\"\n\"white\"\n\"gray\"\n\n🌈 Extra veelgebruikte tinten\n\"cyan\" (lichtblauw)\n\"magenta\" (fel roze/paars)\n\"lime\" (felgroen)\n\"navy\" (donkerblauw)\n\"teal\" (blauwgroen)\n\"olive\" (olijfgroen)\n\"maroon\" (donkerrood)\n\"silver\" (lichtgrijs)\n\"gold\" (goudkleurig)\n\"indigo\" (diep paars/blauw)\n*/",
+        "func": "var msg = { enabled: false, \n    ui_update: { textColor: \"gray\" } };\n            \nlet states = global.get(\"states\");\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG:\n    case states.MELDGEBRUIKER: \n    case states.OVERTIJD: {\n        var msg = {\n            enabled: true,\n            ui_update: { textColor: \"white\" } };\n        break;\n    }\n    default: {\n        break;\n    }\n}\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n\n/*\n\"red\"\n\"blue\"\n\"green\"\n\"yellow\"\n\"orange\"\n\"purple\"\n\"pink\"\n\"brown\"\n\"black\"\n\"white\"\n\"gray\"\n\n🌈 Extra veelgebruikte tinten\n\"cyan\" (lichtblauw)\n\"magenta\" (fel roze/paars)\n\"lime\" (felgroen)\n\"navy\" (donkerblauw)\n\"teal\" (blauwgroen)\n\"olive\" (olijfgroen)\n\"maroon\" (donkerrood)\n\"silver\" (lichtgrijs)\n\"gold\" (goudkleurig)\n\"indigo\" (diep paars/blauw)\n*/",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3021,7 +3008,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Vraag",
-        "func": "let states = global.get(\"states\");\nmsg.payload = global.get(\"VoornaamGebruiker\");\n\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG: \n    case states.MELDGEBRUIKER: {\n        msg.payload += \", ben je OK?\";\n        break;\n    }\n    case states.OVERTIJD: {\n        msg.payload += \", ben je OK? <br>Overtijd: er is een bericht naar sleutelbewaarder(s) gestuurd.\";\n        break;\n    }    \n    default: {\n        msg.payload += \", er is geen vraag voor nu.\";\n        break;\n    }\n}\n\nvar now = new Date();\nvar tijd_nu = now.getHours() + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({text: tijd_nu + \" \" + msg.payload});\nreturn msg;\n",
+        "func": "let states = global.get(\"states\");\nmsg.payload = global.get(\"VoornaamGebruiker\");\n\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG: \n    case states.MELDGEBRUIKER: {\n        msg.payload += \", ben je OK?\";\n        break;\n    }\n    case states.OVERTIJD: {\n        msg.payload += \", ben je OK? <br>Overtijd: er is een bericht naar sleutelbewaarder(s) gestuurd.\";\n        break;\n    }    \n    default: {\n        msg.payload += \", er is geen vraag voor nu.\";\n        break;\n    }\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3042,7 +3029,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Response",
-        "func": "const states = {\n    IDLE: \"Idle\",\n    TOONOKVRAAG: \"ToonOkVraag\",\n    MELDGEBRUIKER: \"MeldGebruiker\",\n    ISOK: \"IsOk\",\n    ISNOTOK: \"IsNotOk\",\n    ISOK_OVERTIJD: \"IsOk_OverTijd\",\n    ISNOTOK_OVERTIJD: \"IsNotOk_OverTijd\",\n    OVERTIJD: \"OverTijd\"\n};\n\nlet currentState = global.get(\"currentState\");\nlet previousState = global.get(\"previousState\");\n\nmsg.payload = \"\";\nif (currentState != previousState) {\n    switch (global.get(\"currentState\")) {\n        case states.ISOK: {\n            msg.payload = \"Dank je wel! Fijne Dag.\";\n            break;\n        }\n        case states.ISOK_OVERTIJD: {\n            msg.payload = \"Dank je wel! Fijne Dag. <br>De sleutelbewaarder(s) zijn geinformeerd.\";\n            break;\n        }\n        case states.ISNOTOK_OVERTIJD: \n        case states.ISNOTOK: {\n            msg.payload = \"Wat vervelend! <br>De sleutelbewaarder(s) zijn geinformeerd.\";\n            break;\n        }\n        default: {\n            break;\n        }\n    }\n}\n\nreturn msg;\n",
+        "func": "let currentState = global.get(\"currentState\");\nlet previousState = global.get(\"previousState\");\n\nmsg.payload = \"\";\n\nlet states = global.get(\"states\");\n\nif (currentState != previousState) {\n    switch (global.get(\"currentState\")) {\n        case states.ISOK: {\n            msg.payload = \"Dank je wel! Fijne Dag.\";\n            break;\n        }\n        case states.ISOK_OVERTIJD: {\n            msg.payload = \"Dank je wel! Fijne Dag. <br>De sleutelbewaarder(s) zijn geinformeerd.\";\n            break;\n        }\n        case states.ISNOTOK_OVERTIJD: \n        case states.ISNOTOK: {\n            msg.payload = \"Wat vervelend! <br>De sleutelbewaarder(s) zijn geinformeerd.\";\n            break;\n        }\n        default: {\n            break;\n        }\n    }\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3995,7 +3982,7 @@
         "type": "function",
         "z": "5c14e0941d341b42",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>Je kan een melding krijgen via email en/of een Bluetooth speaker. \" +\n\"<br></b><br>\" +\n\"<b>Maak een email adres aan die alleen voor meldingen van deze app gebruikt gaat worden. \" +\n\"Want je wilt voor meldingen een uniek geluid kunnen kiezen.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Tip: gebruik op Android geluid: 'Schat'.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dat kan je doen door voor dit email adres een andere email app te gebruiken dan de standaard app. \" +\n\"Vervolgens stel je voor deze email app een uniek geluid in.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>Je kan een melding krijgen via email en/of een Bluetooth speaker. \" +\n\"<br></b><br>\" +\n\"<b>Als je alleen een Bluetooth speaker gebruikt, kan je dit veld leeg laten. \" +\n\"<br></b><br>\" +\n\"<b>Maak een email adres aan die alleen voor meldingen van deze app gebruikt gaat worden. \" +\n\"Want je wilt voor meldingen een uniek geluid kunnen kiezen.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Tip: gebruik op Android geluid: 'Schat'.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dat kan je doen door voor dit email adres een andere email app te gebruiken dan de standaard app. \" +\n\"Vervolgens stel je voor deze email app een uniek geluid in.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7170,7 +7157,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Shutdown computer",
         "label": "Shutdown",
-        "order": 7,
+        "order": 6,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -7210,7 +7197,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Restart computer",
         "label": "Restart",
-        "order": 8,
+        "order": 7,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -7248,7 +7235,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "d344da1eff713941",
         "group": "b71c0e77d9debcfd",
-        "order": 6,
+        "order": 5,
         "width": 0,
         "height": 0,
         "name": "Uitleg",
@@ -7298,7 +7285,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "d344da1eff713941",
         "group": "b71c0e77d9debcfd",
-        "order": 5,
+        "order": 8,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -7316,6 +7303,65 @@
         "x": 280,
         "y": 940,
         "wires": []
+    },
+    {
+        "id": "78bd42bc3e424d2e",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "command": "/bin/bash",
+        "addpay": "",
+        "append": "-c \"sudo bash -c 'systemctl stop bluetooth; rm -rf /var/lib/bluetooth/*; systemctl start bluetooth'\"",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Clear Bluetooth cache",
+        "x": 420,
+        "y": 1240,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "16786ee5871aa886",
+        "type": "ui-button",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "name": "Clear Bluetooth cache",
+        "label": "Clear Bluetooth cache",
+        "order": 9,
+        "width": "0",
+        "height": "0",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "PowerButton",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 160,
+        "y": 1240,
+        "wires": [
+            [
+                "78bd42bc3e424d2e"
+            ]
+        ]
     },
     {
         "id": "0af8df52052ef366",
@@ -7462,11 +7508,12 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "d611838783d29255",
-                "c4556470956a2dd7"
+                "c4556470956a2dd7",
+                "d3191e422f60972d"
             ]
         ]
     },
@@ -7738,8 +7785,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Pair & Connect",
-        "x": 560,
-        "y": 1080,
+        "x": 620,
+        "y": 1120,
         "wires": [
             [
                 "6054eae0fe0bbb10",
@@ -7762,12 +7809,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 1080,
+        "x": 410,
+        "y": 1220,
         "wires": [
             [
-                "d611838783d29255",
-                "ad04926aacf33a5d"
+                "ad04926aacf33a5d",
+                "d611838783d29255"
             ],
             [
                 "988de3a578461499"
@@ -7806,11 +7853,11 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 150,
-        "y": 1080,
+        "x": 130,
+        "y": 1120,
         "wires": [
             [
-                "4d4f78505bcbf29e"
+                "d3191e422f60972d"
             ]
         ]
     },
@@ -7840,7 +7887,7 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 700,
+        "x": 680,
         "y": 1020,
         "wires": [
             [
@@ -7868,7 +7915,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 910,
+        "x": 890,
         "y": 1020,
         "wires": [
             []
@@ -7887,7 +7934,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
+        "x": 490,
         "y": 1020,
         "wires": [
             [
@@ -7915,7 +7962,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
+        "x": 300,
         "y": 1020,
         "wires": [
             [
@@ -7945,7 +7992,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 150,
+        "x": 130,
         "y": 1020,
         "wires": [
             [
@@ -7974,8 +8021,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 960,
-        "y": 1180,
+        "x": 980,
+        "y": 1240,
         "wires": []
     },
     {
@@ -8010,8 +8057,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 120,
-        "y": 1260,
+        "x": 100,
+        "y": 1320,
         "wires": [
             [
                 "d3ac11cb5dc0efbc"
@@ -8031,8 +8078,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 1180,
+        "x": 610,
+        "y": 1240,
         "wires": [
             [
                 "c8459650666a969b"
@@ -8057,8 +8104,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 800,
-        "y": 1260,
+        "x": 820,
+        "y": 1320,
         "wires": [
             [
                 "6ab57893a1727021"
@@ -8078,8 +8125,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 950,
-        "y": 1260,
+        "x": 970,
+        "y": 1320,
         "wires": [
             [
                 "c8459650666a969b"
@@ -8197,8 +8244,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 130,
-        "y": 1340,
+        "x": 110,
+        "y": 1400,
         "wires": []
     },
     {
@@ -8223,8 +8270,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 790,
-        "y": 1320,
+        "x": 810,
+        "y": 1380,
         "wires": [
             [
                 "6ab57893a1727021"
@@ -8252,7 +8299,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 190,
+        "x": 170,
         "y": 960,
         "wires": []
     },
@@ -8269,11 +8316,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 1140,
+        "x": 610,
+        "y": 1200,
         "wires": [
             [
-                "93aefc9fdd10a3a9",
                 "c9aa4babb452e660",
                 "70b734ee6121d475"
             ]
@@ -8307,33 +8353,9 @@
         "links": [
             "f1aeced22e9fa07f"
         ],
-        "x": 765,
-        "y": 1140,
+        "x": 785,
+        "y": 1200,
         "wires": []
-    },
-    {
-        "id": "93aefc9fdd10a3a9",
-        "type": "delay",
-        "z": "ce724907bfebf75c",
-        "g": "04fd012f1107245e",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 760,
-        "y": 1100,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "c86740ad60f14028",
@@ -8348,8 +8370,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 1260,
+        "x": 610,
+        "y": 1320,
         "wires": [
             [
                 "70b734ee6121d475"
@@ -8375,7 +8397,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 440,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "c86740ad60f14028"
@@ -8395,8 +8417,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 1220,
+        "x": 610,
+        "y": 1280,
         "wires": [
             [
                 "70b734ee6121d475"
@@ -8433,8 +8455,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 940,
-        "y": 1060,
+        "x": 920,
+        "y": 1120,
         "wires": []
     },
     {
@@ -8459,11 +8481,11 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
-        "y": 1120,
+        "x": 120,
+        "y": 1160,
         "wires": [
             [
-                "4d4f78505bcbf29e"
+                "d3191e422f60972d"
             ]
         ]
     },
@@ -8480,8 +8502,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 1200,
+        "x": 790,
+        "y": 1260,
         "wires": [
             [
                 "c8459650666a969b",
@@ -8511,7 +8533,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 290,
-        "y": 1340,
+        "y": 1400,
         "wires": []
     },
     {
@@ -8546,7 +8568,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 690,
+        "x": 670,
         "y": 960,
         "wires": [
             [
@@ -8568,7 +8590,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 840,
+        "x": 820,
         "y": 960,
         "wires": [
             [
@@ -8595,7 +8617,7 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 1010,
+        "x": 990,
         "y": 960,
         "wires": [
             []
@@ -8619,7 +8641,7 @@
         "g": "04fd012f1107245e",
         "name": "Verbinden met een nieuw apparaat",
         "info": "",
-        "x": 200,
+        "x": 180,
         "y": 900,
         "wires": []
     },
@@ -8876,7 +8898,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1220,
+        "y": 1280,
         "wires": [
             [
                 "d3ac11cb5dc0efbc"
@@ -8893,9 +8915,32 @@
         "links": [
             "f1aeced22e9fa07f"
         ],
-        "x": 795,
+        "x": 775,
         "y": 900,
         "wires": []
+    },
+    {
+        "id": "d3191e422f60972d",
+        "type": "exec",
+        "z": "ce724907bfebf75c",
+        "g": "04fd012f1107245e",
+        "command": "/bin/bash",
+        "addpay": "payload",
+        "append": "-c \"sudo bash -c 'systemctl stop bluetooth; rm -rf /var/lib/bluetooth/*; systemctl start bluetooth'\"",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Clear cache",
+        "x": 370,
+        "y": 1120,
+        "wires": [
+            [
+                "4d4f78505bcbf29e"
+            ],
+            [],
+            []
+        ]
     },
     {
         "id": "de3f35eb8cc6cc74",
@@ -8905,7 +8950,7 @@
         "group": "aae22fe947be766e",
         "name": "",
         "label": "Test geluid",
-        "order": 3,
+        "order": 2,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -8930,10 +8975,10 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 200,
+        "y": 220,
         "wires": [
             [
-                "121eeb47240d2a87"
+                "7cb194b63eb56afd"
             ]
         ]
     },
@@ -8947,8 +8992,8 @@
         "label": "Kies meldingsgeluid:",
         "tooltip": "",
         "order": 1,
-        "width": "3",
-        "height": "1",
+        "width": "0",
+        "height": "0",
         "passthru": false,
         "multiple": false,
         "chips": false,
@@ -8960,8 +9005,8 @@
         "className": "",
         "typeIsComboBox": false,
         "msgTrigger": "onChange",
-        "x": 680,
-        "y": 240,
+        "x": 700,
+        "y": 280,
         "wires": [
             [
                 "098f8c595d14aaa5"
@@ -8982,7 +9027,7 @@
         "oldrc": false,
         "name": "ls sounds",
         "x": 320,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "7d08a46ad06a9fe9"
@@ -9004,8 +9049,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 240,
+        "x": 510,
+        "y": 280,
         "wires": [
             [
                 "50dd2fd4a701d53d"
@@ -9025,8 +9070,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "play sound",
-        "x": 510,
-        "y": 180,
+        "x": 730,
+        "y": 160,
         "wires": [
             [],
             [],
@@ -9047,7 +9092,7 @@
         "finalize": "",
         "libs": [],
         "x": 910,
-        "y": 240,
+        "y": 280,
         "wires": [
             []
         ]
@@ -9057,15 +9102,15 @@
         "type": "function",
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
-        "name": "get Sound",
-        "func": "msg.payload = \"mpg123 -q .node-red/projects/MiniSAHA/sounds/\" +\n  global.get(\"BluetoothSound\");\nreturn msg;",
+        "name": "mpg123 sound",
+        "func": "msg.payload = \"mpg123 -q .node-red/projects/MiniSAHA/sounds/\" +\n  msg.payload;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
+        "x": 520,
         "y": 180,
         "wires": [
             [
@@ -9079,15 +9124,15 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "kill",
-        "func": "msg.kill = \"SIGTERM\";   // of \"SIGKILL\", \"SIGINT\", etc.\nreturn msg;\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" kill sound\"});\nmsg.kill = \"SIGTERM\";   // of \"SIGKILL\", \"SIGINT\", etc.\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 100,
+        "x": 490,
+        "y": 120,
         "wires": [
             [
                 "0d7df80c86a6453d"
@@ -9102,7 +9147,7 @@
         "group": "aae22fe947be766e",
         "name": "",
         "label": "Stop",
-        "order": 4,
+        "order": 3,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -9127,7 +9172,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 100,
+        "y": 120,
         "wires": [
             [
                 "3410874898204686"
@@ -9140,10 +9185,10 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "",
-        "label": "Rand",
+        "label": "Random geluid",
         "group": "aae22fe947be766e",
-        "order": 2,
-        "width": "1",
+        "order": 4,
+        "width": "2",
         "height": "1",
         "passthru": false,
         "decouple": false,
@@ -9161,8 +9206,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 730,
-        "y": 300,
+        "x": 680,
+        "y": 340,
         "wires": [
             [
                 "e438e1a719031b77"
@@ -9190,7 +9235,7 @@
         "to": "",
         "reg": false,
         "x": 930,
-        "y": 300,
+        "y": 340,
         "wires": [
             []
         ]
@@ -9215,8 +9260,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 300,
+        "x": 330,
+        "y": 340,
         "wires": [
             [
                 "8c04f7e36a9c4acb"
@@ -9236,8 +9281,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
-        "y": 300,
+        "x": 510,
+        "y": 340,
         "wires": [
             [
                 "034d3d2d8b8a62ca"
@@ -9251,8 +9296,8 @@
         "g": "3856d925f2c69025",
         "name": "https://pixabay.com/nl/music/search/ringtones/",
         "info": "",
-        "x": 790,
-        "y": 140,
+        "x": 810,
+        "y": 80,
         "wires": []
     },
     {
@@ -9270,7 +9315,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 140,
+        "y": 160,
         "wires": [
             [
                 "121eeb47240d2a87"
@@ -9290,8 +9335,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "ls sounds",
-        "x": 300,
-        "y": 880,
+        "x": 280,
+        "y": 980,
         "wires": [
             [
                 "411d40273f5f425f"
@@ -9308,7 +9353,7 @@
         "group": "aae22fe947be766e",
         "name": "Device Table",
         "label": "",
-        "order": 9,
+        "order": 10,
         "width": "0",
         "height": "0",
         "maxrows": "",
@@ -9336,8 +9381,8 @@
         "mobileBreakpoint": "sm",
         "mobileBreakpointType": "defaults",
         "action": "replace",
-        "x": 750,
-        "y": 880,
+        "x": 730,
+        "y": 980,
         "wires": [
             [
                 "4991f7f568969713"
@@ -9357,8 +9402,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 880,
+        "x": 490,
+        "y": 980,
         "wires": [
             [
                 "d886cc1affb2bca7"
@@ -9371,7 +9416,7 @@
         "z": "bf57a768b975c2e6",
         "g": "852f70d81ad10832",
         "group": "aae22fe947be766e",
-        "order": 8,
+        "order": 9,
         "width": 0,
         "height": 0,
         "name": "Voortgang",
@@ -9386,8 +9431,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 420,
+        "x": 790,
+        "y": 500,
         "wires": []
     },
     {
@@ -9398,7 +9443,7 @@
         "group": "aae22fe947be766e",
         "name": "",
         "label": "Kopieer alle MP3 bestanden van USB stick",
-        "order": 6,
+        "order": 7,
         "width": "0",
         "height": "0",
         "emulateClick": false,
@@ -9422,8 +9467,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 250,
-        "y": 600,
+        "x": 230,
+        "y": 680,
         "wires": [
             [
                 "ec36fc960434517b"
@@ -9443,8 +9488,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 960,
+        "x": 520,
+        "y": 1060,
         "wires": [
             [
                 "776ed147123b92b8"
@@ -9464,8 +9509,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "exec",
-        "x": 710,
-        "y": 960,
+        "x": 690,
+        "y": 1060,
         "wires": [
             [],
             [],
@@ -9485,8 +9530,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 660,
+        "x": 540,
+        "y": 740,
         "wires": [
             [
                 "2f60b40d268db108"
@@ -9506,8 +9551,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "exec",
-        "x": 710,
-        "y": 660,
+        "x": 690,
+        "y": 740,
         "wires": [
             [
                 "19674a84640dbeb7"
@@ -9529,8 +9574,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 600,
+        "x": 540,
+        "y": 680,
         "wires": [
             [
                 "7b381f39c3109c7b"
@@ -9550,8 +9595,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "exec",
-        "x": 710,
-        "y": 600,
+        "x": 690,
+        "y": 680,
         "wires": [
             [
                 "ff4b91c6f803a3cb"
@@ -9572,8 +9617,8 @@
         "ignoredFiles": "",
         "ignoredFilesType": "re",
         "name": "",
-        "x": 220,
-        "y": 1020,
+        "x": 200,
+        "y": 1120,
         "wires": [
             [
                 "a0f17d909e19d179"
@@ -9592,8 +9637,8 @@
         "ignoredFiles": "",
         "ignoredFilesType": "re",
         "name": "",
-        "x": 220,
-        "y": 1100,
+        "x": 200,
+        "y": 1200,
         "wires": [
             [
                 "a0f17d909e19d179"
@@ -9613,8 +9658,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 1080,
+        "x": 430,
+        "y": 1180,
         "wires": [
             [
                 "2912eea2927befa7"
@@ -9633,8 +9678,8 @@
             "0a60a836b38547df",
             "4ce40f669f564d3c"
         ],
-        "x": 585,
-        "y": 1080,
+        "x": 565,
+        "y": 1180,
         "wires": []
     },
     {
@@ -9646,8 +9691,8 @@
         "links": [
             "2912eea2927befa7"
         ],
-        "x": 145,
-        "y": 880,
+        "x": 125,
+        "y": 980,
         "wires": [
             [
                 "ac3df9612f272925"
@@ -9664,7 +9709,7 @@
             "2912eea2927befa7"
         ],
         "x": 155,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "fb00403833140d8b"
@@ -9694,10 +9739,11 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 300,
+        "y": 380,
         "wires": [
             [
-                "2b8910900d4bbdc5"
+                "2b8910900d4bbdc5",
+                "4653356d90a8a897"
             ]
         ]
     },
@@ -9710,8 +9756,8 @@
         "links": [
             "2912eea2927befa7"
         ],
-        "x": 125,
-        "y": 420,
+        "x": 105,
+        "y": 500,
         "wires": [
             [
                 "e8dcf9dab51432cf"
@@ -9731,8 +9777,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 420,
+        "x": 430,
+        "y": 500,
         "wires": [
             [
                 "9f7d3fb78648fc41"
@@ -9752,8 +9798,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 460,
+        "x": 430,
+        "y": 540,
         "wires": [
             [
                 "9f7d3fb78648fc41"
@@ -9778,8 +9824,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 660,
-        "y": 480,
+        "x": 640,
+        "y": 560,
         "wires": [
             [
                 "c7a079d11845588a"
@@ -9799,8 +9845,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 480,
+        "x": 770,
+        "y": 560,
         "wires": [
             [
                 "4a80936a1117d160"
@@ -9820,8 +9866,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 420,
+        "x": 590,
+        "y": 500,
         "wires": [
             [
                 "4a80936a1117d160",
@@ -9835,7 +9881,7 @@
         "z": "bf57a768b975c2e6",
         "g": "852f70d81ad10832",
         "group": "aae22fe947be766e",
-        "order": 5,
+        "order": 6,
         "width": 0,
         "height": 0,
         "name": "leeg",
@@ -9850,8 +9896,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 130,
-        "y": 780,
+        "x": 110,
+        "y": 860,
         "wires": []
     },
     {
@@ -9862,7 +9908,7 @@
         "group": "aae22fe947be766e",
         "name": "",
         "label": "Hoe kopieer ik MP3 bestanden vanaf mijn PC?",
-        "order": 7,
+        "order": 8,
         "width": "0",
         "height": "0",
         "emulateClick": false,
@@ -9886,8 +9932,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 260,
-        "y": 720,
+        "x": 240,
+        "y": 800,
         "wires": [
             [
                 "746b7471fda81cac"
@@ -9913,8 +9959,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 710,
-        "y": 780,
+        "x": 690,
+        "y": 860,
         "wires": [
             []
         ]
@@ -9932,8 +9978,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
-        "y": 780,
+        "x": 500,
+        "y": 860,
         "wires": [
             [
                 "c0dfb882e72c4bd7"
@@ -9953,8 +9999,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 720,
+        "x": 700,
+        "y": 800,
         "wires": [
             [
                 "c5dbb4558df77bc6"
@@ -9974,14 +10020,188 @@
         "winHide": false,
         "oldrc": false,
         "name": "hostname -I  ",
-        "x": 550,
-        "y": 720,
+        "x": 530,
+        "y": 800,
         "wires": [
             [
                 "25d743058464db66"
             ],
             [],
             []
+        ]
+    },
+    {
+        "id": "ad3cf096050d54e2",
+        "type": "ui-switch",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "",
+        "label": "Stop na JA/NEE",
+        "group": "aae22fe947be766e",
+        "order": 5,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-left",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 680,
+        "y": 400,
+        "wires": [
+            [
+                "3fe4ddc223bcbaeb"
+            ]
+        ]
+    },
+    {
+        "id": "3fe4ddc223bcbaeb",
+        "type": "change",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "BluetoothAutoStop",
+        "rules": [
+            {
+                "t": "set",
+                "p": "BluetoothAutoStop",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4653356d90a8a897",
+        "type": "change",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "BluetoothAutoStop",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "BluetoothAutoStop",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 400,
+        "wires": [
+            [
+                "27336a80e583f921"
+            ]
+        ]
+    },
+    {
+        "id": "27336a80e583f921",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "false",
+        "func": "if (msg.payload == null) {\n    msg.payload = false;\n    global.set(\"BluetoothAutoStop\", msg.payload);\n    node.status({ text: msg.payload });\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 400,
+        "wires": [
+            [
+                "ad3cf096050d54e2"
+            ]
+        ]
+    },
+    {
+        "id": "e1471d5c735bd6d3",
+        "type": "mqtt in",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "",
+        "topic": "StateChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "d722b84b332a8bb8"
+            ]
+        ]
+    },
+    {
+        "id": "d722b84b332a8bb8",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "AutoStop?",
+        "func": "if (global.get(\"BluetoothAutoStop\") == \"false\") {\n    return null;\n}\n\nlet states = global.get(\"states\");\n\nswitch (global.get(\"currentState\")) {\n    case states.ISOK: \n    case states.ISNOTOK: \n    case states.ISOK_OVERTIJD: \n    case states.ISNOTOK_OVERTIJD: { \n            var tijd_nu = global.get(\"getTime\")();\n            node.status({text: tijd_nu + \" Stop sounds\"});\n            return msg;\n    }\n    default: {\n        return null;\n    }\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 60,
+        "wires": [
+            [
+                "3410874898204686"
+            ]
+        ]
+    },
+    {
+        "id": "7cb194b63eb56afd",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "default sound",
+        "func": "msg.payload = global.get(\"BluetoothSound\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "121eeb47240d2a87"
+            ]
         ]
     }
 ]
