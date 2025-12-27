@@ -505,11 +505,12 @@
             "363ef96aac78d4e7",
             "9328b12c82bcdb88",
             "e17df78fc7db3f2e",
-            "844e46423aa3ee91"
+            "844e46423aa3ee91",
+            "3dc33bd26ddfd0cd"
         ],
         "x": 14,
         "y": 879,
-        "w": 772,
+        "w": 812,
         "h": 769.5
     },
     {
@@ -5386,8 +5387,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Reboot",
-        "x": 700,
-        "y": 1300,
+        "x": 740,
+        "y": 1220,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -5982,9 +5983,7 @@
         "x": 510,
         "y": 1600,
         "wires": [
-            [
-                "07af420f98d0e89a"
-            ],
+            [],
             [],
             []
         ]
@@ -6179,7 +6178,7 @@
         "y": 1300,
         "wires": [
             [
-                "07af420f98d0e89a"
+                "3dc33bd26ddfd0cd"
             ],
             [],
             []
@@ -6327,6 +6326,27 @@
             [
                 "041075a0f4b32a3b"
             ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3dc33bd26ddfd0cd",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "sudo systemctl restart nodered.service",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Restart node-red",
+        "x": 710,
+        "y": 1300,
+        "wires": [
+            [],
             [],
             []
         ]
@@ -7166,7 +7186,7 @@
         "className": "PowerButton",
         "icon": "",
         "iconPosition": "left",
-        "payload": "Shutdown",
+        "payload": "Shutdown...",
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
@@ -7207,7 +7227,7 @@
         "className": "PowerButton",
         "icon": "",
         "iconPosition": "left",
-        "payload": "Restarting",
+        "payload": "Restarting...",
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
@@ -7292,7 +7312,7 @@
         "name": "status",
         "label": "",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "layout": "row-left",
         "style": false,
         "font": "",
         "fontSize": 16,
@@ -7304,65 +7324,6 @@
         "x": 510,
         "y": 1060,
         "wires": []
-    },
-    {
-        "id": "78bd42bc3e424d2e",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "command": "/bin/bash",
-        "addpay": "",
-        "append": "-c \"sudo bash -c 'systemctl stop bluetooth; rm -rf /var/lib/bluetooth/*; systemctl start bluetooth'\"",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Clear Bluetooth cache",
-        "x": 420,
-        "y": 1240,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "16786ee5871aa886",
-        "type": "ui-button",
-        "z": "eb60a9ea21d42f29",
-        "group": "b71c0e77d9debcfd",
-        "name": "Clear Bluetooth cache",
-        "label": "Clear Bluetooth cache",
-        "order": 9,
-        "width": "0",
-        "height": "0",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "PowerButton",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 160,
-        "y": 1240,
-        "wires": [
-            [
-                "78bd42bc3e424d2e"
-            ]
-        ]
     },
     {
         "id": "0af8df52052ef366",
@@ -8070,7 +8031,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "name": "Scanning...",
-        "func": "msg.payload = \"Zoeken naar \" + global.get(\"BluetoothName\") + \"... (kan een minuutje duren)\";\nreturn msg;",
+        "func": "msg.payload = \"Zoeken naar \" + global.get(\"BluetoothName\") + \"... (staat apparaat aan?)\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
