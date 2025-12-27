@@ -602,7 +602,8 @@
             "a9b3d569ef1ff64c",
             "a312655bf01fb8e3",
             "c307ebad62357506",
-            "d3191e422f60972d"
+            "d3191e422f60972d",
+            "5a7f318244196d74"
         ],
         "x": 14,
         "y": 859,
@@ -7478,7 +7479,7 @@
         "z": "ce724907bfebf75c",
         "g": "b653e740e9531504",
         "name": "Connected?",
-        "func": "let devices = [];\n\nif (msg.payload == \"\") {\n    global.set(\"BluetoothConnected\", \"no\");\n    global.set(\"BluetoothPaired\", \"no\");\n    global.set(\"BluetoothConnectedName\", \"\");\n    node.status({ text: \"payload empty\" });\n    msg.payload = devices;\n    return msg;\n}\n\nconst text = msg.payload;\nnode.status({ text: text });\nconst blocks = text.split(/(?=Device\\s+[0-9A-F:]{17})/gi);\n\nfor (const block of blocks) {\n    // MAC-adres\n    const macMatch = block.match(/Device\\s+([0-9A-F:]{17})/i);\n    if (!macMatch) continue;\n\n    // Naam\n    const nameMatch = block.match(/Name:\\s*(.+)/i);\n    const name = nameMatch ? nameMatch[1].trim() : null;\n\n    // Paired-status\n    const pairedMatch = block.match(/Paired:\\s*(yes|no)/i);\n    const paired = pairedMatch ? pairedMatch[1].toLowerCase() : null;\n\n    // Connected-status\n    const connMatch = block.match(/Connected:\\s*(yes|no)/i);\n    const connected = connMatch ? connMatch[1].toLowerCase() : null;\n\n    if (paired == \"yes\") {\n        devices.push({\n            mac: macMatch[1],\n            name,\n            paired,\n            connected\n        });\n    }\n\n    if (connected == \"yes\") {\n        node.status({ text: \"Connected: \" + name });\n        global.set(\"BluetoothConnectedName\", name);\n        global.set(\"BluetoothPaired\", paired);\n        global.set(\"BluetoothConnected\", connected);\n    }\n    else {\n        if (name == global.get(\"BluetoothConnectedName\")) {\n            global.set(\"BluetoothPaired\", paired);\n            global.set(\"BluetoothConnected\", connected);\n        }\n    }\n}\n\nmsg.payload = devices;\nreturn msg;",
+        "func": "let devices = [];\n\nif (msg.payload == \"\") {\n    global.set(\"BluetoothConnected\", \"no\");\n    global.set(\"BluetoothPaired\", \"no\");\n    global.set(\"BluetoothConnectedName\", \"\");\n    node.status({ text: \"payload empty\" });\n    msg.payload = devices;\n    return msg;\n}\n\nconst text = msg.payload;\nnode.status({ text: text });\nconst blocks = text.split(/(?=Device\\s+[0-9A-F:]{17})/gi);\n\nfor (const block of blocks) {\n    // MAC-adres\n    const macMatch = block.match(/Device\\s+([0-9A-F:]{17})/i);\n    if (!macMatch) continue;\n\n    // Naam\n    const nameMatch = block.match(/Name:\\s*(.+)/i);\n    const name = nameMatch ? nameMatch[1].trim() : null;\n\n    // Paired-status\n    const pairedMatch = block.match(/Paired:\\s*(yes|no)/i);\n    const paired = pairedMatch ? pairedMatch[1].toLowerCase() : null;\n\n    // Connected-status\n    const connMatch = block.match(/Connected:\\s*(yes|no)/i);\n    const connected = connMatch ? connMatch[1].toLowerCase() : null;\n\n    if (paired == \"yes\") {\n        devices.push({\n            mac: macMatch[1],\n            name,\n            paired,\n            connected\n        });\n    }\n\n    if (connected == \"yes\") {\n        node.status({ text: \"Connected: \" + name });\n        global.set(\"BluetoothMac\", macMatch[1]);\n        global.set(\"BluetoothConnectedName\", name);\n        global.set(\"BluetoothPaired\", paired);\n        global.set(\"BluetoothConnected\", connected);\n    }\n    else {\n        if (name == global.get(\"BluetoothConnectedName\")) {\n            global.set(\"BluetoothPaired\", paired);\n            global.set(\"BluetoothConnected\", connected);\n        }\n    }\n}\n\nmsg.payload = devices;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7783,8 +7784,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Pair & Connect",
-        "x": 620,
-        "y": 1120,
+        "x": 720,
+        "y": 1100,
         "wires": [
             [
                 "6054eae0fe0bbb10",
@@ -7807,12 +7808,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
+        "x": 390,
         "y": 1220,
         "wires": [
             [
                 "ad04926aacf33a5d",
-                "d611838783d29255"
+                "5a7f318244196d74"
             ],
             [
                 "988de3a578461499"
@@ -7852,7 +7853,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 1120,
+        "y": 1100,
         "wires": [
             [
                 "d3191e422f60972d"
@@ -8437,7 +8438,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 920,
-        "y": 1120,
+        "y": 1100,
         "wires": []
     },
     {
@@ -8463,7 +8464,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1160,
+        "y": 1140,
         "wires": [
             [
                 "d3191e422f60972d"
@@ -8896,14 +8897,40 @@
         "winHide": false,
         "oldrc": false,
         "name": "Clear cache",
-        "x": 370,
-        "y": 1120,
+        "x": 350,
+        "y": 1100,
         "wires": [
             [
                 "4d4f78505bcbf29e"
             ],
             [],
             []
+        ]
+    },
+    {
+        "id": "5a7f318244196d74",
+        "type": "delay",
+        "z": "ce724907bfebf75c",
+        "g": "04fd012f1107245e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 1100,
+        "wires": [
+            [
+                "d611838783d29255"
+            ]
         ]
     },
     {

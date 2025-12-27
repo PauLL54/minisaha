@@ -35,8 +35,11 @@ def main():
 
     # Basis setup
     send("power on")
+    time.sleep(3)
     send("agent on")
+    time.sleep(1)
     send("default-agent")
+    time.sleep(1)
     send("scan on")
 
     print("Scanning... zet je speaker in PAIRING MODE")
