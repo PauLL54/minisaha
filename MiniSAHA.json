@@ -603,12 +603,11 @@
             "a9b3d569ef1ff64c",
             "a312655bf01fb8e3",
             "c307ebad62357506",
-            "d3191e422f60972d",
-            "5a7f318244196d74"
+            "d3191e422f60972d"
         ],
         "x": 14,
         "y": 859,
-        "w": 1092,
+        "w": 1082,
         "h": 582
     },
     {
@@ -651,8 +650,7 @@
             "574eb541beac3d21",
             "e1ee20adb971c3d5",
             "77f6b3f3956f0d15",
-            "fd7a048b60fd40cc",
-            "9a51eef86507a1f1"
+            "fd7a048b60fd40cc"
         ],
         "x": 14,
         "y": 19,
@@ -2463,7 +2461,7 @@
         "type": "exec",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "command": "ls .node-red/projects/MiniSAHA/sounds",
+        "command": "ls .node-red/projects/MiniSAHA/sounds/*.mp3",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -3008,7 +3006,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Vraag",
-        "func": "let states = global.get(\"states\");\nmsg.payload = global.get(\"VoornaamGebruiker\");\n\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG: \n    case states.MELDGEBRUIKER: {\n        msg.payload += \", ben je OK?\";\n        break;\n    }\n    case states.OVERTIJD: {\n        msg.payload += \", ben je OK? <br>Overtijd: er is een bericht naar sleutelbewaarder(s) gestuurd.\";\n        break;\n    }    \n    default: {\n        msg.payload += \", er is geen vraag voor nu.\";\n        break;\n    }\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\nreturn msg;\n",
+        "func": "let states = global.get(\"states\");\nmsg.payload = global.get(\"VoornaamGebruiker\");\n\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG: \n    case states.MELDGEBRUIKER: {\n        msg.payload += \", ben je OK?\";\n        break;\n    }\n    case states.OVERTIJD: {\n        msg.payload += \", ben je OK? <br>Overtijd: er is een bericht naar mantelzorger(s) gestuurd.\";\n        break;\n    }    \n    default: {\n        msg.payload += \", er is geen vraag voor nu.\";\n        break;\n    }\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4269,7 +4267,8 @@
         "wires": [
             [
                 "c7a382e00daaa762",
-                "ee88c907a0b09cd1"
+                "ee88c907a0b09cd1",
+                "6e34a944a7019b1e"
             ]
         ]
     },
@@ -4924,7 +4923,7 @@
         "type": "function",
         "z": "5c14e0941d341b42",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>Het IP-adres van de WIFI verbinding van je telefoon wordt gebruikt om te zien of je in huis bent. \" +\n\"Als je niet thuis bent, ontvang je geen vraag of je OK bent.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dit IP-adres kan je vinden bij Instellingen van je mobiel. \" +\n\"Voor ieder merk en type telefoon is dat anders.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Je kan het zo ongeveer vinden:</b><br>\"+\n\"<b>1. Instellingen --> Verbindingen --> WIFI.</b><br>\" +\n\"<b>2. Tik op het verbonden netwerk (of Instellingen daarnaast).</b><br>\" +\n\"<b>3. Daar zie je ergens het IP-adres staan.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Voorbeeld van een IP-adres is: '192.168.2.68'.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>Het IP-adres van de WIFI verbinding van je telefoon wordt gebruikt om te zien of je in huis bent. \" +\n\"Als je niet thuis bent, ontvang je geen vraag of je OK bent.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Dit IP-adres kan je vinden bij Instellingen van je mobiel. \" +\n\"Voor ieder merk en type telefoon is dat anders.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Je kan het zo ongeveer vinden:</b><br>\"+\n\"<b>1. Instellingen --> Verbindingen --> WIFI.</b><br>\" +\n\"<b>2. Tik op het verbonden netwerk (of Instellingen daarnaast).</b><br>\" +\n\"<b>3. Daar zie je ergens het IP-adres staan.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Voorbeeld van een IP-adres is: '192.168.2.68'.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Als blijkt dat je mobiel soms niet gedetecteerd wordt, \" + \n\" ga naar In.stellingen → Apps → (kies een app die altijd actief mag zijn, bv. Chrome) → Batterij → Onbeperkt</b><br>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5089,6 +5088,24 @@
         "broker": "0839f7b4c0cbb0a8",
         "x": 900,
         "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "6e34a944a7019b1e",
+        "type": "mqtt out",
+        "z": "5c14e0941d341b42",
+        "name": "",
+        "topic": "StateChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 880,
+        "y": 60,
         "wires": []
     },
     {
@@ -7473,8 +7490,7 @@
         "wires": [
             [
                 "d611838783d29255",
-                "c4556470956a2dd7",
-                "d3191e422f60972d"
+                "c4556470956a2dd7"
             ]
         ]
     },
@@ -7645,7 +7661,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "Device Table",
         "label": "",
-        "order": 3,
+        "order": 2,
         "width": "0",
         "height": "0",
         "maxrows": "",
@@ -7769,12 +7785,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 1220,
+        "x": 370,
+        "y": 1200,
         "wires": [
             [
                 "ad04926aacf33a5d",
-                "5a7f318244196d74"
+                "d611838783d29255"
             ],
             [
                 "988de3a578461499"
@@ -7789,7 +7805,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "",
         "label": "Voeg apparaat toe",
-        "order": 8,
+        "order": 7,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -7814,10 +7830,10 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 1100,
+        "y": 1220,
         "wires": [
             [
-                "d3191e422f60972d"
+                "4d4f78505bcbf29e"
             ]
         ]
     },
@@ -7829,7 +7845,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "Zoek op naam",
         "label": "Zoek op (gedeelte van) naam",
-        "order": 6,
+        "order": 5,
         "width": "3",
         "height": "1",
         "topic": "topic",
@@ -7966,7 +7982,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 10,
+        "order": 9,
         "width": "0",
         "height": "0",
         "name": "progress",
@@ -7993,7 +8009,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "",
         "label": "Annuleer",
-        "order": 9,
+        "order": 8,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -8189,7 +8205,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 4,
+        "order": 3,
         "width": "5",
         "height": "1",
         "name": "Lege regel",
@@ -8244,7 +8260,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 5,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "",
@@ -8425,10 +8441,10 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1140,
+        "y": 1180,
         "wires": [
             [
-                "d3191e422f60972d"
+                "4d4f78505bcbf29e"
             ]
         ]
     },
@@ -8460,7 +8476,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 11,
+        "order": 10,
         "width": "5",
         "height": "1",
         "name": "Lege regel",
@@ -8487,7 +8503,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "Help naam",
         "label": "?",
-        "order": 7,
+        "order": 6,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -8597,7 +8613,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "Help Toon...",
         "label": "?",
-        "order": 2,
+        "order": 1,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -8708,7 +8724,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "",
         "label": "Beheer meldingsgeluiden",
-        "order": 12,
+        "order": 11,
         "width": "0",
         "height": "0",
         "emulateClick": false,
@@ -8776,32 +8792,6 @@
         ]
     },
     {
-        "id": "9a51eef86507a1f1",
-        "type": "ui-text",
-        "z": "ce724907bfebf75c",
-        "d": true,
-        "g": "b653e740e9531504",
-        "group": "549f1fa0e59e6a04",
-        "order": 1,
-        "width": "3",
-        "height": "1",
-        "name": "",
-        "label": "Gekoppelde apparaten:",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 150,
-        "y": 300,
-        "wires": []
-    },
-    {
         "id": "a312655bf01fb8e3",
         "type": "inject",
         "z": "ce724907bfebf75c",
@@ -8858,40 +8848,12 @@
         "winHide": false,
         "oldrc": false,
         "name": "Clear cache",
-        "x": 350,
+        "x": 290,
         "y": 1100,
         "wires": [
-            [
-                "4d4f78505bcbf29e"
-            ],
+            [],
             [],
             []
-        ]
-    },
-    {
-        "id": "5a7f318244196d74",
-        "type": "delay",
-        "z": "ce724907bfebf75c",
-        "g": "04fd012f1107245e",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 540,
-        "y": 1100,
-        "wires": [
-            [
-                "d611838783d29255"
-            ]
         ]
     },
     {
