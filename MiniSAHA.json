@@ -244,7 +244,7 @@
             "728339c56b6087ec"
         ],
         "x": 24,
-        "y": 599,
+        "y": 679,
         "w": 932,
         "h": 262
     },
@@ -282,12 +282,15 @@
             "82ea9c0c0b1c8052",
             "233943e79ec596cb",
             "e3e7c591d92d8d6d",
-            "b6d0686a4823c0c2"
+            "b6d0686a4823c0c2",
+            "00f2b37c286009fe",
+            "7b981f6f76e5f9f4",
+            "6388a247ed7be222"
         ],
-        "x": 14,
-        "y": 19,
+        "x": 34,
+        "y": 39,
         "w": 832,
-        "h": 562
+        "h": 602
     },
     {
         "id": "d344da1eff713941",
@@ -307,14 +310,13 @@
             "6d496dbb394b2888",
             "f1ad8f74c46f6314",
             "c8412ad60f0dd6e1",
-            "7b981f6f76e5f9f4",
             "ee5730149418dfeb",
             "7ea37518e7e677d7"
         ],
         "x": 34,
-        "y": 899,
+        "y": 971.5,
         "w": 632,
-        "h": 269.5
+        "h": 217
     },
     {
         "id": "4e4ef64c30555769",
@@ -822,6 +824,29 @@
         "y": 459,
         "w": 852,
         "h": 442
+    },
+    {
+        "id": "995adf33c3afe9fb",
+        "type": "group",
+        "z": "af31bf2fe058f803",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "f2ab6233a4e5bddd",
+            "f925f53a18f02fd2",
+            "25e3a169a0f65074"
+        ],
+        "x": 14,
+        "y": 1671.5,
+        "w": 552,
+        "h": 97
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -1881,7 +1906,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Gebruiker",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet text = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n           \", \\n\\n\" + \n\n           \"Ben je OK? Open de MiniSAHA app en bevestig.\";\n\nlet emailGebruiker = global.get(\"EmailGebruiker\") || \"\";\nif (emailGebruiker.indexOf(\"@\") == -1) {\n    msg.payload = \"Geen email gebruiker opgegeven.\"\n    node.status({ text: \"Send: \" + tijd_nu + \n    \" no emailgebruiker: \" + emailGebruiker });\n    return [null, msg];\n}\n\nmsg = {\n    to: emailGebruiker,\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu});\nreturn [msg, null];",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet text = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n           \", \\n\\n\" + \n\n           \"Ben je OK? Open de MiniSAHA app en bevestig.\" +\n            \", \\n\\n\\n\\n\" +\n            \"Test info: \" + \n            global.get(\"RaspberryPiModel\");\n\nlet emailGebruiker = global.get(\"EmailGebruiker\") || \"\";\nif (emailGebruiker.indexOf(\"@\") == -1) {\n    msg.payload = \"Geen email gebruiker opgegeven.\"\n    node.status({ text: \"Send: \" + tijd_nu + \n    \" no emailgebruiker: \" + emailGebruiker });\n    return [null, msg];\n}\n\nmsg = {\n    to: emailGebruiker,\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu});\nreturn [msg, null];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -6369,6 +6394,78 @@
         ]
     },
     {
+        "id": "f2ab6233a4e5bddd",
+        "type": "inject",
+        "z": "af31bf2fe058f803",
+        "g": "995adf33c3afe9fb",
+        "name": "Startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 1720,
+        "wires": [
+            [
+                "f925f53a18f02fd2"
+            ]
+        ]
+    },
+    {
+        "id": "f925f53a18f02fd2",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "995adf33c3afe9fb",
+        "command": "cat /proc/cpuinfo",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 300,
+        "y": 1720,
+        "wires": [
+            [
+                "25e3a169a0f65074"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "25e3a169a0f65074",
+        "type": "function",
+        "z": "af31bf2fe058f803",
+        "g": "995adf33c3afe9fb",
+        "name": "Model?",
+        "func": "msg.payload = parseCpuInfo(msg.payload);\nglobal.set(\"RaspberryPiModel\", msg.payload);\nnode.status({ text: msg.payload });\nreturn msg;\n\nfunction parseCpuInfo(cpuinfo) {\n    // Extract the revision line\n    const revisionMatch = cpuinfo.match(/Revision\\s*:\\s*([0-9a-fA-F]+)/);\n    if (!revisionMatch) {\n        return \"\";\n    }\n\n    const revision = revisionMatch[1].toLowerCase();\n\n    // Mapping van revision codes naar modellen\n    const revisionMap = {\n        // --- Raspberry Pi 3 ---\n        \"a02082\": \"Raspberry Pi 3 Model B\",\n        \"a22082\": \"Raspberry Pi 3 Model B (Sony)\",\n        \"a020d3\": \"Raspberry Pi 3 Model B+\",\n        \"a020a0\": \"Raspberry Pi Compute Module 3\",\n        \"a02100\": \"Raspberry Pi Compute Module 3+\",\n\n        // --- Raspberry Pi 4 ---\n        \"a03111\": \"Raspberry Pi 4 Model B (1GB)\",\n        \"b03111\": \"Raspberry Pi 4 Model B (2GB)\",\n        \"b03115\": \"Raspberry Pi 4 Model B (2GB) Rev 1.5\",\n        \"c03111\": \"Raspberry Pi 4 Model B (4GB)\",\n        \"d03114\": \"Raspberry Pi 4 Model B (8GB)\",\n\n        // --- Raspberry Pi 400 ---\n        \"c03130\": \"Raspberry Pi 400\",\n\n        // --- Raspberry Pi Compute Module 4 ---\n        \"a03140\": \"Raspberry Pi Compute Module 4\",\n        \"b03140\": \"Raspberry Pi Compute Module 4 (WiFi)\",\n        \"c03140\": \"Raspberry Pi Compute Module 4 (Lite)\",\n        \"d03140\": \"Raspberry Pi Compute Module 4 (WiFi + Lite)\",\n\n        // --- Raspberry Pi 5 ---\n        \"9023c0\": \"Raspberry Pi 5 (4GB)\",\n        \"a023c0\": \"Raspberry Pi 5 (8GB)\",\n        \"b023c0\": \"Raspberry Pi 5 (16GB)\",\n\n        // --- Raspberry Pi 5 Compute Module ---\n        \"c023c0\": \"Raspberry Pi Compute Module 5\",\n        \"d023c0\": \"Raspberry Pi Compute Module 5 Lite\"\n    };\n\n    const model = revisionMap[revision] || \"Onbekend model (revision niet in tabel)\";\n\nreturn model;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1720,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "5624329dd5cb5b0a",
         "type": "inject",
         "z": "eb60a9ea21d42f29",
@@ -6390,8 +6487,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 200,
+        "x": 140,
+        "y": 260,
         "wires": [
             [
                 "97382ae72dc98a86"
@@ -6406,7 +6503,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Test update",
         "label": "Update test versie",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "emulateClick": false,
@@ -6430,8 +6527,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 110,
-        "y": 300,
+        "x": 130,
+        "y": 360,
         "wires": [
             [
                 "148566cf72b33e1a"
@@ -6444,7 +6541,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "Test versie",
@@ -6459,8 +6556,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 690,
-        "y": 120,
+        "x": 710,
+        "y": 180,
         "wires": []
     },
     {
@@ -6476,8 +6573,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get version_test.txt",
-        "x": 430,
-        "y": 300,
+        "x": 450,
+        "y": 360,
         "wires": [
             [
                 "98ddd266a3e4c998"
@@ -6499,8 +6596,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 200,
+        "x": 470,
+        "y": 260,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -6521,8 +6618,8 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 290,
-        "y": 200,
+        "x": 310,
+        "y": 260,
         "wires": [
             [
                 "2c5db89378881214"
@@ -6549,8 +6646,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 720,
-        "y": 180,
+        "x": 740,
+        "y": 240,
         "wires": [
             []
         ]
@@ -6561,7 +6658,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 4,
+        "order": 5,
         "width": 0,
         "height": 0,
         "name": "Update msg",
@@ -6576,8 +6673,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 670,
-        "y": 440,
+        "x": 690,
+        "y": 500,
         "wires": []
     },
     {
@@ -6593,8 +6690,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm old",
-        "x": 270,
-        "y": 300,
+        "x": 290,
+        "y": 360,
         "wires": [
             [
                 "6f0b74ba5a27cc3e"
@@ -6616,8 +6713,8 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 590,
-        "y": 300,
+        "x": 610,
+        "y": 360,
         "wires": [
             [
                 "bce54c96101eb7b7"
@@ -6637,8 +6734,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 300,
+        "x": 730,
+        "y": 360,
         "wires": [
             [
                 "59d5c77dc1dc2a60"
@@ -6663,8 +6760,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 320,
-        "y": 480,
+        "x": 340,
+        "y": 540,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -6684,8 +6781,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 480,
+        "x": 510,
+        "y": 540,
         "wires": [
             [
                 "8d171fe450c7a81f"
@@ -6705,8 +6802,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 140,
-        "y": 420,
+        "x": 160,
+        "y": 480,
         "wires": [
             [
                 "b6d0686a4823c0c2"
@@ -6739,8 +6836,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 320,
-        "y": 540,
+        "x": 340,
+        "y": 600,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -6755,8 +6852,8 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 120,
-        "y": 120,
+        "x": 140,
+        "y": 180,
         "wires": [
             [
                 "5fe7d4a09964b635",
@@ -6777,8 +6874,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 120,
+        "x": 330,
+        "y": 180,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -6805,8 +6902,8 @@
         "resendOnRefresh": true,
         "templateScope": "page:style",
         "className": "buttonupdate",
-        "x": 110,
-        "y": 340,
+        "x": 130,
+        "y": 400,
         "wires": [
             []
         ]
@@ -6825,8 +6922,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 300,
-        "y": 60,
+        "x": 340,
+        "y": 140,
         "wires": []
     },
     {
@@ -6842,8 +6939,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 120,
+        "x": 550,
+        "y": 180,
         "wires": [
             [
                 "29faaa6a019e0e9b"
@@ -6865,8 +6962,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 400,
-        "y": 400,
+        "x": 420,
+        "y": 460,
         "wires": []
     },
     {
@@ -6877,7 +6974,7 @@
         "name": "",
         "env": [],
         "x": 550,
-        "y": 740,
+        "y": 820,
         "wires": [
             [
                 "849129e5cd170f06",
@@ -6912,7 +7009,7 @@
         "payload": "4",
         "payloadType": "num",
         "x": 130,
-        "y": 820,
+        "y": 900,
         "wires": [
             [
                 "ebd1eb7739312b3d",
@@ -6934,7 +7031,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 740,
+        "y": 820,
         "wires": [
             [
                 "9c9d4e18a631cc15"
@@ -6955,7 +7052,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 820,
+        "y": 900,
         "wires": [
             []
         ]
@@ -6974,7 +7071,7 @@
         "finalize": "",
         "libs": [],
         "x": 800,
-        "y": 720,
+        "y": 800,
         "wires": [
             []
         ]
@@ -6987,7 +7084,7 @@
         "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
         "info": "",
         "x": 260,
-        "y": 640,
+        "y": 720,
         "wires": []
     },
     {
@@ -7010,10 +7107,10 @@
         "once": true,
         "onceDelay": "120",
         "topic": "",
-        "payload": "15",
+        "payload": "20",
         "payloadType": "num",
         "x": 130,
-        "y": 740,
+        "y": 820,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -7078,7 +7175,7 @@
         "className": "",
         "interpolation": "linear",
         "x": 820,
-        "y": 820,
+        "y": 900,
         "wires": [
             []
         ]
@@ -7098,7 +7195,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 120,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "728339c56b6087ec"
@@ -7121,7 +7218,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 770,
-        "y": 660,
+        "y": 740,
         "wires": []
     },
     {
@@ -7138,7 +7235,7 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -7158,7 +7255,7 @@
         "oldrc": false,
         "name": "Execute shutdown",
         "x": 550,
-        "y": 1000,
+        "y": 1020,
         "wires": [
             [],
             [],
@@ -7178,7 +7275,7 @@
         "oldrc": false,
         "name": "Execute restart",
         "x": 540,
-        "y": 1120,
+        "y": 1140,
         "wires": [
             [],
             [],
@@ -7218,7 +7315,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 160,
-        "y": 1000,
+        "y": 1020,
         "wires": [
             [
                 "9efaa0c2fd872693",
@@ -7259,38 +7356,13 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 1120,
+        "y": 1140,
         "wires": [
             [
                 "6d496dbb394b2888",
                 "7ea37518e7e677d7"
             ]
         ]
-    },
-    {
-        "id": "7b981f6f76e5f9f4",
-        "type": "ui-text",
-        "z": "eb60a9ea21d42f29",
-        "g": "d344da1eff713941",
-        "group": "b71c0e77d9debcfd",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "Uitleg",
-        "label": "Nadat het systeem uitgeschakeld is, kan je hem weer aan zetten door de voeding los te koppelen en weer aan te sluiten.",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": true,
-        "font": "",
-        "fontSize": "18",
-        "color": "#ffffff",
-        "wrapText": false,
-        "className": "",
-        "value": "payloads",
-        "valueType": "msg",
-        "x": 110,
-        "y": 940,
-        "wires": []
     },
     {
         "id": "ee5730149418dfeb",
@@ -7312,7 +7384,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 1060,
+        "y": 1080,
         "wires": [
             []
         ]
@@ -7339,8 +7411,84 @@
         "value": "payload",
         "valueType": "msg",
         "x": 510,
-        "y": 1060,
+        "y": 1080,
         "wires": []
+    },
+    {
+        "id": "00f2b37c286009fe",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "name": "At startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "6388a247ed7be222"
+            ]
+        ]
+    },
+    {
+        "id": "7b981f6f76e5f9f4",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "group": "b71c0e77d9debcfd",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Model",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "18",
+        "color": "#ffffff",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 690,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "6388a247ed7be222",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "name": "model",
+        "func": "msg.payload = global.get(\"RaspberryPiModel\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 80,
+        "wires": [
+            [
+                "7b981f6f76e5f9f4"
+            ]
+        ]
     },
     {
         "id": "0af8df52052ef366",
