@@ -244,7 +244,7 @@
             "728339c56b6087ec"
         ],
         "x": 24,
-        "y": 679,
+        "y": 799,
         "w": 932,
         "h": 262
     },
@@ -283,14 +283,20 @@
             "233943e79ec596cb",
             "e3e7c591d92d8d6d",
             "b6d0686a4823c0c2",
-            "00f2b37c286009fe",
             "7b981f6f76e5f9f4",
-            "6388a247ed7be222"
+            "86822077eb192361",
+            "b214b552d64a9c10",
+            "e21cc1583323afc0",
+            "d17ee11b0c0d7512",
+            "68b99b881506f9ef",
+            "0d81cada11c97092",
+            "0267af7c7471c4a5",
+            "c60a13f83d3ae000"
         ],
         "x": 34,
-        "y": 39,
+        "y": 11.5,
         "w": 832,
-        "h": 602
+        "h": 769.5
     },
     {
         "id": "d344da1eff713941",
@@ -314,7 +320,7 @@
             "7ea37518e7e677d7"
         ],
         "x": 34,
-        "y": 971.5,
+        "y": 1091.5,
         "w": 632,
         "h": 217
     },
@@ -1906,7 +1912,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Gebruiker",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet text = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n           \", \\n\\n\" + \n\n           \"Ben je OK? Open de MiniSAHA app en bevestig.\" +\n            \", \\n\\n\\n\\n\" +\n            \"Test info: \" + \n            global.get(\"RaspberryPiModel\");\n\nlet emailGebruiker = global.get(\"EmailGebruiker\") || \"\";\nif (emailGebruiker.indexOf(\"@\") == -1) {\n    msg.payload = \"Geen email gebruiker opgegeven.\"\n    node.status({ text: \"Send: \" + tijd_nu + \n    \" no emailgebruiker: \" + emailGebruiker });\n    return [null, msg];\n}\n\nmsg = {\n    to: emailGebruiker,\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu});\nreturn [msg, null];",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet text = \"Beste \" + global.get(\"VoornaamGebruiker\") + \n           \", \\n\\n\" + \n\n           \"Ben je OK? Open de MiniSAHA app en bevestig.\" +\n            \", \\n\\n\\n\\n\" +\n            \"Test info: \\n\" + \n            global.get(\"RaspberryPiModel\") +\n            \"\\nBluetooth speaker: \" + global.get(\"BluetoothConnectedName\") +\n            \", Connected: \" + global.get(\"BluetoothConnected\");\n\nlet emailGebruiker = global.get(\"EmailGebruiker\") || \"\";\nif (emailGebruiker.indexOf(\"@\") == -1) {\n    msg.payload = \"Geen email gebruiker opgegeven.\"\n    node.status({ text: \"Send: \" + tijd_nu + \n    \" no emailgebruiker: \" + emailGebruiker });\n    return [null, msg];\n}\n\nmsg = {\n    to: emailGebruiker,\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu});\nreturn [msg, null];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -6452,7 +6458,7 @@
         "z": "af31bf2fe058f803",
         "g": "995adf33c3afe9fb",
         "name": "Model?",
-        "func": "msg.payload = parseCpuInfo(msg.payload);\nglobal.set(\"RaspberryPiModel\", msg.payload);\nnode.status({ text: msg.payload });\nreturn msg;\n\nfunction parseCpuInfo(cpuinfo) {\n    // Extract the revision line\n    const revisionMatch = cpuinfo.match(/Revision\\s*:\\s*([0-9a-fA-F]+)/);\n    if (!revisionMatch) {\n        return \"\";\n    }\n\n    const revision = revisionMatch[1].toLowerCase();\n\n    // Mapping van revision codes naar modellen\n    const revisionMap = {\n        // --- Raspberry Pi 3 ---\n        \"a02082\": \"Raspberry Pi 3 Model B\",\n        \"a22082\": \"Raspberry Pi 3 Model B (Sony)\",\n        \"a020d3\": \"Raspberry Pi 3 Model B+\",\n        \"a020a0\": \"Raspberry Pi Compute Module 3\",\n        \"a02100\": \"Raspberry Pi Compute Module 3+\",\n\n        // --- Raspberry Pi 4 ---\n        \"a03111\": \"Raspberry Pi 4 Model B (1GB)\",\n        \"b03111\": \"Raspberry Pi 4 Model B (2GB)\",\n        \"b03115\": \"Raspberry Pi 4 Model B (2GB) Rev 1.5\",\n        \"c03111\": \"Raspberry Pi 4 Model B (4GB)\",\n        \"d03114\": \"Raspberry Pi 4 Model B (8GB)\",\n\n        // --- Raspberry Pi 400 ---\n        \"c03130\": \"Raspberry Pi 400\",\n\n        // --- Raspberry Pi Compute Module 4 ---\n        \"a03140\": \"Raspberry Pi Compute Module 4\",\n        \"b03140\": \"Raspberry Pi Compute Module 4 (WiFi)\",\n        \"c03140\": \"Raspberry Pi Compute Module 4 (Lite)\",\n        \"d03140\": \"Raspberry Pi Compute Module 4 (WiFi + Lite)\",\n\n        // --- Raspberry Pi 5 ---\n        \"9023c0\": \"Raspberry Pi 5 (4GB)\",\n        \"a023c0\": \"Raspberry Pi 5 (8GB)\",\n        \"b023c0\": \"Raspberry Pi 5 (16GB)\",\n\n        // --- Raspberry Pi 5 Compute Module ---\n        \"c023c0\": \"Raspberry Pi Compute Module 5\",\n        \"d023c0\": \"Raspberry Pi Compute Module 5 Lite\"\n    };\n\n    const model = revisionMap[revision] || \"Onbekend model (revision niet in tabel)\";\n\nreturn model;\n}\n",
+        "func": "msg.payload = parseCpuInfo(msg.payload);\nglobal.set(\"RaspberryPiModel\", msg.payload);\nnode.status({ text: msg.payload });\nreturn msg;\n\nfunction parseCpuInfo(cpuinfo) {\n    // Extract the revision line\n    const revisionMatch = cpuinfo.match(/Revision\\s*:\\s*([0-9a-fA-F]+)/);\n    if (!revisionMatch) {\n        return \"\";\n    }\n\n    const revision = revisionMatch[1].toLowerCase();\n\n    // Mapping van revision codes naar modellen\n    const revisionMap = {\n        // --- Raspberry Pi 3 ---\n        \"a02082\": \"Raspberry Pi 3 Model B\",\n        \"a22082\": \"Raspberry Pi 3 Model B (Sony)\",\n        \"a020d3\": \"Raspberry Pi 3 Model B+\",\n        \"a020a0\": \"Raspberry Pi Compute Module 3\",\n        \"a02100\": \"Raspberry Pi Compute Module 3+\",\n\n        // --- Raspberry Pi 4 ---\n        \"a03111\": \"Raspberry Pi 4 Model B (1GB)\",\n        \"b03111\": \"Raspberry Pi 4 Model B (2GB)\",\n        \"b03115\": \"Raspberry Pi 4 Model B (2GB) Rev 1.5\",\n        \"c03111\": \"Raspberry Pi 4 Model B (4GB)\",\n        \"d03114\": \"Raspberry Pi 4 Model B (8GB)\",\n\n        // --- Raspberry Pi 400 ---\n        \"c03130\": \"Raspberry Pi 400\",\n\n        // --- Raspberry Pi Compute Module 4 ---\n        \"a03140\": \"Raspberry Pi Compute Module 4\",\n        \"b03140\": \"Raspberry Pi Compute Module 4 (WiFi)\",\n        \"c03140\": \"Raspberry Pi Compute Module 4 (Lite)\",\n        \"d03140\": \"Raspberry Pi Compute Module 4 (WiFi + Lite)\",\n\n        // --- Raspberry Pi 5 ---\n        \"9023c0\": \"Raspberry Pi 5 (4GB)\",\n        \"a023c0\": \"Raspberry Pi 5 (8GB)\",\n        \"b023c0\": \"Raspberry Pi 5 (16GB)\",\n\n        // --- Raspberry Pi 5 Compute Module ---\n        \"c023c0\": \"Raspberry Pi Compute Module 5\",\n        \"d023c0\": \"Raspberry Pi Compute Module 5 Lite\"\n    };\n\n    const model = revisionMap[revision] || \"Onbekende revision: \" + revision;\n\nreturn model;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6488,7 +6494,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 260,
+        "y": 400,
         "wires": [
             [
                 "97382ae72dc98a86"
@@ -6503,7 +6509,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Test update",
         "label": "Update test versie",
-        "order": 4,
+        "order": 8,
         "width": 0,
         "height": 0,
         "emulateClick": false,
@@ -6528,7 +6534,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 360,
+        "y": 500,
         "wires": [
             [
                 "148566cf72b33e1a"
@@ -6541,7 +6547,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 3,
+        "order": 7,
         "width": 0,
         "height": 0,
         "name": "Test versie",
@@ -6556,8 +6562,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 710,
-        "y": 180,
+        "x": 750,
+        "y": 320,
         "wires": []
     },
     {
@@ -6574,7 +6580,7 @@
         "oldrc": false,
         "name": "get version_test.txt",
         "x": 450,
-        "y": 360,
+        "y": 500,
         "wires": [
             [
                 "98ddd266a3e4c998"
@@ -6597,7 +6603,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 260,
+        "y": 400,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -6619,7 +6625,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 310,
-        "y": 260,
+        "y": 400,
         "wires": [
             [
                 "2c5db89378881214"
@@ -6647,7 +6653,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 240,
+        "y": 380,
         "wires": [
             []
         ]
@@ -6658,7 +6664,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 5,
+        "order": 9,
         "width": 0,
         "height": 0,
         "name": "Update msg",
@@ -6673,8 +6679,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 690,
-        "y": 500,
+        "x": 750,
+        "y": 640,
         "wires": []
     },
     {
@@ -6691,7 +6697,7 @@
         "oldrc": false,
         "name": "rm old",
         "x": 290,
-        "y": 360,
+        "y": 500,
         "wires": [
             [
                 "6f0b74ba5a27cc3e"
@@ -6714,7 +6720,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 610,
-        "y": 360,
+        "y": 500,
         "wires": [
             [
                 "bce54c96101eb7b7"
@@ -6735,7 +6741,7 @@
         "finalize": "",
         "libs": [],
         "x": 730,
-        "y": 360,
+        "y": 500,
         "wires": [
             [
                 "59d5c77dc1dc2a60"
@@ -6761,7 +6767,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 340,
-        "y": 540,
+        "y": 680,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -6782,7 +6788,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 540,
+        "y": 680,
         "wires": [
             [
                 "8d171fe450c7a81f"
@@ -6803,7 +6809,7 @@
         "finalize": "",
         "libs": [],
         "x": 160,
-        "y": 480,
+        "y": 620,
         "wires": [
             [
                 "b6d0686a4823c0c2"
@@ -6837,7 +6843,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 340,
-        "y": 600,
+        "y": 740,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -6853,7 +6859,7 @@
         "scope": null,
         "uncaught": false,
         "x": 140,
-        "y": 180,
+        "y": 320,
         "wires": [
             [
                 "5fe7d4a09964b635",
@@ -6875,7 +6881,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 180,
+        "y": 320,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -6903,7 +6909,7 @@
         "templateScope": "page:style",
         "className": "buttonupdate",
         "x": 130,
-        "y": 400,
+        "y": 540,
         "wires": [
             []
         ]
@@ -6923,7 +6929,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 340,
-        "y": 140,
+        "y": 280,
         "wires": []
     },
     {
@@ -6940,7 +6946,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 180,
+        "y": 320,
         "wires": [
             [
                 "29faaa6a019e0e9b"
@@ -6963,7 +6969,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 420,
-        "y": 460,
+        "y": 600,
         "wires": []
     },
     {
@@ -6974,7 +6980,7 @@
         "name": "",
         "env": [],
         "x": 550,
-        "y": 820,
+        "y": 940,
         "wires": [
             [
                 "849129e5cd170f06",
@@ -7009,7 +7015,7 @@
         "payload": "4",
         "payloadType": "num",
         "x": 130,
-        "y": 900,
+        "y": 1020,
         "wires": [
             [
                 "ebd1eb7739312b3d",
@@ -7031,7 +7037,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 820,
+        "y": 940,
         "wires": [
             [
                 "9c9d4e18a631cc15"
@@ -7052,7 +7058,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 900,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -7071,7 +7077,7 @@
         "finalize": "",
         "libs": [],
         "x": 800,
-        "y": 800,
+        "y": 920,
         "wires": [
             []
         ]
@@ -7084,7 +7090,7 @@
         "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
         "info": "",
         "x": 260,
-        "y": 720,
+        "y": 840,
         "wires": []
     },
     {
@@ -7110,7 +7116,7 @@
         "payload": "20",
         "payloadType": "num",
         "x": 130,
-        "y": 820,
+        "y": 940,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -7175,7 +7181,7 @@
         "className": "",
         "interpolation": "linear",
         "x": 820,
-        "y": 900,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -7195,7 +7201,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 120,
-        "y": 760,
+        "y": 880,
         "wires": [
             [
                 "728339c56b6087ec"
@@ -7218,7 +7224,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 770,
-        "y": 740,
+        "y": 860,
         "wires": []
     },
     {
@@ -7235,7 +7241,7 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 760,
+        "y": 880,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -7255,7 +7261,7 @@
         "oldrc": false,
         "name": "Execute shutdown",
         "x": 550,
-        "y": 1020,
+        "y": 1140,
         "wires": [
             [],
             [],
@@ -7275,7 +7281,7 @@
         "oldrc": false,
         "name": "Execute restart",
         "x": 540,
-        "y": 1140,
+        "y": 1260,
         "wires": [
             [],
             [],
@@ -7290,7 +7296,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Shutdown computer",
         "label": "Shutdown",
-        "order": 6,
+        "order": 10,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -7315,7 +7321,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 160,
-        "y": 1020,
+        "y": 1140,
         "wires": [
             [
                 "9efaa0c2fd872693",
@@ -7331,7 +7337,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Restart computer",
         "label": "Restart",
-        "order": 7,
+        "order": 11,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -7356,7 +7362,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 1140,
+        "y": 1260,
         "wires": [
             [
                 "6d496dbb394b2888",
@@ -7384,7 +7390,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 1080,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -7395,7 +7401,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "d344da1eff713941",
         "group": "b71c0e77d9debcfd",
-        "order": 8,
+        "order": 12,
         "width": 0,
         "height": 0,
         "name": "status",
@@ -7411,38 +7417,8 @@
         "value": "payload",
         "valueType": "msg",
         "x": 510,
-        "y": 1080,
+        "y": 1200,
         "wires": []
-    },
-    {
-        "id": "00f2b37c286009fe",
-        "type": "inject",
-        "z": "eb60a9ea21d42f29",
-        "g": "289d8e4b5f966496",
-        "name": "At startup",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "3",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
-        "y": 80,
-        "wires": [
-            [
-                "6388a247ed7be222"
-            ]
-        ]
     },
     {
         "id": "7b981f6f76e5f9f4",
@@ -7465,30 +7441,210 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 690,
-        "y": 80,
+        "x": 730,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "6388a247ed7be222",
+        "id": "86822077eb192361",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "name": "At Startup 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "b214b552d64a9c10"
+            ]
+        ]
+    },
+    {
+        "id": "b214b552d64a9c10",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "command": "cat /proc/cpuinfo",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 360,
+        "y": 60,
+        "wires": [
+            [
+                "e21cc1583323afc0"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e21cc1583323afc0",
         "type": "function",
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
-        "name": "model",
-        "func": "msg.payload = global.get(\"RaspberryPiModel\");\nreturn msg;",
+        "name": "Model?",
+        "func": "msg.payload = parseCpuInfo(msg.payload);\nglobal.set(\"RaspberryPiModel\", msg.payload);\nnode.status({ text: msg.payload });\nreturn msg;\n\nfunction parseCpuInfo(cpuinfo) {\n    // Extract the revision line\n    const revisionMatch = cpuinfo.match(/Revision\\s*:\\s*([0-9a-fA-F]+)/);\n    if (!revisionMatch) {\n        return \"\";\n    }\n\n    const revision = revisionMatch[1].toLowerCase();\n\n    // Mapping van revision codes naar modellen\n    const revisionMap = {\n        // --- Raspberry Pi 3 ---\n        \"a02082\": \"Raspberry Pi 3 Model B\",\n        \"a22082\": \"Raspberry Pi 3 Model B (Sony)\",\n        \"a020d3\": \"Raspberry Pi 3 Model B+\",\n        \"a020a0\": \"Raspberry Pi Compute Module 3\",\n        \"a02100\": \"Raspberry Pi Compute Module 3+\",\n\n        // --- Raspberry Pi 4 ---\n        \"a03111\": \"Raspberry Pi 4 Model B (1GB)\",\n        \"b03111\": \"Raspberry Pi 4 Model B (2GB)\",\n        \"b03115\": \"Raspberry Pi 4 Model B (2GB) Rev 1.5\",\n        \"c03111\": \"Raspberry Pi 4 Model B (4GB)\",\n        \"d03114\": \"Raspberry Pi 4 Model B (8GB)\",\n\n        // --- Raspberry Pi 400 ---\n        \"c03130\": \"Raspberry Pi 400\",\n\n        // --- Raspberry Pi Compute Module 4 ---\n        \"a03140\": \"Raspberry Pi Compute Module 4\",\n        \"b03140\": \"Raspberry Pi Compute Module 4 (WiFi)\",\n        \"c03140\": \"Raspberry Pi Compute Module 4 (Lite)\",\n        \"d03140\": \"Raspberry Pi Compute Module 4 (WiFi + Lite)\",\n\n        // --- Raspberry Pi 5 ---\n        \"9023c0\": \"Raspberry Pi 5 (4GB)\",\n        \"a023c0\": \"Raspberry Pi 5 (8GB)\",\n        \"b023c0\": \"Raspberry Pi 5 (16GB)\",\n\n        // --- Raspberry Pi 5 Compute Module ---\n        \"c023c0\": \"Raspberry Pi Compute Module 5\",\n        \"d023c0\": \"Raspberry Pi Compute Module 5 Lite\"\n    };\n\n    const model = revisionMap[revision] || \"Onbekende revision: )\" + revision;\n\nreturn model;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 80,
+        "x": 540,
+        "y": 60,
         "wires": [
             [
                 "7b981f6f76e5f9f4"
             ]
         ]
+    },
+    {
+        "id": "d17ee11b0c0d7512",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "command": "free",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "68b99b881506f9ef"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "68b99b881506f9ef",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "name": "Free/swapped",
+        "func": "var output = msg.payload.split(\"\\n\");\n\nvar words1 = output[1].split(/[ ]+/);\nvar free = (words1[3] / 1000); \nmsg.payload = free.toFixed(0)  + \" kb\"; \n\nvar words2 = output[2].split(/[ ]+/);\nvar swapped = (words2[2] / 1000); \n\nvar swap = { payload: swapped + \" kb\"};\n\nreturn [msg, swap];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 140,
+        "wires": [
+            [
+                "0267af7c7471c4a5"
+            ],
+            [
+                "c60a13f83d3ae000"
+            ]
+        ]
+    },
+    {
+        "id": "0d81cada11c97092",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "name": "At Startup 2",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "d17ee11b0c0d7512"
+            ]
+        ]
+    },
+    {
+        "id": "0267af7c7471c4a5",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "group": "b71c0e77d9debcfd",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "name": "Free",
+        "label": "Free:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "18",
+        "color": "#ffffff",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 730,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c60a13f83d3ae000",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "group": "b71c0e77d9debcfd",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "name": "Swapped",
+        "label": "Swapped:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "18",
+        "color": "#ffffff",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 740,
+        "y": 160,
+        "wires": []
     },
     {
         "id": "0af8df52052ef366",
@@ -7685,7 +7841,7 @@
         "z": "ce724907bfebf75c",
         "g": "b653e740e9531504",
         "name": "Toon Naam en Verbonden",
-        "func": "// Vertaal velden + voeg actie-knop toe\nmsg.payload = msg.payload.map(d => ({\n    mac: d.mac,\n    naam: d.name,\n    verbonden: d.connected === \"yes\" ? \"ja\" : \"nee\",\n    actie: \"❌\"\n}));\n\n\nreturn msg;",
+        "func": "// Vertaal velden + voeg actie-knop toe\nmsg.payload = msg.payload.map(d => ({\n    mac: d.mac,\n    naam: d.name,\n    verbonden: d.connected === \"yes\" ? \"ja\" : \"nee\",\n    actie: \"❌\"\n}));\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
