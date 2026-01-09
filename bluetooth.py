@@ -53,6 +53,8 @@ def main():
 
         # verwijder kleurcodes
         clean = strip_ansi(line).strip()
+        # voor Bookworm:
+        clean = clean.replace('\x01', '').replace('\x02', '')
         print(f"BT: {clean}")
 
         # Zoek [NEW] Device ... regels
