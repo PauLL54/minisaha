@@ -514,11 +514,13 @@
             "9328b12c82bcdb88",
             "e17df78fc7db3f2e",
             "844e46423aa3ee91",
-            "3dc33bd26ddfd0cd"
+            "3dc33bd26ddfd0cd",
+            "8038f412b2b9ca63",
+            "afc9b9ddb4e9819f"
         ],
         "x": 14,
         "y": 879,
-        "w": 812,
+        "w": 832,
         "h": 769.5
     },
     {
@@ -5413,7 +5415,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "Reboot",
-        "x": 740,
+        "x": 760,
         "y": 1220,
         "wires": [
             [
@@ -6204,7 +6206,7 @@
         "y": 1300,
         "wires": [
             [
-                "3dc33bd26ddfd0cd"
+                "363ef96aac78d4e7"
             ],
             [],
             []
@@ -6269,7 +6271,7 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/dynamic-chime-274587.mp3",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Goedemorgen1.mp3",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -6277,7 +6279,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "get sounds",
-        "x": 150,
+        "x": 130,
         "y": 1460,
         "wires": [
             [
@@ -6292,7 +6294,7 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "mkdir .node-red/projects/MiniSAHA/sounds; cp -f *.mp3 .node-red/projects/MiniSAHA/sounds",
+        "command": "cp -f *.mp3 .node-red/projects/MiniSAHA/sounds",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -6301,10 +6303,10 @@
         "oldrc": false,
         "name": "Install sounds",
         "x": 520,
-        "y": 1460,
+        "y": 1380,
         "wires": [
             [
-                "844e46423aa3ee91"
+                "3dc33bd26ddfd0cd"
             ],
             [],
             []
@@ -6315,7 +6317,7 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Zin-in_Rogier-van-der-Erve.mp3",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Goedemorgen2.mp3",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -6323,11 +6325,11 @@
         "winHide": false,
         "oldrc": false,
         "name": "get sounds",
-        "x": 330,
+        "x": 290,
         "y": 1460,
         "wires": [
             [
-                "9328b12c82bcdb88"
+                "8038f412b2b9ca63"
             ],
             [],
             []
@@ -6369,10 +6371,56 @@
         "winHide": false,
         "oldrc": false,
         "name": "Restart node-red",
-        "x": 710,
+        "x": 730,
         "y": 1300,
         "wires": [
             [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8038f412b2b9ca63",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Goedemorgen3.mp3",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get sounds",
+        "x": 450,
+        "y": 1460,
+        "wires": [
+            [
+                "afc9b9ddb4e9819f"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "afc9b9ddb4e9819f",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Goedemorgen4.mp3",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get sounds",
+        "x": 610,
+        "y": 1460,
+        "wires": [
+            [
+                "9328b12c82bcdb88"
+            ],
             [],
             []
         ]
