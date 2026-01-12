@@ -512,11 +512,8 @@
             "041075a0f4b32a3b",
             "363ef96aac78d4e7",
             "9328b12c82bcdb88",
-            "e17df78fc7db3f2e",
             "844e46423aa3ee91",
-            "3dc33bd26ddfd0cd",
-            "8038f412b2b9ca63",
-            "afc9b9ddb4e9819f"
+            "3dc33bd26ddfd0cd"
         ],
         "x": 14,
         "y": 879,
@@ -6271,19 +6268,19 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Goedemorgen1.mp3",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Goedemorgen.mp3",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "get sounds",
-        "x": 130,
-        "y": 1460,
+        "name": "get sound",
+        "x": 240,
+        "y": 1380,
         "wires": [
             [
-                "e17df78fc7db3f2e"
+                "9328b12c82bcdb88"
             ],
             [],
             []
@@ -6307,29 +6304,6 @@
         "wires": [
             [
                 "3dc33bd26ddfd0cd"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "e17df78fc7db3f2e",
-        "type": "exec",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Goedemorgen2.mp3",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "get sounds",
-        "x": 290,
-        "y": 1460,
-        "wires": [
-            [
-                "8038f412b2b9ca63"
             ],
             [],
             []
@@ -6375,52 +6349,6 @@
         "y": 1300,
         "wires": [
             [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "8038f412b2b9ca63",
-        "type": "exec",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Goedemorgen3.mp3",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "get sounds",
-        "x": 450,
-        "y": 1460,
-        "wires": [
-            [
-                "afc9b9ddb4e9819f"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "afc9b9ddb4e9819f",
-        "type": "exec",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Goedemorgen4.mp3",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "get sounds",
-        "x": 610,
-        "y": 1460,
-        "wires": [
-            [
-                "9328b12c82bcdb88"
-            ],
             [],
             []
         ]
