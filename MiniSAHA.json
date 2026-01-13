@@ -509,16 +509,15 @@
             "05d5a950f617317c",
             "c4571cfee0924b57",
             "ba410ac8c1a26bad",
-            "041075a0f4b32a3b",
             "363ef96aac78d4e7",
             "9328b12c82bcdb88",
-            "844e46423aa3ee91",
-            "3dc33bd26ddfd0cd"
+            "3dc33bd26ddfd0cd",
+            "b92aa98cbf16363f"
         ],
         "x": 14,
-        "y": 879,
-        "w": 832,
-        "h": 769.5
+        "y": 919,
+        "w": 872,
+        "h": 629.5
     },
     {
         "id": "5bb2b589a301c7c8",
@@ -5412,8 +5411,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Reboot",
-        "x": 760,
-        "y": 1220,
+        "x": 800,
+        "y": 1260,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -5572,8 +5571,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm MiniSAHA.json",
-        "x": 270,
-        "y": 980,
+        "x": 310,
+        "y": 1020,
         "wires": [
             [
                 "7a258c3a06322d6a"
@@ -5595,8 +5594,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get MiniSAHA.json",
-        "x": 530,
-        "y": 980,
+        "x": 570,
+        "y": 1020,
         "wires": [
             [
                 "28228f40169db06d"
@@ -5618,8 +5617,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Install all files",
-        "x": 250,
-        "y": 1300,
+        "x": 290,
+        "y": 1340,
         "wires": [
             [
                 "c4571cfee0924b57"
@@ -5788,8 +5787,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get Logo.png",
-        "x": 510,
-        "y": 1140,
+        "x": 550,
+        "y": 1180,
         "wires": [
             [
                 "b119fd4598e51e41"
@@ -5811,8 +5810,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm Logo.png",
-        "x": 250,
-        "y": 1140,
+        "x": 290,
+        "y": 1180,
         "wires": [
             [
                 "477a82641741c1d2"
@@ -5834,8 +5833,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm MiniSAHA_cred.json",
-        "x": 290,
-        "y": 1060,
+        "x": 330,
+        "y": 1100,
         "wires": [
             [
                 "62cf14493c558309"
@@ -5857,8 +5856,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get MiniSAHA_cred.json",
-        "x": 550,
-        "y": 1060,
+        "x": 590,
+        "y": 1100,
         "wires": [
             [
                 "6ba99393e4c393d8"
@@ -6005,8 +6004,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "install dashboard@latest",
-        "x": 510,
-        "y": 1600,
+        "x": 590,
+        "y": 1500,
         "wires": [
             [],
             [],
@@ -6035,8 +6034,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 300,
-        "y": 1600,
+        "x": 360,
+        "y": 1500,
         "wires": [
             [
                 "2888205ab81df7ad"
@@ -6057,8 +6056,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 90,
-        "y": 980,
+        "x": 130,
+        "y": 1020,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -6078,8 +6077,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm bluetooth.py",
-        "x": 260,
-        "y": 1220,
+        "x": 300,
+        "y": 1260,
         "wires": [
             [
                 "05d5a950f617317c"
@@ -6101,8 +6100,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get bluetooth.py",
-        "x": 520,
-        "y": 1220,
+        "x": 560,
+        "y": 1260,
         "wires": [
             [
                 "02d2ac26c698a195"
@@ -6199,8 +6198,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "chmod +x",
-        "x": 500,
-        "y": 1300,
+        "x": 540,
+        "y": 1340,
         "wires": [
             [
                 "363ef96aac78d4e7"
@@ -6238,30 +6237,9 @@
         "g": "a49df4f119bb186e",
         "name": "Update procedure voor de gebruiker en tester",
         "info": "",
-        "x": 210,
-        "y": 920,
+        "x": 430,
+        "y": 960,
         "wires": []
-    },
-    {
-        "id": "041075a0f4b32a3b",
-        "type": "exec",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "command": "sudo apt install -y mpg123",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "install mpg123",
-        "x": 480,
-        "y": 1540,
-        "wires": [
-            [],
-            [],
-            []
-        ]
     },
     {
         "id": "363ef96aac78d4e7",
@@ -6276,8 +6254,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get sound",
-        "x": 240,
-        "y": 1380,
+        "x": 280,
+        "y": 1420,
         "wires": [
             [
                 "9328b12c82bcdb88"
@@ -6299,34 +6277,11 @@
         "winHide": false,
         "oldrc": false,
         "name": "Install sounds",
-        "x": 520,
-        "y": 1380,
+        "x": 560,
+        "y": 1420,
         "wires": [
             [
-                "3dc33bd26ddfd0cd"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "844e46423aa3ee91",
-        "type": "exec",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "command": "npm install node-red-contrib-watchdirectory",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Install watchdirectory",
-        "x": 260,
-        "y": 1540,
-        "wires": [
-            [
-                "041075a0f4b32a3b"
+                "07af420f98d0e89a"
             ],
             [],
             []
@@ -6345,12 +6300,42 @@
         "winHide": false,
         "oldrc": false,
         "name": "Restart node-red",
-        "x": 730,
-        "y": 1300,
+        "x": 770,
+        "y": 1420,
         "wires": [
             [],
             [],
             []
+        ]
+    },
+    {
+        "id": "b92aa98cbf16363f",
+        "type": "inject",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 960,
+        "wires": [
+            [
+                "d7ff5ad4b1b79918"
+            ]
         ]
     },
     {
