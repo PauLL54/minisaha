@@ -849,8 +849,7 @@
             "d7d28ff8.f76ba",
             "a37b37d1.aad508",
             "ecc06f5.bc3d39",
-            "ea735d0.bb55da",
-            "f3722851.f50c18"
+            "ea735d0.bb55da"
         ],
         "x": 34,
         "y": 1099,
@@ -7564,8 +7563,7 @@
         "y": 1200,
         "wires": [
             [
-                "a37b37d1.aad508",
-                "f3722851.f50c18"
+                "a37b37d1.aad508"
             ]
         ]
     },
@@ -7630,25 +7628,6 @@
         "wires": [
             [
                 "b0067e5db1bb638b"
-            ]
-        ]
-    },
-    {
-        "id": "f3722851.f50c18",
-        "type": "cpu",
-        "z": "eb60a9ea21d42f29",
-        "d": true,
-        "g": "878de3ac45928077",
-        "name": "",
-        "msgCore": false,
-        "msgOverall": true,
-        "msgArray": false,
-        "msgTemp": false,
-        "x": 350,
-        "y": 1140,
-        "wires": [
-            [
-                "ea735d0.bb55da"
             ]
         ]
     },
