@@ -241,11 +241,12 @@
             "b0067e5db1bb638b",
             "3758cdea9d5d1d01",
             "61806882e2c16761",
-            "728339c56b6087ec"
+            "728339c56b6087ec",
+            "6ddc11d490af5fe8"
         ],
         "x": 24,
         "y": 799,
-        "w": 932,
+        "w": 1112,
         "h": 262
     },
     {
@@ -320,7 +321,7 @@
             "7ea37518e7e677d7"
         ],
         "x": 34,
-        "y": 1091.5,
+        "y": 1311.5,
         "w": 632,
         "h": 217
     },
@@ -512,12 +513,13 @@
             "363ef96aac78d4e7",
             "9328b12c82bcdb88",
             "3dc33bd26ddfd0cd",
-            "b92aa98cbf16363f"
+            "b92aa98cbf16363f",
+            "8032366086aa8de0"
         ],
         "x": 14,
         "y": 919,
-        "w": 872,
-        "h": 629.5
+        "w": 932,
+        "h": 709.5
     },
     {
         "id": "5bb2b589a301c7c8",
@@ -829,6 +831,31 @@
         "y": 459,
         "w": 852,
         "h": 442
+    },
+    {
+        "id": "878de3ac45928077",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "d7d28ff8.f76ba",
+            "a37b37d1.aad508",
+            "ecc06f5.bc3d39",
+            "ea735d0.bb55da",
+            "f3722851.f50c18"
+        ],
+        "x": 34,
+        "y": 1099,
+        "w": 672,
+        "h": 149.5
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -4460,8 +4487,8 @@
         "tooltip": "",
         "delay": "500",
         "passthru": true,
-        "sendOnDelay": true,
-        "sendOnBlur": false,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
         "sendOnEnter": false,
         "className": "",
         "clearable": false,
@@ -5996,7 +6023,7 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "npm install @flowfuse/node-red-dashboard@latest",
+        "command": "npm install node-red-contrib-cpu@latest",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -6007,7 +6034,9 @@
         "x": 590,
         "y": 1500,
         "wires": [
-            [],
+            [
+                "07af420f98d0e89a"
+            ],
             [],
             []
         ]
@@ -6281,7 +6310,7 @@
         "y": 1420,
         "wires": [
             [
-                "07af420f98d0e89a"
+                "2888205ab81df7ad"
             ],
             [],
             []
@@ -6300,8 +6329,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Restart node-red",
-        "x": 770,
-        "y": 1420,
+        "x": 830,
+        "y": 1560,
         "wires": [
             [],
             [],
@@ -6336,6 +6365,27 @@
             [
                 "d7ff5ad4b1b79918"
             ]
+        ]
+    },
+    {
+        "id": "8032366086aa8de0",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "npm install @flowfuse/node-red-dashboard@latest",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "install dashboard@latest",
+        "x": 590,
+        "y": 1580,
+        "wires": [
+            [],
+            [],
+            []
         ]
     },
     {
@@ -6375,10 +6425,10 @@
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
         "name": "Test update",
-        "label": "Update test versie",
-        "order": 6,
-        "width": 0,
-        "height": 0,
+        "label": "Update",
+        "order": 8,
+        "width": "2",
+        "height": "1",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
@@ -6414,9 +6464,9 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 5,
-        "width": 0,
-        "height": 0,
+        "order": 7,
+        "width": "2",
+        "height": "1",
         "name": "Test versie",
         "label": "",
         "format": "{{msg.payload}}",
@@ -6531,7 +6581,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 7,
+        "order": 9,
         "width": 0,
         "height": 0,
         "name": "Update msg",
@@ -6851,8 +6901,8 @@
         "wires": [
             [
                 "849129e5cd170f06",
-                "b0067e5db1bb638b",
-                "61806882e2c16761"
+                "61806882e2c16761",
+                "6ddc11d490af5fe8"
             ],
             [],
             [],
@@ -6997,7 +7047,7 @@
         "g": "6bde74f61fffc171",
         "group": "b71c0e77d9debcfd",
         "name": "",
-        "label": "Is de telefoon is in huis?",
+        "label": "Is gebruiker thuis?  CPU Temperatuur en CPU gebruik",
         "order": 1,
         "chartType": "line",
         "category": "topic",
@@ -7014,7 +7064,7 @@
         "yAxisProperty": "payload",
         "yAxisPropertyType": "msg",
         "ymin": "0",
-        "ymax": "1",
+        "ymax": "80",
         "bins": 10,
         "action": "append",
         "stackSeries": false,
@@ -7025,7 +7075,7 @@
         "removeOlderUnit": "3600",
         "removeOlderPoints": "1000",
         "colors": [
-            "#0095ff",
+            "#04ff00",
             "#ff0000",
             "#ff7f0e",
             "#2ca02c",
@@ -7036,9 +7086,9 @@
             "#c5b0d5"
         ],
         "textColor": [
-            "#666666"
+            "#ffffff"
         ],
-        "textColorDefault": true,
+        "textColorDefault": false,
         "gridColor": [
             "#e5e5e5"
         ],
@@ -7047,7 +7097,7 @@
         "height": "3",
         "className": "",
         "interpolation": "linear",
-        "x": 820,
+        "x": 910,
         "y": 1020,
         "wires": [
             []
@@ -7128,7 +7178,7 @@
         "oldrc": false,
         "name": "Execute shutdown",
         "x": 550,
-        "y": 1140,
+        "y": 1360,
         "wires": [
             [],
             [],
@@ -7148,7 +7198,7 @@
         "oldrc": false,
         "name": "Execute restart",
         "x": 540,
-        "y": 1260,
+        "y": 1480,
         "wires": [
             [],
             [],
@@ -7163,7 +7213,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Shutdown computer",
         "label": "Shutdown",
-        "order": 8,
+        "order": 10,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -7188,7 +7238,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 160,
-        "y": 1140,
+        "y": 1360,
         "wires": [
             [
                 "9efaa0c2fd872693",
@@ -7204,7 +7254,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Restart computer",
         "label": "Restart",
-        "order": 9,
+        "order": 11,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -7229,7 +7279,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 1260,
+        "y": 1480,
         "wires": [
             [
                 "6d496dbb394b2888",
@@ -7257,35 +7307,10 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 1200,
+        "y": 1420,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "7ea37518e7e677d7",
-        "type": "ui-text",
-        "z": "eb60a9ea21d42f29",
-        "g": "d344da1eff713941",
-        "group": "b71c0e77d9debcfd",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "name": "status",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 510,
-        "y": 1200,
-        "wires": []
     },
     {
         "id": "7b981f6f76e5f9f4",
@@ -7293,7 +7318,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "Model",
@@ -7469,11 +7494,11 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 3,
+        "order": 4,
         "width": "2",
         "height": "1",
         "name": "Free",
-        "label": "Free:",
+        "label": "Mem Free:",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": true,
@@ -7494,7 +7519,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 4,
+        "order": 5,
         "width": "2",
         "height": "1",
         "name": "Swapped",
@@ -7512,6 +7537,214 @@
         "x": 740,
         "y": 160,
         "wires": []
+    },
+    {
+        "id": "d7d28ff8.f76ba",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "878de3ac45928077",
+        "name": "Every minute",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 1200,
+        "wires": [
+            [
+                "a37b37d1.aad508",
+                "f3722851.f50c18"
+            ]
+        ]
+    },
+    {
+        "id": "a37b37d1.aad508",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "g": "878de3ac45928077",
+        "command": "vcgencmd measure_temp",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "measure CPU temperature",
+        "x": 400,
+        "y": 1200,
+        "wires": [
+            [
+                "ecc06f5.bc3d39"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ecc06f5.bc3d39",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "878de3ac45928077",
+        "name": "Get value",
+        "func": "let str = msg.payload\n\nmsg.payload = parseInt(str.substring(5, 9), 10);\nmsg.topic = \"Temperature\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1200,
+        "wires": [
+            [
+                "b0067e5db1bb638b"
+            ]
+        ]
+    },
+    {
+        "id": "ea735d0.bb55da",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "878de3ac45928077",
+        "name": "Get value",
+        "func": "msg.payload = parseFloat(msg.payload);\nmsg.topic = \"Usage\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1140,
+        "wires": [
+            [
+                "b0067e5db1bb638b"
+            ]
+        ]
+    },
+    {
+        "id": "f3722851.f50c18",
+        "type": "cpu",
+        "z": "eb60a9ea21d42f29",
+        "d": true,
+        "g": "878de3ac45928077",
+        "name": "",
+        "msgCore": false,
+        "msgOverall": true,
+        "msgArray": false,
+        "msgTemp": false,
+        "x": 350,
+        "y": 1140,
+        "wires": [
+            [
+                "ea735d0.bb55da"
+            ]
+        ]
+    },
+    {
+        "id": "7ea37518e7e677d7",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "g": "d344da1eff713941",
+        "group": "b71c0e77d9debcfd",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "status",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 510,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "a8c74409d559174f",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 840,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "d725720309b60f1a",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 840,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "6ddc11d490af5fe8",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
+        "name": "1 --> 80",
+        "func": "if (msg.payload == 1) msg.payload = 80;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 980,
+        "wires": [
+            [
+                "b0067e5db1bb638b"
+            ]
+        ]
     },
     {
         "id": "0af8df52052ef366",
