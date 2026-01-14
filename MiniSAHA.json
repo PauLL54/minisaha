@@ -5439,7 +5439,7 @@
         "oldrc": false,
         "name": "Reboot",
         "x": 800,
-        "y": 1260,
+        "y": 1480,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -6030,8 +6030,8 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "install dashboard@latest",
-        "x": 590,
+        "name": "install cpu",
+        "x": 540,
         "y": 1500,
         "wires": [
             [
