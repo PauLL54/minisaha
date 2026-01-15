@@ -246,7 +246,7 @@
         ],
         "x": 24,
         "y": 799,
-        "w": 1112,
+        "w": 962,
         "h": 262
     },
     {
@@ -849,7 +849,8 @@
             "d7d28ff8.f76ba",
             "a37b37d1.aad508",
             "ecc06f5.bc3d39",
-            "ea735d0.bb55da"
+            "ea735d0.bb55da",
+            "d4dee740ac379f10"
         ],
         "x": 34,
         "y": 1099,
@@ -6022,7 +6023,7 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "cd .node-red;  npm install node-red-contrib-cpu@latest",
+        "command": "cd .node-red;  npm install node-red-contrib-cpu",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -6992,8 +6993,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 920,
+        "x": 830,
+        "y": 900,
         "wires": [
             []
         ]
@@ -7046,7 +7047,7 @@
         "g": "6bde74f61fffc171",
         "group": "b71c0e77d9debcfd",
         "name": "",
-        "label": "Is gebruiker thuis?  CPU Temperatuur en CPU gebruik",
+        "label": "",
         "order": 1,
         "chartType": "line",
         "category": "topic",
@@ -7096,7 +7097,7 @@
         "height": "3",
         "className": "",
         "interpolation": "linear",
-        "x": 910,
+        "x": 880,
         "y": 1020,
         "wires": [
             []
@@ -7139,8 +7140,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 770,
-        "y": 860,
+        "x": 780,
+        "y": 840,
         "wires": []
     },
     {
@@ -7563,7 +7564,8 @@
         "y": 1200,
         "wires": [
             [
-                "a37b37d1.aad508"
+                "a37b37d1.aad508",
+                "d4dee740ac379f10"
             ]
         ]
     },
@@ -7595,7 +7597,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "878de3ac45928077",
         "name": "Get value",
-        "func": "let str = msg.payload\n\nmsg.payload = parseInt(str.substring(5, 9), 10);\nmsg.topic = \"Temperature\";\nreturn msg;",
+        "func": "let str = msg.payload\n\nmsg.payload = parseInt(str.substring(5, 9), 10);\nmsg.topic = \"CPU Temp\";\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -7616,7 +7618,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "878de3ac45928077",
         "name": "Get value",
-        "func": "msg.payload = parseFloat(msg.payload);\nmsg.topic = \"Usage\";\nreturn msg;",
+        "func": "msg.payload = parseFloat(msg.payload);\nmsg.topic = \"CPU load\";\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -7710,7 +7712,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "6bde74f61fffc171",
         "name": "1 --> 80",
-        "func": "if (msg.payload == 1) msg.payload = 80;\nreturn msg;",
+        "func": "msg.topic = \"Gebruiker thuis\";\nif (msg.payload == 1) msg.payload = 80;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7718,10 +7720,28 @@
         "finalize": "",
         "libs": [],
         "x": 760,
-        "y": 980,
+        "y": 960,
         "wires": [
             [
                 "b0067e5db1bb638b"
+            ]
+        ]
+    },
+    {
+        "id": "d4dee740ac379f10",
+        "type": "cpu",
+        "z": "eb60a9ea21d42f29",
+        "g": "878de3ac45928077",
+        "name": "",
+        "msgCore": false,
+        "msgOverall": true,
+        "msgArray": false,
+        "msgTemp": false,
+        "x": 350,
+        "y": 1140,
+        "wires": [
+            [
+                "ea735d0.bb55da"
             ]
         ]
     },
