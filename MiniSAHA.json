@@ -6298,15 +6298,15 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "cp -f *.mp3 .node-red/projects/MiniSAHA/sounds",
+        "command": "cp -f Goedemorgen.mp3 .node-red/projects/MiniSAHA/sounds",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "Install sounds",
-        "x": 560,
+        "name": "Install sound",
+        "x": 550,
         "y": 1420,
         "wires": [
             [
