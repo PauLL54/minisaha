@@ -350,7 +350,8 @@
             "e95199098a8ec21d",
             "98a637c918e7ffb3",
             "93e66aed5528479a",
-            "391e6a39648d43b8"
+            "391e6a39648d43b8",
+            "ba38e7032099ab38"
         ],
         "x": 14,
         "y": 19,
@@ -503,8 +504,6 @@
             "6ba99393e4c393d8",
             "28228f40169db06d",
             "62cf14493c558309",
-            "2888205ab81df7ad",
-            "21fbed526374f182",
             "34d7ae63b33b2312",
             "b119fd4598e51e41",
             "05d5a950f617317c",
@@ -517,7 +516,7 @@
             "8032366086aa8de0"
         ],
         "x": 14,
-        "y": 919,
+        "y": 999,
         "w": 932,
         "h": 709.5
     },
@@ -558,12 +557,13 @@
             "d706900fa126e361",
             "3a750c7cbf887af3",
             "303fedb30576538b",
-            "6a267aeb779eac08"
+            "6a267aeb779eac08",
+            "dff2dbca89ccfc06"
         ],
         "x": 14,
-        "y": 259,
+        "y": 339,
         "w": 792,
-        "h": 602
+        "h": 622
     },
     {
         "id": "04fd012f1107245e",
@@ -692,9 +692,9 @@
             "b4cb292e1a70622c"
         ],
         "x": 14,
-        "y": 19,
-        "w": 772,
-        "h": 202
+        "y": 59,
+        "w": 752,
+        "h": 242
     },
     {
         "id": "e2e84e52f82b08ea",
@@ -2573,6 +2573,36 @@
         "x": 790,
         "y": 1080,
         "wires": []
+    },
+    {
+        "id": "ba38e7032099ab38",
+        "type": "inject",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "At Startup 20s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "20",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 780,
+        "y": 160,
+        "wires": [
+            [
+                "94fd03500445951f"
+            ]
+        ]
     },
     {
         "id": "86d57ce8cd9b65da",
@@ -5165,7 +5195,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 500,
+        "y": 600,
         "wires": [
             [
                 "e677c617d3a5d29d"
@@ -5180,7 +5210,7 @@
         "group": "adc719ee09b9438b",
         "name": "Update",
         "label": "Update",
-        "order": 6,
+        "order": 7,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -5205,7 +5235,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 100,
-        "y": 620,
+        "y": 720,
         "wires": [
             [
                 "6c2c688ef0fa2f63"
@@ -5233,7 +5263,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 630,
+        "x": 610,
         "y": 100,
         "wires": []
     },
@@ -5243,7 +5273,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "group": "adc719ee09b9438b",
-        "order": 5,
+        "order": 6,
         "width": "2",
         "height": "1",
         "name": "Versie",
@@ -5259,7 +5289,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 630,
-        "y": 400,
+        "y": 500,
         "wires": []
     },
     {
@@ -5284,7 +5314,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 630,
-        "y": 340,
+        "y": 380,
         "wires": []
     },
     {
@@ -5301,7 +5331,7 @@
         "oldrc": false,
         "name": "get version.txt",
         "x": 420,
-        "y": 620,
+        "y": 720,
         "wires": [
             [
                 "44f8e182ea2d2fc3"
@@ -5324,7 +5354,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 500,
+        "y": 600,
         "wires": [
             [
                 "940e764301d9d266",
@@ -5346,7 +5376,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 280,
-        "y": 500,
+        "y": 600,
         "wires": [
             [
                 "60d1d31d381e01eb"
@@ -5374,7 +5404,7 @@
         "to": "",
         "reg": false,
         "x": 670,
-        "y": 460,
+        "y": 560,
         "wires": [
             []
         ]
@@ -5385,7 +5415,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "group": "adc719ee09b9438b",
-        "order": 7,
+        "order": 8,
         "width": 0,
         "height": 0,
         "name": "Update msg",
@@ -5401,7 +5431,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 710,
-        "y": 740,
+        "y": 840,
         "wires": []
     },
     {
@@ -5418,7 +5448,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 400,
+        "y": 500,
         "wires": [
             [
                 "226a8c5bfb54aa32"
@@ -5438,8 +5468,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Reboot",
-        "x": 800,
-        "y": 1480,
+        "x": 760,
+        "y": 1420,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -5462,7 +5492,7 @@
         "oldrc": false,
         "name": "rm old",
         "x": 270,
-        "y": 620,
+        "y": 720,
         "wires": [
             [
                 "7640224f513f74de"
@@ -5485,7 +5515,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 570,
-        "y": 620,
+        "y": 720,
         "wires": [
             [
                 "5f841997def03bad"
@@ -5506,7 +5536,7 @@
         "finalize": "",
         "libs": [],
         "x": 690,
-        "y": 620,
+        "y": 720,
         "wires": [
             [
                 "8341310a2e59ed53"
@@ -5532,7 +5562,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 380,
-        "y": 780,
+        "y": 880,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -5553,7 +5583,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 780,
+        "y": 880,
         "wires": [
             [
                 "6f445b4448b59170"
@@ -5574,7 +5604,7 @@
         "finalize": "",
         "libs": [],
         "x": 180,
-        "y": 740,
+        "y": 840,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -5599,7 +5629,7 @@
         "oldrc": false,
         "name": "rm MiniSAHA.json",
         "x": 310,
-        "y": 1020,
+        "y": 1100,
         "wires": [
             [
                 "7a258c3a06322d6a"
@@ -5622,7 +5652,7 @@
         "oldrc": false,
         "name": "get MiniSAHA.json",
         "x": 570,
-        "y": 1020,
+        "y": 1100,
         "wires": [
             [
                 "28228f40169db06d"
@@ -5645,7 +5675,7 @@
         "oldrc": false,
         "name": "Install all files",
         "x": 290,
-        "y": 1340,
+        "y": 1420,
         "wires": [
             [
                 "c4571cfee0924b57"
@@ -5677,7 +5707,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 380,
-        "y": 820,
+        "y": 920,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -5693,7 +5723,7 @@
         "scope": null,
         "uncaught": false,
         "x": 120,
-        "y": 400,
+        "y": 500,
         "wires": [
             [
                 "4d1dba90ae296567",
@@ -5715,7 +5745,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 400,
+        "y": 500,
         "wires": [
             [
                 "95ed60f262f1803c",
@@ -5746,7 +5776,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 560,
+        "y": 660,
         "wires": [
             [
                 "6c2c688ef0fa2f63"
@@ -5773,7 +5803,7 @@
         "templateScope": "page:style",
         "className": "buttonupdate",
         "x": 110,
-        "y": 660,
+        "y": 760,
         "wires": [
             []
         ]
@@ -5790,15 +5820,17 @@
         "order": 3,
         "width": "0",
         "height": "0",
-        "format": "<template>\n    <div style=\"text-align:center;\">\n        <img src=\"/logo\" \n             style=\"max-width:40%; height:auto;\" />\n    </div>\n</template>\n",
+        "format": "<template>\n    <div style=\"text-align:center;\">\n        <img src=\"/logo\" \n             style=\"max-width:40%; height:auto;\" \n             @click=\"send({payload: 'logo_clicked'})\" />\n    </div>\n</template>\n",
         "storeOutMessages": true,
         "passthru": true,
         "templateScope": "local",
         "className": "",
-        "x": 670,
+        "x": 650,
         "y": 180,
         "wires": [
-            []
+            [
+                "b6944b93af04a874"
+            ]
         ]
     },
     {
@@ -5815,7 +5847,7 @@
         "oldrc": false,
         "name": "get Logo.png",
         "x": 550,
-        "y": 1180,
+        "y": 1260,
         "wires": [
             [
                 "b119fd4598e51e41"
@@ -5838,7 +5870,7 @@
         "oldrc": false,
         "name": "rm Logo.png",
         "x": 290,
-        "y": 1180,
+        "y": 1260,
         "wires": [
             [
                 "477a82641741c1d2"
@@ -5861,7 +5893,7 @@
         "oldrc": false,
         "name": "rm MiniSAHA_cred.json",
         "x": 330,
-        "y": 1100,
+        "y": 1180,
         "wires": [
             [
                 "62cf14493c558309"
@@ -5884,7 +5916,7 @@
         "oldrc": false,
         "name": "get MiniSAHA_cred.json",
         "x": 590,
-        "y": 1100,
+        "y": 1180,
         "wires": [
             [
                 "6ba99393e4c393d8"
@@ -5908,7 +5940,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 300,
-        "y": 340,
+        "y": 440,
         "wires": []
     },
     {
@@ -5922,7 +5954,7 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 190,
+        "x": 170,
         "y": 180,
         "wires": [
             [
@@ -5943,7 +5975,7 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 320,
+        "x": 300,
         "y": 180,
         "wires": [
             [
@@ -5959,7 +5991,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 450,
+        "x": 430,
         "y": 180,
         "wires": []
     },
@@ -5984,7 +6016,7 @@
         "className": "",
         "value": "payloads",
         "valueType": "msg",
-        "x": 640,
+        "x": 620,
         "y": 140,
         "wires": []
     },
@@ -6011,63 +6043,10 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 440,
+        "y": 540,
         "wires": [
             [
                 "4d1dba90ae296567"
-            ]
-        ]
-    },
-    {
-        "id": "2888205ab81df7ad",
-        "type": "exec",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "command": "cd .node-red;  npm install node-red-contrib-cpu",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "install cpu",
-        "x": 540,
-        "y": 1500,
-        "wires": [
-            [
-                "07af420f98d0e89a"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "21fbed526374f182",
-        "type": "inject",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 360,
-        "y": 1500,
-        "wires": [
-            [
-                "2888205ab81df7ad"
             ]
         ]
     },
@@ -6086,7 +6065,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 1020,
+        "y": 1100,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -6107,7 +6086,7 @@
         "oldrc": false,
         "name": "rm bluetooth.py",
         "x": 300,
-        "y": 1260,
+        "y": 1340,
         "wires": [
             [
                 "05d5a950f617317c"
@@ -6130,7 +6109,7 @@
         "oldrc": false,
         "name": "get bluetooth.py",
         "x": 560,
-        "y": 1260,
+        "y": 1340,
         "wires": [
             [
                 "02d2ac26c698a195"
@@ -6147,8 +6126,8 @@
         "name": "",
         "ui": "6c1d30b5f16932dd",
         "events": "all",
-        "x": 400,
-        "y": 100,
+        "x": 620,
+        "y": 260,
         "wires": [
             []
         ]
@@ -6166,8 +6145,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 240,
-        "y": 100,
+        "x": 460,
+        "y": 260,
         "wires": [
             [
                 "1eec94c61974cd1c"
@@ -6178,11 +6157,12 @@
         "id": "6ad9e51e2daa380d",
         "type": "ui-button",
         "z": "af31bf2fe058f803",
+        "d": true,
         "g": "f37a603ed66fd806",
         "group": "adc719ee09b9438b",
         "name": "Tester",
         "label": "Voor testers",
-        "order": 8,
+        "order": 9,
         "width": "0",
         "height": "0",
         "emulateClick": false,
@@ -6206,8 +6186,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 90,
-        "y": 100,
+        "x": 170,
+        "y": 260,
         "wires": [
             [
                 "b6944b93af04a874"
@@ -6228,10 +6208,10 @@
         "oldrc": false,
         "name": "chmod +x",
         "x": 540,
-        "y": 1340,
+        "y": 1420,
         "wires": [
             [
-                "363ef96aac78d4e7"
+                "07af420f98d0e89a"
             ],
             [],
             []
@@ -6242,10 +6222,10 @@
         "type": "comment",
         "z": "af31bf2fe058f803",
         "g": "f37a603ed66fd806",
-        "name": "Navigeer naar de Test pagina",
+        "name": "Navigeer naar de Test pagina door op het logo te klikken",
         "info": "",
-        "x": 160,
-        "y": 60,
+        "x": 240,
+        "y": 100,
         "wires": []
     },
     {
@@ -6256,7 +6236,7 @@
         "name": "Update button en iedere nacht testen of een update nodig is",
         "info": "",
         "x": 260,
-        "y": 300,
+        "y": 400,
         "wires": []
     },
     {
@@ -6267,7 +6247,7 @@
         "name": "Update procedure voor de gebruiker en tester",
         "info": "",
         "x": 430,
-        "y": 960,
+        "y": 1040,
         "wires": []
     },
     {
@@ -6284,7 +6264,7 @@
         "oldrc": false,
         "name": "get sound",
         "x": 280,
-        "y": 1420,
+        "y": 1520,
         "wires": [
             [
                 "9328b12c82bcdb88"
@@ -6307,11 +6287,9 @@
         "oldrc": false,
         "name": "Install sound",
         "x": 550,
-        "y": 1420,
+        "y": 1520,
         "wires": [
-            [
-                "2888205ab81df7ad"
-            ],
+            [],
             [],
             []
         ]
@@ -6330,7 +6308,7 @@
         "oldrc": false,
         "name": "Restart node-red",
         "x": 830,
-        "y": 1560,
+        "y": 1660,
         "wires": [
             [],
             [],
@@ -6360,7 +6338,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 960,
+        "y": 1040,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -6381,12 +6359,37 @@
         "oldrc": false,
         "name": "install dashboard@latest",
         "x": 590,
-        "y": 1580,
+        "y": 1660,
         "wires": [
             [],
             [],
             []
         ]
+    },
+    {
+        "id": "dff2dbca89ccfc06",
+        "type": "ui-text",
+        "z": "af31bf2fe058f803",
+        "g": "5bb2b589a301c7c8",
+        "group": "adc719ee09b9438b",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 640,
+        "y": 440,
+        "wires": []
     },
     {
         "id": "5624329dd5cb5b0a",
