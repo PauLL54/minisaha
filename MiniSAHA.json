@@ -351,12 +351,14 @@
             "98a637c918e7ffb3",
             "93e66aed5528479a",
             "391e6a39648d43b8",
-            "ba38e7032099ab38"
+            "ba38e7032099ab38",
+            "cd2ccbcdab9e2474",
+            "a60b56107555d543"
         ],
         "x": 14,
         "y": 19,
         "w": 892,
-        "h": 442
+        "h": 502
     },
     {
         "id": "2ce41e3897fb35ce",
@@ -397,7 +399,7 @@
             "a9d22c1ccafb666e"
         ],
         "x": 14,
-        "y": 499,
+        "y": 559,
         "w": 872,
         "h": 642
     },
@@ -475,7 +477,8 @@
             "8a224d6b4c8e6e53",
             "6c02930ddcad9dd8",
             "0436958281830a8e",
-            "d6b298f8ec85d61c"
+            "d6b298f8ec85d61c",
+            "c3e2a51a02b00916"
         ],
         "x": 14,
         "y": 19,
@@ -1831,14 +1834,14 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "Tijd triggers",
-        "func": "// hoe laat is het nu?\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet beginTijdVraag_ms = meldingstijdGebruiker_ms - 120 * 60000;\nlet eindTijdVraag_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\n\n// Wanneer is het tijd om een vraag te stellen (2 uur voor de aangegeven tijd)?\nif ((tijd_nu_ms >= beginTijdVraag_ms) &&\n    (tijd_nu_ms <  meldingstijdGebruiker_ms)) {\n    msg.payload = \"beginVraagTijdVoorbij\";\n    node.status({ text: tijd_nu + \": beginVraagTijdVoorbij\" });\n    return msg;\n}\n\n// Wanneer is het tijd om een meldingen te sturen naar de gebruiker?\nif ((tijd_nu_ms >= meldingstijdGebruiker_ms) && \n    (tijd_nu_ms <  eindTijdVraag_ms)) {\n    msg.payload = \"meldingstijdGebruikerVoorbij\";\n    node.status({ text: tijd_nu + \": meldingstijdGebruikerVoorbij\" });\n    return msg;\n}\n\n// Wanneer is het tijd om een email te sturen naar de sleutelbewaarders?\nif (tijd_nu_ms >= eindTijdVraag_ms) {\n    msg.payload = \"eindVraagTijdVoorbij\";\n    node.status({ text: tijd_nu + \": eindVraagTijdVoorbij\" });\n    return msg;\n}\n\nif (tijd_nu_ms == 0) {\n    msg.payload = \"middernacht\";\n    node.status({ text: tijd_nu + \": middernacht\" });\n    return msg;\n}\n\nreturn;\n",
+        "func": "// hoe laat is het nu?\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet beginToonVraag_ms = meldingstijdGebruiker_ms - 120 * 60000;\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\n\n// Wanneer is het tijd om een vraag te stellen (2 uur voor de aangegeven tijd)?\nif ((tijd_nu_ms >= beginToonVraag_ms) &&\n    (tijd_nu_ms <  meldingstijdGebruiker_ms)) {\n    msg.payload = \"startToonVraag\";\n    node.status({ text: tijd_nu + \": startToonVraag\" });\n    return msg;\n}\n\n// Wanneer is het tijd om een meldingen te sturen naar de gebruiker?\nif ((tijd_nu_ms >= meldingstijdGebruiker_ms) &&\n    (tijd_nu_ms < overtijd_ms) ) {\n    msg.payload = \"meldingsPeriodeGebruiker\";\n    node.status({ text: tijd_nu + \": meldingsPeriodeGebruiker\" });\n    return msg;\n}\n\n// Wanneer is het tijd om ook een email te sturen naar de mantelzorgers?\nif (tijd_nu_ms >= overtijd_ms) {\n    msg.payload = \"meldingsPeriodeVoorbij\";\n    node.status({ text: tijd_nu + \": meldingsPeriodeVoorbij\" });\n    return msg;\n}\n\nif (tijd_nu_ms == 0) {\n    msg.payload = \"middernacht\";\n    node.status({ text: tijd_nu + \": middernacht\" });\n    return msg;\n}\n\nreturn;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 210,
+        "x": 170,
         "y": 300,
         "wires": [
             [
@@ -1860,7 +1863,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 200,
+        "x": 160,
         "y": 360,
         "wires": [
             [
@@ -1882,7 +1885,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 210,
+        "x": 170,
         "y": 420,
         "wires": [
             [
@@ -1923,7 +1926,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 560,
+        "y": 620,
         "wires": [
             [
                 "df1878820d0f62c5",
@@ -1942,7 +1945,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 310,
-        "y": 1100,
+        "y": 1160,
         "wires": []
     },
     {
@@ -1950,15 +1953,15 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
-        "name": "Als Systerm is On en is thuis",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nvar isSystemOn = global.get(\"SystemOn\");\nif (!isSystemOn) {\n    node.status({ text: tijd_nu + \": System is Off\" });\n    return;\n}\n\nvar isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar ipMobiel = global.get(\"IP_Mobiel\");\nif (!(ipMobiel && ipMobiel.length > 0)) {\n    isThuis= true;\n}\nlet isThuisString = isThuis ? \": is thuis\" : \": niet thuis\";\nlet currentState = global.get(\"currentState\");\nnode.status({ text: tijd_nu + isThuisString + \", state: \" + currentState });\n\nif (isThuis) {\n    return msg;\n}",
+        "name": "Als Systerm is On",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nvar isSystemOn = global.get(\"SystemOn\");\nif (!isSystemOn) {\n    node.status({ text: tijd_nu + \": System is Off\" });\n    return;\n}\n\nnode.status({ text: tijd_nu + \": System is On\" });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
+        "x": 350,
         "y": 200,
         "wires": [
             [
@@ -1980,7 +1983,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 660,
+        "y": 720,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -1992,7 +1995,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Sleutelbewaarders",
+        "name": "Mantelzorgers",
         "func": "var text = msg.payload;\n\nmsg = {\n    to: global.get(\"EmailSleutelbewaarder1\"),\n    cc: global.get(\"EmailSleutelbewaarder2\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -2000,8 +2003,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
-        "y": 720,
+        "x": 560,
+        "y": 780,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2043,7 +2046,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 720,
+        "y": 780,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2056,15 +2059,15 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "StateMachine",
-        "func": "let states = global.get(\"states\");\nvar tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\nglobal.set(\"previousState\", previousState);\n\nlet trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger == \"beginVraagTijdVoorbij\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingstijdGebruikerVoorbij\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAG: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"meldingstijdGebruikerVoorbij\") currentState = states.MELDGEBRUIKER;\n        if (trigger == \"eindVraagTijdVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"eindVraagTijdVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK_OVERTIJD;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\nif (currentState != previousState) {\n    msg.payload = currentState;\n    return msg;\n}\nelse\n    return;\n\n",
+        "func": "let states = global.get(\"states\");\nvar tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\nglobal.set(\"previousState\", previousState);\n\nlet trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger == \"startToonVraag\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        if (trigger == \"isThuis\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.IDLE;\n            break;\n        }\n    case states.TOONOKVRAAG: {\n        if (trigger == \"isNietThuis\") currentState = states.TOONOKVRAAGNIETTHUIS; \n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        if (trigger == \"isThuis\") currentState = states.MELDGEBRUIKER; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.IDLE;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"isNietThuis\") currentState = states.MELDGEBRUIKERNIETTHUIS; \n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE;\n        if (trigger == \"jaPressed\") currentState = states.ISOK_OVERTIJD;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\nif (currentState != previousState) {\n    msg.payload = currentState;\n    return msg;\n}\nelse\n    return;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 360,
+        "x": 520,
+        "y": 380,
         "wires": [
             [
                 "94fd03500445951f",
@@ -2078,7 +2081,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Email action",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = global.get(\"previousState\");\n\nlet states = global.get(\"states\");\nswitch (currentState) {\n    case states.IDLE: {\n        msg.reset = true;\n        node.status({ text: tijd_nu + \", IDLE\" });\n        return [msg, null, null, null];\n    }\n    case states.TOONOKVRAAG: {\n        node.status({ text: tijd_nu + \", TOONOKVRAAG\" });\n        break;\n    }\n    case states.MELDGEBRUIKER: {\n        msg.delay = global.get(\"Herinnering\") * 60000;\n        node.status({ text: tijd_nu + \", MELDGEBRUIKER, delay (min): \" + global.get(\"Herinnering\") });\n        return [msg, null, null, null];\n    }\n    case states.ISOK: {\n        msg.reset = true;\n        node.status({ text: tijd_nu + \", reset timer, ISOK\" });\n        return [msg, null, null, null];\n    }\n    case states.ISNOTOK: {\n        msg.reset = true;\n        node.status({ text: tijd_nu + \", ISNOTOK\" });\n        return [msg, null, msg, null];\n    }\n    case states.ISOK_OVERTIJD: {\n        msg.reset = true;\n        msg.payload = \"JA\";\n        if (currentState != previousState)\n            node.status({ text: tijd_nu + \", ISOK_OVERTIJD\" });\n            return [msg, null, null, msg];\n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        msg.reset = true;\n        msg.payload = \"NEE\";\n        if (currentState != previousState)\n            node.status({ text: tijd_nu + \", ISNOTOK_OVERTIJD\" });\n            return [msg, null, null, msg];\n        break;\n    }\n    case states.OVERTIJD: {\n        if (currentState != previousState) {\n            node.status({ text: tijd_nu + \", OVERTIJD\" });\n            return [null, msg, null, null];\n        }\n    }\n}\nreturn;\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = global.get(\"previousState\");\n\nlet states = global.get(\"states\");\nswitch (currentState) {\n    case states.IDLE: {\n        msg.reset = true;\n        node.status({ text: tijd_nu + \", IDLE\" });\n        return [msg, null, null, null]; // stop met het sturen van berichten naar gebruiker\n    }\n    case states.TOONOKVRAAG: {\n        node.status({ text: tijd_nu + \", TOONOKVRAAG\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        node.status({ text: tijd_nu + \", TOONOKVRAAGNIETTHUIS\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        node.status({ text: tijd_nu + \", MELDGEBRUIKERNIETTHUIS\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.MELDGEBRUIKER: {\n        node.status({ text: tijd_nu + \", MELDGEBRUIKER, delay (min): \" + global.get(\"Herinnering\") });\n        msg.delay = global.get(\"Herinnering\") * 60000;\n        return [msg, null, null, null];\n    }\n    case states.ISOK: {\n        node.status({ text: tijd_nu + \", reset timer, ISOK\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.ISNOTOK: {\n        node.status({ text: tijd_nu + \", ISNOTOK\" });\n        msg.reset = true;\n        return [msg, null, msg, null];\n    }\n    case states.OVERTIJD: {\n        if (currentState != previousState) {\n            node.status({ text: tijd_nu + \", OVERTIJD\" });\n            return [null, msg, null, null]; // Informeer mantelzorgers\n        }\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (currentState != previousState) {\n            node.status({ text: tijd_nu + \", ISOK_OVERTIJD\" });\n            msg.reset = true;\n            msg.payload = \"JA\";\n            return [msg, null, null, msg];\n        }\n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (currentState != previousState) {\n            node.status({ text: tijd_nu + \", ISNOTOK_OVERTIJD\" });\n            msg.reset = true;\n            msg.payload = \"NEE\";\n            return [msg, null, null, msg];\n        }\n        break;\n    }\n}\nreturn;\n",
         "outputs": 4,
         "timeout": 0,
         "noerr": 0,
@@ -2086,7 +2089,7 @@
         "finalize": "",
         "libs": [],
         "x": 150,
-        "y": 680,
+        "y": 740,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2116,7 +2119,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 780,
+        "y": 840,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2138,7 +2141,7 @@
         "name": "",
         "dname": "",
         "x": 770,
-        "y": 720,
+        "y": 780,
         "wires": []
     },
     {
@@ -2182,7 +2185,7 @@
         "topic": "topic",
         "outputs": 2,
         "x": 360,
-        "y": 560,
+        "y": 620,
         "wires": [
             [
                 "6c1f652de628f1be"
@@ -2206,7 +2209,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 620,
+        "y": 680,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2222,7 +2225,7 @@
         "scope": null,
         "uncaught": false,
         "x": 300,
-        "y": 940,
+        "y": 1000,
         "wires": [
             [
                 "cf1901877bfe59a8",
@@ -2245,7 +2248,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 770,
-        "y": 940,
+        "y": 1000,
         "wires": []
     },
     {
@@ -2284,7 +2287,7 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "Set global functions",
-        "func": "global.set(\"tijdNaarMs\", function (tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n});\n\nglobal.set(\"getTime\", function () {\n    let now = new Date();\n    return ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n});\n\nglobal.set(\"states\", {\n    IDLE: \"Idle\",\n    TOONOKVRAAG: \"ToonOkVraag\",\n    MELDGEBRUIKER: \"MeldGebruiker\",\n    ISOK: \"IsOk\",\n    ISNOTOK: \"IsNotOk\",\n    ISOK_OVERTIJD: \"IsOk_OverTijd\",\n    ISNOTOK_OVERTIJD: \"IsNotOk_OverTijd\",\n    OVERTIJD: \"OverTijd\"\n});\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" global functions created\"});\n\nglobal.set(\"currentState\", global.get(\"currentState\") ?? \"Idle\");\nglobal.set(\"TijdOK\", global.get(\"TijdOK\") ?? \" \");\nglobal.set(\"VoornaamGebruiker\", global.get(\"VoornaamGebruiker\") ?? \"\");\nglobal.set(\"EmailGebruiker\", global.get(\"EmailGebruiker\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder1\", global.get(\"EmailSleutelbewaarder1\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder2\", global.get(\"EmailSleutelbewaarder2\") ?? \"\");\n\nglobal.set(\"currentState\", \"Idle\");\nglobal.set(\"previousState\", \"Idle\");\n\nreturn msg;\n",
+        "func": "global.set(\"tijdNaarMs\", function (tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n});\n\nglobal.set(\"getTime\", function () {\n    let now = new Date();\n    return ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n});\n\nglobal.set(\"states\", {\n    IDLE: \"Idle\",\n    TOONOKVRAAG: \"ToonOkVraag\",\n    TOONOKVRAAGNIETTHUIS: \"ToonOkVraagNietThuis\",\n    MELDGEBRUIKER: \"MeldGebruiker\",\n    MELDGEBRUIKERNIETTHUIS: \"MeldGebruikerNietThuis\",\n    ISOK: \"IsOk\",\n    ISNOTOK: \"IsNotOk\",\n    ISOK_OVERTIJD: \"IsOk_OverTijd\",\n    ISNOTOK_OVERTIJD: \"IsNotOk_OverTijd\",\n    OVERTIJD: \"OverTijd\"\n});\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" global functions created\"});\n\nglobal.set(\"currentState\", global.get(\"currentState\") ?? \"Idle\");\nglobal.set(\"TijdOK\", global.get(\"TijdOK\") ?? \" \");\nglobal.set(\"VoornaamGebruiker\", global.get(\"VoornaamGebruiker\") ?? \"\");\nglobal.set(\"EmailGebruiker\", global.get(\"EmailGebruiker\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder1\", global.get(\"EmailSleutelbewaarder1\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder2\", global.get(\"EmailSleutelbewaarder2\") ?? \"\");\n\nglobal.set(\"currentState\", \"Idle\");\nglobal.set(\"previousState\", \"Idle\");\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2339,7 +2342,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 900,
+        "y": 960,
         "wires": [
             [
                 "4f39baa7dbd5d547"
@@ -2365,7 +2368,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 600,
-        "y": 900,
+        "y": 960,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2387,7 +2390,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "97cd5aa2eb055baf"
@@ -2417,7 +2420,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 840,
+        "y": 900,
         "wires": [
             [
                 "cfa6b22427e3edc3"
@@ -2438,7 +2441,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 840,
+        "y": 900,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2459,7 +2462,7 @@
         "finalize": "",
         "libs": [],
         "x": 720,
-        "y": 560,
+        "y": 620,
         "wires": [
             [
                 "d5df2f8a93d16c6a"
@@ -2480,7 +2483,7 @@
         "finalize": "",
         "libs": [],
         "x": 150,
-        "y": 1060,
+        "y": 1120,
         "wires": [
             [
                 "494c0e1626e74b03"
@@ -2504,7 +2507,7 @@
         "oldrc": false,
         "name": "ls sounds",
         "x": 340,
-        "y": 1040,
+        "y": 1100,
         "wires": [
             [
                 "6e3e1642880f5295"
@@ -2527,7 +2530,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 1020,
+        "y": 1080,
         "wires": [
             [
                 "9a6d5159979437b8"
@@ -2548,7 +2551,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 1080,
+        "y": 1140,
         "wires": [
             [
                 "a9d22c1ccafb666e"
@@ -2571,7 +2574,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 790,
-        "y": 1080,
+        "y": 1140,
         "wires": []
     },
     {
@@ -2601,6 +2604,49 @@
         "wires": [
             [
                 "94fd03500445951f"
+            ]
+        ]
+    },
+    {
+        "id": "cd2ccbcdab9e2474",
+        "type": "mqtt in",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "",
+        "topic": "PersoonThuis",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 480,
+        "wires": [
+            [
+                "a60b56107555d543"
+            ]
+        ]
+    },
+    {
+        "id": "a60b56107555d543",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "isThuis?",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nvar isThuis = global.get(\"GebruikerIsAtHome\");\nmsg.payload = isThuis ? \"isThuis\" : \"isNietThuis\"\nnode.status({ text: tijd_nu + \": \" + msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 480,
+        "wires": [
+            [
+                "72150be82696bdfc"
             ]
         ]
     },
@@ -3009,7 +3055,7 @@
         "label": "",
         "format": "{{msg.payload}}",
         "layout": "row-left",
-        "style": false,
+        "style": true,
         "font": "",
         "fontSize": 16,
         "color": "#717171",
@@ -3049,7 +3095,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Ja/Nee",
-        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    text = isThuis ? \n    \"Mobiel gedetecteerd.\" : \n    \"Mobiel NIET gedetecteerd!\" ;\n}\n\nvar msg = { payload: text };\nnode.status({ text: text });\nreturn msg;\n\n",
+        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    if (isThuis) {\n        text = \"Mobiel gedetecteerd.\";\n    }\n    else {\n        text = \"Mobiel NIET gedetecteerd.\";\n    }\n}\n\nvar msg = { payload: text };\n\nif (isThuis) \n    msg.ui_update = { color: \"#ffffff\"} // wit ;\nelse\n    msg.ui_update = { color: \"#ff0000\"} // rood ;\n\nnode.status({ text: text });\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3060,7 +3106,8 @@
         "y": 540,
         "wires": [
             [
-                "f720e78159430790"
+                "f720e78159430790",
+                "c3e2a51a02b00916"
             ]
         ]
     },
@@ -3070,7 +3117,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Vraag",
-        "func": "let states = global.get(\"states\");\nmsg.payload = global.get(\"VoornaamGebruiker\");\n\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG: \n    case states.MELDGEBRUIKER: {\n        msg.payload += \", ben je OK?\";\n        break;\n    }\n    case states.OVERTIJD: {\n        msg.payload += \", ben je OK? <br>Overtijd: er is een bericht naar mantelzorger(s) gestuurd.\";\n        break;\n    }    \n    default: {\n        msg.payload += \", er is geen vraag voor nu.\";\n        break;\n    }\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\nreturn msg;\n",
+        "func": "let states = global.get(\"states\");\nmsg.payload = global.get(\"VoornaamGebruiker\");\n\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG: \n    case states.MELDGEBRUIKER: {\n        msg.payload += \", ben je OK?\";\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: \n    case states.MELDGEBRUIKERNIETTHUIS: {\n        msg.payload += \", je bent nu niet thuis\";\n        break;\n    }\n    case states.OVERTIJD: {\n        msg.payload += \", ben je OK? <br>Overtijd: er is een bericht naar mantelzorger(s) gestuurd.\";\n        break;\n    }    \n    default: {\n        msg.payload += \", er is geen vraag voor nu.\";\n        break;\n    }\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3607,6 +3654,24 @@
                 "79cda76e1cdcc076"
             ]
         ]
+    },
+    {
+        "id": "c3e2a51a02b00916",
+        "type": "debug",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 600,
+        "wires": []
     },
     {
         "id": "dba3182f449692bb",
