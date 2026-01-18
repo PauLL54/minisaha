@@ -477,8 +477,7 @@
             "8a224d6b4c8e6e53",
             "6c02930ddcad9dd8",
             "0436958281830a8e",
-            "d6b298f8ec85d61c",
-            "c3e2a51a02b00916"
+            "d6b298f8ec85d61c"
         ],
         "x": 14,
         "y": 19,
@@ -1656,12 +1655,10 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 150,
+        "x": 130,
         "y": 80,
         "wires": [
-            [
-                "86e654aae39d4d9a"
-            ]
+            []
         ]
     },
     {
@@ -1718,11 +1715,13 @@
         "type": "function",
         "z": "7a37030e3e3276d9",
         "name": "Get filename",
-        "func": "var fileName = \"checkIsAtHome\" + flow.get(\"IPAddress\") + \".output\";\n\nmsg = { filename:  fileName };\nreturn msg;",
+        "func": "var fileName = \"checkIsAtHome\" + flow.get(\"IPAddress\") + \".output\";\n\nif (msg.payload == fileName) {\n    return msg;\n}",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 330,
         "y": 100,
         "wires": [
@@ -1792,6 +1791,23 @@
         "payloadType": "date",
         "x": 140,
         "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f3ae14c2f27ba38c",
+        "type": "watch-directory",
+        "z": "7a37030e3e3276d9",
+        "folder": ".",
+        "recursive": 0,
+        "typeEvent": "update",
+        "ignoreInitial": true,
+        "ignoredFiles": "",
+        "ignoredFilesType": "re",
+        "name": "Watch file updates",
+        "x": 370,
+        "y": 40,
         "wires": [
             [
                 "86e654aae39d4d9a"
@@ -3106,8 +3122,7 @@
         "y": 540,
         "wires": [
             [
-                "f720e78159430790",
-                "c3e2a51a02b00916"
+                "f720e78159430790"
             ]
         ]
     },
@@ -3654,24 +3669,6 @@
                 "79cda76e1cdcc076"
             ]
         ]
-    },
-    {
-        "id": "c3e2a51a02b00916",
-        "type": "debug",
-        "z": "1e372cb3d08d9182",
-        "g": "4a425ad2d30f78bc",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 580,
-        "y": 600,
-        "wires": []
     },
     {
         "id": "dba3182f449692bb",
@@ -7083,7 +7080,7 @@
         "type": "inject",
         "z": "eb60a9ea21d42f29",
         "g": "6bde74f61fffc171",
-        "name": "Na 2 min",
+        "name": "Na 10s",
         "props": [
             {
                 "p": "payload"
@@ -7096,7 +7093,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "120",
+        "onceDelay": "10",
         "topic": "",
         "payload": "20",
         "payloadType": "num",
