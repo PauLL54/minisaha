@@ -56,90 +56,9 @@
         "env": []
     },
     {
-        "id": "bd2a966b.302e18",
-        "type": "subflow",
-        "name": "CheckIsAtHome",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 40,
-                "y": 360,
-                "wires": [
-                    {
-                        "id": "41839ea3.d361b"
-                    }
-                ]
-            }
-        ],
-        "out": [
-            {
-                "x": 1040,
-                "y": 60,
-                "wires": [
-                    {
-                        "id": "f98fba99.4f5198",
-                        "port": 0
-                    }
-                ]
-            },
-            {
-                "x": 1080,
-                "y": 120,
-                "wires": [
-                    {
-                        "id": "f98fba99.4f5198",
-                        "port": 1
-                    }
-                ]
-            },
-            {
-                "x": 1090,
-                "y": 460,
-                "wires": [
-                    {
-                        "id": "9c091226.6a239",
-                        "port": 2
-                    }
-                ]
-            },
-            {
-                "x": 410,
-                "y": 300,
-                "wires": [
-                    {
-                        "id": "41839ea3.d361b",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "color": "#DDAA99",
-        "inputLabels": [
-            "Create CheckAlive script"
-        ],
-        "outputLabels": [
-            "IsAtHome",
-            "SuccededPingCount",
-            "Result start script",
-            "Debug"
-        ],
-        "status": {
-            "x": 1040,
-            "y": 180,
-            "wires": [
-                {
-                    "id": "f98fba99.4f5198",
-                    "port": 2
-                }
-            ]
-        }
-    },
-    {
         "id": "7a37030e3e3276d9",
         "type": "subflow",
-        "name": "CheckIsAtHome (1)",
+        "name": "CheckIsAtHome",
         "info": "",
         "category": "",
         "in": [
@@ -196,6 +115,7 @@
             }
         ],
         "env": [],
+        "meta": {},
         "color": "#DDAA99",
         "inputLabels": [
             "Create CheckAlive script"
@@ -351,7 +271,6 @@
             "98a637c918e7ffb3",
             "93e66aed5528479a",
             "391e6a39648d43b8",
-            "ba38e7032099ab38",
             "cd2ccbcdab9e2474",
             "a60b56107555d543"
         ],
@@ -396,12 +315,13 @@
             "494c0e1626e74b03",
             "6e3e1642880f5295",
             "9a6d5159979437b8",
-            "a9d22c1ccafb666e"
+            "a9d22c1ccafb666e",
+            "694ce244e4cd603f"
         ],
         "x": 14,
-        "y": 559,
-        "w": 872,
-        "h": 642
+        "y": 539,
+        "w": 932,
+        "h": 622
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -658,9 +578,6 @@
             "6e70d09531a84ce8",
             "f1aeced22e9fa07f",
             "a1e2f6d090e5529d",
-            "574eb541beac3d21",
-            "e1ee20adb971c3d5",
-            "77f6b3f3956f0d15",
             "fd7a048b60fd40cc"
         ],
         "x": 14,
@@ -926,7 +843,7 @@
             "pagePadding": "0px",
             "groupGap": "12px",
             "groupBorderRadius": "4px",
-            "widgetGap": "12px"
+            "widgetGap": "10px"
         }
     },
     {
@@ -942,7 +859,7 @@
             {
                 "name": "Default",
                 "px": "0",
-                "cols": "4"
+                "cols": "6"
             },
             {
                 "name": "Tablet",
@@ -1042,7 +959,7 @@
         "type": "ui-group",
         "name": "MiniSAHA",
         "page": "74e147230f204214",
-        "width": "5",
+        "width": "6",
         "height": 1,
         "order": 1,
         "showTitle": false,
@@ -1230,275 +1147,6 @@
         "groupType": "default"
     },
     {
-        "id": "41839ea3.d361b",
-        "type": "function",
-        "z": "bd2a966b.302e18",
-        "name": "create checkIsAtHome script",
-        "func": "var pingCount = msg.payload.PingCount;\nvar ipAddress = msg.payload.IPAddress;\nflow.set(\"IPAddress\", ipAddress);\n\nvar scriptFileName = \"checkIsAtHome\" + ipAddress;\nmsg = { filename:  scriptFileName };\n\nmsg.payload = \"#!/bin/bash\\nwhile true; do sudo arping -c \" + \npingCount + \n\" \" + ipAddress +\n\" > checkIsAtHome\" + ipAddress +\n\".temp ; cp checkIsAtHome\" + ipAddress + \".temp \" + \n\"checkIsAtHome\" + ipAddress + \".output; done\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 200,
-        "y": 360,
-        "wires": [
-            [
-                "902e5ac4.84f2b"
-            ]
-        ]
-    },
-    {
-        "id": "902e5ac4.84f2b",
-        "type": "file",
-        "z": "bd2a966b.302e18",
-        "name": "store in file",
-        "filename": "",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "true",
-        "encoding": "none",
-        "x": 430,
-        "y": 360,
-        "wires": [
-            [
-                "74c702c8.65efb4"
-            ]
-        ]
-    },
-    {
-        "id": "36d25876.739588",
-        "type": "exec",
-        "z": "bd2a966b.302e18",
-        "command": "chmod +x ",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "make file executable",
-        "x": 800,
-        "y": 360,
-        "wires": [
-            [],
-            [],
-            [
-                "5f4eee7c.2e29a"
-            ]
-        ]
-    },
-    {
-        "id": "8f57678f.b55d08",
-        "type": "exec",
-        "z": "bd2a966b.302e18",
-        "command": "pkill -f ",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "stop previous process",
-        "x": 360,
-        "y": 460,
-        "wires": [
-            [
-                "c4a15a03.9be1e"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "9c091226.6a239",
-        "type": "exec",
-        "z": "bd2a966b.302e18",
-        "command": "bash -c ",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "start checkIsAtHome in background",
-        "x": 820,
-        "y": 440,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "c4a15a03.9be1e",
-        "type": "function",
-        "z": "bd2a966b.302e18",
-        "name": "get cmd string",
-        "func": "var ipAddress = flow.get(\"IPAddress\");\n\nmsg.payload = \" \\\"exec -a checkIsAtHome\" + ipAddress + \n              \" ./checkIsAtHome\" + ipAddress + \"\\\"&\";\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 580,
-        "y": 440,
-        "wires": [
-            [
-                "9c091226.6a239"
-            ]
-        ]
-    },
-    {
-        "id": "faaf1234.933d38",
-        "type": "comment",
-        "z": "bd2a966b.302e18",
-        "name": "Start checkIsAtHome script in the background upon startup",
-        "info": "",
-        "x": 250,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "74f775fe.79f4cc",
-        "type": "comment",
-        "z": "bd2a966b.302e18",
-        "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
-        "info": "",
-        "x": 350,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "b34deede.8145b",
-        "type": "inject",
-        "z": "bd2a966b.302e18",
-        "name": "Regularly (30 s)",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "30",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 100,
-        "wires": [
-            [
-                "95f84901.8005a8"
-            ]
-        ]
-    },
-    {
-        "id": "3da93624.ce870a",
-        "type": "file in",
-        "z": "bd2a966b.302e18",
-        "name": "read file",
-        "filename": "filename",
-        "filenameType": "msg",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "x": 480,
-        "y": 100,
-        "wires": [
-            [
-                "f98fba99.4f5198"
-            ]
-        ]
-    },
-    {
-        "id": "f98fba99.4f5198",
-        "type": "function",
-        "z": "bd2a966b.302e18",
-        "name": "Return IsAtHome, SucceededPingCount, status",
-        "func": "// get the ping count:\nvar succeededPingCount = 0;\nvar pos = 0;\nvar i = -1;\n\nwhile (pos != -1) {\n  pos = msg.payload.indexOf(\"index=\", i + 1);\n  if (pos != -1) succeededPingCount += 1;\n  i = pos;\n}\n\nvar result = succeededPingCount > 0 ? 1 : 0;\nmsg = { payload: result, topic: flow.get(\"IPAddress\") };\n\nvar msg_SucceededPingCount = { payload: succeededPingCount };\n\nvar msg_Status = { payload: flow.get(\"IPAddress\") + \", \" + Boolean(result) + \", \" + succeededPingCount};\n\nreturn [ msg, msg_SucceededPingCount, msg_Status ];\n",
-        "outputs": 3,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 740,
-        "y": 100,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "8dca38e7.59b758",
-        "type": "comment",
-        "z": "bd2a966b.302e18",
-        "name": "Check if person is at home",
-        "info": "",
-        "x": 150,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "95f84901.8005a8",
-        "type": "function",
-        "z": "bd2a966b.302e18",
-        "name": "Get filename",
-        "func": "var fileName = \"checkIsAtHome\" + flow.get(\"IPAddress\") + \".output\";\n\nmsg = { filename:  fileName };\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 330,
-        "y": 100,
-        "wires": [
-            [
-                "3da93624.ce870a"
-            ]
-        ]
-    },
-    {
-        "id": "74c702c8.65efb4",
-        "type": "function",
-        "z": "bd2a966b.302e18",
-        "name": "get scriptName",
-        "func": "msg.payload = \"checkIsAtHome\" + flow.get(\"IPAddress\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 600,
-        "y": 360,
-        "wires": [
-            [
-                "36d25876.739588"
-            ]
-        ]
-    },
-    {
-        "id": "5f4eee7c.2e29a",
-        "type": "function",
-        "z": "bd2a966b.302e18",
-        "name": "get scriptName",
-        "func": "msg.payload = \"checkIsAtHome\" + flow.get(\"IPAddress\");\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 160,
-        "y": 460,
-        "wires": [
-            [
-                "8f57678f.b55d08"
-            ]
-        ]
-    },
-    {
         "id": "e0fbb4a9fd0354d0",
         "type": "function",
         "z": "7a37030e3e3276d9",
@@ -1635,33 +1283,6 @@
         "wires": []
     },
     {
-        "id": "76386622c0e5a3fe",
-        "type": "inject",
-        "z": "7a37030e3e3276d9",
-        "name": "Regularly (30 s)",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "30",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "238df2dd7c8038ee",
         "type": "file in",
         "z": "7a37030e3e3276d9",
@@ -1672,7 +1293,7 @@
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 480,
+        "x": 460,
         "y": 100,
         "wires": [
             [
@@ -1714,7 +1335,7 @@
         "id": "86e654aae39d4d9a",
         "type": "function",
         "z": "7a37030e3e3276d9",
-        "name": "Get filename",
+        "name": "Is output file?",
         "func": "var fileName = \"checkIsAtHome\" + flow.get(\"IPAddress\") + \".output\";\n\nif (msg.payload == fileName) {\n    return msg;\n}",
         "outputs": 1,
         "timeout": "",
@@ -1722,7 +1343,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
+        "x": 310,
         "y": 100,
         "wires": [
             [
@@ -1769,33 +1390,6 @@
         ]
     },
     {
-        "id": "8c1fa1cfe914c30b",
-        "type": "inject",
-        "z": "7a37030e3e3276d9",
-        "name": "Once after 5 s",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "5",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 140,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "f3ae14c2f27ba38c",
         "type": "watch-directory",
         "z": "7a37030e3e3276d9",
@@ -1806,8 +1400,8 @@
         "ignoredFiles": "",
         "ignoredFilesType": "re",
         "name": "Watch file updates",
-        "x": 370,
-        "y": 40,
+        "x": 130,
+        "y": 100,
         "wires": [
             [
                 "86e654aae39d4d9a"
@@ -1941,8 +1535,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 620,
+        "x": 620,
+        "y": 580,
         "wires": [
             [
                 "df1878820d0f62c5",
@@ -1960,8 +1554,8 @@
         "g": "2ce41e3897fb35ce",
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
-        "x": 310,
-        "y": 1160,
+        "x": 350,
+        "y": 1120,
         "wires": []
     },
     {
@@ -1998,8 +1592,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 720,
+        "x": 450,
+        "y": 680,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2019,8 +1613,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 780,
+        "x": 640,
+        "y": 740,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2061,8 +1655,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 780,
+        "x": 440,
+        "y": 740,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2075,7 +1669,7 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "StateMachine",
-        "func": "let states = global.get(\"states\");\nvar tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\nglobal.set(\"previousState\", previousState);\n\nlet trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger == \"startToonVraag\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        if (trigger == \"isThuis\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.IDLE;\n            break;\n        }\n    case states.TOONOKVRAAG: {\n        if (trigger == \"isNietThuis\") currentState = states.TOONOKVRAAGNIETTHUIS; \n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        if (trigger == \"isThuis\") currentState = states.MELDGEBRUIKER; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.IDLE;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"isNietThuis\") currentState = states.MELDGEBRUIKERNIETTHUIS; \n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE;\n        if (trigger == \"jaPressed\") currentState = states.ISOK_OVERTIJD;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\nif (currentState != previousState) {\n    msg.payload = currentState;\n    return msg;\n}\nelse\n    return;\n\n",
+        "func": "let states = global.get(\"states\");\nvar tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\nglobal.set(\"previousState\", previousState);\n\nlet trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger == \"startToonVraag\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        if (trigger == \"isThuis\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.IDLE;\n        break;\n    }\n    case states.TOONOKVRAAG: {\n        if (trigger == \"isNietThuis\") currentState = states.TOONOKVRAAGNIETTHUIS; \n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        if (trigger == \"isThuis\") currentState = states.MELDGEBRUIKER; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.IDLE;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"isNietThuis\") currentState = states.MELDGEBRUIKERNIETTHUIS; \n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE;\n        if (trigger == \"jaPressed\") currentState = states.ISOK_OVERTIJD;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\nif (currentState != previousState) {\n    msg.payload = currentState;\n    return msg;\n}\nelse\n    return;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2086,8 +1680,7 @@
         "y": 380,
         "wires": [
             [
-                "94fd03500445951f",
-                "97cd5aa2eb055baf"
+                "94fd03500445951f"
             ]
         ]
     },
@@ -2104,8 +1697,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 150,
-        "y": 740,
+        "x": 170,
+        "y": 700,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2134,8 +1727,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 840,
+        "x": 440,
+        "y": 800,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2156,8 +1749,8 @@
         "tls": true,
         "name": "",
         "dname": "",
-        "x": 770,
-        "y": 780,
+        "x": 850,
+        "y": 740,
         "wires": []
     },
     {
@@ -2200,8 +1793,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 360,
-        "y": 620,
+        "x": 440,
+        "y": 580,
         "wires": [
             [
                 "6c1f652de628f1be"
@@ -2224,8 +1817,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 680,
+        "x": 440,
+        "y": 640,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2240,8 +1833,8 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 300,
-        "y": 1000,
+        "x": 380,
+        "y": 960,
         "wires": [
             [
                 "cf1901877bfe59a8",
@@ -2263,8 +1856,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 1000,
+        "x": 850,
+        "y": 960,
         "wires": []
     },
     {
@@ -2357,8 +1950,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 960,
+        "x": 550,
+        "y": 920,
         "wires": [
             [
                 "4f39baa7dbd5d547"
@@ -2383,8 +1976,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 600,
-        "y": 960,
+        "x": 680,
+        "y": 920,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2406,7 +1999,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 600,
+        "y": 780,
         "wires": [
             [
                 "97cd5aa2eb055baf"
@@ -2435,8 +2028,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
-        "y": 900,
+        "x": 160,
+        "y": 860,
         "wires": [
             [
                 "cfa6b22427e3edc3"
@@ -2456,8 +2049,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 900,
+        "x": 460,
+        "y": 860,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2477,8 +2070,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 620,
+        "x": 800,
+        "y": 580,
         "wires": [
             [
                 "d5df2f8a93d16c6a"
@@ -2498,8 +2091,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 150,
-        "y": 1120,
+        "x": 170,
+        "y": 1080,
         "wires": [
             [
                 "494c0e1626e74b03"
@@ -2522,8 +2115,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "ls sounds",
-        "x": 340,
-        "y": 1100,
+        "x": 380,
+        "y": 1060,
         "wires": [
             [
                 "6e3e1642880f5295"
@@ -2545,8 +2138,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
-        "y": 1080,
+        "x": 540,
+        "y": 1040,
         "wires": [
             [
                 "9a6d5159979437b8"
@@ -2566,8 +2159,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 1140,
+        "x": 690,
+        "y": 1100,
         "wires": [
             [
                 "a9d22c1ccafb666e"
@@ -2589,39 +2182,9 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 790,
-        "y": 1140,
+        "x": 830,
+        "y": 1100,
         "wires": []
-    },
-    {
-        "id": "ba38e7032099ab38",
-        "type": "inject",
-        "z": "a380efb730bea147",
-        "g": "4e4ef64c30555769",
-        "name": "At Startup 20s",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "20",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 780,
-        "y": 160,
-        "wires": [
-            [
-                "94fd03500445951f"
-            ]
-        ]
     },
     {
         "id": "cd2ccbcdab9e2474",
@@ -2663,6 +2226,28 @@
         "wires": [
             [
                 "72150be82696bdfc"
+            ]
+        ]
+    },
+    {
+        "id": "694ce244e4cd603f",
+        "type": "mqtt in",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "",
+        "topic": "StateChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 620,
+        "wires": [
+            [
+                "97cd5aa2eb055baf"
             ]
         ]
     },
@@ -2876,7 +2461,7 @@
         "name": "Nee",
         "label": "NEE",
         "order": 3,
-        "width": "2",
+        "width": "3",
         "height": "2",
         "emulateClick": false,
         "tooltip": "",
@@ -2916,7 +2501,7 @@
         "name": "Ja",
         "label": "JA",
         "order": 2,
-        "width": "2",
+        "width": "3",
         "height": "2",
         "emulateClick": false,
         "tooltip": "",
@@ -2953,10 +2538,10 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Systeem actief",
-        "label": "",
+        "label": "Systeem",
         "group": "4de3d58d68afebf3",
         "order": 10,
-        "width": "1",
+        "width": "2",
         "height": "1",
         "passthru": false,
         "decouple": false,
@@ -2990,7 +2575,7 @@
         "g": "4a425ad2d30f78bc",
         "group": "4de3d58d68afebf3",
         "order": 1,
-        "width": "4",
+        "width": "6",
         "height": "2",
         "name": "Vraag",
         "label": "",
@@ -3015,7 +2600,7 @@
         "g": "4a425ad2d30f78bc",
         "group": "4de3d58d68afebf3",
         "order": 4,
-        "width": "5",
+        "width": "6",
         "height": "2",
         "name": "Response",
         "label": "",
@@ -3065,7 +2650,7 @@
         "g": "4a425ad2d30f78bc",
         "group": "4de3d58d68afebf3",
         "order": 9,
-        "width": "3",
+        "width": "4",
         "height": "1",
         "name": "Persoon thuis?",
         "label": "",
@@ -3288,7 +2873,7 @@
         "name": "ALARM",
         "label": "ALARM",
         "order": 5,
-        "width": "2",
+        "width": "3",
         "height": "2",
         "emulateClick": false,
         "tooltip": "",
@@ -3330,7 +2915,7 @@
         "name": "CANCEL",
         "label": "CANCEL",
         "order": 6,
-        "width": "2",
+        "width": "3",
         "height": "2",
         "emulateClick": false,
         "tooltip": "",
@@ -6961,7 +6546,7 @@
         "g": "6bde74f61fffc171",
         "name": "",
         "env": [],
-        "x": 550,
+        "x": 540,
         "y": 940,
         "wires": [
             [
@@ -8129,7 +7714,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "Device Table",
         "label": "",
-        "order": 2,
+        "order": 1,
         "width": "0",
         "height": "0",
         "maxrows": "",
@@ -8273,7 +7858,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "",
         "label": "Voeg apparaat toe",
-        "order": 7,
+        "order": 6,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -8313,7 +7898,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "Zoek op naam",
         "label": "Zoek op (gedeelte van) naam",
-        "order": 5,
+        "order": 4,
         "width": "3",
         "height": "1",
         "topic": "topic",
@@ -8450,7 +8035,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 9,
+        "order": 8,
         "width": "0",
         "height": "0",
         "name": "progress",
@@ -8477,7 +8062,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "",
         "label": "Annuleer",
-        "order": 8,
+        "order": 7,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -8673,7 +8258,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 3,
+        "order": 2,
         "width": "5",
         "height": "1",
         "name": "Lege regel",
@@ -8728,7 +8313,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 4,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "",
@@ -8944,7 +8529,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 10,
+        "order": 9,
         "width": "5",
         "height": "1",
         "name": "Lege regel",
@@ -8971,7 +8556,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "Help naam",
         "label": "?",
-        "order": 6,
+        "order": 5,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -9073,96 +8658,6 @@
         "wires": []
     },
     {
-        "id": "574eb541beac3d21",
-        "type": "ui-button",
-        "z": "ce724907bfebf75c",
-        "d": true,
-        "g": "b653e740e9531504",
-        "group": "549f1fa0e59e6a04",
-        "name": "Help Toon...",
-        "label": "?",
-        "order": 1,
-        "width": "1",
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 490,
-        "y": 300,
-        "wires": [
-            [
-                "e1ee20adb971c3d5",
-                "0af8df52052ef366"
-            ]
-        ]
-    },
-    {
-        "id": "e1ee20adb971c3d5",
-        "type": "function",
-        "z": "ce724907bfebf75c",
-        "d": true,
-        "g": "b653e740e9531504",
-        "name": "help tekst",
-        "func": "msg.payload = \n\"<b>Als de lijst leeg is, moet je eeerst een Bluetooth speaker koppelen.</b><br>\" +\n\"<b></b><br>\" +\n\"<b>Als een speaker niet verbonden is, dan staat hij niet aan of is niet in het bereik van het computertje bij de router.</b><br>\" +\n\"<b></b><br>\" +\n\"<b>Als hij verbonden is, zou je met een geluid moeten kunnen testen.</b><br>\" +\n\"<b></b><br>\" +\n\"<b>Je kan instellen dat er steeds een random geluid gekozen wordt voor een melding.</b><br>\" +\n\"<b></b><br>\" +\n\"<b>Je kan maar 1 apparaat tegelijk koppelen. Dus als je een nieuw apparaat wil koppelen, moet je eerst de oude verwijderen.</b><br>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 660,
-        "y": 300,
-        "wires": [
-            [
-                "77f6b3f3956f0d15"
-            ]
-        ]
-    },
-    {
-        "id": "77f6b3f3956f0d15",
-        "type": "ui-notification",
-        "z": "ce724907bfebf75c",
-        "d": true,
-        "g": "b653e740e9531504",
-        "ui": "6c1d30b5f16932dd",
-        "position": "top right",
-        "colorDefault": true,
-        "color": "#000000",
-        "displayTime": "60",
-        "showCountdown": true,
-        "outputs": 1,
-        "allowDismiss": true,
-        "dismissText": "Close",
-        "allowConfirm": false,
-        "confirmText": "Confirm",
-        "raw": false,
-        "className": "",
-        "name": "",
-        "x": 830,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "fd7a048b60fd40cc",
         "type": "comment",
         "z": "ce724907bfebf75c",
@@ -9192,7 +8687,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "",
         "label": "Beheer meldingsgeluiden",
-        "order": 11,
+        "order": 10,
         "width": "0",
         "height": "0",
         "emulateClick": false,
