@@ -607,7 +607,6 @@
             "89c7af3d87bd6dfe",
             "1eec94c61974cd1c",
             "b6944b93af04a874",
-            "6ad9e51e2daa380d",
             "b4cb292e1a70622c"
         ],
         "x": 14,
@@ -1918,7 +1917,7 @@
         "g": "4e4ef64c30555769",
         "name": "",
         "pauseType": "delay",
-        "timeout": "2",
+        "timeout": "20",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -4816,7 +4815,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 880,
-        "y": 60,
+        "y": 40,
         "wires": []
     },
     {
@@ -5797,47 +5796,6 @@
         "wires": [
             [
                 "1eec94c61974cd1c"
-            ]
-        ]
-    },
-    {
-        "id": "6ad9e51e2daa380d",
-        "type": "ui-button",
-        "z": "af31bf2fe058f803",
-        "d": true,
-        "g": "f37a603ed66fd806",
-        "group": "adc719ee09b9438b",
-        "name": "Tester",
-        "label": "Voor testers",
-        "order": 9,
-        "width": "0",
-        "height": "0",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "buttonupdate",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 170,
-        "y": 260,
-        "wires": [
-            [
-                "b6944b93af04a874"
             ]
         ]
     },
