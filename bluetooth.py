@@ -69,9 +69,9 @@ def main():
                 send(f"pair {mac}")
                 time.sleep(2)
                 send(f"trust {mac}")
-                time.sleep(1)
+                time.sleep(2)
                 send(f"connect {mac}")
-
+                time.sleep(2)
                 print("Klaar.")
                 break
 
