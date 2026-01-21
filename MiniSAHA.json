@@ -584,7 +584,8 @@
             "944d64652bbfdc85",
             "95623e89ea0e68bb",
             "fb880435a67662bc",
-            "7a71a22caf5630aa"
+            "7a71a22caf5630aa",
+            "f95485da6f7079a3"
         ],
         "x": 14,
         "y": 19,
@@ -9345,6 +9346,36 @@
         "x": 940,
         "y": 500,
         "wires": []
+    },
+    {
+        "id": "f95485da6f7079a3",
+        "type": "inject",
+        "z": "ce724907bfebf75c",
+        "g": "b653e740e9531504",
+        "name": "Regularly",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "0af8df52052ef366"
+            ]
+        ]
     },
     {
         "id": "de3f35eb8cc6cc74",
