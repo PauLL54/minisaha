@@ -37,10 +37,11 @@ def main():
     send("power on")
     time.sleep(3)
     send("agent on")
-    time.sleep(1)
+    time.sleep(2)
     send("default-agent")
-    time.sleep(1)
+    time.sleep(2)
     send("scan on")
+    time.sleep(2)
 
     print("Scanning... zet je speaker in PAIRING MODE")
 
