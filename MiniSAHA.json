@@ -574,16 +574,17 @@
             "7d5983d557669a6c",
             "16c0807580a7c2a0",
             "2e189f3ce88031b6",
-            "abfdc701c0c076ca",
             "6e70d09531a84ce8",
             "f1aeced22e9fa07f",
             "a1e2f6d090e5529d",
-            "fd7a048b60fd40cc"
+            "fd7a048b60fd40cc",
+            "7f1c6a83901d3d23",
+            "944d64652bbfdc85"
         ],
         "x": 14,
         "y": 19,
-        "w": 1192,
-        "h": 629.5
+        "w": 1032,
+        "h": 689.5
     },
     {
         "id": "f37a603ed66fd806",
@@ -634,7 +635,7 @@
             "e68d3d081a706fa9"
         ],
         "x": 14,
-        "y": 699,
+        "y": 719,
         "w": 652,
         "h": 122
     },
@@ -774,6 +775,37 @@
         "y": 1099,
         "w": 672,
         "h": 149.5
+    },
+    {
+        "id": "60ad4210945ee21b",
+        "type": "group",
+        "z": "ce724907bfebf75c",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "5cc978ea4ecbc645",
+            "ff366fd337c467c0",
+            "cfd932930dd93210",
+            "d42d6d21de99e695",
+            "74471f8973fa3f53",
+            "160f121d5fcc4c61",
+            "27b9c9425c9e0b64",
+            "c297539a80312066",
+            "4e5fc9ecbb91f9da",
+            "a11e0dd251eb5940",
+            "88950e4db6177323"
+        ],
+        "x": 14,
+        "y": 1491.5,
+        "w": 812,
+        "h": 277
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -7581,7 +7613,7 @@
         "y": 440,
         "wires": [
             [
-                "2d29289272c0345f"
+                "7f1c6a83901d3d23"
             ]
         ]
     },
@@ -7658,7 +7690,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "t1"
@@ -7770,6 +7802,7 @@
         "id": "t1",
         "type": "ui-table",
         "z": "ce724907bfebf75c",
+        "d": true,
         "g": "b653e740e9531504",
         "group": "549f1fa0e59e6a04",
         "name": "Device Table",
@@ -7810,7 +7843,7 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "x": 690,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "67633cd44823bbd2"
@@ -7831,7 +7864,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "f1378f5cb764a371"
@@ -7852,7 +7885,7 @@
         "oldrc": false,
         "name": "bluetoothctl",
         "x": 510,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "0af8df52052ef366"
@@ -7918,7 +7951,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "",
         "label": "Voeg apparaat toe",
-        "order": 6,
+        "order": 8,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -7958,7 +7991,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "Zoek op naam",
         "label": "Zoek op (gedeelte van) naam",
-        "order": 4,
+        "order": 6,
         "width": "3",
         "height": "1",
         "topic": "topic",
@@ -8095,7 +8128,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 8,
+        "order": 10,
         "width": "0",
         "height": "0",
         "name": "progress",
@@ -8122,7 +8155,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "",
         "label": "Annuleer",
-        "order": 7,
+        "order": 9,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -8279,27 +8312,8 @@
         "x": 950,
         "y": 180,
         "wires": [
-            [
-                "abfdc701c0c076ca"
-            ]
+            []
         ]
-    },
-    {
-        "id": "abfdc701c0c076ca",
-        "type": "debug",
-        "z": "ce724907bfebf75c",
-        "g": "b653e740e9531504",
-        "name": "debug 6",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1100,
-        "y": 180,
-        "wires": []
     },
     {
         "id": "6e70d09531a84ce8",
@@ -8318,7 +8332,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 2,
+        "order": 4,
         "width": "5",
         "height": "1",
         "name": "Lege regel",
@@ -8373,7 +8387,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 3,
+        "order": 5,
         "width": 0,
         "height": 0,
         "name": "",
@@ -8422,7 +8436,8 @@
         "name": "connected",
         "links": [
             "c9aa4babb452e660",
-            "c307ebad62357506"
+            "c307ebad62357506",
+            "88950e4db6177323"
         ],
         "x": 165,
         "y": 400,
@@ -8589,7 +8604,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 9,
+        "order": 11,
         "width": "5",
         "height": "1",
         "name": "Lege regel",
@@ -8616,7 +8631,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "Help naam",
         "label": "?",
-        "order": 5,
+        "order": 7,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -8736,7 +8751,7 @@
         "name": "https://pixabay.com/nl/music/search/ringtones/",
         "info": "",
         "x": 350,
-        "y": 780,
+        "y": 800,
         "wires": []
     },
     {
@@ -8747,7 +8762,7 @@
         "group": "549f1fa0e59e6a04",
         "name": "",
         "label": "Beheer meldingsgeluiden",
-        "order": 10,
+        "order": 12,
         "width": "0",
         "height": "0",
         "emulateClick": false,
@@ -8772,7 +8787,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 740,
+        "y": 760,
         "wires": [
             [
                 "a3da71f32673dfd7"
@@ -8793,7 +8808,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 740,
+        "y": 760,
         "wires": [
             [
                 "e68d3d081a706fa9"
@@ -8809,7 +8824,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "all",
         "x": 580,
-        "y": 740,
+        "y": 760,
         "wires": [
             []
         ]
@@ -8908,6 +8923,310 @@
                 "d3191e422f60972d"
             ]
         ]
+    },
+    {
+        "id": "5cc978ea4ecbc645",
+        "type": "inject",
+        "z": "ce724907bfebf75c",
+        "g": "60ad4210945ee21b",
+        "name": "Test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1580,
+        "wires": [
+            [
+                "ff366fd337c467c0"
+            ]
+        ]
+    },
+    {
+        "id": "ff366fd337c467c0",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "g": "60ad4210945ee21b",
+        "name": "get devices",
+        "func": "msg.payload = 'echo -e \"devices\\nquit\" | bluetoothctl';\nmsg.payload = 'bluetoothctl devices';\nnode.status({ text: msg.payload });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 1540,
+        "wires": [
+            [
+                "cfd932930dd93210"
+            ]
+        ]
+    },
+    {
+        "id": "cfd932930dd93210",
+        "type": "exec",
+        "z": "ce724907bfebf75c",
+        "g": "60ad4210945ee21b",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "bluetoothctl",
+        "x": 470,
+        "y": 1540,
+        "wires": [
+            [
+                "d42d6d21de99e695"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d42d6d21de99e695",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "g": "60ad4210945ee21b",
+        "name": "mac/name",
+        "func": "let str = Buffer.from(msg.payload).toString(\"utf8\");\nlet clean = stripAnsi(str);\n\nlet results = [];\nconst regex = /Device\\s+([0-9A-F:]{17})\\s+(.+)/gi;\nlet matches = clean.matchAll(regex);\n\nfor (const m of matches) {\n    results.push({\n        mac: m[1],\n        name: m[2]\n    });\n}\nmsg.devices = results;\n\nreturn msg;\n\nfunction stripAnsi(str) {\n    return str.replace(/\\x1B\\[[0-9;]*[A-Za-z]/g, '');\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1540,
+        "wires": [
+            [
+                "74471f8973fa3f53"
+            ]
+        ]
+    },
+    {
+        "id": "74471f8973fa3f53",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "g": "60ad4210945ee21b",
+        "name": "get status",
+        "func": "let devices = msg.devices;\nif (Array.isArray(devices) && devices.length === 0) {\n    node.status({ text: \"geen devices gekoppeld\" });\n    msg.payload = \"bluetoothctl quit\";    \n    return msg;\n}\n\nlet cmd = \"\";\nfor (const device of devices) {\n    cmd += \"bluetoothctl info \" + device.mac + \";\";\n}\nmsg.payload = cmd;\nnode.status({ text: \"bluetoothctl info\"  });\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1620,
+        "wires": [
+            [
+                "160f121d5fcc4c61"
+            ]
+        ]
+    },
+    {
+        "id": "160f121d5fcc4c61",
+        "type": "exec",
+        "z": "ce724907bfebf75c",
+        "g": "60ad4210945ee21b",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "bluetoothctl",
+        "x": 470,
+        "y": 1620,
+        "wires": [
+            [
+                "27b9c9425c9e0b64"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "27b9c9425c9e0b64",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "g": "60ad4210945ee21b",
+        "name": "Connected?",
+        "func": "let devices = [];\n\nconst text = msg.payload;\nnode.status({ text: text });\nconst blocks = text.split(/(?=Device\\s+[0-9A-F:]{17})/gi);\n\nfor (const block of blocks) {\n    // MAC-adres\n    const macMatch = block.match(/Device\\s+([0-9A-F:]{17})/i);\n    if (!macMatch) continue;\n\n    // Naam\n    const nameMatch = block.match(/Name:\\s*(.+)/i);\n    const name = nameMatch ? nameMatch[1].trim() : null;\n\n    // Paired-status\n    const pairedMatch = block.match(/Paired:\\s*(yes|no)/i);\n    const paired = pairedMatch ? pairedMatch[1].toLowerCase() : null;\n\n    // Connected-status\n    const connMatch = block.match(/Connected:\\s*(yes|no)/i);\n    const connected = connMatch ? connMatch[1].toLowerCase() : null;\n\n    //if (paired == \"yes\") {\n        devices.push({\n            mac: macMatch[1],\n            name,\n            paired,\n            connected\n        });\n    //}\n\n}\n\nmsg.payload = devices;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1620,
+        "wires": [
+            [
+                "4e5fc9ecbb91f9da"
+            ]
+        ]
+    },
+    {
+        "id": "c297539a80312066",
+        "type": "exec",
+        "z": "ce724907bfebf75c",
+        "g": "60ad4210945ee21b",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "bluetoothctl",
+        "x": 650,
+        "y": 1720,
+        "wires": [
+            [
+                "88950e4db6177323"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4e5fc9ecbb91f9da",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "g": "60ad4210945ee21b",
+        "name": "remove device",
+        "func": "let devices = msg.payload;   \n\ndevices.forEach(device => {\n    node.send({ payload: \"bluetoothctl remove \" + device.mac });\n});\n\n// Zorg dat de function node zelf niet nog een extra msg terugstuurt\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 1720,
+        "wires": [
+            [
+                "c297539a80312066"
+            ]
+        ]
+    },
+    {
+        "id": "a11e0dd251eb5940",
+        "type": "ui-button",
+        "z": "ce724907bfebf75c",
+        "g": "60ad4210945ee21b",
+        "group": "549f1fa0e59e6a04",
+        "name": "Clear BT",
+        "label": "Verwijder Bluetooth apparaten",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 100,
+        "y": 1540,
+        "wires": [
+            [
+                "ff366fd337c467c0"
+            ]
+        ]
+    },
+    {
+        "id": "88950e4db6177323",
+        "type": "link out",
+        "z": "ce724907bfebf75c",
+        "g": "60ad4210945ee21b",
+        "name": "connected",
+        "mode": "link",
+        "links": [
+            "f1aeced22e9fa07f"
+        ],
+        "x": 785,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "7f1c6a83901d3d23",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "g": "b653e740e9531504",
+        "name": "Toon speaker verbonden",
+        "func": "if (msg.payload.length == 0) {\n    msg.payload = \"Geen apparaat verbonden.\";\n    return msg;\n}\n\nlet device = msg.payload[0];\n\nmsg.payload = device.name + \"  -  Verbonden: \" \n    + (device.connected == \"yes\" ? \"ja\" : \"nee\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 520,
+        "wires": [
+            [
+                "944d64652bbfdc85"
+            ]
+        ]
+    },
+    {
+        "id": "944d64652bbfdc85",
+        "type": "ui-text",
+        "z": "ce724907bfebf75c",
+        "g": "b653e740e9531504",
+        "group": "549f1fa0e59e6a04",
+        "order": 2,
+        "width": "5",
+        "height": "1",
+        "name": "Bluetooth device",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 690,
+        "y": 520,
+        "wires": []
     },
     {
         "id": "de3f35eb8cc6cc74",
@@ -9330,7 +9649,7 @@
         "selectionType": "none",
         "columns": [
             {
-                "title": "Naam:",
+                "title": "MP3 bestand:",
                 "key": "shortName",
                 "keyType": "key",
                 "type": "text",
