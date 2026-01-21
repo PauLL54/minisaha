@@ -353,7 +353,7 @@
             "7e2f3d7baaebee6d"
         ],
         "x": 14,
-        "y": 659,
+        "y": 739,
         "w": 852,
         "h": 402
     },
@@ -397,12 +397,14 @@
             "8a224d6b4c8e6e53",
             "6c02930ddcad9dd8",
             "0436958281830a8e",
-            "d6b298f8ec85d61c"
+            "d6b298f8ec85d61c",
+            "389045590526c181",
+            "87cce92b163a7192"
         ],
         "x": 14,
         "y": 19,
         "w": 992,
-        "h": 622
+        "h": 702
     },
     {
         "id": "a49df4f119bb186e",
@@ -579,11 +581,14 @@
             "a1e2f6d090e5529d",
             "fd7a048b60fd40cc",
             "7f1c6a83901d3d23",
-            "944d64652bbfdc85"
+            "944d64652bbfdc85",
+            "95623e89ea0e68bb",
+            "fb880435a67662bc",
+            "7a71a22caf5630aa"
         ],
         "x": 14,
         "y": 19,
-        "w": 1032,
+        "w": 1052,
         "h": 689.5
     },
     {
@@ -676,7 +681,8 @@
             "27336a80e583f921",
             "e1471d5c735bd6d3",
             "d722b84b332a8bb8",
-            "7cb194b63eb56afd"
+            "7cb194b63eb56afd",
+            "5f319cfac8e974b5"
         ],
         "x": 34,
         "y": 19,
@@ -2405,7 +2411,7 @@
         "name": "icons: https://pictogrammers.com/library/mdi/",
         "info": "",
         "x": 210,
-        "y": 600,
+        "y": 680,
         "wires": []
     },
     {
@@ -2671,7 +2677,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 730,
-        "y": 840,
+        "y": 920,
         "wires": []
     },
     {
@@ -2683,7 +2689,7 @@
         "order": 9,
         "width": "4",
         "height": "1",
-        "name": "Persoon thuis?",
+        "name": "Info",
         "label": "",
         "format": "{{msg.payload}}",
         "layout": "row-left",
@@ -2695,8 +2701,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 640,
-        "y": 540,
+        "x": 610,
+        "y": 580,
         "wires": []
     },
     {
@@ -2928,7 +2934,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 100,
-        "y": 700,
+        "y": 780,
         "wires": [
             [
                 "bf9647efa558a7d3",
@@ -2970,7 +2976,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 100,
-        "y": 760,
+        "y": 840,
         "wires": [
             [
                 "f84bc5be2fce9d39",
@@ -2993,7 +2999,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 720,
+        "y": 800,
         "wires": [
             [
                 "c519aa60e02572b1"
@@ -3015,7 +3021,7 @@
         "name": "",
         "dname": "",
         "x": 790,
-        "y": 720,
+        "y": 800,
         "wires": []
     },
     {
@@ -3032,7 +3038,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 700,
+        "y": 780,
         "wires": [
             [
                 "229bc4f563105a3f"
@@ -3053,7 +3059,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 760,
+        "y": 840,
         "wires": [
             [
                 "229bc4f563105a3f"
@@ -3074,7 +3080,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 820,
+        "y": 900,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -3095,7 +3101,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 880,
+        "y": 960,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -3116,7 +3122,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -3142,7 +3148,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 380,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "f85ce69846f65989"
@@ -3230,7 +3236,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "all",
         "x": 660,
-        "y": 1020,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -3249,7 +3255,7 @@
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 1020,
+        "y": 1100,
         "wires": [
             [
                 "bd60c97adc37bf3b"
@@ -3279,10 +3285,56 @@
         "payload": "",
         "payloadType": "date",
         "x": 300,
-        "y": 1020,
+        "y": 1100,
         "wires": [
             [
                 "79cda76e1cdcc076"
+            ]
+        ]
+    },
+    {
+        "id": "389045590526c181",
+        "type": "mqtt in",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "name": "",
+        "topic": "BluetoothConnection",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 620,
+        "wires": [
+            [
+                "87cce92b163a7192"
+            ]
+        ]
+    },
+    {
+        "id": "87cce92b163a7192",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "name": "Connection",
+        "func": "node.status({ text: msg.payload });\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n    msg.ui_update = { color: \"#ffffff\" } // wit ;\n    return [msg, null];\n}\nelse {\n    msg.payload = \"Bluetooth speaker niet aan?\";\n    msg.ui_update = { color: \"#ff0000\" } // rood ;\n    return [null, msg];\n}\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 620,
+        "wires": [
+            [
+                "b2ce6b3ac89473bf"
+            ],
+            [
+                "f720e78159430790"
             ]
         ]
     },
@@ -4514,8 +4566,8 @@
         "name": "Herinnering",
         "label": "Melding herhalen na (in minuten)",
         "order": 9,
-        "width": "0",
-        "height": "0",
+        "width": "4",
+        "height": "1",
         "topic": "topic",
         "topicType": "msg",
         "mode": "number",
@@ -7613,7 +7665,8 @@
         "y": 440,
         "wires": [
             [
-                "7f1c6a83901d3d23"
+                "7f1c6a83901d3d23",
+                "fb880435a67662bc"
             ]
         ]
     },
@@ -7953,12 +8006,12 @@
         "label": "Voeg apparaat toe",
         "order": 8,
         "width": "2",
-        "height": "1",
+        "height": "2",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
+        "className": "Bluetooth",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -8157,12 +8210,12 @@
         "label": "Annuleer",
         "order": 9,
         "width": "2",
-        "height": "1",
+        "height": "2",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
+        "className": "Bluetooth",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -8638,7 +8691,7 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
+        "className": "Bluetooth",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -8769,7 +8822,7 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
+        "className": "Bluetooth",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -9143,7 +9196,7 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
+        "className": "Bluetooth",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -9229,6 +9282,71 @@
         "wires": []
     },
     {
+        "id": "95623e89ea0e68bb",
+        "type": "ui-template",
+        "z": "ce724907bfebf75c",
+        "g": "b653e740e9531504",
+        "group": "",
+        "page": "e9d32d9d636d4a34",
+        "ui": "",
+        "name": "CSS button",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": ".Bluetooth button {\n    font-size: 1.1em;\n}\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "page:style",
+        "className": "Bluetooth",
+        "x": 130,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb880435a67662bc",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "g": "b653e740e9531504",
+        "name": "Niet verbonden?",
+        "func": "if (msg.payload.length == 0) {\n    return;\n}\n\nmsg.payload = msg.payload[0].connected;\nnode.status({ text: msg.payload });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 420,
+        "wires": [
+            [
+                "7a71a22caf5630aa"
+            ]
+        ]
+    },
+    {
+        "id": "7a71a22caf5630aa",
+        "type": "mqtt out",
+        "z": "ce724907bfebf75c",
+        "g": "b653e740e9531504",
+        "name": "",
+        "topic": "BluetoothConnection",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 940,
+        "y": 500,
+        "wires": []
+    },
+    {
         "id": "de3f35eb8cc6cc74",
         "type": "ui-button",
         "z": "bf57a768b975c2e6",
@@ -9264,7 +9382,7 @@
         "y": 220,
         "wires": [
             [
-                "7cb194b63eb56afd"
+                "5f319cfac8e974b5"
             ]
         ]
     },
@@ -9356,7 +9474,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "play sound",
-        "x": 730,
+        "x": 890,
         "y": 160,
         "wires": [
             [],
@@ -9396,7 +9514,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
+        "x": 700,
         "y": 180,
         "wires": [
             [
@@ -9417,7 +9535,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
+        "x": 670,
         "y": 120,
         "wires": [
             [
@@ -9582,8 +9700,8 @@
         "g": "3856d925f2c69025",
         "name": "https://pixabay.com/nl/music/search/ringtones/",
         "info": "",
-        "x": 810,
-        "y": 80,
+        "x": 830,
+        "y": 60,
         "wires": []
     },
     {
@@ -10482,11 +10600,37 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
+        "x": 500,
         "y": 220,
         "wires": [
             [
                 "121eeb47240d2a87"
+            ]
+        ]
+    },
+    {
+        "id": "5f319cfac8e974b5",
+        "type": "delay",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "7cb194b63eb56afd"
             ]
         ]
     }
