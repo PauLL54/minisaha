@@ -3343,7 +3343,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Connection",
-        "func": "node.status({ text: msg.payload });\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n    msg.ui_update = { color: \"#ffffff\" } // wit ;\n    return [msg, null];\n}\nelse {\n    msg.payload = \"Staat de Bluetooth speaker aan?\";\n    msg.ui_update = { color: \"#ff0000\" } // rood ;\n    return [null, msg];\n}\n",
+        "func": "node.status({ text: msg.payload });\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n    msg.ui_update = { color: \"#ffffff\" } // wit ;\n    return [msg, null];\n}\nelse {\n    if (global.get(\"BluetoothConnectedName\") != \"\") {\n        msg.payload = \"Staat de Bluetooth speaker aan?\";\n        msg.ui_update = { color: \"#ff0000\" } // rood ;\n        return [null, msg];\n    }\n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
