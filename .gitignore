@@ -1,2 +1,8 @@
 *.backup
 *_cred.*
+
+sounds/*
+!sounds/Zin-in_Rogier-van-der-Erve.mp3
+!sounds/Goedemorgen.mp3
+!sounds/dynamic-chime-274587.mp3
+
