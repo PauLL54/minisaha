@@ -694,7 +694,8 @@
             "7cb194b63eb56afd",
             "5f319cfac8e974b5",
             "ced962bd1c4d22bc",
-            "98511df3af0e7143"
+            "98511df3af0e7143",
+            "795954223e100ba0"
         ],
         "x": 34,
         "y": 19,
@@ -5651,7 +5652,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": ".buttonupdate button {\n    font-size: 1.7em;\n}",
+        "format": ".buttonupdate button {\n    font-size: 1.6em;\n}",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -5786,7 +5787,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "name": "catch all About",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -6636,7 +6637,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": ".buttonupdate button {\n    font-size: 1.7em;\n}",
+        "format": ".buttonupdate button {\n    font-size: 1.6em;\n}",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -7117,7 +7118,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": ".PowerButton button {\n    font-size: 1.7em;\n}\n",
+        "format": ".PowerButton button {\n    font-size: 1.6em;\n}\n",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -8219,7 +8220,7 @@
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
         "name": "",
-        "label": "Voeg apparaat toe",
+        "label": "Voeg toe",
         "order": 9,
         "width": "2",
         "height": "2",
@@ -8244,7 +8245,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 130,
+        "x": 100,
         "y": 1200,
         "wires": [
             [
@@ -9354,7 +9355,7 @@
         "g": "60ad4210945ee21b",
         "group": "549f1fa0e59e6a04",
         "name": "Clear BT",
-        "label": "Verwijder Bluetooth apparaten",
+        "label": "Verwijder apparaten",
         "order": 3,
         "width": "0",
         "height": "0",
@@ -9460,7 +9461,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": ".Bluetooth button {\n    font-size: 1.1em;\n}\n",
+        "format": ".Bluetooth button {\n    font-size: 1.6em;\n}\n",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -9582,7 +9583,7 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
+        "className": "StartStopButton",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -9779,7 +9780,7 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "",
+        "className": "StartStopButton",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -9939,7 +9940,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 140,
+        "x": 480,
         "y": 160,
         "wires": [
             [
@@ -10883,7 +10884,7 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "BT Connected",
-        "func": "node.status({ text: msg.payload });\n\nif (msg.payload == \"yes\") {\n    var msg = {\n        enabled: true,\n        ui_update: { textColor: \"white\" }\n    };\n    return msg;\n}\nelse {\n    var msg = {\n        enabled: false,\n        ui_update: { textColor: \"gray\" }\n    };\n    return msg;\n}\n",
+        "func": "node.status({ text: msg.payload });\n\nif (msg.payload == \"yes\") {\n    var msg = {\n        enabled: true,\n        ui_update: { textColor: \"white\" }\n    };\n    return msg;\n}\nelse {\n    var msg = {\n        enabled: false,\n        ui_update: { textColor: \"silver\" }\n    };\n    return msg;\n}\n\n/*\n\"red\"\n\"blue\"\n\"green\"\n\"yellow\"\n\"orange\"\n\"purple\"\n\"pink\"\n\"brown\"\n\"black\"\n\"white\"\n\"gray\"\n\n🌈 Extra veelgebruikte tinten\n\"cyan\" (lichtblauw)\n\"magenta\" (fel roze/paars)\n\"lime\" (felgroen)\n\"navy\" (donkerblauw)\n\"teal\" (blauwgroen)\n\"olive\" (olijfgroen)\n\"maroon\" (donkerrood)\n\"silver\" (lichtgrijs)\n\"gold\" (goudkleurig)\n\"indigo\" (diep paars/blauw)\n*/",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -10896,6 +10897,31 @@
             [
                 "de3f35eb8cc6cc74"
             ]
+        ]
+    },
+    {
+        "id": "795954223e100ba0",
+        "type": "ui-template",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "group": "",
+        "page": "bed8396ac6babffc",
+        "ui": "",
+        "name": "CSS StartStopButton",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": ".StartStopButton button {\n    font-size: 1.6em;\n}\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "page:style",
+        "className": "",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            []
         ]
     }
 ]
