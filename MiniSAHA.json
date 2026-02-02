@@ -1622,7 +1622,7 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "Als Systerm is On",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nvar isSystemOn = global.get(\"SystemOn\");\nif (!isSystemOn) {\n    node.status({ text: tijd_nu + \": System is Off\" });\n    return;\n}\n\nnode.status({ text: tijd_nu + \": System is On\" });\n\nreturn msg;",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nvar isSystemOn = global.get(\"SystemOn\");\n\nif (!isSystemOn) {\n    node.status({ text: tijd_nu + \": System is Off\" });\n    return;\n}\n\nnode.status({ text: tijd_nu + \": System is On\" });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3666,7 +3666,7 @@
         "to": "",
         "reg": false,
         "x": 160,
-        "y": 360,
+        "y": 340,
         "wires": [
             [
                 "a2dcd0ec27b30c84"
@@ -3693,7 +3693,7 @@
         "to": "",
         "reg": false,
         "x": 900,
-        "y": 460,
+        "y": 520,
         "wires": [
             []
         ]
@@ -3722,6 +3722,7 @@
         "id": "c7a30ab24c9ec224",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "d": true,
         "name": "Spaces",
         "func": "// verwijder spaties\nlet origineleString = msg.payload;\nif (origineleString == undefined) return;\nlet zonderSpaties = origineleString.replace(/\\s+/g, \"\");\nmsg.payload = zonderSpaties;\n\nreturn msg;",
         "outputs": 1,
@@ -3730,8 +3731,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 460,
+        "x": 480,
+        "y": 520,
         "wires": [
             [
                 "a6fd027bc0be280d",
@@ -3822,7 +3823,6 @@
             "ba5f9de83ae33543",
             "73afa7fb3453b035",
             "3a6f5a640cea07b3",
-            "e4a4c204a25091da",
             "eb5258117d95a7ad",
             "5c2edaa6489039d0",
             "26417c5cfef73e15",
@@ -3890,7 +3890,7 @@
             "4abb19d96b88ba67"
         ],
         "x": 45,
-        "y": 360,
+        "y": 340,
         "wires": [
             [
                 "cbe4d5b193c88548"
@@ -3970,7 +3970,7 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 540,
+        "x": 520,
         "y": 100,
         "wires": [
             [
@@ -4005,7 +4005,7 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 520,
+        "x": 500,
         "y": 240,
         "wires": [
             [
@@ -4020,6 +4020,72 @@
         "group": "a50d14b208aa0231",
         "name": "Email mantelzorger 2",
         "label": "Email adres mantelzorger 2",
+        "order": 15,
+        "width": "0",
+        "height": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "email",
+        "tooltip": "",
+        "delay": "2000",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 520,
+        "y": 700,
+        "wires": [
+            [
+                "1db2268601835331"
+            ]
+        ]
+    },
+    {
+        "id": "0d14b59266171697",
+        "type": "ui-text-input",
+        "z": "5c14e0941d341b42",
+        "group": "a50d14b208aa0231",
+        "name": "Tijd OK",
+        "label": "Tijdstip melding sturen: \"ben je OK?\"",
+        "order": 8,
+        "width": "4",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "time",
+        "tooltip": "",
+        "delay": "2000",
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": false,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 480,
+        "y": 940,
+        "wires": [
+            [
+                "9b36b60d6131042f"
+            ]
+        ]
+    },
+    {
+        "id": "bc64711aeceb5b57",
+        "type": "ui-text-input",
+        "z": "5c14e0941d341b42",
+        "group": "a50d14b208aa0231",
+        "name": "Email mantelzorger 1",
+        "label": "Email adres mantelzorger 1",
         "order": 14,
         "width": "0",
         "height": "0",
@@ -4038,73 +4104,7 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 540,
-        "y": 700,
-        "wires": [
-            [
-                "1db2268601835331"
-            ]
-        ]
-    },
-    {
-        "id": "0d14b59266171697",
-        "type": "ui-text-input",
-        "z": "5c14e0941d341b42",
-        "group": "a50d14b208aa0231",
-        "name": "Tijd OK",
-        "label": "Tijdstip melding sturen: \"ben je OK?\"",
-        "order": 7,
-        "width": "4",
-        "height": "1",
-        "topic": "topic",
-        "topicType": "msg",
-        "mode": "time",
-        "tooltip": "",
-        "delay": "2000",
-        "passthru": true,
-        "sendOnDelay": false,
-        "sendOnBlur": true,
-        "sendOnEnter": false,
-        "className": "",
-        "clearable": false,
-        "sendOnClear": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "x": 500,
-        "y": 940,
-        "wires": [
-            [
-                "9b36b60d6131042f"
-            ]
-        ]
-    },
-    {
-        "id": "bc64711aeceb5b57",
-        "type": "ui-text-input",
-        "z": "5c14e0941d341b42",
-        "group": "a50d14b208aa0231",
-        "name": "Email mantelzorger 1",
-        "label": "Email adres mantelzorger 1",
-        "order": 13,
-        "width": "0",
-        "height": "0",
-        "topic": "topic",
-        "topicType": "msg",
-        "mode": "email",
-        "tooltip": "",
-        "delay": "2000",
-        "passthru": true,
-        "sendOnDelay": true,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "sendOnClear": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "x": 540,
+        "x": 520,
         "y": 640,
         "wires": [
             [
@@ -4128,8 +4128,8 @@
         "tooltip": "",
         "delay": "2000",
         "passthru": true,
-        "sendOnDelay": true,
-        "sendOnBlur": false,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
         "sendOnEnter": false,
         "className": "",
         "clearable": false,
@@ -4137,11 +4137,11 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 520,
-        "y": 360,
+        "x": 510,
+        "y": 340,
         "wires": [
             [
-                "fa655697e3f1bd1d"
+                "4c76892a18484763"
             ]
         ]
     },
@@ -4149,10 +4149,11 @@
         "id": "3f047118cb814e7f",
         "type": "ui-text-input",
         "z": "5c14e0941d341b42",
+        "d": true,
         "group": "a50d14b208aa0231",
         "name": "IP adres",
         "label": "WIFI IP adres van deze telefoon",
-        "order": 5,
+        "order": 6,
         "width": "4",
         "height": "1",
         "topic": "topic",
@@ -4170,8 +4171,8 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 500,
-        "y": 460,
+        "x": 340,
+        "y": 520,
         "wires": [
             [
                 "c7a30ab24c9ec224"
@@ -4185,7 +4186,7 @@
         "group": "a50d14b208aa0231",
         "name": "Meldperiode (in minuten)",
         "label": "Email sturen naar Mantelzorgers na  (in min.)",
-        "order": 10,
+        "order": 11,
         "width": "4",
         "height": "1",
         "topic": "topic",
@@ -4203,7 +4204,7 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 550,
+        "x": 530,
         "y": 1120,
         "wires": [
             [
@@ -4215,10 +4216,11 @@
         "id": "d1640933aa5790c8",
         "type": "ui-button",
         "z": "5c14e0941d341b42",
+        "d": true,
         "group": "a50d14b208aa0231",
         "name": "Help IP",
         "label": "?",
-        "order": 6,
+        "order": 7,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -4242,8 +4244,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 500,
-        "y": 500,
+        "x": 340,
+        "y": 560,
         "wires": [
             [
                 "21d5374db39f6f21"
@@ -4257,7 +4259,7 @@
         "group": "a50d14b208aa0231",
         "name": "Help Meldperiode",
         "label": "?",
-        "order": 11,
+        "order": 12,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -4281,7 +4283,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 530,
+        "x": 510,
         "y": 1220,
         "wires": [
             [
@@ -4294,7 +4296,7 @@
         "type": "ui-text",
         "z": "5c14e0941d341b42",
         "group": "a50d14b208aa0231",
-        "order": 16,
+        "order": 5,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -4309,8 +4311,8 @@
         "className": "",
         "value": "payloads",
         "valueType": "msg",
-        "x": 500,
-        "y": 580,
+        "x": 480,
+        "y": 600,
         "wires": []
     },
     {
@@ -4318,7 +4320,7 @@
         "type": "ui-text",
         "z": "5c14e0941d341b42",
         "group": "a50d14b208aa0231",
-        "order": 12,
+        "order": 13,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -4333,7 +4335,7 @@
         "className": "",
         "value": "payloads",
         "valueType": "msg",
-        "x": 500,
+        "x": 480,
         "y": 880,
         "wires": []
     },
@@ -4341,6 +4343,7 @@
         "id": "d79891686c8e66ba",
         "type": "ui-notification",
         "z": "5c14e0941d341b42",
+        "d": true,
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
         "colorDefault": true,
@@ -4356,7 +4359,7 @@
         "className": "",
         "name": "",
         "x": 890,
-        "y": 500,
+        "y": 560,
         "wires": [
             []
         ]
@@ -4400,7 +4403,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 880,
-        "y": 400,
+        "y": 460,
         "wires": []
     },
     {
@@ -4478,7 +4481,7 @@
         "group": "a50d14b208aa0231",
         "name": "Herinnering",
         "label": "Melding herhalen na (in minuten)",
-        "order": 9,
+        "order": 10,
         "width": "4",
         "height": "1",
         "topic": "topic",
@@ -4496,7 +4499,7 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 510,
+        "x": 490,
         "y": 1280,
         "wires": [
             [
@@ -4570,7 +4573,7 @@
         "group": "a50d14b208aa0231",
         "name": "Help tijd OK",
         "label": "?",
-        "order": 8,
+        "order": 9,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -4594,7 +4597,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 510,
+        "x": 490,
         "y": 1040,
         "wires": [
             [
@@ -4630,6 +4633,7 @@
         "id": "21d5374db39f6f21",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "d": true,
         "name": "help tekst",
         "func": "msg.payload = \n\"<b>Het IP-adres van de WIFI verbinding van je telefoon wordt gebruikt om te zien of je in huis bent. \" +\n\"Als je niet thuis bent, ontvang je geen meldingen.</b>\" +\n\"<br></b><br>\" +\n\"<b>Het IP adres van je telefoon wordt automatisch ingevuld.</b>\"\n//\"<b>Dit IP-adres kan je vinden bij Instellingen op je telefoon. \" +\n//\"Voor ieder merk en type telefoon is dat anders.</b><br>\" +\n//\"<b>Het IP adres kan (bij uitzondering) veranderen!</b>\" + \n//\"<br></b><br>\" +\n//\"<b>Je kan het zo ongeveer vinden:</b><br>\"+\n//\"<b>1. Instellingen --> Verbindingen --> WIFI.</b><br>\" +\n//\"<b>2. Tik op het verbonden netwerk (of Instellingen daarnaast).</b><br>\" +\n//\"<b>3. Daar zie je ergens het IP-adres staan.</b>\" +\n//\"<br></b><br>\" +\n//\"<b>Voorbeeld van een IP-adres is: '192.168.2.68'.</b>\" +\n//\"<br></b><br>\";\n/*\n\"<b>Als blijkt dat je mobiel soms niet gedetecteerd wordt, \" + \n\" ga naar In.stellingen → Apps → (kies een app die altijd actief mag zijn, bv. Chrome) → Batterij → Onbeperkt</b><br>\";\n*/\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
@@ -4638,8 +4642,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 500,
+        "x": 480,
+        "y": 560,
         "wires": [
             [
                 "d79891686c8e66ba"
@@ -4677,7 +4681,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 540,
+        "x": 520,
         "y": 280,
         "wires": [
             [
@@ -4891,7 +4895,7 @@
         "group": "a50d14b208aa0231",
         "name": "Email mantelzorger 3",
         "label": "Email adres mantelzorger 3",
-        "order": 15,
+        "order": 16,
         "width": "0",
         "height": "0",
         "topic": "topic",
@@ -4909,7 +4913,7 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 540,
+        "x": 520,
         "y": 760,
         "wires": [
             [
@@ -4929,11 +4933,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
-        "y": 460,
+        "x": 490,
+        "y": 480,
         "wires": [
             [
-                "3f047118cb814e7f"
+                "3f047118cb814e7f",
+                "996abe576c2cecb2",
+                "a6fd027bc0be280d"
             ]
         ]
     },
@@ -4945,7 +4951,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "change",
         "x": 100,
-        "y": 460,
+        "y": 480,
         "wires": [
             [
                 "f7e8d9c0b1a2"
@@ -4953,49 +4959,71 @@
         ]
     },
     {
-        "id": "ui_control_1",
-        "type": "ui-control",
+        "id": "4c76892a18484763",
+        "type": "function",
         "z": "5c14e0941d341b42",
-        "name": "Page change listener",
-        "ui": "6c1d30b5f16932dd",
-        "events": "all",
-        "x": 600,
-        "y": 820,
+        "name": "Verify",
+        "func": "node.status({ text: \"payload: \" + msg.payload });\n\nlet input  = msg.payload;\n\n// Verwijder alles behalve cijfers en +\nlet cleaned = input.replace(/[^0-9+]/g, \"\");\n\n// Als het nummer met +31 begint → omzetten naar 06-formaat\nif (cleaned.startsWith(\"+31\")) {\n    cleaned = \"0\" + cleaned.slice(3);\n}\n\n// Als het nummer met 0031 begint → zelfde behandeling\nif (cleaned.startsWith(\"0031\")) {\n    cleaned = \"0\" + cleaned.slice(4);\n}\n\n// Nu moet het een 06-nummer zijn\nif (!/^06\\d{8}$/.test(cleaned)) {\n    return [null, msg]; // ongeldig nummer\n}\n\n// Normaliseer naar internationaal formaat\nconst internationaal = \"+31\" + cleaned.slice(1);\n\nmsg.payload = internationaal;\n\nreturn [msg, null];\n\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 400,
         "wires": [
             [
-                "fn_page_change",
-                "debug_out"
+                "fa655697e3f1bd1d"
+            ],
+            [
+                "7a10c185dade879d"
             ]
         ]
     },
     {
-        "id": "fn_page_change",
+        "id": "7a10c185dade879d",
         "type": "function",
         "z": "5c14e0941d341b42",
-        "name": "Detecteer pagina wissel",
-        "func": "let event = msg.payload.event;\nlet page = msg.payload.page;\nlet ip = msg._session?.client?.remoteAddress || \"onbekend\";\n\nmsg.payload = {\n    event,\n    page,\n    ip,\n    timestamp: new Date().toISOString()\n};\nreturn msg;",
+        "name": "Fout",
+        "func": "msg.payload = \"<b>Ongeldig mobiel nummer: </b>\" + msg.payload;\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
+        "timeout": 0,
         "noerr": 0,
-        "x": 850,
-        "y": 860,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 400,
         "wires": [
-            []
+            [
+                "2d24583c1895d795"
+            ]
         ]
     },
     {
-        "id": "debug_out",
-        "type": "debug",
+        "id": "2d24583c1895d795",
+        "type": "ui-notification",
         "z": "5c14e0941d341b42",
-        "name": "Page change debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 1090,
-        "y": 820,
-        "wires": []
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 890,
+        "y": 400,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "5a792b79ee924fcc",
