@@ -542,7 +542,9 @@
             "a9b3d569ef1ff64c",
             "a312655bf01fb8e3",
             "c307ebad62357506",
-            "823df58d3952d919"
+            "823df58d3952d919",
+            "7802f2270c5b2598",
+            "57fcf6eca0a141e9"
         ],
         "x": 14,
         "y": 859,
@@ -4346,7 +4348,7 @@
         "d": true,
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
-        "colorDefault": true,
+        "colorDefault": false,
         "color": "#000000",
         "displayTime": "60",
         "showCountdown": true,
@@ -4370,7 +4372,7 @@
         "z": "5c14e0941d341b42",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
-        "colorDefault": true,
+        "colorDefault": false,
         "color": "#000000",
         "displayTime": "60",
         "showCountdown": true,
@@ -4543,7 +4545,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 880,
-        "y": 980,
+        "y": 880,
         "wires": []
     },
     {
@@ -4559,7 +4561,7 @@
         "finalize": "",
         "libs": [],
         "x": 680,
-        "y": 1040,
+        "y": 1000,
         "wires": [
             [
                 "e5c27da5e10601ac"
@@ -4598,7 +4600,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 490,
-        "y": 1040,
+        "y": 1000,
         "wires": [
             [
                 "5dd81c36547166d6"
@@ -4611,7 +4613,7 @@
         "z": "5c14e0941d341b42",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
-        "colorDefault": true,
+        "colorDefault": false,
         "color": "#000000",
         "displayTime": "60",
         "showCountdown": true,
@@ -4624,7 +4626,7 @@
         "className": "",
         "name": "",
         "x": 890,
-        "y": 1040,
+        "y": 1000,
         "wires": [
             []
         ]
@@ -4695,7 +4697,7 @@
         "z": "5c14e0941d341b42",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
-        "colorDefault": true,
+        "colorDefault": false,
         "color": "#175e03",
         "displayTime": "60",
         "showCountdown": true,
@@ -4719,8 +4721,8 @@
         "z": "5c14e0941d341b42",
         "name": "Weergave is altijd AM/PM",
         "info": "",
-        "x": 690,
-        "y": 900,
+        "x": 670,
+        "y": 880,
         "wires": []
     },
     {
@@ -5007,7 +5009,7 @@
         "z": "5c14e0941d341b42",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
-        "colorDefault": true,
+        "colorDefault": false,
         "color": "#000000",
         "displayTime": "60",
         "showCountdown": true,
@@ -8246,7 +8248,8 @@
         "y": 1200,
         "wires": [
             [
-                "4d4f78505bcbf29e"
+                "4d4f78505bcbf29e",
+                "57fcf6eca0a141e9"
             ]
         ]
     },
@@ -8841,7 +8844,8 @@
         "y": 1160,
         "wires": [
             [
-                "4d4f78505bcbf29e"
+                "4d4f78505bcbf29e",
+                "57fcf6eca0a141e9"
             ]
         ]
     },
@@ -8939,7 +8943,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>De Bluetooth speaker moet in de buurt van het meegeleverde computertje staan. \" + \n\"Bluetooth heeft een bereik van ongeveer 10 m.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>De naam van de Bluetooth speaker vind je in de handleiding. Bijvoorbeeld: HEMA BT Speaker.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Je hoeft maar een gedeelte van de naam op te geven. Bijvoorbeeld: hema of speaker.</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Als je geen handleiding meer hebt, kan je op je mobiel kijken \" +\n\"welke naam te voorschijn komt (maar niet koppelen, hoor!).</b><br>\" +\n\"<br></b><br>\" +\n\"<b>Je kan maar 1 apparaat tegelijk koppelen. Dus als je een nieuw apparaat wil koppelen, moet je eerst de oude verwijderen.</b><br>\";;\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>De Bluetooth speaker moet in de buurt (< 10 m) van het meegeleverde computertje staan. \" + \n\"<br><br>\" +\n\"Zorg dat er altijd een netadapter is aangesloten!\" +\n\"<br><br>\" +\n\"De naam van de Bluetooth speaker vind je in de handleiding. Bijvoorbeeld: HEMA BT Speaker.\" +\n\"<br><br>\" +\n\"Je hoeft maar een gedeelte van de naam op te geven. Bijvoorbeeld: speaker.\" +\n\"<br><br>\" +\n\"Als de speaker niet in de koppelmodus komt (knipperen blauwe LED), geef dan een hard reset: \" +\n\"<br>\" +\n\"1.\tZet de speaker uit.\"+ \n\"<br>\" +\n\"2.\tHoud Power + Volume- tegelijk ingedrukt voor 10 seconden.\" +\n\"<br>\" +\n\"3.\tWacht op een apart geluid: dat is de reset.\" +\n\"<br><br>\" +\n\"Je kan maar 1 apparaat tegelijk koppelen. Dus als je een nieuw apparaat wil koppelen, moet je eerst de oude verwijderen.</b><br>\";;\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -8961,7 +8965,7 @@
         "g": "04fd012f1107245e",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
-        "colorDefault": true,
+        "colorDefault": false,
         "color": "#000000",
         "displayTime": "60",
         "showCountdown": true,
@@ -9565,6 +9569,52 @@
         "x": 450,
         "y": 1400,
         "wires": []
+    },
+    {
+        "id": "7802f2270c5b2598",
+        "type": "ui-notification",
+        "z": "ce724907bfebf75c",
+        "g": "04fd012f1107245e",
+        "ui": "6c1d30b5f16932dd",
+        "position": "center center",
+        "colorDefault": false,
+        "color": "#175e03",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "popup",
+        "x": 410,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57fcf6eca0a141e9",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "g": "04fd012f1107245e",
+        "name": "Zoeken...",
+        "func": "msg.payload = \"<br></b><br>\" +\n\"<b>Zorg dat het apparaat aan staat en is aangesloten op een netadapter!\" +\n\"<br><br>\" + \n\"Zoeken naar een Bluetooth speaker (~30 sec.) ...  \";\n\"<br></b><br>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"center\",\n    displayTime: 30,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 1120,
+        "wires": [
+            [
+                "7802f2270c5b2598"
+            ]
+        ]
     },
     {
         "id": "de3f35eb8cc6cc74",
@@ -10571,7 +10621,7 @@
         "g": "852f70d81ad10832",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
-        "colorDefault": true,
+        "colorDefault": false,
         "color": "#000000",
         "displayTime": "60",
         "showCountdown": true,
@@ -10595,7 +10645,7 @@
         "z": "bf57a768b975c2e6",
         "g": "852f70d81ad10832",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>Je kan MP3 bestanden ook kopieren vanaf je PC.</b>\" +\n\"<br></b><br>\" +\n\"<b>In Windows Explorer typ in de adres balk: \\\\\\\\\" + msg.payload + \"\\\\sounds\" + \"</b>\" +\n\"<br></b><br>\" +\n\"<b>Log in als gebruiker 'user' met wachtwoord 'user'.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>Je kan MP3 bestanden ook kopieren vanaf je PC.</b>\" +\n\"<br></b><br>\" +\n\"<b>In File Manager typ in de adres balk: \\\\\\\\\" + msg.payload + \"\\\\sounds\" + \"</b>\" +\n\"<br></b><br>\" +\n\"<b>Log in als gebruiker 'user' met wachtwoord 'user'.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
