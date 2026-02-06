@@ -362,7 +362,7 @@
             "848574e93a41e0cc"
         ],
         "x": 14,
-        "y": 739,
+        "y": 779,
         "w": 852,
         "h": 322
     },
@@ -408,12 +408,15 @@
             "0436958281830a8e",
             "d6b298f8ec85d61c",
             "389045590526c181",
-            "87cce92b163a7192"
+            "87cce92b163a7192",
+            "8566a68091f17785",
+            "a6e58f67dceef346",
+            "d98e03253a9f5ca9"
         ],
         "x": 14,
         "y": 19,
         "w": 992,
-        "h": 702
+        "h": 762
     },
     {
         "id": "a49df4f119bb186e",
@@ -2474,7 +2477,7 @@
         "name": "icons: https://pictogrammers.com/library/mdi/",
         "info": "",
         "x": 210,
-        "y": 680,
+        "y": 740,
         "wires": []
     },
     {
@@ -2740,7 +2743,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 730,
-        "y": 920,
+        "y": 960,
         "wires": []
     },
     {
@@ -2765,7 +2768,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 610,
-        "y": 580,
+        "y": 600,
         "wires": []
     },
     {
@@ -2796,7 +2799,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Ja/Nee",
-        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    if (isThuis) {\n        text = \"\";\n    }\n    else {\n        text = \"Mobiel NIET gedetecteerd.\";\n    }\n}\n\nvar msg = { payload: text };\n\nif (isThuis) \n    msg.ui_update = { color: \"#ffffff\"} // wit ;\nelse\n    msg.ui_update = { color: \"#ff0000\"} // rood ;\n\nnode.status({ text: text });\nreturn msg;\n\n",
+        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    if (isThuis) {\n        return;\n    }\n    else {\n        text = \"Mobiel NIET gedetecteerd.\";\n    }\n}\n\nvar msg = { payload: text };\n\nif (isThuis) \n    msg.ui_update = { color: \"#ffffff\"} // wit ;\nelse\n    msg.ui_update = { color: \"#ff0000\"} // rood ;\n\nnode.status({ text: text });\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2807,7 +2810,8 @@
         "y": 540,
         "wires": [
             [
-                "f720e78159430790"
+                "f720e78159430790",
+                "a6e58f67dceef346"
             ]
         ]
     },
@@ -2997,7 +3001,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 100,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "bf9647efa558a7d3",
@@ -3039,7 +3043,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 100,
-        "y": 840,
+        "y": 880,
         "wires": [
             [
                 "f84bc5be2fce9d39",
@@ -3062,7 +3066,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 800,
+        "y": 840,
         "wires": [
             [
                 "c519aa60e02572b1"
@@ -3084,7 +3088,7 @@
         "name": "",
         "dname": "",
         "x": 790,
-        "y": 800,
+        "y": 840,
         "wires": []
     },
     {
@@ -3101,7 +3105,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 780,
+        "y": 820,
         "wires": [
             [
                 "229bc4f563105a3f"
@@ -3122,7 +3126,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 840,
+        "y": 880,
         "wires": [
             [
                 "229bc4f563105a3f"
@@ -3143,7 +3147,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -3164,7 +3168,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 960,
+        "y": 1000,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -3185,7 +3189,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 1020,
+        "y": 1060,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -3211,7 +3215,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 380,
-        "y": 1020,
+        "y": 1060,
         "wires": [
             [
                 "f85ce69846f65989"
@@ -3305,7 +3309,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 620,
+        "y": 660,
         "wires": [
             [
                 "87cce92b163a7192"
@@ -3318,19 +3322,81 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Connection",
-        "func": "node.status({ text: msg.payload });\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n    msg.ui_update = { color: \"#ffffff\" } // wit ;\n    return [msg, null];\n}\nelse {\n    if (global.get(\"BluetoothConnectedName\") != \"\") {\n        msg.payload = \"Staat de Bluetooth speaker aan?\";\n        msg.ui_update = { color: \"#ff0000\" } // rood ;\n        return [null, msg];\n    }\n}\n",
-        "outputs": 2,
+        "func": "node.status({ text: msg.payload });\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n    msg.ui_update = { color: \"#ffffff\" } // wit ;\n    return msg;\n}\nelse {\n    if (global.get(\"BluetoothConnectedName\") != \"\") {\n        msg.payload = \"Staat de Bluetooth speaker aan?\";\n        msg.ui_update = { color: \"#ff0000\" } // rood ;\n        return msg;\n    }\n}\nreturn;\n",
+        "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 620,
+        "y": 660,
         "wires": [
             [
-                "b2ce6b3ac89473bf"
-            ],
+                "f720e78159430790",
+                "8566a68091f17785"
+            ]
+        ]
+    },
+    {
+        "id": "8566a68091f17785",
+        "type": "debug",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a6e58f67dceef346",
+        "type": "debug",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "d98e03253a9f5ca9",
+        "type": "inject",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.4",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 600,
+        "wires": [
             [
                 "f720e78159430790"
             ]
@@ -5096,7 +5162,7 @@
         "type": "function",
         "z": "5c14e0941d341b42",
         "name": "Verify",
-        "func": "node.status({ text: \"payload: \" + msg.payload });\n\nif (isInvalidEmail2(msg.payload)) {\n    return [null, msg]; // ongeldig email adres\n}\n\nreturn [msg, null];\n\n\nfunction isInvalidEmail2(email) {\n    if (email === \"\") return false;\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;\n    return !regex.test(email);\n}\n\nfunction isInvalidEmail(email) {\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    return !regex.test(email);\n}\n",
+        "func": "if (msg.payload == undefined || msg.payload === \"\") return;\n\nnode.status({ text: \"payload: \" + msg.payload });\n\nif (isInvalidEmail2(msg.payload)) {\n    return [null, msg]; // ongeldig email adres\n}\n\nreturn [msg, null];\n\n\nfunction isInvalidEmail2(email) {\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;\n    return !regex.test(email);\n}\n\nfunction isInvalidEmail(email) {\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    return !regex.test(email);\n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
