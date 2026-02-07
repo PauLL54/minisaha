@@ -727,11 +727,14 @@
             "2912eea2927befa7",
             "1ee1bd387c952be2",
             "217d3c58acae81bd",
-            "0375a3cf9551c911"
+            "0375a3cf9551c911",
+            "709c2edf3d4f3eb2",
+            "9f3dd4c4d056882c",
+            "d68aa0b732adcd5c"
         ],
         "x": 34,
         "y": 1071.5,
-        "w": 832,
+        "w": 952,
         "h": 309.5
     },
     {
@@ -10305,7 +10308,7 @@
         "z": "bf57a768b975c2e6",
         "g": "e9121fbc4482804f",
         "name": "play / remove sound",
-        "func": "node.status({ text: msg.column + \": \" + msg.payload.shortName });\n\nif (msg.column == \"sound\") {\n  msg.payload = msg.payload.shortName;\n  return [msg, null];\n}\n\nif (msg.column == \"verwijder\") {\n    msg.payload = 'rm \"' + msg.payload.filename + '\"';\n    return [null, msg];\n}\n\nreturn msg;",
+        "func": "node.status({ text: msg.column + \": \" + msg.payload.shortName });\n\nif (msg.column == \"sound\") {\n  msg.payload = msg.payload.shortName;\n  return [msg, null];\n}\n\nif (msg.column == \"verwijder\") {\n    msg.cmd = 'rm \"' + msg.payload.filename + '\"';\n    return [null, msg];\n}\n\nreturn msg;",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -10319,7 +10322,7 @@
                 "217d3c58acae81bd"
             ],
             [
-                "776ed147123b92b8"
+                "709c2edf3d4f3eb2"
             ]
         ]
     },
@@ -10336,8 +10339,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "exec rm",
-        "x": 720,
-        "y": 1240,
+        "x": 900,
+        "y": 1320,
         "wires": [
             [],
             [],
@@ -11231,5 +11234,74 @@
         "x": 790,
         "y": 1180,
         "wires": []
+    },
+    {
+        "id": "709c2edf3d4f3eb2",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "name": "ja/nee dialog",
+        "func": "msg.payload = \n    \"<b>Wil je het bestand '\" + \n    msg.payload.shortName + \n    \"' echt verwijderen?\" +\n\"<br></b><br>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"center\",\n    displayTime: 100,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 1240,
+        "wires": [
+            [
+                "9f3dd4c4d056882c"
+            ]
+        ]
+    },
+    {
+        "id": "9f3dd4c4d056882c",
+        "type": "ui-notification",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": false,
+        "color": "#175e03",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Nee",
+        "allowConfirm": true,
+        "confirmText": "Ja",
+        "raw": false,
+        "className": "",
+        "name": "Show",
+        "x": 870,
+        "y": 1240,
+        "wires": [
+            [
+                "d68aa0b732adcd5c"
+            ]
+        ]
+    },
+    {
+        "id": "d68aa0b732adcd5c",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "name": "Ja?",
+        "func": "if (msg.payload == \"dismiss_clicked\") return;\n\nif (msg.payload == \"confirm_clicked\") {\n    msg.payload = msg.cmd;\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 1320,
+        "wires": [
+            [
+                "776ed147123b92b8"
+            ]
+        ]
     }
 ]
