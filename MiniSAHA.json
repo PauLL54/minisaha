@@ -162,12 +162,13 @@
             "3758cdea9d5d1d01",
             "61806882e2c16761",
             "728339c56b6087ec",
-            "6ddc11d490af5fe8"
+            "6ddc11d490af5fe8",
+            "bab0e09190007a04"
         ],
-        "x": 24,
-        "y": 939,
-        "w": 962,
-        "h": 262
+        "x": 14,
+        "y": 919,
+        "w": 992,
+        "h": 282
     },
     {
         "id": "289d8e4b5f966496",
@@ -2797,7 +2798,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Ja/Nee",
-        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    if (isThuis) {\n        return;\n    }\n    else {\n        text = \"Mobiel NIET gedetecteerd.\";\n    }\n}\n\nvar msg = { payload: text };\n\nif (isThuis) \n    msg.ui_update = { color: \"#ffffff\"} // wit ;\nelse\n    msg.ui_update = { color: \"#ff0000\"} // rood ;\n\nnode.status({ text: text });\nreturn msg;\n\n",
+        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    if (isThuis) {\n        text = \"\";\n    }\n    else {\n        text = \"Mobiel NIET gedetecteerd.\";\n    }\n}\n\nvar msg = { payload: text };\n\nif (isThuis) \n    msg.ui_update = { color: \"#ffffff\"} // wit ;\nelse\n    msg.ui_update = { color: \"#ff0000\"} // rood ;\n\nnode.status({ text: text });\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5012,8 +5013,7 @@
         "wires": [
             [
                 "3f047118cb814e7f",
-                "996abe576c2cecb2",
-                "a6fd027bc0be280d"
+                "a18148e4e8946b3b"
             ]
         ]
     },
@@ -5263,6 +5263,27 @@
         "wires": [
             [
                 "6ec0d1fc0ef2210b"
+            ]
+        ]
+    },
+    {
+        "id": "a18148e4e8946b3b",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "name": "filter tailscale",
+        "func": "node.status({ text: \"payload: \" + msg.payload });\nvar ip = msg.payload ?? \"\";\nif (!ip.startsWith(\"192\")) return;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 480,
+        "wires": [
+            [
+                "996abe576c2cecb2",
+                "a6fd027bc0be280d"
             ]
         ]
     },
@@ -6482,7 +6503,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Test update",
         "label": "Update",
-        "order": 11,
+        "order": 12,
         "width": "3",
         "height": "1",
         "emulateClick": false,
@@ -6520,7 +6541,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 10,
+        "order": 11,
         "width": "4",
         "height": "1",
         "name": "Test versie",
@@ -6637,7 +6658,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 12,
+        "order": 13,
         "width": 0,
         "height": 0,
         "name": "Update msg",
@@ -6952,7 +6973,7 @@
         "g": "6bde74f61fffc171",
         "name": "",
         "env": [],
-        "x": 540,
+        "x": 580,
         "y": 1080,
         "wires": [
             [
@@ -7009,7 +7030,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
+        "x": 360,
         "y": 1080,
         "wires": [
             [
@@ -7049,7 +7070,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
+        "x": 850,
         "y": 1040,
         "wires": [
             []
@@ -7062,8 +7083,8 @@
         "g": "6bde74f61fffc171",
         "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
         "info": "",
-        "x": 260,
-        "y": 980,
+        "x": 270,
+        "y": 960,
         "wires": []
     },
     {
@@ -7173,8 +7194,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 120,
-        "y": 1020,
+        "x": 110,
+        "y": 1000,
         "wires": [
             [
                 "728339c56b6087ec"
@@ -7196,7 +7217,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 780,
+        "x": 800,
         "y": 980,
         "wires": []
     },
@@ -7213,11 +7234,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 1020,
+        "x": 260,
+        "y": 1000,
         "wires": [
             [
-                "ebd1eb7739312b3d"
+                "ebd1eb7739312b3d",
+                "bab0e09190007a04"
             ]
         ]
     },
@@ -7269,7 +7291,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Shutdown computer",
         "label": "Shutdown",
-        "order": 13,
+        "order": 14,
         "width": "3",
         "height": "1",
         "emulateClick": false,
@@ -7310,7 +7332,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Restart computer",
         "label": "Restart",
-        "order": 15,
+        "order": 16,
         "width": "3",
         "height": "1",
         "emulateClick": false,
@@ -7520,7 +7542,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 4,
+        "order": 5,
         "width": "3",
         "height": "1",
         "name": "Free",
@@ -7545,7 +7567,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 6,
+        "order": 7,
         "width": "3",
         "height": "1",
         "name": "Swapped",
@@ -7665,7 +7687,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "d344da1eff713941",
         "group": "b71c0e77d9debcfd",
-        "order": 16,
+        "order": 17,
         "width": 0,
         "height": 0,
         "name": "status",
@@ -7697,7 +7719,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
+        "x": 780,
         "y": 1100,
         "wires": [
             [
@@ -7807,7 +7829,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 7,
+        "order": 8,
         "width": "3",
         "height": "1",
         "name": "Disk",
@@ -7832,7 +7854,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 9,
+        "order": 10,
         "width": "3",
         "height": "1",
         "name": "Used",
@@ -7879,8 +7901,8 @@
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
         "order": 3,
-        "width": "0",
-        "height": "0",
+        "width": "5",
+        "height": "1",
         "name": "State",
         "label": "State: ",
         "format": "{{msg.payload}}",
@@ -7925,7 +7947,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 8,
+        "order": 9,
         "width": "1",
         "height": "1",
         "name": "space",
@@ -7950,7 +7972,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
         "group": "b71c0e77d9debcfd",
-        "order": 5,
+        "order": 6,
         "width": "1",
         "height": "1",
         "name": "space",
@@ -7975,7 +7997,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "d344da1eff713941",
         "group": "b71c0e77d9debcfd",
-        "order": 14,
+        "order": 15,
         "width": "1",
         "height": "1",
         "name": "space",
@@ -7993,6 +8015,71 @@
         "x": 270,
         "y": 1500,
         "wires": []
+    },
+    {
+        "id": "210c0d3eb90c90fc",
+        "type": "ui-button",
+        "z": "eb60a9ea21d42f29",
+        "group": "b71c0e77d9debcfd",
+        "name": "Clear",
+        "label": "Clear",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "buttonupdate",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 620.3333129882812,
+        "y": 1158.333251953125,
+        "wires": [
+            [
+                "b0067e5db1bb638b"
+            ]
+        ]
+    },
+    {
+        "id": "bab0e09190007a04",
+        "type": "trigger",
+        "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
+        "name": "",
+        "op1": "",
+        "op2": "20",
+        "op1type": "nul",
+        "op2type": "json",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 430,
+        "y": 1000,
+        "wires": [
+            [
+                "ebd1eb7739312b3d"
+            ]
+        ]
     },
     {
         "id": "0af8df52052ef366",
