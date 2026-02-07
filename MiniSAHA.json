@@ -695,7 +695,9 @@
             "730dfdd54514ae4a",
             "d0e532abff31a2ad",
             "1087b0d71356eb46",
-            "88e932f430c769c9"
+            "88e932f430c769c9",
+            "5a41d7518d03c12d",
+            "31476e27da90a60b"
         ],
         "x": 34,
         "y": 19,
@@ -734,7 +736,7 @@
         ],
         "x": 34,
         "y": 1071.5,
-        "w": 952,
+        "w": 932,
         "h": 309.5
     },
     {
@@ -9922,7 +9924,7 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "mpg123 sound",
-        "func": "msg.payload = \"mpg123 -q '.node-red/projects/MiniSAHA/sounds/\" +\n  msg.payload + \"'\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", \" + msg.payload });\nreturn msg;",
+        "func": "msg.payload = \"mpg123 -q '\" + msg.payload + \"'\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", \" + msg.payload });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -10308,7 +10310,7 @@
         "z": "bf57a768b975c2e6",
         "g": "e9121fbc4482804f",
         "name": "play / remove sound",
-        "func": "node.status({ text: msg.column + \": \" + msg.payload.shortName });\n\nif (msg.column == \"sound\") {\n  msg.payload = msg.payload.shortName;\n  return [msg, null];\n}\n\nif (msg.column == \"verwijder\") {\n    msg.cmd = 'rm \"' + msg.payload.filename + '\"';\n    return [null, msg];\n}\n\nreturn msg;",
+        "func": "node.status({ text: msg.column + \": \" + msg.payload.shortName });\n\nif (msg.column == \"sound\") {\n  msg.payload = msg.payload.filename;\n  return [msg, null];\n}\n\nif (msg.column == \"verwijder\") {\n    msg.cmd = 'rm \"' + msg.payload.filename + '\"';\n    return [null, msg];\n}\n\nreturn msg;",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -10339,7 +10341,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "exec rm",
-        "x": 900,
+        "x": 880,
         "y": 1320,
         "wires": [
             [],
@@ -11019,7 +11021,7 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "Selected sound",
-        "func": "msg.payload = global.get(\"BluetoothSound\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\n\nreturn msg;",
+        "func": "msg.payload = \".node-red/projects/MiniSAHA/sounds/\" +\n    global.get(\"BluetoothSound\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -11192,7 +11194,8 @@
         "name": "link out 1",
         "mode": "link",
         "links": [
-            "1087b0d71356eb46"
+            "1087b0d71356eb46",
+            "5a41d7518d03c12d"
         ],
         "x": 675,
         "y": 1180,
@@ -11301,6 +11304,49 @@
         "wires": [
             [
                 "776ed147123b92b8"
+            ]
+        ]
+    },
+    {
+        "id": "5a41d7518d03c12d",
+        "type": "link in",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "link in sound",
+        "links": [
+            "217d3c58acae81bd"
+        ],
+        "x": 595,
+        "y": 320,
+        "wires": [
+            [
+                "31476e27da90a60b"
+            ]
+        ]
+    },
+    {
+        "id": "31476e27da90a60b",
+        "type": "delay",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 710,
+        "y": 320,
+        "wires": [
+            [
+                "cd17b3773f335e9b"
             ]
         ]
     }
