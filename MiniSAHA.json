@@ -94,8 +94,8 @@
                 ]
             },
             {
-                "x": 1090,
-                "y": 460,
+                "x": 1070,
+                "y": 540,
                 "wires": [
                     {
                         "id": "85ce8a28740483a4",
@@ -104,7 +104,7 @@
                 ]
             },
             {
-                "x": 410,
+                "x": 430,
                 "y": 300,
                 "wires": [
                     {
@@ -163,12 +163,13 @@
             "61806882e2c16761",
             "728339c56b6087ec",
             "6ddc11d490af5fe8",
-            "bab0e09190007a04"
+            "bab0e09190007a04",
+            "d4aeaeaaba846f61"
         ],
         "x": 14,
         "y": 919,
         "w": 992,
-        "h": 282
+        "h": 322
     },
     {
         "id": "289d8e4b5f966496",
@@ -252,7 +253,7 @@
             "cf1713ef3eb3df85"
         ],
         "x": 34,
-        "y": 1391.5,
+        "y": 1431.5,
         "w": 632,
         "h": 217
     },
@@ -448,12 +449,14 @@
             "9328b12c82bcdb88",
             "3dc33bd26ddfd0cd",
             "b92aa98cbf16363f",
-            "8032366086aa8de0"
+            "8032366086aa8de0",
+            "e0d919a5c94f2160",
+            "27368f40feb169f4"
         ],
-        "x": 14,
-        "y": 999,
-        "w": 932,
-        "h": 709.5
+        "x": 34,
+        "y": 1019,
+        "w": 852,
+        "h": 769.5
     },
     {
         "id": "5bb2b589a301c7c8",
@@ -798,7 +801,7 @@
             "d4dee740ac379f10"
         ],
         "x": 34,
-        "y": 1219,
+        "y": 1259,
         "w": 672,
         "h": 149.5
     },
@@ -1219,11 +1222,13 @@
         "type": "function",
         "z": "7a37030e3e3276d9",
         "name": "create checkIsAtHome script",
-        "func": "var pingCount = msg.payload.PingCount;\nvar ipAddress = msg.payload.IPAddress;\nflow.set(\"IPAddress\", ipAddress);\n\nvar scriptFileName = \"checkIsAtHome\" + ipAddress;\nmsg = { filename:  scriptFileName };\n\nmsg.payload = \"#!/bin/bash\\nwhile true; do sudo arping -c \" + \npingCount + \n\" \" + ipAddress +\n\" > checkIsAtHome\" + ipAddress +\n\".temp ; cp checkIsAtHome\" + ipAddress + \".temp \" + \n\"checkIsAtHome\" + ipAddress + \".output; done\";\n\nreturn msg;",
+        "func": "var topic = msg.topic;\n\nvar pingCount = msg.payload.PingCount;\nvar ipAddress = msg.payload.IPAddress;\nflow.set(\"IPAddress\", ipAddress);\n\nvar scriptFileName = \"checkIsAtHome\" + ipAddress;\nmsg = { filename:  scriptFileName };\nmsg.topic = topic;\n\nmsg.payload = \"#!/bin/bash\\nwhile true; do sudo arping -c \" + \npingCount + \n\" \" + ipAddress +\n\" > checkIsAtHome\" + ipAddress +\n\".temp ; cp checkIsAtHome\" + ipAddress + \".temp \" + \n\"checkIsAtHome\" + ipAddress + \".output; done\";\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 200,
         "y": 360,
         "wires": [
@@ -1287,7 +1292,7 @@
         "y": 460,
         "wires": [
             [
-                "6799203e85ef9a07"
+                "c1f9479b2838c34c"
             ],
             [],
             []
@@ -1304,8 +1309,8 @@
         "timer": "",
         "oldrc": false,
         "name": "start checkIsAtHome in background",
-        "x": 820,
-        "y": 440,
+        "x": 780,
+        "y": 540,
         "wires": [
             [],
             [],
@@ -1322,7 +1327,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 580,
+        "x": 780,
         "y": 440,
         "wires": [
             [
@@ -1346,8 +1351,8 @@
         "z": "7a37030e3e3276d9",
         "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
         "info": "",
-        "x": 350,
-        "y": 180,
+        "x": 230,
+        "y": 200,
         "wires": []
     },
     {
@@ -1444,11 +1449,13 @@
         "type": "function",
         "z": "7a37030e3e3276d9",
         "name": "get scriptName",
-        "func": "msg.payload = \"checkIsAtHome\" + flow.get(\"IPAddress\");\nreturn msg;",
+        "func": "msg.payload = \"checkIsAtHome\"; // + flow.get(\"IPAddress\");\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 160,
         "y": 460,
         "wires": [
@@ -1475,6 +1482,36 @@
                 "86e654aae39d4d9a"
             ]
         ]
+    },
+    {
+        "id": "c1f9479b2838c34c",
+        "type": "function",
+        "z": "7a37030e3e3276d9",
+        "name": "topic=stop?",
+        "func": "if (msg.topic == \"stop\") return;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 440,
+        "wires": [
+            [
+                "6799203e85ef9a07"
+            ]
+        ]
+    },
+    {
+        "id": "542efb510f561bb3",
+        "type": "comment",
+        "z": "7a37030e3e3276d9",
+        "name": "if topic \"stop\" then start no new process",
+        "info": "",
+        "x": 190,
+        "y": 320,
+        "wires": []
     },
     {
         "id": "86a3b683d730904f",
@@ -5593,8 +5630,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Reboot",
-        "x": 760,
-        "y": 1420,
+        "x": 800,
+        "y": 1440,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -5753,11 +5790,12 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm MiniSAHA.json",
-        "x": 310,
-        "y": 1100,
+        "x": 350,
+        "y": 1180,
         "wires": [
             [
-                "7a258c3a06322d6a"
+                "7a258c3a06322d6a",
+                "27368f40feb169f4"
             ],
             [],
             []
@@ -5776,8 +5814,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get MiniSAHA.json",
-        "x": 570,
-        "y": 1100,
+        "x": 610,
+        "y": 1180,
         "wires": [
             [
                 "28228f40169db06d"
@@ -5799,8 +5837,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Install all files",
-        "x": 290,
-        "y": 1420,
+        "x": 330,
+        "y": 1500,
         "wires": [
             [
                 "c4571cfee0924b57"
@@ -5971,8 +6009,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get Logo.png",
-        "x": 550,
-        "y": 1260,
+        "x": 590,
+        "y": 1340,
         "wires": [
             [
                 "b119fd4598e51e41"
@@ -5994,8 +6032,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm Logo.png",
-        "x": 290,
-        "y": 1260,
+        "x": 330,
+        "y": 1340,
         "wires": [
             [
                 "477a82641741c1d2"
@@ -6017,8 +6055,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm MiniSAHA_cred.json",
-        "x": 330,
-        "y": 1180,
+        "x": 370,
+        "y": 1260,
         "wires": [
             [
                 "62cf14493c558309"
@@ -6040,8 +6078,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get MiniSAHA_cred.json",
-        "x": 590,
-        "y": 1180,
+        "x": 630,
+        "y": 1260,
         "wires": [
             [
                 "6ba99393e4c393d8"
@@ -6189,8 +6227,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 130,
-        "y": 1100,
+        "x": 150,
+        "y": 1120,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -6210,8 +6248,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm bluetooth.py",
-        "x": 300,
-        "y": 1340,
+        "x": 340,
+        "y": 1420,
         "wires": [
             [
                 "05d5a950f617317c"
@@ -6233,8 +6271,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get bluetooth.py",
-        "x": 560,
-        "y": 1340,
+        "x": 600,
+        "y": 1420,
         "wires": [
             [
                 "02d2ac26c698a195"
@@ -6291,11 +6329,11 @@
         "winHide": false,
         "oldrc": false,
         "name": "chmod +x",
-        "x": 540,
-        "y": 1420,
+        "x": 580,
+        "y": 1500,
         "wires": [
             [
-                "07af420f98d0e89a"
+                "3dc33bd26ddfd0cd"
             ],
             [],
             []
@@ -6330,8 +6368,8 @@
         "g": "a49df4f119bb186e",
         "name": "Update procedure voor de gebruiker en tester",
         "info": "",
-        "x": 430,
-        "y": 1040,
+        "x": 450,
+        "y": 1060,
         "wires": []
     },
     {
@@ -6347,8 +6385,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get sound",
-        "x": 280,
-        "y": 1520,
+        "x": 320,
+        "y": 1600,
         "wires": [
             [
                 "9328b12c82bcdb88"
@@ -6370,8 +6408,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Install sound",
-        "x": 550,
-        "y": 1520,
+        "x": 590,
+        "y": 1600,
         "wires": [
             [],
             [],
@@ -6391,8 +6429,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Restart node-red",
-        "x": 830,
-        "y": 1660,
+        "x": 770,
+        "y": 1500,
         "wires": [
             [],
             [],
@@ -6421,8 +6459,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 1040,
+        "x": 140,
+        "y": 1060,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -6442,8 +6480,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "install dashboard@latest",
-        "x": 590,
-        "y": 1660,
+        "x": 630,
+        "y": 1740,
         "wires": [
             [],
             [],
@@ -6474,6 +6512,46 @@
         "x": 640,
         "y": 440,
         "wires": []
+    },
+    {
+        "id": "e0d919a5c94f2160",
+        "type": "mqtt out",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "name": "",
+        "topic": "IPAdressUser",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 600,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "27368f40feb169f4",
+        "type": "function",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "name": "Stop arping",
+        "func": "if (typeof msg.payload !== \"object\" || msg.payload === null) {\n    msg.payload = {};\n}\n\nmsg.payload.stop = true;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 1120,
+        "wires": [
+            [
+                "e0d919a5c94f2160"
+            ]
+        ]
     },
     {
         "id": "5624329dd5cb5b0a",
@@ -6993,7 +7071,9 @@
             ],
             [],
             [],
-            []
+            [
+                "d4aeaeaaba846f61"
+            ]
         ]
     },
     {
@@ -7033,7 +7113,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "6bde74f61fffc171",
         "name": "IP adres & PingCount",
-        "func": "var ipAddress = global.get(\"IP_Mobiel\");\nvar pingCount = msg.payload;\n\nmsg.payload = { IPAddress: ipAddress, PingCount: pingCount };\n\nnode.status({ fill:\"blue\", shape:\"ring\", \ntext: ipAddress + \", pingCount: \" + pingCount });\nreturn msg;",
+        "func": "var ipAddress = global.get(\"IP_Mobiel\");\nvar pingCount = msg.payload;\n\nmsg.payload = { IPAddress: ipAddress, PingCount: pingCount };\n\nnode.status({text: \"topic: \" + msg.topic + \"; \" +\nipAddress + \", pingCount: \" + pingCount });\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -7185,7 +7265,7 @@
         "className": "",
         "interpolation": "linear",
         "x": 880,
-        "y": 1160,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -7237,7 +7317,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "6bde74f61fffc171",
         "name": "pingcount",
-        "func": "msg.payload = 4;\nnode.status({ text: \"pingCount: \" + msg.payload});\nreturn msg;",
+        "func": "node.status({ text: \"stop: \" + msg.payload.stop } );\n\nif (msg.payload.stop) msg.topic = \"stop\";\nmsg.payload = 4;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7266,7 +7346,7 @@
         "oldrc": false,
         "name": "Execute shutdown",
         "x": 550,
-        "y": 1440,
+        "y": 1480,
         "wires": [
             [],
             [],
@@ -7286,7 +7366,7 @@
         "oldrc": false,
         "name": "Execute restart",
         "x": 540,
-        "y": 1560,
+        "y": 1600,
         "wires": [
             [],
             [],
@@ -7326,7 +7406,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 160,
-        "y": 1440,
+        "y": 1480,
         "wires": [
             [
                 "9efaa0c2fd872693",
@@ -7367,7 +7447,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 1560,
+        "y": 1600,
         "wires": [
             [
                 "6d496dbb394b2888",
@@ -7395,7 +7475,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 1500,
+        "y": 1540,
         "wires": [
             []
         ]
@@ -7619,7 +7699,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 160,
-        "y": 1320,
+        "y": 1360,
         "wires": [
             [
                 "a37b37d1.aad508",
@@ -7640,7 +7720,7 @@
         "oldrc": false,
         "name": "measure CPU temperature",
         "x": 400,
-        "y": 1320,
+        "y": 1360,
         "wires": [
             [
                 "ecc06f5.bc3d39"
@@ -7663,7 +7743,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1320,
+        "y": 1360,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -7684,7 +7764,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1260,
+        "y": 1300,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -7713,7 +7793,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 510,
-        "y": 1500,
+        "y": 1540,
         "wires": []
     },
     {
@@ -7729,7 +7809,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
+        "x": 840,
         "y": 1100,
         "wires": [
             [
@@ -7748,7 +7828,7 @@
         "msgArray": false,
         "msgTemp": false,
         "x": 350,
-        "y": 1260,
+        "y": 1300,
         "wires": [
             [
                 "ea735d0.bb55da"
@@ -8023,7 +8103,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 270,
-        "y": 1500,
+        "y": 1540,
         "wires": []
     },
     {
@@ -8058,7 +8138,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 620.3333129882812,
-        "y": 1158.333251953125,
+        "y": 1198.333251953125,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -8090,6 +8170,24 @@
                 "ebd1eb7739312b3d"
             ]
         ]
+    },
+    {
+        "id": "d4aeaeaaba846f61",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "g": "6bde74f61fffc171",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 1140,
+        "wires": []
     },
     {
         "id": "0af8df52052ef366",
