@@ -335,7 +335,8 @@
             "93e66aed5528479a",
             "391e6a39648d43b8",
             "cd2ccbcdab9e2474",
-            "a60b56107555d543"
+            "a60b56107555d543",
+            "8a2726e6b9fa9a91"
         ],
         "x": 14,
         "y": 19,
@@ -390,11 +391,12 @@
             "7139bcd155107a18",
             "b7c8e30189b3e92e",
             "56b665cac3641749",
-            "6c5103174cc9310f"
+            "6c5103174cc9310f",
+            "b7b67d2a822e82d9"
         ],
         "x": 14,
         "y": 551.5,
-        "w": 1192,
+        "w": 1092,
         "h": 809.5
     },
     {
@@ -414,18 +416,17 @@
             "b81cb7c076621c31",
             "6ce9c1c05a07f0e4",
             "7d9adb1d8b871f0c",
-            "229bc4f563105a3f",
-            "c519aa60e02572b1",
             "bf9647efa558a7d3",
             "f84bc5be2fce9d39",
             "4b53939b9023b8c0",
             "074f5b05354c5090",
             "f85ce69846f65989",
-            "848574e93a41e0cc"
+            "848574e93a41e0cc",
+            "45c53f307e13019e"
         ],
         "x": 14,
         "y": 799,
-        "w": 852,
+        "w": 812,
         "h": 322
     },
     {
@@ -1769,7 +1770,7 @@
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>\" +\n\"De contactpersoon ontvangt een email als je niet reageert voor een bepaalde tijd.\" +\n\"<br><br>\" +\n\"Het is handig als er een apart meldingsgeluid wordt ingesteld voor deze email bij jouw contactpersoon.\" +\n\"<br><br>\" +\n\"Instructies hiervoor kan je naar hem/haar toesturen door op 'Stuur email' te tikken.\" +\n\"</b>\";\n\n\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 6000,\n    allowDismiss: true,\n    allowConfirm: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>\" +\n\"De contactpersoon ontvangt een email als je niet reageert voor een bepaalde tijd.\" +\n\"<br><br>\" +\n\"Het is handig als er een apart meldingsgeluid wordt ingesteld voor deze email bij jouw contactpersoon.\" +\n\"<br><br>\" +\n\"<b>Instructies hiervoor kan je naar hem/haar toesturen door op 'Stuur email' te tikken.\" +\n\"</b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 6000,\n    allowDismiss: true,\n    allowConfirm: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2212,8 +2213,53 @@
         "y": 240,
         "wires": [
             [
-                "9714917faf50e4e6"
+                "9714917faf50e4e6",
+                "6a3e1c4af9e596e8"
             ]
+        ]
+    },
+    {
+        "id": "6a3e1c4af9e596e8",
+        "type": "function",
+        "z": "cf9fd0d5cf32c35e",
+        "name": "Feedback",
+        "func": "let email = global.get(\"EmailSleutelbewaarder\" + flow.get(\"ContactNr\"));\nemail = email ?? \"\";\nlet sendEmail = (email != \"\");\n\nif (sendEmail) {\n    msg.payload = \n    \"<b>\" +\n    \"Een email is gestuurd naar je contact persoon met instructies.\" +\n    \"</b>\";\n} else {\n    msg.payload =\n        \"<b>\" +\n        \"Er is nog geen email adres ingevuld.\" +\n        \"</b>\";   \n}\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 6000,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 300,
+        "wires": [
+            [
+                "9de71c9ffd79d1be"
+            ]
+        ]
+    },
+    {
+        "id": "9de71c9ffd79d1be",
+        "type": "ui-notification",
+        "z": "cf9fd0d5cf32c35e",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": false,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Sluiten",
+        "allowConfirm": false,
+        "confirmText": "Stuur email",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 990,
+        "y": 300,
+        "wires": [
+            []
         ]
     },
     {
@@ -2343,8 +2389,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
-        "y": 820,
+        "x": 760,
+        "y": 860,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2389,15 +2435,15 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Alarm email",
-        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && \n    emailSleutelbewaarder2 == \"\" && \n    emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen contactpersonen\"});\n  return;\n}\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nvar bericht = \"Beste contactpersoon van \" + voornaamGebruiker + \",\"\n    \"\\n\\nNeem contact op met hem want hij heeft niet gereageerd op de dagelijkse melding.\";\n\nif (emailSleutelbewaarder2 != \"\" || emailSleutelbewaarder3 != \"\") {\n  bericht = \"Beste eerste contactpersoon van \" + voornaamGebruiker + \",\"\n    \"\\n\\nNeem contact op met hem want hij heeft niet gereageerd op de dagelijkse melding.\" +\n    \"\\nStuur ook (via een reply to all) een bericht naar de \" +\n    \"andere contactpersonen dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede en/of derde contactpersoon,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht \" + \n    \"hebben ontvangen van de eerste contactpersoon, neem dan zelf contact \" + \n    \"op met de gebruiker en laat dat de andere contactpersonen ook weten.\";\n}\n\nmsg.topic = \"MiniSAHA: er is niet gereageerd\";\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "name": "Geen melding",
+        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && \n    emailSleutelbewaarder2 == \"\" && \n    emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen contactpersonen\"});\n  return;\n}\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nvar bericht = \"Beste contactpersoon van \" + voornaamGebruiker + \",\" +\n    \"\\n\\nNeem contact op met hem want hij heeft niet gereageerd op de dagelijkse melding.\";\n\nif (emailSleutelbewaarder2 != \"\" || emailSleutelbewaarder3 != \"\") {\n  bericht = \"Beste eerste contactpersoon van \" + voornaamGebruiker + \",\"\n    \"\\n\\nNeem contact op met hem want hij heeft niet gereageerd op de dagelijkse melding.\" +\n    \"\\nStuur ook (via een reply to all) een bericht naar de \" +\n    \"andere contactpersonen dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede en/of derde contactpersoon,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht \" + \n    \"hebben ontvangen van de eerste contactpersoon, neem dan zelf contact \" + \n    \"op met de gebruiker en laat dat de andere contactpersonen ook weten.\";\n}\n\nmsg.topic = \"MiniSAHA: er is niet gereageerd\";\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
+        "x": 400,
         "y": 900,
         "wires": [
             [
@@ -2418,8 +2464,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 980,
+        "x": 610,
+        "y": 1020,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -2474,7 +2520,7 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "StateMachine",
-        "func": "let states = global.get(\"states\");\nvar tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\nglobal.set(\"previousState\", previousState);\n\nlet trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger == \"startToonVraag\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        if (trigger == \"isThuis\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.IDLE;\n        break;\n    }\n    case states.TOONOKVRAAG: {\n        if (trigger == \"isNietThuis\") currentState = states.TOONOKVRAAGNIETTHUIS; \n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        if (trigger == \"isThuis\") currentState = states.MELDGEBRUIKER; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.IDLE;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"isNietThuis\") currentState = states.MELDGEBRUIKERNIETTHUIS; \n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE;\n        if (trigger == \"jaPressed\") currentState = states.ISOK_OVERTIJD;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\nif (currentState != previousState) {\n    msg.payload = currentState;\n    return msg;\n}\nelse\n    return;\n\n",
+        "func": "let states = global.get(\"states\");\nvar tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\nglobal.set(\"previousState\", previousState);\n\nlet trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger == \"startToonVraag\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        if (trigger == \"isThuis\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.IDLE;\n        break;\n    }\n    case states.TOONOKVRAAG: {\n        if (trigger == \"isNietThuis\") currentState = states.TOONOKVRAAGNIETTHUIS; \n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        if (trigger == \"isThuis\") currentState = states.MELDGEBRUIKER; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.IDLE;\n        break;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"isNietThuis\") currentState = states.MELDGEBRUIKERNIETTHUIS; \n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") currentState = states.ISOK;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE;\n        if (trigger == \"jaPressed\") currentState = states.ISOK_OVERTIJD;\n        if (trigger == \"neePressed\") currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\nif (currentState != previousState) {\n    msg.payload = currentState;\n    return msg;\n}\nelse\n    return;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2485,7 +2531,8 @@
         "y": 380,
         "wires": [
             [
-                "94fd03500445951f"
+                "94fd03500445951f",
+                "8a2726e6b9fa9a91"
             ]
         ]
     },
@@ -2554,8 +2601,8 @@
         "tls": true,
         "name": "",
         "dname": "",
-        "x": 1070,
-        "y": 1020,
+        "x": 1010,
+        "y": 1060,
         "wires": []
     },
     {
@@ -2833,8 +2880,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 1200,
+        "x": 140,
+        "y": 1260,
         "wires": [
             [
                 "cfa6b22427e3edc3"
@@ -2846,7 +2893,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "MiniSAHA actief",
+        "name": "MiniSAHA herinnering",
         "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"Herinnering: MiniSAHA is nog steeds actief bij \" + voornaamGebruiker;\n\nvar bericht = \"Beste contactpersoon van \" + voornaamGebruiker +\n  \".\\n\\nEens per week wordt dit bericht naar je gestuurd.\\n\" + \n  \"Zo weet je dat het MiniSAHA systeem nog steeds actief is bij \" + \n  global.get(\"VoornaamGebruiker\") + \".\\n\\n\" +\n\"Mocht je dit bericht niet meer ontvangen op zondag rond 12:00, neem dan contact op met hem.\";\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -2854,8 +2901,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 1200,
+        "x": 420,
+        "y": 1260,
         "wires": [
             [
                 "56b665cac3641749"
@@ -3062,7 +3109,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Instructie Email",
-        "func": "msg.topic = \"MiniSAHA: Email instellen\";\n\nmsg.payload =\n    \"<br>Beste contactpersoon van \" + global.get(\"VoornaamGebruiker\")  + \",\" +\n    \"<br><br>\" +\n    global.get(\"VoornaamGebruiker\")  + \" gebruikt de MiniSAHA app waarin hij zich iedere dag OK meldt.\" + \n    \"Je ontvangt een email als hij zich te laat afmeldt.\" +\n    \"<br><br>\" +\n    \"Het is handig als je een apart meldingsgeluid hebt voor deze email.\" +\n    \"<br>\" +\n    \"Dat kan als volgt:\" +\n    \"<br>\" +\n    \"1. Maak dan een nieuw email account aan.\" +\n    \"<br>\" +\n    \"2. Installeer een andere email app die je nog niet hebt.\" +\n    \"<br>\" +\n    \"3. Connfigureer het meldingsgeluid voor die app.\" +\n    \"<br>\" +\n    \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n    \"<br>\";\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "msg.topic = \"MiniSAHA: Email instellen\";\n\nmsg.payload =\n    \"<br>Beste contactpersoon van \" + global.get(\"VoornaamGebruiker\")  + \",\" +\n    \"<br><br>\" +\n    global.get(\"VoornaamGebruiker\")  + \" gebruikt de MiniSAHA app waarin hij zich iedere dag OK meldt. \" + \n    \"Je ontvangt een email als hij zich te laat afmeldt.\" +\n    \"<br><br>\" +\n    \"Het is handig als je een apart meldingsgeluid hebt voor dit email bericht.\" +\n    \"<br>\" +\n    \"Dat kan je als volgt instellen:\" +\n    \"<br>\" +\n    \"1. Maak dan een nieuw email account aan.\" +\n    \"<br>\" +\n    \"2. Installeer een andere email app op je telefoon die je nog niet hebt.\" +\n    \"<br>\" +\n    \"3. Configureer het meldingsgeluid voor die nieuwe email app.\" +\n    \"<br>\" +\n    \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n    \"<br><br>\";\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3070,7 +3117,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 1260,
+        "y": 1200,
         "wires": [
             [
                 "56b665cac3641749"
@@ -3092,7 +3139,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 1260,
+        "y": 1200,
         "wires": [
             [
                 "dc5cb52b6bdb4970"
@@ -3155,8 +3202,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 820,
+        "x": 620,
+        "y": 860,
         "wires": [
             [
                 "6c1f652de628f1be"
@@ -3176,8 +3223,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 860,
-        "y": 1020,
+        "x": 800,
+        "y": 1060,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3197,8 +3244,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 920,
-        "y": 1140,
+        "x": 800,
+        "y": 1160,
         "wires": [
             [
                 "7139bcd155107a18"
@@ -3218,8 +3265,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 910,
-        "y": 1200,
+        "x": 790,
+        "y": 1220,
         "wires": [
             [
                 "b7c8e30189b3e92e"
@@ -3241,8 +3288,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 1110,
-        "y": 1200,
+        "x": 990,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -3260,8 +3307,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 1060,
+        "x": 610,
+        "y": 1100,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3282,13 +3329,51 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 390,
+        "x": 110,
+        "y": 1080,
+        "wires": [
+            [
+                "b7b67d2a822e82d9"
+            ]
+        ]
+    },
+    {
+        "id": "b7b67d2a822e82d9",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "Alarm/Cancel",
+        "func": "msg.topic = msg.payload.topic;\nmsg.payload = msg.payload.text;\n\nvar tijd_nu = global.get(\"getTime\")(); \nnode.status({ text: \"Send: \" + tijd_nu + \", topic: \" + msg.topic});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
         "y": 1080,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
             ]
         ]
+    },
+    {
+        "id": "8a2726e6b9fa9a91",
+        "type": "debug",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 380,
+        "wires": []
     },
     {
         "id": "86d57ce8cd9b65da",
@@ -3989,51 +4074,12 @@
         ]
     },
     {
-        "id": "229bc4f563105a3f",
-        "type": "function",
-        "z": "1e372cb3d08d9182",
-        "g": "bb314d79eca0c3fd",
-        "name": "Sleutelbewaarders",
-        "func": "var text = msg.payload;\n\nmsg = {\n    to: global.get(\"EmailSleutelbewaarder1\"),\n    cc: global.get(\"EmailSleutelbewaarder2\") + \";\" + global.get(\"EmailSleutelbewaarder3\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 860,
-        "wires": [
-            [
-                "c519aa60e02572b1"
-            ]
-        ]
-    },
-    {
-        "id": "c519aa60e02572b1",
-        "type": "e-mail",
-        "z": "1e372cb3d08d9182",
-        "g": "bb314d79eca0c3fd",
-        "server": "smtp.gmail.com",
-        "port": "465",
-        "authtype": "BASIC",
-        "saslformat": true,
-        "token": "oauth2Response.access_token",
-        "secure": true,
-        "tls": true,
-        "name": "",
-        "dname": "",
-        "x": 790,
-        "y": 860,
-        "wires": []
-    },
-    {
         "id": "bf9647efa558a7d3",
         "type": "function",
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
         "name": "Alarm tekst",
-        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\" && emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen contacten\"});\n  return;\n}\n\nvar bericht = \"Beste contactpersoon, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" want hij heeft op de Alarm knop gedrukt.\";\n\nif (emailSleutelbewaarder2 != \"\" || emailSleutelbewaarder3 != \"\") {\n  bericht = \"Beste eerste contactpersoon, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") + \n    \" want hij heeft op de Alarm gedrukt.\" +\n    \"\\nLaat ook de overige contactpersonen weten dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede en/of derde contactpersoon,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht hebben ontvangen van de eerste contactpersoon, neem dan zelf contact op met de gebruiker en laat dat de eerste contactpersoon ook weten.\"\n}\n\nmsg.topic = \"MiniSAHA: op Alarm knop gedrukt\";\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\" && emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen contacten\"});\n  return;\n}\n\nvar bericht = \"Beste contactpersoon, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" want hij heeft op de Alarm knop gedrukt.\";\n\nif (emailSleutelbewaarder2 != \"\" || emailSleutelbewaarder3 != \"\") {\n  bericht = \"Beste eerste contactpersoon, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") + \n    \" want hij heeft op de Alarm gedrukt.\" +\n    \"\\nLaat ook de overige contactpersonen weten dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede en/of derde contactpersoon,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht hebben ontvangen van de eerste contactpersoon, neem dan zelf contact op met de gebruiker en laat dat de eerste contactpersoon ook weten.\"\n}\n\nmsg.topic = \"MiniSAHA: op Alarm knop gedrukt\";\nmsg.payload = { \"text\": bericht, \"topic\": msg.topic };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4044,7 +4090,6 @@
         "y": 840,
         "wires": [
             [
-                "229bc4f563105a3f",
                 "45c53f307e13019e"
             ]
         ]
@@ -4055,7 +4100,7 @@
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
         "name": "Cancel Alarm",
-        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\" && emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu + \" geen contactpersonen\"});\n  return;\n}\n\nvar bericht = \"Beste contactpersoon, \" +\n    \"\\n\\n \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" heeft op Cancel Alarm knop gedrukt.\";\n\nmsg.topic = \"MiniSAHA: op Cancel Alarm knop gedrukt\";\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\" && emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu + \" geen contactpersonen\"});\n  return;\n}\n\nvar bericht = \"Beste contactpersoon, \" +\n    \"\\n\\n \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" heeft op Cancel Alarm knop gedrukt.\";\n\nmsg.topic = \"MiniSAHA: op Cancel Alarm knop gedrukt\";\nmsg.payload = { \"text\": bericht, \"topic\":  msg.topic};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4066,7 +4111,6 @@
         "y": 900,
         "wires": [
             [
-                "229bc4f563105a3f",
                 "45c53f307e13019e"
             ]
         ]
@@ -4309,6 +4353,7 @@
         "id": "45c53f307e13019e",
         "type": "mqtt out",
         "z": "1e372cb3d08d9182",
+        "g": "bb314d79eca0c3fd",
         "name": "",
         "topic": "AlarmCancel",
         "qos": "",
@@ -4319,8 +4364,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 719.3333129882812,
-        "y": 916.3333129882812,
+        "x": 730,
+        "y": 860,
         "wires": []
     },
     {
@@ -5949,9 +5994,7 @@
         "x": 500,
         "y": 1400,
         "wires": [
-            [
-                "900c70e726b0b743"
-            ]
+            []
         ]
     },
     {
@@ -6007,22 +6050,6 @@
                 "fd98e8ea7582c78c"
             ]
         ]
-    },
-    {
-        "id": "900c70e726b0b743",
-        "type": "debug",
-        "z": "5c14e0941d341b42",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 1400,
-        "wires": []
     },
     {
         "id": "5a792b79ee924fcc",
@@ -11940,7 +11967,7 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "BT Connected",
-        "func": "const enabled = flow.get(\"TestGeluidEnabled\");\n\nif (enabled != undefined || enabled === false) {\n    return;\n}\n\n// Anders gaat de code hieronder verder\n\nnode.status({ text: msg.payload });\n\nif (msg.payload == \"yes\") {\n    var msg = {\n        enabled: true,\n        ui_update: { textColor: \"white\" }\n    };\n    return msg;\n}\nelse {\n    var msg = {\n        enabled: false,\n        ui_update: { textColor: \"silver\" }\n    };\n    return msg;\n}\n\n/*\n\"red\"\n\"blue\"\n\"green\"\n\"yellow\"\n\"orange\"\n\"purple\"\n\"pink\"\n\"brown\"\n\"black\"\n\"white\"\n\"gray\"\n\n🌈 Extra veelgebruikte tinten\n\"cyan\" (lichtblauw)\n\"magenta\" (fel roze/paars)\n\"lime\" (felgroen)\n\"navy\" (donkerblauw)\n\"teal\" (blauwgroen)\n\"olive\" (olijfgroen)\n\"maroon\" (donkerrood)\n\"silver\" (lichtgrijs)\n\"gold\" (goudkleurig)\n\"indigo\" (diep paars/blauw)\n*/",
+        "func": "let enabled = flow.get(\"TestGeluidEnabled\") ?? true;\n\nif (!enabled) {\n    return;\n}\n\nlet bluetootConnected = msg.payload;\nnode.status({ text: \"Connected: \" + bluetootConnected});\n\nmsg = {\n    enabled: true,\n    ui_update: { textColor: \"white\" },\n    payload: \"\"\n};\n\nif (bluetootConnected == \"no\") {\n    msg.enabled = false;\n    msg.ui_update.textColor = \"silver\";\n}\n\nreturn msg;\n\n/*\n\"red\"\n\"blue\"\n\"green\"\n\"yellow\"\n\"orange\"\n\"purple\"\n\"pink\"\n\"brown\"\n\"black\"\n\"white\"\n\"gray\"\n\n🌈 Extra veelgebruikte tinten\n\"cyan\" (lichtblauw)\n\"magenta\" (fel roze/paars)\n\"lime\" (felgroen)\n\"navy\" (donkerblauw)\n\"teal\" (blauwgroen)\n\"olive\" (olijfgroen)\n\"maroon\" (donkerrood)\n\"silver\" (lichtgrijs)\n\"gold\" (goudkleurig)\n\"indigo\" (diep paars/blauw)\n*/",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -12007,7 +12034,7 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "Enable",
-        "func": "flow.set(\"TestGeluidEnabled\", true);\n\n    var msg = {\n        enabled: true,\n        ui_update: { textColor: \"white\" }\n    };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
+        "func": "flow.set(\"TestGeluidEnabled\", true);\n\nvar msg = {\n    enabled: true,\n    ui_update: { textColor: \"white\" }\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
