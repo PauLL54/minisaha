@@ -399,7 +399,7 @@
         "x": 14,
         "y": 539,
         "w": 1092,
-        "h": 822
+        "h": 1022
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -2211,8 +2211,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 240,
+        "x": 410,
+        "y": 260,
         "wires": [
             [
                 "6a3e1c4af9e596e8"
@@ -2231,12 +2231,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
-        "y": 240,
+        "x": 600,
+        "y": 260,
         "wires": [
             [
-                "9de71c9ffd79d1be",
-                "9714917faf50e4e6"
+                "4e3d5b3dbc44d585"
             ],
             [
                 "9de71c9ffd79d1be"
@@ -2265,6 +2264,26 @@
         "y": 300,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "4e3d5b3dbc44d585",
+        "type": "function",
+        "z": "cf9fd0d5cf32c35e",
+        "name": "to:",
+        "func": "msg.payload = global.get(\"EmailSleutelbewaarder\" + flow.get(\"ContactNr\"));\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 240,
+        "wires": [
+            [
+                "9714917faf50e4e6"
+            ]
         ]
     },
     {
@@ -2690,7 +2709,7 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 540,
+        "x": 620,
         "y": 1320,
         "wires": [
             [
@@ -2713,7 +2732,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
+        "x": 770,
         "y": 1320,
         "wires": []
     },
@@ -2807,8 +2826,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 1280,
+        "x": 750,
+        "y": 1260,
         "wires": [
             [
                 "4f39baa7dbd5d547"
@@ -2833,8 +2852,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 860,
-        "y": 1280,
+        "x": 880,
+        "y": 1260,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2885,8 +2904,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
-        "y": 1260,
+        "x": 120,
+        "y": 1200,
         "wires": [
             [
                 "cfa6b22427e3edc3"
@@ -2907,7 +2926,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 1260,
+        "y": 1200,
         "wires": [
             [
                 "56b665cac3641749"
@@ -3114,7 +3133,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Instructie Email",
-        "func": "msg.topic = \"MiniSAHA: Email instellen\";\n\nmsg.payload =\n    \"<br>Beste contactpersoon van \" + global.get(\"VoornaamGebruiker\")  + \",\" +\n    \"<br><br>\" +\n    global.get(\"VoornaamGebruiker\")  + \" gebruikt de MiniSAHA app waarin hij/zij zich iedere dag OK meldt. \" + \n    \"Je ontvangt een email als hij/zij zich te laat afmeldt.\" +\n    \"<br><br>\" +\n    \"Het is handig als er een apart meldingsgeluid is voor dit email bericht.<br>\" +\n    \"Dat kan je als volgt instellen:<br>\" +\n    \"1. Maak dan een nieuw email account aan.<br>\" +\n    \"2. Installeer een andere email app op je telefoon die je nog niet hebt.<br>\" +\n    \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n    \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n    \"<br><br>\" +\n    \"Voorbeeld om een nieuw Google account aan te maken:<br>\" +\n    \"- Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n    \"- Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n    \"- Nu kan je wel zelf bepalen wat het email adres wordt.<br>\" +\n    \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let toAddress = msg.payload;\n\nmsg.topic = \"MiniSAHA: Hoe email geluid instellen?\";\n\nlet text =\n    \"<br>Beste contactpersoon van \" + global.get(\"VoornaamGebruiker\")  + \",\" +\n    \"<br><br>\" +\n    global.get(\"VoornaamGebruiker\")  + \" gebruikt de MiniSAHA app waarin hij/zij zich iedere dag OK meldt. \" + \n    \"Je ontvangt een email als hij/zij zich te laat afmeldt.\" +\n    \"<br><br>\" +\n    \"Het is handig als er een apart meldingsgeluid is voor dit email bericht.<br>\" +\n    \"Dat kan je als volgt instellen:<br>\" +\n    \"1. Maak dan een nieuw email account aan.<br>\" +\n    \"2. Installeer een andere email app op je telefoon die je nog niet hebt.<br>\" +\n    \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n    \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n    \"<br><br>\" +\n    \"Voorbeeld om een nieuw Google account aan te maken:<br>\" +\n    \"- Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n    \"- Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n    \"- Nu kan je wel zelf bepalen wat het email adres wordt.<br>\" +\n    \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nmsg = {\n    to: toAddress,\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", to: \" +toAddress});\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3122,10 +3141,10 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 1200,
+        "y": 1260,
         "wires": [
             [
-                "56b665cac3641749"
+                "df1878820d0f62c5"
             ]
         ]
     },
@@ -3144,7 +3163,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 1200,
+        "y": 1260,
         "wires": [
             [
                 "dc5cb52b6bdb4970"
@@ -3251,8 +3270,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 1160,
+        "x": 720,
+        "y": 1460,
         "wires": [
             [
                 "7139bcd155107a18"
@@ -3272,8 +3291,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 1220,
+        "x": 710,
+        "y": 1520,
         "wires": [
             [
                 "b7c8e30189b3e92e"
@@ -3295,8 +3314,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 990,
-        "y": 1220,
+        "x": 930,
+        "y": 1520,
         "wires": [
             []
         ]
