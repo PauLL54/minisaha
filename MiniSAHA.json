@@ -336,7 +336,8 @@
             "391e6a39648d43b8",
             "cd2ccbcdab9e2474",
             "a60b56107555d543",
-            "8a2726e6b9fa9a91"
+            "8a2726e6b9fa9a91",
+            "e43aa1add6eab915"
         ],
         "x": 14,
         "y": 19,
@@ -392,12 +393,13 @@
             "b7c8e30189b3e92e",
             "56b665cac3641749",
             "6c5103174cc9310f",
-            "b7b67d2a822e82d9"
+            "b7b67d2a822e82d9",
+            "500d244d6438e211"
         ],
         "x": 14,
-        "y": 551.5,
+        "y": 539,
         "w": 1092,
-        "h": 809.5
+        "h": 822
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -2209,11 +2211,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
+        "x": 550,
         "y": 240,
         "wires": [
             [
-                "9714917faf50e4e6",
                 "6a3e1c4af9e596e8"
             ]
         ]
@@ -2222,17 +2223,21 @@
         "id": "6a3e1c4af9e596e8",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
-        "name": "Feedback",
-        "func": "let email = global.get(\"EmailSleutelbewaarder\" + flow.get(\"ContactNr\"));\nemail = email ?? \"\";\nlet sendEmail = (email != \"\");\n\nif (sendEmail) {\n    msg.payload = \n    \"<b>\" +\n    \"Een email is gestuurd naar je contact persoon met instructies.\" +\n    \"</b>\";\n} else {\n    msg.payload =\n        \"<b>\" +\n        \"Er is nog geen email adres ingevuld.\" +\n        \"</b>\";   \n}\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 6000,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
-        "outputs": 1,
+        "name": "canSendEmail?",
+        "func": "let email = global.get(\"EmailSleutelbewaarder\" + flow.get(\"ContactNr\"));\nemail = email ?? \"\";\nlet canSendEmail = (email != \"\");\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 6000,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\n\nif (canSendEmail) {\n    msg.payload = \n    \"<b>\" +\n    \"Een email met instructies is gestuurd naar je contact persoon\" +\n    \"</b>\";\n    return [msg, null];\n} else {\n    msg.payload =\n        \"<b>\" +\n        \"Er is nog geen email adres ingevuld.\" +\n        \"</b>\";   \n    return [null, msg];\n}\n\n\n\n",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 300,
+        "x": 760,
+        "y": 240,
         "wires": [
+            [
+                "9de71c9ffd79d1be",
+                "9714917faf50e4e6"
+            ],
             [
                 "9de71c9ffd79d1be"
             ]
@@ -3109,7 +3114,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Instructie Email",
-        "func": "msg.topic = \"MiniSAHA: Email instellen\";\n\nmsg.payload =\n    \"<br>Beste contactpersoon van \" + global.get(\"VoornaamGebruiker\")  + \",\" +\n    \"<br><br>\" +\n    global.get(\"VoornaamGebruiker\")  + \" gebruikt de MiniSAHA app waarin hij zich iedere dag OK meldt. \" + \n    \"Je ontvangt een email als hij zich te laat afmeldt.\" +\n    \"<br><br>\" +\n    \"Het is handig als je een apart meldingsgeluid hebt voor dit email bericht.<br>\" +\n    \"Dat kan je als volgt instellen:<br>\" +\n    \"1. Maak dan een nieuw email account aan.<br>\" +\n    \"2. Installeer een andere email app op je telefoon die je nog niet hebt.<br>\" +\n    \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n    \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n    \"<br><br>\" +\n    \"Voorbeeld om een nieuw Google account aanmaken:<br>\" +\n    \"Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n    \"Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n    \"Nu kan je wel een eigen naam invoeren.<br>\" +\n    \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "msg.topic = \"MiniSAHA: Email instellen\";\n\nmsg.payload =\n    \"<br>Beste contactpersoon van \" + global.get(\"VoornaamGebruiker\")  + \",\" +\n    \"<br><br>\" +\n    global.get(\"VoornaamGebruiker\")  + \" gebruikt de MiniSAHA app waarin hij/zij zich iedere dag OK meldt. \" + \n    \"Je ontvangt een email als hij/zij zich te laat afmeldt.\" +\n    \"<br><br>\" +\n    \"Het is handig als er een apart meldingsgeluid is voor dit email bericht.<br>\" +\n    \"Dat kan je als volgt instellen:<br>\" +\n    \"1. Maak dan een nieuw email account aan.<br>\" +\n    \"2. Installeer een andere email app op je telefoon die je nog niet hebt.<br>\" +\n    \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n    \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n    \"<br><br>\" +\n    \"Voorbeeld om een nieuw Google account aan te maken:<br>\" +\n    \"- Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n    \"- Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n    \"- Nu kan je wel zelf bepalen wat het email adres wordt.<br>\" +\n    \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3193,6 +3198,7 @@
         "id": "d366c9dd647f1882",
         "type": "function",
         "z": "a380efb730bea147",
+        "d": true,
         "g": "2ce41e3897fb35ce",
         "name": "Bericht",
         "func": "msg.payload = \"Beste \" + global.get(\"VoornaamGebruiker\") +\n    \", \\n\\n\" +\n    \"Ben je OK? Open de MiniSAHA app en bevestig.\";\n\nreturn msg;",
@@ -3235,6 +3241,7 @@
         "id": "a7f43ddc989df43f",
         "type": "function",
         "z": "a380efb730bea147",
+        "d": true,
         "g": "2ce41e3897fb35ce",
         "name": "WhatsApp contacten",
         "func": "var tijd_nu = global.get(\"getTime\")();\nlet text = msg.payload;\n\nfor (let i = 1; i <= 3; i++) {\n    let contact = global.get(\"MobielContact\" + i) ?? \"\";\n    let apikey = global.get(\"ToegangsCodeContact\" + i) ?? \"\";\n\n\n\n    if (contact != \"\" && apikey != \"\") {\n        msg.payload = {\n            \"message\": text,\n            \"phone_number\": contact,\n            \"apikey\": apikey\n        }\n        node.send(msg);\n        node.status({ text: \"mobielContact: \" + contact + \", code: \" + apikey});\n    }\n}\n\nreturn;",
@@ -3373,6 +3380,28 @@
         "statusType": "auto",
         "x": 720,
         "y": 380,
+        "wires": []
+    },
+    {
+        "id": "500d244d6438e211",
+        "type": "comment",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "Meld gebruiker en contactpersonen",
+        "info": "",
+        "x": 180,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "e43aa1add6eab915",
+        "type": "comment",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "State machine",
+        "info": "",
+        "x": 770,
+        "y": 60,
         "wires": []
     },
     {
