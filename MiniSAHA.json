@@ -394,7 +394,9 @@
             "56b665cac3641749",
             "6c5103174cc9310f",
             "b7b67d2a822e82d9",
-            "500d244d6438e211"
+            "500d244d6438e211",
+            "6c19355dfbaa9427",
+            "99a1a62d240c5007"
         ],
         "x": 14,
         "y": 539,
@@ -2431,7 +2433,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 230,
-        "y": 1320,
+        "y": 1380,
         "wires": []
     },
     {
@@ -2918,7 +2920,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "MiniSAHA herinnering",
+        "name": "Herinnering",
         "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"Herinnering: MiniSAHA is nog steeds actief bij \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon van \" + voornaamGebruiker +\n  \".\\n\\nEens per week wordt dit bericht naar je gestuurd.\\n\" + \n  \"Zo weet je dat het MiniSAHA systeem nog steeds actief is bij \" + \n  global.get(\"VoornaamGebruiker\") + \".\\n\\n\" +\n\"Mocht je dit bericht niet meer ontvangen op zondag rond 12:00, neem dan contact op met hem/haar.\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -2926,7 +2928,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
+        "x": 390,
         "y": 1200,
         "wires": [
             [
@@ -3134,7 +3136,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Instructie Email",
-        "func": "let toAddress = msg.payload;\n\nmsg.topic = \"MiniSAHA: Hoe email geluid instellen?\";\n\nlet text =\n    \"<br>Beste contactpersoon van \" + global.get(\"VoornaamGebruiker\")  + \",\" +\n    \"<br><br>\" +\n    global.get(\"VoornaamGebruiker\")  + \" gebruikt de MiniSAHA app waarin hij/zij zich iedere dag OK meldt. \" + \n    \"Je ontvangt een email als hij/zij zich te laat afmeldt.\" +\n    \"<br><br>\" +\n    \"Het is handig als er een apart meldingsgeluid is voor dit email bericht.<br>\" +\n    \"Dat kan je als volgt instellen:<br>\" +\n    \"1. Maak dan een nieuw email account aan.<br>\" +\n    \"2. Installeer een andere email app op je telefoon die je nog niet hebt.<br>\" +\n    \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n    \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n    \"<br><br>\" +\n    \"Voorbeeld om een nieuw Google account aan te maken:<br>\" +\n    \"- Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n    \"- Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n    \"- Nu kan je wel zelf bepalen wat het email adres wordt.<br>\" +\n    \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nmsg = {\n    to: toAddress,\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", to: \" +toAddress});\nreturn msg;",
+        "func": "let toAddress = msg.payload;\n\nmsg.topic = \"MiniSAHA: Hoe email geluid instellen?\";\n\nlet text =\n    \"<br>Beste contactpersoon van \" + global.get(\"VoornaamGebruiker\")  + \",\" +\n    \"<br><br>\" +\n    global.get(\"VoornaamGebruiker\")  + \" gebruikt de MiniSAHA app waarin hij/zij zich iedere dag OK meldt. \" + \n    \"Je ontvangt een email als hij/zij zich te laat afmeldt.\" +\n    \"<br><br>\" +\n    \"Het is handig als er een apart meldingsgeluid is voor dit email bericht.<br>\" +\n    \"Dat kan je als volgt instellen:<br>\" +\n    \"1. Maak dan een nieuw email account aan.<br>\" +\n    \"2. Installeer een andere email app op je telefoon die je nog niet hebt (vraag Google hoe dit moet).<br>\" +\n    \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n    \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n    \"<br><br>\" +\n    \"Voorbeeld om een nieuw Google account aan te maken:<br>\" +\n    \"- Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n    \"- Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n    \"- Nu kan je wel zelf bepalen wat het email adres wordt.<br>\" +\n    \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nmsg = {\n    to: toAddress,\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", to: \" +toAddress});\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3142,7 +3144,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3164,7 +3166,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "dc5cb52b6bdb4970"
@@ -3423,6 +3425,49 @@
         "x": 770,
         "y": 60,
         "wires": []
+    },
+    {
+        "id": "6c19355dfbaa9427",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "Meldperiode gewijzigd",
+        "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"MiniSAHA: tijdmelding gewijzigd bij \" + voornaamGebruiker;\n\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n  voornaamGebruiker + \" heeft zijn tijdsmelding gewijzigd.\\n\" + \n  \"Wanneer hij zich niet afmeldt, zal je om \" + overtijd +\n  \" een melding krijgen.\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 1260,
+        "wires": [
+            [
+                "56b665cac3641749"
+            ]
+        ]
+    },
+    {
+        "id": "99a1a62d240c5007",
+        "type": "mqtt in",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "",
+        "topic": "OvertijdChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 1260,
+        "wires": [
+            [
+                "6c19355dfbaa9427"
+            ]
+        ]
     },
     {
         "id": "86d57ce8cd9b65da",
@@ -4436,8 +4481,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 890,
-        "y": 880,
+        "x": 910,
+        "y": 940,
         "wires": [
             []
         ]
@@ -4486,7 +4531,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 910,
+        "x": 930,
         "y": 360,
         "wires": [
             []
@@ -4633,7 +4678,7 @@
         "to": "",
         "reg": false,
         "x": 130,
-        "y": 880,
+        "y": 940,
         "wires": [
             [
                 "655933cca9c65716"
@@ -4711,7 +4756,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 900,
+        "x": 920,
         "y": 680,
         "wires": [
             []
@@ -4778,8 +4823,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 940,
-        "y": 1000,
+        "x": 960,
+        "y": 1060,
         "wires": [
             []
         ]
@@ -4804,7 +4849,7 @@
         "to": "",
         "reg": false,
         "x": 180,
-        "y": 1000,
+        "y": 1060,
         "wires": [
             [
                 "8432a47ba220719a"
@@ -4824,7 +4869,7 @@
         "finalize": "",
         "libs": [],
         "x": 700,
-        "y": 1060,
+        "y": 1120,
         "wires": [
             [
                 "f24ffaab884e5a75"
@@ -4858,7 +4903,7 @@
             "4abb19d96b88ba67"
         ],
         "x": 45,
-        "y": 1000,
+        "y": 1060,
         "wires": [
             [
                 "da27f195c199f6ae"
@@ -4922,7 +4967,7 @@
             "4abb19d96b88ba67"
         ],
         "x": 45,
-        "y": 880,
+        "y": 940,
         "wires": [
             [
                 "895ee0f7358cef53"
@@ -5024,7 +5069,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 480,
-        "y": 880,
+        "y": 940,
         "wires": [
             [
                 "9b36b60d6131042f"
@@ -5104,7 +5149,7 @@
         "type": "ui-text-input",
         "z": "5c14e0941d341b42",
         "group": "a50d14b208aa0231",
-        "name": "Meldperiode (in minuten)",
+        "name": "Meldperiode",
         "label": "Melding sturen naar contacten na  (in min.)",
         "order": 11,
         "width": "4",
@@ -5124,11 +5169,11 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 530,
-        "y": 1000,
+        "x": 490,
+        "y": 1060,
         "wires": [
             [
-                "f39bf68dcea766f2"
+                "ec7010218631a22d"
             ]
         ]
     },
@@ -5204,7 +5249,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 510,
-        "y": 1060,
+        "y": 1120,
         "wires": [
             [
                 "5cd5579edefbe928"
@@ -5232,7 +5277,7 @@
         "value": "payloads",
         "valueType": "msg",
         "x": 480,
-        "y": 1200,
+        "y": 1260,
         "wires": []
     },
     {
@@ -5279,7 +5324,7 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 890,
+        "x": 910,
         "y": 720,
         "wires": [
             []
@@ -5303,8 +5348,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 890,
-        "y": 1060,
+        "x": 910,
+        "y": 1120,
         "wires": [
             []
         ]
@@ -5323,7 +5368,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 880,
+        "x": 900,
         "y": 620,
         "wires": []
     },
@@ -5346,8 +5391,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 900,
-        "y": 1120,
+        "x": 920,
+        "y": 1180,
         "wires": [
             []
         ]
@@ -5372,7 +5417,7 @@
         "to": "",
         "reg": false,
         "x": 170,
-        "y": 1120,
+        "y": 1180,
         "wires": [
             [
                 "590a24117a7d6877"
@@ -5388,7 +5433,7 @@
             "4abb19d96b88ba67"
         ],
         "x": 55,
-        "y": 1120,
+        "y": 1180,
         "wires": [
             [
                 "2825429d7e218b9b"
@@ -5421,7 +5466,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 490,
-        "y": 1120,
+        "y": 1180,
         "wires": [
             [
                 "f487e19abb196edc",
@@ -5442,7 +5487,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 1120,
+        "y": 1180,
         "wires": [
             [
                 "eecb60f839dc5afc"
@@ -5463,8 +5508,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 880,
-        "y": 820,
+        "x": 900,
+        "y": 880,
         "wires": []
     },
     {
@@ -5479,8 +5524,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 940,
+        "x": 700,
+        "y": 840,
         "wires": [
             [
                 "e5c27da5e10601ac"
@@ -5519,7 +5564,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 490,
-        "y": 940,
+        "y": 840,
         "wires": [
             [
                 "5dd81c36547166d6"
@@ -5544,8 +5589,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 890,
-        "y": 940,
+        "x": 910,
+        "y": 840,
         "wires": [
             []
         ]
@@ -5629,7 +5674,7 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 890,
+        "x": 910,
         "y": 400,
         "wires": [
             []
@@ -5642,7 +5687,7 @@
         "name": "Weergave is altijd AM/PM",
         "info": "",
         "x": 650,
-        "y": 840,
+        "y": 900,
         "wires": []
     },
     {
@@ -5658,7 +5703,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 1000,
+        "y": 1060,
         "wires": [
             [
                 "163dbba3527a1208"
@@ -5678,7 +5723,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 880,
+        "y": 940,
         "wires": [
             [
                 "0d14b59266171697"
@@ -5697,12 +5742,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
-        "y": 880,
+        "x": 710,
+        "y": 940,
         "wires": [
             [
                 "dba3182f449692bb",
-                "4a202b76747eac9b"
+                "4a202b76747eac9b",
+                "9149cd1eac222f06"
             ]
         ]
     },
@@ -5720,8 +5766,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 900,
-        "y": 1180,
+        "x": 920,
+        "y": 1240,
         "wires": []
     },
     {
@@ -5921,7 +5967,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 860,
+        "x": 880,
         "y": 440,
         "wires": []
     },
@@ -5943,7 +5989,7 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 890,
+        "x": 910,
         "y": 500,
         "wires": [
             []
@@ -6097,6 +6143,95 @@
         "wires": [
             [
                 "fd98e8ea7582c78c"
+            ]
+        ]
+    },
+    {
+        "id": "ec7010218631a22d",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "name": "Changed?",
+        "func": "if (msg.payload != global.get(\"MeldPeriodeInMinuten\")) {\n    node.status({ text: \"'\"+ msg.payload + \"'\"});\n    return msg;\n}\nelse\n    return;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1060,
+        "wires": [
+            [
+                "f39bf68dcea766f2",
+                "9149cd1eac222f06"
+            ]
+        ]
+    },
+    {
+        "id": "9149cd1eac222f06",
+        "type": "delay",
+        "z": "5c14e0941d341b42",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "hours",
+        "rate": "1",
+        "nbRateUnits": "10",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 1000,
+        "wires": [
+            [
+                "32d4144c043af885"
+            ]
+        ]
+    },
+    {
+        "id": "2611f5f157ea5d54",
+        "type": "mqtt out",
+        "z": "5c14e0941d341b42",
+        "name": "",
+        "topic": "OvertijdChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 910,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "32d4144c043af885",
+        "type": "delay",
+        "z": "5c14e0941d341b42",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 1000,
+        "wires": [
+            [
+                "2611f5f157ea5d54"
             ]
         ]
     },
@@ -12554,6 +12689,105 @@
         "info": "",
         "x": 170,
         "y": 340,
+        "wires": []
+    },
+    {
+        "id": "fe6342474c187542",
+        "type": "inject",
+        "z": "091a23c860c18c2f",
+        "name": "Stuur WhatsApp bericht",
+        "props": [
+            {
+                "p": "message",
+                "v": "hello world",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 420,
+        "wires": [
+            [
+                "029a3b7473681958"
+            ]
+        ]
+    },
+    {
+        "id": "029a3b7473681958",
+        "type": "function",
+        "z": "091a23c860c18c2f",
+        "name": "Bouw API URL",
+        "func": "const apikey = \"sy8kti7Jw5WG1e2m\";\nconst type = \"alarm_notification\";\nconst msgText = encodeURIComponent(msg.message);\n\nmsg.method = \"GET\";\nmsg.url = `https://api.inout.bot/send?apikey=${apikey}&type=${type}&message=${msgText}`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 420,
+        "wires": [
+            [
+                "bc2627a4d6e0c58f",
+                "a8ec53977dd2d24a"
+            ]
+        ]
+    },
+    {
+        "id": "bc2627a4d6e0c58f",
+        "type": "http request",
+        "z": "091a23c860c18c2f",
+        "name": "Verstuur WhatsApp via InOut.bot",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 660,
+        "y": 420,
+        "wires": [
+            [
+                "5af732594ebd5a89"
+            ]
+        ]
+    },
+    {
+        "id": "5af732594ebd5a89",
+        "type": "debug",
+        "z": "091a23c860c18c2f",
+        "name": "API Response",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 900,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a8ec53977dd2d24a",
+        "type": "debug",
+        "z": "091a23c860c18c2f",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 480,
         "wires": []
     }
 ]
