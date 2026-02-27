@@ -164,13 +164,9 @@
         ],
         "out": [
             {
-                "x": 620,
-                "y": 40,
+                "x": 820,
+                "y": 60,
                 "wires": [
-                    {
-                        "id": "b93c9a365b0c0222",
-                        "port": 0
-                    },
                     {
                         "id": "b882356f986124aa",
                         "port": 0
@@ -396,7 +392,9 @@
             "b7b67d2a822e82d9",
             "500d244d6438e211",
             "6c19355dfbaa9427",
-            "99a1a62d240c5007"
+            "99a1a62d240c5007",
+            "817a65e37e67edcc",
+            "7df2d7d7906671f7"
         ],
         "x": 14,
         "y": 539,
@@ -921,11 +919,13 @@
             "5dce7c29609dbb18",
             "1738098239dd2b7a",
             "fd98e8ea7582c78c",
-            "b872cbf54450bd69"
+            "b872cbf54450bd69",
+            "4d02350771e9d97a",
+            "f97ccb1c541b62d5"
         ],
         "x": 44,
         "y": 1299,
-        "w": 542,
+        "w": 982,
         "h": 202
     },
     {
@@ -1781,7 +1781,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
+        "x": 620,
         "y": 180,
         "wires": [
             [
@@ -1878,15 +1878,15 @@
         "id": "b882356f986124aa",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
-        "name": "Verify",
-        "func": "let email = msg.payload ?? \"\";\n\nif (isInvalidEmail2(email)) {\n    return [null, msg]; // ongeldig email adres\n}\n\nglobal.set(\"EmailSleutelbewaarder\" + flow.get(\"ContactNr\"), msg.payload);\nreturn [msg, null];\n\n\nfunction isInvalidEmail2(email) {\n    if (email == \"\") return false;\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;\n    return !regex.test(email);\n}\n\nfunction isInvalidEmail(email) {\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    return !regex.test(email);\n}\n",
+        "name": "Verify and set",
+        "func": "let email = msg.payload ?? \"\";\n\nif (isInvalidEmail2(email)) {\n    return [null, msg]; // ongeldig email adres\n}\n\nlet emailSleutelbewaarder = \"EmailSleutelbewaarder\" + flow.get(\"ContactNr\");\n\nlet oldEmail = global.get(emailSleutelbewaarder);\n\nif (msg.payload.toLowerCase() != oldEmail.toLowerCase()) {\n    global.set(emailSleutelbewaarder, msg.payload);\n    return [msg, null];\n}\nreturn null;\n\n\nfunction isInvalidEmail2(email) {\n    if (email == \"\") return false;\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;\n    return !regex.test(email);\n}\n\nfunction isInvalidEmail(email) {\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    return !regex.test(email);\n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 640,
         "y": 120,
         "wires": [
             [],
@@ -2095,7 +2095,7 @@
         "id": "b93c9a365b0c0222",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
-        "name": "EmailSleutelbewaarder",
+        "name": "Email adres contact",
         "func": "msg.payload = global.get(\"EmailSleutelbewaarder\" + flow.get(\"ContactNr\"));\nmsg.payload = msg.payload ?? \"\";\n\nvar msg = {\n    payload: msg.payload,\n    ui_update: { label: \"Email contact \" + flow.get(\"ContactNr\") }\n};\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -2103,7 +2103,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 210,
+        "x": 190,
         "y": 120,
         "wires": [
             [
@@ -2433,7 +2433,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 230,
-        "y": 1380,
+        "y": 1520,
         "wires": []
     },
     {
@@ -2712,8 +2712,8 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 620,
-        "y": 1320,
+        "x": 660,
+        "y": 1400,
         "wires": [
             [
                 "cf1901877bfe59a8",
@@ -2727,7 +2727,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Error",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2735,8 +2735,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 1320,
+        "x": 810,
+        "y": 1400,
         "wires": []
     },
     {
@@ -2829,8 +2829,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 1260,
+        "x": 790,
+        "y": 1340,
         "wires": [
             [
                 "4f39baa7dbd5d547"
@@ -2855,8 +2855,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 880,
-        "y": 1260,
+        "x": 920,
+        "y": 1340,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3466,6 +3466,49 @@
         "wires": [
             [
                 "6c19355dfbaa9427"
+            ]
+        ]
+    },
+    {
+        "id": "817a65e37e67edcc",
+        "type": "mqtt in",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "",
+        "topic": "ContactChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 1380,
+        "wires": [
+            [
+                "7df2d7d7906671f7"
+            ]
+        ]
+    },
+    {
+        "id": "7df2d7d7906671f7",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "Welkom nieuw contact",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet emailTopic = \"MiniSAHA: welkom contactpersoon van \" + voornaamGebruiker;\nlet toAddress = msg.payload;\nlet text = \"Beste contactpersoon,\\n\\n\" + \n  voornaamGebruiker + \" heeft je toegevoegd als contact voor zijn MiniSAHA app.\\n\" + \n  \"In deze app meldt \" + voornaamGebruiker + \" iedere dag dat hij/zij OK is.\\n\" + \n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een melding hiervan krijgen.\\n\" +\n  \"Neem dan even contact op met \" + voornaamGebruiker + \" om te kijken wat er aan de hand is.\";\n\nmsg = {\n  to: toAddress,\n  from: \"safeathomealone@gmail.com\",\n  topic: emailTopic,\n  payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 1380,
+        "wires": [
+            [
+                "df1878820d0f62c5"
             ]
         ]
     },
@@ -6024,7 +6067,9 @@
         "x": 500,
         "y": 1340,
         "wires": [
-            []
+            [
+                "f97ccb1c541b62d5"
+            ]
         ]
     },
     {
@@ -6064,7 +6109,7 @@
         "type": "function",
         "z": "5c14e0941d341b42",
         "g": "2032f01a228fa872",
-        "name": "Contact 1",
+        "name": "1",
         "func": "msg.payload = \"1\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -6072,7 +6117,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 340,
         "y": 1340,
         "wires": [
             [
@@ -6089,7 +6134,9 @@
         "x": 500,
         "y": 1400,
         "wires": [
-            []
+            [
+                "f97ccb1c541b62d5"
+            ]
         ]
     },
     {
@@ -6097,7 +6144,7 @@
         "type": "function",
         "z": "5c14e0941d341b42",
         "g": "2032f01a228fa872",
-        "name": "Contact 2",
+        "name": "2",
         "func": "msg.payload = \"2\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -6105,7 +6152,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 340,
         "y": 1400,
         "wires": [
             [
@@ -6122,7 +6169,9 @@
         "x": 500,
         "y": 1460,
         "wires": [
-            []
+            [
+                "f97ccb1c541b62d5"
+            ]
         ]
     },
     {
@@ -6130,7 +6179,7 @@
         "type": "function",
         "z": "5c14e0941d341b42",
         "g": "2032f01a228fa872",
-        "name": "Contact 3",
+        "name": "3",
         "func": "msg.payload = \"3\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -6138,7 +6187,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 340,
         "y": 1460,
         "wires": [
             [
@@ -6232,6 +6281,46 @@
         "wires": [
             [
                 "2611f5f157ea5d54"
+            ]
+        ]
+    },
+    {
+        "id": "4d02350771e9d97a",
+        "type": "mqtt out",
+        "z": "5c14e0941d341b42",
+        "g": "2032f01a228fa872",
+        "name": "",
+        "topic": "ContactChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 910,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "f97ccb1c541b62d5",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "2032f01a228fa872",
+        "name": "check empty",
+        "func": "if (msg.payload == \"\") return null;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", '\" + msg.payload  + \"'\"});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1400,
+        "wires": [
+            [
+                "4d02350771e9d97a"
             ]
         ]
     },
