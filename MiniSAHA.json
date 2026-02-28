@@ -474,7 +474,7 @@
             "d6b298f8ec85d61c",
             "389045590526c181",
             "87cce92b163a7192",
-            "d98e03253a9f5ca9"
+            "081def364cff34d8"
         ],
         "x": 14,
         "y": 19,
@@ -3912,8 +3912,8 @@
         "g": "4a425ad2d30f78bc",
         "group": "4de3d58d68afebf3",
         "order": 9,
-        "width": "4",
-        "height": "1",
+        "width": "0",
+        "height": "0",
         "name": "Info",
         "label": "",
         "format": "{{msg.payload}}",
@@ -3926,7 +3926,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 610,
+        "x": 650,
         "y": 600,
         "wires": []
     },
@@ -3958,7 +3958,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Ja/Nee",
-        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    if (isThuis) {\n        text = \"\";\n    }\n    else {\n        text = \"Mobiel NIET gedetecteerd.\";\n    }\n}\n\nvar msg = { payload: text };\n\nif (isThuis) \n    msg.ui_update = { color: \"#ffffff\"} // wit ;\nelse\n    msg.ui_update = { color: \"#ff0000\"} // rood ;\n\nnode.status({ text: \"msg: \" + text });\nreturn msg;\n\n",
+        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    if (isThuis) {\n        text = \"\";\n    }\n    else {\n        text = \"Mobiel NIET gedetecteerd.\";\n    }\n}\n\nvar msg = { payload: text };\n\nnode.status({ text: \"msg: \" + isThuis });\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3969,7 +3969,7 @@
         "y": 540,
         "wires": [
             [
-                "f720e78159430790"
+                "081def364cff34d8"
             ]
         ]
     },
@@ -4440,8 +4440,8 @@
         "type": "function",
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
-        "name": "Connection",
-        "func": "node.status({ text: msg.payload });\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n    msg.ui_update = { color: \"#ffffff\" } // wit ;\n    return msg;\n}\nelse {\n    if (global.get(\"BluetoothConnectedName\") != \"\") {\n        msg.payload = \"Staat de Bluetooth speaker aan?\";\n        msg.ui_update = { color: \"#ff0000\" } // rood ;\n        return msg;\n    }\n}\nreturn;\n",
+        "name": "Connection?",
+        "func": "node.status({ text: msg.payload });\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n    return msg;\n}\nelse {\n    if (global.get(\"BluetoothConnectedName\") != \"\") {\n        msg.payload = \"Fout: Druk op de AAN knop van Bluetooth speaker.\";\n        return msg;\n    }\n    else {\n        msg.payload = \"Fout: koppel een Bluetooth speaker.\";\n        return msg;\n    }\n}\nreturn;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4452,37 +4452,7 @@
         "y": 660,
         "wires": [
             [
-                "f720e78159430790"
-            ]
-        ]
-    },
-    {
-        "id": "d98e03253a9f5ca9",
-        "type": "inject",
-        "z": "1e372cb3d08d9182",
-        "g": "4a425ad2d30f78bc",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "0.4",
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 110,
-        "y": 600,
-        "wires": [
-            [
-                "f720e78159430790"
+                "081def364cff34d8"
             ]
         ]
     },
@@ -4504,6 +4474,27 @@
         "x": 730,
         "y": 860,
         "wires": []
+    },
+    {
+        "id": "081def364cff34d8",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "name": "Check errors",
+        "func": "let newState = msg.payload;\nlet oldState = flow.get(\"ErrorState\") ?? \"\";\n\nnode.status({ text: \"new: \" + newState + \", old: \" + oldState });\n\nif (oldState == \"\" && newState == \"\") {\n    msg.payload = \"\";\n}\nelse {\n    if (newState == \"\")\n        msg.payload = oldState;\n}\n\nflow.set(\"ErrorState\", msg.payload);\n\nmsg.ui_update = { color: \"#ff0000\" } // rood ;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 600,
+        "wires": [
+            [
+                "f720e78159430790"
+            ]
+        ]
     },
     {
         "id": "dba3182f449692bb",
