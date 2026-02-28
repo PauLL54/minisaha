@@ -616,7 +616,8 @@
             "95623e89ea0e68bb",
             "fb880435a67662bc",
             "7a71a22caf5630aa",
-            "f95485da6f7079a3"
+            "f95485da6f7079a3",
+            "2559a358b5a14e75"
         ],
         "x": 14,
         "y": 19,
@@ -3926,7 +3927,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 650,
+        "x": 630,
         "y": 600,
         "wires": []
     },
@@ -3958,7 +3959,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Ja/Nee",
-        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\nmsg.topic = \"PersoonThuis\";\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    if (isThuis) {\n        text = \"\";\n    }\n    else {\n        text = \"Fout: Je mobiel wordt NIET gedetecteerd.\";\n    }\n}\n\nvar msg = { payload: text };\n\nnode.status({ text: \"msg: \" + isThuis });\nreturn msg;\n\n",
+        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\nmsg.topic = \"PersoonThuis\";\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    if (isThuis) {\n        text = \"\";\n    }\n    else {\n        text = \"Fout: Je mobiel wordt NIET gedetecteerd.\";\n    }\n}\n\nvar msg = {\n    topic: \"PersoonThuis\",\n    payload: text };\n\nnode.status({ text: \"msg: \" + isThuis });\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4441,7 +4442,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Connection?",
-        "func": "node.status({ text: msg.payload });\nmsg.topic = \"BluetoothConnected\";\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n    return msg;\n}\nelse {\n    if (global.get(\"BluetoothConnectedName\") != \"\") {\n        msg.payload = \"Fout: Druk op de AAN knop van Bluetooth speaker.\";\n        return msg;\n    }\n    else {\n        msg.payload = \"Fout: koppel een Bluetooth speaker.\";\n        return msg;\n    }\n}\nreturn;\n",
+        "func": "node.status({ text: msg.payload });\nmsg.topic = \"BluetoothConnected\";\nflow.set(msg.topic, \"empty\");\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n    return msg;\n}\nelse {\n    if (global.get(\"BluetoothConnectedName\") != \"\") {\n        msg.payload = \"Fout: Druk op de AAN knop van Bluetooth speaker.\";\n        return msg;\n    }\n    else {\n        msg.payload = \"Fout: koppel een Bluetooth speaker.\";\n        return msg;\n    }\n}\nreturn;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4481,7 +4482,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "OR",
-        "func": "flow.set(msg.topic, msg.payload);\n\n// check topics:\nlet persoonThuis = flow.get(\"PersoonThuis\") ?? \"\";\nlet bluetoothConnected = flow.get(\"BluetoothConnected\") ?? \"\";\n\nnode.status({ text: \"persoonThuis: \" + persoonThuis + \", bluetoothConnected: \" + bluetoothConnected });\n\nif (persoonThuis == \"\" && bluetoothConnected == \"\") {\n    msg.payload = \"\";\n}\nelse {\n    if (persoonThuis == \"\")\n        msg.payload = bluetoothConnected;\n    else\n        msg.payload = persoonThuis;\n}\n\nmsg.ui_update = { color: \"#ff0000\" } // rood ;\n\nreturn msg;",
+        "func": "flow.set(msg.topic, msg.payload);\n\n// check topics:\nlet persoonThuis = flow.get(\"PersoonThuis\");\nlet bluetoothConnected = flow.get(\"BluetoothConnected\");\n\nnode.status({ text: \"persoonThuis: \" + persoonThuis + \", bluetoothConnected: \" + bluetoothConnected });\n\nif (persoonThuis == \"\" && bluetoothConnected == \"\") {\n    msg.payload = \"\";\n}\nelse {\n    if (persoonThuis == \"\")\n        msg.payload = bluetoothConnected;\n    else\n        msg.payload = persoonThuis;\n}\n\nmsg.ui_update = { color: \"#ff0000\" } // rood ;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -10567,7 +10568,7 @@
         "z": "ce724907bfebf75c",
         "g": "60ad4210945ee21b",
         "group": "549f1fa0e59e6a04",
-        "name": "Clear BT",
+        "name": "Verwijder",
         "label": "Verwijder apparaat",
         "order": 2,
         "width": "0",
@@ -10621,18 +10622,19 @@
         "z": "ce724907bfebf75c",
         "g": "b653e740e9531504",
         "name": "Toon speaker verbonden",
-        "func": "if (msg.payload.length == 0) {\n    global.set(\"BluetoothConnected\", \"no\");\n    global.set(\"BluetoothConnectedName\", \"\");\n    global.set(\"BluetoothMac\", \"\");\n    global.set(\"BluetoothPaired\", \"\");\n    msg.payload = \"Geen Bluetooth speaker gekoppeld.\";\n    return msg;\n}\n\nlet device = msg.payload[0];\nglobal.set(\"BluetoothConnectedName\", device.name);\n\nmsg.payload = device.name + \"  -  Verbonden: \" \n    + (device.connected == \"yes\" ? \"ja\" : \"nee\");\nreturn msg;",
+        "func": "if (msg.payload.length == 0) {\n    global.set(\"BluetoothConnected\", \"no\");\n    global.set(\"BluetoothConnectedName\", \"\");\n    global.set(\"BluetoothMac\", \"\");\n    global.set(\"BluetoothPaired\", \"\");\n    msg.payload = \"Geen Bluetooth speaker gekoppeld.\";\n    msg.topic = false;\n    return msg;\n}\n\nlet device = msg.payload[0];\nglobal.set(\"BluetoothConnectedName\", device.name);\n\nmsg.payload = device.name + \"  -  Verbonden: \" \n    + (device.connected == \"yes\" ? \"ja\" : \"nee\");\nmsg.topic = true;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
+        "x": 450,
         "y": 520,
         "wires": [
             [
-                "944d64652bbfdc85"
+                "944d64652bbfdc85",
+                "2559a358b5a14e75"
             ]
         ]
     },
@@ -10926,6 +10928,27 @@
         "x": 1055,
         "y": 1200,
         "wires": []
+    },
+    {
+        "id": "2559a358b5a14e75",
+        "type": "function",
+        "z": "ce724907bfebf75c",
+        "g": "b653e740e9531504",
+        "name": "Gekoppeld?",
+        "func": "node.status({ text: msg.topic });\nif (msg.topic) {\n        var msg = {\n            enabled: true,\n            ui_update: { textColor: \"white\" }\n        };\n    }      \n    else {\n        var msg = {\n            enabled: false,\n            ui_update: { textColor: \"gray\" }\n        }\n    }\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 580,
+        "wires": [
+            [
+                "a11e0dd251eb5940"
+            ]
+        ]
     },
     {
         "id": "de3f35eb8cc6cc74",
