@@ -297,12 +297,14 @@
             "c8412ad60f0dd6e1",
             "ee5730149418dfeb",
             "7ea37518e7e677d7",
-            "cf1713ef3eb3df85"
+            "cf1713ef3eb3df85",
+            "7b034feb8e514537",
+            "8d1d71e905b38b07"
         ],
         "x": 34,
         "y": 1431.5,
         "w": 632,
-        "h": 217
+        "h": 269.5
     },
     {
         "id": "4e4ef64c30555769",
@@ -2295,7 +2297,7 @@
         "type": "inject",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
-        "name": "Every 10 s",
+        "name": "2s, Every 10 s",
         "props": [
             {
                 "p": "payload"
@@ -2312,7 +2314,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
+        "x": 140,
         "y": 200,
         "wires": [
             [
@@ -2745,7 +2747,7 @@
         "type": "inject",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
-        "name": "At Startup",
+        "name": "At Startup 1s",
         "props": [
             {
                 "p": "payload"
@@ -2758,7 +2760,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "1",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -2798,7 +2800,7 @@
         "g": "4e4ef64c30555769",
         "name": "",
         "pauseType": "delay",
-        "timeout": "20",
+        "timeout": "5",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -3601,6 +3603,7 @@
         "id": "dd466b9403f2d8f4",
         "type": "inject",
         "z": "1e372cb3d08d9182",
+        "d": true,
         "g": "4a425ad2d30f78bc",
         "name": "OnStartup",
         "props": [
@@ -4641,7 +4644,7 @@
         "id": "d79dc93d3be0348d",
         "type": "inject",
         "z": "5c14e0941d341b42",
-        "name": "OnStartup",
+        "name": "OnStartup 3s",
         "props": [
             {
                 "p": "payload"
@@ -4658,7 +4661,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
+        "x": 120,
         "y": 40,
         "wires": [
             [
@@ -9257,6 +9260,57 @@
         "x": 720,
         "y": 1140,
         "wires": []
+    },
+    {
+        "id": "7b034feb8e514537",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "d344da1eff713941",
+        "name": "OnStart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 1660,
+        "wires": [
+            [
+                "8d1d71e905b38b07"
+            ]
+        ]
+    },
+    {
+        "id": "8d1d71e905b38b07",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "d344da1eff713941",
+        "name": "clear",
+        "func": "msg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 1660,
+        "wires": [
+            [
+                "7ea37518e7e677d7"
+            ]
+        ]
     },
     {
         "id": "0af8df52052ef366",
