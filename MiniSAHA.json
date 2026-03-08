@@ -425,13 +425,20 @@
             "4b53939b9023b8c0",
             "074f5b05354c5090",
             "f85ce69846f65989",
-            "848574e93a41e0cc",
-            "45c53f307e13019e"
+            "45c53f307e13019e",
+            "da4d18b2f746703e",
+            "d7654ae07269f04e",
+            "fe30a7ca29f0587d",
+            "1496cff579d6eeba",
+            "4474061b7c37c024",
+            "80761cd977a81c1a",
+            "b76684423a74d5b7",
+            "c7972da4420bb50e"
         ],
         "x": 14,
-        "y": 799,
-        "w": 812,
-        "h": 322
+        "y": 819,
+        "w": 1272,
+        "h": 502
     },
     {
         "id": "4a425ad2d30f78bc",
@@ -3905,8 +3912,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 730,
-        "y": 980,
+        "x": 1190,
+        "y": 1100,
         "wires": []
     },
     {
@@ -4162,13 +4169,13 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 100,
-        "y": 840,
+        "x": 500,
+        "y": 920,
         "wires": [
             [
                 "bf9647efa558a7d3",
-                "4b53939b9023b8c0",
-                "848574e93a41e0cc"
+                "1496cff579d6eeba",
+                "4474061b7c37c024"
             ]
         ]
     },
@@ -4204,13 +4211,13 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 100,
-        "y": 900,
+        "x": 500,
+        "y": 1020,
         "wires": [
             [
                 "f84bc5be2fce9d39",
-                "074f5b05354c5090",
-                "848574e93a41e0cc"
+                "da4d18b2f746703e",
+                "d7654ae07269f04e"
             ]
         ]
     },
@@ -4220,18 +4227,19 @@
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
         "name": "Alarm tekst",
-        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\" && emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen contacten\"});\n  return;\n}\n\nvar bericht = \"Beste contactpersoon, \" +\n    \"\\n\\n\" +\n    global.get(\"VoornaamGebruiker\") +\n    \" heeft op de Alarm knop gedrukt.\" +\n    \"\\n\\n Neem contact op met hem/haar.\";\n\nif (emailSleutelbewaarder2 != \"\" || emailSleutelbewaarder3 != \"\") {\n  bericht = \"Beste eerste contactpersoon, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") + \n    \" want hij/zij heeft op de Alarm gedrukt.\" +\n    \"\\nLaat ook de overige contactpersonen weten dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede en/of derde contactpersoon,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht hebben ontvangen van de eerste contactpersoon, neem dan zelf contact op met de gebruiker en laat dat de eerste contactpersoon ook weten.\"\n}\n\nmsg.topic = \"MiniSAHA: op Alarm knop gedrukt\";\nmsg.payload = { \"text\": bericht, \"topic\": msg.topic };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\" && emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen contacten\"});\n  return;\n}\n\nvar bericht = \"Beste contactpersoon, \" +\n    \"\\n\\n\" +\n    global.get(\"VoornaamGebruiker\") +\n    \" heeft op de Alarm knop gedrukt.\" +\n    \"\\n\\n Neem contact op met hem/haar.\";\n\nif (emailSleutelbewaarder2 != \"\" || emailSleutelbewaarder3 != \"\") {\n  bericht = \"Beste eerste contactpersoon, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") + \n    \" want hij/zij heeft op de Alarm gedrukt.\" +\n    \"\\nLaat ook de overige contactpersonen weten dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede en/of derde contactpersoon,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht hebben ontvangen van de eerste contactpersoon, neem dan zelf contact op met de gebruiker en laat dat de eerste contactpersoon ook weten.\"\n}\n\nmsg.topic = \"MiniSAHA: op Alarm knop gedrukt\";\nmsg.payload = { \"text\": bericht, \"topic\": msg.topic };\n\nlet now = new Date();\nflow.set(\"timeAlarmSet\", now);\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 840,
+        "x": 710,
+        "y": 920,
         "wires": [
             [
-                "45c53f307e13019e"
+                "80761cd977a81c1a",
+                "4b53939b9023b8c0"
             ]
         ]
     },
@@ -4241,18 +4249,23 @@
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
         "name": "Cancel Alarm",
-        "func": "let emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\" && emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu + \" geen contactpersonen\"});\n  return;\n}\n\nvar bericht = \"Beste contactpersoon, \" +\n    \"\\n\\n \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" heeft op de Cancel Alarm knop gedrukt.\";\n\nmsg.topic = \"MiniSAHA: op Cancel Alarm knop gedrukt\";\nmsg.payload = { \"text\": bericht, \"topic\":  msg.topic};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
-        "outputs": 1,
+        "func": "let now = new Date();\nvar timeAlarmSet = flow.get(\"timeAlarmSet\");\nlet diff = toSeconds(now) - toSeconds(timeAlarmSet);\nnode.status({ text: \"diff seconds: \" + diff });\n\nif (diff < 60) {\n  var msgReset = { reset: true };\n  return [null, msgReset];\n}\n\nlet emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\" && emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu + \" geen contactpersonen\"});\n  return;\n}\n\nvar bericht = \"Beste contactpersoon, \" +\n    \"\\n\\n \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" heeft op de Cancel Alarm knop gedrukt.\";\n\nmsg.topic = \"MiniSAHA: op Cancel Alarm knop gedrukt\";\nmsg.payload = { \"text\": bericht, \"topic\":  msg.topic};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn [msg, null];\n\n\nfunction toSeconds(date) {\n  return 60 * (date.getHours() * 60 + date.getMinutes()) + date.getSeconds();\n}",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 900,
+        "x": 710,
+        "y": 1020,
         "wires": [
             [
-                "45c53f307e13019e"
+                "45c53f307e13019e",
+                "074f5b05354c5090"
+            ],
+            [
+                "80761cd977a81c1a",
+                "b76684423a74d5b7"
             ]
         ]
     },
@@ -4261,16 +4274,16 @@
         "type": "function",
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
-        "name": "feedback",
-        "func": "msg.payload = global.get(\"getTime\")() + \": Alarm melding gestuurd.\"\nreturn msg;",
+        "name": "Alarm melding",
+        "func": "msg.payload = global.get(\"getTime\")() + \": Alarm melding na 1 minuut\"\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", \" + msg.payload });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 960,
+        "x": 960,
+        "y": 1100,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -4282,16 +4295,16 @@
         "type": "function",
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
-        "name": "feedback",
-        "func": "msg.payload = global.get(\"getTime\")() +\": Cancel melding gestuurd.\"\nreturn msg;",
+        "name": "Cancel melding",
+        "func": "msg.payload = global.get(\"getTime\")() +\": Cancel melding verstuurd\"\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", \" + msg.payload });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 1020,
+        "x": 960,
+        "y": 1160,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -4311,37 +4324,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 1080,
+        "x": 1010,
+        "y": 1280,
         "wires": [
             [
                 "b81cb7c076621c31"
-            ]
-        ]
-    },
-    {
-        "id": "848574e93a41e0cc",
-        "type": "delay",
-        "z": "1e372cb3d08d9182",
-        "g": "bb314d79eca0c3fd",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 380,
-        "y": 1080,
-        "wires": [
-            [
-                "f85ce69846f65989"
             ]
         ]
     },
@@ -4475,8 +4462,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 730,
-        "y": 860,
+        "x": 1190,
+        "y": 980,
         "wires": []
     },
     {
@@ -4497,6 +4484,191 @@
         "wires": [
             [
                 "f720e78159430790"
+            ]
+        ]
+    },
+    {
+        "id": "da4d18b2f746703e",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "g": "bb314d79eca0c3fd",
+        "name": "Enable",
+        "func": "flow.set(\"TestGeluidEnabled\", true);\n\nvar msg = {\n    enabled: true,\n    ui_update: { textColor: \"white\" }\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 920,
+        "wires": [
+            [
+                "6ce9c1c05a07f0e4"
+            ]
+        ]
+    },
+    {
+        "id": "d7654ae07269f04e",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "g": "bb314d79eca0c3fd",
+        "name": "Disable",
+        "func": "//flow.set(\"TestGeluidEnabled\", false);\n\nvar msg = {\n    enabled: false,\n    ui_update: { textColor: \"gray\" }\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1080,
+        "wires": [
+            [
+                "7d9adb1d8b871f0c"
+            ]
+        ]
+    },
+    {
+        "id": "fe30a7ca29f0587d",
+        "type": "inject",
+        "z": "1e372cb3d08d9182",
+        "g": "bb314d79eca0c3fd",
+        "name": "At 00:00",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 00 * * *",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 1080,
+        "wires": [
+            [
+                "da4d18b2f746703e",
+                "d7654ae07269f04e",
+                "f85ce69846f65989"
+            ]
+        ]
+    },
+    {
+        "id": "1496cff579d6eeba",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "g": "bb314d79eca0c3fd",
+        "name": "Disable",
+        "func": "//flow.set(\"TestGeluidEnabled\", false);\n\nvar msg = {\n    enabled: false,\n    ui_update: { textColor: \"gray\" }\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 860,
+        "wires": [
+            [
+                "6ce9c1c05a07f0e4"
+            ]
+        ]
+    },
+    {
+        "id": "4474061b7c37c024",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "g": "bb314d79eca0c3fd",
+        "name": "Enable",
+        "func": "flow.set(\"TestGeluidEnabled\", true);\n\nvar msg = {\n    enabled: true,\n    ui_update: { textColor: \"white\" }\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 1020,
+        "wires": [
+            [
+                "7d9adb1d8b871f0c"
+            ]
+        ]
+    },
+    {
+        "id": "80761cd977a81c1a",
+        "type": "delay",
+        "z": "1e372cb3d08d9182",
+        "g": "bb314d79eca0c3fd",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 920,
+        "wires": [
+            [
+                "45c53f307e13019e",
+                "c7972da4420bb50e"
+            ]
+        ]
+    },
+    {
+        "id": "b76684423a74d5b7",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "g": "bb314d79eca0c3fd",
+        "name": "Alarm niet verstuurd",
+        "func": "msg.payload = global.get(\"getTime\")() +\": Alarm niet verstuurd\"\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", \" + msg.payload });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 1220,
+        "wires": [
+            [
+                "b81cb7c076621c31"
+            ]
+        ]
+    },
+    {
+        "id": "c7972da4420bb50e",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "g": "bb314d79eca0c3fd",
+        "name": "Alarm melding",
+        "func": "msg.payload = global.get(\"getTime\")() + \": Alarm melding verstuurd\"\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", \" + msg.payload });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 1040,
+        "wires": [
+            [
+                "b81cb7c076621c31"
             ]
         ]
     },
