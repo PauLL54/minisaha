@@ -2304,7 +2304,7 @@
         "type": "inject",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
-        "name": "2s, Every 10 s",
+        "name": "3s, Every 10 s",
         "props": [
             {
                 "p": "payload"
@@ -2317,7 +2317,7 @@
         "repeat": "10",
         "crontab": "",
         "once": true,
-        "onceDelay": "2",
+        "onceDelay": "3",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -2557,7 +2557,7 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "StateMachine",
-        "func": "let states = global.get(\"states\");\nvar tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\nglobal.set(\"previousState\", previousState);\n\nlet langNietThuis = 15; // minutes\nlet trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger == \"startToonVraag\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        if (trigger == \"isThuis\") {\n            let nietThuisSinds = flow.get(\"nietThuisSinds\");\n            let now = new Date();\n            if (toMinutes(now) - toMinutes(nietThuisSinds) > langNietThuis) {\n                currentState = states.ISOKAUTO;\n            }\n            else {\n                currentState = states.TOONOKVRAAG;\n            }\n        }\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.TOONOKVRAAG: {\n        if (trigger == \"isNietThuis\") {\n            currentState = states.TOONOKVRAAGNIETTHUIS; \n            let now = new Date();\n            flow.set(\"nietThuisSinds\", now);\n        }\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\")   currentState = states.ISOK;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        if (trigger == \"meldingsPeriodeVoorbij\")   currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        if (trigger == \"isThuis\") {\n            let nietThuisSinds = flow.get(\"nietThuisSinds\");\n            let now = new Date();\n            if (toMinutes(now) - toMinutes(nietThuisSinds) > langNietThuis) {\n                currentState = states.ISOKAUTO; \n            }\n            else {\n                currentState = states.MELDGEBRUIKER; \n            }\n        }\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"isNietThuis\") {\n            currentState = states.MELDGEBRUIKERNIETTHUIS; \n            let now = new Date();\n            flow.set(\"nietThuisSinds\", now);\n        }\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\")   currentState = states.ISOK;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOKAUTO: \n    case states.ISOK: \n    case states.ISNOTOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE;\n        if (trigger == \"jaPressed\")   currentState = states.ISOK_OVERTIJD;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\nif (currentState != previousState) {\n    msg.payload = currentState;\n    return msg;\n}\nelse\n    return;\n\nfunction toMinutes(date) {\n    return date.getHours() * 60 + date.getMinutes();\n}",
+        "func": "let states = global.get(\"states\");\nvar tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\nglobal.set(\"previousState\", previousState);\n\nlet langNietThuis = 15; // minutes\nlet trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger == \"startToonVraag\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        if (trigger == \"isThuis\") {\n            let nietThuisSinds = flow.get(\"nietThuisSinds\");\n            let now = new Date();\n            if (toMinutes(now) - toMinutes(nietThuisSinds) > langNietThuis) {\n                currentState = states.ISOKAUTO;\n            }\n            else {\n                currentState = states.TOONOKVRAAG;\n            }\n        }\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.TOONOKVRAAG: {\n        if (trigger == \"isNietThuis\") {\n            currentState = states.TOONOKVRAAGNIETTHUIS; \n            let now = new Date();\n            flow.set(\"nietThuisSinds\", now);\n        }\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\")   currentState = states.ISOK;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        if (trigger == \"meldingsPeriodeVoorbij\")   currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        if (trigger == \"isThuis\") {\n            let nietThuisSinds = flow.get(\"nietThuisSinds\");\n            let now = new Date();\n            if (toMinutes(now) - toMinutes(nietThuisSinds) > langNietThuis) {\n                currentState = states.ISOKAUTO; \n            }\n            else {\n                currentState = states.MELDGEBRUIKER; \n            }\n        }\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"isNietThuis\") {\n            currentState = states.MELDGEBRUIKERNIETTHUIS; \n            let now = new Date();\n            flow.set(\"nietThuisSinds\", now);\n        }\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\")   currentState = states.ISOK;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOKAUTO: \n    case states.ISOK: \n    case states.ISNOTOK: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE;\n        if (trigger == \"jaPressed\")   currentState = states.ISOK_OVERTIJD;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger == \"middernacht\") currentState = states.IDLE; \n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\nif (currentState != previousState) {\n    msg.payload = currentState;\n    return msg;\n}\nelse\n    return;\n\nfunction toMinutes(date) {\n    return date.getHours() * 60 + date.getMinutes();\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2754,7 +2754,7 @@
         "type": "inject",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
-        "name": "At Startup 1s",
+        "name": "At Startup 2s",
         "props": [
             {
                 "p": "payload"
@@ -2767,7 +2767,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "1",
+        "onceDelay": "0.2",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -3410,7 +3410,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
+        "x": 740,
         "y": 380,
         "wires": []
     },
@@ -6106,7 +6106,7 @@
         "type": "function",
         "z": "5c14e0941d341b42",
         "name": "filter tailscale",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.payload });\n\nvar ip = msg.payload ?? \"\";\nif (!ip.startsWith(\"192\")) return;\nreturn msg;",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.payload });\n\nvar ip = msg.payload ?? \"\";\n\n// ignore is IP address is via tailscale\nif (ip.startsWith(\"100\")) return;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6496,7 +6496,7 @@
         "type": "inject",
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
-        "name": "OnStart",
+        "name": "OnStart 1s",
         "props": [
             {
                 "p": "payload"
@@ -6509,11 +6509,11 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "1",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
+        "x": 130,
         "y": 600,
         "wires": [
             [
@@ -7160,7 +7160,7 @@
         "type": "inject",
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
-        "name": "",
+        "name": "test",
         "props": [
             {
                 "p": "payload"
@@ -7177,7 +7177,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
+        "x": 110,
         "y": 540,
         "wires": [
             [
@@ -7802,7 +7802,7 @@
         "type": "inject",
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
-        "name": "OnStart",
+        "name": "OnStart 2s",
         "props": [
             {
                 "p": "payload"
@@ -7815,11 +7815,11 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "2",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
+        "x": 150,
         "y": 500,
         "wires": [
             [
@@ -7928,7 +7928,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
+        "x": 490,
         "y": 500,
         "wires": [
             [
@@ -7950,7 +7950,7 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 310,
+        "x": 330,
         "y": 500,
         "wires": [
             [
@@ -8754,7 +8754,7 @@
         "type": "inject",
         "z": "eb60a9ea21d42f29",
         "g": "289d8e4b5f966496",
-        "name": "At Startup 1",
+        "name": "At Startup 2",
         "props": [
             {
                 "p": "payload"
@@ -8767,7 +8767,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "1",
+        "onceDelay": "2",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -9750,7 +9750,7 @@
         "type": "inject",
         "z": "ce724907bfebf75c",
         "g": "b653e740e9531504",
-        "name": "Startup",
+        "name": "Startup 3s",
         "props": [
             {
                 "p": "payload"
@@ -9763,11 +9763,11 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "3",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
+        "x": 130,
         "y": 360,
         "wires": [
             [
@@ -9979,7 +9979,7 @@
         "type": "inject",
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
-        "name": "At Startup",
+        "name": "At Startup  1s",
         "props": [
             {
                 "p": "payload"
@@ -9992,7 +9992,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "1",
         "topic": "",
         "payload": "",
         "payloadType": "date",
