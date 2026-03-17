@@ -334,12 +334,13 @@
             "07839fc7eb4a17d8",
             "3d3ed8f6ab85a6cb",
             "88eba35fd0a4aa4d",
-            "517dbde196f99a20"
+            "517dbde196f99a20",
+            "39eaa96c31d6b33f"
         ],
         "x": 14,
-        "y": 19,
+        "y": -1,
         "w": 912,
-        "h": 522
+        "h": 542
     },
     {
         "id": "2ce41e3897fb35ce",
@@ -556,7 +557,6 @@
             "ad04926aacf33a5d",
             "25b2f4f138e92a11",
             "9a9cc08da2b8ef61",
-            "d1c5073f0e9b7976",
             "6054eae0fe0bbb10",
             "c9aa4babb452e660",
             "c86740ad60f14028",
@@ -577,7 +577,8 @@
             "aed77f9bf843f122",
             "5cb2e01e6334af76",
             "4e02e2bd20959e39",
-            "3b00d5f6899a7f19"
+            "3b00d5f6899a7f19",
+            "09b51daed3475653"
         ],
         "x": 34,
         "y": 819,
@@ -3515,6 +3516,34 @@
             [
                 "93e66aed5528479a"
             ]
+        ]
+    },
+    {
+        "id": "39eaa96c31d6b33f",
+        "type": "inject",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "Trigger once after deploy 20s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "20",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 360,
+        "y": 40,
+        "wires": [
+            []
         ]
     },
     {
@@ -8748,7 +8777,7 @@
         ],
         "repeat": "600",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": "5",
         "topic": "",
         "payload": "",
@@ -9836,36 +9865,6 @@
         "wires": []
     },
     {
-        "id": "d1c5073f0e9b7976",
-        "type": "inject",
-        "z": "ce724907bfebf75c",
-        "g": "04fd012f1107245e",
-        "name": "At Startup",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 830,
-        "y": 1400,
-        "wires": [
-            [
-                "6ab57893a1727021"
-            ]
-        ]
-    },
-    {
         "id": "6054eae0fe0bbb10",
         "type": "function",
         "z": "ce724907bfebf75c",
@@ -10887,6 +10886,28 @@
         "wires": [
             [
                 "20aee768ba9e2512"
+            ]
+        ]
+    },
+    {
+        "id": "09b51daed3475653",
+        "type": "mqtt in",
+        "z": "ce724907bfebf75c",
+        "g": "04fd012f1107245e",
+        "name": "",
+        "topic": "SystemStarted",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 840,
+        "y": 1400,
+        "wires": [
+            [
+                "6ab57893a1727021"
             ]
         ]
     },
