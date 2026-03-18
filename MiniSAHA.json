@@ -331,16 +331,15 @@
             "cd2ccbcdab9e2474",
             "a60b56107555d543",
             "e43aa1add6eab915",
-            "07839fc7eb4a17d8",
             "3d3ed8f6ab85a6cb",
-            "88eba35fd0a4aa4d",
             "517dbde196f99a20",
-            "39eaa96c31d6b33f"
+            "b5fa993c16ba139a",
+            "d959bb06ce4487ba"
         ],
         "x": 14,
-        "y": -1,
+        "y": 39,
         "w": 912,
-        "h": 542
+        "h": 522
     },
     {
         "id": "2ce41e3897fb35ce",
@@ -398,8 +397,8 @@
             "817a65e37e67edcc",
             "7df2d7d7906671f7"
         ],
-        "x": 14,
-        "y": 579,
+        "x": 34,
+        "y": 659,
         "w": 1092,
         "h": 1022
     },
@@ -2316,11 +2315,11 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 120,
+        "y": 140,
         "wires": [
             [
-                "88eba35fd0a4aa4d",
-                "07839fc7eb4a17d8"
+                "dc25463a90653c93",
+                "b5fa993c16ba139a"
             ]
         ]
     },
@@ -2330,7 +2329,7 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "Tijd triggers",
-        "func": "// hoe laat is het nu?\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet beginToonVraag_ms = meldingstijdGebruiker_ms - 120 * 60000;\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\n\n// Wanneer is het tijd om een vraag te stellen (2 uur voor de aangegeven tijd)?\nif ((tijd_nu_ms >= beginToonVraag_ms) &&\n    (tijd_nu_ms <  meldingstijdGebruiker_ms)) {\n    msg.payload = \"startToonVraag\";\n    node.status({ text: tijd_nu + \": startToonVraag\" });\n    return msg;\n}\n\n// Wanneer is het tijd om een meldingen te sturen naar de gebruiker?\nif ((tijd_nu_ms >= meldingstijdGebruiker_ms) &&\n    (tijd_nu_ms < overtijd_ms) ) {\n    msg.payload = \"meldingsPeriodeGebruiker\";\n    node.status({ text: tijd_nu + \": meldingsPeriodeGebruiker\" });\n    return msg;\n}\n\n// Wanneer is het tijd om ook een email te sturen naar de contactpersonen?\nif (tijd_nu_ms >= overtijd_ms) {\n    msg.payload = \"meldingsPeriodeVoorbij\";\n    node.status({ text: tijd_nu + \": meldingsPeriodeVoorbij\" });\n    return msg;\n}\n\nif (tijd_nu_ms == 0) {\n    msg.payload = \"middernacht\";\n    node.status({ text: tijd_nu + \": middernacht\" });\n    return msg;\n}\n\nreturn;\n",
+        "func": "// Controlleer of Initialize is geweest:\nvar tijd_nu = global.get(\"getTime\");\nif (tijd_nu == undefined)\n    return null;\n\n\n// hoe laat is het nu?\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet beginToonVraag_ms = meldingstijdGebruiker_ms - 120 * 60000;\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\n\n// Wanneer is het tijd om een vraag te stellen (2 uur voor de aangegeven tijd)?\nif ((tijd_nu_ms >= beginToonVraag_ms) &&\n    (tijd_nu_ms <  meldingstijdGebruiker_ms)) {\n    msg.payload = \"startToonVraag\";\n    node.status({ text: tijd_nu + \": startToonVraag\" });\n    return msg;\n}\n\n// Wanneer is het tijd om een meldingen te sturen naar de gebruiker?\nif ((tijd_nu_ms >= meldingstijdGebruiker_ms) &&\n    (tijd_nu_ms < overtijd_ms) ) {\n    msg.payload = \"meldingsPeriodeGebruiker\";\n    node.status({ text: tijd_nu + \": meldingsPeriodeGebruiker\" });\n    return msg;\n}\n\n// Wanneer is het tijd om ook een email te sturen naar de contactpersonen?\nif (tijd_nu_ms >= overtijd_ms) {\n    msg.payload = \"meldingsPeriodeVoorbij\";\n    node.status({ text: tijd_nu + \": meldingsPeriodeVoorbij\" });\n    return msg;\n}\n\nif (tijd_nu_ms == 0) {\n    msg.payload = \"middernacht\";\n    node.status({ text: tijd_nu + \": middernacht\" });\n    return msg;\n}\n\nreturn;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2338,7 +2337,7 @@
         "finalize": "",
         "libs": [],
         "x": 170,
-        "y": 260,
+        "y": 280,
         "wires": [
             [
                 "72150be82696bdfc"
@@ -2360,7 +2359,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 320,
+        "y": 340,
         "wires": [
             [
                 "72150be82696bdfc"
@@ -2382,7 +2381,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 170,
-        "y": 380,
+        "y": 400,
         "wires": [
             [
                 "72150be82696bdfc"
@@ -2405,7 +2404,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 820,
-        "y": 280,
+        "y": 300,
         "wires": []
     },
     {
@@ -2421,8 +2420,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
-        "y": 900,
+        "x": 780,
+        "y": 980,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2437,8 +2436,8 @@
         "g": "2ce41e3897fb35ce",
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
-        "x": 230,
-        "y": 1560,
+        "x": 250,
+        "y": 1640,
         "wires": []
     },
     {
@@ -2454,8 +2453,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 940,
+        "x": 420,
+        "y": 1020,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2475,8 +2474,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 1060,
+        "x": 630,
+        "y": 1140,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -2497,7 +2496,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 500,
+        "y": 520,
         "wires": [
             [
                 "94fd03500445951f"
@@ -2517,8 +2516,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 1000,
+        "x": 400,
+        "y": 1080,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2539,7 +2538,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 340,
+        "y": 360,
         "wires": [
             [
                 "94fd03500445951f"
@@ -2559,8 +2558,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 170,
-        "y": 960,
+        "x": 190,
+        "y": 1040,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2589,8 +2588,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 1060,
+        "x": 420,
+        "y": 1140,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2611,8 +2610,8 @@
         "tls": true,
         "name": "",
         "dname": "",
-        "x": 1010,
-        "y": 1100,
+        "x": 1030,
+        "y": 1180,
         "wires": []
     },
     {
@@ -2630,7 +2629,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 180,
-        "y": 500,
+        "y": 520,
         "wires": [
             [
                 "0aaa14729a8e7b05"
@@ -2655,8 +2654,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 380,
-        "y": 780,
+        "x": 400,
+        "y": 860,
         "wires": [
             [
                 "0362a76e4f7b1fd0"
@@ -2679,8 +2678,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 840,
+        "x": 400,
+        "y": 920,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2695,8 +2694,8 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 660,
-        "y": 1440,
+        "x": 680,
+        "y": 1520,
         "wires": [
             [
                 "8322868abe70e928"
@@ -2717,8 +2716,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
-        "y": 1440,
+        "x": 830,
+        "y": 1520,
         "wires": []
     },
     {
@@ -2726,7 +2725,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
-        "name": "Set global functions",
+        "name": "Initialize",
         "func": "global.set(\"tijdNaarMs\", function (tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n});\n\nglobal.set(\"getTime\", function () {\n    let now = new Date();\n    return ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n});\n\nglobal.set(\"states\", {\n    IDLE: \"Idle\",\n    TOONOKVRAAG: \"ToonOkVraag\",\n    TOONOKVRAAGNIETTHUIS: \"ToonOkVraagNietThuis\",\n    MELDGEBRUIKER: \"MeldGebruiker\",\n    MELDGEBRUIKERNIETTHUIS: \"MeldGebruikerNietThuis\",\n    ISOKAUTO: \"IsOkAuto\",\n    ISOK: \"IsOk\",\n    ISNOTOK: \"IsNotOk\",\n    ISOK_OVERTIJD: \"IsOk_OverTijd\",\n    ISNOTOK_OVERTIJD: \"IsNotOk_OverTijd\",\n    OVERTIJD: \"OverTijd\"\n});\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" global functions created\"});\n\nglobal.set(\"currentState\", global.get(\"currentState\") ?? \"Idle\");\nglobal.set(\"TijdOK\", global.get(\"TijdOK\") ?? \" \");\nglobal.set(\"VoornaamGebruiker\", global.get(\"VoornaamGebruiker\") ?? \"\");\nglobal.set(\"EmailGebruiker\", global.get(\"EmailGebruiker\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder1\", global.get(\"EmailSleutelbewaarder1\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder2\", global.get(\"EmailSleutelbewaarder2\") ?? \"\");\n\nglobal.set(\"currentState\", \"Idle\");\nglobal.set(\"previousState\", \"OverTijd\");\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
@@ -2734,8 +2733,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 120,
+        "x": 580,
+        "y": 140,
         "wires": [
             [
                 "3d3ed8f6ab85a6cb",
@@ -2756,8 +2755,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 1380,
+        "x": 810,
+        "y": 1460,
         "wires": [
             [
                 "4f39baa7dbd5d547"
@@ -2782,8 +2781,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 920,
-        "y": 1380,
+        "x": 940,
+        "y": 1460,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2804,8 +2803,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 130,
-        "y": 1040,
+        "x": 150,
+        "y": 1120,
         "wires": [
             [
                 "97cd5aa2eb055baf"
@@ -2834,8 +2833,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 1240,
+        "x": 140,
+        "y": 1320,
         "wires": [
             [
                 "cfa6b22427e3edc3"
@@ -2855,8 +2854,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 1240,
+        "x": 410,
+        "y": 1320,
         "wires": [
             [
                 "56b665cac3641749"
@@ -2876,8 +2875,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 780,
+        "x": 600,
+        "y": 860,
         "wires": [
             [
                 "d5df2f8a93d16c6a"
@@ -2897,8 +2896,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 680,
+        "x": 350,
+        "y": 760,
         "wires": [
             [
                 "494c0e1626e74b03"
@@ -2921,8 +2920,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "ls sounds",
-        "x": 540,
-        "y": 640,
+        "x": 560,
+        "y": 720,
         "wires": [
             [
                 "6e3e1642880f5295"
@@ -2944,8 +2943,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 640,
+        "x": 720,
+        "y": 720,
         "wires": [
             [
                 "9a6d5159979437b8"
@@ -2965,8 +2964,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 850,
-        "y": 680,
+        "x": 870,
+        "y": 760,
         "wires": [
             [
                 "a9d22c1ccafb666e"
@@ -2988,8 +2987,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 1010,
-        "y": 680,
+        "x": 1030,
+        "y": 760,
         "wires": []
     },
     {
@@ -3007,7 +3006,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 170,
-        "y": 440,
+        "y": 460,
         "wires": [
             [
                 "a60b56107555d543"
@@ -3028,7 +3027,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 440,
+        "y": 460,
         "wires": [
             [
                 "72150be82696bdfc"
@@ -3049,8 +3048,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 110,
-        "y": 860,
+        "x": 130,
+        "y": 940,
         "wires": [
             [
                 "97cd5aa2eb055baf"
@@ -3070,8 +3069,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 1360,
+        "x": 420,
+        "y": 1440,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3092,8 +3091,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 150,
-        "y": 1360,
+        "x": 170,
+        "y": 1440,
         "wires": [
             [
                 "dc5cb52b6bdb4970"
@@ -3114,8 +3113,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 100,
-        "y": 1180,
+        "x": 120,
+        "y": 1260,
         "wires": [
             [
                 "d4de81b1883bcb34"
@@ -3135,8 +3134,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 1180,
+        "x": 400,
+        "y": 1260,
         "wires": [
             [
                 "56b665cac3641749"
@@ -3157,8 +3156,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
-        "y": 900,
+        "x": 640,
+        "y": 980,
         "wires": [
             [
                 "6c1f652de628f1be"
@@ -3178,8 +3177,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 1100,
+        "x": 820,
+        "y": 1180,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3200,8 +3199,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 1500,
+        "x": 740,
+        "y": 1580,
         "wires": [
             [
                 "7139bcd155107a18"
@@ -3221,8 +3220,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 1560,
+        "x": 730,
+        "y": 1640,
         "wires": [
             [
                 "b7c8e30189b3e92e"
@@ -3244,8 +3243,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 930,
-        "y": 1560,
+        "x": 950,
+        "y": 1640,
         "wires": [
             []
         ]
@@ -3263,8 +3262,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 1140,
+        "x": 630,
+        "y": 1220,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3285,8 +3284,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 110,
-        "y": 1120,
+        "x": 130,
+        "y": 1200,
         "wires": [
             [
                 "b7b67d2a822e82d9"
@@ -3306,8 +3305,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 1120,
+        "x": 420,
+        "y": 1200,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -3321,8 +3320,8 @@
         "g": "2ce41e3897fb35ce",
         "name": "Meld gebruiker en contactpersonen",
         "info": "",
-        "x": 180,
-        "y": 620,
+        "x": 200,
+        "y": 700,
         "wires": []
     },
     {
@@ -3333,7 +3332,7 @@
         "name": "State machine",
         "info": "",
         "x": 130,
-        "y": 60,
+        "y": 80,
         "wires": []
     },
     {
@@ -3349,8 +3348,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 1300,
+        "x": 440,
+        "y": 1380,
         "wires": [
             [
                 "56b665cac3641749"
@@ -3371,8 +3370,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 120,
-        "y": 1300,
+        "x": 140,
+        "y": 1380,
         "wires": [
             [
                 "6c19355dfbaa9427"
@@ -3393,8 +3392,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 120,
-        "y": 1420,
+        "x": 140,
+        "y": 1500,
         "wires": [
             [
                 "7df2d7d7906671f7"
@@ -3414,8 +3413,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 1420,
+        "x": 440,
+        "y": 1500,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3438,62 +3437,15 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 820,
-        "y": 120,
+        "y": 140,
         "wires": []
-    },
-    {
-        "id": "07839fc7eb4a17d8",
-        "type": "delay",
-        "z": "a380efb730bea147",
-        "g": "4e4ef64c30555769",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 160,
-        "y": 180,
-        "wires": [
-            [
-                "dc25463a90653c93"
-            ]
-        ]
-    },
-    {
-        "id": "88eba35fd0a4aa4d",
-        "type": "function",
-        "z": "a380efb730bea147",
-        "g": "4e4ef64c30555769",
-        "name": "Trigger once after boot",
-        "func": "var tijd_nu = global.get(\"getTime\");\nif (tijd_nu == undefined)\n    return msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 120,
-        "wires": [
-            [
-                "93e66aed5528479a"
-            ]
-        ]
     },
     {
         "id": "517dbde196f99a20",
         "type": "inject",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
-        "name": "Trigger once after deploy",
+        "name": "Trigger after deploy",
         "props": [
             {
                 "p": "payload"
@@ -3510,8 +3462,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 350,
-        "y": 80,
+        "x": 370,
+        "y": 200,
         "wires": [
             [
                 "93e66aed5528479a"
@@ -3519,34 +3471,44 @@
         ]
     },
     {
-        "id": "39eaa96c31d6b33f",
-        "type": "inject",
+        "id": "b5fa993c16ba139a",
+        "type": "function",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
-        "name": "Trigger once after deploy 20s",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "20",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 360,
-        "y": 40,
+        "name": "Trigger after reboot",
+        "func": "// @ts-nocheck\n// Maak een static variabele op de functie node\nif (typeof myStatic === \"undefined\") {\n    myStatic = { count: 0 };\n}\n\nmyStatic.count++;\n\n\n// Op een Rasp4 is de eerste zichtbare waarde 3.\n\nif (myStatic.count > 5)\n    return null;    // Stop met initializeren:\n\nlet now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({ text: tijd_nu + \" - \" + myStatic.count });\n\nmsg.payload = \"Static teller: \" + myStatic.count;\nreturn msg;\n\n\n/*\nWat gebeurt hier?\nmyStatic wordt niet gedeclareerd met let/var/const\n\nDaardoor wordt het een persistent variabele binnen de function node\n\nHij blijft bestaan zolang Node‑RED draait\n\nBij een deploy blijft hij bestaan\n\nBij een reboot wordt hij opnieuw aangemaakt (dus reset)\n*/",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 140,
         "wires": [
             [
-                "93e66aed5528479a"
+                "93e66aed5528479a",
+                "d959bb06ce4487ba"
             ]
         ]
+    },
+    {
+        "id": "d959bb06ce4487ba",
+        "type": "debug",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "Debug triggers",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 100,
+        "wires": []
     },
     {
         "id": "86d57ce8cd9b65da",
