@@ -269,7 +269,8 @@
             "67a6274754d23126",
             "b7916609271ad216",
             "6feec1798125bcc6",
-            "610799e608be3cf2"
+            "610799e608be3cf2",
+            "2640b5fa40ca7fa9"
         ],
         "x": 34,
         "y": 11.5,
@@ -397,8 +398,8 @@
             "817a65e37e67edcc",
             "7df2d7d7906671f7"
         ],
-        "x": 34,
-        "y": 659,
+        "x": 14,
+        "y": 599,
         "w": 1092,
         "h": 1022
     },
@@ -924,12 +925,200 @@
             "b872cbf54450bd69",
             "4d02350771e9d97a",
             "f97ccb1c541b62d5",
-            "27faa67bf46d4f9d"
+            "27faa67bf46d4f9d",
+            "7135f63d973d1e61"
         ],
-        "x": 34,
-        "y": 1299,
+        "x": 54,
+        "y": 1239,
         "w": 992,
         "h": 202
+    },
+    {
+        "id": "6287909b403bf66a",
+        "type": "group",
+        "z": "5c14e0941d341b42",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "210d4509be3e8c2a",
+            "03a73053ad9f3c47",
+            "fa655697e3f1bd1d",
+            "cbe4d5b193c88548",
+            "6827ed79fcbc1bcc",
+            "73afa7fb3453b035",
+            "3a6f5a640cea07b3",
+            "7722ab3d73849d23",
+            "a2dcd0ec27b30c84",
+            "06e50d5277b96605",
+            "8b7619373fc6f4a5",
+            "cc825dfdb183c22b",
+            "4c76892a18484763",
+            "7a10c185dade879d",
+            "2d24583c1895d795",
+            "31e438f9b2bacbbc",
+            "307ad5a63392a6d1",
+            "3e9e63b840019cb1",
+            "ddec65595400ad5c",
+            "ea76917e7262274f"
+        ],
+        "x": 24,
+        "y": 99,
+        "w": 1062,
+        "h": 422
+    },
+    {
+        "id": "75f6d804089580c3",
+        "type": "group",
+        "z": "5c14e0941d341b42",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "a6fd027bc0be280d",
+            "996abe576c2cecb2",
+            "f7e8d9c0b1a2",
+            "9260659255156c8a",
+            "a18148e4e8946b3b",
+            "8129738cd4f4fe2c"
+        ],
+        "x": 54,
+        "y": 1459,
+        "w": 1032,
+        "h": 182
+    },
+    {
+        "id": "e1f1da7ac74705a8",
+        "type": "group",
+        "z": "5c14e0941d341b42",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "dba3182f449692bb",
+            "c7a382e00daaa762",
+            "ee88c907a0b09cd1",
+            "dd63a561601b450c",
+            "c3f276a2ad7a0959",
+            "895ee0f7358cef53",
+            "f39bf68dcea766f2",
+            "da27f195c199f6ae",
+            "5cd5579edefbe928",
+            "c9ec5160388cc29c",
+            "ba5f9de83ae33543",
+            "26417c5cfef73e15",
+            "40cdbc12fde511c0",
+            "0d14b59266171697",
+            "163dbba3527a1208",
+            "96d36014946018e2",
+            "aa21372c06ac99e6",
+            "f24ffaab884e5a75",
+            "f487e19abb196edc",
+            "2825429d7e218b9b",
+            "bdebfa0f1e99fc2e",
+            "eecb60f839dc5afc",
+            "590a24117a7d6877",
+            "4a202b76747eac9b",
+            "5dd81c36547166d6",
+            "5574ceb8a61ddb47",
+            "e5c27da5e10601ac",
+            "d2f2d7243a624cab",
+            "8432a47ba220719a",
+            "655933cca9c65716",
+            "9b36b60d6131042f",
+            "3d702f0ad5e3389a",
+            "6e34a944a7019b1e",
+            "ec7010218631a22d",
+            "9149cd1eac222f06",
+            "2611f5f157ea5d54",
+            "32d4144c043af885",
+            "6be5421a0db51fd0"
+        ],
+        "x": 44,
+        "y": 539,
+        "w": 1122,
+        "h": 682
+    },
+    {
+        "id": "4691e3f8415ac70f",
+        "type": "group",
+        "z": "cf9fd0d5cf32c35e",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "9714917faf50e4e6",
+            "07b42c2893215618",
+            "6a3e1c4af9e596e8",
+            "9de71c9ffd79d1be",
+            "4e3d5b3dbc44d585",
+            "91af11dcc58b9acd",
+            "4f0d9cb73de3882f",
+            "59af8c3ff732b16e"
+        ],
+        "x": 54,
+        "y": 199,
+        "w": 852,
+        "h": 202
+    },
+    {
+        "id": "0e1c0bc6635cb4f2",
+        "type": "group",
+        "z": "cf9fd0d5cf32c35e",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "dffc27ae70b9c04a",
+            "7b937f0bd2ed23a1",
+            "5751a2ced8d3ce98",
+            "077d42c5953f5254",
+            "e1f1b21d219dfb05",
+            "abc938e23af335a4",
+            "c630ddca2cd6ee2b",
+            "2eddfe5c416f564d",
+            "05c49efb60c31baa",
+            "8f7ef42fc6e429a2",
+            "4dd9c931ec3bb029",
+            "83663b488022e846",
+            "0633434dddf97781",
+            "06faba09f0d6860d",
+            "2d0b28cde8cc7e6b"
+        ],
+        "x": 24,
+        "y": 419,
+        "w": 1082,
+        "h": 242
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -1632,7 +1821,7 @@
         "name": "Email contact",
         "label": "Email adres contact",
         "order": 14,
-        "width": "4",
+        "width": "5",
         "height": "1",
         "topic": "topic",
         "topicType": "msg",
@@ -1676,12 +1865,13 @@
         "id": "dffc27ae70b9c04a",
         "type": "link in",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "name": "OnStartup",
         "links": [
             "da94ae4aa9279e93"
         ],
         "x": 65,
-        "y": 420,
+        "y": 460,
         "wires": [
             [
                 "4dd9c931ec3bb029"
@@ -1693,6 +1883,7 @@
         "type": "ui-text-input",
         "z": "cf9fd0d5cf32c35e",
         "d": true,
+        "g": "0e1c0bc6635cb4f2",
         "group": "",
         "name": "Mobiel MobielContact",
         "label": "06 nummer",
@@ -1715,7 +1906,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 460,
-        "y": 420,
+        "y": 460,
         "wires": [
             [
                 "e1f1b21d219dfb05"
@@ -1727,6 +1918,7 @@
         "type": "ui-text-input",
         "z": "cf9fd0d5cf32c35e",
         "d": true,
+        "g": "0e1c0bc6635cb4f2",
         "group": "",
         "name": "WhatsApp toegangscode",
         "label": "toegangscode",
@@ -1749,7 +1941,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 470,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "2eddfe5c416f564d"
@@ -1760,12 +1952,13 @@
         "id": "077d42c5953f5254",
         "type": "link in",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "name": "OnStartup",
         "links": [
             "da94ae4aa9279e93"
         ],
         "x": 65,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "83663b488022e846"
@@ -1776,6 +1969,7 @@
         "id": "4f0d9cb73de3882f",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
+        "g": "4691e3f8415ac70f",
         "name": "help tekst",
         "func": "msg.payload = \n\"<b>\" +\n\"De contactpersoon ontvangt een email als je niet reageert voor een bepaalde tijd.\" +\n\"<br><br>\" +\n\"Het is handig als er een apart meldingsgeluid wordt ingesteld voor deze email bij jouw contactpersoon.\" +\n\"<br><br>\" +\n\"<b>Instructies hiervoor kan je naar hem/haar toesturen door op 'Stuur email' te tikken.\" +\n\"</b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 6000,\n    allowDismiss: true,\n    allowConfirm: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
@@ -1784,8 +1978,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
-        "y": 180,
+        "x": 360,
+        "y": 240,
         "wires": [
             [
                 "59af8c3ff732b16e"
@@ -1796,6 +1990,8 @@
         "id": "91af11dcc58b9acd",
         "type": "ui-button",
         "z": "cf9fd0d5cf32c35e",
+        "d": true,
+        "g": "4691e3f8415ac70f",
         "group": "a50d14b208aa0231",
         "name": "Help",
         "label": "?",
@@ -1823,8 +2019,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 410,
-        "y": 180,
+        "x": 170,
+        "y": 240,
         "wires": [
             [
                 "4f0d9cb73de3882f"
@@ -1835,6 +2031,7 @@
         "id": "59af8c3ff732b16e",
         "type": "ui-notification",
         "z": "cf9fd0d5cf32c35e",
+        "g": "4691e3f8415ac70f",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
         "colorDefault": false,
@@ -1849,8 +2046,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 990,
-        "y": 180,
+        "x": 730,
+        "y": 240,
         "wires": [
             [
                 "07b42c2893215618"
@@ -1926,6 +2123,7 @@
         "id": "e1f1b21d219dfb05",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "name": "Verify",
         "func": "let input = msg.payload ?? \"\";\nnode.status({ text: \"payload: \" + msg.payload });\nif (input == \"\") return;\n\n// Verwijder alles behalve cijfers en +\nlet cleaned = input.replace(/[^0-9+]/g, \"\");\n\n// Als het nummer met +31 begint → omzetten naar 06-formaat\nif (cleaned.startsWith(\"+31\")) {\n    cleaned = \"0\" + cleaned.slice(3);\n}\n\n// Als het nummer met 0031 begint → zelfde behandeling\nif (cleaned.startsWith(\"0031\")) {\n    cleaned = \"0\" + cleaned.slice(4);\n}\n\n// Nu moet het een 06-nummer zijn\nif (!/^06\\d{8}$/.test(cleaned)) {\n    return [null, msg]; // ongeldig nummer\n}\n\n// Normaliseer naar internationaal formaat\nconst internationaal = \"+31\" + cleaned.slice(1);\n\nmsg.payload = internationaal;\n\nglobal.set(\"MobielContact\" + flow.get(\"ContactNr\"), internationaal);\n\nreturn [msg, null];\n\n",
         "outputs": 2,
@@ -1935,7 +2133,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 420,
+        "y": 460,
         "wires": [
             [
                 "0633434dddf97781"
@@ -1949,6 +2147,7 @@
         "id": "abc938e23af335a4",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "name": "Fout",
         "func": "msg.payload = \"<b>Ongeldig toegangs code: </b>\" + msg.payload;\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
@@ -1958,7 +2157,7 @@
         "finalize": "",
         "libs": [],
         "x": 810,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "8f7ef42fc6e429a2"
@@ -1969,6 +2168,7 @@
         "id": "c630ddca2cd6ee2b",
         "type": "ui-notification",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
         "colorDefault": false,
@@ -1984,7 +2184,7 @@
         "className": "",
         "name": "",
         "x": 990,
-        "y": 420,
+        "y": 460,
         "wires": [
             []
         ]
@@ -1993,6 +2193,7 @@
         "id": "2eddfe5c416f564d",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "name": "Verify",
         "func": "let input = msg.payload ?? \"\";\nnode.status({ text: \"payload: \" + input });\nif (input == \"\") return;\n\nconst result = cleanAndCheck(input);\nconst valid = result.isValid;\n\nif (valid) {\n    msg.payload = result.digits;\n    global.set(\"ToegangsCodeContact\" + flow.get(\"ContactNr\"), msg.payload);\n    return [msg, null];\n}\nelse {\n    msg.payload = input;\n    return [null, msg];\n}\n\nfunction cleanAndCheck(input) { \n    // verwijder alles wat geen cijfer is \n    const digits = input.replace(/\\D/g, \"\"); \n    // controleer of het precies 7 cijfers zijn \n    const isValid = digits.length === 7; \n    return { digits, isValid }; \n}\n",
         "outputs": 2,
@@ -2002,7 +2203,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "06faba09f0d6860d"
@@ -2016,6 +2217,7 @@
         "id": "05c49efb60c31baa",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "name": "Fout",
         "func": "msg.payload = \"<b>Ongeldig mobiel nummer: </b>\" + msg.payload;\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
@@ -2025,7 +2227,7 @@
         "finalize": "",
         "libs": [],
         "x": 810,
-        "y": 420,
+        "y": 460,
         "wires": [
             [
                 "c630ddca2cd6ee2b"
@@ -2036,6 +2238,7 @@
         "id": "8f7ef42fc6e429a2",
         "type": "ui-notification",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
         "colorDefault": false,
@@ -2051,7 +2254,7 @@
         "className": "",
         "name": "",
         "x": 990,
-        "y": 520,
+        "y": 560,
         "wires": [
             []
         ]
@@ -2060,6 +2263,7 @@
         "id": "9714917faf50e4e6",
         "type": "mqtt out",
         "z": "cf9fd0d5cf32c35e",
+        "g": "4691e3f8415ac70f",
         "name": "",
         "topic": "InstructieWhatsAppEmail",
         "qos": "",
@@ -2070,8 +2274,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 1010,
-        "y": 240,
+        "x": 770,
+        "y": 300,
         "wires": []
     },
     {
@@ -2118,6 +2322,7 @@
         "id": "4dd9c931ec3bb029",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "name": "MobielContact",
         "func": "msg.payload = global.get(\"MobielContact\" + flow.get(\"ContactNr\"));\nmsg.payload = msg.payload ?? \"\";\n\nvar msg = {\n    payload: msg.payload , \n    ui_update: { label: \"06 nummer\" }\n};\nreturn msg;",
         "outputs": 1,
@@ -2127,7 +2332,7 @@
         "finalize": "",
         "libs": [],
         "x": 200,
-        "y": 420,
+        "y": 460,
         "wires": [
             [
                 "7b937f0bd2ed23a1"
@@ -2138,6 +2343,7 @@
         "id": "83663b488022e846",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "name": "ToegangsCodeContact",
         "func": "msg.payload = global.get(\"ToegangsCodeContact\" + flow.get(\"ContactNr\"));\nmsg.payload = msg.payload ?? \"\";\n\nvar msg = {\n    payload: msg.payload,\n    ui_update: { label: \"WhatsApp code\" }\n};\n\nreturn msg;\n",
         "outputs": 1,
@@ -2147,7 +2353,7 @@
         "finalize": "",
         "libs": [],
         "x": 220,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "5751a2ced8d3ce98"
@@ -2158,6 +2364,7 @@
         "id": "0633434dddf97781",
         "type": "delay",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -2172,7 +2379,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 460,
-        "y": 480,
+        "y": 520,
         "wires": [
             [
                 "7b937f0bd2ed23a1"
@@ -2183,6 +2390,7 @@
         "id": "06faba09f0d6860d",
         "type": "delay",
         "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
         "name": "",
         "pauseType": "delay",
         "timeout": "1",
@@ -2197,7 +2405,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 460,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "5751a2ced8d3ce98"
@@ -2208,6 +2416,8 @@
         "id": "07b42c2893215618",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
+        "d": true,
+        "g": "4691e3f8415ac70f",
         "name": "confirm_clicked?",
         "func": "if (msg.payload == \"confirm_clicked\") {\n  return msg;\n}",
         "outputs": 1,
@@ -2216,8 +2426,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 260,
+        "x": 170,
+        "y": 320,
         "wires": [
             [
                 "6a3e1c4af9e596e8"
@@ -2228,6 +2438,7 @@
         "id": "6a3e1c4af9e596e8",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
+        "g": "4691e3f8415ac70f",
         "name": "canSendEmail?",
         "func": "let email = global.get(\"EmailSleutelbewaarder\" + flow.get(\"ContactNr\"));\nemail = email ?? \"\";\nlet canSendEmail = (email != \"\");\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 6000,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\n\nif (canSendEmail) {\n    msg.payload = \n    \"<b>\" +\n    \"Een email met instructies is gestuurd naar je contact persoon\" +\n    \"</b>\";\n    return [msg, null];\n} else {\n    msg.payload =\n        \"<b>\" +\n        \"Er is nog geen email adres ingevuld.\" +\n        \"</b>\";   \n    return [null, msg];\n}\n\n\n\n",
         "outputs": 2,
@@ -2236,8 +2447,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
-        "y": 260,
+        "x": 360,
+        "y": 320,
         "wires": [
             [
                 "4e3d5b3dbc44d585",
@@ -2252,6 +2463,7 @@
         "id": "9de71c9ffd79d1be",
         "type": "ui-notification",
         "z": "cf9fd0d5cf32c35e",
+        "g": "4691e3f8415ac70f",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
         "colorDefault": false,
@@ -2266,8 +2478,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 990,
-        "y": 300,
+        "x": 750,
+        "y": 360,
         "wires": [
             []
         ]
@@ -2276,6 +2488,7 @@
         "id": "4e3d5b3dbc44d585",
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
+        "g": "4691e3f8415ac70f",
         "name": "to:",
         "func": "msg.payload = global.get(\"EmailSleutelbewaarder\" + flow.get(\"ContactNr\"));\nreturn msg;",
         "outputs": 1,
@@ -2284,13 +2497,34 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 240,
+        "x": 550,
+        "y": 300,
         "wires": [
             [
                 "9714917faf50e4e6"
             ]
         ]
+    },
+    {
+        "id": "9537c95258a3c0b1",
+        "type": "comment",
+        "z": "cf9fd0d5cf32c35e",
+        "name": "magweg",
+        "info": "",
+        "x": 320,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "2d0b28cde8cc7e6b",
+        "type": "comment",
+        "z": "cf9fd0d5cf32c35e",
+        "g": "0e1c0bc6635cb4f2",
+        "name": "magweg",
+        "info": "",
+        "x": 120,
+        "y": 620,
+        "wires": []
     },
     {
         "id": "86a3b683d730904f",
@@ -2420,8 +2654,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 980,
+        "x": 760,
+        "y": 920,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2436,8 +2670,8 @@
         "g": "2ce41e3897fb35ce",
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
-        "x": 250,
-        "y": 1640,
+        "x": 230,
+        "y": 1580,
         "wires": []
     },
     {
@@ -2453,8 +2687,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 1020,
+        "x": 400,
+        "y": 960,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2474,8 +2708,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 1140,
+        "x": 610,
+        "y": 1080,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -2516,8 +2750,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 1080,
+        "x": 380,
+        "y": 1020,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2558,8 +2792,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 190,
-        "y": 1040,
+        "x": 170,
+        "y": 980,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2588,8 +2822,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 1140,
+        "x": 400,
+        "y": 1080,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -2610,8 +2844,8 @@
         "tls": true,
         "name": "",
         "dname": "",
-        "x": 1030,
-        "y": 1180,
+        "x": 1010,
+        "y": 1120,
         "wires": []
     },
     {
@@ -2654,8 +2888,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 400,
-        "y": 860,
+        "x": 380,
+        "y": 800,
         "wires": [
             [
                 "0362a76e4f7b1fd0"
@@ -2678,8 +2912,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 920,
+        "x": 380,
+        "y": 860,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2694,8 +2928,8 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 680,
-        "y": 1520,
+        "x": 660,
+        "y": 1460,
         "wires": [
             [
                 "8322868abe70e928"
@@ -2716,8 +2950,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 830,
-        "y": 1520,
+        "x": 810,
+        "y": 1460,
         "wires": []
     },
     {
@@ -2755,8 +2989,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 1460,
+        "x": 790,
+        "y": 1400,
         "wires": [
             [
                 "4f39baa7dbd5d547"
@@ -2781,8 +3015,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 940,
-        "y": 1460,
+        "x": 920,
+        "y": 1400,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -2803,8 +3037,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 150,
-        "y": 1120,
+        "x": 130,
+        "y": 1060,
         "wires": [
             [
                 "97cd5aa2eb055baf"
@@ -2833,8 +3067,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
-        "y": 1320,
+        "x": 120,
+        "y": 1260,
         "wires": [
             [
                 "cfa6b22427e3edc3"
@@ -2854,8 +3088,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 1320,
+        "x": 390,
+        "y": 1260,
         "wires": [
             [
                 "56b665cac3641749"
@@ -2875,8 +3109,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
-        "y": 860,
+        "x": 580,
+        "y": 800,
         "wires": [
             [
                 "d5df2f8a93d16c6a"
@@ -2896,8 +3130,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 760,
+        "x": 330,
+        "y": 700,
         "wires": [
             [
                 "494c0e1626e74b03"
@@ -2920,8 +3154,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "ls sounds",
-        "x": 560,
-        "y": 720,
+        "x": 540,
+        "y": 660,
         "wires": [
             [
                 "6e3e1642880f5295"
@@ -2943,8 +3177,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 720,
+        "x": 700,
+        "y": 660,
         "wires": [
             [
                 "9a6d5159979437b8"
@@ -2964,8 +3198,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
-        "y": 760,
+        "x": 850,
+        "y": 700,
         "wires": [
             [
                 "a9d22c1ccafb666e"
@@ -2987,8 +3221,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 1030,
-        "y": 760,
+        "x": 1010,
+        "y": 700,
         "wires": []
     },
     {
@@ -3048,8 +3282,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 130,
-        "y": 940,
+        "x": 110,
+        "y": 880,
         "wires": [
             [
                 "97cd5aa2eb055baf"
@@ -3060,6 +3294,7 @@
         "id": "dc5cb52b6bdb4970",
         "type": "function",
         "z": "a380efb730bea147",
+        "d": true,
         "g": "2ce41e3897fb35ce",
         "name": "Instructie Email",
         "func": "let toAddress = msg.payload;\n\nmsg.topic = \"MiniSAHA: Hoe email geluid instellen?\";\n\nlet text =\n    \"<br>Beste contactpersoon van \" + global.get(\"VoornaamGebruiker\")  + \",\" +\n    \"<br><br>\" +\n    global.get(\"VoornaamGebruiker\")  + \" gebruikt de MiniSAHA app waarin hij/zij zich iedere dag OK meldt. \" + \n    \"Je ontvangt een email als hij/zij zich te laat afmeldt.\" +\n    \"<br><br>\" +\n    \"Het is handig als er een apart meldingsgeluid is voor dit email bericht.<br>\" +\n    \"Dat kan je als volgt instellen:<br>\" +\n    \"1. Maak dan een nieuw email account aan.<br>\" +\n    \"2. Installeer een andere email app op je telefoon die je nog niet hebt (vraag Google hoe dit moet).<br>\" +\n    \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n    \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n    \"<br><br>\" +\n    \"Voorbeeld om een nieuw Google account aan te maken:<br>\" +\n    \"- Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n    \"- Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n    \"- Nu kan je wel zelf bepalen wat het email adres wordt.<br>\" +\n    \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nmsg = {\n    to: toAddress,\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", to: \" +toAddress});\nreturn msg;",
@@ -3069,7 +3304,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
+        "x": 400,
         "y": 1440,
         "wires": [
             [
@@ -3081,6 +3316,7 @@
         "id": "7f979e43785719b9",
         "type": "mqtt in",
         "z": "a380efb730bea147",
+        "d": true,
         "g": "2ce41e3897fb35ce",
         "name": "",
         "topic": "InstructieWhatsAppEmail",
@@ -3091,7 +3327,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 170,
+        "x": 150,
         "y": 1440,
         "wires": [
             [
@@ -3113,8 +3349,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 120,
-        "y": 1260,
+        "x": 100,
+        "y": 1200,
         "wires": [
             [
                 "d4de81b1883bcb34"
@@ -3134,8 +3370,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 1260,
+        "x": 380,
+        "y": 1200,
         "wires": [
             [
                 "56b665cac3641749"
@@ -3156,8 +3392,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
-        "y": 980,
+        "x": 620,
+        "y": 920,
         "wires": [
             [
                 "6c1f652de628f1be"
@@ -3177,8 +3413,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
-        "y": 1180,
+        "x": 800,
+        "y": 1120,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3199,8 +3435,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 740,
-        "y": 1580,
+        "x": 720,
+        "y": 1520,
         "wires": [
             [
                 "7139bcd155107a18"
@@ -3220,8 +3456,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 1640,
+        "x": 710,
+        "y": 1580,
         "wires": [
             [
                 "b7c8e30189b3e92e"
@@ -3243,8 +3479,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 950,
-        "y": 1640,
+        "x": 930,
+        "y": 1580,
         "wires": [
             []
         ]
@@ -3262,8 +3498,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 1220,
+        "x": 610,
+        "y": 1160,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3284,8 +3520,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 130,
-        "y": 1200,
+        "x": 110,
+        "y": 1140,
         "wires": [
             [
                 "b7b67d2a822e82d9"
@@ -3305,8 +3541,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 1200,
+        "x": 400,
+        "y": 1140,
         "wires": [
             [
                 "0d0b3ee379dc41b0"
@@ -3320,8 +3556,8 @@
         "g": "2ce41e3897fb35ce",
         "name": "Meld gebruiker en contactpersonen",
         "info": "",
-        "x": 200,
-        "y": 700,
+        "x": 180,
+        "y": 640,
         "wires": []
     },
     {
@@ -3348,8 +3584,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 1380,
+        "x": 420,
+        "y": 1320,
         "wires": [
             [
                 "56b665cac3641749"
@@ -3370,8 +3606,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 140,
-        "y": 1380,
+        "x": 120,
+        "y": 1320,
         "wires": [
             [
                 "6c19355dfbaa9427"
@@ -3392,8 +3628,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 140,
-        "y": 1500,
+        "x": 120,
+        "y": 1380,
         "wires": [
             [
                 "7df2d7d7906671f7"
@@ -3406,15 +3642,15 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Welkom nieuw contact",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet emailTopic = \"MiniSAHA: welkom contactpersoon van \" + voornaamGebruiker;\nlet toAddress = msg.payload;\nlet text = \"Beste contactpersoon,\\n\\n\" + \n  voornaamGebruiker + \" heeft je toegevoegd als contact voor zijn MiniSAHA app.\\n\" + \n  \"In deze app meldt \" + voornaamGebruiker + \" iedere dag dat hij/zij OK is.\\n\" + \n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een melding hiervan krijgen.\\n\" +\n  \"Neem dan even contact op met \" + voornaamGebruiker + \" om te kijken wat er aan de hand is.\";\n\nmsg = {\n  to: toAddress,\n  from: \"safeathomealone@gmail.com\",\n  topic: emailTopic,\n  payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet emailTopic = \"MiniSAHA: welkom contactpersoon van \" + voornaamGebruiker;\nlet toAddress = msg.payload;\nlet text = \"Beste contactpersoon,\" + \n  \"<br><br>\" +\n  voornaamGebruiker + \" heeft je toegevoegd als contactpersoon voor zijn MiniSAHA app.\" + \n  \"<br>\" +\n  \"In deze app meldt \" + voornaamGebruiker + \" iedere dag dat hij/zij OK is.\\n\" + \n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een melding hiervan krijgen.\\n\" +\n  \"Neem dan even contact op met \" + voornaamGebruiker + \" om te kijken wat er aan de hand is.\";\n\ntext +=\n  \"<br><br>\" +\n  \"Het is handig als er een apart meldingsgeluid is voor dit email bericht.<br>\" +\n  \"Dat zou je als volgt kunnen instellen:<br>\" +\n  \"1. Maak dan een nieuw email account aan.<br>\" +\n  \"2. Installeer een andere email app op je telefoon die je nog niet hebt (vraag Google hoe dit moet).<br>\" +\n  \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n  \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n  \"<br><br>\" +\n  \"Voorbeeld om een nieuw Google account aan te maken:<br>\" +\n  \"- Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n  \"- Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n  \"- Nu kan je wel zelf bepalen wat het email adres wordt.<br>\" +\n  \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nmsg = {\n  to: toAddress,\n  from: \"safeathomealone@gmail.com\",\n  topic: emailTopic,\n  payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 1500,
+        "x": 420,
+        "y": 1380,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3476,7 +3712,7 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "Trigger after reboot",
-        "func": "// @ts-nocheck\n// Maak een static variabele op de functie node\nif (typeof myStatic === \"undefined\") {\n    myStatic = { count: 0 };\n}\n\nmyStatic.count++;\n\n\n// Op een Rasp4 is de eerste zichtbare waarde 3.\n\nif (myStatic.count > 5)\n    return null;    // Stop met initializeren:\n\nlet now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({ text: tijd_nu + \" - \" + myStatic.count });\n\nmsg.payload = \"Static teller: \" + myStatic.count;\nreturn msg;\n\n\n/*\nWat gebeurt hier?\nmyStatic wordt niet gedeclareerd met let/var/const\n\nDaardoor wordt het een persistent variabele binnen de function node\n\nHij blijft bestaan zolang Node‑RED draait\n\nBij een deploy blijft hij bestaan\n\nBij een reboot wordt hij opnieuw aangemaakt (dus reset)\n*/",
+        "func": "// @ts-nocheck\n// Maak een static variabele op de functie node\nif (typeof myStatic === \"undefined\") {\n    myStatic = { count: 0 };\n}\n\nmyStatic.count++;\n\n\n// Op een Rasp 4 is de eerste zichtbare waarde 3.\n// Op een Rasp 3B is de eerste zichtbare waarde 4.\nif (myStatic.count > 5)\n    return null;    // Stop met initializeren:\n\nlet now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({ text: tijd_nu + \" - \" + myStatic.count });\n\nmsg.payload = \"Static teller: \" + myStatic.count;\nreturn msg;\n\n\n/*\nWat gebeurt hier?\nmyStatic wordt niet gedeclareerd met let/var/const\n\nDaardoor wordt het een persistent variabele binnen de function node\n\nHij blijft bestaan zolang Node‑RED draait\n\nBij een deploy blijft hij bestaan\n\nBij een reboot wordt hij opnieuw aangemaakt (dus reset)\n*/",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3498,7 +3734,7 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "Debug triggers",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4502,6 +4738,7 @@
         "id": "dba3182f449692bb",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "",
         "rules": [
             {
@@ -4517,8 +4754,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 910,
-        "y": 940,
+        "x": 950,
+        "y": 860,
         "wires": [
             []
         ]
@@ -4527,6 +4764,7 @@
         "id": "c7a382e00daaa762",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "",
         "rules": [
             {
@@ -4542,8 +4780,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 930,
-        "y": 100,
+        "x": 970,
+        "y": 640,
         "wires": [
             []
         ]
@@ -4552,6 +4790,7 @@
         "id": "210d4509be3e8c2a",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "name": "",
         "rules": [
             {
@@ -4567,8 +4806,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 930,
-        "y": 360,
+        "x": 950,
+        "y": 340,
         "wires": [
             []
         ]
@@ -4577,6 +4816,7 @@
         "id": "ee88c907a0b09cd1",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "Instellingen aangepast",
         "func": "msg.payload = \"Instellingen aangepast.\";\nreturn msg;",
         "outputs": 1,
@@ -4585,8 +4825,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 160,
+        "x": 720,
+        "y": 700,
         "wires": [
             [
                 "dd63a561601b450c"
@@ -4597,6 +4837,7 @@
         "id": "dd63a561601b450c",
         "type": "mqtt out",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "",
         "topic": "Home_Response",
         "qos": "",
@@ -4607,14 +4848,15 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 890,
-        "y": 160,
+        "x": 930,
+        "y": 700,
         "wires": []
     },
     {
         "id": "c3f276a2ad7a0959",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "VoornaamGebruiker",
         "rules": [
             {
@@ -4630,8 +4872,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 180,
-        "y": 100,
+        "x": 220,
+        "y": 640,
         "wires": [
             [
                 "40cdbc12fde511c0"
@@ -4642,6 +4884,7 @@
         "id": "03a73053ad9f3c47",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "name": "EmailGebruiker",
         "rules": [
             {
@@ -4657,8 +4900,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 160,
-        "y": 360,
+        "x": 180,
+        "y": 340,
         "wires": [
             [
                 "7722ab3d73849d23"
@@ -4669,6 +4912,7 @@
         "id": "895ee0f7358cef53",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "TijdOK",
         "rules": [
             {
@@ -4684,8 +4928,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 130,
-        "y": 940,
+        "x": 170,
+        "y": 860,
         "wires": [
             [
                 "655933cca9c65716"
@@ -4696,6 +4940,7 @@
         "id": "fa655697e3f1bd1d",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "name": "",
         "rules": [
             {
@@ -4711,8 +4956,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 920,
-        "y": 240,
+        "x": 940,
+        "y": 220,
         "wires": [
             []
         ]
@@ -4721,6 +4966,7 @@
         "id": "cbe4d5b193c88548",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "name": "MobielGebruiker",
         "rules": [
             {
@@ -4736,8 +4982,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 160,
-        "y": 220,
+        "x": 180,
+        "y": 200,
         "wires": [
             [
                 "a2dcd0ec27b30c84"
@@ -4748,6 +4994,7 @@
         "id": "a6fd027bc0be280d",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "75f6d804089580c3",
         "name": "",
         "rules": [
             {
@@ -4763,8 +5010,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 920,
-        "y": 680,
+        "x": 960,
+        "y": 1600,
         "wires": [
             []
         ]
@@ -4773,6 +5020,7 @@
         "id": "6827ed79fcbc1bcc",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "name": "help tekst",
         "func": "msg.payload = \n\"<b>\" + \"<br><br>\" +\n\"Je kan een melding krijgen op een Bluetooth speaker en/of via het meldingsgeluid van een email.\" +\n\"<br><br>\" +\n\"Het voordeel van een Bluetooth speaker is dat email meldingen uit kunnen staan op je mobiel.\" +\n\"<br><br>\" +\n\"Als je alleen via email een melding wilt, is het handig om een apart meldingsgeluid hiervoor in te stellen.\"+\n\"Dat kan je doen door een nieuw emailadres aan te maken en een andere email app te gebruiken dan de standaard app. \" +\n\"Want dan kan je voor deze email app een uniek geluid instellen.</b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
@@ -4781,8 +5029,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 400,
+        "x": 740,
+        "y": 380,
         "wires": [
             [
                 "cc825dfdb183c22b"
@@ -4790,31 +5038,10 @@
         ]
     },
     {
-        "id": "c7a30ab24c9ec224",
-        "type": "function",
-        "z": "5c14e0941d341b42",
-        "d": true,
-        "name": "Spaces",
-        "func": "// verwijder spaties\nlet origineleString = msg.payload;\nif (origineleString == undefined) return;\nlet zonderSpaties = origineleString.replace(/\\s+/g, \"\");\nmsg.payload = zonderSpaties;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 480,
-        "y": 680,
-        "wires": [
-            [
-                "a6fd027bc0be280d",
-                "996abe576c2cecb2"
-            ]
-        ]
-    },
-    {
         "id": "f39bf68dcea766f2",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "",
         "rules": [
             {
@@ -4830,8 +5057,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 960,
-        "y": 1060,
+        "x": 1000,
+        "y": 980,
         "wires": [
             []
         ]
@@ -4840,6 +5067,7 @@
         "id": "da27f195c199f6ae",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "MeldPeriodeInMinuten",
         "rules": [
             {
@@ -4855,8 +5083,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 180,
-        "y": 1060,
+        "x": 220,
+        "y": 980,
         "wires": [
             [
                 "8432a47ba220719a"
@@ -4867,16 +5095,17 @@
         "id": "5cd5579edefbe928",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>De gebruiker moet binnen deze periode (b.v. 60 minuten) na de eerste melding reageren in deze app.</b>\" +\n\"<br></b><br>\" +\n\"<b>Zo niet, dan wordt er een email gestuurd naar de contactpersonen met het verzoek contact met je op te nemen.</b><br>\";\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \n\"<b>Je moet binnen deze periode (b.v. 60 minuten) na de eerste melding via de Bluetooth speaker reageren in deze app.\" +\n\"<br><br>\" +\n\"Zo niet, dan wordt er een bericht gestuurd naar de contactpersonen met het verzoek contact met je op te nemen.</b><br>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 1120,
+        "x": 740,
+        "y": 1040,
         "wires": [
             [
                 "f24ffaab884e5a75"
@@ -4905,12 +5134,13 @@
         "id": "c9ec5160388cc29c",
         "type": "link in",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "OnStartup",
         "links": [
             "4abb19d96b88ba67"
         ],
-        "x": 45,
-        "y": 1060,
+        "x": 85,
+        "y": 980,
         "wires": [
             [
                 "da27f195c199f6ae"
@@ -4921,12 +5151,13 @@
         "id": "ba5f9de83ae33543",
         "type": "link in",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "OnStartup",
         "links": [
             "4abb19d96b88ba67"
         ],
-        "x": 45,
-        "y": 100,
+        "x": 85,
+        "y": 640,
         "wires": [
             [
                 "c3f276a2ad7a0959"
@@ -4937,12 +5168,13 @@
         "id": "73afa7fb3453b035",
         "type": "link in",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "name": "OnStartup",
         "links": [
             "4abb19d96b88ba67"
         ],
-        "x": 45,
-        "y": 360,
+        "x": 65,
+        "y": 340,
         "wires": [
             [
                 "03a73053ad9f3c47"
@@ -4953,12 +5185,13 @@
         "id": "3a6f5a640cea07b3",
         "type": "link in",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "name": "OnStartup",
         "links": [
             "4abb19d96b88ba67"
         ],
-        "x": 45,
-        "y": 220,
+        "x": 65,
+        "y": 200,
         "wires": [
             [
                 "cbe4d5b193c88548"
@@ -4969,12 +5202,13 @@
         "id": "26417c5cfef73e15",
         "type": "link in",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "OnStartup",
         "links": [
             "4abb19d96b88ba67"
         ],
-        "x": 45,
-        "y": 940,
+        "x": 85,
+        "y": 860,
         "wires": [
             [
                 "895ee0f7358cef53"
@@ -4985,6 +5219,7 @@
         "id": "40cdbc12fde511c0",
         "type": "ui-text-input",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
         "name": "Voornaam gebruiker",
         "label": "Voornaam gebruiker",
@@ -5006,8 +5241,8 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 520,
-        "y": 100,
+        "x": 560,
+        "y": 640,
         "wires": [
             [
                 "c7a382e00daaa762",
@@ -5021,6 +5256,7 @@
         "type": "ui-text-input",
         "z": "5c14e0941d341b42",
         "d": true,
+        "g": "6287909b403bf66a",
         "group": "a50d14b208aa0231",
         "name": "Email gebruiker",
         "label": "Email adres gebruiker",
@@ -5042,8 +5278,8 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 500,
-        "y": 360,
+        "x": 520,
+        "y": 340,
         "wires": [
             [
                 "210d4509be3e8c2a"
@@ -5054,9 +5290,10 @@
         "id": "0d14b59266171697",
         "type": "ui-text-input",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
         "name": "Tijd OK",
-        "label": "Tijdstip melding sturen: \"ben je OK?\"",
+        "label": "Tijdstip geluidsmelding sturen: \"ben je OK?\"",
         "order": 8,
         "width": "4",
         "height": "1",
@@ -5075,8 +5312,8 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 480,
-        "y": 940,
+        "x": 520,
+        "y": 860,
         "wires": [
             [
                 "9b36b60d6131042f"
@@ -5088,6 +5325,7 @@
         "type": "ui-text-input",
         "z": "5c14e0941d341b42",
         "d": true,
+        "g": "6287909b403bf66a",
         "group": "a50d14b208aa0231",
         "name": "Mobiel gebruiker",
         "label": "06 nummer gebruiker",
@@ -5109,8 +5347,8 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 510,
-        "y": 220,
+        "x": 530,
+        "y": 200,
         "wires": [
             [
                 "4c76892a18484763"
@@ -5118,46 +5356,13 @@
         ]
     },
     {
-        "id": "3f047118cb814e7f",
-        "type": "ui-text-input",
-        "z": "5c14e0941d341b42",
-        "d": true,
-        "group": "a50d14b208aa0231",
-        "name": "IP adres",
-        "label": "WIFI IP adres van deze telefoon",
-        "order": 5,
-        "width": "4",
-        "height": "1",
-        "topic": "topic",
-        "topicType": "msg",
-        "mode": "text",
-        "tooltip": "",
-        "delay": "500",
-        "passthru": true,
-        "sendOnDelay": false,
-        "sendOnBlur": true,
-        "sendOnEnter": false,
-        "className": "",
-        "clearable": false,
-        "sendOnClear": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "x": 340,
-        "y": 680,
-        "wires": [
-            [
-                "c7a30ab24c9ec224"
-            ]
-        ]
-    },
-    {
         "id": "163dbba3527a1208",
         "type": "ui-text-input",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
         "name": "Meldperiode",
-        "label": "Melding sturen naar contacten na  (in min.)",
+        "label": "Bericht sturen naar contacten na  (in min.)",
         "order": 11,
         "width": "4",
         "height": "1",
@@ -5176,8 +5381,8 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 490,
-        "y": 1060,
+        "x": 530,
+        "y": 980,
         "wires": [
             [
                 "ec7010218631a22d"
@@ -5185,49 +5390,10 @@
         ]
     },
     {
-        "id": "d1640933aa5790c8",
-        "type": "ui-button",
-        "z": "5c14e0941d341b42",
-        "d": true,
-        "group": "a50d14b208aa0231",
-        "name": "Help IP",
-        "label": "?",
-        "order": 6,
-        "width": "1",
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 340,
-        "y": 720,
-        "wires": [
-            [
-                "21d5374db39f6f21"
-            ]
-        ]
-    },
-    {
         "id": "96d36014946018e2",
         "type": "ui-button",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
         "name": "Help Meldperiode",
         "label": "?",
@@ -5255,8 +5421,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 510,
-        "y": 1120,
+        "x": 550,
+        "y": 1040,
         "wires": [
             [
                 "5cd5579edefbe928"
@@ -5267,6 +5433,7 @@
         "id": "aa21372c06ac99e6",
         "type": "ui-text",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
         "order": 13,
         "width": 0,
@@ -5283,8 +5450,8 @@
         "className": "",
         "value": "payloads",
         "valueType": "msg",
-        "x": 480,
-        "y": 1260,
+        "x": 520,
+        "y": 1180,
         "wires": []
     },
     {
@@ -5292,6 +5459,7 @@
         "type": "ui-text",
         "z": "5c14e0941d341b42",
         "d": true,
+        "g": "6287909b403bf66a",
         "group": "a50d14b208aa0231",
         "order": 7,
         "width": 0,
@@ -5308,39 +5476,15 @@
         "className": "",
         "value": "payloads",
         "valueType": "msg",
-        "x": 480,
-        "y": 540,
+        "x": 500,
+        "y": 480,
         "wires": []
-    },
-    {
-        "id": "d79891686c8e66ba",
-        "type": "ui-notification",
-        "z": "5c14e0941d341b42",
-        "d": true,
-        "ui": "6c1d30b5f16932dd",
-        "position": "top right",
-        "colorDefault": false,
-        "color": "#000000",
-        "displayTime": "60",
-        "showCountdown": true,
-        "outputs": 1,
-        "allowDismiss": true,
-        "dismissText": "Sluiten",
-        "allowConfirm": false,
-        "confirmText": "Confirm",
-        "raw": false,
-        "className": "",
-        "name": "",
-        "x": 910,
-        "y": 720,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "f24ffaab884e5a75",
         "type": "ui-notification",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
         "colorDefault": false,
@@ -5355,8 +5499,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 910,
-        "y": 1120,
+        "x": 950,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -5365,6 +5509,7 @@
         "id": "996abe576c2cecb2",
         "type": "mqtt out",
         "z": "5c14e0941d341b42",
+        "g": "75f6d804089580c3",
         "name": "",
         "topic": "IPAdressUser",
         "qos": "",
@@ -5375,14 +5520,15 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 900,
-        "y": 620,
+        "x": 940,
+        "y": 1540,
         "wires": []
     },
     {
         "id": "f487e19abb196edc",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "",
         "rules": [
             {
@@ -5398,8 +5544,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 920,
-        "y": 1180,
+        "x": 960,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -5408,6 +5554,7 @@
         "id": "2825429d7e218b9b",
         "type": "change",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "Herinnering",
         "rules": [
             {
@@ -5423,8 +5570,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 170,
-        "y": 1180,
+        "x": 210,
+        "y": 1100,
         "wires": [
             [
                 "590a24117a7d6877"
@@ -5435,12 +5582,13 @@
         "id": "bdebfa0f1e99fc2e",
         "type": "link in",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "OnStartup",
         "links": [
             "4abb19d96b88ba67"
         ],
-        "x": 55,
-        "y": 1180,
+        "x": 95,
+        "y": 1100,
         "wires": [
             [
                 "2825429d7e218b9b"
@@ -5451,9 +5599,10 @@
         "id": "eecb60f839dc5afc",
         "type": "ui-text-input",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
         "name": "Herinnering",
-        "label": "Melding herhalen na (in minuten)",
+        "label": "Deze melding herhalen na (in minuten)",
         "order": 10,
         "width": "4",
         "height": "1",
@@ -5472,8 +5621,8 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 490,
-        "y": 1180,
+        "x": 530,
+        "y": 1100,
         "wires": [
             [
                 "f487e19abb196edc",
@@ -5485,6 +5634,7 @@
         "id": "590a24117a7d6877",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "5",
         "func": "if (msg.payload == null) {\n    msg.payload = 5;\n    global.set(\"Herinnering\", msg.payload);\n    node.status({ text: msg.payload });\n}\nreturn msg;",
         "outputs": 1,
@@ -5493,8 +5643,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 1180,
+        "x": 370,
+        "y": 1100,
         "wires": [
             [
                 "eecb60f839dc5afc"
@@ -5505,6 +5655,7 @@
         "id": "4a202b76747eac9b",
         "type": "mqtt out",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "",
         "topic": "TijdOKChanged",
         "qos": "",
@@ -5515,24 +5666,25 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 900,
-        "y": 880,
+        "x": 940,
+        "y": 800,
         "wires": []
     },
     {
         "id": "5dd81c36547166d6",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "help tekst",
-        "func": "msg.payload = \n\"<b>Vanaf dit moment ontvang je meldingen via de Bluetooth speaker met de vraag om te reageren in de app.</b>\" +\n\"<br></b><br>\" +\n\"<b>Echter al 2 uur voor dit tijdstip kan je in de app aangeven dat je OK bent. Je krijgt dan ook geen meldingen meer.</b><br>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload =\n    \"<b>Vanaf dit moment ontvang je meldingen via de Bluetooth speaker met de vraag om te reageren in de app.\" +\n    \"<br><br>\" +\n    \"Echter al 2 uur voor dit tijdstip kan je in de app aangeven of je OK bent. Je krijgt dan ook geen meldingen meer.\" +\n    \"<br><br>\" +\n    \"Neem altijd je mobiel mee als je van huis gaat. Zo weet het systeem of je wel of niet thuis bent.\" +\n    \"<br><br>\" +\n    \"Als het systeem ziet dat je niet thuis bent (> 15 minuten), dan wordt dit als teken van leven beschouwd en meldt het systeem je automatisch af.\" +\n    \"<br><br>\" +\n    \"Als je niet thuis bent, dan wordt er geen melding gegeven via de Bluetooth speaker.\" +\n    \"</b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 840,
+        "x": 740,
+        "y": 760,
         "wires": [
             [
                 "e5c27da5e10601ac"
@@ -5543,6 +5695,7 @@
         "id": "5574ceb8a61ddb47",
         "type": "ui-button",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
         "name": "Help tijd OK",
         "label": "?",
@@ -5570,8 +5723,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 490,
-        "y": 840,
+        "x": 530,
+        "y": 760,
         "wires": [
             [
                 "5dd81c36547166d6"
@@ -5582,6 +5735,7 @@
         "id": "e5c27da5e10601ac",
         "type": "ui-notification",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
         "colorDefault": false,
@@ -5596,31 +5750,10 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 910,
-        "y": 840,
+        "x": 950,
+        "y": 760,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "21d5374db39f6f21",
-        "type": "function",
-        "z": "5c14e0941d341b42",
-        "d": true,
-        "name": "help tekst",
-        "func": "msg.payload = \n\"<b>Het IP-adres van de WIFI verbinding van je telefoon wordt gebruikt om te zien of je in huis bent. \" +\n\"Als je niet thuis bent, ontvang je geen meldingen.</b>\" +\n\"<br></b><br>\" +\n\"<b>Het IP adres van je telefoon wordt automatisch ingevuld.</b>\"\n//\"<b>Dit IP-adres kan je vinden bij Instellingen op je telefoon. \" +\n//\"Voor ieder merk en type telefoon is dat anders.</b><br>\" +\n//\"<b>Het IP adres kan (bij uitzondering) veranderen!</b>\" + \n//\"<br></b><br>\" +\n//\"<b>Je kan het zo ongeveer vinden:</b><br>\"+\n//\"<b>1. Instellingen --> Verbindingen --> WIFI.</b><br>\" +\n//\"<b>2. Tik op het verbonden netwerk (of Instellingen daarnaast).</b><br>\" +\n//\"<b>3. Daar zie je ergens het IP-adres staan.</b>\" +\n//\"<br></b><br>\" +\n//\"<b>Voorbeeld van een IP-adres is: '192.168.2.68'.</b>\" +\n//\"<br></b><br>\";\n/*\n\"<b>Als blijkt dat je mobiel soms niet gedetecteerd wordt, \" + \n\" ga naar In.stellingen → Apps → (kies een app die altijd actief mag zijn, bv. Chrome) → Batterij → Onbeperkt</b><br>\";\n*/\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 480,
-        "y": 720,
-        "wires": [
-            [
-                "d79891686c8e66ba"
-            ]
         ]
     },
     {
@@ -5628,6 +5761,7 @@
         "type": "ui-button",
         "z": "5c14e0941d341b42",
         "d": true,
+        "g": "6287909b403bf66a",
         "group": "a50d14b208aa0231",
         "name": "Help Email gebruiker",
         "label": "?",
@@ -5655,8 +5789,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 520,
-        "y": 400,
+        "x": 540,
+        "y": 380,
         "wires": [
             [
                 "6827ed79fcbc1bcc"
@@ -5667,6 +5801,7 @@
         "id": "cc825dfdb183c22b",
         "type": "ui-notification",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
         "colorDefault": false,
@@ -5681,8 +5816,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 910,
-        "y": 400,
+        "x": 930,
+        "y": 380,
         "wires": [
             []
         ]
@@ -5691,16 +5826,18 @@
         "id": "d2f2d7243a624cab",
         "type": "comment",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "Weergave is altijd AM/PM",
         "info": "",
-        "x": 650,
-        "y": 900,
+        "x": 690,
+        "y": 820,
         "wires": []
     },
     {
         "id": "8432a47ba220719a",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "60",
         "func": "if (msg.payload == null) {\n    msg.payload = 60;\n    global.set(\"MeldPeriodeInMinuten\", msg.payload);\n    node.status({ text: '\"null: ' + msg.payload + '\"' });\n}        \nnode.status({ text: '\"' + msg.payload + '\"' });\nreturn msg;",
         "outputs": 1,
@@ -5709,8 +5846,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 1060,
+        "x": 390,
+        "y": 980,
         "wires": [
             [
                 "163dbba3527a1208"
@@ -5721,6 +5858,7 @@
         "id": "655933cca9c65716",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "09:00",
         "func": "if (msg.payload == null || msg.payload.trim() == \"\") { \n    msg.payload = \"09:00\";\n    global.set(\"TijdOK\", msg.payload);\n    node.status({ text: '\"was empty: ' + msg.payload + '\"' });\n}\nnode.status({ text: '\"' + msg.payload + '\"'});\nreturn msg;",
         "outputs": 1,
@@ -5729,8 +5867,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 940,
+        "x": 350,
+        "y": 860,
         "wires": [
             [
                 "0d14b59266171697"
@@ -5741,6 +5879,7 @@
         "id": "9b36b60d6131042f",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "Changed?",
         "func": "if (msg.payload != global.get(\"TijdOK\")) {\n    node.status({ text: \"'\"+ msg.payload + \"'\"});\n    return msg;\n}\nelse\n    return;",
         "outputs": 1,
@@ -5749,8 +5888,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 940,
+        "x": 750,
+        "y": 860,
         "wires": [
             [
                 "dba3182f449692bb",
@@ -5763,6 +5902,7 @@
         "id": "3d702f0ad5e3389a",
         "type": "mqtt out",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "",
         "topic": "HerinneringChanged",
         "qos": "",
@@ -5773,14 +5913,15 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 920,
-        "y": 1240,
+        "x": 960,
+        "y": 1160,
         "wires": []
     },
     {
         "id": "6e34a944a7019b1e",
         "type": "mqtt out",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "",
         "topic": "StateChanged",
         "qos": "",
@@ -5791,14 +5932,15 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 880,
-        "y": 40,
+        "x": 920,
+        "y": 580,
         "wires": []
     },
     {
         "id": "f7e8d9c0b1a2",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "75f6d804089580c3",
         "name": "Get IP client",
         "func": "let ip = msg._client?.socketIp || \"???\";\nmsg.payload = ip;\nreturn msg;",
         "outputs": 1,
@@ -5807,11 +5949,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 640,
+        "x": 530,
+        "y": 1560,
         "wires": [
             [
-                "3f047118cb814e7f",
                 "a18148e4e8946b3b"
             ]
         ]
@@ -5820,11 +5961,12 @@
         "id": "9260659255156c8a",
         "type": "ui-control",
         "z": "5c14e0941d341b42",
+        "g": "75f6d804089580c3",
         "name": "",
         "ui": "6c1d30b5f16932dd",
         "events": "change",
-        "x": 100,
-        "y": 640,
+        "x": 140,
+        "y": 1560,
         "wires": [
             [
                 "f7e8d9c0b1a2"
@@ -5835,6 +5977,7 @@
         "id": "4c76892a18484763",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "name": "Verify",
         "func": "node.status({ text: \"payload: \" + msg.payload });\n\nlet input  = msg.payload;\nif (input == undefined) return\n\n// Verwijder alles behalve cijfers en +\nlet cleaned = input.replace(/[^0-9+]/g, \"\");\n\n// Als het nummer met +31 begint → omzetten naar 06-formaat\nif (cleaned.startsWith(\"+31\")) {\n    cleaned = \"0\" + cleaned.slice(3);\n}\n\n// Als het nummer met 0031 begint → zelfde behandeling\nif (cleaned.startsWith(\"0031\")) {\n    cleaned = \"0\" + cleaned.slice(4);\n}\n\n// Nu moet het een 06-nummer zijn\nif (!/^06\\d{8}$/.test(cleaned)) {\n    return [null, msg]; // ongeldig nummer\n}\n\n// Normaliseer naar internationaal formaat\nconst internationaal = \"+31\" + cleaned.slice(1);\n\nmsg.payload = internationaal;\n\nreturn [msg, null];\n\n",
         "outputs": 2,
@@ -5843,8 +5986,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 280,
+        "x": 530,
+        "y": 260,
         "wires": [
             [
                 "fa655697e3f1bd1d"
@@ -5858,6 +6001,7 @@
         "id": "7a10c185dade879d",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "name": "Fout",
         "func": "msg.payload = \"<b>Ongeldig mobiel nummer: </b>\" + msg.payload;\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
@@ -5866,8 +6010,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 280,
+        "x": 750,
+        "y": 260,
         "wires": [
             [
                 "2d24583c1895d795"
@@ -5878,6 +6022,7 @@
         "id": "2d24583c1895d795",
         "type": "ui-notification",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
         "colorDefault": false,
@@ -5892,8 +6037,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 890,
-        "y": 280,
+        "x": 910,
+        "y": 260,
         "wires": [
             []
         ]
@@ -5902,6 +6047,7 @@
         "id": "a18148e4e8946b3b",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "75f6d804089580c3",
         "name": "filter tailscale",
         "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.payload });\n\nvar ip = msg.payload ?? \"\";\n\n// ignore is IP address is via tailscale\nif (ip.startsWith(\"100\")) return;\nreturn msg;",
         "outputs": 1,
@@ -5910,8 +6056,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 640,
+        "x": 710,
+        "y": 1560,
         "wires": [
             [
                 "996abe576c2cecb2",
@@ -5924,6 +6070,7 @@
         "type": "ui-button",
         "z": "5c14e0941d341b42",
         "d": true,
+        "g": "6287909b403bf66a",
         "group": "a50d14b208aa0231",
         "name": "Stuur test email",
         "label": "Stuur test email",
@@ -5951,8 +6098,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 500,
-        "y": 440,
+        "x": 520,
+        "y": 420,
         "wires": [
             [
                 "ddec65595400ad5c",
@@ -5964,6 +6111,7 @@
         "id": "307ad5a63392a6d1",
         "type": "mqtt out",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "name": "",
         "topic": "TestEmail",
         "qos": "",
@@ -5974,14 +6122,15 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 880,
-        "y": 440,
+        "x": 900,
+        "y": 420,
         "wires": []
     },
     {
         "id": "3e9e63b840019cb1",
         "type": "ui-notification",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "ui": "6c1d30b5f16932dd",
         "position": "top right",
         "colorDefault": false,
@@ -5996,8 +6145,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 910,
-        "y": 500,
+        "x": 930,
+        "y": 480,
         "wires": [
             []
         ]
@@ -6006,6 +6155,7 @@
         "id": "ddec65595400ad5c",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
         "name": "Info",
         "func": "msg.payload = \"<br></b><br>\" + \"Een test email is verstuurd naar \" + \nglobal.get(\"EmailGebruiker\") + \".\"\n+ \"</b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"center\",\n    displayTime: 10,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
@@ -6014,8 +6164,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 500,
+        "x": 730,
+        "y": 480,
         "wires": [
             [
                 "3e9e63b840019cb1"
@@ -6028,8 +6178,8 @@
         "z": "5c14e0941d341b42",
         "g": "2032f01a228fa872",
         "name": "",
-        "x": 500,
-        "y": 1340,
+        "x": 520,
+        "y": 1280,
         "wires": [
             [
                 "f97ccb1c541b62d5"
@@ -6049,8 +6199,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 1340,
+        "x": 360,
+        "y": 1280,
         "wires": [
             [
                 "510ee11de8ea290e"
@@ -6063,8 +6213,8 @@
         "z": "5c14e0941d341b42",
         "g": "2032f01a228fa872",
         "name": "",
-        "x": 500,
-        "y": 1400,
+        "x": 520,
+        "y": 1340,
         "wires": [
             [
                 "f97ccb1c541b62d5"
@@ -6084,8 +6234,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 1400,
+        "x": 360,
+        "y": 1340,
         "wires": [
             [
                 "5dce7c29609dbb18"
@@ -6098,8 +6248,8 @@
         "z": "5c14e0941d341b42",
         "g": "2032f01a228fa872",
         "name": "",
-        "x": 500,
-        "y": 1460,
+        "x": 520,
+        "y": 1400,
         "wires": [
             [
                 "f97ccb1c541b62d5"
@@ -6119,8 +6269,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 1460,
+        "x": 360,
+        "y": 1400,
         "wires": [
             [
                 "fd98e8ea7582c78c"
@@ -6131,6 +6281,7 @@
         "id": "ec7010218631a22d",
         "type": "function",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "Changed?",
         "func": "if (msg.payload != global.get(\"MeldPeriodeInMinuten\")) {\n    node.status({ text: \"'\"+ msg.payload + \"'\"});\n    return msg;\n}\nelse\n    return;",
         "outputs": 1,
@@ -6139,8 +6290,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 1060,
+        "x": 750,
+        "y": 980,
         "wires": [
             [
                 "f39bf68dcea766f2",
@@ -6152,6 +6303,7 @@
         "id": "9149cd1eac222f06",
         "type": "delay",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "",
         "pauseType": "rate",
         "timeout": "1",
@@ -6165,8 +6317,8 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 560,
-        "y": 1000,
+        "x": 600,
+        "y": 920,
         "wires": [
             [
                 "32d4144c043af885"
@@ -6177,6 +6329,7 @@
         "id": "2611f5f157ea5d54",
         "type": "mqtt out",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "",
         "topic": "OvertijdChanged",
         "qos": "",
@@ -6187,14 +6340,15 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 910,
-        "y": 1000,
+        "x": 950,
+        "y": 920,
         "wires": []
     },
     {
         "id": "32d4144c043af885",
         "type": "delay",
         "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
         "name": "",
         "pauseType": "delay",
         "timeout": "10",
@@ -6208,8 +6362,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 730,
-        "y": 1000,
+        "x": 770,
+        "y": 920,
         "wires": [
             [
                 "2611f5f157ea5d54"
@@ -6231,8 +6385,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 910,
-        "y": 1400,
+        "x": 930,
+        "y": 1340,
         "wires": []
     },
     {
@@ -6248,8 +6402,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 1400,
+        "x": 730,
+        "y": 1340,
         "wires": [
             [
                 "4d02350771e9d97a"
@@ -6270,8 +6424,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 140,
-        "y": 1400,
+        "x": 160,
+        "y": 1340,
         "wires": [
             [
                 "e0d7567c11f14e80",
@@ -6300,6 +6454,50 @@
                 "4abb19d96b88ba67"
             ]
         ]
+    },
+    {
+        "id": "ea76917e7262274f",
+        "type": "comment",
+        "z": "5c14e0941d341b42",
+        "g": "6287909b403bf66a",
+        "name": "mag weg",
+        "info": "",
+        "x": 120,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "7135f63d973d1e61",
+        "type": "comment",
+        "z": "5c14e0941d341b42",
+        "g": "2032f01a228fa872",
+        "name": "Contacten",
+        "info": "",
+        "x": 140,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "8129738cd4f4fe2c",
+        "type": "comment",
+        "z": "5c14e0941d341b42",
+        "g": "75f6d804089580c3",
+        "name": "Vraag automatisch het IP adres op van het mobieltje",
+        "info": "",
+        "x": 270,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "6be5421a0db51fd0",
+        "type": "comment",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "Gebruikers informatie",
+        "info": "",
+        "x": 180,
+        "y": 580,
+        "wires": []
     },
     {
         "id": "efef419a3cac5a8b",
@@ -9206,6 +9404,29 @@
         "wires": [
             [
                 "aefcaf0124832705"
+            ]
+        ]
+    },
+    {
+        "id": "2640b5fa40ca7fa9",
+        "type": "mqtt in",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "name": "",
+        "topic": "SystemStarted",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 340,
+        "wires": [
+            [
+                "d17ee11b0c0d7512",
+                "20a7391c.421bd6"
             ]
         ]
     },
