@@ -11196,7 +11196,7 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "split",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nmsg.options = msg.payload.split(/\\n/);\nif (msg.options.length > 1) {\n   msg.options.pop();\n}\n\nlet selected = global.get(\"BluetoothSound\"); \n\nif (msg.options.includes(selected)) {\n    node.status({ text: tijd_nu + \", default: \" + msg.options });\n    msg.payload = global.get(\"BluetoothSound\");\n}\nelse {\n    if (msg.options.length > 0) {\n        node.status({ text: tijd_nu + \", first: \" + msg.payload });\n        msg.payload = msg.options[0];\n        global.set(\"BluetoothSound\", msg.payload);\n    }\n    else {\n        node.status({ text: tijd_nu + \", empty\" });\n        msg.payload = \"\";\n    }\n}\nreturn msg;",
+        "func": "let now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nmsg.options = msg.payload.split(/\\n/);\nif (msg.options.length > 1) {\n   msg.options.pop();\n}\n\nlet selected = global.get(\"BluetoothSound\"); \n\nif (msg.options.includes(selected)) {\n    node.status({ text: tijd_nu + \", default: \" + msg.options });\n    msg.payload = global.get(\"BluetoothSound\");\n}\nelse {\n    if (msg.options.length > 0) {\n        node.status({ text: tijd_nu + \", first: \" + msg.payload });\n        msg.payload = msg.options[0];\n        global.set(\"BluetoothSound\", msg.payload);\n    }\n    else {\n        node.status({ text: tijd_nu + \", empty\" });\n        msg.payload = \"\";\n    }\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
