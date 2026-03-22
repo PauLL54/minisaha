@@ -185,42 +185,6 @@
         "color": "#DDAA99"
     },
     {
-        "id": "6bde74f61fffc171",
-        "type": "group",
-        "z": "eb60a9ea21d42f29",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "9c9d4e18a631cc15",
-            "ebd1eb7739312b3d",
-            "1029c725dc625feb",
-            "849129e5cd170f06",
-            "30a234133bcbd597",
-            "b0067e5db1bb638b",
-            "3758cdea9d5d1d01",
-            "61806882e2c16761",
-            "728339c56b6087ec",
-            "6ddc11d490af5fe8",
-            "bab0e09190007a04",
-            "d4aeaeaaba846f61",
-            "1f626ce9dc89c87b",
-            "210c0d3eb90c90fc",
-            "e7125cfab1e58fe7",
-            "c655b3afa92e4917"
-        ],
-        "x": 34,
-        "y": 999,
-        "w": 1092,
-        "h": 322
-    },
-    {
         "id": "289d8e4b5f966496",
         "type": "group",
         "z": "eb60a9ea21d42f29",
@@ -262,19 +226,12 @@
             "b7916609271ad216",
             "6feec1798125bcc6",
             "610799e608be3cf2",
-            "69189479c84b6594",
-            "808d13a0c0217af6",
-            "0d792e42b7a09f09",
-            "e99d214a25473f18",
-            "2370014084f7980b",
-            "06e9efaecc77fc74",
-            "5c5f4cc9d40cb42e",
-            "bada578cf1ee41da"
+            "69189479c84b6594"
         ],
         "x": 28,
         "y": 31.5,
-        "w": 1038,
-        "h": 949.5
+        "w": 858,
+        "h": 829.5
     },
     {
         "id": "d344da1eff713941",
@@ -301,7 +258,7 @@
             "71e9a369f74477f6"
         ],
         "x": 34,
-        "y": 1511.5,
+        "y": 891.5,
         "w": 632,
         "h": 269.5
     },
@@ -827,7 +784,7 @@
             "d4dee740ac379f10"
         ],
         "x": 34,
-        "y": 1339,
+        "y": 1179,
         "w": 672,
         "h": 149.5
     },
@@ -1143,8 +1100,119 @@
             "a91759026081e90e"
         ],
         "x": 54,
-        "y": 319,
+        "y": 199,
         "w": 772,
+        "h": 162
+    },
+    {
+        "id": "9e903c2c09c4282e",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "37f069d836460b66",
+            "df367359870471a5",
+            "497f8cf3883cef27",
+            "a8e6c80a803b60ac",
+            "d6e9fbc0f41e2cf6",
+            "52451f37520a6927",
+            "58ede6f1aaa30106",
+            "9845db7cdb085511"
+        ],
+        "x": 34,
+        "y": 1839,
+        "w": 612,
+        "h": 282
+    },
+    {
+        "id": "502f83694964e8ea",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "5c5f4cc9d40cb42e",
+            "808d13a0c0217af6",
+            "0d792e42b7a09f09",
+            "e99d214a25473f18",
+            "2370014084f7980b",
+            "06e9efaecc77fc74",
+            "bada578cf1ee41da",
+            "bf50ccdaeb33f7e3"
+        ],
+        "x": 34,
+        "y": 1659,
+        "w": 1052,
+        "h": 162
+    },
+    {
+        "id": "426742dc229bcbe2",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "9c9d4e18a631cc15",
+            "ebd1eb7739312b3d",
+            "849129e5cd170f06",
+            "30a234133bcbd597",
+            "3758cdea9d5d1d01",
+            "61806882e2c16761",
+            "728339c56b6087ec",
+            "6ddc11d490af5fe8",
+            "bab0e09190007a04",
+            "d4aeaeaaba846f61",
+            "1f626ce9dc89c87b",
+            "c655b3afa92e4917"
+        ],
+        "x": 34,
+        "y": 1359,
+        "w": 1012,
+        "h": 282
+    },
+    {
+        "id": "047e71f7f9c2956b",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "210c0d3eb90c90fc",
+            "e7125cfab1e58fe7",
+            "b0067e5db1bb638b"
+        ],
+        "x": 734,
+        "y": 1159,
+        "w": 412,
         "h": 162
     },
     {
@@ -7849,7 +7917,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 700,
+        "y": 580,
         "wires": [
             [
                 "148566cf72b33e1a"
@@ -7878,7 +7946,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 770,
-        "y": 520,
+        "y": 400,
         "wires": []
     },
     {
@@ -7895,7 +7963,7 @@
         "oldrc": false,
         "name": "get version_test.txt",
         "x": 470,
-        "y": 700,
+        "y": 580,
         "wires": [
             [
                 "98ddd266a3e4c998"
@@ -7918,7 +7986,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -7940,7 +8008,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 350,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "2c5db89378881214"
@@ -7968,7 +8036,7 @@
         "to": "",
         "reg": false,
         "x": 760,
-        "y": 580,
+        "y": 460,
         "wires": [
             []
         ]
@@ -7995,7 +8063,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 770,
-        "y": 840,
+        "y": 720,
         "wires": []
     },
     {
@@ -8012,7 +8080,7 @@
         "oldrc": false,
         "name": "rm old",
         "x": 310,
-        "y": 700,
+        "y": 580,
         "wires": [
             [
                 "6f0b74ba5a27cc3e"
@@ -8035,7 +8103,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 630,
-        "y": 700,
+        "y": 580,
         "wires": [
             [
                 "bce54c96101eb7b7"
@@ -8056,7 +8124,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 700,
+        "y": 580,
         "wires": [
             [
                 "59d5c77dc1dc2a60"
@@ -8082,7 +8150,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 360,
-        "y": 880,
+        "y": 760,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -8103,7 +8171,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 880,
+        "y": 760,
         "wires": [
             [
                 "8d171fe450c7a81f"
@@ -8124,7 +8192,7 @@
         "finalize": "",
         "libs": [],
         "x": 180,
-        "y": 820,
+        "y": 700,
         "wires": [
             [
                 "b6d0686a4823c0c2"
@@ -8144,7 +8212,7 @@
         "scope": null,
         "uncaught": false,
         "x": 160,
-        "y": 520,
+        "y": 400,
         "wires": [
             [
                 "5fe7d4a09964b635",
@@ -8166,7 +8234,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 520,
+        "y": 400,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -8194,7 +8262,7 @@
         "templateScope": "page:style",
         "className": "buttonupdate",
         "x": 150,
-        "y": 740,
+        "y": 620,
         "wires": [
             []
         ]
@@ -8214,7 +8282,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 360,
-        "y": 560,
+        "y": 440,
         "wires": []
     },
     {
@@ -8231,7 +8299,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 520,
+        "y": 400,
         "wires": [
             [
                 "29faaa6a019e0e9b"
@@ -8254,18 +8322,18 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 440,
-        "y": 800,
+        "y": 680,
         "wires": []
     },
     {
         "id": "9c9d4e18a631cc15",
         "type": "subflow:7a37030e3e3276d9",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "426742dc229bcbe2",
         "name": "",
         "env": [],
-        "x": 640,
-        "y": 1160,
+        "x": 620,
+        "y": 1520,
         "wires": [
             [
                 "849129e5cd170f06",
@@ -8283,17 +8351,17 @@
         "id": "ebd1eb7739312b3d",
         "type": "function",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "426742dc229bcbe2",
         "name": "IP adres & PingCount",
-        "func": "var ipAddress = global.get(\"IP_Mobiel\");\nvar pingCount = msg.payload;\n\nmsg.payload = { IPAddress: ipAddress, PingCount: pingCount };\n\nnode.status({text: msg.topic + \"; \" +\n    ipAddress + \", pingCount: \" + pingCount });\nreturn msg;",
+        "func": "var ipAddress = global.get(\"IP_Mobiel\");\nvar pingCount = global.get(\"PingCount\");\n\nmsg.payload = { IPAddress: ipAddress, PingCount: pingCount };\n\nnode.status({text: msg.topic + \"; \" +\n    ipAddress + \", pingCount: \" + pingCount });\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 1160,
+        "x": 400,
+        "y": 1520,
         "wires": [
             [
                 "9c9d4e18a631cc15"
@@ -8301,31 +8369,10 @@
         ]
     },
     {
-        "id": "1029c725dc625feb",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
-        "name": "PingCount",
-        "func": "msg.payload = global.get(\"PingCount\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 320,
-        "y": 1240,
-        "wires": [
-            [
-                "ebd1eb7739312b3d"
-            ]
-        ]
-    },
-    {
         "id": "849129e5cd170f06",
         "type": "function",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "426742dc229bcbe2",
         "name": "set global GebruikerIsAtHome",
         "func": "global.set(\"GebruikerIsAtHome\", (msg.payload == 1));\nnode.status({ fill: \"blue\", shape: \"ring\", text: (msg.payload == 1) ? \"thuis\" : \"niet thuis\" });\nreturn msg;",
         "outputs": 1,
@@ -8334,8 +8381,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 970,
-        "y": 1120,
+        "x": 890,
+        "y": 1540,
         "wires": [
             []
         ]
@@ -8344,81 +8391,18 @@
         "id": "30a234133bcbd597",
         "type": "comment",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "426742dc229bcbe2",
         "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
         "info": "",
         "x": 250,
-        "y": 1040,
+        "y": 1400,
         "wires": []
-    },
-    {
-        "id": "b0067e5db1bb638b",
-        "type": "ui-chart",
-        "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
-        "group": "b71c0e77d9debcfd",
-        "name": "",
-        "label": "",
-        "order": 2,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "auto",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "0",
-        "ymax": "80",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "circle",
-        "pointRadius": 4,
-        "showLegend": true,
-        "removeOlder": "24",
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "1000",
-        "colors": [
-            "#04ff00",
-            "#ff0000",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#ffffff"
-        ],
-        "textColorDefault": false,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": "7",
-        "height": "3",
-        "className": "",
-        "interpolation": "linear",
-        "x": 920,
-        "y": 1280,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "3758cdea9d5d1d01",
         "type": "mqtt in",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "426742dc229bcbe2",
         "name": "",
         "topic": "IPAdressUser",
         "qos": "2",
@@ -8429,7 +8413,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 1080,
+        "y": 1440,
         "wires": [
             [
                 "728339c56b6087ec"
@@ -8440,7 +8424,7 @@
         "id": "61806882e2c16761",
         "type": "mqtt out",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "426742dc229bcbe2",
         "name": "",
         "topic": "PersoonThuis",
         "qos": "",
@@ -8451,25 +8435,25 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 920,
-        "y": 1060,
+        "x": 840,
+        "y": 1480,
         "wires": []
     },
     {
         "id": "728339c56b6087ec",
         "type": "function",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
-        "name": "pingcount",
-        "func": "if (msg.payload.stop == undefined)\n    msg.payload.stop = false;\n\nnode.status({ text: \"stop process: \" + msg.payload.stop });\n\nif (msg.payload.stop) msg.topic = \"stop\";\nmsg.payload = 4;\n\nreturn msg;",
+        "g": "426742dc229bcbe2",
+        "name": "topic=stop?",
+        "func": "if (msg.payload.stop == undefined)\n    msg.payload.stop = false;\n\nnode.status({ text: msg.payload + \"; stop process: \" + msg.payload.stop });\n\nif (msg.payload.stop) msg.topic = \"stop\";\nmsg.payload = 4;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 1080,
+        "x": 290,
+        "y": 1440,
         "wires": [
             [
                 "ebd1eb7739312b3d",
@@ -8490,7 +8474,7 @@
         "oldrc": false,
         "name": "Execute shutdown",
         "x": 550,
-        "y": 1560,
+        "y": 940,
         "wires": [
             [],
             [],
@@ -8510,7 +8494,7 @@
         "oldrc": false,
         "name": "Execute restart",
         "x": 540,
-        "y": 1680,
+        "y": 1060,
         "wires": [
             [],
             [],
@@ -8550,7 +8534,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 160,
-        "y": 1560,
+        "y": 940,
         "wires": [
             [
                 "9efaa0c2fd872693",
@@ -8591,7 +8575,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 1680,
+        "y": 1060,
         "wires": [
             [
                 "6d496dbb394b2888",
@@ -8619,7 +8603,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 1620,
+        "y": 1000,
         "wires": [
             []
         ]
@@ -8716,7 +8700,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 160,
-        "y": 1440,
+        "y": 1280,
         "wires": [
             [
                 "a37b37d1.aad508",
@@ -8737,7 +8721,7 @@
         "oldrc": false,
         "name": "measure CPU temperature",
         "x": 400,
-        "y": 1440,
+        "y": 1280,
         "wires": [
             [
                 "ecc06f5.bc3d39"
@@ -8760,7 +8744,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1440,
+        "y": 1280,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -8781,7 +8765,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1380,
+        "y": 1220,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -8810,14 +8794,14 @@
         "value": "payload",
         "valueType": "msg",
         "x": 510,
-        "y": 1620,
+        "y": 1000,
         "wires": []
     },
     {
         "id": "6ddc11d490af5fe8",
         "type": "function",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "426742dc229bcbe2",
         "name": "1 --> 80",
         "func": "msg.topic = global.get(\"IP_Mobiel\");\nif (msg.payload == 1) msg.payload = 80;\nreturn msg;",
         "outputs": 1,
@@ -8826,8 +8810,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 900,
-        "y": 1180,
+        "x": 820,
+        "y": 1440,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -8845,7 +8829,7 @@
         "msgArray": false,
         "msgTemp": false,
         "x": 350,
-        "y": 1380,
+        "y": 1220,
         "wires": [
             [
                 "ea735d0.bb55da"
@@ -8875,7 +8859,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 180,
-        "y": 380,
+        "y": 260,
         "wires": [
             [
                 "20a7391c.421bd6"
@@ -8896,7 +8880,7 @@
         "oldrc": false,
         "name": "",
         "x": 350,
-        "y": 420,
+        "y": 300,
         "wires": [
             [
                 "eb861dab.4d428"
@@ -8919,7 +8903,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 420,
+        "y": 300,
         "wires": [
             [
                 "1b9704b98c8415b8"
@@ -8951,7 +8935,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 750,
-        "y": 360,
+        "y": 240,
         "wires": []
     },
     {
@@ -8976,7 +8960,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 750,
-        "y": 440,
+        "y": 320,
         "wires": []
     },
     {
@@ -9069,14 +9053,14 @@
         "value": "payload",
         "valueType": "msg",
         "x": 270,
-        "y": 1620,
+        "y": 1000,
         "wires": []
     },
     {
         "id": "210c0d3eb90c90fc",
         "type": "ui-button",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "047e71f7f9c2956b",
         "group": "b71c0e77d9debcfd",
         "name": "Clear graph",
         "label": "Wis grafiek",
@@ -9104,8 +9088,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 610,
-        "y": 1280,
+        "x": 830,
+        "y": 1200,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -9116,7 +9100,7 @@
         "id": "bab0e09190007a04",
         "type": "trigger",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "426742dc229bcbe2",
         "name": "",
         "op1": "",
         "op2": "PingCount",
@@ -9130,8 +9114,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 450,
-        "y": 1080,
+        "x": 470,
+        "y": 1440,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -9142,7 +9126,7 @@
         "id": "d4aeaeaaba846f61",
         "type": "debug",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "426742dc229bcbe2",
         "name": "debug 1",
         "active": false,
         "tosidebar": true,
@@ -9152,8 +9136,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 740,
-        "y": 1220,
+        "x": 820,
+        "y": 1600,
         "wires": []
     },
     {
@@ -9170,7 +9154,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 1740,
+        "y": 1120,
         "wires": [
             [
                 "7ea37518e7e677d7"
@@ -9214,7 +9198,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "97382ae72dc98a86"
@@ -9225,7 +9209,7 @@
         "id": "1f626ce9dc89c87b",
         "type": "mqtt in",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "426742dc229bcbe2",
         "name": "",
         "topic": "SystemStarted",
         "qos": "2",
@@ -9236,10 +9220,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1240,
+        "y": 1600,
         "wires": [
             [
-                "1029c725dc625feb"
+                "ebd1eb7739312b3d"
             ]
         ]
     },
@@ -9258,7 +9242,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1740,
+        "y": 1120,
         "wires": [
             [
                 "8d1d71e905b38b07"
@@ -9280,7 +9264,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 320,
-        "y": 940,
+        "y": 820,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -9302,7 +9286,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 420,
+        "y": 300,
         "wires": [
             [
                 "20a7391c.421bd6"
@@ -9331,14 +9315,260 @@
         "value": "payload",
         "valueType": "msg",
         "x": 750,
-        "y": 400,
+        "y": 280,
         "wires": []
+    },
+    {
+        "id": "e7125cfab1e58fe7",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "g": "047e71f7f9c2956b",
+        "group": "b71c0e77d9debcfd",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "name": "space2",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": true,
+        "font": "",
+        "fontSize": "18",
+        "color": "#ffffff",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1020,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "c655b3afa92e4917",
+        "type": "mqtt in",
+        "z": "eb60a9ea21d42f29",
+        "g": "426742dc229bcbe2",
+        "name": "",
+        "topic": "PingCountChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 1520,
+        "wires": [
+            [
+                "ebd1eb7739312b3d"
+            ]
+        ]
+    },
+    {
+        "id": "37f069d836460b66",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "9e903c2c09c4282e",
+        "name": "PingFault=0",
+        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\nif (!isThuis) {\n    flow.set(\"PingTestPeriode\", false);\n    node.status({ text: tijd_nu + \"; niet thuis\" });\n    return;\n}\n\nflow.set(\"PingTestPeriode\", true);\nflow.set(\"PingFault\", 0);\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \"; PingTestPeriode started\"});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 2020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "df367359870471a5",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "9e903c2c09c4282e",
+        "name": "at 00:00",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 00 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 2020,
+        "wires": [
+            [
+                "37f069d836460b66"
+            ]
+        ]
+    },
+    {
+        "id": "497f8cf3883cef27",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "9e903c2c09c4282e",
+        "name": "at 06:00",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 06 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 2080,
+        "wires": [
+            [
+                "d6e9fbc0f41e2cf6"
+            ]
+        ]
+    },
+    {
+        "id": "a8e6c80a803b60ac",
+        "type": "mqtt in",
+        "z": "eb60a9ea21d42f29",
+        "g": "9e903c2c09c4282e",
+        "name": "",
+        "topic": "PersoonThuis",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1940,
+        "wires": [
+            [
+                "52451f37520a6927"
+            ]
+        ]
+    },
+    {
+        "id": "d6e9fbc0f41e2cf6",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "9e903c2c09c4282e",
+        "name": "check PingFault",
+        "func": "flow.set(\"PingTestPeriode\", false);\nlet pingFault = flow.get(\"PingFault\");\n\nlet pingCount = global.get(\"PingCount\");\n\n// find optimum\nif (pingFault == 0) {\n    pingCount -= 1;\n}\n\nglobal.set(\"PingCount\", pingCount);\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \"; pingCount: \" + pingCount});\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 2080,
+        "wires": [
+            [
+                "9845db7cdb085511"
+            ]
+        ]
+    },
+    {
+        "id": "52451f37520a6927",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "9e903c2c09c4282e",
+        "name": "PingFault++",
+        "func": "let pingTestPeriode = flow.get(\"PingTestPeriode\") ?? false;\nvar isThuis = global.get(\"GebruikerIsAtHome\");\nvar tijd_nu = global.get(\"getTime\")();\n\nif (pingTestPeriode == false) {\n    node.status({text: tijd_nu + \"; niet in test periode\"});\n     return null;\n}\n\nif (isThuis == false) {\n    let pingFault = flow.get(\"PingFault\");\n    pingFault++\n    flow.set(\"PingFault\", pingFault);\n\n    let pingCount = global.get(\"PingCount\");\n    pingCount += 5;\n    if (pingCount > 100) pingCount = 100;\n    global.set(\"PingCount\", pingCount);\n\n    node.status({\n        text: tijd_nu + \"; pingCount: \" + pingCount +\n            \"; pingFault: \" + pingFault\n    });\n}\n\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 1940,
+        "wires": [
+            [
+                "9845db7cdb085511"
+            ]
+        ]
+    },
+    {
+        "id": "58ede6f1aaa30106",
+        "type": "comment",
+        "z": "eb60a9ea21d42f29",
+        "g": "9e903c2c09c4282e",
+        "name": "Find optimum PingCount",
+        "info": "",
+        "x": 170,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "9845db7cdb085511",
+        "type": "mqtt out",
+        "z": "eb60a9ea21d42f29",
+        "g": "9e903c2c09c4282e",
+        "name": "",
+        "topic": "PingCountChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 530,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "5c5f4cc9d40cb42e",
+        "type": "change",
+        "z": "eb60a9ea21d42f29",
+        "g": "502f83694964e8ea",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "PingCount",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 1780,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "808d13a0c0217af6",
         "type": "ui-text-input",
         "z": "eb60a9ea21d42f29",
-        "g": "289d8e4b5f966496",
+        "g": "502f83694964e8ea",
         "group": "b71c0e77d9debcfd",
         "name": "ping count",
         "label": "Ping count IP adres",
@@ -9360,8 +9590,8 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 590,
-        "y": 260,
+        "x": 610,
+        "y": 1760,
         "wires": [
             [
                 "06e9efaecc77fc74"
@@ -9372,7 +9602,7 @@
         "id": "0d792e42b7a09f09",
         "type": "mqtt in",
         "z": "eb60a9ea21d42f29",
-        "g": "289d8e4b5f966496",
+        "g": "502f83694964e8ea",
         "name": "",
         "topic": "SystemStarted",
         "qos": "2",
@@ -9383,7 +9613,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 260,
+        "y": 1760,
         "wires": [
             [
                 "e99d214a25473f18"
@@ -9394,7 +9624,7 @@
         "id": "e99d214a25473f18",
         "type": "change",
         "z": "eb60a9ea21d42f29",
-        "g": "289d8e4b5f966496",
+        "g": "502f83694964e8ea",
         "name": "PingCount",
         "rules": [
             {
@@ -9411,7 +9641,7 @@
         "to": "",
         "reg": false,
         "x": 310,
-        "y": 260,
+        "y": 1760,
         "wires": [
             [
                 "2370014084f7980b"
@@ -9422,17 +9652,17 @@
         "id": "2370014084f7980b",
         "type": "function",
         "z": "eb60a9ea21d42f29",
-        "g": "289d8e4b5f966496",
+        "g": "502f83694964e8ea",
         "name": "default",
-        "func": "if (msg.payload == null) {\n    msg.payload = 20;\n    global.set(\"PingCount\", msg.payload);\n    node.status({ text: '\"null: ' + msg.payload + '\"' });\n}        \nnode.status({ text: msg.payload });\nreturn msg;",
+        "func": "if (msg.payload == null) {\n    msg.payload = 20;\n    global.set(\"PingCount\", msg.payload);\n    node.status({ text: '\"null: ' + msg.payload + '\"' });\n}        \n\nmsg.payload = global.get(\"PingCount\");\nnode.status({ text: msg.payload });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 260,
+        "x": 470,
+        "y": 1760,
         "wires": [
             [
                 "808d13a0c0217af6"
@@ -9443,7 +9673,7 @@
         "id": "06e9efaecc77fc74",
         "type": "function",
         "z": "eb60a9ea21d42f29",
-        "g": "289d8e4b5f966496",
+        "g": "502f83694964e8ea",
         "name": "Changed?",
         "func": "node.status({ text: msg.payload});\n\nif (msg.payload != global.get(\"PingCount\")) {\n    node.status({ text: \"Changed to: \"+ msg.payload});\n    return msg;\n}\nelse\n    return;",
         "outputs": 1,
@@ -9452,8 +9682,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 260,
+        "x": 770,
+        "y": 1760,
         "wires": [
             [
                 "5c5f4cc9d40cb42e",
@@ -9462,61 +9692,10 @@
         ]
     },
     {
-        "id": "5c5f4cc9d40cb42e",
-        "type": "change",
-        "z": "eb60a9ea21d42f29",
-        "g": "289d8e4b5f966496",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "PingCount",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 940,
-        "y": 280,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e7125cfab1e58fe7",
-        "type": "ui-text",
-        "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
-        "group": "b71c0e77d9debcfd",
-        "order": 4,
-        "width": "1",
-        "height": "1",
-        "name": "space2",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": true,
-        "font": "",
-        "fontSize": "18",
-        "color": "#ffffff",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 1240,
-        "wires": []
-    },
-    {
         "id": "bada578cf1ee41da",
         "type": "mqtt out",
         "z": "eb60a9ea21d42f29",
-        "g": "289d8e4b5f966496",
+        "g": "502f83694964e8ea",
         "name": "",
         "topic": "PingCountChanged",
         "qos": "",
@@ -9527,15 +9706,15 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 930,
-        "y": 220,
+        "x": 950,
+        "y": 1720,
         "wires": []
     },
     {
-        "id": "c655b3afa92e4917",
+        "id": "bf50ccdaeb33f7e3",
         "type": "mqtt in",
         "z": "eb60a9ea21d42f29",
-        "g": "6bde74f61fffc171",
+        "g": "502f83694964e8ea",
         "name": "",
         "topic": "PingCountChanged",
         "qos": "2",
@@ -9545,12 +9724,75 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 150,
-        "y": 1160,
+        "x": 270,
+        "y": 1700,
         "wires": [
             [
-                "ebd1eb7739312b3d"
+                "2370014084f7980b"
             ]
+        ]
+    },
+    {
+        "id": "b0067e5db1bb638b",
+        "type": "ui-chart",
+        "z": "eb60a9ea21d42f29",
+        "g": "047e71f7f9c2956b",
+        "group": "b71c0e77d9debcfd",
+        "name": "",
+        "label": "",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "80",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "24",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "1000",
+        "colors": [
+            "#04ff00",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#ffffff"
+        ],
+        "textColorDefault": false,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "7",
+        "height": "3",
+        "className": "",
+        "interpolation": "linear",
+        "x": 1040,
+        "y": 1280,
+        "wires": [
+            []
         ]
     },
     {
