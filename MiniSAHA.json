@@ -1107,7 +1107,8 @@
             "52451f37520a6927",
             "58ede6f1aaa30106",
             "9845db7cdb085511",
-            "a68dcb6dce18bf33"
+            "a68dcb6dce18bf33",
+            "f6437a9184477284"
         ],
         "x": 34,
         "y": 1839,
@@ -9592,7 +9593,8 @@
         "y": 1940,
         "wires": [
             [
-                "52451f37520a6927"
+                "52451f37520a6927",
+                "f6437a9184477284"
             ]
         ]
     },
@@ -9623,7 +9625,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "9e903c2c09c4282e",
         "name": "PingFault++",
-        "func": "let pingTestPeriode = flow.get(\"PingTestPeriode\") ?? false;\nvar isThuis = msg.payload;\nvar tijd_nu = global.get(\"getTime\")();\n\nif (pingTestPeriode == false) {\n    node.status({text: tijd_nu + \"; niet in test periode\"});\n     return null;\n}\n\nif (isThuis == false) {\n    let pingFault = flow.get(\"PingFault\");\n    pingFault++\n    flow.set(\"PingFault\", pingFault);\n\n    let pingCount = global.get(\"PingCount\");\n    pingCount += 5;\n    if (pingCount > 100) pingCount = 100;\n    global.set(\"PingCount\", pingCount);\n\n    node.status({\n        text: tijd_nu + \"; pingCount: \" + pingCount +\n            \"; pingFault: \" + pingFault\n    });\n    return msg;\n}\n\nreturn null;\n\n",
+        "func": "let pingTestPeriode = flow.get(\"PingTestPeriode\") ?? false;\nvar isThuis = msg.payload;\nvar tijd_nu = global.get(\"getTime\")();\n\nif (pingTestPeriode == false) {\n    node.status({text: tijd_nu + \"; niet in test periode\"});\n     return null;\n}\n\nif (isThuis == 0) {\n    let pingFault = Number(flow.get(\"PingFault\"));\n    pingFault++;\n    flow.set(\"PingFault\", pingFault);\n\n    let pingCount = Number(global.get(\"PingCount\"));\n    pingCount += 5;\n    if (pingCount > 100) pingCount = 100;\n    global.set(\"PingCount\", pingCount);\n\n    node.status({\n        text: tijd_nu + \"; pingCount: \" + pingCount +\n            \"; pingFault: \" + pingFault\n    });\n    return msg;\n}\n\nreturn null;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -9936,12 +9938,80 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
         "y": 1940,
         "wires": []
+    },
+    {
+        "id": "f6437a9184477284",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "g": "9e903c2c09c4282e",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "17bff9e476178f11",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 2200,
+        "wires": [
+            [
+                "d3eae150cdf91579"
+            ]
+        ]
+    },
+    {
+        "id": "d3eae150cdf91579",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "function 2",
+        "func": "msg.payload = 0;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 2200,
+        "wires": [
+            [
+                "52451f37520a6927"
+            ]
+        ]
     },
     {
         "id": "0af8df52052ef366",
