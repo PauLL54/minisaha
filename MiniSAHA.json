@@ -16,6 +16,14 @@
         "env": []
     },
     {
+        "id": "e786b4f70cf0ad09",
+        "type": "tab",
+        "label": "Nee",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "5c14e0941d341b42",
         "type": "tab",
         "label": "UI_Instellingen",
@@ -392,7 +400,7 @@
             "c7972da4420bb50e"
         ],
         "x": 14,
-        "y": 819,
+        "y": 859,
         "w": 1272,
         "h": 502
     },
@@ -433,12 +441,13 @@
             "d6b298f8ec85d61c",
             "389045590526c181",
             "87cce92b163a7192",
-            "081def364cff34d8"
+            "081def364cff34d8",
+            "7374cb1bb57ac303"
         ],
         "x": 14,
-        "y": 39,
+        "y": 19,
         "w": 932,
-        "h": 762
+        "h": 822
     },
     {
         "id": "5bb2b589a301c7c8",
@@ -1077,34 +1086,6 @@
         "h": 242
     },
     {
-        "id": "69189479c84b6594",
-        "type": "group",
-        "z": "eb60a9ea21d42f29",
-        "g": "289d8e4b5f966496",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "1ebd5fe3.2c7e8",
-            "20a7391c.421bd6",
-            "eb861dab.4d428",
-            "1b9704b98c8415b8",
-            "bd83f7d9ca61f8a5",
-            "2640b5fa40ca7fa9",
-            "a91759026081e90e"
-        ],
-        "x": 54,
-        "y": 199,
-        "w": 772,
-        "h": 162
-    },
-    {
         "id": "9e903c2c09c4282e",
         "type": "group",
         "z": "eb60a9ea21d42f29",
@@ -1125,7 +1106,8 @@
             "d6e9fbc0f41e2cf6",
             "52451f37520a6927",
             "58ede6f1aaa30106",
-            "9845db7cdb085511"
+            "9845db7cdb085511",
+            "a68dcb6dce18bf33"
         ],
         "x": 34,
         "y": 1839,
@@ -1183,13 +1165,12 @@
             "728339c56b6087ec",
             "6ddc11d490af5fe8",
             "bab0e09190007a04",
-            "d4aeaeaaba846f61",
             "1f626ce9dc89c87b",
             "c655b3afa92e4917"
         ],
         "x": 34,
         "y": 1359,
-        "w": 1012,
+        "w": 912,
         "h": 282
     },
     {
@@ -1213,6 +1194,34 @@
         "x": 734,
         "y": 1159,
         "w": 412,
+        "h": 162
+    },
+    {
+        "id": "69189479c84b6594",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "1ebd5fe3.2c7e8",
+            "20a7391c.421bd6",
+            "eb861dab.4d428",
+            "1b9704b98c8415b8",
+            "bd83f7d9ca61f8a5",
+            "2640b5fa40ca7fa9",
+            "a91759026081e90e"
+        ],
+        "x": 54,
+        "y": 199,
+        "w": 772,
         "h": 162
     },
     {
@@ -3856,7 +3865,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "3be586184e50e4ea",
@@ -3881,7 +3890,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 840,
-        "y": 140,
+        "y": 180,
         "wires": []
     },
     {
@@ -3900,7 +3909,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 850,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -3917,7 +3926,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "a5f6fedc4ec48281",
@@ -3933,7 +3942,7 @@
         "name": "icons: https://pictogrammers.com/library/mdi/",
         "info": "",
         "x": 210,
-        "y": 760,
+        "y": 800,
         "wires": []
     },
     {
@@ -3969,7 +3978,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 610,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "99b664e80a1908c6"
@@ -4009,7 +4018,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 610,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "753a239026080219"
@@ -4038,7 +4047,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 610,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -4063,7 +4072,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 620,
-        "y": 300,
+        "y": 340,
         "wires": []
     },
     {
@@ -4088,7 +4097,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 1190,
-        "y": 1100,
+        "y": 1140,
         "wires": []
     },
     {
@@ -4113,7 +4122,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 630,
-        "y": 620,
+        "y": 660,
         "wires": []
     },
     {
@@ -4131,7 +4140,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 560,
+        "y": 600,
         "wires": [
             [
                 "b2ce6b3ac89473bf"
@@ -4152,7 +4161,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 560,
+        "y": 600,
         "wires": [
             [
                 "081def364cff34d8"
@@ -4173,7 +4182,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "4c44736709d21bb0"
@@ -4194,7 +4203,7 @@
         "finalize": "",
         "libs": [],
         "x": 280,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "16395cfced8c47cb"
@@ -4215,7 +4224,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "1c70b188ec53d6ab"
@@ -4246,7 +4255,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 630,
-        "y": 240,
+        "y": 280,
         "wires": [
             []
         ]
@@ -4266,7 +4275,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 100,
-        "y": 320,
+        "y": 360,
         "wires": [
             [
                 "8a224d6b4c8e6e53"
@@ -4287,7 +4296,7 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 320,
+        "y": 360,
         "wires": [
             [
                 "16395cfced8c47cb"
@@ -4327,7 +4336,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 500,
-        "y": 920,
+        "y": 960,
         "wires": [
             [
                 "bf9647efa558a7d3",
@@ -4369,7 +4378,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 500,
-        "y": 1020,
+        "y": 1060,
         "wires": [
             [
                 "f84bc5be2fce9d39",
@@ -4392,7 +4401,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 920,
+        "y": 960,
         "wires": [
             [
                 "80761cd977a81c1a",
@@ -4414,7 +4423,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 1020,
+        "y": 1060,
         "wires": [
             [
                 "45c53f307e13019e",
@@ -4440,7 +4449,7 @@
         "finalize": "",
         "libs": [],
         "x": 960,
-        "y": 1100,
+        "y": 1140,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -4461,7 +4470,7 @@
         "finalize": "",
         "libs": [],
         "x": 960,
-        "y": 1160,
+        "y": 1200,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -4482,7 +4491,7 @@
         "finalize": "",
         "libs": [],
         "x": 1010,
-        "y": 1280,
+        "y": 1320,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -4503,7 +4512,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 360,
+        "y": 400,
         "wires": [
             [
                 "1c70b188ec53d6ab"
@@ -4529,7 +4538,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 500,
-        "y": 360,
+        "y": 400,
         "wires": [
             [
                 "6c02930ddcad9dd8"
@@ -4558,7 +4567,7 @@
         "value": "payloads",
         "valueType": "msg",
         "x": 620,
-        "y": 420,
+        "y": 460,
         "wires": []
     },
     {
@@ -4576,7 +4585,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 680,
+        "y": 720,
         "wires": [
             [
                 "87cce92b163a7192"
@@ -4597,7 +4606,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 680,
+        "y": 720,
         "wires": [
             [
                 "081def364cff34d8"
@@ -4620,7 +4629,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 1190,
-        "y": 980,
+        "y": 1020,
         "wires": []
     },
     {
@@ -4637,7 +4646,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 620,
+        "y": 660,
         "wires": [
             [
                 "f720e78159430790"
@@ -4658,7 +4667,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 920,
+        "y": 960,
         "wires": [
             [
                 "6ce9c1c05a07f0e4"
@@ -4679,7 +4688,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 1080,
+        "y": 1120,
         "wires": [
             [
                 "7d9adb1d8b871f0c"
@@ -4709,7 +4718,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1080,
+        "y": 1120,
         "wires": [
             [
                 "da4d18b2f746703e",
@@ -4732,7 +4741,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 860,
+        "y": 900,
         "wires": [
             [
                 "6ce9c1c05a07f0e4"
@@ -4753,7 +4762,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 1020,
+        "y": 1060,
         "wires": [
             [
                 "7d9adb1d8b871f0c"
@@ -4779,7 +4788,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 940,
-        "y": 920,
+        "y": 960,
         "wires": [
             [
                 "45c53f307e13019e",
@@ -4801,7 +4810,7 @@
         "finalize": "",
         "libs": [],
         "x": 980,
-        "y": 1220,
+        "y": 1260,
         "wires": [
             [
                 "b81cb7c076621c31"
@@ -4822,12 +4831,152 @@
         "finalize": "",
         "libs": [],
         "x": 960,
-        "y": 1040,
+        "y": 1080,
         "wires": [
             [
                 "b81cb7c076621c31"
             ]
         ]
+    },
+    {
+        "id": "7374cb1bb57ac303",
+        "type": "mqtt in",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "name": "",
+        "topic": "Vraag",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 60,
+        "wires": [
+            [
+                "4c44736709d21bb0"
+            ]
+        ]
+    },
+    {
+        "id": "ae7ce2c89c00dea4",
+        "type": "inject",
+        "z": "e786b4f70cf0ad09",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "9a3e25b1b930553a"
+            ]
+        ]
+    },
+    {
+        "id": "d388f827435a5c5c",
+        "type": "debug",
+        "z": "e786b4f70cf0ad09",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "9a3e25b1b930553a",
+        "type": "function",
+        "z": "e786b4f70cf0ad09",
+        "name": "function 1",
+        "func": "msg.payload = \"\\nBent u benauwd?\\n\\n\\n\";\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "3f6b53d83b3ef58f"
+            ]
+        ]
+    },
+    {
+        "id": "3f6b53d83b3ef58f",
+        "type": "ui-template",
+        "z": "e786b4f70cf0ad09",
+        "group": "4de3d58d68afebf3",
+        "page": "",
+        "ui": "",
+        "name": "Notification",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <!-- Modal structure -->\n    <div style='font-size: 24px; font-weight: bold;' \n        id=\"commentModal\" class=\"modal-notify-ui\">\n        <div class=\"modal-content-notify-ui\">\n\n            <!-- Textarea for user input     -->\n            <div id=\"commentText\" class=\"comment-label\">\n                {{msg.payload}}\n            </div>\n    \n\n            <!-- Buttons for actions -->\n            <div class=\"modal-buttons-notify-ui\">\n                <button id=\"terugButton\">TERUG</button>\n                <button id=\"neeButton\">NEE</button>\n                <button id=\"jaButton\">JA</button>                \n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\n    // Reference to the current node (used for sending messages)\n    const node = this;\n\n    // Get DOM elements\n    const commentModal = document.getElementById('commentModal');\n    const commentText = document.getElementById('commentText');\n\n    const terugButton = document.getElementById('terugButton');\n    const jaButton = document.getElementById('jaButton');\n    const neeButton = document.getElementById('neeButton');\n\n    // Object to store incoming messages\n    let inMsg = {};\n\n    // Function to open the modal\n    function openModal(inputMessage) {\n        if (inputMessage) {\n            commentText.placeholder = inputMessage; // Set placeholder if inputMessage is provided\n        }\n        commentModal.style.display = 'block'; // Show the modal\n        commentText.focus(); // Focus on the textarea\n    }\n\n    // Function to close the modal\n    function closeModal() {\n        commentModal.style.display = 'none'; // Hide the modal\n        commentText.value = ''; // Clear the textarea\n        commentText.placeholder = ''; // Reset the placeholder\n    }\n\n    // Event listener for the \"TERUG\" button\n    terugButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"terug\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Event listener for the \"JA\" button\n    jaButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"ja\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Event listener for the \"NEE\" button\n    neeButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"nee\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Socket listener to trigger the modal with a message\n    this.$socket.on('msg-input:' + this.id, function (msg) {\n        inMsg = msg; // Store the incoming message\n        openModal(inMsg.payload); // Open the modal with the message payload as the placeholder\n    });\n\n</script>\n\n<style>\n    /* Modal styling */\n\n    .comment-label {\n    white-space: pre-line;\n    font-size: 24px;\n    font-weight: 500;\n    padding: 10px;\n    margin-bottom: 15px;\n    color: white;\n    }\n\n    .modal-notify-ui {\n        display: none; /* Hidden by default */\n        position: fixed; /* Stay in place */\n        z-index: 1; /* Sit on top */\n        left: 0;\n        top: 0;\n        width: 100%;\n        height: 100%;\n        overflow: auto; /* Enable scrolling if needed */\n        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */\n    }\n\n    /* Modal content styling */\n    .modal-content-notify-ui {\n        background-color: #3d3d3d; /* Dark background */\n        margin: 50% auto; /* Centered */\n        padding: 20px;\n        border: 1px solid #888;\n        border-radius: 10px; /* Rounded corners */\n        width: 100%;\n        max-width: 500px; /* Responsive width */\n        color: white; /* Text color */\n    }\n\n    /* Textarea styling */\n    .modal-content-notify-ui textarea {\n        width: 100%;\n        height: 100px; /* Fixed height */\n        padding: 10px;\n        margin-bottom: 10px;\n        border-radius: 5px; /* Rounded corners */\n        border: 1px solid #888;\n        background-color: #2d2d2d; /* Darker background */\n        color: white; /* Text color */\n    }\n\n    /* Button container styling */\n    .modal-buttons-notify-ui {\n        display: flex;\n        justify-content: flex-end; /* Align buttons to the right */\n        gap: 40px; /* Space between buttons */\n    }\n\n    /* Button styling */\n    .modal-buttons-notify-ui button {\n        padding: 10px 20px;\n        border: none;\n        border-radius: 5px; /* Rounded corners */\n        cursor: pointer; /* Pointer cursor on hover */\n        color: white; /* Text color */\n        background-color: #e40521; /* Red background */\n        transition: background-color 0.3s ease; /* Smooth hover effect */\n    }\n\n    /* Button hover effect */\n    .modal-buttons-notify-ui button:hover {\n        background-color: #ff1a1a; /* Lighter red on hover */\n    }\n</style>",
+        "storeOutMessages": true,
+        "passthru": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 470,
+        "y": 140,
+        "wires": [
+            [
+                "d388f827435a5c5c"
+            ]
+        ],
+        "icon": "font-awesome/fa-envelope-o"
+    },
+    {
+        "id": "1063a26eb88743d6",
+        "type": "ui-template",
+        "z": "e786b4f70cf0ad09",
+        "d": true,
+        "group": "4de3d58d68afebf3",
+        "page": "",
+        "ui": "",
+        "name": "werkend",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <!-- Modal structure -->\n    <div style='font-size: 24px; font-weight: bold;' \n        id=\"commentModal\" class=\"modal-notify-ui\">\n        <div class=\"modal-content-notify-ui\">\n            <!-- Textarea for user input     -->\n            <label id=\"commentText\" class=\"comment-label\">\n                {{msg.payload}}\n            </label>\n    \n\n            <!-- Buttons for actions -->\n            <div class=\"modal-buttons-notify-ui\">\n                <button id=\"terugButton\">TERUG</button>\n                <button id=\"jaButton\">JA</button>                \n                <button id=\"neeButton\">NEE</button>\n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\n    // Reference to the current node (used for sending messages)\n    const node = this;\n\n    // Get DOM elements\n    const commentModal = document.getElementById('commentModal');\n    const commentText = document.getElementById('commentText');\n\n    const terugButton = document.getElementById('terugButton');\n    const jaButton = document.getElementById('jaButton');\n    const neeButton = document.getElementById('neeButton');\n\n    // Object to store incoming messages\n    let inMsg = {};\n\n    // Function to open the modal\n    function openModal(inputMessage) {\n        if (inputMessage) {\n            commentText.placeholder = inputMessage; // Set placeholder if inputMessage is provided\n        }\n        commentModal.style.display = 'block'; // Show the modal\n        commentText.focus(); // Focus on the textarea\n    }\n\n    // Function to close the modal\n    function closeModal() {\n        commentModal.style.display = 'none'; // Hide the modal\n        commentText.value = ''; // Clear the textarea\n        commentText.placeholder = ''; // Reset the placeholder\n    }\n\n    // Event listener for the \"TERUG\" button\n    terugButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"terug\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Event listener for the \"JA\" button\n    jaButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"ja\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Event listener for the \"NEE\" button\n    neeButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"nee\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Socket listener to trigger the modal with a message\n    this.$socket.on('msg-input:' + this.id, function (msg) {\n        inMsg = msg; // Store the incoming message\n        openModal(inMsg.payload); // Open the modal with the message payload as the placeholder\n    });\n\n</script>\n\n<style>\n    /* Modal styling */\n    .comment-label {\n    font-size: 24px;\n    font-weight: 500;\n    padding: 10px;\n    margin-bottom: 15px;\n    color: white;\n    }\n\n    .modal-notify-ui {\n        display: none; /* Hidden by default */\n        position: fixed; /* Stay in place */\n        z-index: 1; /* Sit on top */\n        left: 0;\n        top: 0;\n        width: 100%;\n        height: 100%;\n        overflow: auto; /* Enable scrolling if needed */\n        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */\n    }\n\n    /* Modal content styling */\n    .modal-content-notify-ui {\n        background-color: #3d3d3d; /* Dark background */\n        margin: 50% auto; /* Centered */\n        padding: 20px;\n        border: 1px solid #888;\n        border-radius: 10px; /* Rounded corners */\n        width: 100%;\n        max-width: 500px; /* Responsive width */\n        color: white; /* Text color */\n    }\n\n    /* Textarea styling */\n    .modal-content-notify-ui textarea {\n        width: 100%;\n        height: 100px; /* Fixed height */\n        padding: 10px;\n        margin-bottom: 10px;\n        border-radius: 5px; /* Rounded corners */\n        border: 1px solid #888;\n        background-color: #2d2d2d; /* Darker background */\n        color: white; /* Text color */\n    }\n\n    /* Button container styling */\n    .modal-buttons-notify-ui {\n        display: flex;\n        justify-content: flex-end; /* Align buttons to the right */\n        gap: 10px; /* Space between buttons */\n    }\n\n    /* Button styling */\n    .modal-buttons-notify-ui button {\n        padding: 10px 20px;\n        border: none;\n        border-radius: 5px; /* Rounded corners */\n        cursor: pointer; /* Pointer cursor on hover */\n        color: white; /* Text color */\n        background-color: #e40521; /* Red background */\n        transition: background-color 0.3s ease; /* Smooth hover effect */\n    }\n\n    /* Button hover effect */\n    .modal-buttons-notify-ui button:hover {\n        background-color: #ff1a1a; /* Lighter red on hover */\n    }\n</style>",
+        "storeOutMessages": true,
+        "passthru": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 140,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "icon": "font-awesome/fa-envelope-o"
     },
     {
         "id": "dba3182f449692bb",
@@ -8336,15 +8485,11 @@
         "y": 1520,
         "wires": [
             [
-                "849129e5cd170f06",
-                "61806882e2c16761",
-                "6ddc11d490af5fe8"
+                "849129e5cd170f06"
             ],
             [],
             [],
-            [
-                "d4aeaeaaba846f61"
-            ]
+            []
         ]
     },
     {
@@ -8373,18 +8518,21 @@
         "type": "function",
         "z": "eb60a9ea21d42f29",
         "g": "426742dc229bcbe2",
-        "name": "set global GebruikerIsAtHome",
-        "func": "global.set(\"GebruikerIsAtHome\", (msg.payload == 1));\nnode.status({ fill: \"blue\", shape: \"ring\", text: (msg.payload == 1) ? \"thuis\" : \"niet thuis\" });\nreturn msg;",
+        "name": "GebruikerIsAtHome",
+        "func": "global.set(\"GebruikerIsAtHome\", msg.payload);\nnode.status({ fill: \"blue\", shape: \"ring\", text: msg.payload });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 890,
-        "y": 1540,
+        "x": 810,
+        "y": 1500,
         "wires": [
-            []
+            [
+                "61806882e2c16761",
+                "6ddc11d490af5fe8"
+            ]
         ]
     },
     {
@@ -8436,7 +8584,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 840,
-        "y": 1480,
+        "y": 1580,
         "wires": []
     },
     {
@@ -8810,7 +8958,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
+        "x": 860,
         "y": 1440,
         "wires": [
             [
@@ -9121,24 +9269,6 @@
                 "ebd1eb7739312b3d"
             ]
         ]
-    },
-    {
-        "id": "d4aeaeaaba846f61",
-        "type": "debug",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "debug 1",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 1600,
-        "wires": []
     },
     {
         "id": "8d1d71e905b38b07",
@@ -9493,7 +9623,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "9e903c2c09c4282e",
         "name": "PingFault++",
-        "func": "let pingTestPeriode = flow.get(\"PingTestPeriode\") ?? false;\nvar isThuis = global.get(\"GebruikerIsAtHome\");\nvar tijd_nu = global.get(\"getTime\")();\n\nif (pingTestPeriode == false) {\n    node.status({text: tijd_nu + \"; niet in test periode\"});\n     return null;\n}\n\nif (isThuis == false) {\n    let pingFault = flow.get(\"PingFault\");\n    pingFault++\n    flow.set(\"PingFault\", pingFault);\n\n    let pingCount = global.get(\"PingCount\");\n    pingCount += 5;\n    if (pingCount > 100) pingCount = 100;\n    global.set(\"PingCount\", pingCount);\n\n    node.status({\n        text: tijd_nu + \"; pingCount: \" + pingCount +\n            \"; pingFault: \" + pingFault\n    });\n}\n\nreturn msg;\n\n",
+        "func": "let pingTestPeriode = flow.get(\"PingTestPeriode\") ?? false;\nvar isThuis = msg.payload;\nvar tijd_nu = global.get(\"getTime\")();\n\nif (pingTestPeriode == false) {\n    node.status({text: tijd_nu + \"; niet in test periode\"});\n     return null;\n}\n\nif (isThuis == false) {\n    let pingFault = flow.get(\"PingFault\");\n    pingFault++\n    flow.set(\"PingFault\", pingFault);\n\n    let pingCount = global.get(\"PingCount\");\n    pingCount += 5;\n    if (pingCount > 100) pingCount = 100;\n    global.set(\"PingCount\", pingCount);\n\n    node.status({\n        text: tijd_nu + \"; pingCount: \" + pingCount +\n            \"; pingFault: \" + pingFault\n    });\n    return msg;\n}\n\nreturn null;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -9504,7 +9634,8 @@
         "y": 1940,
         "wires": [
             [
-                "9845db7cdb085511"
+                "9845db7cdb085511",
+                "a68dcb6dce18bf33"
             ]
         ]
     },
@@ -9794,6 +9925,23 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "a68dcb6dce18bf33",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "g": "9e903c2c09c4282e",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1940,
+        "wires": []
     },
     {
         "id": "0af8df52052ef366",
