@@ -324,7 +324,6 @@
             "color": "#a4a4a4"
         },
         "nodes": [
-            "6c1f652de628f1be",
             "32e7240df75d8f3a",
             "070af656b33c1a19",
             "97cd5aa2eb055baf",
@@ -344,7 +343,6 @@
             "9a6d5159979437b8",
             "a9d22c1ccafb666e",
             "694ce244e4cd603f",
-            "d366c9dd647f1882",
             "c0678892a8aa9532",
             "a7f43ddc989df43f",
             "7139bcd155107a18",
@@ -1223,7 +1221,7 @@
         ],
         "x": 14,
         "y": 19,
-        "w": 1052,
+        "w": 1072,
         "h": 362
     },
     {
@@ -2776,28 +2774,6 @@
         "wires": []
     },
     {
-        "id": "6c1f652de628f1be",
-        "type": "function",
-        "z": "a380efb730bea147",
-        "g": "2ce41e3897fb35ce",
-        "name": "Gebruiker",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet text = msg.payload;\n\nlet emailGebruiker = global.get(\"EmailGebruiker\") || \"\";\nif (emailGebruiker.indexOf(\"@\") == -1) {\n    msg.payload = \"Geen email gebruiker opgegeven.\"\n    node.status({ text: \"Send: \" + tijd_nu + \n    \" no emailgebruiker: \" + emailGebruiker });\n    return [null, msg];\n}\n\nmsg = {\n    to: emailGebruiker,\n    from: \"safeathomealone@gmail.com\",\n    topic: \"MiniSAHA: ben je OK?\",\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu});\nreturn [msg, null];",
-        "outputs": 2,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 840,
-        "y": 1080,
-        "wires": [
-            [
-                "df1878820d0f62c5"
-            ],
-            []
-        ]
-    },
-    {
         "id": "32e7240df75d8f3a",
         "type": "comment",
         "z": "a380efb730bea147",
@@ -2876,7 +2852,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Email action",
+        "name": "Action",
         "func": "var tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = global.get(\"previousState\");\n\nlet states = global.get(\"states\");\nswitch (currentState) {\n    case states.IDLE: {\n        msg.reset = true;\n        node.status({ text: tijd_nu + \", IDLE\" });\n        return [msg, null, null, null]; // stop met het sturen van berichten naar gebruiker\n    }\n    case states.TOONOKVRAAG: {\n        node.status({ text: tijd_nu + \", TOONOKVRAAG\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        node.status({ text: tijd_nu + \", TOONOKVRAAGNIETTHUIS\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        node.status({ text: tijd_nu + \", MELDGEBRUIKERNIETTHUIS\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.MELDGEBRUIKER: {\n        node.status({ text: tijd_nu + \", MELDGEBRUIKER, delay (min): \" + global.get(\"Herinnering\") });\n        msg.delay = global.get(\"Herinnering\") * 60000;\n        return [msg, null, null, null];\n    }\n    case states.ISOKAUTO:\n    case states.ISOK: {\n        node.status({ text: tijd_nu + \", reset timer, ISOK\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.ISNOTOK: {\n        node.status({ text: tijd_nu + \", ISNOTOK\" });\n        msg.reset = true;\n        return [msg, null, msg, null];\n    }\n    case states.OVERTIJD: {\n        if (currentState != previousState) {\n            node.status({ text: tijd_nu + \", OVERTIJD\" });\n            return [null, msg, null, null]; // Informeer contactpersonen\n        }\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (currentState != previousState) {\n            node.status({ text: tijd_nu + \", ISOK_OVERTIJD\" });\n            msg.reset = true;\n            msg.payload = \"JA\";\n            return [msg, null, null, msg];\n        }\n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (currentState != previousState) {\n            node.status({ text: tijd_nu + \", ISNOTOK_OVERTIJD\" });\n            msg.reset = true;\n            msg.payload = \"NEE\";\n            return [msg, null, null, msg];\n        }\n        break;\n    }\n}\nreturn;\n",
         "outputs": 4,
         "timeout": 0,
@@ -2884,7 +2860,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 130,
+        "x": 230,
         "y": 1060,
         "wires": [
             [
@@ -2980,8 +2956,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 380,
-        "y": 860,
+        "x": 440,
+        "y": 900,
         "wires": [
             [
                 "0362a76e4f7b1fd0"
@@ -3004,8 +2980,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 920,
+        "x": 440,
+        "y": 960,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -3154,8 +3130,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 860,
+        "x": 640,
+        "y": 900,
         "wires": [
             [
                 "d5df2f8a93d16c6a"
@@ -3332,28 +3308,6 @@
         "wires": [
             [
                 "97cd5aa2eb055baf"
-            ]
-        ]
-    },
-    {
-        "id": "d366c9dd647f1882",
-        "type": "function",
-        "z": "a380efb730bea147",
-        "d": true,
-        "g": "2ce41e3897fb35ce",
-        "name": "Bericht",
-        "func": "msg.payload = \"Beste \" + global.get(\"VoornaamGebruiker\") +\n    \", \\n\\n\" +\n    \"Ben je OK? Open de MiniSAHA app en bevestig.\";\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 700,
-        "y": 1080,
-        "wires": [
-            [
-                "6c1f652de628f1be"
             ]
         ]
     },
@@ -3688,7 +3642,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Niet OK",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nmsg.topic = \"MiniSAHA: neem contact op met \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n    voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\";\n\nif (global.get(\"NeeTest\")) {\n  let vervolgNeeVraag = global.get(\"vervolgNeeVraag\");\n  let meldingClient = global.get(\"meldingClient\");\n  let meldingContact = global.get(\"meldingContact\");\n\n  msg.payload = \"Beste contactpersoon,\" + \n    \"<br><br>\" +\n    voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\" + \n    \"<br><br>\" +\n    // fout:\n    \"Daarna heeft \" + voornaamGebruiker + \" 'Ja' geantwoord op de vraag: '\" + vervolgNeeVraag + \"'.\" +\n    \"<br><br>\" +\n    voornaamGebruiker + \" ontving het advies: '\" + meldingClient + \"'.\" +\n    \"<br><br>\" +\n    \"Conclusie: \" + meldingContact +\n      \"<br><br>\" +\n    \"Verzoek: neem contact op met \" + voornaamGebruiker + \".\";\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nmsg.topic = \"MiniSAHA: neem contact op met \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n    voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\";\n\nif (global.get(\"NeeTest\")) {\n  let vervolgNeeVraag = global.get(\"vervolgNeeVraag\");\n  let meldingClient = global.get(\"meldingClient\");\n  let meldingContact = global.get(\"meldingContact\");\n\n  if (meldingContact == \"\") return; // geen email naar contacten.\n\n  msg.payload = \"Beste contactpersoon,\" + \n    \"<br><br>\" +\n    voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\" + \n    \"<br><br>\" +\n    // fout:\n    \"Daarna heeft \" + voornaamGebruiker + \" 'Ja' geantwoord op de vraag: '\" + vervolgNeeVraag + \"'.\" +\n    \"<br><br>\" +\n    voornaamGebruiker + \" ontving het advies: '\" + meldingClient + \"'.\" +\n    \"<br><br>\" +\n    \"Conclusie: \" + meldingContact +\n      \"<br><br>\" +\n    \"Verzoek: neem contact op met \" + voornaamGebruiker + \".\";\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4843,32 +4797,6 @@
         "icon": "font-awesome/fa-envelope-o"
     },
     {
-        "id": "1063a26eb88743d6",
-        "type": "ui-template",
-        "z": "e786b4f70cf0ad09",
-        "d": true,
-        "group": "4de3d58d68afebf3",
-        "page": "",
-        "ui": "",
-        "name": "werkend",
-        "order": 11,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n    <!-- Modal structure -->\n    <div style='font-size: 24px; font-weight: bold;' \n        id=\"commentModal\" class=\"modal-notify-ui\">\n        <div class=\"modal-content-notify-ui\">\n            <!-- Textarea for user input     -->\n            <label id=\"commentText\" class=\"comment-label\">\n                {{msg.payload}}\n            </label>\n    \n\n            <!-- Buttons for actions -->\n            <div class=\"modal-buttons-notify-ui\">\n                <button id=\"terugButton\">TERUG</button>\n                <button id=\"jaButton\">JA</button>                \n                <button id=\"neeButton\">NEE</button>\n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\n    // Reference to the current node (used for sending messages)\n    const node = this;\n\n    // Get DOM elements\n    const commentModal = document.getElementById('commentModal');\n    const commentText = document.getElementById('commentText');\n\n    const terugButton = document.getElementById('terugButton');\n    const jaButton = document.getElementById('jaButton');\n    const neeButton = document.getElementById('neeButton');\n\n    // Object to store incoming messages\n    let inMsg = {};\n\n    // Function to open the modal\n    function openModal(inputMessage) {\n        if (inputMessage) {\n            commentText.placeholder = inputMessage; // Set placeholder if inputMessage is provided\n        }\n        commentModal.style.display = 'block'; // Show the modal\n        commentText.focus(); // Focus on the textarea\n    }\n\n    // Function to close the modal\n    function closeModal() {\n        commentModal.style.display = 'none'; // Hide the modal\n        commentText.value = ''; // Clear the textarea\n        commentText.placeholder = ''; // Reset the placeholder\n    }\n\n    // Event listener for the \"TERUG\" button\n    terugButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"terug\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Event listener for the \"JA\" button\n    jaButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"ja\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Event listener for the \"NEE\" button\n    neeButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"nee\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Socket listener to trigger the modal with a message\n    this.$socket.on('msg-input:' + this.id, function (msg) {\n        inMsg = msg; // Store the incoming message\n        openModal(inMsg.payload); // Open the modal with the message payload as the placeholder\n    });\n\n</script>\n\n<style>\n    /* Modal styling */\n    .comment-label {\n    font-size: 24px;\n    font-weight: 500;\n    padding: 10px;\n    margin-bottom: 15px;\n    color: white;\n    }\n\n    .modal-notify-ui {\n        display: none; /* Hidden by default */\n        position: fixed; /* Stay in place */\n        z-index: 1; /* Sit on top */\n        left: 0;\n        top: 0;\n        width: 100%;\n        height: 100%;\n        overflow: auto; /* Enable scrolling if needed */\n        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */\n    }\n\n    /* Modal content styling */\n    .modal-content-notify-ui {\n        background-color: #3d3d3d; /* Dark background */\n        margin: 50% auto; /* Centered */\n        padding: 20px;\n        border: 1px solid #888;\n        border-radius: 10px; /* Rounded corners */\n        width: 100%;\n        max-width: 500px; /* Responsive width */\n        color: white; /* Text color */\n    }\n\n    /* Textarea styling */\n    .modal-content-notify-ui textarea {\n        width: 100%;\n        height: 100px; /* Fixed height */\n        padding: 10px;\n        margin-bottom: 10px;\n        border-radius: 5px; /* Rounded corners */\n        border: 1px solid #888;\n        background-color: #2d2d2d; /* Darker background */\n        color: white; /* Text color */\n    }\n\n    /* Button container styling */\n    .modal-buttons-notify-ui {\n        display: flex;\n        justify-content: flex-end; /* Align buttons to the right */\n        gap: 10px; /* Space between buttons */\n    }\n\n    /* Button styling */\n    .modal-buttons-notify-ui button {\n        padding: 10px 20px;\n        border: none;\n        border-radius: 5px; /* Rounded corners */\n        cursor: pointer; /* Pointer cursor on hover */\n        color: white; /* Text color */\n        background-color: #e40521; /* Red background */\n        transition: background-color 0.3s ease; /* Smooth hover effect */\n    }\n\n    /* Button hover effect */\n    .modal-buttons-notify-ui button:hover {\n        background-color: #ff1a1a; /* Lighter red on hover */\n    }\n</style>",
-        "storeOutMessages": true,
-        "passthru": false,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 120,
-        "y": 560,
-        "wires": [
-            []
-        ],
-        "icon": "font-awesome/fa-envelope-o"
-    },
-    {
         "id": "39189723f917668e",
         "type": "function",
         "z": "e786b4f70cf0ad09",
@@ -4959,7 +4887,7 @@
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
         "name": "nee",
-        "func": "msg.vraagNummer += 1;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\n\nif (msg.vraagNummer == 9)\n    return [msg, null];\nelse\n    return [null, msg];",
+        "func": "msg.vraagNummer += 1;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\n\nmsg.topic = \"Nee\";\n\nif (msg.vraagNummer == 9)\n    return [msg, null];\nelse\n    return [null, msg];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -4983,7 +4911,7 @@
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
         "name": "ja",
-        "func": "\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\nreturn msg;",
+        "func": "msg.topic = \"Ja\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5024,15 +4952,15 @@
         "type": "function",
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
-        "name": "Actie naar client",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\n\nlet meldingClient = \"\";\n\nswitch (msg.vraagNummer) {\n    case 2: \n        meldingClient = \"Contacten ingelicht, indien nodig bel 112 via app\";\n        break;\n    case 3: \n        meldingClient = \"Neem direct contact op met de huisarts.\";\n        break;\n    case 4: \n        meldingClient = \"Bel de huisarts.\";\n        break;\n    case 5: \n        meldingClient = \"Advies: raadpleeg de Thuisarts app.\";\n        break;\n    case 6: \n        meldingClient = \"Je contacten zijn geinformeerd dat jebehoeft hebt aan contact.\";\n        break;\n    case 7: \n        meldingClient = \"Je contacten zijn geinformeerd dat je hulp nodig hebt.\";\n        break;\n    case 8: \n        meldingClient = \"Open de STAP-NAAR_GEZONDER app(*).\";\n        break;\n    case 8:\n        meldingClient = \"Open de STAP-NAAR_GEZONDER app(*).\";\n    default:\n        meldingClient = \"We ronden af en vragen morgen opnieuw.\";\n        break;\n}\n\nmsg.meldingClient = meldingClient;\nreturn msg;",
+        "name": "Feedback naar client",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\n\nlet meldingClient = \"\";\n\nswitch (msg.vraagNummer) {\n    case 2: \n        meldingClient = \"Contacten ingelicht, indien nodig bel 112 via app\";\n        break;\n    case 3: \n        meldingClient = \"Neem direct contact op met de huisarts.\";\n        break;\n    case 4: \n        meldingClient = \"Bel de huisarts.\";\n        break;\n    case 5: \n        meldingClient = \"Advies: raadpleeg de Thuisarts app.\";\n        break;\n    case 6: \n        meldingClient = \"Je contacten zijn geinformeerd dat jebehoeft hebt aan contact.\";\n        break;\n    case 7: \n        meldingClient = \"Je contacten zijn geinformeerd dat je hulp nodig hebt.\";\n        break;\n    case 8: \n        if (msg.topic == \"Ja\")\n            meldingClient = \"Open de STAP-NAAR_GEZONDER app.\";\n        else\n            meldingClient = \"We ronden af en vragen morgen opnieuw.\";\n        break;\n}\n\nmsg.meldingClient = meldingClient;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
+        "x": 740,
         "y": 300,
         "wires": [
             [
@@ -5068,14 +4996,14 @@
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
         "name": "Save info voor contact",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet meldingContact = \"\";\n\nswitch (msg.vraagNummer) {\n    case 2: \n        meldingContact = \"Client heeft met spoed hulp nodig.\";\n        break;\n    case 3: \n        meldingContact = \"Client heeft mogelijk acuut probleem.\";\n        break;\n    case 4: \n        meldingContact = \"Client voelt zich ziek en moet naar de huisarts.\";\n        break;\n    case 5: \n        meldingContact = \"Client voelt zich een beetje ziek.\";\n        break;\n    case 6: \n        meldingContact = \"Cliënt voelt zich eenzaam en wil graag contact.\";\n        break;\n    case 7: \n        meldingContact = \"Client heeft hulp nodig, maar er is geen reden opgegeven.\";\n        break;\n}\n\nif (msg.vraagNummer > 7) return;\n\nglobal.set(\"vervolgNeeVraag\", msg.vervolgNeeVraag);\nglobal.set(\"meldingClient\",   msg.meldingClient);\nglobal.set(\"meldingContact\",  meldingContact);\n\nnode.status({ text: tijd_nu + \" \" + meldingContact });\nreturn msg;",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet meldingContact = \"\";\n\nswitch (msg.vraagNummer) {\n    case 2: \n        meldingContact = \"Client heeft met spoed hulp nodig.\";\n        break;\n    case 3: \n        meldingContact = \"Client heeft mogelijk acuut probleem.\";\n        break;\n    case 4: \n        meldingContact = \"Client voelt zich ziek en moet naar de huisarts.\";\n        break;\n    case 5: \n        meldingContact = \"Client voelt zich een beetje ziek.\";\n        break;\n    case 6: \n        meldingContact = \"Cliënt voelt zich eenzaam en wil graag contact.\";\n        break;\n    case 7: \n        meldingContact = \"Client heeft hulp nodig, maar er is geen reden opgegeven.\";\n        break;\n    case 8: \n        meldingContact = \"\";\n        break;\n}\n\nglobal.set(\"vervolgNeeVraag\", msg.vervolgNeeVraag);\nglobal.set(\"meldingClient\",   msg.meldingClient);\nglobal.set(\"meldingContact\",  meldingContact);\n\nnode.status({ text: tijd_nu + \" \" + meldingContact });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 920,
+        "x": 960,
         "y": 300,
         "wires": [
             [
