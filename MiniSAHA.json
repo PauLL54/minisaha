@@ -236,12 +236,13 @@
             "610799e608be3cf2",
             "69189479c84b6594",
             "eeded1183639e84c",
-            "b5818c3e36d496d3"
+            "b5818c3e36d496d3",
+            "e86f1e12fdc16946"
         ],
         "x": 28,
-        "y": 31.5,
+        "y": 19,
         "w": 858,
-        "h": 889.5
+        "h": 942
     },
     {
         "id": "d344da1eff713941",
@@ -268,7 +269,7 @@
             "71e9a369f74477f6"
         ],
         "x": 34,
-        "y": 951.5,
+        "y": 991.5,
         "w": 632,
         "h": 269.5
     },
@@ -542,7 +543,7 @@
         ],
         "x": 34,
         "y": 819,
-        "w": 1092,
+        "w": 1082,
         "h": 702
     },
     {
@@ -788,7 +789,7 @@
             "d4dee740ac379f10"
         ],
         "x": 34,
-        "y": 1239,
+        "y": 1279,
         "w": 672,
         "h": 149.5
     },
@@ -1163,7 +1164,7 @@
             "c655b3afa92e4917"
         ],
         "x": 34,
-        "y": 1419,
+        "y": 1459,
         "w": 912,
         "h": 282
     },
@@ -1186,7 +1187,7 @@
             "b0067e5db1bb638b"
         ],
         "x": 734,
-        "y": 1219,
+        "y": 1259,
         "w": 412,
         "h": 162
     },
@@ -1248,7 +1249,7 @@
             "a91759026081e90e"
         ],
         "x": 54,
-        "y": 239,
+        "y": 279,
         "w": 772,
         "h": 162
     },
@@ -3102,7 +3103,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Herinnering",
-        "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"Herinnering: MiniSAHA is nog steeds actief bij \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon van \" + voornaamGebruiker +\n  \".\\n\\nEens per week wordt dit bericht naar je gestuurd.\\n\" + \n  \"Zo weet je dat het MiniSAHA systeem nog steeds actief is bij \" + \n  global.get(\"VoornaamGebruiker\") + \".\\n\\n\" +\n\"Mocht je dit bericht niet meer ontvangen op zondag rond 12:00, neem dan contact op met hem/haar.\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"Herinnering: MiniSAHA is nog steeds actief bij \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon van \" + voornaamGebruiker +\n  \".\\n\\nEens per week wordt dit bericht naar je gestuurd.\\n\" + \n  \"Zo weet je dat het MiniSAHA systeem nog steeds actief is bij \" + \n  global.get(\"VoornaamGebruiker\") + \".\\n\\n\" +\n\"Mocht je dit bericht niet meer ontvangen op zondag rond 12:00, neem dan contact op met hem/haar.\" +\n\"\\n\\n\\n\" +\n\"Dit bericht is afkomstig van MiniSAHA systeem \" + global.get(\"Serial\") + \".\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3642,7 +3643,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Niet OK",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nmsg.topic = \"MiniSAHA: neem contact op met \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n    voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\";\n\nif (global.get(\"NeeTest\")) {\n  let vervolgNeeVraag = global.get(\"vervolgNeeVraag\");\n  let meldingClient = global.get(\"meldingClient\");\n  let meldingContact = global.get(\"meldingContact\");\n\n  if (meldingContact == \"\") return; // geen email naar contacten.\n\n  msg.payload = \"Beste contactpersoon,\" + \n    \"<br><br>\" +\n    voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\" + \n    \"<br><br>\" +\n    // fout:\n    \"Daarna heeft \" + voornaamGebruiker + \" 'Ja' geantwoord op de vraag: '\" + vervolgNeeVraag + \"'.\" +\n    \"<br><br>\" +\n    voornaamGebruiker + \" ontving het advies: '\" + meldingClient + \"'.\" +\n    \"<br><br>\" +\n    \"Conclusie: \" + meldingContact +\n      \"<br><br>\" +\n    \"Verzoek: neem contact op met \" + voornaamGebruiker + \".\";\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nmsg.topic = \"MiniSAHA: neem contact op met \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n    voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\";\n\nif (global.get(\"NeeTest\")) {\n  let vervolgNeeVraag = global.get(\"vervolgNeeVraag\");\n  let meldingClient = global.get(\"meldingClient\");\n  let meldingContact = global.get(\"meldingContact\");\n\n  if (meldingContact == \"\") {\n    node.status({ text: \"Send: \" + tijd_nu + \", geen email naar contacten\"});\n    return; // geen email naar contacten.\n  }\n\n  msg.payload = \"Beste contactpersoon,\" + \n    \"<br><br>\" +\n    voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\" + \n    \"<br><br>\" +\n    // fout:\n    \"Daarna heeft \" + voornaamGebruiker + \" 'Ja' geantwoord op de vraag: '\" + vervolgNeeVraag + \"'.\" +\n    \"<br><br>\" +\n    voornaamGebruiker + \" ontving het advies: '\" + meldingClient + \"'.\" +\n    \"<br><br>\" +\n    \"Conclusie: \" + meldingContact +\n      \"<br><br>\" +\n    \"Verzoek: neem contact op met \" + voornaamGebruiker + \".\";\n}\n\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4781,7 +4782,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": "<template>\n    <!-- Modal structure -->\n    <div style='font-size: 24px; font-weight: bold;' \n        id=\"commentModal\" class=\"modal-notify-ui\">\n        <div class=\"modal-content-notify-ui\">\n\n            <!-- Textarea for user input     -->\n            <div id=\"commentText\" class=\"comment-label\" \n                style=\"height: 7.2em; line-height: 1.2em; overflow: hidden;\">\n                {{msg.payload}}\n            </div>\n    \n\n            <!-- Buttons for actions -->\n            <div class=\"modal-buttons-notify-ui\">\n                <button id=\"terugButton\">TERUG</button>\n                <button id=\"neeButton\">NEE</button>\n                <button id=\"jaButton\">JA</button>                \n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\n    // Reference to the current node (used for sending messages)\n    const node = this;\n\n    // Get DOM elements\n    const commentModal = document.getElementById('commentModal');\n    const commentText = document.getElementById('commentText');\n\n    const terugButton = document.getElementById('terugButton');\n    const jaButton = document.getElementById('jaButton');\n    const neeButton = document.getElementById('neeButton');\n\n    // Object to store incoming messages\n    let inMsg = {};\n\n    // Function to open the modal\n    function openModal(inputMessage) {\n        if (inputMessage) {\n            commentText.placeholder = inputMessage; // Set placeholder if inputMessage is provided\n        }\n        commentModal.style.display = 'block'; // Show the modal\n        commentText.focus(); // Focus on the textarea\n    }\n\n    // Function to close the modal\n    function closeModal() {\n        commentModal.style.display = 'none'; // Hide the modal\n        commentText.value = ''; // Clear the textarea\n        commentText.placeholder = ''; // Reset the placeholder\n    }\n\n    // Event listener for the \"TERUG\" button\n    terugButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"terug\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Event listener for the \"JA\" button\n    jaButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"ja\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Event listener for the \"NEE\" button\n    neeButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"nee\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Socket listener to trigger the modal with a message\n    this.$socket.on('msg-input:' + this.id, function (msg) {\n        inMsg = msg; // Store the incoming message\n        openModal(inMsg.payload); // Open the modal with the message payload as the placeholder\n    });\n\n</script>\n\n<style>\n    /* Modal styling */\n\n    .comment-label {\n    white-space: pre-line;\n    font-size: 24px;\n    font-weight: 500;\n    padding: 10px;\n    margin-bottom: 15px;\n    color: white;\n    }\n\n    .modal-notify-ui {\n        display: none; /* Hidden by default */\n        position: fixed; /* Stay in place */\n        z-index: 1; /* Sit on top */\n        left: 0;\n        top: 0;\n        width: 100%;\n        height: 100%;\n        overflow: auto; /* Enable scrolling if needed */\n        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */\n    }\n\n    /* Modal content styling */\n    .modal-content-notify-ui {\n        background-color: #3d3d3d; /* Dark background */\n        margin: 50% auto; /* Centered */\n        padding: 20px;\n        border: 1px solid #888;\n        border-radius: 10px; /* Rounded corners */\n        width: 100%;\n        max-width: 500px; /* Responsive width */\n        color: white; /* Text color */\n    }\n\n    /* Textarea styling */\n    .modal-content-notify-ui textarea {\n        width: 100%;\n        height: 100px; /* Fixed height */\n        padding: 10px;\n        margin-bottom: 10px;\n        border-radius: 5px; /* Rounded corners */\n        border: 1px solid #888;\n        background-color: #2d2d2d; /* Darker background */\n        color: white; /* Text color */\n    }\n\n    /* Button container styling */\n    .modal-buttons-notify-ui {\n        display: flex;\n        justify-content: flex-end; /* Align buttons to the right */\n        gap: 40px; /* Space between buttons */\n    }\n\n    /* Button styling */\n    .modal-buttons-notify-ui button {\n        padding: 10px 20px;\n        border: none;\n        border-radius: 5px; /* Rounded corners */\n        cursor: pointer; /* Pointer cursor on hover */\n        color: white; /* Text color */\n        background-color: #e40521; /* Red background */\n        transition: background-color 0.3s ease; /* Smooth hover effect */\n    }\n\n    /* Button hover effect */\n    .modal-buttons-notify-ui button:hover {\n        background-color: #ff1a1a; /* Lighter red on hover */\n    }\n</style>",
+        "format": "<template>\n    <!-- Modal structure -->\n    <div style='font-size: 24px; font-weight: bold;' \n        id=\"commentModal\" class=\"modal-notify-ui\">\n        <div class=\"modal-content-notify-ui\">\n\n            <!-- Textarea for user input     -->\n            <div id=\"commentText\" class=\"comment-label\" \n                style=\"height: 7.2em; line-height: 1.2em; overflow: hidden;\">\n                {{msg.payload}}\n            </div>\n    \n\n            <!-- Buttons for actions -->\n            <div class=\"modal-buttons-notify-ui\">\n                <button id=\"terugButton\">Terug</button>\n                <button id=\"neeButton\">Nee</button>\n                <button id=\"jaButton\">Ja</button>                \n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\n    // Reference to the current node (used for sending messages)\n    const node = this;\n\n    // Get DOM elements\n    const commentModal = document.getElementById('commentModal');\n    const commentText = document.getElementById('commentText');\n\n    const terugButton = document.getElementById('terugButton');\n    const jaButton = document.getElementById('jaButton');\n    const neeButton = document.getElementById('neeButton');\n\n    // Object to store incoming messages\n    let inMsg = {};\n\n    // Function to open the modal\n    function openModal(inputMessage) {\n        if (inputMessage) {\n            commentText.placeholder = inputMessage; // Set placeholder if inputMessage is provided\n        }\n        commentModal.style.display = 'block'; // Show the modal\n        commentText.focus(); // Focus on the textarea\n    }\n\n    // Function to close the modal\n    function closeModal() {\n        commentModal.style.display = 'none'; // Hide the modal\n        commentText.value = ''; // Clear the textarea\n        commentText.placeholder = ''; // Reset the placeholder\n    }\n\n    // Event listener for the \"TERUG\" button\n    terugButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"terug\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Event listener for the \"JA\" button\n    jaButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"ja\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Event listener for the \"NEE\" button\n    neeButton.addEventListener('click', function () {\n        inMsg.inMessageContent = \"nee\"; // Store the comment in the inMsg object\n        node.send(inMsg); // Send the message\n        closeModal(); // Close the modal\n    });\n\n    // Socket listener to trigger the modal with a message\n    this.$socket.on('msg-input:' + this.id, function (msg) {\n        inMsg = msg; // Store the incoming message\n        openModal(inMsg.payload); // Open the modal with the message payload as the placeholder\n    });\n\n</script>\n\n<style>\n    /* Modal styling */\n\n    .comment-label {\n    white-space: pre-line;\n    font-size: 24px;\n    font-weight: 500;\n    padding: 10px;\n    margin-bottom: 15px;\n    color: white;\n    }\n\n    .modal-notify-ui {\n        display: none; /* Hidden by default */\n        position: fixed; /* Stay in place */\n        z-index: 1; /* Sit on top */\n        left: 0;\n        top: 0;\n        width: 100%;\n        height: 100%;\n        overflow: auto; /* Enable scrolling if needed */\n        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */\n    }\n\n    /* Modal content styling */\n    .modal-content-notify-ui {\n        background-color: #087d10; //#3d3d3d; /* Dark background */\n        margin: 50% auto; /* Centered */\n        padding: 20px;\n        border: 1px solid #888;\n        border-radius: 10px; /* Rounded corners */\n        width: 100%;\n        max-width: 500px; /* Responsive width */\n        color: white; /* Text color */\n    }\n\n    /* Textarea styling */\n    .modal-content-notify-ui textarea {\n        width: 100%;\n        height: 100px; /* Fixed height */\n        padding: 10px;\n        margin-bottom: 10px;\n        border-radius: 5px; /* Rounded corners */\n        border: 1px solid #888;\n        background-color: #0d19c9;\n        color: white; /* Text color */\n    }\n\n    /* Button container styling */\n    .modal-buttons-notify-ui {\n        display: flex;\n        justify-content: flex-end; /* Align buttons to the right */\n        gap: 40px; /* Space between buttons */\n    }\n\n    /* Button styling */\n    .modal-buttons-notify-ui button {\n        padding: 10px 20px;\n        border: none;\n        border-radius: 5px; /* Rounded corners */\n        cursor: pointer; /* Pointer cursor on hover */\n        color: white; /* Text color */\n        background-color: #0094ce; \n        transition: background-color 0.3s ease; /* Smooth hover effect */\n    }\n\n    /* Button hover effect */\n    .modal-buttons-notify-ui button:hover {\n        background-color: #0094ce; \n    }\n</style>",
         "storeOutMessages": true,
         "passthru": false,
         "resendOnRefresh": true,
@@ -4802,7 +4803,7 @@
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
         "name": "Vragen",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\n\nlet vervolgNeeVraag = \"\";\n\nswitch (msg.vraagNummer) {\n    case 2: \n        vervolgNeeVraag = \"Heb je met spoed hulp nodig?\";\n        break;\n    case 3: \n        vervolgNeeVraag = \"Ben je benauwd of kortademig?\";\n        break;\n    case 4: \n        vervolgNeeVraag = \"Heb je hoge koorts (39+) of voel je je erg ziek?\";\n        break;\n    case 5: \n        vervolgNeeVraag = \"Heb je lichte koorts (minder dan 39) of voel je je een beetje ziek?\";\n        break;\n    case 6: \n        vervolgNeeVraag = \"Voel je je eenzaam of heb je behoefte aan contact?\";\n        break;\n    case 7: \n        vervolgNeeVraag = \"Heb je om een andere reden hulp nodig?\";\n        break;\n    case 8: \n        vervolgNeeVraag = \"Voel je je lusteloos of somber?\";\n        break;\n    default:\n        vervolgNeeVraag = \"onbekende nummer voor vervolgNeeVraag: \" + msg.vervolgNeeVraag;\n        break;\n}\n\nmsg.payload = \"\\n\" + vervolgNeeVraag + \"\\n\\n\\n\";\nmsg.vervolgNeeVraag = vervolgNeeVraag;\nreturn msg;",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\n\nlet vervolgNeeVraag = \"\";\n\nswitch (msg.vraagNummer) {\n    case 2: \n        vervolgNeeVraag = \"1. Heb je met spoed hulp nodig?\";\n        break;\n    case 3: \n        vervolgNeeVraag = \"2. Ben je benauwd of kortademig?\";\n        break;\n    case 4: \n        vervolgNeeVraag = \"3. Heb je hoge koorts (39+) of voel je je erg ziek?\";\n        break;\n    case 5: \n        vervolgNeeVraag = \"4. Heb je lichte koorts (minder dan 39) of voel je je een beetje ziek?\";\n        break;\n    case 6: \n        vervolgNeeVraag = \"5. Voel je je eenzaam of heb je behoefte aan contact?\";\n        break;\n    case 7: \n        vervolgNeeVraag = \"6. Heb je om een andere reden hulp nodig?\";\n        break;\n    case 8: \n        vervolgNeeVraag = \"7. Voel je je lusteloos of somber?\";\n        break;\n    default:\n        vervolgNeeVraag = \"onbekende nummer voor vervolgNeeVraag: \" + msg.vervolgNeeVraag;\n        break;\n}\n\nmsg.payload = \"\\n\" + vervolgNeeVraag + \"\\n\\n\\n\";\nmsg.vervolgNeeVraag = vervolgNeeVraag;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4953,7 +4954,7 @@
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
         "name": "Feedback naar client",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\n\nlet meldingClient = \"\";\n\nswitch (msg.vraagNummer) {\n    case 2: \n        meldingClient = \"Contacten ingelicht, indien nodig bel 112 via app\";\n        break;\n    case 3: \n        meldingClient = \"Neem direct contact op met de huisarts.\";\n        break;\n    case 4: \n        meldingClient = \"Bel de huisarts.\";\n        break;\n    case 5: \n        meldingClient = \"Advies: raadpleeg de Thuisarts app.\";\n        break;\n    case 6: \n        meldingClient = \"Je contacten zijn geinformeerd dat jebehoeft hebt aan contact.\";\n        break;\n    case 7: \n        meldingClient = \"Je contacten zijn geinformeerd dat je hulp nodig hebt.\";\n        break;\n    case 8: \n        if (msg.topic == \"Ja\")\n            meldingClient = \"Open de STAP-NAAR_GEZONDER app.\";\n        else\n            meldingClient = \"We ronden af en vragen morgen opnieuw.\";\n        break;\n}\n\nmsg.meldingClient = meldingClient;\nreturn msg;",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\n\nlet meldingClient = \"\";\n\nswitch (msg.vraagNummer) {\n    case 2: \n        meldingClient = \"Contacten ingelicht, indien nodig bel 112 via app\";\n        break;\n    case 3: \n        meldingClient = \"Neem direct contact op met de huisarts.\";\n        break;\n    case 4: \n        meldingClient = \"Bel de huisarts.\";\n        break;\n    case 5: \n        meldingClient = \"Advies: raadpleeg de Thuisarts app.\";\n        break;\n    case 6: \n        meldingClient = \"Je contacten zijn geinformeerd dat jebehoeft hebt aan contact.\";\n        break;\n    case 7: \n        meldingClient = \"Je contacten zijn geinformeerd dat je hulp nodig hebt.\";\n        break;\n    case 8: \n        meldingClient = \"Open de STAP-NAAR_GEZONDER app.\";\n        break;\n    case 9: \n        meldingClient = \"We ronden af en vragen morgen opnieuw.\";\n        break;\n}\n\nmsg.meldingClient = meldingClient;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -8160,7 +8161,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "148566cf72b33e1a"
@@ -8189,7 +8190,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 770,
-        "y": 460,
+        "y": 500,
         "wires": []
     },
     {
@@ -8206,7 +8207,7 @@
         "oldrc": false,
         "name": "get version_test.txt",
         "x": 470,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "98ddd266a3e4c998"
@@ -8229,7 +8230,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -8251,7 +8252,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 350,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "2c5db89378881214"
@@ -8279,7 +8280,7 @@
         "to": "",
         "reg": false,
         "x": 760,
-        "y": 520,
+        "y": 560,
         "wires": [
             []
         ]
@@ -8306,7 +8307,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 770,
-        "y": 780,
+        "y": 820,
         "wires": []
     },
     {
@@ -8323,7 +8324,7 @@
         "oldrc": false,
         "name": "rm old",
         "x": 310,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "6f0b74ba5a27cc3e"
@@ -8346,7 +8347,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 630,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "bce54c96101eb7b7"
@@ -8367,7 +8368,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 640,
+        "y": 680,
         "wires": [
             [
                 "59d5c77dc1dc2a60"
@@ -8393,7 +8394,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 360,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -8414,7 +8415,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 820,
+        "y": 860,
         "wires": [
             [
                 "8d171fe450c7a81f"
@@ -8435,7 +8436,7 @@
         "finalize": "",
         "libs": [],
         "x": 180,
-        "y": 760,
+        "y": 800,
         "wires": [
             [
                 "b6d0686a4823c0c2"
@@ -8455,7 +8456,7 @@
         "scope": null,
         "uncaught": false,
         "x": 160,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "5fe7d4a09964b635",
@@ -8477,7 +8478,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -8505,7 +8506,7 @@
         "templateScope": "page:style",
         "className": "buttonupdate",
         "x": 150,
-        "y": 680,
+        "y": 720,
         "wires": [
             []
         ]
@@ -8525,7 +8526,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 360,
-        "y": 500,
+        "y": 540,
         "wires": []
     },
     {
@@ -8542,7 +8543,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "29faaa6a019e0e9b"
@@ -8565,7 +8566,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 440,
-        "y": 740,
+        "y": 780,
         "wires": []
     },
     {
@@ -8576,7 +8577,7 @@
         "name": "",
         "env": [],
         "x": 620,
-        "y": 1580,
+        "y": 1620,
         "wires": [
             [
                 "849129e5cd170f06"
@@ -8600,7 +8601,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 1580,
+        "y": 1620,
         "wires": [
             [
                 "9c9d4e18a631cc15"
@@ -8621,7 +8622,7 @@
         "finalize": "",
         "libs": [],
         "x": 810,
-        "y": 1560,
+        "y": 1600,
         "wires": [
             [
                 "61806882e2c16761",
@@ -8637,7 +8638,7 @@
         "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
         "info": "",
         "x": 250,
-        "y": 1460,
+        "y": 1500,
         "wires": []
     },
     {
@@ -8655,7 +8656,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 1500,
+        "y": 1540,
         "wires": [
             [
                 "728339c56b6087ec"
@@ -8678,7 +8679,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 840,
-        "y": 1640,
+        "y": 1680,
         "wires": []
     },
     {
@@ -8695,7 +8696,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 1500,
+        "y": 1540,
         "wires": [
             [
                 "ebd1eb7739312b3d",
@@ -8716,7 +8717,7 @@
         "oldrc": false,
         "name": "Execute shutdown",
         "x": 550,
-        "y": 1000,
+        "y": 1040,
         "wires": [
             [],
             [],
@@ -8736,7 +8737,7 @@
         "oldrc": false,
         "name": "Execute restart",
         "x": 540,
-        "y": 1120,
+        "y": 1160,
         "wires": [
             [],
             [],
@@ -8776,7 +8777,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 160,
-        "y": 1000,
+        "y": 1040,
         "wires": [
             [
                 "9efaa0c2fd872693",
@@ -8817,7 +8818,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 1120,
+        "y": 1160,
         "wires": [
             [
                 "6d496dbb394b2888",
@@ -8845,7 +8846,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 1060,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -8872,7 +8873,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 730,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -8889,10 +8890,11 @@
         "oldrc": false,
         "name": "",
         "x": 360,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
-                "e21cc1583323afc0"
+                "e21cc1583323afc0",
+                "e86f1e12fdc16946"
             ],
             [],
             []
@@ -8912,7 +8914,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "7b981f6f76e5f9f4"
@@ -8942,7 +8944,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 160,
-        "y": 1340,
+        "y": 1380,
         "wires": [
             [
                 "a37b37d1.aad508",
@@ -8963,7 +8965,7 @@
         "oldrc": false,
         "name": "measure CPU temperature",
         "x": 400,
-        "y": 1340,
+        "y": 1380,
         "wires": [
             [
                 "ecc06f5.bc3d39"
@@ -8986,7 +8988,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1340,
+        "y": 1380,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -9007,7 +9009,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 1280,
+        "y": 1320,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -9036,7 +9038,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 510,
-        "y": 1060,
+        "y": 1100,
         "wires": []
     },
     {
@@ -9053,7 +9055,7 @@
         "finalize": "",
         "libs": [],
         "x": 860,
-        "y": 1500,
+        "y": 1540,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -9071,7 +9073,7 @@
         "msgArray": false,
         "msgTemp": false,
         "x": 350,
-        "y": 1280,
+        "y": 1320,
         "wires": [
             [
                 "ea735d0.bb55da"
@@ -9101,7 +9103,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 180,
-        "y": 300,
+        "y": 340,
         "wires": [
             [
                 "20a7391c.421bd6"
@@ -9122,7 +9124,7 @@
         "oldrc": false,
         "name": "",
         "x": 350,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "eb861dab.4d428"
@@ -9145,7 +9147,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "1b9704b98c8415b8"
@@ -9177,7 +9179,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 750,
-        "y": 280,
+        "y": 320,
         "wires": []
     },
     {
@@ -9202,7 +9204,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 750,
-        "y": 360,
+        "y": 400,
         "wires": []
     },
     {
@@ -9219,7 +9221,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "219feef2e9854abf"
@@ -9248,7 +9250,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 730,
-        "y": 140,
+        "y": 180,
         "wires": []
     },
     {
@@ -9266,7 +9268,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "318cd6b22f5d427b"
@@ -9295,7 +9297,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 270,
-        "y": 1060,
+        "y": 1100,
         "wires": []
     },
     {
@@ -9331,7 +9333,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 830,
-        "y": 1260,
+        "y": 1300,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -9357,7 +9359,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 470,
-        "y": 1500,
+        "y": 1540,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -9378,7 +9380,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 1180,
+        "y": 1220,
         "wires": [
             [
                 "7ea37518e7e677d7"
@@ -9400,7 +9402,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "b214b552d64a9c10"
@@ -9422,7 +9424,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "97382ae72dc98a86"
@@ -9444,7 +9446,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1660,
+        "y": 1700,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -9466,7 +9468,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1180,
+        "y": 1220,
         "wires": [
             [
                 "8d1d71e905b38b07"
@@ -9488,7 +9490,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 320,
-        "y": 880,
+        "y": 920,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -9510,7 +9512,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "20a7391c.421bd6"
@@ -9539,7 +9541,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 750,
-        "y": 320,
+        "y": 360,
         "wires": []
     },
     {
@@ -9564,7 +9566,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 1020,
-        "y": 1260,
+        "y": 1300,
         "wires": []
     },
     {
@@ -9582,7 +9584,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 1580,
+        "y": 1620,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -10014,7 +10016,7 @@
         "className": "",
         "interpolation": "linear",
         "x": 1040,
-        "y": 1340,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -10047,7 +10049,7 @@
         "officon": "",
         "offcolor": "",
         "x": 560,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "b5818c3e36d496d3"
@@ -10068,7 +10070,26 @@
         "finalize": "",
         "libs": [],
         "x": 740,
-        "y": 200,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e86f1e12fdc16946",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "289d8e4b5f966496",
+        "name": "Serial",
+        "func": "msg.payload = parseCpuInfo(msg.payload);\nglobal.set(\"Serial\", msg.payload);\nnode.status({ text: msg.payload });\nreturn msg;\n\nfunction parseCpuInfo(cpuinfo) {\n    // Extract the revision line\n    const serial = cpuinfo.match(/Serial\\s*:\\s*([0-9a-fA-F]+)/);\n    if (!serial) {\n        return \"\";\n    }\n\n    const revision = serial[1].toLowerCase();\n\n    return revision;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 60,
         "wires": [
             []
         ]
@@ -13673,6 +13694,86 @@
         "statusType": "auto",
         "x": 580,
         "y": 480,
+        "wires": []
+    },
+    {
+        "id": "0ee3f31e7161178a",
+        "type": "http request",
+        "z": "091a23c860c18c2f",
+        "name": "Spryng SMS",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://rest.spryngsms.com/v1/messages",
+        "tls": "",
+        "persist": false,
+        "headers": {
+            "Accept": "application/json",
+            "Authorization": "Bearer JOUW_API_TOKEN",
+            "Content-Type": "application/json"
+        },
+        "x": 350,
+        "y": 580,
+        "wires": [
+            [
+                "62a6deda613eb6d8"
+            ]
+        ]
+    },
+    {
+        "id": "75adc6630e9358b8",
+        "type": "inject",
+        "z": "091a23c860c18c2f",
+        "name": "Stuur SMS",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"body\":\"Dit is een testbericht vanuit Node-RED\",\"encoding\":\"auto\",\"originator\":\"NodeRED\",\"recipients\":[\"31612345678\"],\"route\":\"business\"}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 580,
+        "wires": [
+            [
+                "d6b2b4a387676874"
+            ]
+        ]
+    },
+    {
+        "id": "62a6deda613eb6d8",
+        "type": "debug",
+        "z": "091a23c860c18c2f",
+        "name": "Spryng Response",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 570,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "d6b2b4a387676874",
+        "type": "debug",
+        "z": "091a23c860c18c2f",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 260,
+        "y": 620,
         "wires": []
     }
 ]
