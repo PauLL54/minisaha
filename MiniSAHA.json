@@ -250,7 +250,6 @@
             "3d3ed8f6ab85a6cb",
             "517dbde196f99a20",
             "b5fa993c16ba139a",
-            "d959bb06ce4487ba",
             "9871fb4d88642beb",
             "13e5cd2c4ebfb95d",
             "a409fa7421e4d333",
@@ -306,7 +305,6 @@
             "817a65e37e67edcc",
             "7df2d7d7906671f7",
             "bc1f09db123428e3",
-            "541f01ba14ea5343",
             "a9408115b9afbbf0",
             "b2eecd0b4135474f",
             "b6f1cd01ee1848ea",
@@ -315,7 +313,7 @@
         "x": 14,
         "y": 659,
         "w": 1112,
-        "h": 982
+        "h": 902
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -439,8 +437,8 @@
             "d7418bbaf522fb53",
             "cfa3916d77cf712b"
         ],
-        "x": 14,
-        "y": 339,
+        "x": 34,
+        "y": 279,
         "w": 792,
         "h": 642
     },
@@ -567,8 +565,8 @@
             "b6944b93af04a874",
             "b4cb292e1a70622c"
         ],
-        "x": 14,
-        "y": 59,
+        "x": 34,
+        "y": 19,
         "w": 752,
         "h": 242
     },
@@ -814,8 +812,8 @@
             "e0d919a5c94f2160",
             "27368f40feb169f4"
         ],
-        "x": 14,
-        "y": 979,
+        "x": 34,
+        "y": 959,
         "w": 852,
         "h": 629.5
     },
@@ -1150,15 +1148,14 @@
             "8fa34f6eed01f811",
             "bcc6757235039fc3",
             "ed463590a14af483",
-            "5485c377f8beabba",
             "e7125cfab1e58fe7",
             "7255c5ee9e09c34b",
             "c735e584a61cd117"
         ],
-        "x": 34,
+        "x": 14,
         "y": 1139,
-        "w": 1012,
-        "h": 222
+        "w": 972,
+        "h": 202
     },
     {
         "id": "4566824d49f71745",
@@ -2531,7 +2528,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 230,
-        "y": 1600,
+        "y": 1520,
         "wires": []
     },
     {
@@ -2749,7 +2746,7 @@
         "scope": null,
         "uncaught": false,
         "x": 820,
-        "y": 1580,
+        "y": 1500,
         "wires": [
             [
                 "8322868abe70e928"
@@ -2771,7 +2768,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 970,
-        "y": 1580,
+        "y": 1500,
         "wires": []
     },
     {
@@ -3302,28 +3299,9 @@
         "y": 140,
         "wires": [
             [
-                "93e66aed5528479a",
-                "d959bb06ce4487ba"
+                "93e66aed5528479a"
             ]
         ]
-    },
-    {
-        "id": "d959bb06ce4487ba",
-        "type": "debug",
-        "z": "a380efb730bea147",
-        "g": "4e4ef64c30555769",
-        "name": "Debug triggers",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 600,
-        "y": 100,
-        "wires": []
     },
     {
         "id": "bc1f09db123428e3",
@@ -3391,29 +3369,6 @@
         ]
     },
     {
-        "id": "541f01ba14ea5343",
-        "type": "inject",
-        "z": "a380efb730bea147",
-        "g": "2ce41e3897fb35ce",
-        "name": "Test SMS",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 120,
-        "y": 1520,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "f49fada3bc627167",
         "type": "function",
         "z": "a380efb730bea147",
@@ -3426,7 +3381,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 1760,
+        "y": 1640,
         "wires": [
             [
                 "7f58a586c2f4c054"
@@ -3455,7 +3410,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 260,
-        "y": 1760,
+        "y": 1640,
         "wires": [
             [
                 "f49fada3bc627167"
@@ -3475,7 +3430,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 1760,
+        "y": 1640,
         "wires": []
     },
     {
@@ -3491,7 +3446,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 1840,
+        "y": 1720,
         "wires": [
             [
                 "27dbc96581bc38fe"
@@ -3520,7 +3475,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 260,
-        "y": 1840,
+        "y": 1720,
         "wires": [
             [
                 "9be0eae3b59d81e0"
@@ -3540,7 +3495,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 1840,
+        "y": 1720,
         "wires": []
     },
     {
@@ -3556,7 +3511,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 1900,
+        "y": 1780,
         "wires": [
             [
                 "f7ab3ec8386d11eb"
@@ -3585,7 +3540,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 260,
-        "y": 1900,
+        "y": 1780,
         "wires": [
             [
                 "56f61dfc873f6d51"
@@ -3605,7 +3560,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 1900,
+        "y": 1780,
         "wires": []
     },
     {
@@ -4005,7 +3960,7 @@
         "layout": "row-left",
         "style": true,
         "font": "",
-        "fontSize": "24",
+        "fontSize": "20",
         "color": "#ffff00",
         "wrapText": false,
         "className": "",
@@ -7060,8 +7015,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 100,
-        "y": 720,
+        "x": 120,
+        "y": 660,
         "wires": [
             [
                 "6c2c688ef0fa2f63"
@@ -7078,7 +7033,7 @@
         "width": 0,
         "height": 0,
         "name": "About",
-        "label": "De Mini Saha (Safe At Home Alone) app is bedoeld voor de alleenstaande senior. Met deze app kan je instellen hoe laat je een melding wilt ontvangen op je Bluetooth speaker om te controleren of het goed met je gaat. Mocht je niet binnen een bepaalde tijd reageren, dan ontvangt een contactpersoon een email met de vraag om te kijken hoe het met je gaat.",
+        "label": "De Mini Saha (Safe At Home Alone) app is bedoeld voor de alleenstaande senior. Met deze app kan je instellen hoe laat je een melding wilt ontvangen op je Bluetooth speaker om te controleren of het goed met je gaat. Mocht je niet binnen een bepaalde tijd reageren, dan ontvangt een contactpersoon een bericht met de vraag om te kijken hoe het met je gaat.",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "style": true,
@@ -7089,8 +7044,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 610,
-        "y": 100,
+        "x": 630,
+        "y": 60,
         "wires": []
     },
     {
@@ -7114,8 +7069,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 630,
-        "y": 500,
+        "x": 650,
+        "y": 440,
         "wires": []
     },
     {
@@ -7139,8 +7094,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 630,
-        "y": 380,
+        "x": 650,
+        "y": 320,
         "wires": []
     },
     {
@@ -7156,8 +7111,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get version.txt",
-        "x": 420,
-        "y": 720,
+        "x": 440,
+        "y": 660,
         "wires": [
             [
                 "44f8e182ea2d2fc3"
@@ -7179,8 +7134,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 600,
+        "x": 470,
+        "y": 540,
         "wires": [
             [
                 "940e764301d9d266",
@@ -7201,8 +7156,8 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 300,
-        "y": 600,
+        "x": 320,
+        "y": 540,
         "wires": [
             [
                 "60d1d31d381e01eb"
@@ -7229,8 +7184,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 670,
-        "y": 560,
+        "x": 690,
+        "y": 500,
         "wires": [
             []
         ]
@@ -7256,8 +7211,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 710,
-        "y": 840,
+        "x": 730,
+        "y": 780,
         "wires": []
     },
     {
@@ -7273,8 +7228,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 500,
+        "x": 530,
+        "y": 440,
         "wires": [
             [
                 "226a8c5bfb54aa32"
@@ -7294,8 +7249,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm old",
-        "x": 270,
-        "y": 720,
+        "x": 290,
+        "y": 660,
         "wires": [
             [
                 "7640224f513f74de"
@@ -7317,8 +7272,8 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 570,
-        "y": 720,
+        "x": 590,
+        "y": 660,
         "wires": [
             [
                 "5f841997def03bad"
@@ -7338,8 +7293,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
-        "y": 720,
+        "x": 710,
+        "y": 660,
         "wires": [
             [
                 "8341310a2e59ed53"
@@ -7364,8 +7319,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 380,
-        "y": 880,
+        "x": 400,
+        "y": 820,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -7385,8 +7340,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
-        "y": 880,
+        "x": 590,
+        "y": 820,
         "wires": [
             [
                 "6f445b4448b59170"
@@ -7406,8 +7361,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 180,
-        "y": 840,
+        "x": 200,
+        "y": 780,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -7426,8 +7381,8 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 120,
-        "y": 500,
+        "x": 140,
+        "y": 440,
         "wires": [
             [
                 "4d1dba90ae296567",
@@ -7448,8 +7403,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 500,
+        "x": 330,
+        "y": 440,
         "wires": [
             [
                 "95ed60f262f1803c",
@@ -7473,14 +7428,14 @@
             }
         ],
         "repeat": "",
-        "crontab": "00 00 * * *",
+        "crontab": "05 00 * * *",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 660,
+        "x": 140,
+        "y": 600,
         "wires": [
             [
                 "6c2c688ef0fa2f63"
@@ -7506,8 +7461,8 @@
         "resendOnRefresh": true,
         "templateScope": "page:style",
         "className": "buttonupdate",
-        "x": 110,
-        "y": 760,
+        "x": 130,
+        "y": 700,
         "wires": [
             []
         ]
@@ -7529,8 +7484,8 @@
         "passthru": true,
         "templateScope": "local",
         "className": "",
-        "x": 650,
-        "y": 180,
+        "x": 670,
+        "y": 140,
         "wires": [
             [
                 "b6944b93af04a874"
@@ -7551,8 +7506,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 300,
-        "y": 440,
+        "x": 320,
+        "y": 380,
         "wires": []
     },
     {
@@ -7566,8 +7521,8 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 170,
-        "y": 180,
+        "x": 190,
+        "y": 140,
         "wires": [
             [
                 "8ce06555f0c049ea"
@@ -7587,8 +7542,8 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 300,
-        "y": 180,
+        "x": 320,
+        "y": 140,
         "wires": [
             [
                 "8d1f7a72eda8b85e"
@@ -7603,8 +7558,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 430,
-        "y": 180,
+        "x": 450,
+        "y": 140,
         "wires": []
     },
     {
@@ -7628,8 +7583,8 @@
         "className": "",
         "value": "payloads",
         "valueType": "msg",
-        "x": 620,
-        "y": 140,
+        "x": 640,
+        "y": 100,
         "wires": []
     },
     {
@@ -7654,8 +7609,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 540,
+        "x": 130,
+        "y": 480,
         "wires": [
             [
                 "4d1dba90ae296567"
@@ -7670,8 +7625,8 @@
         "name": "",
         "ui": "6c1d30b5f16932dd",
         "events": "all",
-        "x": 620,
-        "y": 260,
+        "x": 640,
+        "y": 220,
         "wires": [
             []
         ]
@@ -7689,8 +7644,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 260,
+        "x": 480,
+        "y": 220,
         "wires": [
             [
                 "1eec94c61974cd1c"
@@ -7704,8 +7659,8 @@
         "g": "f37a603ed66fd806",
         "name": "Navigeer naar de Test pagina door op het logo te klikken",
         "info": "",
-        "x": 240,
-        "y": 100,
+        "x": 260,
+        "y": 60,
         "wires": []
     },
     {
@@ -7715,8 +7670,8 @@
         "g": "5bb2b589a301c7c8",
         "name": "Update button en iedere nacht testen of een update nodig is",
         "info": "",
-        "x": 260,
-        "y": 400,
+        "x": 280,
+        "y": 340,
         "wires": []
     },
     {
@@ -7740,8 +7695,8 @@
         "className": "",
         "value": "payloads",
         "valueType": "msg",
-        "x": 640,
-        "y": 440,
+        "x": 660,
+        "y": 380,
         "wires": []
     },
     {
@@ -7796,8 +7751,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Reboot",
-        "x": 780,
-        "y": 1400,
+        "x": 800,
+        "y": 1380,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -7819,8 +7774,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm MiniSAHA.json",
-        "x": 330,
-        "y": 1140,
+        "x": 350,
+        "y": 1120,
         "wires": [
             [
                 "7a258c3a06322d6a",
@@ -7843,8 +7798,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get MiniSAHA.json",
-        "x": 590,
-        "y": 1140,
+        "x": 610,
+        "y": 1120,
         "wires": [
             [
                 "28228f40169db06d"
@@ -7866,8 +7821,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Install all files",
-        "x": 310,
-        "y": 1460,
+        "x": 330,
+        "y": 1440,
         "wires": [
             [
                 "c4571cfee0924b57"
@@ -7889,8 +7844,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get Logo.png",
-        "x": 570,
-        "y": 1300,
+        "x": 590,
+        "y": 1280,
         "wires": [
             [
                 "b119fd4598e51e41"
@@ -7912,8 +7867,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm Logo.png",
-        "x": 310,
-        "y": 1300,
+        "x": 330,
+        "y": 1280,
         "wires": [
             [
                 "477a82641741c1d2"
@@ -7935,8 +7890,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm MiniSAHA_cred.json",
-        "x": 350,
-        "y": 1220,
+        "x": 370,
+        "y": 1200,
         "wires": [
             [
                 "62cf14493c558309"
@@ -7958,8 +7913,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get MiniSAHA_cred.json",
-        "x": 610,
-        "y": 1220,
+        "x": 630,
+        "y": 1200,
         "wires": [
             [
                 "6ba99393e4c393d8"
@@ -7982,8 +7937,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 130,
-        "y": 1080,
+        "x": 150,
+        "y": 1060,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -8003,8 +7958,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "rm bluetooth.py",
-        "x": 320,
-        "y": 1380,
+        "x": 340,
+        "y": 1360,
         "wires": [
             [
                 "05d5a950f617317c"
@@ -8026,8 +7981,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get bluetooth.py",
-        "x": 580,
-        "y": 1380,
+        "x": 600,
+        "y": 1360,
         "wires": [
             [
                 "02d2ac26c698a195"
@@ -8049,8 +8004,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "chmod +x",
-        "x": 560,
-        "y": 1460,
+        "x": 580,
+        "y": 1440,
         "wires": [
             [
                 "3dc33bd26ddfd0cd"
@@ -8066,8 +8021,8 @@
         "g": "a49df4f119bb186e",
         "name": "Update procedure voor de gebruiker en tester",
         "info": "",
-        "x": 430,
-        "y": 1020,
+        "x": 450,
+        "y": 1000,
         "wires": []
     },
     {
@@ -8083,8 +8038,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "get sound",
-        "x": 140,
-        "y": 1560,
+        "x": 160,
+        "y": 1540,
         "wires": [
             [
                 "9328b12c82bcdb88"
@@ -8106,8 +8061,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Install sound",
-        "x": 330,
-        "y": 1560,
+        "x": 350,
+        "y": 1540,
         "wires": [
             [],
             [],
@@ -8127,8 +8082,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Restart node-red",
-        "x": 750,
-        "y": 1460,
+        "x": 770,
+        "y": 1440,
         "wires": [
             [],
             [],
@@ -8157,8 +8112,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 1020,
+        "x": 130,
+        "y": 1000,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -8178,8 +8133,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "install dashboard@latest",
-        "x": 630,
-        "y": 1560,
+        "x": 650,
+        "y": 1540,
         "wires": [
             [],
             [],
@@ -8201,8 +8156,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 580,
-        "y": 1080,
+        "x": 600,
+        "y": 1060,
         "wires": []
     },
     {
@@ -8218,8 +8173,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 1080,
+        "x": 410,
+        "y": 1060,
         "wires": [
             [
                 "e0d919a5c94f2160"
@@ -8288,8 +8243,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 120,
-        "y": 600,
+        "x": 140,
+        "y": 540,
         "wires": [
             [
                 "e677c617d3a5d29d"
@@ -8310,8 +8265,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 360,
-        "y": 940,
+        "x": 380,
+        "y": 880,
         "wires": [
             [
                 "e91938bbca103b42"
@@ -10280,7 +10235,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "cf35846ffd0f4838",
         "name": "Check",
-        "func": "msg.topic = \"\";\n\n// Bij geen input is er niets te controleren:\nif (msg.payload == \"\") return null;\n\n// Als er al een licentie is, is er niets te controleren:\nlet license = global.get(\"LicenseSMS\") ?? \"\";\nif (license != \"\") return null;\n\n// Vooraf berekende tabel (standaard CRC-32)\nconst table = (() => {\n    let c;\n    let table = [];\n    for (let n = 0; n < 256; n++) {\n        c = n;\n        for (let k = 0; k < 8; k++) {\n            c = c & 1 ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);\n        }\n        table[n] = c;\n    }\n    return table;\n})();\n\n// Er is nog geen licentie: controleer of deze correct is:\nconst apikey_string = stringToDecimal(msg.payload); // vertaal de string naar getallen (ascii waarden)\n\nconst checksum = crc32(apikey_string).toString();\n// En deze moet gelijk zijn aan:\nconst valid = (checksum == \"2256402563\"); // dit getal is ooit eens berekend voor de licentie.\n\nif (valid) {\n    global.set(\"LicenseSMS\", msg.payload);\n    node.status({ text: valid });\n    return [msg, null];  \n}\nelse {\n    node.status({ text: msg.payload + \"; \" + apikey_string + checksum + \"; \" + valid });\n    msg.payload = \"Ongeldige SMS licentie\";\n    return [null, msg];  \n}\n\n\n\n\nfunction stringToDecimal(str) {\n    if (typeof str !== \"string\") return null;\n\n    // Spaties verwijderen\n    str = str.replace(/\\s+/g, \"\");\n\n    let hex = \"\";\n    for (let i = 0; i < str.length; i++) {\n        hex += str.charCodeAt(i).toString(16).padStart(2, \"0\");\n    }\n\n    // Hex → decimaal getal (als string, want het kan groot zijn)\n    return BigInt(\"0x\" + hex).toString(10);\n}\n\nfunction crc32(str) {\n    let crc = 0 ^ (-1);\n\n    for (let i = 0; i < str.length; i++) {\n        crc = (crc >>> 8) ^ table[(crc ^ str.charCodeAt(i)) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0;\n}\n\n// Niet gebruikt:\nfunction fnv1a(str) {\n    let hash = 0x811c9dc5;\n    for (let i = 0; i < str.length; i++) {\n        hash ^= str.charCodeAt(i);\n        hash = (hash * 0x01000193) >>> 0;\n    }\n    return hash;\n}\n\n\n",
+        "func": "msg.topic = \"\";\n\n// Bij geen input is er niets te controleren:\nif (msg.payload == \"\") return null;\n\n// Als er al een licentie is, is er niets te controleren:\nlet license = global.get(\"LicenseSMS\") ?? \"\";\nif (license != \"\") return null;\n\n// Vooraf berekende tabel (standaard CRC-32)\nconst table = (() => {\n    let c;\n    let table = [];\n    for (let n = 0; n < 256; n++) {\n        c = n;\n        for (let k = 0; k < 8; k++) {\n            c = c & 1 ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);\n        }\n        table[n] = c;\n    }\n    return table;\n})();\n\n// Er is nog geen licentie: controleer of deze correct is:\nconst apikey_string = stringToDecimal(msg.payload); // vertaal de string naar getallen (ascii waarden)\n\nconst checksum = crc32(apikey_string).toString();\n// En deze moet gelijk zijn aan:\nconst valid = (checksum == \"2256402563\"); // dit getal is ooit eens berekend voor de licentie.\n\nif (valid) {\n    global.set(\"LicenseSMS\", msg.payload);\n    node.status({ text: valid });\n    msg.payload = \"Licentie is OK\";\n    return [msg, null];  \n}\nelse {\n    node.status({ text: msg.payload + \"; \" + apikey_string + checksum + \"; \" + valid });\n    msg.payload = \"Ongeldige SMS licentie\";\n    return [null, msg];  \n}\n\n\n\n\nfunction stringToDecimal(str) {\n    if (typeof str !== \"string\") return null;\n\n    // Spaties verwijderen\n    str = str.replace(/\\s+/g, \"\");\n\n    let hex = \"\";\n    for (let i = 0; i < str.length; i++) {\n        hex += str.charCodeAt(i).toString(16).padStart(2, \"0\");\n    }\n\n    // Hex → decimaal getal (als string, want het kan groot zijn)\n    return BigInt(\"0x\" + hex).toString(10);\n}\n\nfunction crc32(str) {\n    let crc = 0 ^ (-1);\n\n    for (let i = 0; i < str.length; i++) {\n        crc = (crc >>> 8) ^ table[(crc ^ str.charCodeAt(i)) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0;\n}\n\n// Niet gebruikt:\nfunction fnv1a(str) {\n    let hash = 0x811c9dc5;\n    for (let i = 0; i < str.length; i++) {\n        hash ^= str.charCodeAt(i);\n        hash = (hash * 0x01000193) >>> 0;\n    }\n    return hash;\n}\n\n\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -10292,11 +10247,12 @@
         "wires": [
             [
                 "bcc6757235039fc3",
-                "c735e584a61cd117"
+                "c735e584a61cd117",
+                "ed463590a14af483"
             ],
             [
-                "5485c377f8beabba",
-                "bcc6757235039fc3"
+                "bcc6757235039fc3",
+                "ed463590a14af483"
             ]
         ]
     },
@@ -10328,7 +10284,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "cf35846ffd0f4838",
         "name": "valid?",
-        "func": "const license = global.get(\"LicenseSMS\") ?? \"\";\n\nnode.status({ text: \"licentie aanwezig\" } );\n\nif (license == \"\") {\n    msg.payload = \"\";\n    msg.enabled = true;\n    msg.ui_update = { mode: \"password\" };\n}\nelse {\n    msg.payload = \"Licentie aanwezig\";\n    msg.enabled = false;\n    msg.ui_update = { mode: \"text input (single line)\" };\n}\nreturn msg;",
+        "func": "const license = global.get(\"LicenseSMS\") ?? \"\";\n\nnode.status({ text: \"License: \" + (license != \"\")  } );\n\nif (license == \"\") {\n    msg.payload = \"\";\n    msg.enabled = true;\n    msg.ui_update = { mode: \"password\" };\n}\nelse {\n    msg.payload = \"Licentie aanwezig\";\n    msg.enabled = false;\n    msg.ui_update = { mode: \"text input (single line)\" };\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -10362,31 +10318,10 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 940,
-        "y": 1320,
+        "x": 840,
+        "y": 1300,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "5485c377f8beabba",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "cf35846ffd0f4838",
-        "name": "Fout",
-        "func": "msg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 790,
-        "y": 1320,
-        "wires": [
-            [
-                "ed463590a14af483"
-            ]
         ]
     },
     {
@@ -10421,7 +10356,7 @@
         "g": "cf35846ffd0f4838",
         "name": "Een installateur weet een deel van de licentie code en kan hem hier direct invullen.",
         "info": "",
-        "x": 350,
+        "x": 330,
         "y": 1180,
         "wires": []
     },
@@ -10471,8 +10406,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 840,
-        "y": 1260,
+        "x": 860,
+        "y": 1240,
         "wires": []
     },
     {
