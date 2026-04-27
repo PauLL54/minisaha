@@ -5123,7 +5123,7 @@
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
         "name": "Vraag bevestiging",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n//node.status({ text: tijd_nu + \" \" + msg.vraagNummer })\nnode.status({ text: tijd_nu})\n\nlet bericht = \"Dit was de laatste vraag. Je wordt nu OK afgemeld.\"\nmsg.payload = \"<br>BEVESTIG:<br><br>\" + msg.vervolgNeeVraag + \"<br><br><br>\";\nreturn msg;\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n//node.status({ text: tijd_nu + \" \" + msg.vraagNummer })\nnode.status({ text: tijd_nu})\n\nlet bericht = \"Dit was de laatste vraag. Je wordt nu OK afgemeld.\"\nmsg.payload = \"<br>BEVESTIG:<br><br>\" + bericht + \"<br><br><br>\";\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
