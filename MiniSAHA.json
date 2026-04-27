@@ -1250,7 +1250,7 @@
         ],
         "x": 34,
         "y": 499,
-        "w": 1012,
+        "w": 972,
         "h": 149.5
     },
     {
@@ -2126,7 +2126,7 @@
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
         "name": "Verify and set",
-        "func": "let email = msg.payload ?? \"\";\n\nif (isInvalidEmail2(email)) {\n    return [null, msg]; // ongeldig email adres\n}\n\nlet emailSleutelbewaarder = \"EmailSleutelbewaarder\" + flow.get(\"ContactNr\");\n\nlet oldEmail = global.get(emailSleutelbewaarder);\n\nif (msg.payload.toLowerCase() != oldEmail.toLowerCase()) {\n    global.set(emailSleutelbewaarder, msg.payload);\n    return [msg, null];\n}\nreturn null;\n\n\nfunction isInvalidEmail2(email) {\n    if (email == \"\") return false;\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;\n    return !regex.test(email);\n}\n\nfunction isInvalidEmail(email) {\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    return !regex.test(email);\n}\n",
+        "func": "let email = msg.payload ?? \"\";\n\nif (isInvalidEmail2(email)) {\n    return [null, msg]; // ongeldig email adres\n}\n\nlet emailSleutelbewaarder = \"EmailSleutelbewaarder\" + flow.get(\"ContactNr\");\n\nlet oldEmail = global.get(emailSleutelbewaarder) ?? \"\";\n\nif (msg.payload.toLowerCase() != oldEmail.toLowerCase()) {\n    global.set(emailSleutelbewaarder, msg.payload);\n    return [msg, null];\n}\nreturn null;\n\n\nfunction isInvalidEmail2(email) {\n    if (email == \"\") return false;\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;\n    return !regex.test(email);\n}\n\nfunction isInvalidEmail(email) {\n    if (typeof email !== \"string\") return true;\n\n    const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    return !regex.test(email);\n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -5123,7 +5123,7 @@
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
         "name": "Vraag bevestiging",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n//node.status({ text: tijd_nu + \" \" + msg.vraagNummer })\nnode.status({ text: tijd_nu})\n\nmsg.payload = \"<br>BEVESTIG:<br><br>\" + msg.vervolgNeeVraag + \"<br><br><br>\";\nreturn msg;\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n//node.status({ text: tijd_nu + \" \" + msg.vraagNummer })\nnode.status({ text: tijd_nu})\n\nlet bericht = \"Dit was de laatste vraag. Je wordt nu OK afgemeld.\"\nmsg.payload = \"<br>BEVESTIG:<br><br>\" + msg.vervolgNeeVraag + \"<br><br><br>\";\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5153,7 +5153,7 @@
         "allowDismiss": true,
         "dismissText": "Terug",
         "allowConfirm": true,
-        "confirmText": "Nee",
+        "confirmText": "OK",
         "raw": true,
         "className": "",
         "name": "",
@@ -9017,7 +9017,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 730,
+        "x": 710,
         "y": 600,
         "wires": []
     },
@@ -10161,7 +10161,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "5d9bd39521e43f2b",
         "name": "Serial",
-        "func": "msg.payload = parseCpuInfo(msg.payload);\nglobal.set(\"Serial\", msg.payload);\nnode.status({ text: msg.payload });\nreturn msg;\n\nfunction parseCpuInfo(cpuinfo) {\n    // Extract the revision line\n    const serial = cpuinfo.match(/Serial\\s*:\\s*([0-9a-fA-F]+)/);\n    if (!serial) {\n        return \"\";\n    }\n\n    const revision = serial[1].toLowerCase();\n\n    return revision;\n}\n",
+        "func": "msg.payload = parseCpuInfo(msg.payload);\n//global.set(\"Serial\", msg.payload);\nnode.status({ text: msg.payload });\nreturn msg;\n\nfunction parseCpuInfo(cpuinfo) {\n    // Extract the revision line\n    const serial = cpuinfo.match(/Serial\\s*:\\s*([0-9a-fA-F]+)/);\n    if (!serial) {\n        return \"\";\n    }\n\n    const revision = serial[1].toLowerCase();\n\n    return revision;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -10189,7 +10189,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
+        "x": 750,
         "y": 540,
         "wires": [
             []
@@ -10377,7 +10377,7 @@
         "z": "eb60a9ea21d42f29",
         "d": true,
         "g": "5d9bd39521e43f2b",
-        "name": "CRC32",
+        "name": "CRC16",
         "func": "// CRC32 tabel genereren\nconst crcTable = (() => {\n    let c;\n    const table = [];\n    for (let n = 0; n < 256; n++) {\n        c = n;\n        for (let k = 0; k < 8; k++) {\n            c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);\n        }\n        table[n] = c >>> 0;\n    }\n    return table;\n})();\n\n/**\n * Bereken CRC32 over een hex-string.\n * Input: payload\n * Output: 32-bit unsigned integer\n */\nfunction crc32Hex(hexStr) {\n    // Opschonen\n    hexStr = hexStr.replace(/[^0-9a-fA-F]/g, \"\");\n    if (hexStr.length % 2 !== 0) {\n        throw new Error(\"Hex-string moet een even aantal tekens hebben\");\n    }\n\n    let crc = 0 ^ (-1);\n\n    for (let i = 0; i < hexStr.length; i += 2) {\n        const byte = parseInt(hexStr.substr(i, 2), 16);\n        crc = (crc >>> 8) ^ crcTable[(crc ^ byte) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0; // unsigned 32-bit\n}\n\nconst result = crc32Hex(msg.payload);\n\nmsg.payload = result.toString(16).padStart(8, \"0\");\n\n//////////////////\n\nfunction checksum16(hexStr) {\n    // Spaties verwijderen en lowercase\n    hexStr = hexStr.replace(/\\s+/g, \"\").toLowerCase();\n\n    // Hex-string moet even aantal tekens hebben\n    if (hexStr.length % 2 !== 0) {\n        throw new Error(\"Hex-string moet een even aantal tekens hebben\");\n    }\n\n    let sum = 0;\n\n    for (let i = 0; i < hexStr.length; i += 2) {\n        const byteHex = hexStr.substr(i, 2);\n        const byteVal = parseInt(byteHex, 16);\n\n        if (isNaN(byteVal)) {\n            throw new Error(\"Ongeldige hex-waarde: \" + byteHex);\n        }\n\n        sum = (sum + byteVal) & 0xFFFF; // 16-bit modulo\n    }\n\n    return sum.toString(16).padStart(4, \"0\"); // 4 hex chars\n}\nmsg.payload = checksum16(\"100000009d86d50d\");\nmsg.payload = crc32Hex(\"100000009d86d50d\");\n\nglobal.set(\"SerialCRC32\", msg.payload);\nnode.status({ text: msg.payload });\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
@@ -10385,8 +10385,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 960,
-        "y": 600,
+        "x": 920,
+        "y": 540,
         "wires": [
             []
         ]
