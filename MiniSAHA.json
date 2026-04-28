@@ -813,12 +813,13 @@
             "b92aa98cbf16363f",
             "8032366086aa8de0",
             "e0d919a5c94f2160",
-            "27368f40feb169f4"
+            "27368f40feb169f4",
+            "d0645ed6feb91bd1"
         ],
         "x": 34,
         "y": 959,
-        "w": 852,
-        "h": 629.5
+        "w": 952,
+        "h": 709.5
     },
     {
         "id": "75f6d804089580c3",
@@ -842,7 +843,7 @@
             "8129738cd4f4fe2c"
         ],
         "x": 54,
-        "y": 1459,
+        "y": 1139,
         "w": 1032,
         "h": 182
     },
@@ -1276,6 +1277,109 @@
         "h": 182
     },
     {
+        "id": "b4b4c739148614fe",
+        "type": "group",
+        "z": "1e372cb3d08d9182",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "http_in_browser",
+            "cf5eaa163343ef85",
+            "61ebd767fc330d77",
+            "fce693df715995c4",
+            "1fe6dc817575a537"
+        ],
+        "x": 34,
+        "y": 1279,
+        "w": 692,
+        "h": 142
+    },
+    {
+        "id": "f2d8f51074d77f62",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "cb1fe055adc3dc40",
+            "c0ebd9c2ad2d7aea",
+            "7d7f9e558f3100c9",
+            "5a19f063564eb54e",
+            "66f6ba2930d44be1"
+        ],
+        "x": 34,
+        "y": 2779,
+        "w": 812,
+        "h": 157
+    },
+    {
+        "id": "11224fdbd83e9688",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "6fd7e76efbc80b16",
+            "6a3a6fc05aa97770",
+            "890ae6dde295a6ce",
+            "0e6b446bbd09b694",
+            "70bba0f3fe051a13",
+            "5f9b9c15a71e3258"
+        ],
+        "x": 34,
+        "y": 2359,
+        "w": 1232,
+        "h": 142
+    },
+    {
+        "id": "339d64b837054d9a",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "inject_scan",
+            "network_discovery",
+            "filter_iphone",
+            "debug_seen",
+            "inject_check",
+            "check_presence",
+            "debug_presence"
+        ],
+        "x": 34,
+        "y": 2559,
+        "w": 1062,
+        "h": 182
+    },
+    {
         "id": "0839f7b4c0cbb0a8",
         "type": "mqtt-broker",
         "name": "",
@@ -1348,7 +1452,7 @@
     {
         "id": "74e147230f204214",
         "type": "ui-page",
-        "name": "MiniSaha app",
+        "name": "MiniSAHA app",
         "ui": "6c1d30b5f16932dd",
         "path": "/page1",
         "icon": "account-question",
@@ -1378,8 +1482,8 @@
         ],
         "order": 1,
         "className": "",
-        "visible": true,
-        "disabled": false
+        "visible": "true",
+        "disabled": "false"
     },
     {
         "id": "ab8f5143a421d4e8",
@@ -2582,7 +2686,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 820,
-        "y": 300,
+        "y": 340,
         "wires": []
     },
     {
@@ -4882,6 +4986,101 @@
         "wires": []
     },
     {
+        "id": "http_in_browser",
+        "type": "http in",
+        "z": "1e372cb3d08d9182",
+        "g": "b4b4c739148614fe",
+        "name": "Browser Check",
+        "url": "/browsercheck",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 1380,
+        "wires": [
+            [
+                "cf5eaa163343ef85"
+            ]
+        ]
+    },
+    {
+        "id": "cf5eaa163343ef85",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "g": "b4b4c739148614fe",
+        "name": "Set Browser",
+        "func": "let ua = msg.req.headers[\"user-agent\"] || \"\";\nlet uaL = ua.toLowerCase();\nlet browser = \"Onbekend\";\n\nif (uaL.includes(\"safari\") && !uaL.includes(\"chrome\")) {\n    browser = \"Safari\";\n} else if (uaL.includes(\"chrome\")) {\n    browser = \"Chrome\";\n} else if (uaL.includes(\"firefox\")) {\n    browser = \"Firefox\";\n} else if (uaL.includes(\"edg\")) {\n    browser = \"Edge\";\n}\n\nglobal.set(\"Browser\", browser);\n\nmsg.payload = browser;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 1380,
+        "wires": [
+            [
+                "61ebd767fc330d77"
+            ]
+        ]
+    },
+    {
+        "id": "61ebd767fc330d77",
+        "type": "ui-template",
+        "z": "1e372cb3d08d9182",
+        "g": "b4b4c739148614fe",
+        "group": "4de3d58d68afebf3",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<script>\nfetch(\"/browsercheck\")\n  .then(r => r.json())\n  .then(info => {\n      console.log(\"Browser:\", info.browser);\n      // Stuur naar Node-RED\n      ui.send({browser: info.browser});\n  });\n</script>\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 460,
+        "y": 1380,
+        "wires": [
+            [
+                "fce693df715995c4"
+            ]
+        ]
+    },
+    {
+        "id": "fce693df715995c4",
+        "type": "debug",
+        "z": "1e372cb3d08d9182",
+        "g": "b4b4c739148614fe",
+        "name": "debug 8",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "1fe6dc817575a537",
+        "type": "comment",
+        "z": "1e372cb3d08d9182",
+        "g": "b4b4c739148614fe",
+        "name": "Detecteer welke browser wordt gebruikt.",
+        "info": "",
+        "x": 210,
+        "y": 1320,
+        "wires": []
+    },
+    {
         "id": "3f6b53d83b3ef58f",
         "type": "ui-template",
         "z": "e786b4f70cf0ad09",
@@ -5624,7 +5823,7 @@
         "to": "",
         "reg": false,
         "x": 960,
-        "y": 1600,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -5692,8 +5891,6 @@
         "links": [
             "c9ec5160388cc29c",
             "ba5f9de83ae33543",
-            "73afa7fb3453b035",
-            "3a6f5a640cea07b3",
             "26417c5cfef73e15",
             "bdebfa0f1e99fc2e"
         ],
@@ -5830,7 +6027,7 @@
         "group": "a50d14b208aa0231",
         "name": "Meldperiode",
         "label": "Bericht sturen naar contacten na  (in min.)",
-        "order": 10,
+        "order": 9,
         "width": "4",
         "height": "1",
         "topic": "topic",
@@ -5862,7 +6059,7 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
-        "order": 12,
+        "order": 11,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -5897,7 +6094,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 940,
-        "y": 1540,
+        "y": 1220,
         "wires": []
     },
     {
@@ -5979,7 +6176,7 @@
         "group": "a50d14b208aa0231",
         "name": "Herinnering",
         "label": "Deze melding herhalen na (in minuten)",
-        "order": 7,
+        "order": 6,
         "width": "4",
         "height": "1",
         "topic": "topic",
@@ -6174,7 +6371,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 1560,
+        "y": 1240,
         "wires": [
             [
                 "a18148e4e8946b3b"
@@ -6190,7 +6387,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "change",
         "x": 140,
-        "y": 1560,
+        "y": 1240,
         "wires": [
             [
                 "f7e8d9c0b1a2"
@@ -6211,7 +6408,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 1560,
+        "y": 1240,
         "wires": [
             [
                 "996abe576c2cecb2",
@@ -6341,7 +6538,7 @@
         "name": "Vraag automatisch het IP adres op van het mobieltje",
         "info": "",
         "x": 270,
-        "y": 1500,
+        "y": 1180,
         "wires": []
     },
     {
@@ -6361,7 +6558,7 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
-        "order": 9,
+        "order": 8,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -6386,7 +6583,7 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
-        "order": 6,
+        "order": 13,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -6438,7 +6635,7 @@
         "group": "a50d14b208aa0231",
         "name": "",
         "label": "OK",
-        "order": 11,
+        "order": 10,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -6514,7 +6711,7 @@
         "group": "a50d14b208aa0231",
         "name": "",
         "label": "OK",
-        "order": 8,
+        "order": 7,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -6590,7 +6787,7 @@
         "group": "a50d14b208aa0231",
         "name": "Help",
         "label": "Handleiding",
-        "order": 13,
+        "order": 12,
         "width": "0",
         "height": "0",
         "emulateClick": false,
@@ -7281,7 +7478,7 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 190,
+        "x": 110,
         "y": 140,
         "wires": [
             [
@@ -7842,8 +8039,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Restart node-red",
-        "x": 770,
-        "y": 1440,
+        "x": 870,
+        "y": 1460,
         "wires": [
             [],
             [],
@@ -7885,18 +8082,20 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "cd .node-red; npm install @flowfuse/node-red-dashboard@latest",
+        "command": "cd .node-red; npm install node-red-contrib-network-tools",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "install dashboard@latest",
-        "x": 650,
+        "name": "node-red-contrib-network-tools",
+        "x": 670,
         "y": 1540,
         "wires": [
-            [],
+            [
+                "3dc33bd26ddfd0cd"
+            ],
             [],
             []
         ]
@@ -7948,7 +8147,7 @@
         "name": "https://api.callmebot.com/whatsapp.php?phone=[phone_number]&text=[message]&apikey=[your_apikey]",
         "info": "",
         "x": 390,
-        "y": 1680,
+        "y": 1720,
         "wires": []
     },
     {
@@ -8031,6 +8230,27 @@
             [
                 "e91938bbca103b42"
             ]
+        ]
+    },
+    {
+        "id": "d0645ed6feb91bd1",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "cd .node-red; npm install @flowfuse/node-red-dashboard@latest",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "install dashboard@latest",
+        "x": 650,
+        "y": 1620,
+        "wires": [
+            [],
+            [],
+            []
         ]
     },
     {
@@ -10193,6 +10413,366 @@
         ]
     },
     {
+        "id": "cb1fe055adc3dc40",
+        "type": "dnssd-browser",
+        "z": "eb60a9ea21d42f29",
+        "d": true,
+        "g": "f2d8f51074d77f62",
+        "name": "airplay?",
+        "service": "_airplay._tcp.local",
+        "udp": false,
+        "x": 520,
+        "y": 2880,
+        "wires": [
+            [
+                "5a19f063564eb54e",
+                "7d7f9e558f3100c9"
+            ],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c0ebd9c2ad2d7aea",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "f2d8f51074d77f62",
+        "name": "Every",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 2880,
+        "wires": [
+            [
+                "cb1fe055adc3dc40"
+            ]
+        ]
+    },
+    {
+        "id": "7d7f9e558f3100c9",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "g": "f2d8f51074d77f62",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 2820,
+        "wires": []
+    },
+    {
+        "id": "5a19f063564eb54e",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "f2d8f51074d77f62",
+        "name": "iPhone?",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet adr = msg.payload.addresses ?? [];\nlet ip = \"\"\nif (adr.length > 0) ip = adr[0];\nif (ip == global.get(\"IP_Mobiel\")) {\n    node.status({ text: \"IsThuis\" });\n    global.set(\"GebruikerIsAtHome\", 1);\n    global.set(\"iPhoneLastSeen\", Date.now());\n    node.status({ text: tijd_nu + \" 1\" });\n}\nelse {\n    let iPhoneLastSeen = global.get(\"iPhoneLastSeen\") || 0;\n    if ((Date.now() - iPhoneLastSeen) > (2 * 60000)) {\n        global.set(\"GebruikerIsAtHome\", 0);\n        node.status({ text: tijd_nu + \" 0\" });\n    }\n}\n\n\n\n\n\n// Filter alleen iPhone gerelateerde devices\nif (msg.payload && msg.payload.name) {\n    const deviceName = msg.payload.name.toLowerCase();\n    if (deviceName.includes('iphone') ||\n        deviceName.includes('ios') ||\n        msg.payload.type === '_airplay._tcp.local') {\n        return msg;\n    }\n}\n// hoe maak je het onderscheid tussen verschillende iPhones en iPads?\nreturn null; // Filter uit\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 2860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "66f6ba2930d44be1",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "f2d8f51074d77f62",
+        "name": "Only Safari browsers",
+        "func": "if (global.get(\"Browser\") == \"Safari\")\n    return msg;\n\nreturn null",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 2880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "inject_scan",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "339d64b837054d9a",
+        "name": "Scan elke 20 sec",
+        "props": [],
+        "repeat": "20",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "x": 170,
+        "y": 2600,
+        "wires": [
+            [
+                "network_discovery"
+            ]
+        ]
+    },
+    {
+        "id": "network_discovery",
+        "type": "network-discovery",
+        "z": "eb60a9ea21d42f29",
+        "d": true,
+        "g": "339d64b837054d9a",
+        "name": "Bonjour/mDNS scan",
+        "subnet": "",
+        "portRange": "",
+        "timeout": "500",
+        "concurrent": "",
+        "includeHostnames": false,
+        "includePorts": false,
+        "includeBonjourServices": true,
+        "bonjourServiceTypes": "",
+        "bonjourTimeout": "",
+        "x": 420,
+        "y": 2600,
+        "wires": [
+            [
+                "filter_iphone"
+            ]
+        ]
+    },
+    {
+        "id": "filter_iphone",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "339d64b837054d9a",
+        "name": "Is dit een iPhone?",
+        "func": "let dev = msg.payload;\nif (!dev) return null;\n\nlet hostname = (dev.hostname || \"\").toLowerCase();\nlet services = dev.services || [];\n\nlet isIphone = false;\n\n// iPhone herkenning\nif (hostname.includes(\"iphone\")) isIphone = true;\nif (services.includes(\"_airplay._tcp.local\")) isIphone = true;\nif (services.includes(\"_raop._tcp.local\")) isIphone = true;\nif (services.includes(\"_companion-link._tcp.local\")) isIphone = true;\n\nif (isIphone) {\n    flow.set(\"iphone_last_seen\", Date.now());\n    msg.payload = \"iPhone gezien: \" + hostname;\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 2600,
+        "wires": [
+            [
+                "debug_seen"
+            ]
+        ]
+    },
+    {
+        "id": "debug_seen",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "g": "339d64b837054d9a",
+        "name": "iPhone gezien (mDNS)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 950,
+        "y": 2600,
+        "wires": []
+    },
+    {
+        "id": "inject_check",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "339d64b837054d9a",
+        "name": "Check aanwezigheid elke 30 sec",
+        "props": [],
+        "repeat": "30",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "x": 220,
+        "y": 2700,
+        "wires": [
+            [
+                "check_presence"
+            ]
+        ]
+    },
+    {
+        "id": "check_presence",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "339d64b837054d9a",
+        "name": "iPhone aanwezig?",
+        "func": "let last = flow.get(\"iphone_last_seen\") || 0;\nlet now = Date.now();\n\n// iPhone gezien in de laatste 60 seconden?\nmsg.payload = (now - last < 60000);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 2700,
+        "wires": [
+            [
+                "debug_presence"
+            ]
+        ]
+    },
+    {
+        "id": "debug_presence",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "g": "339d64b837054d9a",
+        "name": "iPhone aanwezig? (true/false)",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 790,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "6fd7e76efbc80b16",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "Scan elke 20 sec",
+        "props": [],
+        "repeat": "20",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "x": 170,
+        "y": 2400,
+        "wires": [
+            [
+                "5f9b9c15a71e3258"
+            ]
+        ]
+    },
+    {
+        "id": "6a3a6fc05aa97770",
+        "type": "network-discovery",
+        "z": "eb60a9ea21d42f29",
+        "d": true,
+        "g": "11224fdbd83e9688",
+        "name": "Bonjour/mDNS scan",
+        "subnet": "1.1.1.0/24",
+        "portRange": "",
+        "timeout": "500",
+        "concurrent": "",
+        "includeHostnames": false,
+        "includePorts": false,
+        "includeBonjourServices": true,
+        "bonjourServiceTypes": "airplay",
+        "bonjourTimeout": "",
+        "x": 520,
+        "y": 2400,
+        "wires": [
+            [
+                "890ae6dde295a6ce",
+                "70bba0f3fe051a13"
+            ]
+        ]
+    },
+    {
+        "id": "890ae6dde295a6ce",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "Filter Apple / Bonjour devices",
+        "func": "let dev = msg.payload;\nif (!dev) return null;\n\nlet hostname = (dev.hostname || \"\").toLowerCase();\nlet services = dev.services || [];\n\n// Apple Bonjour/AirPlay herkenning\nlet isApple = false;\n\nif (hostname.includes(\"iphone\")) isApple = true;\nif (hostname.includes(\"ipad\")) isApple = true;\nif (hostname.includes(\"mac\")) isApple = true;\nif (hostname.includes(\"apple-tv\")) isApple = true;\nif (hostname.includes(\"homepod\")) isApple = true;\n\n// Bonjour services\nif (services.includes(\"_airplay._tcp.local\")) isApple = true;\nif (services.includes(\"_raop._tcp.local\")) isApple = true;\nif (services.includes(\"_companion-link._tcp.local\")) isApple = true;\nif (services.includes(\"_sleep-proxy._udp.local\")) isApple = true;\n\nif (isApple) {\n    msg.payload = {\n        device: hostname,\n        ip: dev.ip,\n        services: services\n    };\n    return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 2400,
+        "wires": [
+            [
+                "0e6b446bbd09b694"
+            ]
+        ]
+    },
+    {
+        "id": "0e6b446bbd09b694",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "Apple / Bonjour device gevonden",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 2400,
+        "wires": []
+    },
+    {
+        "id": "70bba0f3fe051a13",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "5f9b9c15a71e3258",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "subnet",
+        "func": "let ip = global.get(\"IP_Mobiel\");\nlet parts = ip.split(\".\");\nparts[3] = \"0\";\nmsg.subnet = parts.join(\".\") + \"/24\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 2400,
+        "wires": [
+            [
+                "6a3a6fc05aa97770"
+            ]
+        ]
+    },
+    {
         "id": "0af8df52052ef366",
         "type": "function",
         "z": "ce724907bfebf75c",
@@ -10937,7 +11517,7 @@
         "z": "ce724907bfebf75c",
         "g": "04fd012f1107245e",
         "group": "549f1fa0e59e6a04",
-        "order": 12,
+        "order": 11,
         "width": "5",
         "height": "1",
         "name": "Lege regel",
