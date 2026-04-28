@@ -1315,16 +1315,16 @@
             "color": "#a4a4a4"
         },
         "nodes": [
-            "cb1fe055adc3dc40",
             "c0ebd9c2ad2d7aea",
             "7d7f9e558f3100c9",
             "5a19f063564eb54e",
-            "66f6ba2930d44be1"
+            "66f6ba2930d44be1",
+            "eecddbeb948d1fed"
         ],
         "x": 34,
         "y": 2779,
         "w": 812,
-        "h": 157
+        "h": 142
     },
     {
         "id": "11224fdbd83e9688",
@@ -1341,11 +1341,11 @@
         },
         "nodes": [
             "6fd7e76efbc80b16",
-            "6a3a6fc05aa97770",
             "890ae6dde295a6ce",
             "0e6b446bbd09b694",
             "70bba0f3fe051a13",
-            "5f9b9c15a71e3258"
+            "5f9b9c15a71e3258",
+            "6e8dcf274995cf21"
         ],
         "x": 34,
         "y": 2359,
@@ -1367,7 +1367,6 @@
         },
         "nodes": [
             "inject_scan",
-            "network_discovery",
             "filter_iphone",
             "debug_seen",
             "inject_check",
@@ -4280,7 +4279,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Vraag",
-        "func": "let states = global.get(\"states\");\nmsg.payload = global.get(\"VoornaamGebruiker\");\n\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG: \n    case states.MELDGEBRUIKER: {\n        msg.payload += \", ben je OK?\";\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: \n    case states.MELDGEBRUIKERNIETTHUIS: {\n        msg.payload += \", je bent nu niet thuis\";\n        break;\n    }\n    case states.ISOKAUTO: {\n        msg.payload = \"Je bent afgemeld (was niet thuis).\";\n        break;\n    }\n    case states.ISOK: {\n        msg.payload += \", je hebt je afgemeld.\";\n        break;\n    }\n    case states.ISNOTOK: {\n        msg.payload += \", je contacten zijn ingelicht.\";\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        msg.payload += \", je hebt je alsnog afgemeld.\";\n        break;\n    }\n     case states.ISNOTOK_OVERTIJD: {\n        msg.payload += \", je hebt alsnog 'Nee' geantwoord.\";\n        break;\n     }\n    case states.OVERTIJD: {\n        msg.payload += \", ben je OK? <br>Overtijd: je contacten zijn ingelicht.\";\n        break;\n    }    \n    default: {\n        msg.payload += \", er is geen vraag voor nu.\";\n        break;\n    }\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\nreturn msg;\n",
+        "func": "let states = global.get(\"states\");\nmsg.payload = global.get(\"VoornaamGebruiker\");\n\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG: \n    case states.MELDGEBRUIKER: {\n        msg.payload += \", ben je OK?\";\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: \n    case states.MELDGEBRUIKERNIETTHUIS: {\n        msg.payload += \", je bent nu niet thuis\";\n        break;\n    }\n    case states.ISOKAUTO: {\n        msg.payload += \", je bent afgemeld (was niet thuis).\";\n        break;\n    }\n    case states.ISOK: {\n        msg.payload += \", je hebt je afgemeld.\";\n        break;\n    }\n    case states.ISNOTOK: {\n        msg.payload += \", je contacten zijn ingelicht.\";\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        msg.payload += \", je hebt je alsnog afgemeld.\";\n        break;\n    }\n     case states.ISNOTOK_OVERTIJD: {\n        msg.payload += \", je hebt alsnog 'Nee' geantwoord.\";\n        break;\n     }\n    case states.OVERTIJD: {\n        msg.payload += \", ben je OK? <br>Overtijd: je contacten zijn ingelicht.\";\n        break;\n    }    \n    default: {\n        msg.payload += \", er is geen vraag voor nu.\";\n        break;\n    }\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -10413,30 +10412,10 @@
         ]
     },
     {
-        "id": "cb1fe055adc3dc40",
-        "type": "dnssd-browser",
-        "z": "eb60a9ea21d42f29",
-        "d": true,
-        "g": "f2d8f51074d77f62",
-        "name": "airplay?",
-        "service": "_airplay._tcp.local",
-        "udp": false,
-        "x": 520,
-        "y": 2880,
-        "wires": [
-            [
-                "5a19f063564eb54e",
-                "7d7f9e558f3100c9"
-            ],
-            [],
-            [],
-            []
-        ]
-    },
-    {
         "id": "c0ebd9c2ad2d7aea",
         "type": "inject",
         "z": "eb60a9ea21d42f29",
+        "d": true,
         "g": "f2d8f51074d77f62",
         "name": "Every",
         "props": [
@@ -10458,9 +10437,7 @@
         "x": 140,
         "y": 2880,
         "wires": [
-            [
-                "cb1fe055adc3dc40"
-            ]
+            []
         ]
     },
     {
@@ -10522,43 +10499,19 @@
         "id": "inject_scan",
         "type": "inject",
         "z": "eb60a9ea21d42f29",
+        "d": true,
         "g": "339d64b837054d9a",
         "name": "Scan elke 20 sec",
         "props": [],
         "repeat": "20",
+        "crontab": "",
         "once": true,
         "onceDelay": "5",
         "topic": "",
         "x": 170,
         "y": 2600,
         "wires": [
-            [
-                "network_discovery"
-            ]
-        ]
-    },
-    {
-        "id": "network_discovery",
-        "type": "network-discovery",
-        "z": "eb60a9ea21d42f29",
-        "d": true,
-        "g": "339d64b837054d9a",
-        "name": "Bonjour/mDNS scan",
-        "subnet": "",
-        "portRange": "",
-        "timeout": "500",
-        "concurrent": "",
-        "includeHostnames": false,
-        "includePorts": false,
-        "includeBonjourServices": true,
-        "bonjourServiceTypes": "",
-        "bonjourTimeout": "",
-        "x": 420,
-        "y": 2600,
-        "wires": [
-            [
-                "filter_iphone"
-            ]
+            []
         ]
     },
     {
@@ -10601,10 +10554,12 @@
         "id": "inject_check",
         "type": "inject",
         "z": "eb60a9ea21d42f29",
+        "d": true,
         "g": "339d64b837054d9a",
         "name": "Check aanwezigheid elke 30 sec",
         "props": [],
         "repeat": "30",
+        "crontab": "",
         "once": true,
         "onceDelay": "10",
         "topic": "",
@@ -10656,10 +10611,12 @@
         "id": "6fd7e76efbc80b16",
         "type": "inject",
         "z": "eb60a9ea21d42f29",
+        "d": true,
         "g": "11224fdbd83e9688",
         "name": "Scan elke 20 sec",
         "props": [],
         "repeat": "20",
+        "crontab": "",
         "once": true,
         "onceDelay": "5",
         "topic": "",
@@ -10668,31 +10625,6 @@
         "wires": [
             [
                 "5f9b9c15a71e3258"
-            ]
-        ]
-    },
-    {
-        "id": "6a3a6fc05aa97770",
-        "type": "network-discovery",
-        "z": "eb60a9ea21d42f29",
-        "d": true,
-        "g": "11224fdbd83e9688",
-        "name": "Bonjour/mDNS scan",
-        "subnet": "1.1.1.0/24",
-        "portRange": "",
-        "timeout": "500",
-        "concurrent": "",
-        "includeHostnames": false,
-        "includePorts": false,
-        "includeBonjourServices": true,
-        "bonjourServiceTypes": "airplay",
-        "bonjourTimeout": "",
-        "x": 520,
-        "y": 2400,
-        "wires": [
-            [
-                "890ae6dde295a6ce",
-                "70bba0f3fe051a13"
             ]
         ]
     },
@@ -10757,7 +10689,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "11224fdbd83e9688",
         "name": "subnet",
-        "func": "let ip = global.get(\"IP_Mobiel\");\nlet parts = ip.split(\".\");\nparts[3] = \"0\";\nmsg.subnet = parts.join(\".\") + \"/24\";\nreturn msg;",
+        "func": "let ip = global.get(\"IP_Mobiel\");\nlet parts = ip.split(\".\");\nparts[3] = \"0\";\n\nmsg.subnet = parts.join(\".\") + \"/24\";\nmsg.timeout = 500;\nmsg.includeBonjourServices = true;\nmsg.types = \"airplay\";\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -10767,10 +10699,48 @@
         "x": 330,
         "y": 2400,
         "wires": [
-            [
-                "6a3a6fc05aa97770"
-            ]
+            []
         ]
+    },
+    {
+        "id": "eecddbeb948d1fed",
+        "type": "comment",
+        "z": "eb60a9ea21d42f29",
+        "g": "f2d8f51074d77f62",
+        "name": "dnssd node: _airplay._tcp.local",
+        "info": "",
+        "x": 510,
+        "y": 2820,
+        "wires": []
+    },
+    {
+        "id": "517af9ca968213f8",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "name": "Only Safari browsers",
+        "func": "if (global.get(\"Browser\") == \"Safari\")\n    return msg;\n\nreturn null",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 225.1999969482422,
+        "y": 2468.199951171875,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6e8dcf274995cf21",
+        "type": "comment",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "network-discovery",
+        "info": "",
+        "x": 530,
+        "y": 2440,
+        "wires": []
     },
     {
         "id": "0af8df52052ef366",
