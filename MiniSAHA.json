@@ -5033,7 +5033,7 @@
         "page": "",
         "ui": "",
         "name": "",
-        "order": 0,
+        "order": 10,
         "width": 0,
         "height": 0,
         "head": "",
@@ -6697,7 +6697,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 530,
-        "y": 480,
+        "y": 960,
         "wires": [
             []
         ]
@@ -6744,6 +6744,7 @@
         "id": "82d2ec6f0d943b43",
         "type": "ui-button",
         "z": "5c14e0941d341b42",
+        "d": true,
         "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
         "name": "",
@@ -6773,7 +6774,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 530,
-        "y": 880,
+        "y": 480,
         "wires": [
             []
         ]
@@ -10738,7 +10739,7 @@
         "g": "11224fdbd83e9688",
         "name": "network-discovery",
         "info": "",
-        "x": 530,
+        "x": 510,
         "y": 2440,
         "wires": []
     },
