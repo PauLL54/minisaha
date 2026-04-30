@@ -3418,7 +3418,7 @@
         "type": "inject",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
-        "name": "Trigger 15 s after startup",
+        "name": "Trigger 25 s after startup",
         "props": [
             {
                 "p": "payload"
@@ -3431,7 +3431,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "15",
+        "onceDelay": "25",
         "topic": "",
         "payload": "",
         "payloadType": "date",
