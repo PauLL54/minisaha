@@ -309,14 +309,11 @@
             "b2eecd0b4135474f",
             "b6f1cd01ee1848ea",
             "f7f2e64c9bfdf1f0",
-            "5b1e16b75c8897da",
-            "f938d14348c8ceab",
-            "fa05804212114e66",
-            "8c5658019c5c9e57"
+            "f938d14348c8ceab"
         ],
         "x": 14,
         "y": 659,
-        "w": 1332,
+        "w": 1312,
         "h": 902
     },
     {
@@ -2651,6 +2648,7 @@
         "id": "f80c926aa5f4b4e1",
         "type": "mqtt in",
         "z": "a380efb730bea147",
+        "d": true,
         "g": "4e4ef64c30555769",
         "name": "",
         "topic": "neePressed",
@@ -2664,9 +2662,7 @@
         "x": 130,
         "y": 460,
         "wires": [
-            [
-                "9871fb4d88642beb"
-            ]
+            []
         ]
     },
     {
@@ -2952,13 +2948,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
+        "x": 520,
         "y": 140,
         "wires": [
-            [
-                "3d3ed8f6ab85a6cb",
-                "94fd03500445951f"
-            ]
+            []
         ]
     },
     {
@@ -3019,7 +3012,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Herinnering",
-        "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"Herinnering: MiniSAHA is nog steeds actief bij \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon van \" + voornaamGebruiker +\n  \".\\n\\nEens per week wordt dit bericht naar je gestuurd.\\n\" + \n  \"Zo weet je dat het MiniSAHA systeem nog steeds actief is bij \" + \n  global.get(\"VoornaamGebruiker\") + \".\\n\\n\" +\n\"Mocht je dit bericht niet meer ontvangen op zondag rond 12:00, neem dan contact op met hem/haar.\" +\n\"\\n\\n\\n\" +\n  \"Dit bericht is afkomstig van MiniSAHA systeem \" + global.get(\"SerialCRC32\") + \".\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"Herinnering: MiniSAHA is nog steeds actief bij \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon van \" + voornaamGebruiker +\n  \".\\n\\nEens per week wordt dit bericht naar je gestuurd.\\n\" + \n  \"Zo weet je dat het MiniSAHA systeem nog steeds actief is bij \" + \n  global.get(\"VoornaamGebruiker\") + \".\\n\\n\" +\n\"Mocht je dit bericht niet meer ontvangen op zondag rond 12:00, neem dan contact op met hem/haar.\" +\n\"\\n\\n\\n\" +\n  \"Dit bericht is afkomstig van MiniSAHA systeem met ID: \" + global.get(\"SerialCRC32\");\n\nlet smsCredits = global.get(\"SmsCredits\") ?? \"\";\nif (smsCredits != \"\") {\n  msg.payload += \"\\nGebruikte SMS credits: \" + smsCredits;\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3417,7 +3410,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 820,
-        "y": 140,
+        "y": 220,
         "wires": []
     },
     {
@@ -3425,7 +3418,7 @@
         "type": "inject",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
-        "name": "Trigger after deploy",
+        "name": "Trigger 15 s after startup",
         "props": [
             {
                 "p": "payload"
@@ -3438,15 +3431,16 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "2",
+        "onceDelay": "15",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 370,
-        "y": 200,
+        "x": 590,
+        "y": 220,
         "wires": [
             [
-                "93e66aed5528479a"
+                "94fd03500445951f",
+                "3d3ed8f6ab85a6cb"
             ]
         ]
     },
@@ -3463,7 +3457,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
+        "x": 350,
         "y": 140,
         "wires": [
             [
@@ -3497,6 +3491,7 @@
         "id": "9871fb4d88642beb",
         "type": "function",
         "z": "a380efb730bea147",
+        "d": true,
         "g": "4e4ef64c30555769",
         "name": "!NeeTest",
         "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu });\n\nmsg.payload = \"neePressed\";\n\nif (global.get(\"NeeTest\"))\n    return null;\nelse\n    return msg;",
@@ -3509,9 +3504,7 @@
         "x": 320,
         "y": 460,
         "wires": [
-            [
-                "72150be82696bdfc"
-            ]
+            []
         ]
     },
     {
@@ -3800,7 +3793,6 @@
         "y": 1080,
         "wires": [
             [
-                "5b1e16b75c8897da",
                 "f938d14348c8ceab"
             ]
         ]
@@ -3883,8 +3875,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 120,
-        "y": 180,
+        "x": 140,
+        "y": 280,
         "wires": [
             [
                 "dc25463a90653c93"
@@ -3892,29 +3884,11 @@
         ]
     },
     {
-        "id": "5b1e16b75c8897da",
-        "type": "debug",
-        "z": "a380efb730bea147",
-        "g": "2ce41e3897fb35ce",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1240,
-        "y": 1020,
-        "wires": []
-    },
-    {
         "id": "f938d14348c8ceab",
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Used credits",
+        "name": "Save used credits",
         "func": "let credits = parseFloat(global.get(\"SmsCredits\") ?? 0.0);\n\ncredits += parseFloat(msg.payload.credits);\nglobal.set(\"SmsCredits\", credits);\nnode.status({ text: \" credits: \" + credits });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -3922,62 +3896,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1230,
+        "x": 1210,
         "y": 1080,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "fa05804212114e66",
-        "type": "inject",
-        "z": "a380efb730bea147",
-        "g": "2ce41e3897fb35ce",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 900,
-        "y": 860,
-        "wires": [
-            [
-                "8c5658019c5c9e57"
-            ]
-        ]
-    },
-    {
-        "id": "8c5658019c5c9e57",
-        "type": "function",
-        "z": "a380efb730bea147",
-        "g": "2ce41e3897fb35ce",
-        "name": "function 1",
-        "func": "msg.payload = { credits: \"1.2\"};\nnode.status({ text: \" credits: \" + msg.payload.credits });\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1040,
-        "y": 860,
-        "wires": [
-            [
-                "f938d14348c8ceab",
-                "5b1e16b75c8897da"
-            ]
         ]
     },
     {
@@ -5299,7 +5221,7 @@
         "y": 100,
         "wires": [
             [
-                "7f0fb4e899c8cc05"
+                "79d617ce47e6a923"
             ]
         ]
     },
@@ -5317,11 +5239,9 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 100,
+        "y": 160,
         "wires": [
-            [
-                "79d617ce47e6a923"
-            ]
+            []
         ]
     },
     {
@@ -5448,7 +5368,7 @@
         "name": "moet weg",
         "info": "",
         "x": 300,
-        "y": 120,
+        "y": 180,
         "wires": []
     },
     {
@@ -10086,6 +10006,7 @@
         "id": "eeded1183639e84c",
         "type": "ui-switch",
         "z": "eb60a9ea21d42f29",
+        "d": true,
         "g": "47a831c5dfef8563",
         "name": "NeeTest",
         "label": "NEE",
@@ -10121,6 +10042,7 @@
         "id": "b5818c3e36d496d3",
         "type": "function",
         "z": "eb60a9ea21d42f29",
+        "d": true,
         "g": "47a831c5dfef8563",
         "name": "Store in NeeTest",
         "func": "global.set(\"NeeTest\", msg.payload);\nreturn msg;",
@@ -10395,6 +10317,7 @@
         "id": "2a7bfa4b47a4a74a",
         "type": "function",
         "z": "eb60a9ea21d42f29",
+        "d": true,
         "g": "47a831c5dfef8563",
         "name": "get NeeTest",
         "func": "msg.payload = global.get(\"NeeTest\") ?? false;\nreturn msg;",
