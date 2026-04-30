@@ -9378,7 +9378,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "d344da1eff713941",
         "name": "clear",
-        "func": "msg.payload = \"\";\nreturn msg;",
+        "func": "msg.payload = \"\";\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
