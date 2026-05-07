@@ -79,8 +79,8 @@
         "category": "",
         "in": [
             {
-                "x": 40,
-                "y": 360,
+                "x": 110,
+                "y": 400,
                 "wires": [
                     {
                         "id": "e0fbb4a9fd0354d0"
@@ -193,6 +193,39 @@
         "color": "#DDAA99"
     },
     {
+        "id": "subflow1",
+        "type": "subflow",
+        "name": "Network Discovery",
+        "info": "Plaats hier de network-discovery node",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "network_discovery_node"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 380,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "network_discovery_node",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
         "id": "d344da1eff713941",
         "type": "group",
         "z": "eb60a9ea21d42f29",
@@ -217,7 +250,7 @@
             "71e9a369f74477f6"
         ],
         "x": 34,
-        "y": 2271.5,
+        "y": 2411.5,
         "w": 632,
         "h": 269.5
     },
@@ -252,7 +285,8 @@
             "13e5cd2c4ebfb95d",
             "9abc1caa0b9f46c9",
             "40fe3f4a575a69de",
-            "c4d886939c466e32"
+            "c4d886939c466e32",
+            "bbd13c12d9561611"
         ],
         "x": 14,
         "y": 39,
@@ -386,12 +420,12 @@
             "b2edd67c1976f042",
             "8a224d6b4c8e6e53",
             "6c02930ddcad9dd8",
-            "0436958281830a8e",
-            "d6b298f8ec85d61c",
             "389045590526c181",
             "87cce92b163a7192",
             "081def364cff34d8",
-            "e81a4bffde8bcded"
+            "e81a4bffde8bcded",
+            "31ba371bc1ff774b",
+            "83ab7304f97ca827"
         ],
         "x": 34,
         "y": 39,
@@ -560,7 +594,6 @@
             "b66ec02ddb299fb9",
             "8ce06555f0c049ea",
             "8d1f7a72eda8b85e",
-            "89c7af3d87bd6dfe",
             "1eec94c61974cd1c",
             "b6944b93af04a874",
             "b4cb292e1a70622c"
@@ -743,7 +776,7 @@
         ],
         "x": 34,
         "y": 19,
-        "w": 672,
+        "w": 692,
         "h": 149.5
     },
     {
@@ -964,7 +997,7 @@
         ],
         "x": 34,
         "y": 859,
-        "w": 1072,
+        "w": 1112,
         "h": 142
     },
     {
@@ -993,12 +1026,13 @@
             "1f626ce9dc89c87b",
             "c655b3afa92e4917",
             "c8995ead35814c9c",
-            "f3bdcfd4767ae3c5"
+            "f3bdcfd4767ae3c5",
+            "af617446c3f6184a"
         ],
         "x": 34,
-        "y": 359,
-        "w": 912,
-        "h": 302
+        "y": 499,
+        "w": 932,
+        "h": 322
     },
     {
         "id": "047e71f7f9c2956b",
@@ -1017,7 +1051,7 @@
             "b0067e5db1bb638b",
             "9ef9bede63ec11e3"
         ],
-        "x": 754,
+        "x": 914,
         "y": 19,
         "w": 332,
         "h": 142
@@ -1121,7 +1155,7 @@
             "c735e584a61cd117"
         ],
         "x": 34,
-        "y": 1319,
+        "y": 1339,
         "w": 972,
         "h": 202
     },
@@ -1162,37 +1196,9 @@
             "610799e608be3cf2"
         ],
         "x": 34,
-        "y": 1739,
+        "y": 1719,
         "w": 832,
         "h": 502
-    },
-    {
-        "id": "5e865f06cc6b19fe",
-        "type": "group",
-        "z": "eb60a9ea21d42f29",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "1ebd5fe3.2c7e8",
-            "20a7391c.421bd6",
-            "eb861dab.4d428",
-            "1b9704b98c8415b8",
-            "bd83f7d9ca61f8a5",
-            "2640b5fa40ca7fa9",
-            "a91759026081e90e",
-            "daaad0906c972b05"
-        ],
-        "x": 694,
-        "y": 1079,
-        "w": 732,
-        "h": 169.5
     },
     {
         "id": "5d9bd39521e43f2b",
@@ -1217,7 +1223,7 @@
             "1d2673de725c8dcc"
         ],
         "x": 34,
-        "y": 699,
+        "y": 2239,
         "w": 972,
         "h": 142
     },
@@ -1240,7 +1246,7 @@
             "7bd46b965253598e"
         ],
         "x": 34,
-        "y": 1559,
+        "y": 1599,
         "w": 752,
         "h": 82
     },
@@ -1300,31 +1306,6 @@
         "h": 142
     },
     {
-        "id": "f2d8f51074d77f62",
-        "type": "group",
-        "z": "eb60a9ea21d42f29",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "c0ebd9c2ad2d7aea",
-            "7d7f9e558f3100c9",
-            "5a19f063564eb54e",
-            "66f6ba2930d44be1",
-            "eecddbeb948d1fed"
-        ],
-        "x": 34,
-        "y": 2799,
-        "w": 812,
-        "h": 142
-    },
-    {
         "id": "11224fdbd83e9688",
         "type": "group",
         "z": "eb60a9ea21d42f29",
@@ -1342,43 +1323,19 @@
             "3bcedbe430fb625f",
             "b3fce329b560baca",
             "a2cc0f55b02dc5b4",
-            "f59d32b771c76573",
             "3dc5da62d635fa0b",
-            "e36d846dc2933e3d",
             "acfaebec68d87554",
-            "9525477e99a54453"
+            "9525477e99a54453",
+            "32e24e4069b1426e",
+            "cf4d61f628fb9fdf",
+            "b4c050538f18a014",
+            "4b4e1d7773f7b6b3",
+            "be950f5c6cf1d9c8"
         ],
         "x": 34,
         "y": 179,
-        "w": 972,
-        "h": 142
-    },
-    {
-        "id": "339d64b837054d9a",
-        "type": "group",
-        "z": "eb60a9ea21d42f29",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "inject_scan",
-            "filter_iphone",
-            "debug_seen",
-            "inject_check",
-            "check_presence",
-            "debug_presence",
-            "4fbc038cb54af4cb"
-        ],
-        "x": 34,
-        "y": 2579,
-        "w": 1052,
-        "h": 182
+        "w": 852,
+        "h": 262
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -1483,8 +1440,8 @@
         ],
         "order": 1,
         "className": "",
-        "visible": "true",
-        "disabled": "false"
+        "visible": true,
+        "disabled": false
     },
     {
         "id": "ab8f5143a421d4e8",
@@ -1810,6 +1767,18 @@
         "visible": "true",
         "disabled": "false",
         "groupType": "default"
+    },
+    {
+        "id": "0f3d15961d8f60b6",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.30.0",
+            "node-red-contrib-watchdirectory": "1.0.15",
+            "node-red-contrib-network-tools": "2.3.5",
+            "node-red-node-email": "5.0.4",
+            "node-red-contrib-cpu": "0.0.4"
+        }
     },
     {
         "id": "e0fbb4a9fd0354d0",
@@ -2398,7 +2367,7 @@
         "group": "b5328d594bd8e5db",
         "order": 7,
         "width": 0,
-        "height": 0,
+        "height": "0",
         "name": "lege regel",
         "label": "",
         "format": "{{msg.payload}}",
@@ -2574,6 +2543,26 @@
         "x": 570,
         "y": 340,
         "wires": []
+    },
+    {
+        "id": "network_discovery_node",
+        "type": "network-discovery",
+        "z": "subflow1",
+        "name": "Network Discovery",
+        "subnet": "192.168.1.0/24",
+        "portRange": "",
+        "timeout": "",
+        "concurrent": "",
+        "includeHostnames": false,
+        "includePorts": false,
+        "includeBonjourServices": false,
+        "bonjourServiceTypes": "",
+        "bonjourTimeout": "",
+        "x": 230,
+        "y": 100,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "86a3b683d730904f",
@@ -3405,7 +3394,7 @@
         "type": "inject",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
-        "name": "Trigger 25 s after startup",
+        "name": "Trigger 60 s after startup",
         "props": [
             {
                 "p": "payload"
@@ -3418,16 +3407,15 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "25",
+        "onceDelay": "60",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 490,
+        "x": 390,
         "y": 200,
         "wires": [
             [
-                "94fd03500445951f",
-                "3d3ed8f6ab85a6cb"
+                "bbd13c12d9561611"
             ]
         ]
     },
@@ -3437,7 +3425,7 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "Trigger after reboot",
-        "func": "// @ts-nocheck\n// Maak een static variabele op de functie node\nif (typeof myStatic === \"undefined\") {\n    myStatic = { count: 0 };\n}\n\nmyStatic.count++;\n\n\n// Op een Rasp 4 is de eerste zichtbare waarde 3.\n// Op een Rasp 3B is de eerste zichtbare waarde 4.\nif (myStatic.count > 5)\n    return null;    // Stop met initializeren:\n\nlet now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({ text: tijd_nu + \" - \" + myStatic.count });\n\nmsg.payload = \"Static teller: \" + myStatic.count;\nreturn msg;\n\n\n/*\nWat gebeurt hier?\nmyStatic wordt niet gedeclareerd met let/var/const\n\nDaardoor wordt het een persistent variabele binnen de function node\n\nHij blijft bestaan zolang Node‑RED draait\n\nBij een deploy blijft hij bestaan\n\nBij een reboot wordt hij opnieuw aangemaakt (dus reset)\n*/",
+        "func": "// @ts-nocheck\n// Maak een static variabele op de functie node\nif (typeof myStatic === \"undefined\") {\n    myStatic = { count: 0 };\n}\n\nmyStatic.count++;\n\n\n// Op een Rasp 4 is de eerste zichtbare waarde 3.\n// Op een Rasp 3B is de eerste zichtbare waarde 4.\nif (myStatic.count > 7)\n    return null;    // Stop met initializeren:\n\nlet now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({ text: tijd_nu + \" - \" + myStatic.count });\n\nmsg.payload = \"Static teller: \" + myStatic.count;\nreturn msg;\n\n\n/*\nWat gebeurt hier?\nmyStatic wordt niet gedeclareerd met let/var/const\n\nDaardoor wordt het een persistent variabele binnen de function node\n\nHij blijft bestaan zolang Node‑RED draait\n\nBij een deploy blijft hij bestaan\n\nBij een reboot wordt hij opnieuw aangemaakt (dus reset)\n*/",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3920,6 +3908,28 @@
         ]
     },
     {
+        "id": "bbd13c12d9561611",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "Debug",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu });\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 200,
+        "wires": [
+            [
+                "3d3ed8f6ab85a6cb",
+                "94fd03500445951f"
+            ]
+        ]
+    },
+    {
         "id": "86d57ce8cd9b65da",
         "type": "mqtt in",
         "z": "1e372cb3d08d9182",
@@ -3958,7 +3968,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 860,
+        "x": 880,
         "y": 140,
         "wires": []
     },
@@ -3977,7 +3987,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 870,
+        "x": 890,
         "y": 200,
         "wires": []
     },
@@ -3994,7 +4004,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
+        "x": 360,
         "y": 180,
         "wires": [
             [
@@ -4046,7 +4056,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 630,
+        "x": 650,
         "y": 200,
         "wires": [
             [
@@ -4086,7 +4096,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 630,
+        "x": 650,
         "y": 140,
         "wires": [
             [
@@ -4102,7 +4112,7 @@
         "group": "4de3d58d68afebf3",
         "order": 1,
         "width": "6",
-        "height": "2",
+        "height": "1",
         "name": "Vraag",
         "label": "",
         "format": "{{msg.payload}}",
@@ -4115,7 +4125,7 @@
         "className": "TextNode",
         "value": "payload",
         "valueType": "msg",
-        "x": 630,
+        "x": 650,
         "y": 80,
         "wires": []
     },
@@ -4127,7 +4137,7 @@
         "group": "4de3d58d68afebf3",
         "order": 4,
         "width": "6",
-        "height": "2",
+        "height": "1",
         "name": "Response",
         "label": "",
         "format": "{{msg.payload}}",
@@ -4140,7 +4150,7 @@
         "className": "TextNode",
         "value": "payload",
         "valueType": "msg",
-        "x": 640,
+        "x": 660,
         "y": 320,
         "wires": []
     },
@@ -4150,7 +4160,7 @@
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
         "group": "4de3d58d68afebf3",
-        "order": 7,
+        "order": 8,
         "width": 0,
         "height": 0,
         "name": "Alarm bericht",
@@ -4197,7 +4207,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Ja/Nee",
-        "func": "var isThuis = global.get(\"GebruikerIsAtHome\");\nmsg.topic = \"PersoonThuis\";\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    if (isThuis) {\n        text = \"\";\n    }\n    else {\n        text = \"Fout: Je mobiel wordt NIET gedetecteerd.\";\n    }\n}\n\nvar msg = {\n    topic: \"PersoonThuis\",\n    payload: text };\n\nnode.status({ text: \"msg: \" + isThuis });\nreturn msg;\n\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nvar isThuis = global.get(\"GebruikerIsAtHome\");\nmsg.topic = \"PersoonThuis\";\n\nvar text = \"Mobiel: geen IP adres.\";\n\nvar ipMobiel = global.get(\"IP_Mobiel\"); \nif (ipMobiel && ipMobiel.length > 0) {\n    if (isThuis) {\n        text = \"\";\n    }\n    else {\n        text = \"Fout: Je mobiel wordt NIET gedetecteerd.\";\n    }\n}\n\nvar msg = {\n    topic: \"PersoonThuis\",\n    payload: text };\n\nnode.status({ text: tijd_nu + \" \" + isThuis + \", \" + msg.payload});\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4225,7 +4235,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
+        "x": 310,
         "y": 80,
         "wires": [
             [
@@ -4239,14 +4249,14 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Response",
-        "func": "let currentState = global.get(\"currentState\");\nlet previousState = global.get(\"previousState\");\n\nmsg.payload = \"\";\n\nlet states = global.get(\"states\");\n\nif (currentState != previousState) {\n    switch (global.get(\"currentState\")) {\n        case states.TOONOKVRAAG: \n        case states.MELDGEBRUIKER: {\n            global.set(\"meldingClient\", \"Wat vervelend! <br>De contactpersonen zijn geinformeerd.\");\n        break;\n    }\n        case states.ISOK: {\n            msg.payload = \"Dank je wel! Fijne Dag.\";\n            break;\n        }\n        case states.ISOK_OVERTIJD: {\n            msg.payload = \"Dank je wel! Fijne Dag. <br>De contactpersonen zijn geinformeerd.\";\n            break;\n        }\n        case states.ISNOTOK_OVERTIJD: \n        case states.ISNOTOK: {\n            msg.payload = global.get(\"meldingClient\");\n            break;\n        }\n        default: {\n            break;\n        }\n    }\n}\n\nmsg.ui_update = { color: \"white\" } \n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\nreturn msg;\n",
+        "func": "let currentState = global.get(\"currentState\");\nlet previousState = global.get(\"previousState\");\n\nmsg.topic = \"Reponse\";\nmsg.payload = \"\";\n\nlet states = global.get(\"states\");\n\nif (currentState != previousState) {\n    switch (global.get(\"currentState\")) {\n        case states.TOONOKVRAAG: \n        case states.MELDGEBRUIKER: {\n            global.set(\"meldingClient\", \"Wat vervelend! <br>De contactpersonen zijn geinformeerd.\");\n        break;\n    }\n        case states.ISOK: {\n            msg.payload = \"Dank je wel! Fijne Dag.\";\n            break;\n        }\n        case states.ISOK_OVERTIJD: {\n            msg.payload = \"Dank je wel! Fijne Dag. <br>De contactpersonen zijn geinformeerd.\";\n            break;\n        }\n        case states.ISNOTOK_OVERTIJD: \n        case states.ISNOTOK: {\n            msg.payload = global.get(\"meldingClient\");\n            break;\n        }\n        default: {\n            break;\n        }\n    }\n}\n\nmsg.ui_update = { color: \"white\" } \n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload +  \",   \" + Date.now() });\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
+        "x": 320,
         "y": 260,
         "wires": [
             [
@@ -4260,21 +4270,20 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "join",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \"+ msg.payload });\n\nif (msg.payload == \"\")\n    return [ msg, null];    // clear directly\nelse\n    return [ null, msg];    // wait 1 minute before clear",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \"+ msg.payload + \", \" + msg.topic});\n\nif (msg.payload == \"\")\n    return [ msg, null];    // clear directly\nelse\n    return [ null, msg];    // wait before clear",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
+        "x": 470,
         "y": 320,
         "wires": [
             [
                 "1c70b188ec53d6ab"
             ],
             [
-                "0436958281830a8e",
                 "1c70b188ec53d6ab"
             ]
         ]
@@ -4298,7 +4307,7 @@
         "resendOnRefresh": true,
         "templateScope": "page:style",
         "className": "",
-        "x": 650,
+        "x": 670,
         "y": 260,
         "wires": [
             []
@@ -4332,14 +4341,14 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "error",
-        "func": "let emailGebruiker = global.get(\"EmailGebruiker\") || \"\";\nlet emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\n\nif (!emailGebruiker.includes(\"@\")) {\n    msg.payload = \"Fout: geen email adres gebruiker.\";\n}\n\nif ((!emailSleutelbewaarder1.includes(\"@\")) && \n    (!emailSleutelbewaarder1.includes(\"@\"))) {\n    msg.payload = \"Fout: geen email adres contactpersonen.\";\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.payload });\nreturn msg;\n",
+        "func": "msg.topic = \"EmailError\";\n\nlet emailGebruiker = global.get(\"EmailGebruiker\") || \"\";\nlet emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\n\nif (!emailGebruiker.includes(\"@\")) {\n    msg.payload = \"Fout: geen email adres gebruiker.\";\n}\n\nif ((!emailSleutelbewaarder1.includes(\"@\")) && \n    (!emailSleutelbewaarder1.includes(\"@\"))) {\n    msg.payload = \"Fout: geen email adres contactpersonen.\";\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.payload });\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
+        "x": 310,
         "y": 340,
         "wires": [
             [
@@ -4355,7 +4364,7 @@
         "group": "4de3d58d68afebf3",
         "name": "ALARM",
         "label": "Alarm",
-        "order": 5,
+        "order": 6,
         "width": "3",
         "height": "2",
         "emulateClick": false,
@@ -4397,7 +4406,7 @@
         "group": "4de3d58d68afebf3",
         "name": "ANNULEER",
         "label": "Annuleer",
-        "order": 6,
+        "order": 7,
         "width": "3",
         "height": "2",
         "emulateClick": false,
@@ -4559,64 +4568,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 380,
+        "x": 310,
+        "y": 400,
         "wires": [
             [
                 "1c70b188ec53d6ab"
             ]
         ]
-    },
-    {
-        "id": "0436958281830a8e",
-        "type": "delay",
-        "z": "1e372cb3d08d9182",
-        "g": "4a425ad2d30f78bc",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "6",
-        "timeoutUnits": "hours",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 500,
-        "y": 380,
-        "wires": [
-            [
-                "6c02930ddcad9dd8"
-            ]
-        ]
-    },
-    {
-        "id": "d6b298f8ec85d61c",
-        "type": "ui-text",
-        "z": "1e372cb3d08d9182",
-        "g": "4a425ad2d30f78bc",
-        "group": "4de3d58d68afebf3",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "name": "lege regel",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payloads",
-        "valueType": "msg",
-        "x": 640,
-        "y": 440,
-        "wires": []
     },
     {
         "id": "389045590526c181",
@@ -4646,7 +4604,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Connection?",
-        "func": "node.status({ text: msg.payload });\nmsg.topic = \"BluetoothConnected\";\nflow.set(msg.topic, \"empty\");\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n    return msg;\n}\nelse {\n    if (global.get(\"BluetoothConnectedName\") != \"\") {\n        msg.payload = \"Bluetooth speaker staat uit. Druk op de AAN knop.\";\n        return msg;\n    }\n    else {\n        msg.payload = \"Er is nog geen Bluetooth speaker geconfigureerd.\";\n        return msg;\n    }\n}\nreturn;\n",
+        "func": "msg.topic = \"BluetoothConnected\";\nflow.set(msg.topic, \"empty\");\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n}\nelse {\n    if (global.get(\"BluetoothConnectedName\") != \"\") {\n        msg.payload = \"Bluetooth speaker staat uit. Druk op de AAN knop.\";\n    }\n    else {\n        msg.payload = \"Er is nog geen Bluetooth speaker geconfigureerd.\";\n    }\n}\n\nflow.set(\"ConnectionMsg\", msg.payload);\nnode.status({ text: msg.payload + \",   \" + Date.now() });\n\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4693,11 +4651,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
+        "x": 510,
         "y": 520,
         "wires": [
             [
-                "1c70b188ec53d6ab"
+                "83ab7304f97ca827"
             ]
         ]
     },
@@ -4972,7 +4930,7 @@
         "page": "",
         "ui": "",
         "name": "",
-        "order": 10,
+        "order": 11,
         "width": 0,
         "height": 0,
         "head": "",
@@ -5030,6 +4988,85 @@
         "wires": []
     },
     {
+        "id": "31ba371bc1ff774b",
+        "type": "inject",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "name": "At 00:00",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 00 * * *",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "6c02930ddcad9dd8"
+            ]
+        ]
+    },
+    {
+        "id": "83ab7304f97ca827",
+        "type": "ui-text",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "group": "4de3d58d68afebf3",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "name": "Error",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#ffffff",
+        "wrapText": true,
+        "className": "TextNode",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 650,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d6b298f8ec85d61c",
+        "type": "ui-text",
+        "z": "1e372cb3d08d9182",
+        "group": "4de3d58d68afebf3",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payloads",
+        "valueType": "msg",
+        "x": 180,
+        "y": 1400,
+        "wires": []
+    },
+    {
         "id": "3f6b53d83b3ef58f",
         "type": "ui-template",
         "z": "e786b4f70cf0ad09",
@@ -5038,7 +5075,7 @@
         "page": "",
         "ui": "",
         "name": "Wizard",
-        "order": 9,
+        "order": 10,
         "width": 0,
         "height": 0,
         "head": "",
@@ -6898,7 +6935,7 @@
         "group": "adc719ee09b9438b",
         "name": "Update",
         "label": "Update",
-        "order": 6,
+        "order": 5,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -6961,7 +6998,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "group": "adc719ee09b9438b",
-        "order": 5,
+        "order": 4,
         "width": "2",
         "height": "1",
         "name": "Versie",
@@ -6986,7 +7023,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "group": "adc719ee09b9438b",
-        "order": 4,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "Auteur",
@@ -7103,7 +7140,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "group": "adc719ee09b9438b",
-        "order": 7,
+        "order": 6,
         "width": 0,
         "height": 0,
         "name": "Update msg",
@@ -7383,7 +7420,7 @@
         "page": "",
         "ui": "",
         "name": "Afbeelding tonen",
-        "order": 3,
+        "order": 2,
         "width": "0",
         "height": "0",
         "format": "<template>\n    <div style=\"text-align:center;\">\n        <img src=\"/logo\" \n             style=\"max-width:40%; height:auto;\" \n             @click=\"send({payload: 'logo_clicked'})\" />\n    </div>\n</template>\n",
@@ -7467,31 +7504,6 @@
         "headers": {},
         "x": 450,
         "y": 140,
-        "wires": []
-    },
-    {
-        "id": "89c7af3d87bd6dfe",
-        "type": "ui-text",
-        "z": "af31bf2fe058f803",
-        "g": "f37a603ed66fd806",
-        "group": "adc719ee09b9438b",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "lege regel",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payloads",
-        "valueType": "msg",
-        "x": 640,
-        "y": 100,
         "wires": []
     },
     {
@@ -7587,7 +7599,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "group": "adc719ee09b9438b",
-        "order": 8,
+        "order": 7,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -8236,7 +8248,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 1960,
+        "y": 1940,
         "wires": [
             [
                 "148566cf72b33e1a"
@@ -8265,7 +8277,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 750,
-        "y": 1780,
+        "y": 1760,
         "wires": []
     },
     {
@@ -8282,7 +8294,7 @@
         "oldrc": false,
         "name": "get version_test.txt",
         "x": 450,
-        "y": 1960,
+        "y": 1940,
         "wires": [
             [
                 "98ddd266a3e4c998"
@@ -8305,7 +8317,7 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 1860,
+        "y": 1840,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -8327,7 +8339,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 330,
-        "y": 1860,
+        "y": 1840,
         "wires": [
             [
                 "2c5db89378881214"
@@ -8355,7 +8367,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 1840,
+        "y": 1820,
         "wires": [
             []
         ]
@@ -8382,7 +8394,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 750,
-        "y": 2100,
+        "y": 2080,
         "wires": []
     },
     {
@@ -8399,7 +8411,7 @@
         "oldrc": false,
         "name": "rm old",
         "x": 290,
-        "y": 1960,
+        "y": 1940,
         "wires": [
             [
                 "6f0b74ba5a27cc3e"
@@ -8422,7 +8434,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 610,
-        "y": 1960,
+        "y": 1940,
         "wires": [
             [
                 "bce54c96101eb7b7"
@@ -8443,7 +8455,7 @@
         "finalize": "",
         "libs": [],
         "x": 730,
-        "y": 1960,
+        "y": 1940,
         "wires": [
             [
                 "59d5c77dc1dc2a60"
@@ -8469,7 +8481,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 340,
-        "y": 2140,
+        "y": 2120,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -8490,7 +8502,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 2140,
+        "y": 2120,
         "wires": [
             [
                 "8d171fe450c7a81f"
@@ -8511,7 +8523,7 @@
         "finalize": "",
         "libs": [],
         "x": 160,
-        "y": 2080,
+        "y": 2060,
         "wires": [
             [
                 "b6d0686a4823c0c2"
@@ -8531,7 +8543,7 @@
         "scope": null,
         "uncaught": false,
         "x": 140,
-        "y": 1780,
+        "y": 1760,
         "wires": [
             [
                 "5fe7d4a09964b635",
@@ -8553,7 +8565,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 1780,
+        "y": 1760,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -8581,7 +8593,7 @@
         "templateScope": "page:style",
         "className": "buttonupdate",
         "x": 130,
-        "y": 2000,
+        "y": 1980,
         "wires": [
             []
         ]
@@ -8601,7 +8613,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 340,
-        "y": 1820,
+        "y": 1800,
         "wires": []
     },
     {
@@ -8618,7 +8630,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 1780,
+        "y": 1760,
         "wires": [
             [
                 "29faaa6a019e0e9b"
@@ -8641,7 +8653,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 420,
-        "y": 2060,
+        "y": 2040,
         "wires": []
     },
     {
@@ -8651,8 +8663,8 @@
         "g": "426742dc229bcbe2",
         "name": "",
         "env": [],
-        "x": 600,
-        "y": 540,
+        "x": 640,
+        "y": 720,
         "wires": [
             [
                 "849129e5cd170f06"
@@ -8676,10 +8688,10 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 520,
+        "y": 660,
         "wires": [
             [
-                "9c9d4e18a631cc15"
+                "af617446c3f6184a"
             ]
         ]
     },
@@ -8696,8 +8708,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 500,
+        "x": 830,
+        "y": 700,
         "wires": [
             [
                 "61806882e2c16761",
@@ -8710,10 +8722,10 @@
         "type": "comment",
         "z": "eb60a9ea21d42f29",
         "g": "426742dc229bcbe2",
-        "name": "Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
+        "name": "Android presence detection; Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
         "info": "",
-        "x": 250,
-        "y": 400,
+        "x": 340,
+        "y": 540,
         "wires": []
     },
     {
@@ -8731,7 +8743,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 440,
+        "y": 580,
         "wires": [
             [
                 "728339c56b6087ec"
@@ -8753,8 +8765,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 840,
-        "y": 580,
+        "x": 860,
+        "y": 760,
         "wires": []
     },
     {
@@ -8771,7 +8783,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 440,
+        "y": 580,
         "wires": [
             [
                 "ebd1eb7739312b3d",
@@ -8792,7 +8804,7 @@
         "oldrc": false,
         "name": "Execute shutdown",
         "x": 550,
-        "y": 2320,
+        "y": 2460,
         "wires": [
             [],
             [],
@@ -8812,7 +8824,7 @@
         "oldrc": false,
         "name": "Execute restart",
         "x": 540,
-        "y": 2440,
+        "y": 2580,
         "wires": [
             [],
             [],
@@ -8852,7 +8864,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 160,
-        "y": 2320,
+        "y": 2460,
         "wires": [
             [
                 "9efaa0c2fd872693",
@@ -8893,7 +8905,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 2440,
+        "y": 2580,
         "wires": [
             [
                 "6d496dbb394b2888",
@@ -8921,7 +8933,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 2380,
+        "y": 2520,
         "wires": [
             []
         ]
@@ -8938,7 +8950,7 @@
         "name": "Model",
         "label": "",
         "format": "{{msg.payload}}",
-        "layout": "row-center",
+        "layout": "row-left",
         "style": true,
         "font": "",
         "fontSize": "18",
@@ -8948,7 +8960,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 890,
-        "y": 740,
+        "y": 2280,
         "wires": []
     },
     {
@@ -8965,7 +8977,7 @@
         "oldrc": false,
         "name": "",
         "x": 360,
-        "y": 780,
+        "y": 2320,
         "wires": [
             [
                 "e21cc1583323afc0",
@@ -8981,7 +8993,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "5d9bd39521e43f2b",
         "name": "Model?",
-        "func": "msg.payload = parseCpuInfo(msg.payload);\nglobal.set(\"RaspberryPiModel\", msg.payload);\nnode.status({ text: msg.payload });\nreturn msg;\n\nfunction parseCpuInfo(cpuinfo) {\n    // Extract the revision line\n    const revisionMatch = cpuinfo.match(/Revision\\s*:\\s*([0-9a-fA-F]+)/);\n    if (!revisionMatch) {\n        return \"\";\n    }\n\n    const revision = revisionMatch[1].toLowerCase();\n\n    // Mapping van revision codes naar modellen\n    const revisionMap = {\n        // --- Raspberry Pi 2 ---\n        \"a01041\": \"Raspberry Pi 2 Model B - revisie 1.1\",\n        // --- Raspberry Pi 3 ---\n        \"a02082\": \"Raspberry Pi 3 Model B\",\n        \"a22082\": \"Raspberry Pi 3 Model B (Sony)\",\n        \"a020d3\": \"Raspberry Pi 3 Model B+\",\n        \"a020a0\": \"Raspberry Pi Compute Module 3\",\n        \"a02100\": \"Raspberry Pi Compute Module 3+\",\n\n        // --- Raspberry Pi 4 ---\n        \"a03111\": \"Raspberry Pi 4 Model B (1GB)\",\n        \"a03115\": \"Raspberry Pi 4 Model B+ (1GB) Rev 1.5\",\n        \"b03111\": \"Raspberry Pi 4 Model B (2GB)\",\n        \"b03115\": \"Raspberry Pi 4 Model B (2GB) Rev 1.5\",\n        \"c03111\": \"Raspberry Pi 4 Model B (4GB)\",\n        \"d03114\": \"Raspberry Pi 4 Model B (8GB)\",\n\n        // --- Raspberry Pi 400 ---\n        \"c03130\": \"Raspberry Pi 400\",\n\n        // --- Raspberry Pi Compute Module 4 ---\n        \"a03140\": \"Raspberry Pi Compute Module 4\",\n        \"b03140\": \"Raspberry Pi Compute Module 4 (WiFi)\",\n        \"c03140\": \"Raspberry Pi Compute Module 4 (Lite)\",\n        \"d03140\": \"Raspberry Pi Compute Module 4 (WiFi + Lite)\",\n\n        // --- Raspberry Pi 5 ---\n        \"9023c0\": \"Raspberry Pi 5 (4GB)\",\n        \"a023c0\": \"Raspberry Pi 5 (8GB)\",\n        \"b023c0\": \"Raspberry Pi 5 (16GB)\",\n\n        // --- Raspberry Pi 5 Compute Module ---\n        \"c023c0\": \"Raspberry Pi Compute Module 5\",\n        \"d023c0\": \"Raspberry Pi Compute Module 5 Lite\"\n    };\n\n    const model = revisionMap[revision] || \"Onbekende revision: \" + revision;\n\nreturn model;\n}\n",
+        "func": "msg.payload = parseCpuInfo(msg.payload);\nglobal.set(\"RaspberryPiModel\", msg.payload);\nnode.status({ text: msg.payload });\nreturn msg;\n\nfunction parseCpuInfo(cpuinfo) {\n    // Extract the revision line\n    const revisionMatch = cpuinfo.match(/Revision\\s*:\\s*([0-9a-fA-F]+)/);\n    if (!revisionMatch) {\n        return \"\";\n    }\n\n    const revision = revisionMatch[1].toLowerCase();\n\n    // Mapping van revision codes naar modellen\n    const revisionMap = {\n        // --- Raspb Pi 2 ---\n        \"a01041\": \"Raspb Pi 2 Model B - revisie 1.1\",\n        // --- Raspb Pi 3 ---\n        \"a02082\": \"Raspb Pi 3 Model B\",\n        \"a22082\": \"Raspb Pi 3 Model B (Sony)\",\n        \"a020d3\": \"Raspb Pi 3 Model B+\",\n        \"a020a0\": \"Raspb Pi Compute Module 3\",\n        \"a02100\": \"Raspb Pi Compute Module 3+\",\n\n        // --- Raspb Pi 4 ---\n        \"a03111\": \"Raspb Pi 4 Model B (1GB)\",\n        \"a03115\": \"Raspb Pi 4 Model B+ (1GB) Rev 1.5\",\n        \"b03111\": \"Raspb Pi 4 Model B (2GB)\",\n        \"b03115\": \"Raspb Pi 4 Model B (2GB) Rev 1.5\",\n        \"c03111\": \"Raspb Pi 4 Model B (4GB)\",\n        \"d03114\": \"Raspb Pi 4 Model B (8GB)\",\n\n        // --- Raspb Pi 400 ---\n        \"c03130\": \"Raspb Pi 400\",\n\n        // --- Raspb Pi Compute Module 4 ---\n        \"a03140\": \"Raspb Pi Compute Module 4\",\n        \"b03140\": \"Raspb Pi Compute Module 4 (WiFi)\",\n        \"c03140\": \"Raspb Pi Compute Module 4 (Lite)\",\n        \"d03140\": \"Raspb Pi Compute Module 4 (WiFi + Lite)\",\n\n        // --- Raspb Pi 5 ---\n        \"9023c0\": \"Raspb Pi 5 (4GB)\",\n        \"a023c0\": \"Raspb Pi 5 (8GB)\",\n        \"b023c0\": \"Raspb Pi 5 (16GB)\",\n\n        // --- Raspb Pi 5 Compute Module ---\n        \"c023c0\": \"Raspb Pi Compute Module 5\",\n        \"d023c0\": \"Raspb Pi Compute Module 5 Lite\"\n    };\n\n    const model = revisionMap[revision] || \"Onbekende revision: \" + revision;\n\nreturn model;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -8989,7 +9001,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 740,
+        "y": 2280,
         "wires": [
             [
                 "7b981f6f76e5f9f4"
@@ -9054,7 +9066,7 @@
         "type": "function",
         "z": "eb60a9ea21d42f29",
         "g": "878de3ac45928077",
-        "name": "Get value",
+        "name": "CPU Temp",
         "func": "let str = msg.payload\n\nmsg.payload = parseInt(str.substring(5, 9), 10);\nmsg.topic = \"CPU Temp\";\nreturn msg;",
         "outputs": 1,
         "timeout": "",
@@ -9062,7 +9074,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
+        "x": 630,
         "y": 120,
         "wires": [
             [
@@ -9075,7 +9087,7 @@
         "type": "function",
         "z": "eb60a9ea21d42f29",
         "g": "878de3ac45928077",
-        "name": "Get value",
+        "name": "CPU load",
         "func": "node.status({ text: msg.payload });\nmsg.payload = parseFloat(msg.payload);\nmsg.topic = \"CPU load\";\nreturn msg;",
         "outputs": 1,
         "timeout": "",
@@ -9113,7 +9125,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 510,
-        "y": 2380,
+        "y": 2520,
         "wires": []
     },
     {
@@ -9130,7 +9142,7 @@
         "finalize": "",
         "libs": [],
         "x": 860,
-        "y": 440,
+        "y": 620,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -9156,135 +9168,6 @@
         ]
     },
     {
-        "id": "1ebd5fe3.2c7e8",
-        "type": "inject",
-        "z": "eb60a9ea21d42f29",
-        "g": "5e865f06cc6b19fe",
-        "name": "Every 10 min",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "600",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "5",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 820,
-        "y": 1160,
-        "wires": [
-            [
-                "20a7391c.421bd6"
-            ]
-        ]
-    },
-    {
-        "id": "20a7391c.421bd6",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "g": "5e865f06cc6b19fe",
-        "command": "df",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 990,
-        "y": 1200,
-        "wires": [
-            [
-                "eb861dab.4d428"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "eb861dab.4d428",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "5e865f06cc6b19fe",
-        "name": "split usage",
-        "func": "var output = msg.payload.split(\"\\n\");\nvar internalUse, internal1k;\n\nfor (let i = 0; i < output.length; ++i) {\n    var words = output[i].split(/[ ]+/);\n    if (words[0].includes(\"/dev/mmcblk0p2\")) \n    { \n        internal1k = getGb(words[1]) + \" Gb\";\n        internalUse = words[4];\n    }\n}\nreturn [\n    { payload: internal1k },\n    { payload: internalUse }\n]\n\nfunction getGb(blocks) {\n    var x = parseInt(blocks) / 100000;\n    x += 5;\n    x /= 10;\n    return Math.round(x);\n}",
-        "outputs": 2,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1170,
-        "y": 1180,
-        "wires": [
-            [
-                "1b9704b98c8415b8"
-            ],
-            [
-                "bd83f7d9ca61f8a5"
-            ]
-        ]
-    },
-    {
-        "id": "1b9704b98c8415b8",
-        "type": "ui-text",
-        "z": "eb60a9ea21d42f29",
-        "d": true,
-        "g": "5e865f06cc6b19fe",
-        "group": "b71c0e77d9debcfd",
-        "order": 9,
-        "width": "3",
-        "height": "1",
-        "name": "Disk",
-        "label": "Disk size:",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": true,
-        "font": "",
-        "fontSize": "18",
-        "color": "#ffffff",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 1350,
-        "y": 1120,
-        "wires": []
-    },
-    {
-        "id": "bd83f7d9ca61f8a5",
-        "type": "ui-text",
-        "z": "eb60a9ea21d42f29",
-        "d": true,
-        "g": "5e865f06cc6b19fe",
-        "group": "b71c0e77d9debcfd",
-        "order": 11,
-        "width": "3",
-        "height": "1",
-        "name": "Used",
-        "label": "Disk used: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": true,
-        "font": "",
-        "fontSize": "18",
-        "color": "#ffffff",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 1350,
-        "y": 1200,
-        "wires": []
-    },
-    {
         "id": "318cd6b22f5d427b",
         "type": "function",
         "z": "eb60a9ea21d42f29",
@@ -9298,7 +9181,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 1600,
+        "y": 1640,
         "wires": [
             [
                 "219feef2e9854abf"
@@ -9327,7 +9210,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 710,
-        "y": 1600,
+        "y": 1640,
         "wires": []
     },
     {
@@ -9345,7 +9228,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 1600,
+        "y": 1640,
         "wires": [
             [
                 "318cd6b22f5d427b"
@@ -9374,7 +9257,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 270,
-        "y": 2380,
+        "y": 2520,
         "wires": []
     },
     {
@@ -9396,7 +9279,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 470,
-        "y": 440,
+        "y": 580,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -9417,7 +9300,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 2500,
+        "y": 2640,
         "wires": [
             [
                 "7ea37518e7e677d7"
@@ -9439,7 +9322,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 780,
+        "y": 2320,
         "wires": [
             [
                 "b214b552d64a9c10"
@@ -9461,7 +9344,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1860,
+        "y": 1840,
         "wires": [
             [
                 "97382ae72dc98a86"
@@ -9483,7 +9366,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 620,
+        "y": 780,
         "wires": [
             [
                 "c8995ead35814c9c"
@@ -9505,7 +9388,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 2500,
+        "y": 2640,
         "wires": [
             [
                 "8d1d71e905b38b07"
@@ -9527,60 +9410,12 @@
         "rh": 0,
         "inputs": 0,
         "x": 300,
-        "y": 2200,
+        "y": 2180,
         "wires": [
             [
                 "aefcaf0124832705"
             ]
         ]
-    },
-    {
-        "id": "2640b5fa40ca7fa9",
-        "type": "mqtt in",
-        "z": "eb60a9ea21d42f29",
-        "g": "5e865f06cc6b19fe",
-        "name": "",
-        "topic": "SystemStarted",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "0839f7b4c0cbb0a8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 800,
-        "y": 1200,
-        "wires": [
-            [
-                "20a7391c.421bd6"
-            ]
-        ]
-    },
-    {
-        "id": "a91759026081e90e",
-        "type": "ui-text",
-        "z": "eb60a9ea21d42f29",
-        "d": true,
-        "g": "5e865f06cc6b19fe",
-        "group": "b71c0e77d9debcfd",
-        "order": 10,
-        "width": "1",
-        "height": "1",
-        "name": "space",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": true,
-        "font": "",
-        "fontSize": "18",
-        "color": "#ffffff",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 1350,
-        "y": 1160,
-        "wires": []
     },
     {
         "id": "c655b3afa92e4917",
@@ -9597,7 +9432,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 520,
+        "y": 660,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -9797,7 +9632,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 980,
+        "x": 1020,
         "y": 960,
         "wires": [
             []
@@ -9809,10 +9644,10 @@
         "z": "eb60a9ea21d42f29",
         "g": "502f83694964e8ea",
         "group": "b71c0e77d9debcfd",
-        "name": "ping count",
-        "label": "Ping count",
+        "name": "Android ping count",
+        "label": "Android ping count",
         "order": 5,
-        "width": "2",
+        "width": "3",
         "height": "1",
         "topic": "topic",
         "topicType": "msg",
@@ -9829,7 +9664,7 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 610,
+        "x": 630,
         "y": 940,
         "wires": [
             [
@@ -9921,7 +9756,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
+        "x": 810,
         "y": 940,
         "wires": [
             [
@@ -9945,7 +9780,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 970,
+        "x": 1010,
         "y": 900,
         "wires": []
     },
@@ -10028,7 +9863,7 @@
         "height": "3",
         "className": "",
         "interpolation": "linear",
-        "x": 980,
+        "x": 1140,
         "y": 120,
         "wires": [
             []
@@ -10048,7 +9883,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 800,
+        "y": 2340,
         "wires": [
             [
                 "a9d8011ae30a8d2c"
@@ -10069,7 +9904,7 @@
         "finalize": "",
         "libs": [],
         "x": 730,
-        "y": 800,
+        "y": 2340,
         "wires": [
             [
                 "1d2673de725c8dcc"
@@ -10103,7 +9938,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 490,
-        "y": 1480,
+        "y": 1500,
         "wires": [
             [
                 "bdc391db8d1ee4a3"
@@ -10124,7 +9959,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 1480,
+        "y": 1500,
         "wires": [
             [
                 "bcc6757235039fc3",
@@ -10152,7 +9987,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 1480,
+        "y": 1500,
         "wires": [
             [
                 "bcc6757235039fc3"
@@ -10173,7 +10008,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 1480,
+        "y": 1500,
         "wires": [
             [
                 "21403ee9f89c7b47"
@@ -10200,7 +10035,7 @@
         "className": "",
         "name": "",
         "x": 860,
-        "y": 1480,
+        "y": 1500,
         "wires": [
             []
         ]
@@ -10213,18 +10048,7 @@
         "name": "Een installateur weet een deel van de licentie code en kan hem hier direct invullen.",
         "info": "",
         "x": 350,
-        "y": 1360,
-        "wires": []
-    },
-    {
-        "id": "daaad0906c972b05",
-        "type": "comment",
-        "z": "eb60a9ea21d42f29",
-        "g": "5e865f06cc6b19fe",
-        "name": "magweg?",
-        "info": "",
-        "x": 1040,
-        "y": 1140,
+        "y": 1380,
         "wires": []
     },
     {
@@ -10243,214 +10067,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 880,
-        "y": 1420,
-        "wires": []
-    },
-    {
-        "id": "c0ebd9c2ad2d7aea",
-        "type": "inject",
-        "z": "eb60a9ea21d42f29",
-        "d": true,
-        "g": "f2d8f51074d77f62",
-        "name": "Every",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "30",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 2900,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7d7f9e558f3100c9",
-        "type": "debug",
-        "z": "eb60a9ea21d42f29",
-        "g": "f2d8f51074d77f62",
-        "name": "debug 6",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 740,
-        "y": 2840,
-        "wires": []
-    },
-    {
-        "id": "5a19f063564eb54e",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "f2d8f51074d77f62",
-        "name": "iPhone?",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet adr = msg.payload.addresses ?? [];\nlet ip = \"\"\nif (adr.length > 0) ip = adr[0];\nif (ip == global.get(\"IP_Mobiel\")) {\n    node.status({ text: \"IsThuis\" });\n    global.set(\"GebruikerIsAtHome\", 1);\n    global.set(\"iPhoneLastSeen\", Date.now());\n    node.status({ text: tijd_nu + \" 1\" });\n}\nelse {\n    let iPhoneLastSeen = global.get(\"iPhoneLastSeen\") || 0;\n    if ((Date.now() - iPhoneLastSeen) > (2 * 60000)) {\n        global.set(\"GebruikerIsAtHome\", 0);\n        node.status({ text: tijd_nu + \" 0\" });\n    }\n}\n\n\n\n\n\n// Filter alleen iPhone gerelateerde devices\nif (msg.payload && msg.payload.name) {\n    const deviceName = msg.payload.name.toLowerCase();\n    if (deviceName.includes('iphone') ||\n        deviceName.includes('ios') ||\n        msg.payload.type === '_airplay._tcp.local') {\n        return msg;\n    }\n}\n// hoe maak je het onderscheid tussen verschillende iPhones en iPads?\nreturn null; // Filter uit\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 2880,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "66f6ba2930d44be1",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "f2d8f51074d77f62",
-        "name": "Only Safari browsers",
-        "func": "if (global.get(\"Browser\") == \"Safari\")\n    return msg;\n\nreturn null",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 320,
-        "y": 2900,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "inject_scan",
-        "type": "inject",
-        "z": "eb60a9ea21d42f29",
-        "d": true,
-        "g": "339d64b837054d9a",
-        "name": "Scan elke 20 sec",
-        "props": [],
-        "repeat": "20",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "5",
-        "topic": "",
-        "x": 170,
-        "y": 2620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "filter_iphone",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "339d64b837054d9a",
-        "name": "Is dit een iPhone?",
-        "func": "let dev = msg.payload;\nif (!dev) return null;\n\nlet hostname = (dev.hostname || \"\").toLowerCase();\nlet services = dev.services || [];\n\nlet isIphone = false;\n\n// iPhone herkenning\nif (hostname.includes(\"iphone\")) isIphone = true;\nif (services.includes(\"_airplay._tcp.local\")) isIphone = true;\nif (services.includes(\"_raop._tcp.local\")) isIphone = true;\nif (services.includes(\"_companion-link._tcp.local\")) isIphone = true;\n\nif (isIphone) {\n    flow.set(\"iphone_last_seen\", Date.now());\n    msg.payload = \"iPhone gezien: \" + hostname;\n    return msg;\n}\nreturn null;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 2620,
-        "wires": [
-            [
-                "debug_seen"
-            ]
-        ]
-    },
-    {
-        "id": "debug_seen",
-        "type": "debug",
-        "z": "eb60a9ea21d42f29",
-        "g": "339d64b837054d9a",
-        "name": "iPhone gezien (mDNS)",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 940,
-        "y": 2620,
-        "wires": []
-    },
-    {
-        "id": "inject_check",
-        "type": "inject",
-        "z": "eb60a9ea21d42f29",
-        "d": true,
-        "g": "339d64b837054d9a",
-        "name": "Check aanwezigheid elke 30 sec",
-        "props": [],
-        "repeat": "30",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "10",
-        "topic": "",
-        "x": 220,
-        "y": 2720,
-        "wires": [
-            [
-                "check_presence"
-            ]
-        ]
-    },
-    {
-        "id": "check_presence",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "339d64b837054d9a",
-        "name": "iPhone aanwezig?",
-        "func": "let last = flow.get(\"iphone_last_seen\") || 0;\nlet now = Date.now();\n\n// iPhone gezien in de laatste 60 seconden?\nmsg.payload = (now - last < 60000);\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 2720,
-        "wires": [
-            [
-                "debug_presence"
-            ]
-        ]
-    },
-    {
-        "id": "debug_presence",
-        "type": "debug",
-        "z": "eb60a9ea21d42f29",
-        "g": "339d64b837054d9a",
-        "name": "iPhone aanwezig? (true/false)",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 790,
-        "y": 2720,
-        "wires": []
-    },
-    {
-        "id": "eecddbeb948d1fed",
-        "type": "comment",
-        "z": "eb60a9ea21d42f29",
-        "g": "f2d8f51074d77f62",
-        "name": "dnssd node: _airplay._tcp.local",
-        "info": "",
-        "x": 510,
-        "y": 2840,
+        "y": 1440,
         "wires": []
     },
     {
@@ -10459,15 +10076,15 @@
         "z": "eb60a9ea21d42f29",
         "g": "11224fdbd83e9688",
         "name": "IsAtHome?",
-        "func": "let detected = msg.payload;\n\nif (detected) {\n    global.set(\"GebruikerIsAtHome\", 1);\n    global.set(\"NotDetectedCount\", 0);\n    node.status({ text: \"true\" });\n}\nelse { // not detected\n    if (global.get(\"GebruikerIsAtHome\")) { // if was detected\n        let notDetectedCount = global.get(\"NotDetectedCount\") ?? 0;\n        notDetectedCount += 1;\n        global.set(\"NotDetectedCount\", notDetectedCount);\n        \n        let scanCount = global.get(\"ScanCount\") ?? 3;\n        if (notDetectedCount > scanCount) {\n            node.status({\n                text: \"notDetectedCount: \" + notDetectedCount +\n                    \", scanCount: \" + scanCount + \"; not at home\"});\n            global.set(\"GebruikerIsAtHome\", 0);\n        }\n        else {\n            node.status({\n                text: \"notDetectedCount: \" + notDetectedCount +\n                    \", scanCount: \" + scanCount + \"; at home\"});\n        }\n    }\n    else {\n        node.status({text: \"! GebruikerIsAtHome \"});\n    }\n}\n\nreturn msg;\n",
+        "func": "let iPhoneSeen = Number(global.get(\"iPhoneSeen\") ?? 0);\nlet now = Date.now();\n\nlet diff = now - iPhoneSeen;\n\nlet scanCount = global.get(\"ScanCount\") ?? 3;\n\nif (diff < (scanCount * 15000)) {\n    global.set(\"GebruikerIsAtHome\", 1);\n    node.status({ text: \"true: \" + diff });\n}\nelse {\n    global.set(\"GebruikerIsAtHome\", 0);\n    node.status({ text: \"false: \" + diff});    \n}\nreturn msg;\n\n/*\nif (diff < 3000) {\n    global.set(\"GebruikerIsAtHome\", 1);\n    global.set(\"NotDetectedCount\", 0);\n    node.status({ text: \"true\" });\n}\nelse { // not detected\n    if (global.get(\"GebruikerIsAtHome\")) { // if was detected\n        let notDetectedCount = global.get(\"NotDetectedCount\") ?? 0;\n        notDetectedCount += 1;\n        global.set(\"NotDetectedCount\", notDetectedCount);\n        \n        let scanCount = global.get(\"ScanCount\") ?? 3;\n        if (notDetectedCount > scanCount) {\n            node.status({\n                text: \"notDetectedCount: \" + notDetectedCount +\n                    \", scanCount: \" + scanCount + \"; not at home\"});\n            global.set(\"GebruikerIsAtHome\", 0);\n        }\n        else {\n            node.status({\n                text: \"notDetectedCount: \" + notDetectedCount +\n                    \", scanCount: \" + scanCount + \"; at home\"});\n        }\n    }\n    else {\n        node.status({text: \"! GebruikerIsAtHome \"});\n    }\n}\n\nreturn msg;\n*/",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 280,
+        "x": 470,
+        "y": 400,
         "wires": [
             [
                 "3bcedbe430fb625f"
@@ -10487,29 +10104,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 910,
-        "y": 280,
+        "x": 790,
+        "y": 400,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4fbc038cb54af4cb",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "339d64b837054d9a",
-        "name": "IP address",
-        "func": "let ip = global.get(\"IP_Mobiel\");\nlet parts = ip.split(\".\");\nparts[3] = \"0\";\n\nmsg.subnet = parts.join(\".\") + \"/24\";\nmsg.subnet = \"192.168.2.213\"\nmsg.timeout = 500;\nmsg.includeBonjourServices = true;\nmsg.types = \"airplay\";\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 130,
-        "y": 2660,
-        "wires": [
-            []
+            [
+                "b0067e5db1bb638b"
+            ]
         ]
     },
     {
@@ -10517,9 +10117,9 @@
         "type": "comment",
         "z": "eb60a9ea21d42f29",
         "g": "11224fdbd83e9688",
-        "name": "Alleen voor iPhone met Safari browser",
+        "name": "iPhone presence detectie met Safari browser",
         "info": "",
-        "x": 210,
+        "x": 230,
         "y": 220,
         "wires": []
     },
@@ -10555,7 +10155,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 830,
+        "x": 990,
         "y": 60,
         "wires": [
             [
@@ -10585,7 +10185,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 910,
-        "y": 800,
+        "y": 2340,
         "wires": []
     },
     {
@@ -10594,10 +10194,10 @@
         "z": "eb60a9ea21d42f29",
         "g": "11224fdbd83e9688",
         "group": "b71c0e77d9debcfd",
-        "name": "iPhone",
-        "label": "iPhone",
+        "name": "iPhone scan count",
+        "label": "iPhone scan count",
         "order": 7,
-        "width": "2",
+        "width": "3",
         "height": "1",
         "topic": "topic",
         "topicType": "msg",
@@ -10614,32 +10214,11 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 520,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f59d32b771c76573",
-        "type": "network-discovery",
-        "z": "eb60a9ea21d42f29",
-        "g": "11224fdbd83e9688",
-        "name": "",
-        "subnet": "192.168.1.0/24",
-        "portRange": "22,80,443",
-        "timeout": "500",
-        "concurrent": 10,
-        "includeHostnames": false,
-        "includePorts": false,
-        "includeBonjourServices": false,
-        "bonjourServiceTypes": "http,ssh,ftp,smb,bonjour",
-        "bonjourTimeout": "5000",
-        "x": 430,
+        "x": 530,
         "y": 280,
         "wires": [
             [
-                "3dc5da62d635fa0b"
+                "be950f5c6cf1d9c8"
             ]
         ]
     },
@@ -10649,102 +10228,40 @@
         "z": "eb60a9ea21d42f29",
         "g": "11224fdbd83e9688",
         "name": "IP?",
-        "func": "var zoekString = global.get(\"IP_Mobiel\");\n\nvar gevonden = JSON.stringify(msg.payload).includes(zoekString);\n\nif (gevonden) {\n    var tijd_nu = global.get(\"getTime\")();\n    node.status({ text: tijd_nu + \" gevonden: \" + zoekString });\n    msg.payload = true;\n    return msg;\n} else {\n    return null;\n}\n\n",
+        "func": "var zoekString = global.get(\"IP_Mobiel\");\n\nvar gevonden = JSON.stringify(msg.payload).includes(zoekString);\n\nif (gevonden) {\n    var tijd_nu = global.get(\"getTime\")();\n    node.status({ text: tijd_nu + \" gevonden: \" + zoekString });\n    global.set(\"GebruikerIsAtHome\", 1);\n    msg.payload = true;\n    global.set(\"iPhoneSeen\", Date.now());\n    return msg;\n} else {\n    return null;\n}\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 280,
+        "x": 790,
+        "y": 340,
         "wires": [
-            [
-                "e36d846dc2933e3d"
-            ]
+            []
         ]
-    },
-    {
-        "id": "e36d846dc2933e3d",
-        "type": "debug",
-        "z": "eb60a9ea21d42f29",
-        "g": "11224fdbd83e9688",
-        "name": "debug 7",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 740,
-        "y": 220,
-        "wires": []
     },
     {
         "id": "acfaebec68d87554",
         "type": "function",
         "z": "eb60a9ea21d42f29",
         "g": "11224fdbd83e9688",
-        "name": "subnet",
-        "func": "let ip = global.get(\"IP_Mobiel\");\n\n//const parts = ip.split(\".\");\n//parts[3] = \"110\";\n//msg.subnet = parts.join(\".\") + \"-115\";\n\n// Android heeft geen airplay. Het gevolg is dat hij eindeloos blijft hangen na geen verbinding.\n// Start om die reden daarom niet network-discovery node.\nlet browser = global.get(\"Browser\") ?? \"\";\nif (browser != \"Safari\") {\n    node.status({ text: \"geen iPhone\" });\n    return null;\n}\n\nmsg.subnet = ip;\nmsg.includeBonjourServices = true;\nmsg.bonjourServiceTypes = \"bonjour\";\n\nnode.status({ text: msg.subnet });\nreturn msg;\n",
+        "name": "iPhone?",
+        "func": "let browser = global.get(\"Browser\") ?? \"\";\nif (browser == \"Safari\") {\n    node.status({ text: \"is een iPhone\" });\n    return msg;\n}\nelse {\n    node.status({ text:\"Browser: \" + browser});\n    return;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 280,
+        "x": 280,
+        "y": 380,
         "wires": [
             [
-                "f59d32b771c76573"
+                "cf4d61f628fb9fdf",
+                "e3ad591ea83eb8dd"
             ]
         ]
-    },
-    {
-        "id": "inject_start",
-        "type": "inject",
-        "z": "eb60a9ea21d42f29",
-        "name": "Start AirPlay check",
-        "props": [],
-        "repeat": "",
-        "once": false,
-        "x": 170,
-        "y": 1680,
-        "wires": [
-            [
-                "fn_airplay"
-            ]
-        ]
-    },
-    {
-        "id": "fn_airplay",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "name": "Check AirPlay (ping + ports)",
-        "func": "const ip = \"192.168.2.113\";\nconst ports = [7000, 7001, 5000, 5353];\n\nconst execSync = require('child_process').execSync;\n\nfunction ping(ip) {\n    try {\n        execSync(`ping -c 1 -W 1 ${ip}`);\n        return true;\n    } catch (e) {\n        return false;\n    }\n}\n\nfunction checkPort(ip, port) {\n    try {\n        execSync(`nc -z -w1 ${ip} ${port}`);\n        return true;\n    } catch (e) {\n        return false;\n    }\n}\n\nlet online = ping(ip);\nlet openPorts = [];\nlet airplay = false;\n\nif (online) {\n    for (let p of ports) {\n        if (checkPort(ip, p)) openPorts.push(p);\n    }\n    airplay = openPorts.length > 0;\n}\n\nmsg.payload = {\n    ip,\n    online,\n    openPorts,\n    airplay\n};\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 410,
-        "y": 1680,
-        "wires": [
-            [
-                "debug_airplay"
-            ]
-        ]
-    },
-    {
-        "id": "debug_airplay",
-        "type": "debug",
-        "z": "eb60a9ea21d42f29",
-        "name": "AirPlay result",
-        "active": true,
-        "tosidebar": true,
-        "complete": "payload",
-        "x": 630,
-        "y": 1680,
-        "wires": []
     },
     {
         "id": "9525477e99a54453",
@@ -10769,7 +10286,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 280,
+        "y": 380,
         "wires": [
             [
                 "acfaebec68d87554"
@@ -10790,10 +10307,10 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 620,
+        "y": 780,
         "wires": [
             [
-                "9c9d4e18a631cc15"
+                "af617446c3f6184a"
             ]
         ]
     },
@@ -10820,11 +10337,129 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 580,
+        "y": 720,
         "wires": [
             [
                 "ebd1eb7739312b3d"
             ]
+        ]
+    },
+    {
+        "id": "32e24e4069b1426e",
+        "type": "subflow:subflow1",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "",
+        "x": 610,
+        "y": 340,
+        "wires": [
+            [
+                "3dc5da62d635fa0b"
+            ]
+        ]
+    },
+    {
+        "id": "af617446c3f6184a",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "426742dc229bcbe2",
+        "name": "not Android",
+        "func": "let browser = global.get(\"Browser\") ?? \"\";\nif (browser == \"Safari\") {\n    node.status({ text: \"Browser: \" + browser + \" return\"});\n    msg.payload = { IPAddress: \"\", PingCount: 0 };\n}\n\nnode.status({ text: \"Browser: \" + browser + \", PingCount: \" + msg.payload.PingCount});\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 720,
+        "wires": [
+            [
+                "9c9d4e18a631cc15"
+            ]
+        ]
+    },
+    {
+        "id": "cf4d61f628fb9fdf",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "subnet",
+        "func": "let ip = global.get(\"IP_Mobiel\");\n\n//const parts = ip.split(\".\");\n//parts[3] = \"110\";\n//msg.subnet = parts.join(\".\") + \"-115\";\n\n// Android heeft geen airplay. Het gevolg is dat hij eindeloos blijft hangen na geen verbinding.\n// Start om die reden daarom niet network-discovery node.\nlet browser = global.get(\"Browser\") ?? \"\";\nif (browser != \"Safari\") {\n    node.status({ text: \"geen iPhone\" });\n    return null;\n}\n\nmsg.subnet = ip;\nmsg.includeBonjourServices = true;\nmsg.bonjourServiceTypes = \"bonjour\";\n\nnode.status({ text: msg.subnet });\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "32e24e4069b1426e"
+            ]
+        ]
+    },
+    {
+        "id": "b4c050538f18a014",
+        "type": "mqtt in",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "",
+        "topic": "SystemStarted",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 280,
+        "wires": [
+            [
+                "4b4e1d7773f7b6b3"
+            ]
+        ]
+    },
+    {
+        "id": "4b4e1d7773f7b6b3",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "get ScanCount",
+        "func": "msg.payload = global.get(\"ScanCount\") ?? 3;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 280,
+        "wires": [
+            [
+                "a2cc0f55b02dc5b4"
+            ]
+        ]
+    },
+    {
+        "id": "be950f5c6cf1d9c8",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "set ScanCount",
+        "func": "global.set(\"ScanCount\", msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 280,
+        "wires": [
+            []
         ]
     },
     {
@@ -11148,7 +10783,7 @@
         "label": "Voeg toe",
         "order": 6,
         "width": "2",
-        "height": "2",
+        "height": "1",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
@@ -11322,7 +10957,7 @@
         "label": "Annuleer",
         "order": 7,
         "width": "2",
-        "height": "2",
+        "height": "1",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
@@ -11732,7 +11367,7 @@
         "label": "Beheer meldingsgeluiden",
         "order": 9,
         "width": "6",
-        "height": "2",
+        "height": "1",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
