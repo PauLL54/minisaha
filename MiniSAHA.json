@@ -937,7 +937,8 @@
             "7ad5f68a7eaba0ab",
             "e3efd094ea49fce5",
             "4abb19d96b88ba67",
-            "edada0ad41f6402c"
+            "edada0ad41f6402c",
+            "0c976711bc8f41a4"
         ],
         "x": 34,
         "y": 39,
@@ -1030,7 +1031,7 @@
             "af617446c3f6184a"
         ],
         "x": 34,
-        "y": 499,
+        "y": 519,
         "w": 932,
         "h": 322
     },
@@ -1330,12 +1331,13 @@
             "cf4d61f628fb9fdf",
             "b4c050538f18a014",
             "4b4e1d7773f7b6b3",
-            "be950f5c6cf1d9c8"
+            "be950f5c6cf1d9c8",
+            "3c5a06d9b0bc6df4"
         ],
         "x": 34,
         "y": 179,
-        "w": 852,
-        "h": 262
+        "w": 832,
+        "h": 322
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -6928,6 +6930,17 @@
         ]
     },
     {
+        "id": "0c976711bc8f41a4",
+        "type": "comment",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "geen notification gebruiken maar een pagina",
+        "info": "",
+        "x": 910,
+        "y": 960,
+        "wires": []
+    },
+    {
         "id": "efef419a3cac5a8b",
         "type": "ui-button",
         "z": "af31bf2fe058f803",
@@ -7927,7 +7940,7 @@
         "y": 1440,
         "wires": [
             [
-                "8032366086aa8de0"
+                "3dc33bd26ddfd0cd"
             ],
             [],
             []
@@ -8055,9 +8068,7 @@
         "x": 670,
         "y": 1540,
         "wires": [
-            [
-                "3dc33bd26ddfd0cd"
-            ],
+            [],
             [],
             []
         ]
@@ -8223,7 +8234,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Test update",
         "label": "Update",
-        "order": 13,
+        "order": 10,
         "width": "3",
         "height": "1",
         "emulateClick": false,
@@ -8261,7 +8272,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "4566824d49f71745",
         "group": "b71c0e77d9debcfd",
-        "order": 12,
+        "order": 9,
         "width": "4",
         "height": "1",
         "name": "Test versie",
@@ -8378,7 +8389,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "4566824d49f71745",
         "group": "b71c0e77d9debcfd",
-        "order": 14,
+        "order": 11,
         "width": 0,
         "height": 0,
         "name": "Update msg",
@@ -8664,7 +8675,7 @@
         "name": "",
         "env": [],
         "x": 640,
-        "y": 720,
+        "y": 740,
         "wires": [
             [
                 "849129e5cd170f06"
@@ -8688,7 +8699,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 660,
+        "y": 680,
         "wires": [
             [
                 "af617446c3f6184a"
@@ -8709,7 +8720,7 @@
         "finalize": "",
         "libs": [],
         "x": 830,
-        "y": 700,
+        "y": 720,
         "wires": [
             [
                 "61806882e2c16761",
@@ -8725,7 +8736,7 @@
         "name": "Android presence detection; Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
         "info": "",
         "x": 340,
-        "y": 540,
+        "y": 560,
         "wires": []
     },
     {
@@ -8743,7 +8754,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
                 "728339c56b6087ec"
@@ -8766,7 +8777,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 860,
-        "y": 760,
+        "y": 780,
         "wires": []
     },
     {
@@ -8783,7 +8794,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
                 "ebd1eb7739312b3d",
@@ -8839,7 +8850,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Shutdown computer",
         "label": "Shutdown",
-        "order": 15,
+        "order": 12,
         "width": "3",
         "height": "1",
         "emulateClick": false,
@@ -8880,7 +8891,7 @@
         "group": "b71c0e77d9debcfd",
         "name": "Restart computer",
         "label": "Restart",
-        "order": 17,
+        "order": 14,
         "width": "3",
         "height": "1",
         "emulateClick": false,
@@ -9109,7 +9120,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "d344da1eff713941",
         "group": "b71c0e77d9debcfd",
-        "order": 18,
+        "order": 15,
         "width": 0,
         "height": 0,
         "name": "status",
@@ -9142,7 +9153,7 @@
         "finalize": "",
         "libs": [],
         "x": 860,
-        "y": 620,
+        "y": 640,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -9241,7 +9252,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "d344da1eff713941",
         "group": "b71c0e77d9debcfd",
-        "order": 16,
+        "order": 13,
         "width": "1",
         "height": "1",
         "name": "space",
@@ -9279,7 +9290,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 470,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -9366,7 +9377,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 780,
+        "y": 800,
         "wires": [
             [
                 "c8995ead35814c9c"
@@ -9432,7 +9443,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 660,
+        "y": 680,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -10076,7 +10087,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "11224fdbd83e9688",
         "name": "IsAtHome?",
-        "func": "let iPhoneSeen = Number(global.get(\"iPhoneSeen\") ?? 0);\nlet now = Date.now();\n\nlet diff = now - iPhoneSeen;\n\nlet scanCount = global.get(\"ScanCount\") ?? 3;\n\nif (diff < (scanCount * 15000)) {\n    global.set(\"GebruikerIsAtHome\", 1);\n    node.status({ text: \"true: \" + diff });\n}\nelse {\n    global.set(\"GebruikerIsAtHome\", 0);\n    node.status({ text: \"false: \" + diff});    \n}\nreturn msg;\n\n/*\nif (diff < 3000) {\n    global.set(\"GebruikerIsAtHome\", 1);\n    global.set(\"NotDetectedCount\", 0);\n    node.status({ text: \"true\" });\n}\nelse { // not detected\n    if (global.get(\"GebruikerIsAtHome\")) { // if was detected\n        let notDetectedCount = global.get(\"NotDetectedCount\") ?? 0;\n        notDetectedCount += 1;\n        global.set(\"NotDetectedCount\", notDetectedCount);\n        \n        let scanCount = global.get(\"ScanCount\") ?? 3;\n        if (notDetectedCount > scanCount) {\n            node.status({\n                text: \"notDetectedCount: \" + notDetectedCount +\n                    \", scanCount: \" + scanCount + \"; not at home\"});\n            global.set(\"GebruikerIsAtHome\", 0);\n        }\n        else {\n            node.status({\n                text: \"notDetectedCount: \" + notDetectedCount +\n                    \", scanCount: \" + scanCount + \"; at home\"});\n        }\n    }\n    else {\n        node.status({text: \"! GebruikerIsAtHome \"});\n    }\n}\n\nreturn msg;\n*/",
+        "func": "let iPhoneSeen = Number(global.get(\"iPhoneSeen\") ?? 0);\nlet now = Date.now();\n\nlet diff = now - iPhoneSeen;\n\nlet scanCount = global.get(\"ScanCount\") ?? 3;\n\nif (diff < (scanCount * 15000)) {\n    msg.payload = 1;\n    global.set(\"GebruikerIsAtHome\", 1);\n    node.status({ text: \"true: \" + diff });\n}\nelse {\n    msg.payload = 0;\n    global.set(\"GebruikerIsAtHome\", 0);\n    node.status({ text: \"false: \" + diff});    \n}\nreturn msg;\n\n/*\nif (diff < 3000) {\n    global.set(\"GebruikerIsAtHome\", 1);\n    global.set(\"NotDetectedCount\", 0);\n    node.status({ text: \"true\" });\n}\nelse { // not detected\n    if (global.get(\"GebruikerIsAtHome\")) { // if was detected\n        let notDetectedCount = global.get(\"NotDetectedCount\") ?? 0;\n        notDetectedCount += 1;\n        global.set(\"NotDetectedCount\", notDetectedCount);\n        \n        let scanCount = global.get(\"ScanCount\") ?? 3;\n        if (notDetectedCount > scanCount) {\n            node.status({\n                text: \"notDetectedCount: \" + notDetectedCount +\n                    \", scanCount: \" + scanCount + \"; not at home\"});\n            global.set(\"GebruikerIsAtHome\", 0);\n        }\n        else {\n            node.status({\n                text: \"notDetectedCount: \" + notDetectedCount +\n                    \", scanCount: \" + scanCount + \"; at home\"});\n        }\n    }\n    else {\n        node.status({text: \"! GebruikerIsAtHome \"});\n    }\n}\n\nreturn msg;\n*/",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -10087,7 +10098,8 @@
         "y": 400,
         "wires": [
             [
-                "3bcedbe430fb625f"
+                "3bcedbe430fb625f",
+                "3c5a06d9b0bc6df4"
             ]
         ]
     },
@@ -10096,15 +10108,15 @@
         "type": "function",
         "z": "eb60a9ea21d42f29",
         "g": "11224fdbd83e9688",
-        "name": "true --> 80",
-        "func": "let atHome = global.get(\"GebruikerIsAtHome\");\nnode.status({ text: atHome});\n\nmsg.topic = global.get(\"IP_Mobiel\");\n\nif (atHome) \n    msg.payload = 80;\nelse\n    msg.payload = 0;\n    \nreturn msg;",
+        "name": "1 --> 80",
+        "func": "node.status({ text: msg.payload });\n\nmsg.topic = global.get(\"IP_Mobiel\");\n\nif (msg.payload) \n    msg.payload = 80;\nelse\n    msg.payload = 0;\n    \nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
+        "x": 780,
         "y": 400,
         "wires": [
             [
@@ -10307,7 +10319,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 780,
+        "y": 800,
         "wires": [
             [
                 "af617446c3f6184a"
@@ -10337,7 +10349,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 720,
+        "y": 740,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -10372,7 +10384,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 720,
+        "y": 740,
         "wires": [
             [
                 "9c9d4e18a631cc15"
@@ -10461,6 +10473,25 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "3c5a06d9b0bc6df4",
+        "type": "mqtt out",
+        "z": "eb60a9ea21d42f29",
+        "g": "11224fdbd83e9688",
+        "name": "",
+        "topic": "PersoonThuis",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 760,
+        "y": 460,
+        "wires": []
     },
     {
         "id": "0af8df52052ef366",
