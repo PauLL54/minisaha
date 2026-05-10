@@ -172,11 +172,21 @@
         ],
         "out": [
             {
-                "x": 820,
-                "y": 40,
+                "x": 800,
+                "y": 80,
                 "wires": [
                     {
                         "id": "b882356f986124aa",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 800,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "e1f1b21d219dfb05",
                         "port": 0
                     }
                 ]
@@ -343,12 +353,14 @@
             "f938d14348c8ceab",
             "28b6ed42000ae785",
             "7d7d5d76c7d50c52",
-            "103b4311b12747c4"
+            "103b4311b12747c4",
+            "c4c7d04cbda74725",
+            "73676674ef1cf1fa"
         ],
         "x": 14,
         "y": 599,
         "w": 1312,
-        "h": 842
+        "h": 922
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -1123,11 +1135,14 @@
             "db7de60b51bfccf2",
             "73abccd137d87e45",
             "cd1421ee6c9fff63",
-            "193f11e5bbcd25be"
+            "193f11e5bbcd25be",
+            "cba56ffd489bbc0d",
+            "7d3bc98a3ce945e1",
+            "88d487d60ad5e9b4"
         ],
         "x": 34,
-        "y": 319,
-        "w": 992,
+        "y": 259,
+        "w": 1172,
         "h": 202
     },
     {
@@ -1274,9 +1289,9 @@
             "b9d9a9997124d7b9"
         ],
         "x": 34,
-        "y": 79,
-        "w": 1152,
-        "h": 182
+        "y": 19,
+        "w": 1172,
+        "h": 222
     },
     {
         "id": "b4b4c739148614fe",
@@ -1408,7 +1423,7 @@
         ],
         "x": 34,
         "y": 2699,
-        "w": 592,
+        "w": 632,
         "h": 202
     },
     {
@@ -2259,7 +2274,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 430,
-        "y": 200,
+        "y": 280,
         "wires": [
             [
                 "e1f1b21d219dfb05"
@@ -2279,7 +2294,7 @@
         "finalize": "",
         "libs": [],
         "x": 830,
-        "y": 120,
+        "y": 140,
         "wires": [
             [
                 "77c4a33f9d1bac3b"
@@ -2325,8 +2340,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 990,
-        "y": 120,
+        "x": 1000,
+        "y": 140,
         "wires": [
             []
         ]
@@ -2344,7 +2359,7 @@
         "finalize": "",
         "libs": [],
         "x": 640,
-        "y": 200,
+        "y": 280,
         "wires": [
             [
                 "0633434dddf97781"
@@ -2372,8 +2387,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 990,
-        "y": 200,
+        "x": 1000,
+        "y": 300,
         "wires": [
             []
         ]
@@ -2391,7 +2406,7 @@
         "finalize": "",
         "libs": [],
         "x": 830,
-        "y": 200,
+        "y": 300,
         "wires": [
             [
                 "c630ddca2cd6ee2b"
@@ -2452,7 +2467,7 @@
         "finalize": "",
         "libs": [],
         "x": 180,
-        "y": 200,
+        "y": 280,
         "wires": [
             [
                 "7b937f0bd2ed23a1"
@@ -2477,7 +2492,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 540,
-        "y": 280,
+        "y": 220,
         "wires": [
             [
                 "7b937f0bd2ed23a1"
@@ -2504,8 +2519,8 @@
         "className": "",
         "value": "payloads",
         "valueType": "msg",
-        "x": 420,
-        "y": 340,
+        "x": 430,
+        "y": 420,
         "wires": []
     },
     {
@@ -2513,15 +2528,15 @@
         "type": "function",
         "z": "cf9fd0d5cf32c35e",
         "name": "Check SMS license",
-        "func": "var msg;\n\nlet license = global.get(\"LicenseSMS\") ?? \"\";\n\nif (license != \"\") {    // licentie beschikbaar\n    msg = { enabled: true,\n            ui_update: { textColor: \"white\" } \n    };\n}\nelse {\n    msg = {\n        enabled: false,\n        ui_update: { textColor: \"gray\" }\n    };\n}\n\nreturn msg;\n",
+        "func": "let emailAdres = global.get(\"EmailSleutelbewaarder\" + flow.get(\"ContactNr\")) ?? \"\";\n\nvar msg;\n\nlet license = global.get(\"LicenseSMS\") ?? \"\";\n\nif (license != \"\" || emailAdres != \"\") {    // licentie en email adres beschikbaar\n    msg = { enabled: true,\n            ui_update: { textColor: \"white\" } \n    };\n}\nelse {\n    msg = {\n        enabled: false,\n        ui_update: { textColor: \"gray\" }\n    };\n}\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 210,
-        "y": 320,
+        "x": 220,
+        "y": 400,
         "wires": [
             [
                 "7b937f0bd2ed23a1"
@@ -2541,8 +2556,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 160,
-        "y": 260,
+        "x": 170,
+        "y": 340,
         "wires": [
             [
                 "8ac5cee4fe406651"
@@ -2562,8 +2577,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 140,
-        "y": 380,
+        "x": 150,
+        "y": 460,
         "wires": [
             [
                 "8ac5cee4fe406651"
@@ -2638,8 +2653,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 710,
-        "y": 340,
+        "x": 720,
+        "y": 420,
         "wires": [
             []
         ]
@@ -2664,8 +2679,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 570,
-        "y": 340,
+        "x": 580,
+        "y": 420,
         "wires": []
     },
     {
@@ -2789,7 +2804,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 230,
-        "y": 1400,
+        "y": 1480,
         "wires": []
     },
     {
@@ -3007,7 +3022,7 @@
         "scope": null,
         "uncaught": false,
         "x": 820,
-        "y": 1400,
+        "y": 1480,
         "wires": [
             [
                 "8322868abe70e928"
@@ -3029,7 +3044,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 970,
-        "y": 1400,
+        "y": 1480,
         "wires": []
     },
     {
@@ -3458,7 +3473,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "",
-        "topic": "ContactChanged",
+        "topic": "EmailContactChanged",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "0839f7b4c0cbb0a8",
@@ -3466,7 +3481,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 120,
+        "x": 140,
         "y": 1260,
         "wires": [
             [
@@ -3479,15 +3494,15 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Welkom nieuw contact",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet emailTopic = \"MiniSAHA: welkom contactpersoon van \" + voornaamGebruiker;\nlet toAddress = msg.payload;\nlet text = \"Beste contactpersoon,\" + \n  \"<br><br>\" +\n  voornaamGebruiker + \" heeft je toegevoegd als contactpersoon voor zijn MiniSAHA app.\" + \n  \"<br>\" +\n  \"In deze app meldt \" + voornaamGebruiker + \" iedere dag dat hij/zij OK is.\" + \n  \"<br>\" +\n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een melding hiervan krijgen.\" +\n  \"<br>\" +\n  \"Neem dan even contact op met \" + voornaamGebruiker + \" om te kijken wat er aan de hand is.\";\n\ntext +=\n  \"<br><br>\" +\n  \"We weten dat een email bericht niet de ideale manier is om meldingen te sturen.\" +\n  \"<br>\" +\n  \"In de toekomst gaat dit mogelijk veranderen (WhatsApp, SMS, etc).\" +\n  \"<br><br>\" +\n  \"Het is handig als er een apart meldingsgeluid is voor dit email bericht.<br>\" +\n  \"Dat kan! Je zou dit als volgt kunnen instellen (moet je wel een beetje technisch voor zijn):<br>\" +\n  \"1. Maak een nieuw email account aan.<br>\" +\n  \"2. Installeer een andere email app op je telefoon die je nog niet hebt.<br>\" +\n  \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n  \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n  \"<br><br>\" +\n  \"Vraag ChatGPT of Google hoe dit allemaal moet voor jouw telefoon.\" +\n  \"<br><br>\" +\n  \"Voorbeeld om een nieuw Google account aan te maken:<br>\" +\n  \"- Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n  \"- Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n  \"- Nu kan je wel zelf bepalen wat het email adres wordt.<br>\" +\n  \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nmsg = {\n  to: toAddress,\n  from: \"safeathomealone@gmail.com\",\n  topic: emailTopic,\n  payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "name": "Welkom nieuw email contact",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet emailTopic = \"MiniSAHA: welkom contactpersoon van \" + voornaamGebruiker;\nlet toAddress = msg.payload;\nlet text = \"Beste contactpersoon,\" + \n  \"<br><br>\" +\n  voornaamGebruiker + \" heeft je e-mailadres toegevoegd als contactpersoon voor zijn MiniSAHA app.\" + \n  \"<br>\" +\n  \"In deze app meldt \" + voornaamGebruiker + \" iedere dag dat hij/zij OK is.\" + \n  \"<br>\" +\n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een melding hiervan krijgen.\" +\n  \"<br>\" +\n  \"Neem dan even contact op met \" + voornaamGebruiker + \" om te kijken wat er aan de hand is.\";\n\ntext +=\n  \"<br><br>\" +\n  \"Als \" + voornaamGebruiker + \" alleen je email heeft geconfigureerd en niet je 06 nummer voor SMS, \" +\n  \"dan is het handig als er een apart meldingsgeluid voor dit email bericht geconfigureerd wordt.\" +\n  \"<br><br>\" +\n  \"Je zou dit als volgt kunnen instellen (moet je wel een beetje technisch voor zijn):<br>\" +\n  \"1. Maak een nieuw email account aan.<br>\" +\n  \"2. Installeer een andere email app op je telefoon die je nog niet hebt.<br>\" +\n  \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n  \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n  \"<br><br>\" +\n  \"Vraag Google hoe dit allemaal moet voor jouw telefoon.\" +\n  \"<br><br>\" +\n  \"Voorbeeld om een nieuw Google account aan te maken:<br>\" +\n  \"- Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n  \"- Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n  \"- Nu kan je wel zelf bepalen wat het email adres wordt.<br>\" +\n  \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nmsg = {\n  to: toAddress,\n  from: \"safeathomealone@gmail.com\",\n  topic: emailTopic,\n  payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
+        "x": 460,
         "y": 1260,
         "wires": [
             [
@@ -3606,201 +3621,6 @@
                 "40fe3f4a575a69de"
             ]
         ]
-    },
-    {
-        "id": "f49fada3bc627167",
-        "type": "function",
-        "z": "a380efb730bea147",
-        "name": "test decimal encryption",
-        "func": "// CRC32 tabel genereren\nconst crcTable = (() => {\n    let c;\n    const table = [];\n    for (let n = 0; n < 256; n++) {\n        c = n;\n        for (let k = 0; k < 8; k++) {\n            c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);\n        }\n        table[n] = c >>> 0;\n    }\n    return table;\n})();\n\n\nconst apikey = \"aBcDe\";  // deel van apikey string\nconst apikey_string = stringToDecimal(apikey);  // 435826602085\nconst serial = \"100000008b3bcddd\";\nconst serial_crc32 = crc32Hex(serial);\n\nlet userKeyBare = xorDecimal(apikey_string, serial_crc32);\nlet userKey = userKeyBare + decimalChecksum(userKeyBare);\nlet userKeyDashes = addDashes(userKey);\nlet userKeyNoDashes = removeDashes(userKeyDashes);\nlet isValidUserKey = verifyChecksum(userKeyNoDashes);\nlet userKeyVerified = userKeyNoDashes.slice(0, -2);\n\nlet userkey_back = xorDecimal(userKeyVerified, serial_crc32);\nlet apikey_back = decimalToString(userkey_back);\n\nmsg.payload = {\n    apikey: apikey,\n    apikey_string: apikey_string,\n    serial: serial,\n    serial_crc32: serial_crc32,\n    userKey: userKey,\n    userKeyDashes: userKeyDashes,\n    userKeyVerified: userKeyVerified,\n    userkey_back: userkey_back,\n    apikey_back: apikey_back,\n}\nreturn msg;\n\nfunction decimalChecksum(str) {\n    let sum = 0;\n    for (let i = 0; i < str.length; i++) {\n        let digit = Number(str[i]);\n        if (!isNaN(digit)) {\n            sum += digit;\n        }\n    }\n    return (sum % 100).toString().padStart(2, \"0\");\n}\n\nfunction verifyChecksum(str) {\n    let firstPart = str.slice(0, -2);\n    let lastTwo   = str.slice(-2);\n    let checksum = decimalChecksum(firstPart);\n    return (lastTwo == checksum);\n}\n\nfunction stringToDecimal(str) {\n    if (typeof str !== \"string\") return null;\n\n    // Spaties verwijderen\n    str = str.replace(/\\s+/g, \"\");\n\n    let hex = \"\";\n    for (let i = 0; i < str.length; i++) {\n        hex += str.charCodeAt(i).toString(16).padStart(2, \"0\");\n    }\n\n    // Hex → decimaal getal (als string, want het kan groot zijn)\n    return BigInt(\"0x\" + hex).toString(10);\n}\n\nfunction decimalToString(decStr) {\n    if (typeof decStr !== \"string\") return null;\n\n    // Decimaal → BigInt → hex\n    let hex = BigInt(decStr).toString(16);\n\n    // Als hex lengte oneven is → opvullen\n    if (hex.length % 2 === 1) {\n        hex = \"0\" + hex;\n    }\n\n    let out = \"\";\n    for (let i = 0; i < hex.length; i += 2) {\n        const byte = parseInt(hex.substr(i, 2), 16);\n        out += String.fromCharCode(byte);\n    }\n\n    return out;\n}\n\nfunction xorDecimal(decStr, xor) {\n    const dec = BigInt(decStr);\n    const xorVal = BigInt(xor);\n    const result = dec ^ xorVal;\n    return result.toString(10);\n}\n\nfunction addDashes(str) {\n    return str.match(/.{1,2}/g).join(\"-\");\n}\n\nfunction removeDashes(str) {\n    return str.replace(/-/g, \"\");\n}\n\n\n/**\n * Bereken CRC32 over een hex-string.\n * Input: payload\n * Output: 32-bit unsigned integer\n */\nfunction crc32Hex(hexStr) {\n    // Opschonen\n    hexStr = hexStr.replace(/[^0-9a-fA-F]/g, \"\");\n    if (hexStr.length % 2 !== 0) {\n        throw new Error(\"Hex-string moet een even aantal tekens hebben\");\n    }\n\n    let crc = 0 ^ (-1);\n\n    for (let i = 0; i < hexStr.length; i += 2) {\n        const byte = parseInt(hexStr.substr(i, 2), 16);\n        crc = (crc >>> 8) ^ crcTable[(crc ^ byte) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0; // unsigned 32-bit\n}\n\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 380,
-        "y": 1480,
-        "wires": [
-            [
-                "7f58a586c2f4c054"
-            ]
-        ]
-    },
-    {
-        "id": "1452a2d6604faa16",
-        "type": "inject",
-        "z": "a380efb730bea147",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 1480,
-        "wires": [
-            [
-                "f49fada3bc627167"
-            ]
-        ]
-    },
-    {
-        "id": "7f58a586c2f4c054",
-        "type": "debug",
-        "z": "a380efb730bea147",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 580,
-        "y": 1480,
-        "wires": []
-    },
-    {
-        "id": "9be0eae3b59d81e0",
-        "type": "function",
-        "z": "a380efb730bea147",
-        "name": "test encryption",
-        "func": "function encrypt(text, keyHex) {\n    const key = parseInt(keyHex, 16);\n    let out = \"\";\n    for (let i = 0; i < text.length; i++) {\n        out += String.fromCharCode(text.charCodeAt(i) ^ key);\n    }\n    return Buffer.from(out).toString(\"base64\");\n}\n\nfunction decrypt(b64, keyHex) {\n    const key = parseInt(keyHex, 16);\n    const text = Buffer.from(b64, \"base64\").toString(\"utf8\");\n    let out = \"\";\n    for (let i = 0; i < text.length; i++) {\n        out += String.fromCharCode(text.charCodeAt(i) ^ key);\n    }\n    return out;\n}\n\n\n// --- Voorbeeld ---\nconst key   = \"e5f19da9\";  // jouw key\nconst input = \"eyJ0eXAiO\";\n\nconst encrypted = encrypt(input, key);\nlet decrypted = decrypt(encrypted, key);\n\nmsg.payload = encrypted;\n\nmsg.payload = { \"encrypted\": encrypted, \"decrypted\": decrypted,}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 1560,
-        "wires": [
-            [
-                "27dbc96581bc38fe"
-            ]
-        ]
-    },
-    {
-        "id": "e23d4fff37ef7a8f",
-        "type": "inject",
-        "z": "a380efb730bea147",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 1560,
-        "wires": [
-            [
-                "9be0eae3b59d81e0"
-            ]
-        ]
-    },
-    {
-        "id": "27dbc96581bc38fe",
-        "type": "debug",
-        "z": "a380efb730bea147",
-        "name": "debug 4",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 580,
-        "y": 1560,
-        "wires": []
-    },
-    {
-        "id": "56f61dfc873f6d51",
-        "type": "function",
-        "z": "a380efb730bea147",
-        "name": "AES-256",
-        "func": "/*\nDit werkt alleen als je in de settings.js file het volgende toevoegt:\nfunctionGlobalContext: {\n    \"crypto-js\": require(\"crypto-js\")\n},\n\n*/\n\nconst CryptoJS = global.get('crypto-js');\n\n// Maak AES-256 sleutel van jouw korte key\nfunction deriveKey(keyHex) {\n    return CryptoJS.SHA256(CryptoJS.enc.Hex.parse(keyHex));\n}\n\n// Encrypt\nfunction encryptAES256(text, keyHex) {\n    const key = deriveKey(keyHex);\n    const iv = CryptoJS.lib.WordArray.random(16);\n\n    const encrypted = CryptoJS.AES.encrypt(text, key, {\n        iv: iv,\n        mode: CryptoJS.mode.CBC,\n        padding: CryptoJS.pad.Pkcs7\n    });\n\n    return iv.toString(CryptoJS.enc.Base64) + \":\" + encrypted.toString();\n}\n\n// Decrypt\nfunction decryptAES256(enc, keyHex) {\n    const key = deriveKey(keyHex);\n    const parts = enc.split(\":\");\n\n    const iv = CryptoJS.enc.Base64.parse(parts[0]);\n    const ciphertext = parts[1];\n\n    const decrypted = CryptoJS.AES.decrypt(ciphertext, key, {\n        iv: iv,\n        mode: CryptoJS.mode.CBC,\n        padding: CryptoJS.pad.Pkcs7\n    });\n\n    return decrypted.toString(CryptoJS.enc.Utf8);\n}\n\n// --- Gebruik ---\nconst key = \"31f5fdee\";          // jouw key\nconst input = msg.payload;       // jouw lange JWT\n\nconst encrypted = encryptAES256(input, key);\nconst decrypted = decryptAES256(encrypted, key);\n\nmsg.encrypted = encrypted;\nmsg.decrypted = decrypted;\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 1620,
-        "wires": [
-            [
-                "f7ab3ec8386d11eb"
-            ]
-        ]
-    },
-    {
-        "id": "416dcb7c925104ee",
-        "type": "inject",
-        "z": "a380efb730bea147",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 1620,
-        "wires": [
-            [
-                "56f61dfc873f6d51"
-            ]
-        ]
-    },
-    {
-        "id": "f7ab3ec8386d11eb",
-        "type": "debug",
-        "z": "a380efb730bea147",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 580,
-        "y": 1620,
-        "wires": []
     },
     {
         "id": "a9408115b9afbbf0",
@@ -3981,7 +3801,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1320,
+        "y": 1380,
         "wires": [
             [
                 "7d7d5d76c7d50c52"
@@ -4002,7 +3822,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1320,
+        "y": 1380,
         "wires": [
             [
                 "103b4311b12747c4"
@@ -4023,7 +3843,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 1320,
+        "y": 1380,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -4068,6 +3888,47 @@
         "wires": [
             [
                 "b5fa993c16ba139a"
+            ]
+        ]
+    },
+    {
+        "id": "c4c7d04cbda74725",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "Welkom nieuw SMS contact  TODO",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet emailTopic = \"MiniSAHA: welkom contactpersoon van \" + voornaamGebruiker;\nlet toAddress = msg.payload;\nlet text = \"Beste contactpersoon,\" + \n  \"<br><br>\" +\n  voornaamGebruiker + \" heeft je 06 nummer toegevoegd in zijn MiniSAHA app.\" + \n  \"<br>\" +\n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een SMS bericht hiervan krijgen.\" +\n  \"<br>\" +\n  \"Neem dan even contact op met \" + voornaamGebruiker + \" om te kijken wat er aan de hand is.\" +\n  \"<br><br>\" +\n  \"Tip: configureer een apart meldingsgeluid voor je SMS zodat je onderscheid kan maken tussen SMS en WhatsApp berichten.\" + \n  \"<br>\";\n\nmsg = {\n  to: toAddress,\n  from: \"safeathomealone@gmail.com\",\n  topic: emailTopic,\n  payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "73676674ef1cf1fa",
+        "type": "mqtt in",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "",
+        "topic": "MobielContactChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 1320,
+        "wires": [
+            [
+                "c4c7d04cbda74725"
             ]
         ]
     },
@@ -8083,7 +7944,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 600,
-        "y": 1060,
+        "y": 1040,
         "wires": []
     },
     {
@@ -8092,7 +7953,7 @@
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
         "name": "Stop arping",
-        "func": "if (typeof msg.payload !== \"object\" || msg.payload === null) {\n    msg.payload = {};\n}\n\nmsg.payload.stop = true;\nreturn msg;\n",
+        "func": "if (typeof msg.payload !== \"object\" || msg.payload === null) {\n    msg.payload = {};\n}\n\nmsg.payload.stop = true;\nnode.status({ text: \"Stop \" + msg.payload });\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -8100,7 +7961,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1060,
+        "y": 1040,
         "wires": [
             [
                 "e0d919a5c94f2160"
@@ -10654,7 +10515,7 @@
         "type": "function",
         "z": "eb60a9ea21d42f29",
         "g": "4aa4abb10438eb85",
-        "name": "test decimal encryption",
+        "name": "test SMS license encryption",
         "func": "// CRC32 tabel genereren\nconst crcTable = (() => {\n    let c;\n    const table = [];\n    for (let n = 0; n < 256; n++) {\n        c = n;\n        for (let k = 0; k < 8; k++) {\n            c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);\n        }\n        table[n] = c >>> 0;\n    }\n    return table;\n})();\n\n\n// convert to userKeyDashes:\nconst apikey = \"aBcDe\"; \nconst apikey_string = stringToDecimal(apikey); \nconst serial = \"100000009d86d50d\";  //\"100000008b3bcddd\";\nconst serial_crc32 = crc32Hex(serial);\n\nlet userKeyBare = xorDecimal(apikey_string, serial_crc32);\nlet userKey = userKeyBare + decimalChecksum(userKeyBare);\nlet userKeyDashes = addDashes(userKey);\n\n// convert back:\nlet userKeyNoDashes = removeDashes(userKeyDashes);\nlet isValidUserKey = verifyChecksum(userKeyNoDashes);\nlet userKeyVerified = userKeyNoDashes.slice(0, -2);\n\nlet userkey_back = xorDecimal(userKeyVerified, serial_crc32);\nlet apikey_back = decimalToString(userkey_back);\n\nmsg.payload = {\n    apikey: apikey,\n    apikey_string: apikey_string,\n    serial: serial,\n    serial_crc32: serial_crc32,\n    userKey: userKey,\n    userKeyDashes: userKeyDashes,\n    userKeyVerified: userKeyVerified,\n    userkey_back: userkey_back,\n    apikey_back: apikey_back,\n}\nreturn msg;\n\nfunction decimalChecksum(str) {\n    let sum = 0;\n    for (let i = 0; i < str.length; i++) {\n        let digit = Number(str[i]);\n        if (!isNaN(digit)) {\n            sum += digit;\n        }\n    }\n    return (sum % 100).toString().padStart(2, \"0\");\n}\n\nfunction verifyChecksum(str) {\n    let firstPart = str.slice(0, -2);\n    let lastTwo   = str.slice(-2);\n    let checksum = decimalChecksum(firstPart);\n    return (lastTwo == checksum);\n}\n\nfunction stringToDecimal(str) {\n    if (typeof str !== \"string\") return null;\n\n    // Spaties verwijderen\n    str = str.replace(/\\s+/g, \"\");\n\n    let hex = \"\";\n    for (let i = 0; i < str.length; i++) {\n        hex += str.charCodeAt(i).toString(16).padStart(2, \"0\");\n    }\n\n    // Hex → decimaal getal (als string, want het kan groot zijn)\n    return BigInt(\"0x\" + hex).toString(10);\n}\n\nfunction decimalToString(decStr) {\n    if (typeof decStr !== \"string\") return null;\n\n    // Decimaal → BigInt → hex\n    let hex = BigInt(decStr).toString(16);\n\n    // Als hex lengte oneven is → opvullen\n    if (hex.length % 2 === 1) {\n        hex = \"0\" + hex;\n    }\n\n    let out = \"\";\n    for (let i = 0; i < hex.length; i += 2) {\n        const byte = parseInt(hex.substr(i, 2), 16);\n        out += String.fromCharCode(byte);\n    }\n\n    return out;\n}\n\nfunction xorDecimal(decStr, xor) {\n    const dec = BigInt(decStr);\n    const xorVal = BigInt(xor);\n    const result = dec ^ xorVal;\n    return result.toString(10);\n}\n\nfunction addDashes(str) {\n    return str.match(/.{1,2}/g).join(\"-\");\n}\n\nfunction removeDashes(str) {\n    return str.replace(/-/g, \"\");\n}\n\n\n/**\n * Bereken CRC32 over een hex-string.\n * Input: payload\n * Output: 32-bit unsigned integer\n */\nfunction crc32Hex(hexStr) {\n    // Opschonen\n    hexStr = hexStr.replace(/[^0-9a-fA-F]/g, \"\");\n    if (hexStr.length % 2 !== 0) {\n        throw new Error(\"Hex-string moet een even aantal tekens hebben\");\n    }\n\n    let crc = 0 ^ (-1);\n\n    for (let i = 0; i < hexStr.length; i += 2) {\n        const byte = parseInt(hexStr.substr(i, 2), 16);\n        crc = (crc >>> 8) ^ crcTable[(crc ^ byte) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0; // unsigned 32-bit\n}\n\n",
         "outputs": 1,
         "timeout": 0,
@@ -10662,7 +10523,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
+        "x": 340,
         "y": 2780,
         "wires": [
             [
@@ -10713,7 +10574,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 560,
         "y": 2780,
         "wires": []
     },
@@ -10772,7 +10633,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 510,
+        "x": 550,
         "y": 2740,
         "wires": []
     },
@@ -10797,7 +10658,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 530,
+        "x": 570,
         "y": 2860,
         "wires": []
     },
@@ -14178,8 +14039,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 930,
-        "y": 200,
+        "x": 910,
+        "y": 180,
         "wires": [
             [
                 "dce7b281c97f94eb"
@@ -14205,8 +14066,8 @@
         "raw": false,
         "className": "",
         "name": "",
-        "x": 1080,
-        "y": 200,
+        "x": 1060,
+        "y": 180,
         "wires": [
             []
         ]
@@ -14251,7 +14112,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 600,
-        "y": 220,
+        "y": 60,
         "wires": [
             [
                 "57d56c552cf0861e"
@@ -14264,11 +14125,14 @@
         "z": "b9094bb8c5d7ac80",
         "g": "10ee2ccaed3d7b0a",
         "name": "",
-        "x": 500,
-        "y": 360,
+        "x": 560,
+        "y": 300,
         "wires": [
             [
                 "73abccd137d87e45"
+            ],
+            [
+                "cba56ffd489bbc0d"
             ]
         ]
     },
@@ -14285,8 +14149,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 360,
+        "x": 400,
+        "y": 300,
         "wires": [
             [
                 "29811bd8b89623ef"
@@ -14299,11 +14163,14 @@
         "z": "b9094bb8c5d7ac80",
         "g": "10ee2ccaed3d7b0a",
         "name": "",
-        "x": 500,
-        "y": 420,
+        "x": 560,
+        "y": 360,
         "wires": [
             [
                 "73abccd137d87e45"
+            ],
+            [
+                "cba56ffd489bbc0d"
             ]
         ]
     },
@@ -14320,8 +14187,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 420,
+        "x": 400,
+        "y": 360,
         "wires": [
             [
                 "681ca337fd7e5c52"
@@ -14334,11 +14201,14 @@
         "z": "b9094bb8c5d7ac80",
         "g": "10ee2ccaed3d7b0a",
         "name": "",
-        "x": 500,
-        "y": 480,
+        "x": 560,
+        "y": 420,
         "wires": [
             [
                 "73abccd137d87e45"
+            ],
+            [
+                "cba56ffd489bbc0d"
             ]
         ]
     },
@@ -14355,8 +14225,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 480,
+        "x": 400,
+        "y": 420,
         "wires": [
             [
                 "b09014e696a5157b"
@@ -14369,7 +14239,7 @@
         "z": "b9094bb8c5d7ac80",
         "g": "10ee2ccaed3d7b0a",
         "name": "",
-        "topic": "ContactChanged",
+        "topic": "EmailContactChanged",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -14378,8 +14248,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 910,
-        "y": 420,
+        "x": 1060,
+        "y": 340,
         "wires": []
     },
     {
@@ -14387,16 +14257,16 @@
         "type": "function",
         "z": "b9094bb8c5d7ac80",
         "g": "10ee2ccaed3d7b0a",
-        "name": "check empty",
-        "func": "if (msg.payload == \"\") return null;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", '\" + msg.payload  + \"'\"});\nreturn msg;",
+        "name": "check email empty",
+        "func": "if (msg.payload == \"\") return null;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", '\" + msg.payload  + \"'\"});\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 420,
+        "x": 810,
+        "y": 340,
         "wires": [
             [
                 "db7de60b51bfccf2"
@@ -14418,7 +14288,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 420,
+        "y": 360,
         "wires": [
             [
                 "ce6b05a4f9f6883d",
@@ -14434,8 +14304,8 @@
         "g": "10ee2ccaed3d7b0a",
         "name": "Contacten",
         "info": "",
-        "x": 120,
-        "y": 360,
+        "x": 140,
+        "y": 300,
         "wires": []
     },
     {
@@ -14466,7 +14336,7 @@
         "z": "b9094bb8c5d7ac80",
         "g": "a41a6706f0c86c3e",
         "name": "Disable",
-        "func": "var msg = { \n    enabled: false, \n    ui_update: { label: \"SMS licentie code\", textColor: \"white\" },\n    payload: \"SMS licentie code is geldig\"\n}\n            \n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" Disabled\" });\nreturn msg;\n",
+        "func": "var msg = { \n    enabled: false, \n    ui_update: { label: \"SMS licentie code\", textColor: \"white\" },\n    payload: \"Licentie voor SMS berichten is aanwezig\"\n}\n            \n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" Disabled\" });\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -14474,7 +14344,7 @@
         "finalize": "",
         "libs": [],
         "x": 740,
-        "y": 220,
+        "y": 60,
         "wires": [
             [
                 "0c9397a8cf19c29f"
@@ -14496,8 +14366,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 1060,
-        "y": 140,
+        "x": 1080,
+        "y": 120,
         "wires": []
     },
     {
@@ -14539,13 +14409,72 @@
         "y": 140,
         "wires": [
             [
-                "9938b5643185321f"
-            ],
-            [
-                "9f0b24c4bcae0eb7",
                 "9938b5643185321f",
                 "dfa87f2dfdb4fc55"
+            ],
+            [
+                "9f0b24c4bcae0eb7"
             ]
+        ]
+    },
+    {
+        "id": "cba56ffd489bbc0d",
+        "type": "function",
+        "z": "b9094bb8c5d7ac80",
+        "g": "10ee2ccaed3d7b0a",
+        "name": "check 06 nummer",
+        "func": "if (msg.payload == \"\") return null;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \", '\" + msg.payload  + \"'\"});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 400,
+        "wires": [
+            [
+                "7d3bc98a3ce945e1"
+            ]
+        ]
+    },
+    {
+        "id": "7d3bc98a3ce945e1",
+        "type": "mqtt out",
+        "z": "b9094bb8c5d7ac80",
+        "g": "10ee2ccaed3d7b0a",
+        "name": "",
+        "topic": "MobielContactChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 1070,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "88d487d60ad5e9b4",
+        "type": "mqtt in",
+        "z": "b9094bb8c5d7ac80",
+        "g": "10ee2ccaed3d7b0a",
+        "name": "",
+        "topic": "EmailContactChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 420,
+        "wires": [
+            []
         ]
     }
 ]
