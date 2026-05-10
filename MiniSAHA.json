@@ -355,12 +355,14 @@
             "7d7d5d76c7d50c52",
             "103b4311b12747c4",
             "c4c7d04cbda74725",
-            "73676674ef1cf1fa"
+            "73676674ef1cf1fa",
+            "01d386f3d9240b18",
+            "499d56692d3e80d0"
         ],
         "x": 14,
         "y": 599,
         "w": 1312,
-        "h": 922
+        "h": 982
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -441,12 +443,13 @@
             "83ab7304f97ca827",
             "d88c60e399358d58",
             "4bc56fec83163b11",
-            "9c1cf991b73794a3"
+            "9c1cf991b73794a3",
+            "6071fd7d71fdc4f7"
         ],
         "x": 34,
         "y": 39,
-        "w": 1052,
-        "h": 642
+        "w": 1072,
+        "h": 662
     },
     {
         "id": "5bb2b589a301c7c8",
@@ -588,7 +591,7 @@
         ],
         "x": 14,
         "y": 19,
-        "w": 1052,
+        "w": 1072,
         "h": 602
     },
     {
@@ -2808,7 +2811,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 230,
-        "y": 1480,
+        "y": 1540,
         "wires": []
     },
     {
@@ -3025,8 +3028,8 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 820,
-        "y": 1480,
+        "x": 980,
+        "y": 1460,
         "wires": [
             [
                 "8322868abe70e928"
@@ -3047,8 +3050,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
-        "y": 1480,
+        "x": 1130,
+        "y": 1460,
         "wires": []
     },
     {
@@ -3434,7 +3437,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Meldperiode gewijzigd",
-        "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"MiniSAHA: tijdmelding gewijzigd bij \" + voornaamGebruiker;\n\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n  voornaamGebruiker + \" heeft de tijdmelding gewijzigd.\\n\" + \n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een melding hiervan krijgen.\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"MiniSAHA: tijdmelding gewijzigd bij \" + voornaamGebruiker;\n\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n  voornaamGebruiker + \" heeft de tijdmelding gewijzigd.\\n\" + \n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een melding hiervan krijgen.\";\n\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3486,7 +3489,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "7df2d7d7906671f7"
@@ -3507,7 +3510,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3805,7 +3808,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1380,
+        "y": 1440,
         "wires": [
             [
                 "7d7d5d76c7d50c52"
@@ -3826,7 +3829,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1380,
+        "y": 1440,
         "wires": [
             [
                 "103b4311b12747c4"
@@ -3847,7 +3850,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 1380,
+        "y": 1440,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3909,7 +3912,7 @@
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 1320,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -3929,10 +3932,53 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1320,
+        "y": 1380,
         "wires": [
             [
                 "c4c7d04cbda74725"
+            ]
+        ]
+    },
+    {
+        "id": "01d386f3d9240b18",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "Bluetooth speaker staat uit",
+        "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"MiniSAHA: Bluetooth speaker staat uit bij \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n  \"De Bluetooth speaker staat al een tijdje uit bij \" + voornaamGebruiker + \".\\n\\n\" +\n  \"Neem contact met op \" + voornaamGebruiker + \n  \" en vraag om de Bluetooth speaker weer aan te zetten.\\n\\n\" +\n  \"Het kan zijn dat de voeding van de Bluetooth speaker uitgeschakeld is (geweest).\\n\" +\n  \"Bijvoorbeeld: stekker uit stopcontact of stroomuitval geweest.\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1260,
+        "wires": [
+            [
+                "c0678892a8aa9532"
+            ]
+        ]
+    },
+    {
+        "id": "499d56692d3e80d0",
+        "type": "mqtt in",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "",
+        "topic": "BluetoothSpeakerOff",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1260,
+        "wires": [
+            [
+                "01d386f3d9240b18"
             ]
         ]
     },
@@ -4027,8 +4073,8 @@
         "g": "4a425ad2d30f78bc",
         "name": "icons: https://pictogrammers.com/library/mdi/",
         "info": "",
-        "x": 750,
-        "y": 640,
+        "x": 250,
+        "y": 660,
         "wires": []
     },
     {
@@ -4612,8 +4658,8 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Connection?",
-        "func": "msg.topic = \"BluetoothConnected\";\nflow.set(msg.topic, \"empty\");\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n}\nelse {\n    if (global.get(\"BluetoothConnectedName\") != \"\") {\n        msg.payload = \"Bluetooth speaker staat uit. Druk op de AAN knop.\";\n    }\n    else {\n        msg.payload = \"Er is nog geen Bluetooth speaker geconfigureerd.\";\n    }\n}\n\nflow.set(\"ConnectionMsg\", msg.payload);\nnode.status({ text: msg.payload + \",   \" + Date.now() });\n\nreturn msg;\n\n",
-        "outputs": 1,
+        "func": "msg.topic = \"BluetoothConnected\";\nflow.set(msg.topic, \"empty\");\n\nif (msg.payload == \"yes\") {\n    msg.payload = \"\";\n    let date = Date.now();\n    flow.set(\"BluetoothSpeakerLastSeen\", date);\n    flow.set(\"BluetoothSpeakerError\", \"\");\n}\nelse {\n    if (global.get(\"BluetoothConnectedName\") != \"\") {\n        msg.payload = \"Bluetooth speaker staat uit. Druk op de AAN knop.\";\n\n        let bluetoothSpeakerError = flow.get(\"BluetoothSpeakerError\") ?? \"\";\n        if (bluetoothSpeakerError == \"\") {\n            let lastSeen = flow.get(\"BluetoothSpeakerLastSeen\") ?? \"0\";\n            let date = Date.now();\n            if ((date - lastSeen) > (1 * 3600 * 1000)) {\n                // eenmalig email sturen:\n                flow.set(\"BluetoothSpeakerError\", date); \n                return [null, msg];\n            }\n        }\n    }\n    else {\n        msg.payload = \"Er is nog geen Bluetooth speaker geconfigureerd.\";\n    }\n}\n\nflow.set(\"ConnectionMsg\", msg.payload);\nnode.status({ text: msg.payload });\n\nreturn [msg, null];\n\n",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
@@ -4624,6 +4670,9 @@
         "wires": [
             [
                 "081def364cff34d8"
+            ],
+            [
+                "6071fd7d71fdc4f7"
             ]
         ]
     },
@@ -4885,8 +4934,8 @@
         "g": "4a425ad2d30f78bc",
         "name": "TODO: Als de speaker langer uit staat dan x uur, stuur een email naar de contacten.",
         "info": "",
-        "x": 770,
-        "y": 580,
+        "x": 790,
+        "y": 640,
         "wires": []
     },
     {
@@ -5145,6 +5194,25 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "6071fd7d71fdc4f7",
+        "type": "mqtt out",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "name": "",
+        "topic": "BluetoothSpeakerOff",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 640,
+        "y": 580,
+        "wires": []
     },
     {
         "id": "3f6b53d83b3ef58f",
@@ -10786,7 +10854,7 @@
         "z": "ce724907bfebf75c",
         "g": "b653e740e9531504",
         "name": "get devices",
-        "func": "msg.payload = 'echo -e \"devices\\nquit\" | bluetoothctl';\nmsg.payload = 'bluetoothctl devices';\nnode.status({ text: msg.payload });\nreturn msg;",
+        "func": "msg.payload = 'echo -e \"devices\\nquit\" | bluetoothctl';\nmsg.payload = 'bluetoothctl devices';\n\nlet now = new Date().getSeconds();\nnode.status({ text: now + \", \" + msg.payload });\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -12130,8 +12198,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 940,
-        "y": 500,
+        "x": 960,
+        "y": 520,
         "wires": []
     },
     {
