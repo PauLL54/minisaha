@@ -1264,14 +1264,14 @@
         "nodes": [
             "0c9397a8cf19c29f",
             "9f0b24c4bcae0eb7",
-            "0a442e75b974c1b1",
             "dce7b281c97f94eb",
             "44f0ce110cfcb28c",
             "dfa87f2dfdb4fc55",
             "3978f27a6fb20714",
             "57d56c552cf0861e",
             "9938b5643185321f",
-            "ec37fa4fb086c5c6"
+            "ec37fa4fb086c5c6",
+            "b9d9a9997124d7b9"
         ],
         "x": 34,
         "y": 79,
@@ -1383,6 +1383,33 @@
         "y": 1379,
         "w": 172,
         "h": 82
+    },
+    {
+        "id": "4aa4abb10438eb85",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "9b85a6085d559ea2",
+            "aff69827e6c9e7f7",
+            "c4374053a41625c7",
+            "91e7a56ab036e1a0",
+            "2c92e93f76564656",
+            "daaed1d0d0a15858",
+            "c8f37af1d1e7dc3c"
+        ],
+        "x": 34,
+        "y": 2699,
+        "w": 592,
+        "h": 202
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -3967,7 +3994,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Debug info",
-        "func": "msg.topic = \"Debug info: MiniSAHA\";\n\nmsg.payload = \n  \"\\nVoornaam gebruiker: \" + global.get(\"VoornaamGebruiker\") +\n  \"\\nSysteem ID: \" + global.get(\"SerialCRC32\") +\n  \"\\nBrowser: \" + global.get(\"Browser\") +\n  \"\\nPingCount: \" + global.get(\"PingCount\") +\n  \"\\nSMS credits: \" + global.get(\"SmsCredits\") ?? \"\";\n\n// TODO aantal email en SMS contacten\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (e1 != \"\") smsContacten++;\nif (e2 != \"\") smsContacten++;\nif (e3 != \"\") smsContacten++;\n\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker: \" + global.get(\"VoornaamGebruiker\") + // TODO moet weg\n  \"\\nRaspberry Pi ID:    \" + global.get(\"SerialCRC32\") +\n  \"\\nBrowser:            \" + global.get(\"Browser\") +\n  \"\\nAndroid PingCount:  \" + global.get(\"PingCount\") +\n  \"\\niPhone PingCount:   \" + (global.get(\"ScanCount\") ?? \"\") +\n  \"\\nSMS credits:        \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nEmail contacten:    \" + emailContacten +\n  \"\\nSMS contacten:      \" + smsContacten;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -9727,9 +9754,9 @@
         "type": "comment",
         "z": "eb60a9ea21d42f29",
         "g": "9e903c2c09c4282e",
-        "name": "Find optimum PingCount",
+        "name": "Find optimum Android PingCount",
         "info": "",
-        "x": 170,
+        "x": 190,
         "y": 1060,
         "wires": []
     },
@@ -10036,7 +10063,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "5d9bd39521e43f2b",
         "name": "Store SerialCRC32",
-        "func": "// CRC32 tabel genereren\nconst crcTable = (() => {\n    let c;\n    const table = [];\n    for (let n = 0; n < 256; n++) {\n        c = n;\n        for (let k = 0; k < 8; k++) {\n            c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);\n        }\n        table[n] = c >>> 0;\n    }\n    return table;\n})();\n\nmsg.payload = crc32Hex(msg.payload).toString(16).padStart(8, \"0\");\n\nglobal.set(\"SerialCRC32\", msg.payload);\nnode.status({ text: msg.payload });\nreturn msg;\n\n\n\n\n/**\n * Bereken CRC32 over een hex-string.\n * Input: payload\n * Output: 32-bit unsigned integer\n */\nfunction crc32Hex(hexStr) {\n    // Opschonen\n    hexStr = hexStr.replace(/[^0-9a-fA-F]/g, \"\");\n    if (hexStr.length % 2 !== 0) {\n        throw new Error(\"Hex-string moet een even aantal tekens hebben\");\n    }\n\n    let crc = 0 ^ (-1);\n\n    for (let i = 0; i < hexStr.length; i += 2) {\n        const byte = parseInt(hexStr.substr(i, 2), 16);\n        crc = (crc >>> 8) ^ crcTable[(crc ^ byte) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0; // unsigned 32-bit\n}\n",
+        "func": "// CRC32 tabel genereren\nconst crcTable = (() => {\n    let c;\n    const table = [];\n    for (let n = 0; n < 256; n++) {\n        c = n;\n        for (let k = 0; k < 8; k++) {\n            c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);\n        }\n        table[n] = c >>> 0;\n    }\n    return table;\n})();\n\nlet hex = crc32Hex(msg.payload);\n//msg.payload = crc32Hex(msg.payload).toString(16).padStart(8, \"0\");\nmsg.payload = hex;\n\nglobal.set(\"SerialCRC32\", msg.payload);\nnode.status({ text: msg.payload});\nreturn msg;\n\n\n\n\n/**\n * Bereken CRC32 over een hex-string.\n * Input: payload\n * Output: 32-bit unsigned integer\n */\nfunction crc32Hex(hexStr) {\n    // Opschonen\n    hexStr = hexStr.replace(/[^0-9a-fA-F]/g, \"\");\n    if (hexStr.length % 2 !== 0) {\n        throw new Error(\"Hex-string moet een even aantal tekens hebben\");\n    }\n\n    let crc = 0 ^ (-1);\n\n    for (let i = 0; i < hexStr.length; i += 2) {\n        const byte = parseInt(hexStr.substr(i, 2), 16);\n        crc = (crc >>> 8) ^ crcTable[(crc ^ byte) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0; // unsigned 32-bit\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -10621,6 +10648,179 @@
         "x": 760,
         "y": 460,
         "wires": []
+    },
+    {
+        "id": "9b85a6085d559ea2",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "4aa4abb10438eb85",
+        "name": "test decimal encryption",
+        "func": "// CRC32 tabel genereren\nconst crcTable = (() => {\n    let c;\n    const table = [];\n    for (let n = 0; n < 256; n++) {\n        c = n;\n        for (let k = 0; k < 8; k++) {\n            c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);\n        }\n        table[n] = c >>> 0;\n    }\n    return table;\n})();\n\n\n// convert to userKeyDashes:\nconst apikey = \"aBcDe\"; \nconst apikey_string = stringToDecimal(apikey); \nconst serial = \"100000009d86d50d\";  //\"100000008b3bcddd\";\nconst serial_crc32 = crc32Hex(serial);\n\nlet userKeyBare = xorDecimal(apikey_string, serial_crc32);\nlet userKey = userKeyBare + decimalChecksum(userKeyBare);\nlet userKeyDashes = addDashes(userKey);\n\n// convert back:\nlet userKeyNoDashes = removeDashes(userKeyDashes);\nlet isValidUserKey = verifyChecksum(userKeyNoDashes);\nlet userKeyVerified = userKeyNoDashes.slice(0, -2);\n\nlet userkey_back = xorDecimal(userKeyVerified, serial_crc32);\nlet apikey_back = decimalToString(userkey_back);\n\nmsg.payload = {\n    apikey: apikey,\n    apikey_string: apikey_string,\n    serial: serial,\n    serial_crc32: serial_crc32,\n    userKey: userKey,\n    userKeyDashes: userKeyDashes,\n    userKeyVerified: userKeyVerified,\n    userkey_back: userkey_back,\n    apikey_back: apikey_back,\n}\nreturn msg;\n\nfunction decimalChecksum(str) {\n    let sum = 0;\n    for (let i = 0; i < str.length; i++) {\n        let digit = Number(str[i]);\n        if (!isNaN(digit)) {\n            sum += digit;\n        }\n    }\n    return (sum % 100).toString().padStart(2, \"0\");\n}\n\nfunction verifyChecksum(str) {\n    let firstPart = str.slice(0, -2);\n    let lastTwo   = str.slice(-2);\n    let checksum = decimalChecksum(firstPart);\n    return (lastTwo == checksum);\n}\n\nfunction stringToDecimal(str) {\n    if (typeof str !== \"string\") return null;\n\n    // Spaties verwijderen\n    str = str.replace(/\\s+/g, \"\");\n\n    let hex = \"\";\n    for (let i = 0; i < str.length; i++) {\n        hex += str.charCodeAt(i).toString(16).padStart(2, \"0\");\n    }\n\n    // Hex → decimaal getal (als string, want het kan groot zijn)\n    return BigInt(\"0x\" + hex).toString(10);\n}\n\nfunction decimalToString(decStr) {\n    if (typeof decStr !== \"string\") return null;\n\n    // Decimaal → BigInt → hex\n    let hex = BigInt(decStr).toString(16);\n\n    // Als hex lengte oneven is → opvullen\n    if (hex.length % 2 === 1) {\n        hex = \"0\" + hex;\n    }\n\n    let out = \"\";\n    for (let i = 0; i < hex.length; i += 2) {\n        const byte = parseInt(hex.substr(i, 2), 16);\n        out += String.fromCharCode(byte);\n    }\n\n    return out;\n}\n\nfunction xorDecimal(decStr, xor) {\n    const dec = BigInt(decStr);\n    const xorVal = BigInt(xor);\n    const result = dec ^ xorVal;\n    return result.toString(10);\n}\n\nfunction addDashes(str) {\n    return str.match(/.{1,2}/g).join(\"-\");\n}\n\nfunction removeDashes(str) {\n    return str.replace(/-/g, \"\");\n}\n\n\n/**\n * Bereken CRC32 over een hex-string.\n * Input: payload\n * Output: 32-bit unsigned integer\n */\nfunction crc32Hex(hexStr) {\n    // Opschonen\n    hexStr = hexStr.replace(/[^0-9a-fA-F]/g, \"\");\n    if (hexStr.length % 2 !== 0) {\n        throw new Error(\"Hex-string moet een even aantal tekens hebben\");\n    }\n\n    let crc = 0 ^ (-1);\n\n    for (let i = 0; i < hexStr.length; i += 2) {\n        const byte = parseInt(hexStr.substr(i, 2), 16);\n        crc = (crc >>> 8) ^ crcTable[(crc ^ byte) & 0xFF];\n    }\n\n    return (crc ^ (-1)) >>> 0; // unsigned 32-bit\n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 2780,
+        "wires": [
+            [
+                "c4374053a41625c7"
+            ]
+        ]
+    },
+    {
+        "id": "aff69827e6c9e7f7",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "4aa4abb10438eb85",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 2780,
+        "wires": [
+            [
+                "9b85a6085d559ea2"
+            ]
+        ]
+    },
+    {
+        "id": "c4374053a41625c7",
+        "type": "debug",
+        "z": "eb60a9ea21d42f29",
+        "g": "4aa4abb10438eb85",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 2780,
+        "wires": []
+    },
+    {
+        "id": "91e7a56ab036e1a0",
+        "type": "ui-text-input",
+        "z": "eb60a9ea21d42f29",
+        "g": "4aa4abb10438eb85",
+        "group": "b71c0e77d9debcfd",
+        "name": "Machine ID",
+        "label": "Machine ID",
+        "order": 17,
+        "width": "0",
+        "height": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": "2000",
+        "passthru": false,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 130,
+        "y": 2860,
+        "wires": [
+            [
+                "c8f37af1d1e7dc3c"
+            ]
+        ]
+    },
+    {
+        "id": "2c92e93f76564656",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "g": "4aa4abb10438eb85",
+        "group": "b71c0e77d9debcfd",
+        "order": 16,
+        "width": "0",
+        "height": "0",
+        "name": "space",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "18",
+        "color": "#ffffff",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 510,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "daaed1d0d0a15858",
+        "type": "ui-text",
+        "z": "eb60a9ea21d42f29",
+        "g": "4aa4abb10438eb85",
+        "group": "b71c0e77d9debcfd",
+        "order": 18,
+        "width": "0",
+        "height": "0",
+        "name": "User license",
+        "label": "User license: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 530,
+        "y": 2860,
+        "wires": []
+    },
+    {
+        "id": "c8f37af1d1e7dc3c",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "4aa4abb10438eb85",
+        "name": "create user license",
+        "func": "const serial_crc32 = msg.payload.toString(16).padStart(8, \"0\");\n\nconst apikey = global.get(\"LicenseSMS\") ?? \"\";\nconst apikey_string = stringToDecimal(apikey);\n\nlet userKeyBare = xorDecimal(apikey_string, serial_crc32);\n\nlet userKey = userKeyBare + decimalChecksum(userKeyBare);\nlet userKeyDashes = addDashes(userKey);\n\nmsg.payload = userKeyDashes;\n\nnode.status({ text: userKeyDashes });\n\nreturn msg;\n\n\nfunction stringToDecimal(str) {\n    if (typeof str !== \"string\") return null;\n\n    // Spaties verwijderen\n    str = str.replace(/\\s+/g, \"\");\n\n    let hex = \"\";\n    for (let i = 0; i < str.length; i++) {\n        hex += str.charCodeAt(i).toString(16).padStart(2, \"0\");\n    }\n\n    // Hex → decimaal getal (als string, want het kan groot zijn)\n    return BigInt(\"0x\" + hex).toString(10);\n}\n\nfunction xorDecimal(decStr, xor) {\n    const dec = BigInt(decStr);\n    const xorVal = BigInt(xor);\n    const result = dec ^ xorVal;\n    return result.toString(10);\n}\n\nfunction addDashes(str) {\n    return str.match(/.{1,2}/g).join(\"-\");\n}\n\nfunction decimalChecksum(str) {\n    let sum = 0;\n    for (let i = 0; i < str.length; i++) {\n        let digit = Number(str[i]);\n        if (!isNaN(digit)) {\n            sum += digit;\n        }\n    }\n    return (sum % 100).toString().padStart(2, \"0\");\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 2860,
+        "wires": [
+            [
+                "daaed1d0d0a15858"
+            ]
+        ]
     },
     {
         "id": "0af8df52052ef366",
@@ -13957,11 +14157,11 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 610,
+        "x": 590,
         "y": 140,
         "wires": [
             [
-                "0a442e75b974c1b1"
+                "b9d9a9997124d7b9"
             ]
         ]
     },
@@ -13983,32 +14183,6 @@
         "wires": [
             [
                 "dce7b281c97f94eb"
-            ]
-        ]
-    },
-    {
-        "id": "0a442e75b974c1b1",
-        "type": "function",
-        "z": "b9094bb8c5d7ac80",
-        "g": "a41a6706f0c86c3e",
-        "name": "Verify",
-        "func": "let input = msg.payload ?? \"\";\n\nnode.status({ text: \"payload: \" + input });\n\nif (input == \"\") return;\nif (typeof input !== \"string\") return false;\n\n// Alle spaties verwijderen en converteren naar lower case\n input = String(input).replace(/\\s+/g, \"\").toLowerCase();\n\nif (input == global.get(\"SerialCRC32\")) {\n    node.status({ text: \"Geldig: \" + input });\n\n    global.set(\"SerialCRC32Checked\", input);\n    return [msg, null];\n}\nelse {\n    node.status({ text: \"Ongeldig: \" + input });\n    return [null, msg]\n}\n",
-        "outputs": 2,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 140,
-        "wires": [
-            [
-                "dfa87f2dfdb4fc55",
-                "9938b5643185321f"
-            ],
-            [
-                "9f0b24c4bcae0eb7",
-                "9938b5643185321f"
             ]
         ]
     },
@@ -14322,7 +14496,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 1000,
+        "x": 1060,
         "y": 140,
         "wires": []
     },
@@ -14345,6 +14519,32 @@
         "wires": [
             [
                 "44f0ce110cfcb28c"
+            ]
+        ]
+    },
+    {
+        "id": "b9d9a9997124d7b9",
+        "type": "function",
+        "z": "b9094bb8c5d7ac80",
+        "g": "a41a6706f0c86c3e",
+        "name": "Verify",
+        "func": "// convert back:\nlet userKeyDashes = removeWhitespace(msg.payload);\nlet userKeyNoDashes = removeDashes(userKeyDashes);\nif (userKeyDashes == \"\")\n    return null;\n\nlet isValidUserKey = verifyChecksum(userKeyNoDashes);\nif (!isValidUserKey) {\n    node.status({ text: \"Ongeldig: \" + userKeyNoDashes });\n    //global.set(\"LicenseSMS\", \"\");\n    return [null, msg];\n}\nlet userKeyVerified = userKeyNoDashes.slice(0, -2);\n\nlet serial_crc32 = global.get(\"SerialCRC32\");\nlet userkeyDecimal = xorDecimal(userKeyVerified, serial_crc32);\nlet apikey = decimalToString(userkeyDecimal);\n\nnode.status({ text: \"Geldig licentie\"  });\nglobal.set(\"LicenseSMS\", apikey);\n\nreturn [msg, null];\n\n\nfunction decimalChecksum(str) {\n    let sum = 0;\n    for (let i = 0; i < str.length; i++) {\n        let digit = Number(str[i]);\n        if (!isNaN(digit)) {\n            sum += digit;\n        }\n    }\n    return (sum % 100).toString().padStart(2, \"0\");\n}\n\nfunction verifyChecksum(str) {\n    let firstPart = str.slice(0, -2);\n    let lastTwo   = str.slice(-2);\n    let checksum = decimalChecksum(firstPart);\n    return (lastTwo == checksum);\n}\n\nfunction decimalToString(decStr) {\n    if (typeof decStr !== \"string\") return null;\n\n    // Decimaal → BigInt → hex\n    let hex = BigInt(decStr).toString(16);\n\n    // Als hex lengte oneven is → opvullen\n    if (hex.length % 2 === 1) {\n        hex = \"0\" + hex;\n    }\n\n    let out = \"\";\n    for (let i = 0; i < hex.length; i += 2) {\n        const byte = parseInt(hex.substr(i, 2), 16);\n        out += String.fromCharCode(byte);\n    }\n\n    return out;\n}\n\nfunction xorDecimal(decStr, xor) {\n    const dec = BigInt(decStr);\n    const xorVal = BigInt(xor);\n    const result = dec ^ xorVal;\n    return result.toString(10);\n}\n\nfunction removeDashes(str) {\n    return str.replace(/-/g, \"\");\n}\n\nfunction removeWhitespace(str) {\n    return str.replace(/\\s+/g, '');\n}",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 140,
+        "wires": [
+            [
+                "9938b5643185321f"
+            ],
+            [
+                "9f0b24c4bcae0eb7",
+                "9938b5643185321f",
+                "dfa87f2dfdb4fc55"
             ]
         ]
     }
