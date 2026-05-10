@@ -438,7 +438,10 @@
             "081def364cff34d8",
             "e81a4bffde8bcded",
             "31ba371bc1ff774b",
-            "83ab7304f97ca827"
+            "83ab7304f97ca827",
+            "d88c60e399358d58",
+            "4bc56fec83163b11",
+            "9c1cf991b73794a3"
         ],
         "x": 34,
         "y": 39,
@@ -885,10 +888,11 @@
             "f7e8d9c0b1a2",
             "9260659255156c8a",
             "a18148e4e8946b3b",
-            "8129738cd4f4fe2c"
+            "8129738cd4f4fe2c",
+            "748f55ba24c9c9bd"
         ],
         "x": 34,
-        "y": 1099,
+        "y": 999,
         "w": 1032,
         "h": 182
     },
@@ -4103,7 +4107,8 @@
         "y": 140,
         "wires": [
             [
-                "753a239026080219"
+                "753a239026080219",
+                "d88c60e399358d58"
             ]
         ]
     },
@@ -5071,6 +5076,77 @@
         "wires": []
     },
     {
+        "id": "d88c60e399358d58",
+        "type": "function",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "name": "IP_MobielChanged?",
+        "func": "let oldIP = global.get(\"IP_MobielChanged\") ?? \"\";\n\nif (oldIP != \"\") {\n    global.set(\"IP_MobielChanged\", \"\"); // eenmalige melding\n    msg.payload = \n        \"Info: Het IP adres van uw mobiel is gewijzigd (nieuwe mobiel?).\" +\n        \"<br><br>\" +\n        \"Als u dit vaker ziet: het kan zijn dat uw mobiel via \" +\n        \"2 verschillende WiFi kanalen een verbinding heeft. \" + \n        \"Verwijder dan de langzaamste verbinding.\";\n    return msg;\n}\nelse {\n    return null;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 380,
+        "wires": [
+            [
+                "4bc56fec83163b11"
+            ]
+        ]
+    },
+    {
+        "id": "4bc56fec83163b11",
+        "type": "ui-notification",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": false,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Sluiten",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 920,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9c1cf991b73794a3",
+        "type": "ui-template",
+        "z": "1e372cb3d08d9182",
+        "g": "4a425ad2d30f78bc",
+        "group": "",
+        "page": "e9d32d9d636d4a34",
+        "ui": "",
+        "name": "Notification style",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": ".v-snackbar__content {\n    font-size: 16px !important;\n}\n\n.v-snackbar__actions .v-btn__content {\n    font-size: 16px !important;\n    min-width: 150px;\n}\n\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "page:style",
+        "className": "",
+        "x": 920,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "3f6b53d83b3ef58f",
         "type": "ui-template",
         "z": "e786b4f70cf0ad09",
@@ -5811,7 +5887,7 @@
         "to": "",
         "reg": false,
         "x": 940,
-        "y": 1240,
+        "y": 1140,
         "wires": [
             []
         ]
@@ -6083,7 +6159,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 920,
-        "y": 1180,
+        "y": 1080,
         "wires": []
     },
     {
@@ -6352,15 +6428,15 @@
         "z": "5c14e0941d341b42",
         "g": "75f6d804089580c3",
         "name": "Get IP client",
-        "func": "let ip = msg._client?.socketIp || \"???\";\nmsg.payload = ip;\nreturn msg;",
+        "func": "let ip = msg._client?.socketIp || \"???\";\nmsg.payload = ip;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 1200,
+        "x": 290,
+        "y": 1100,
         "wires": [
             [
                 "a18148e4e8946b3b"
@@ -6376,7 +6452,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "change",
         "x": 120,
-        "y": 1200,
+        "y": 1100,
         "wires": [
             [
                 "f7e8d9c0b1a2"
@@ -6396,12 +6472,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
-        "y": 1200,
+        "x": 470,
+        "y": 1100,
         "wires": [
             [
-                "996abe576c2cecb2",
-                "a6fd027bc0be280d"
+                "748f55ba24c9c9bd"
             ]
         ]
     },
@@ -6528,7 +6603,7 @@
         "name": "Vraag automatisch het IP adres op van het mobieltje",
         "info": "",
         "x": 250,
-        "y": 1140,
+        "y": 1040,
         "wires": []
     },
     {
@@ -6793,6 +6868,28 @@
         "y": 220,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "748f55ba24c9c9bd",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "75f6d804089580c3",
+        "name": "IP changed?",
+        "func": "let ip = msg.payload;\n\nlet oldIP = global.get(\"IP_Mobiel\") ?? \"\";\nif ( (oldIP != \"\") && (ip != oldIP) ) {\n    global.set(\"IP_MobielChanged\", oldIP);\n    var tijd_nu = global.get(\"getTime\")();\n    node.status({ text: tijd_nu + \" \" + ip + \", \" + oldIP});\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1100,
+        "wires": [
+            [
+                "996abe576c2cecb2",
+                "a6fd027bc0be280d"
+            ]
         ]
     },
     {
@@ -10457,7 +10554,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "11224fdbd83e9688",
         "name": "get ScanCount",
-        "func": "msg.payload = global.get(\"ScanCount\") ?? 3;\n\nreturn msg;",
+        "func": "msg.payload = global.get(\"ScanCount\") ?? 2;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
