@@ -362,7 +362,7 @@
         "x": 14,
         "y": 599,
         "w": 1312,
-        "h": 982
+        "h": 942
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -438,14 +438,13 @@
             "389045590526c181",
             "87cce92b163a7192",
             "081def364cff34d8",
-            "e81a4bffde8bcded",
             "31ba371bc1ff774b",
             "83ab7304f97ca827",
             "6071fd7d71fdc4f7"
         ],
         "x": 34,
         "y": 39,
-        "w": 1072,
+        "w": 952,
         "h": 662
     },
     {
@@ -859,7 +858,6 @@
             "9328b12c82bcdb88",
             "3dc33bd26ddfd0cd",
             "b92aa98cbf16363f",
-            "8032366086aa8de0",
             "e0d919a5c94f2160",
             "27368f40feb169f4",
             "d0645ed6feb91bd1"
@@ -867,7 +865,7 @@
         "x": 34,
         "y": 959,
         "w": 952,
-        "h": 709.5
+        "h": 629.5
     },
     {
         "id": "75f6d804089580c3",
@@ -1346,7 +1344,7 @@
             "ebac05316c6a1263"
         ],
         "x": 34,
-        "y": 1699,
+        "y": 1619,
         "w": 632,
         "h": 182
     },
@@ -1391,12 +1389,13 @@
             "91e7a56ab036e1a0",
             "2c92e93f76564656",
             "daaed1d0d0a15858",
-            "c8f37af1d1e7dc3c"
+            "c8f37af1d1e7dc3c",
+            "7eda9637a81def87"
         ],
         "x": 34,
-        "y": 2699,
+        "y": 2339,
         "w": 632,
-        "h": 202
+        "h": 222
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -2776,7 +2775,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 230,
-        "y": 1540,
+        "y": 1500,
         "wires": []
     },
     {
@@ -3379,9 +3378,9 @@
         "type": "comment",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Meld gebruiker en contactpersonen",
+        "name": "Emails en SMS",
         "info": "",
-        "x": 180,
+        "x": 120,
         "y": 640,
         "wires": []
     },
@@ -3766,7 +3765,7 @@
             }
         ],
         "repeat": "",
-        "crontab": "20 12 * * 0",
+        "crontab": "00 07 * * 2",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
@@ -3786,7 +3785,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Debug info",
-        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (e1 != \"\") smsContacten++;\nif (e2 != \"\") smsContacten++;\nif (e3 != \"\") smsContacten++;\n\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker: \" + global.get(\"VoornaamGebruiker\") + // TODO moet weg\n  \"\\nRaspberry Pi ID:    \" + global.get(\"SerialCRC32\") +\n  \"\\nBrowser:            \" + global.get(\"Browser\") +\n  \"\\nAndroid PingCount:  \" + global.get(\"PingCount\") +\n  \"\\niPhone PingCount:   \" + (global.get(\"ScanCount\") ?? \"\") +\n  \"\\nSMS credits:        \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nEmail contacten:    \" + emailContacten +\n  \"\\nSMS contacten:      \" + smsContacten;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (e1 != \"\") smsContacten++;\nif (e2 != \"\") smsContacten++;\nif (e3 != \"\") smsContacten++;\n\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker: \" + global.get(\"VoornaamGebruiker\") + // TODO moet weg\n  \"\\nRaspberry Pi model: \" + global.get(\"RaspberryPiModel\") +\n  \"\\nRaspberry Pi ID:    \" + global.get(\"SerialCRC32\") +\n  \"\\nBrowser:            \" + global.get(\"Browser\") +\n  \"\\nPingCount:          \" + global.get(\"PingCount\") +\n  \"\\nSMS credits:        \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nEmail contacten:    \" + emailContacten +\n  \"\\nSMS contacten:      \" + smsContacten;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4890,17 +4889,6 @@
                 "f85ce69846f65989"
             ]
         ]
-    },
-    {
-        "id": "e81a4bffde8bcded",
-        "type": "comment",
-        "z": "1e372cb3d08d9182",
-        "g": "4a425ad2d30f78bc",
-        "name": "TODO: Als de speaker langer uit staat dan x uur, stuur een email naar de contacten.",
-        "info": "",
-        "x": 790,
-        "y": 640,
-        "wires": []
     },
     {
         "id": "http_in_browser",
@@ -7610,7 +7598,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 2060,
+        "y": 1920,
         "wires": [
             [
                 "fn1"
@@ -7630,7 +7618,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 2060,
+        "y": 1920,
         "wires": [
             [
                 "7be1e3e3c5ead2f4"
@@ -8020,27 +8008,6 @@
         ]
     },
     {
-        "id": "8032366086aa8de0",
-        "type": "exec",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "command": "cd .node-red; npm install node-red-contrib-network-tools",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "node-red-contrib-network-tools",
-        "x": 670,
-        "y": 1540,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
         "id": "e0d919a5c94f2160",
         "type": "mqtt out",
         "z": "af31bf2fe058f803",
@@ -8087,7 +8054,7 @@
         "name": "https://api.callmebot.com/whatsapp.php?phone=[phone_number]&text=[message]&apikey=[your_apikey]",
         "info": "",
         "x": 390,
-        "y": 2000,
+        "y": 1860,
         "wires": []
     },
     {
@@ -8105,7 +8072,7 @@
         "senderr": false,
         "headers": [],
         "x": 590,
-        "y": 2060,
+        "y": 1920,
         "wires": [
             [
                 "338d050289d11eeb"
@@ -8125,7 +8092,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 2060,
+        "y": 1920,
         "wires": []
     },
     {
@@ -8185,8 +8152,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "install dashboard@latest",
-        "x": 650,
-        "y": 1620,
+        "x": 630,
+        "y": 1540,
         "wires": [
             [],
             [],
@@ -8226,7 +8193,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 1740,
+        "y": 1660,
         "wires": [
             [
                 "b1fed896a6f955dc"
@@ -8253,7 +8220,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 1780,
+        "y": 1700,
         "wires": [
             []
         ]
@@ -8272,7 +8239,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 1740,
+        "y": 1660,
         "wires": [
             [
                 "eaa241811439e3af"
@@ -8288,7 +8255,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "all",
         "x": 580,
-        "y": 1740,
+        "y": 1660,
         "wires": [
             []
         ]
@@ -8302,7 +8269,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "change",
         "x": 120,
-        "y": 1840,
+        "y": 1760,
         "wires": [
             [
                 "8d958d40801e5e3b"
@@ -8323,7 +8290,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 1840,
+        "y": 1760,
         "wires": [
             [
                 "ebac05316c6a1263"
@@ -8352,7 +8319,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 570,
-        "y": 1840,
+        "y": 1760,
         "wires": []
     },
     {
@@ -10340,7 +10307,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 2780,
+        "y": 2440,
         "wires": [
             [
                 "c4374053a41625c7"
@@ -10370,7 +10337,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 2780,
+        "y": 2440,
         "wires": [
             [
                 "9b85a6085d559ea2"
@@ -10391,7 +10358,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 560,
-        "y": 2780,
+        "y": 2440,
         "wires": []
     },
     {
@@ -10421,7 +10388,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 130,
-        "y": 2860,
+        "y": 2520,
         "wires": [
             [
                 "c8f37af1d1e7dc3c"
@@ -10450,7 +10417,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 550,
-        "y": 2740,
+        "y": 2400,
         "wires": []
     },
     {
@@ -10475,7 +10442,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 570,
-        "y": 2860,
+        "y": 2520,
         "wires": []
     },
     {
@@ -10492,12 +10459,23 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 2860,
+        "y": 2520,
         "wires": [
             [
                 "daaed1d0d0a15858"
             ]
         ]
+    },
+    {
+        "id": "7eda9637a81def87",
+        "type": "comment",
+        "z": "eb60a9ea21d42f29",
+        "g": "4aa4abb10438eb85",
+        "name": "Maak een SMS gebruikers licentie aan",
+        "info": "",
+        "x": 210,
+        "y": 2380,
+        "wires": []
     },
     {
         "id": "0af8df52052ef366",
