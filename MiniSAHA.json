@@ -362,7 +362,7 @@
         "x": 14,
         "y": 599,
         "w": 1312,
-        "h": 942
+        "h": 962
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -2777,7 +2777,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 230,
-        "y": 1500,
+        "y": 1520,
         "wires": []
     },
     {
@@ -2911,7 +2911,7 @@
         "name": "",
         "dname": "",
         "x": 990,
-        "y": 1180,
+        "y": 1240,
         "wires": []
     },
     {
@@ -2995,7 +2995,7 @@
         "scope": null,
         "uncaught": false,
         "x": 980,
-        "y": 1460,
+        "y": 1520,
         "wires": [
             [
                 "8322868abe70e928"
@@ -3017,7 +3017,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1130,
-        "y": 1460,
+        "y": 1520,
         "wires": []
     },
     {
@@ -3070,7 +3070,7 @@
         "type": "inject",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Weekly",
+        "name": "Sunday 12:00",
         "props": [
             {
                 "p": "payload"
@@ -3087,8 +3087,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 1140,
+        "x": 140,
+        "y": 1200,
         "wires": [
             [
                 "cfa6b22427e3edc3"
@@ -3109,7 +3109,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1140,
+        "y": 1200,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3324,7 +3324,7 @@
         "finalize": "",
         "libs": [],
         "x": 700,
-        "y": 1080,
+        "y": 1180,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3411,7 +3411,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 1200,
+        "y": 1260,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3433,7 +3433,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 120,
-        "y": 1200,
+        "y": 1260,
         "wires": [
             [
                 "6c19355dfbaa9427"
@@ -3455,7 +3455,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1320,
+        "y": 1380,
         "wires": [
             [
                 "7df2d7d7906671f7"
@@ -3476,7 +3476,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1320,
+        "y": 1380,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3624,7 +3624,7 @@
         "name": "Indien niet urgent, stuur email (is gratis)",
         "info": "",
         "x": 770,
-        "y": 1040,
+        "y": 1140,
         "wires": []
     },
     {
@@ -3641,7 +3641,7 @@
         "finalize": "",
         "libs": [],
         "x": 860,
-        "y": 960,
+        "y": 1020,
         "wires": [
             [
                 "f7f2e64c9bfdf1f0"
@@ -3661,7 +3661,7 @@
         "persist": false,
         "authType": "",
         "x": 1020,
-        "y": 960,
+        "y": 1020,
         "wires": [
             [
                 "f938d14348c8ceab"
@@ -3738,7 +3738,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Save used credits",
-        "func": "let credits = parseFloat(global.get(\"SmsCredits\") ?? 0.0);\n\ncredits += parseFloat(msg.payload.credits);\nglobal.set(\"SmsCredits\", credits);\nnode.status({ text: \" credits: \" + credits });\nreturn msg;",
+        "func": "let credits = parseFloat(global.get(\"SmsCredits\") ?? 0.0);\n\ncredits += parseFloat(msg.payload.credits);\n\nif (!Number.isNaN(credits))\n    global.set(\"SmsCredits\", credits);\n    \nnode.status({ text: \" credits: \" + credits });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3746,7 +3746,7 @@
         "finalize": "",
         "libs": [],
         "x": 1210,
-        "y": 960,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -3869,18 +3869,20 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Welkom nieuw SMS contact  TODO",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet emailTopic = \"MiniSAHA: welkom contactpersoon van \" + voornaamGebruiker;\nlet toAddress = msg.payload;\nlet text = \"Beste contactpersoon,\" + \n  \"<br><br>\" +\n  voornaamGebruiker + \" heeft je 06 nummer toegevoegd in zijn MiniSAHA app.\" + \n  \"<br>\" +\n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een SMS bericht hiervan krijgen.\" +\n  \"<br>\" +\n  \"Neem dan even contact op met \" + voornaamGebruiker + \" om te kijken wat er aan de hand is.\" +\n  \"<br><br>\" +\n  \"Tip: configureer een apart meldingsgeluid voor je SMS zodat je onderscheid kan maken tussen SMS en WhatsApp berichten.\" + \n  \"<br>\";\n\nmsg = {\n  to: toAddress,\n  from: \"safeathomealone@gmail.com\",\n  topic: emailTopic,\n  payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "name": "Welkom nieuw SMS contact",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet toAddress = msg.payload;\nlet body = \"Beste contactpersoon, \" + \n  voornaamGebruiker + \" heeft je 06 nummer toegevoegd in zijn MiniSAHA app.\" + \n  \" Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een SMS bericht hiervan krijgen.\" +\n  \" Neem dan even contact op met \" + voornaamGebruiker + \" om te kijken wat er aan de hand is.\" +\n  \" Tip: configureer een apart meldingsgeluid voor je SMS zodat je onderscheid kan maken tussen SMS en WhatsApp berichten.\";\n\nlet recipients = [];\nrecipients.push(toAddress);\n\nmsg.payload = {\n    recipients: recipients,\n    body: body\n};\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 1380,
+        "x": 460,
+        "y": 1140,
         "wires": [
-            []
+            [
+                "b6f1cd01ee1848ea"
+            ]
         ]
     },
     {
@@ -3898,7 +3900,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1380,
+        "y": 1140,
         "wires": [
             [
                 "c4c7d04cbda74725"
@@ -3919,7 +3921,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3941,7 +3943,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "01d386f3d9240b18"
