@@ -7702,7 +7702,7 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "cp -f version.txt version_test.txt  MiniSAHA_cred.json MiniSAHA.json Logo.png bluetooth.py .node-red/projects/MiniSAHA",
+        "command": "cp -f version.txt version_test.txt  MiniSAHA_cred.json MiniSAHA.json Logo.png bluetooth.py ble-tag.py .node-red/projects/MiniSAHA",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
