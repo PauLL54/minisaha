@@ -860,12 +860,14 @@
             "b92aa98cbf16363f",
             "e0d919a5c94f2160",
             "27368f40feb169f4",
-            "d0645ed6feb91bd1"
+            "d0645ed6feb91bd1",
+            "d2b8147b353e2f29",
+            "76ecef5aa3ea71c9"
         ],
         "x": 34,
         "y": 959,
         "w": 952,
-        "h": 629.5
+        "h": 709.5
     },
     {
         "id": "75f6d804089580c3",
@@ -1344,7 +1346,7 @@
             "ebac05316c6a1263"
         ],
         "x": 34,
-        "y": 1619,
+        "y": 1719,
         "w": 632,
         "h": 182
     },
@@ -3765,7 +3767,7 @@
             }
         ],
         "repeat": "",
-        "crontab": "00 07 * * 2",
+        "crontab": "00 07 * * 3,0",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
@@ -7598,7 +7600,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 1920,
+        "y": 2020,
         "wires": [
             [
                 "fn1"
@@ -7618,7 +7620,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 1920,
+        "y": 2020,
         "wires": [
             [
                 "7be1e3e3c5ead2f4"
@@ -7709,7 +7711,7 @@
         "oldrc": false,
         "name": "Install all files",
         "x": 330,
-        "y": 1440,
+        "y": 1520,
         "wires": [
             [
                 "c4571cfee0924b57"
@@ -7872,7 +7874,7 @@
         "y": 1360,
         "wires": [
             [
-                "02d2ac26c698a195"
+                "d2b8147b353e2f29"
             ],
             [],
             []
@@ -7892,7 +7894,7 @@
         "oldrc": false,
         "name": "chmod +x",
         "x": 580,
-        "y": 1440,
+        "y": 1520,
         "wires": [
             [
                 "3dc33bd26ddfd0cd"
@@ -7926,7 +7928,7 @@
         "oldrc": false,
         "name": "get sound",
         "x": 160,
-        "y": 1540,
+        "y": 1620,
         "wires": [
             [
                 "9328b12c82bcdb88"
@@ -7949,7 +7951,7 @@
         "oldrc": false,
         "name": "Install sound",
         "x": 350,
-        "y": 1540,
+        "y": 1620,
         "wires": [
             [],
             [],
@@ -7970,7 +7972,7 @@
         "oldrc": false,
         "name": "Restart node-red",
         "x": 870,
-        "y": 1460,
+        "y": 1540,
         "wires": [
             [],
             [],
@@ -8054,7 +8056,7 @@
         "name": "https://api.callmebot.com/whatsapp.php?phone=[phone_number]&text=[message]&apikey=[your_apikey]",
         "info": "",
         "x": 390,
-        "y": 1860,
+        "y": 1960,
         "wires": []
     },
     {
@@ -8072,7 +8074,7 @@
         "senderr": false,
         "headers": [],
         "x": 590,
-        "y": 1920,
+        "y": 2020,
         "wires": [
             [
                 "338d050289d11eeb"
@@ -8092,7 +8094,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 1920,
+        "y": 2020,
         "wires": []
     },
     {
@@ -8153,7 +8155,7 @@
         "oldrc": false,
         "name": "install dashboard@latest",
         "x": 630,
-        "y": 1540,
+        "y": 1620,
         "wires": [
             [],
             [],
@@ -8193,7 +8195,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 1660,
+        "y": 1760,
         "wires": [
             [
                 "b1fed896a6f955dc"
@@ -8220,7 +8222,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 1700,
+        "y": 1800,
         "wires": [
             []
         ]
@@ -8239,7 +8241,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 1660,
+        "y": 1760,
         "wires": [
             [
                 "eaa241811439e3af"
@@ -8255,7 +8257,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "all",
         "x": 580,
-        "y": 1660,
+        "y": 1760,
         "wires": [
             []
         ]
@@ -8269,7 +8271,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "change",
         "x": 120,
-        "y": 1760,
+        "y": 1860,
         "wires": [
             [
                 "8d958d40801e5e3b"
@@ -8290,7 +8292,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 1760,
+        "y": 1860,
         "wires": [
             [
                 "ebac05316c6a1263"
@@ -8319,8 +8321,54 @@
         "value": "payload",
         "valueType": "msg",
         "x": 570,
-        "y": 1760,
+        "y": 1860,
         "wires": []
+    },
+    {
+        "id": "d2b8147b353e2f29",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "rm ble-tag.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rm ble-tag.py",
+        "x": 330,
+        "y": 1440,
+        "wires": [
+            [
+                "76ecef5aa3ea71c9"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "76ecef5aa3ea71c9",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/ble-tag.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get ble-tag.py",
+        "x": 600,
+        "y": 1440,
+        "wires": [
+            [
+                "02d2ac26c698a195"
+            ],
+            [],
+            []
+        ]
     },
     {
         "id": "ac6f3d5c09bce733",
