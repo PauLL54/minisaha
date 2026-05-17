@@ -485,11 +485,9 @@
             "dbba826abffed645",
             "deddc844a320c139",
             "7bef1118bd1260f5",
-            "dcb4baf1a05899c1",
             "b605c08bff5ebcc9",
             "5616e906d55578c0",
-            "23212dfcb7f036ad",
-            "af98f79b0da00ce1"
+            "23212dfcb7f036ad"
         ],
         "x": 34,
         "y": 279,
@@ -857,11 +855,8 @@
             "05d5a950f617317c",
             "c4571cfee0924b57",
             "ba410ac8c1a26bad",
-            "363ef96aac78d4e7",
-            "9328b12c82bcdb88",
             "3dc33bd26ddfd0cd",
             "b92aa98cbf16363f",
-            "d0645ed6feb91bd1",
             "d2b8147b353e2f29",
             "76ecef5aa3ea71c9",
             "cb0ebccbf541c91e",
@@ -871,7 +866,7 @@
         "x": 34,
         "y": 1259,
         "w": 992,
-        "h": 729.5
+        "h": 629.5
     },
     {
         "id": "75f6d804089580c3",
@@ -1347,7 +1342,7 @@
             "ebac05316c6a1263"
         ],
         "x": 34,
-        "y": 1999,
+        "y": 1919,
         "w": 632,
         "h": 182
     },
@@ -7061,7 +7056,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "name": "Get version, dependencies",
-        "func": "let version = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload).slice(1);\n\nvar msg1 = { payload: version };\nvar msg2 = { payload: dependencies };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              version + \", \" + dependencies.length});\nreturn [msg1, msg2];\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\"))\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            return line;\n            /*\n            // index van de LAATSTE \"@\"\n            const idx = line.lastIndexOf(\"@\");\n            const name = line.substring(0, idx);\n            const version = line.substring(idx + 1);\n            return [name, version];\n            */\n        });\n}\n",
+        "func": "let version = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload);\n\nvar msg1 = { payload: version };\nvar msg2 = { payload: dependencies };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              version + \", \" + dependencies.length});\nreturn [msg1, msg2];\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\"))\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            return line;\n            /*\n            // index van de LAATSTE \"@\"\n            const idx = line.lastIndexOf(\"@\");\n            const name = line.substring(0, idx);\n            const version = line.substring(idx + 1);\n            return [name, version];\n            */\n        });\n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -7573,7 +7568,7 @@
         "oldrc": false,
         "name": "Reboot",
         "x": 880,
-        "y": 1760,
+        "y": 1740,
         "wires": [
             [],
             [],
@@ -7822,50 +7817,6 @@
         "wires": []
     },
     {
-        "id": "363ef96aac78d4e7",
-        "type": "exec",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/Goedemorgen.mp3",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "get sound",
-        "x": 160,
-        "y": 1940,
-        "wires": [
-            [
-                "9328b12c82bcdb88"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "9328b12c82bcdb88",
-        "type": "exec",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "command": "cp -f Goedemorgen.mp3 .node-red/projects/MiniSAHA/sounds",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Install sound",
-        "x": 350,
-        "y": 1940,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
         "id": "3dc33bd26ddfd0cd",
         "type": "exec",
         "z": "af31bf2fe058f803",
@@ -7879,7 +7830,7 @@
         "oldrc": false,
         "name": "Restart node-red",
         "x": 910,
-        "y": 1860,
+        "y": 1840,
         "wires": [
             [],
             [],
@@ -8010,27 +7961,6 @@
         ]
     },
     {
-        "id": "d0645ed6feb91bd1",
-        "type": "exec",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "command": "cd .node-red; npm install @flowfuse/node-red-dashboard@latest",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "install dashboard@latest",
-        "x": 670,
-        "y": 1940,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
         "id": "f48f1e6a0c126ccf",
         "type": "ui-button",
         "z": "af31bf2fe058f803",
@@ -8063,7 +7993,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 2040,
+        "y": 1960,
         "wires": [
             [
                 "b1fed896a6f955dc"
@@ -8090,7 +8020,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 2080,
+        "y": 2000,
         "wires": [
             []
         ]
@@ -8109,7 +8039,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 2040,
+        "y": 1960,
         "wires": [
             [
                 "eaa241811439e3af"
@@ -8125,7 +8055,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "all",
         "x": 580,
-        "y": 2040,
+        "y": 1960,
         "wires": [
             []
         ]
@@ -8139,7 +8069,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "change",
         "x": 120,
-        "y": 2140,
+        "y": 2060,
         "wires": [
             [
                 "8d958d40801e5e3b"
@@ -8160,7 +8090,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 2140,
+        "y": 2060,
         "wires": [
             [
                 "ebac05316c6a1263"
@@ -8189,7 +8119,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 570,
-        "y": 2140,
+        "y": 2060,
         "wires": []
     },
     {
@@ -8309,25 +8239,6 @@
         ]
     },
     {
-        "id": "dcb4baf1a05899c1",
-        "type": "function",
-        "z": "af31bf2fe058f803",
-        "g": "5bb2b589a301c7c8",
-        "name": "Update npm node",
-        "func": "// npm install node-red-contrib-play-audio@2.5.0\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 590,
-        "y": 680,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "b605c08bff5ebcc9",
         "type": "change",
         "z": "af31bf2fe058f803",
@@ -8399,7 +8310,7 @@
         "z": "af31bf2fe058f803",
         "g": "27f4bc9fc8a40df5",
         "name": "Update dependencies",
-        "func": "let dependenciesToInstall = \"\";\nlet dependenciesCurrent = global.get(\"DependenciesCurrent\") ?? [];\nlet dependenciesRequired = [];\n\nif (msg.topic == \"Test\") {\n    dependenciesRequired = global.get(\"DependenciesRequiredTest\") ?? [];\n}\nelse {\n    dependenciesRequired = global.get(\"DependenciesRequired\") ?? [];\n}\n\nfor (const value of dependenciesRequired) {\n    if (!dependenciesCurrent.includes(value)) {\n        dependenciesToInstall += \"; npm install \" + value;\n    }\n}\n\nnode.status({ text: dependenciesToInstall });\n\nif (dependenciesToInstall.length > 0) {\n    msg.payload = \"cd .node-red \" + dependenciesToInstall;\n    return [msg, null];\n}\nelse {\n    return [null, msg];\n}",
+        "func": "let dependenciesToInstall = \"\";\nlet dependenciesCurrent = global.get(\"DependenciesCurrent\") ?? [];\nlet dependenciesRequired = [];\n\nif (msg.topic == \"Test\") {\n    dependenciesRequired = global.get(\"DependenciesRequiredTest\") ?? [];\n}\nelse {\n    dependenciesRequired = global.get(\"DependenciesRequired\") ?? [];\n}\n\nfor (const value of dependenciesRequired) {\n    if (!dependenciesCurrent.includes(value)) {\n        dependenciesToInstall += \"; npm install \" + value;\n    }\n}\n\nnode.status({ text: \"dependencies: \" + dependenciesToInstall });\n\nif (dependenciesToInstall.length > 0) {\n    msg.payload = \"cd .node-red \" + dependenciesToInstall;\n    return [msg, null];\n}\nelse {\n    return [null, msg];\n}",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -8597,17 +8508,6 @@
             [],
             []
         ]
-    },
-    {
-        "id": "af98f79b0da00ce1",
-        "type": "comment",
-        "z": "af31bf2fe058f803",
-        "g": "5bb2b589a301c7c8",
-        "name": "wat als er geen internet verbinding is?",
-        "info": "",
-        "x": 490,
-        "y": 720,
-        "wires": []
     },
     {
         "id": "62960d2a10d3a62c",
@@ -10679,7 +10579,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "4566824d49f71745",
         "name": "Get version",
-        "func": "let version = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload).slice(1);\n\nvar msg1 = { payload: version };\nvar msg2 = { payload: dependencies };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              version + \", \" + dependencies.length});\nreturn [msg1, msg2];\n\n//msg.payload = msg.payload.replace(/[\\r\\n]+/g, '');\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\"))\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            return line;\n            /*\n            // index van de LAATSTE \"@\"\n            const idx = line.lastIndexOf(\"@\");\n            const name = line.substring(0, idx);\n            const version = line.substring(idx + 1);\n            return [name, version];\n            */\n        });\n}\n",
+        "func": "let version = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload);\n\nvar msg1 = { payload: version };\nvar msg2 = { payload: dependencies };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              version + \", \" + dependencies.length});\nreturn [msg1, msg2];\n\n//msg.payload = msg.payload.replace(/[\\r\\n]+/g, '');\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\"))\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            return line;\n            /*\n            // index van de LAATSTE \"@\"\n            const idx = line.lastIndexOf(\"@\");\n            const name = line.substring(0, idx);\n            const version = line.substring(idx + 1);\n            return [name, version];\n            */\n        });\n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
