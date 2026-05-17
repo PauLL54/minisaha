@@ -488,7 +488,8 @@
             "dcb4baf1a05899c1",
             "b605c08bff5ebcc9",
             "5616e906d55578c0",
-            "23212dfcb7f036ad"
+            "23212dfcb7f036ad",
+            "af98f79b0da00ce1"
         ],
         "x": 34,
         "y": 279,
@@ -868,7 +869,7 @@
             "ef8f414221384c89"
         ],
         "x": 34,
-        "y": 1219,
+        "y": 1259,
         "w": 992,
         "h": 729.5
     },
@@ -1346,7 +1347,7 @@
             "ebac05316c6a1263"
         ],
         "x": 34,
-        "y": 1959,
+        "y": 1999,
         "w": 632,
         "h": 182
     },
@@ -1416,12 +1417,15 @@
             "8418ba93fe088f54",
             "34d7ae63b33b2312",
             "de759ce446cd5985",
-            "d3862797b5f24a38"
+            "d3862797b5f24a38",
+            "4ba08a17394359ae",
+            "5120f07f67f52f22",
+            "62960d2a10d3a62c"
         ],
         "x": 34,
-        "y": 1039,
-        "w": 892,
-        "h": 142
+        "y": 1059,
+        "w": 832,
+        "h": 162
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -7057,7 +7061,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "name": "Get version, dependencies",
-        "func": "let version = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload).slice(1);\n\nvar msg1 = { payload: version };\nvar msg2 = { payload: dependencies };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              version + \", \" + dependencies.length});\nreturn [msg1, msg2];\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\"))\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            // index van de LAATSTE \"@\"\n            const idx = line.lastIndexOf(\"@\");\n\n            const name = line.substring(0, idx);\n            const version = line.substring(idx + 1);\n\n            return [name, version];\n        });\n}\n",
+        "func": "let version = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload).slice(1);\n\nvar msg1 = { payload: version };\nvar msg2 = { payload: dependencies };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              version + \", \" + dependencies.length});\nreturn [msg1, msg2];\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\"))\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            return line;\n            /*\n            // index van de LAATSTE \"@\"\n            const idx = line.lastIndexOf(\"@\");\n            const name = line.substring(0, idx);\n            const version = line.substring(idx + 1);\n            return [name, version];\n            */\n        });\n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -7245,7 +7249,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "name": "Update?",
-        "func": "var current = global.get(\"version\");\nvar latest = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", latest: \" + latest    });\n\nif (latest > current) {\n    var msg2 = { \n        topic: \"Product\",\n        payload: \"Update wordt geinstalleerd...\"\n        };\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { \n        topic: \"Product\",\n        payload: \"Geen nieuwere versie beschikbaar.\"\n        };\n   return [null, msg2]; \n}\n",
+        "func": "var current = global.get(\"version\");\nvar requiredVersion = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", required: \" + requiredVersion });\n\nif (requiredVersion > current) {\n    var msg2 = { \n        topic: \"Product\",\n        payload: \"Update wordt geinstalleerd...\"\n        };\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { \n        topic: \"Product\",\n        payload: \"Geen nieuwere versie beschikbaar.\"\n        };\n   return [null, msg2]; \n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -7528,7 +7532,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 2240,
+        "y": 2280,
         "wires": [
             [
                 "fn1"
@@ -7548,7 +7552,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 2240,
+        "y": 2280,
         "wires": [
             [
                 "7be1e3e3c5ead2f4"
@@ -7569,7 +7573,7 @@
         "oldrc": false,
         "name": "Reboot",
         "x": 880,
-        "y": 1720,
+        "y": 1760,
         "wires": [
             [],
             [],
@@ -7590,7 +7594,7 @@
         "oldrc": false,
         "name": "rm MiniSAHA.json",
         "x": 370,
-        "y": 1400,
+        "y": 1440,
         "wires": [
             [
                 "7a258c3a06322d6a"
@@ -7613,7 +7617,7 @@
         "oldrc": false,
         "name": "get MiniSAHA.json",
         "x": 650,
-        "y": 1400,
+        "y": 1440,
         "wires": [
             [
                 "28228f40169db06d"
@@ -7636,7 +7640,7 @@
         "oldrc": false,
         "name": "Install all files",
         "x": 350,
-        "y": 1800,
+        "y": 1840,
         "wires": [
             [
                 "c4571cfee0924b57"
@@ -7659,7 +7663,7 @@
         "oldrc": false,
         "name": "get Logo.png",
         "x": 630,
-        "y": 1560,
+        "y": 1600,
         "wires": [
             [
                 "b119fd4598e51e41"
@@ -7682,7 +7686,7 @@
         "oldrc": false,
         "name": "rm Logo.png",
         "x": 350,
-        "y": 1560,
+        "y": 1600,
         "wires": [
             [
                 "477a82641741c1d2"
@@ -7705,7 +7709,7 @@
         "oldrc": false,
         "name": "rm MiniSAHA_cred.json",
         "x": 390,
-        "y": 1480,
+        "y": 1520,
         "wires": [
             [
                 "62cf14493c558309"
@@ -7728,7 +7732,7 @@
         "oldrc": false,
         "name": "get MiniSAHA_cred.json",
         "x": 670,
-        "y": 1480,
+        "y": 1520,
         "wires": [
             [
                 "6ba99393e4c393d8"
@@ -7751,7 +7755,7 @@
         "oldrc": false,
         "name": "rm bluetooth.py",
         "x": 360,
-        "y": 1640,
+        "y": 1680,
         "wires": [
             [
                 "05d5a950f617317c"
@@ -7774,7 +7778,7 @@
         "oldrc": false,
         "name": "get bluetooth.py",
         "x": 640,
-        "y": 1640,
+        "y": 1680,
         "wires": [
             [
                 "d2b8147b353e2f29"
@@ -7797,7 +7801,7 @@
         "oldrc": false,
         "name": "chmod +x",
         "x": 620,
-        "y": 1800,
+        "y": 1840,
         "wires": [
             [
                 "3dc33bd26ddfd0cd"
@@ -7814,7 +7818,7 @@
         "name": "Update procedure voor de gebruiker en tester",
         "info": "",
         "x": 450,
-        "y": 1260,
+        "y": 1300,
         "wires": []
     },
     {
@@ -7831,7 +7835,7 @@
         "oldrc": false,
         "name": "get sound",
         "x": 160,
-        "y": 1900,
+        "y": 1940,
         "wires": [
             [
                 "9328b12c82bcdb88"
@@ -7854,7 +7858,7 @@
         "oldrc": false,
         "name": "Install sound",
         "x": 350,
-        "y": 1900,
+        "y": 1940,
         "wires": [
             [],
             [],
@@ -7875,7 +7879,7 @@
         "oldrc": false,
         "name": "Restart node-red",
         "x": 910,
-        "y": 1820,
+        "y": 1860,
         "wires": [
             [],
             [],
@@ -7905,7 +7909,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 1280,
+        "y": 1320,
         "wires": [
             [
                 "5fb9a1a6fecd52b9"
@@ -7919,7 +7923,7 @@
         "name": "https://api.callmebot.com/whatsapp.php?phone=[phone_number]&text=[message]&apikey=[your_apikey]",
         "info": "",
         "x": 390,
-        "y": 2180,
+        "y": 2220,
         "wires": []
     },
     {
@@ -7937,7 +7941,7 @@
         "senderr": false,
         "headers": [],
         "x": 590,
-        "y": 2240,
+        "y": 2280,
         "wires": [
             [
                 "338d050289d11eeb"
@@ -7957,7 +7961,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 2240,
+        "y": 2280,
         "wires": []
     },
     {
@@ -8019,7 +8023,7 @@
         "oldrc": false,
         "name": "install dashboard@latest",
         "x": 670,
-        "y": 1900,
+        "y": 1940,
         "wires": [
             [],
             [],
@@ -8059,7 +8063,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 2000,
+        "y": 2040,
         "wires": [
             [
                 "b1fed896a6f955dc"
@@ -8086,7 +8090,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 2040,
+        "y": 2080,
         "wires": [
             []
         ]
@@ -8105,7 +8109,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 2000,
+        "y": 2040,
         "wires": [
             [
                 "eaa241811439e3af"
@@ -8121,7 +8125,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "all",
         "x": 580,
-        "y": 2000,
+        "y": 2040,
         "wires": [
             []
         ]
@@ -8135,7 +8139,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "change",
         "x": 120,
-        "y": 2100,
+        "y": 2140,
         "wires": [
             [
                 "8d958d40801e5e3b"
@@ -8148,7 +8152,7 @@
         "z": "af31bf2fe058f803",
         "g": "a0c77c5ce87569c4",
         "name": "help tekst",
-        "func": "if (msg.name != \"Handleiding\") return;\n\nlet overtijd = voegTijdToe(global.get(\"TijdOK\"), global.get(\"MeldPeriodeInMinuten\"));\n\nmsg.payload =\n    \"Om \" + global.get(\"TijdOK\") + \" hoort u via de Bluetooth speaker een stem die vraagt om deze app te openen en aan te geven of u OK bent.\" +\n    \"<br><br>\" +\n    \"Reageert u niet direct, dan hoort u na \" + global.get(\"Herinnering\") + \" minuten opnieuw deze vraag. Dit herhaalt zich totdat u reageert.\" +\n    \"<br><br>\" +\n    \"Reageert u niet vóór \" + overtijd +  \", dan worden uw contactpersonen geïnformeerd via email en optioneel via SMS.\" +\n    \"<br><br>\" +\n    \"Al 2 uur vóór \" + global.get(\"TijdOK\") + \" kunt u in de app aangeven of u OK bent. U krijgt dan ook geen vraag meer via de Bluetooth speaker.\" +\n    \"<br><br>\" +\n    \"Verlaat u vóór \" + global.get(\"TijdOK\") + \" uur het huis, dan wordt dat gezien als een teken van leven en wordt u automatisch afgemeld. Neem daarom altijd uw telefoon mee wanneer u het huis verlaat, in ieder geval in de ochtend.\" +\n    \"<br><br>\" +\n    \"Bent u op vakantie, dan hoeft u niets te doen. Het systeem ziet dat u niet thuis bent.\" +\n    \"<br><br>\" +\n    \"In huis kunt u altijd op de “Alarm”-knop drukken. Er gaat dan direct een melding naar uw contactpersonen. U kunt het alarm binnen 1 minuut nog annuleren.\" +\n    \"<br><br>\" +\n    \"Uw contactpersonen ontvangen elke zondag een email met de herinnering dat ze een contactpersoon van u zijn.\" +\n    \"<br><br>\" +\n    \"De app werkt alleen in huis. Als u buitenshuis de app opent ziet u een foutmelding (is normaal).\" +\n    \"<br>\" +\n    \"Als u binnenshuis deze foutmelding ook ziet: staat de WiFi van uw mobiel wel aan?\" +\n    \"<br><br>\" +\n    \"AVG: acties (b.v. Alarm, overtijd) en instellingen (b.v. aantal contacten, SMS gebruik) worden gelogd ter verbetering van deze app\";\n\nmsg.template = msg.payload;\nreturn msg;\n\nfunction voegTijdToe(tijd, minuten) {\n    const [uren, mins] = tijd.split(':').map(Number);\n    const totaalMinuten = uren * 60 + mins + Number(minuten);\n\n    const nieuweUren = Math.floor(totaalMinuten / 60) % 24;\n    const nieuweMinuten = totaalMinuten % 60;\n\n    return `${String(nieuweUren).padStart(2, '0')}:${String(nieuweMinuten).padStart(2, '0')}`;\n}",
+        "func": "if (msg.name != \"Handleiding\") return;\n\nlet overtijd = voegTijdToe(global.get(\"TijdOK\"), global.get(\"MeldPeriodeInMinuten\"));\n\nmsg.payload =\n    \"Om \" + global.get(\"TijdOK\") + \" hoort u via de Bluetooth speaker een stem die vraagt om deze app te openen en aan te geven of u OK bent.\" +\n    \"<br><br>\" +\n    \"Reageert u niet direct, dan hoort u na \" + global.get(\"Herinnering\") + \" minuten opnieuw deze vraag. Dit herhaalt zich totdat u reageert.\" +\n    \"<br><br>\" +\n    \"Reageert u niet vóór \" + overtijd +  \", dan worden uw contactpersonen geïnformeerd via email en optioneel via SMS.\" +\n    \"<br><br>\" +\n    \"Al 2 uur vóór \" + global.get(\"TijdOK\") + \" kunt u in de app aangeven of u OK bent. U krijgt dan ook geen vraag meer via de Bluetooth speaker.\" +\n    \"<br><br>\" +\n    \"Verlaat u vóór \" + global.get(\"TijdOK\") + \" uur het huis, dan wordt dat gezien als een teken van leven en wordt u automatisch afgemeld. Neem daarom altijd uw telefoon mee wanneer u het huis verlaat, in ieder geval in de ochtend.\" +\n    \"<br><br>\" +\n    \"Bent u op vakantie, dan hoeft u niets te doen. Het systeem ziet dat u niet thuis bent.\" +\n    \"<br><br>\" +\n    \"In huis kunt u altijd op de “Alarm”-knop drukken. Er gaat dan direct een melding naar uw contactpersonen. U kunt het alarm binnen 1 minuut nog annuleren.\" +\n    \"<br><br>\" +\n    \"Uw contactpersonen ontvangen elke zondag een email met de herinnering dat ze een contactpersoon van u zijn.\" +\n    \"<br><br>\" +\n    \"De app werkt alleen in huis. Als u buitenshuis de app opent ziet u een foutmelding (is normaal).\" +\n    \"<br>\" +\n    \"Als u binnenshuis deze foutmelding ook ziet: staat de WiFi van uw mobiel wel aan?\" +\n    \"<br><br>\" +\n    \"AVG: acties (b.v. Alarm, overtijd) en instellingen (b.v. aantal contacten, SMS gebruik) worden gelogd ter verbetering van deze app.\";\n\nmsg.template = msg.payload;\nreturn msg;\n\nfunction voegTijdToe(tijd, minuten) {\n    const [uren, mins] = tijd.split(':').map(Number);\n    const totaalMinuten = uren * 60 + mins + Number(minuten);\n\n    const nieuweUren = Math.floor(totaalMinuten / 60) % 24;\n    const nieuweMinuten = totaalMinuten % 60;\n\n    return `${String(nieuweUren).padStart(2, '0')}:${String(nieuweMinuten).padStart(2, '0')}`;\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -8156,7 +8160,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 2100,
+        "y": 2140,
         "wires": [
             [
                 "ebac05316c6a1263"
@@ -8185,7 +8189,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 570,
-        "y": 2100,
+        "y": 2140,
         "wires": []
     },
     {
@@ -8202,7 +8206,7 @@
         "oldrc": false,
         "name": "rm ble-tag.py",
         "x": 350,
-        "y": 1720,
+        "y": 1760,
         "wires": [
             [
                 "76ecef5aa3ea71c9"
@@ -8225,7 +8229,7 @@
         "oldrc": false,
         "name": "get ble-tag.py",
         "x": 640,
-        "y": 1720,
+        "y": 1760,
         "wires": [
             [
                 "02d2ac26c698a195"
@@ -8289,7 +8293,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "name": "Parse npm output",
-        "func": "msg.payload = parseNpmListOutput(msg.payload).slice(1);\nreturn msg;\n\nfunction parseNpmListOutput(text) {\n  return text\n    .split(\"\\n\")\n    .map(line => line.trim())\n    .filter(line => line.includes(\"@\"))\n    .map(line => {\n      // verwijder boomstructuur ├── en └──\n      line = line.replace(/^([├└]──\\s*)/, \"\");\n\n      // index van de LAATSTE \"@\"\n      const idx = line.lastIndexOf(\"@\");\n\n      const name = line.substring(0, idx);\n      const version = line.substring(idx + 1);\n\n      return [name, version];\n    });\n}\n",
+        "func": "msg.payload = parseNpmListOutput(msg.payload).slice(1);\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({\n  text: tijd_nu + \" \" + msg.payload.length\n});\nreturn msg;\n\nfunction parseNpmListOutput(text) {\n  return text\n    .split(\"\\n\")\n    .map(line => line.trim())\n    .filter(line => line.includes(\"@\"))\n    .map(line => {\n      // verwijder boomstructuur ├── en └──\n      line = line.replace(/^([├└]──\\s*)/, \"\");\n\n      return line;\n      /*\n      // index van de LAATSTE \"@\"\n      const idx = line.lastIndexOf(\"@\");\n      const name = line.substring(0, idx);\n      const version = line.substring(idx + 1);\n      return [name, version];\n      */\n    });\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -8318,7 +8322,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 660,
+        "y": 680,
         "wires": [
             []
         ]
@@ -8395,16 +8399,19 @@
         "z": "af31bf2fe058f803",
         "g": "27f4bc9fc8a40df5",
         "name": "Update dependencies",
-        "func": "\nreturn msg;",
-        "outputs": 1,
+        "func": "let dependenciesToInstall = \"\";\nlet dependenciesCurrent = global.get(\"DependenciesCurrent\") ?? [];\nlet dependenciesRequired = [];\n\nif (msg.topic == \"Test\") {\n    dependenciesRequired = global.get(\"DependenciesRequiredTest\") ?? [];\n}\nelse {\n    dependenciesRequired = global.get(\"DependenciesRequired\") ?? [];\n}\n\nfor (const value of dependenciesRequired) {\n    if (!dependenciesCurrent.includes(value)) {\n        dependenciesToInstall += \"; npm install \" + value;\n    }\n}\n\nnode.status({ text: dependenciesToInstall });\n\nif (dependenciesToInstall.length > 0) {\n    msg.payload = \"cd .node-red \" + dependenciesToInstall;\n    return [msg, null];\n}\nelse {\n    return [null, msg];\n}",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 1080,
+        "y": 1160,
         "wires": [
+            [
+                "5120f07f67f52f22"
+            ],
             [
                 "d3862797b5f24a38"
             ]
@@ -8425,10 +8432,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 1080,
+        "y": 1100,
         "wires": [
             [
-                "8418ba93fe088f54"
+                "62960d2a10d3a62c"
             ]
         ]
     },
@@ -8447,7 +8454,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1320,
+        "y": 1360,
         "wires": [
             [
                 "5fb9a1a6fecd52b9"
@@ -8468,8 +8475,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 240,
-        "y": 1140,
+        "x": 760,
+        "y": 1120,
         "wires": []
     },
     {
@@ -8487,8 +8494,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 820,
-        "y": 1080,
+        "x": 760,
+        "y": 1180,
         "wires": []
     },
     {
@@ -8505,7 +8512,7 @@
         "oldrc": false,
         "name": "sudo pkill -9 -f checkIsAtHome",
         "x": 410,
-        "y": 1320,
+        "y": 1360,
         "wires": [
             [
                 "ef8f414221384c89"
@@ -8528,7 +8535,7 @@
         "oldrc": false,
         "name": "",
         "x": 660,
-        "y": 1320,
+        "y": 1360,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -8536,6 +8543,90 @@
             [],
             []
         ]
+    },
+    {
+        "id": "4ba08a17394359ae",
+        "type": "inject",
+        "z": "af31bf2fe058f803",
+        "g": "27f4bc9fc8a40df5",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 1180,
+        "wires": [
+            [
+                "8418ba93fe088f54"
+            ]
+        ]
+    },
+    {
+        "id": "5120f07f67f52f22",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "27f4bc9fc8a40df5",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "install dependencies",
+        "x": 540,
+        "y": 1120,
+        "wires": [
+            [
+                "de759ce446cd5985",
+                "d3862797b5f24a38"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "af98f79b0da00ce1",
+        "type": "comment",
+        "z": "af31bf2fe058f803",
+        "g": "5bb2b589a301c7c8",
+        "name": "wat als er geen internet verbinding is?",
+        "info": "",
+        "x": 490,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "62960d2a10d3a62c",
+        "type": "mqtt out",
+        "z": "af31bf2fe058f803",
+        "g": "27f4bc9fc8a40df5",
+        "name": "",
+        "topic": "UpdateSoftware",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 280,
+        "y": 1100,
+        "wires": []
     },
     {
         "id": "ac6f3d5c09bce733",
@@ -8794,7 +8885,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "4566824d49f71745",
         "name": "Update?",
-        "func": "var current = global.get(\"version_test\");\nvar latest = msg.payload;\n\nnode.status({ text: \"current: \" + current +\n    \", latest: \" + latest    });\n\nif (latest > current) {\n    var msg2 = { \n        topic: \"Test\",\n        payload: \"Nieuwe test versie wordt geinstalleerd...\"\n        };\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { \n        topic: \"Test\",\n        payload: \"Geen nieuwere test versie beschikbaar.\"};\n   return [null, msg2]; \n}\n",
+        "func": "var current = global.get(\"version_test\");\nvar requiredVersion = msg.payload;\n\nnode.status({ text: \"current: \" + current +\n    \", required: \" + requiredVersion    });\n\nif (requiredVersion > current) {\n    var msg2 = { \n        topic: \"Test\",\n        payload: \"Nieuwe test versie wordt geinstalleerd...\"\n        };\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { \n        topic: \"Test\",\n        payload: \"Geen nieuwere test versie beschikbaar.\"};\n   return [null, msg2]; \n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -10588,7 +10679,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "4566824d49f71745",
         "name": "Get version",
-        "func": "let version = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload).slice(1);\n\nvar msg1 = { payload: version };\nvar msg2 = { payload: dependencies };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              version + \", \" + dependencies.length});\nreturn [msg1, msg2];\n\n//msg.payload = msg.payload.replace(/[\\r\\n]+/g, '');\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\"))\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            // index van de LAATSTE \"@\"\n            const idx = line.lastIndexOf(\"@\");\n\n            const name = line.substring(0, idx);\n            const version = line.substring(idx + 1);\n\n            return [name, version];\n        });\n}\n",
+        "func": "let version = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload).slice(1);\n\nvar msg1 = { payload: version };\nvar msg2 = { payload: dependencies };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              version + \", \" + dependencies.length});\nreturn [msg1, msg2];\n\n//msg.payload = msg.payload.replace(/[\\r\\n]+/g, '');\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\"))\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            return line;\n            /*\n            // index van de LAATSTE \"@\"\n            const idx = line.lastIndexOf(\"@\");\n            const name = line.substring(0, idx);\n            const version = line.substring(idx + 1);\n            return [name, version];\n            */\n        });\n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
