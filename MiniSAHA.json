@@ -1386,16 +1386,14 @@
         "nodes": [
             "8418ba93fe088f54",
             "34d7ae63b33b2312",
-            "de759ce446cd5985",
             "d3862797b5f24a38",
             "4ba08a17394359ae",
-            "5120f07f67f52f22",
-            "7f8274a090f81095"
+            "5120f07f67f52f22"
         ],
         "x": 34,
-        "y": 1059,
-        "w": 872,
-        "h": 162
+        "y": 1071.5,
+        "w": 852,
+        "h": 149.5
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -8500,8 +8498,7 @@
         "y": 1120,
         "wires": [
             [
-                "8418ba93fe088f54",
-                "7f8274a090f81095"
+                "8418ba93fe088f54"
             ]
         ]
     },
@@ -8528,24 +8525,6 @@
         ]
     },
     {
-        "id": "de759ce446cd5985",
-        "type": "debug",
-        "z": "af31bf2fe058f803",
-        "g": "27f4bc9fc8a40df5",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 1100,
-        "wires": []
-    },
-    {
         "id": "d3862797b5f24a38",
         "type": "mqtt out",
         "z": "af31bf2fe058f803",
@@ -8560,8 +8539,8 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 760,
-        "y": 1180,
+        "x": 780,
+        "y": 1160,
         "wires": []
     },
     {
@@ -8657,30 +8636,11 @@
         "y": 1120,
         "wires": [
             [
-                "de759ce446cd5985",
                 "d3862797b5f24a38"
             ],
             [],
             []
         ]
-    },
-    {
-        "id": "7f8274a090f81095",
-        "type": "debug",
-        "z": "af31bf2fe058f803",
-        "g": "27f4bc9fc8a40df5",
-        "name": "debug 4",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 300,
-        "y": 1100,
-        "wires": []
     },
     {
         "id": "ac6f3d5c09bce733",
