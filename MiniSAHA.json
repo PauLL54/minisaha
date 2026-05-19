@@ -858,7 +858,7 @@
             "748f55ba24c9c9bd"
         ],
         "x": 34,
-        "y": 999,
+        "y": 1119,
         "w": 1032,
         "h": 182
     },
@@ -917,12 +917,20 @@
             "82d2ec6f0d943b43",
             "e3efd094ea49fce5",
             "4abb19d96b88ba67",
-            "edada0ad41f6402c"
+            "edada0ad41f6402c",
+            "adb6085895f429a6",
+            "e5964d4ecd3e0a2f",
+            "9cdb1d91368354b6",
+            "544581c3e67c9da5",
+            "78caed51fb5620df",
+            "991312d62b791458",
+            "bf67ae125d5a74d9",
+            "c3bdf8a0639b581e"
         ],
         "x": 34,
         "y": 39,
-        "w": 1272,
-        "h": 922
+        "w": 1412,
+        "h": 1042
     },
     {
         "id": "9e903c2c09c4282e",
@@ -5710,7 +5718,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1090,
+        "x": 1230,
         "y": 420,
         "wires": [
             []
@@ -5736,7 +5744,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1110,
+        "x": 1250,
         "y": 200,
         "wires": [
             []
@@ -5755,7 +5763,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 840,
+        "x": 980,
         "y": 260,
         "wires": [
             [
@@ -5778,7 +5786,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 1070,
+        "x": 1210,
         "y": 260,
         "wires": []
     },
@@ -5859,7 +5867,7 @@
         "to": "",
         "reg": false,
         "x": 940,
-        "y": 1140,
+        "y": 1260,
         "wires": [
             []
         ]
@@ -5884,7 +5892,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1140,
+        "x": 1280,
         "y": 600,
         "wires": [
             []
@@ -6028,8 +6036,8 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
-        "name": "Tijd OK",
-        "label": "Tijdstip geluidsmelding sturen: \"ben je OK?\"",
+        "name": "Starttijd geluidsmelding",
+        "label": "Starttijd geluidsmelding",
         "order": 4,
         "width": "4",
         "height": "1",
@@ -6048,7 +6056,7 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 540,
+        "x": 590,
         "y": 400,
         "wires": [
             [
@@ -6062,8 +6070,8 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
-        "name": "Meldperiode",
-        "label": "Bericht sturen naar contacten na  (in min.)",
+        "name": "Alarm sturen na  (in min.)",
+        "label": "Alarm sturen na  (in min.)",
         "order": 10,
         "width": "4",
         "height": "1",
@@ -6082,11 +6090,11 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 550,
+        "x": 590,
         "y": 600,
         "wires": [
             [
-                "ec7010218631a22d"
+                "adb6085895f429a6"
             ]
         ]
     },
@@ -6131,7 +6139,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 920,
-        "y": 1080,
+        "y": 1200,
         "wires": []
     },
     {
@@ -6154,7 +6162,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1100,
+        "x": 1240,
         "y": 820,
         "wires": [
             []
@@ -6181,7 +6189,7 @@
         "to": "",
         "reg": false,
         "x": 190,
-        "y": 800,
+        "y": 880,
         "wires": [
             [
                 "590a24117a7d6877"
@@ -6198,7 +6206,7 @@
             "4abb19d96b88ba67"
         ],
         "x": 85,
-        "y": 800,
+        "y": 880,
         "wires": [
             [
                 "2825429d7e218b9b"
@@ -6211,8 +6219,8 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
-        "name": "Herinnering",
-        "label": "Deze melding herhalen na (in minuten)",
+        "name": "Herhalen na (in min.)",
+        "label": "Herhalen na (in min)",
         "order": 7,
         "width": "4",
         "height": "1",
@@ -6231,12 +6239,11 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 550,
-        "y": 800,
+        "x": 580,
+        "y": 880,
         "wires": [
             [
-                "f487e19abb196edc",
-                "3d702f0ad5e3389a"
+                "e5964d4ecd3e0a2f"
             ]
         ]
     },
@@ -6254,7 +6261,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 800,
+        "y": 880,
         "wires": [
             [
                 "eecb60f839dc5afc"
@@ -6276,7 +6283,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 1080,
+        "x": 1220,
         "y": 360,
         "wires": []
     },
@@ -6346,7 +6353,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
+        "x": 950,
         "y": 400,
         "wires": [
             [
@@ -6371,7 +6378,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 1100,
+        "x": 1240,
         "y": 880,
         "wires": []
     },
@@ -6390,7 +6397,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 1060,
+        "x": 1200,
         "y": 140,
         "wires": []
     },
@@ -6408,7 +6415,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 1100,
+        "y": 1220,
         "wires": [
             [
                 "a18148e4e8946b3b"
@@ -6424,7 +6431,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "change",
         "x": 120,
-        "y": 1100,
+        "y": 1220,
         "wires": [
             [
                 "f7e8d9c0b1a2"
@@ -6445,7 +6452,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 1100,
+        "y": 1220,
         "wires": [
             [
                 "748f55ba24c9c9bd"
@@ -6465,7 +6472,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
+        "x": 950,
         "y": 600,
         "wires": [
             [
@@ -6492,7 +6499,7 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 740,
+        "x": 880,
         "y": 480,
         "wires": [
             [
@@ -6515,7 +6522,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 1090,
+        "x": 1230,
         "y": 480,
         "wires": []
     },
@@ -6537,7 +6544,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 910,
+        "x": 1050,
         "y": 480,
         "wires": [
             [
@@ -6575,7 +6582,7 @@
         "name": "Vraag automatisch het IP adres op van het mobieltje",
         "info": "",
         "x": 250,
-        "y": 1040,
+        "y": 1160,
         "wires": []
     },
     {
@@ -6636,7 +6643,7 @@
         "value": "payloads",
         "valueType": "msg",
         "x": 540,
-        "y": 740,
+        "y": 760,
         "wires": []
     },
     {
@@ -6661,7 +6668,7 @@
         "value": "payloads",
         "valueType": "msg",
         "x": 540,
-        "y": 880,
+        "y": 1040,
         "wires": []
     },
     {
@@ -6734,7 +6741,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 530,
+        "x": 630,
         "y": 920,
         "wires": [
             []
@@ -6772,8 +6779,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 530,
-        "y": 660,
+        "x": 650,
+        "y": 640,
         "wires": [
             []
         ]
@@ -6856,11 +6863,206 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 1100,
+        "y": 1220,
         "wires": [
             [
                 "996abe576c2cecb2",
                 "a6fd027bc0be280d"
+            ]
+        ]
+    },
+    {
+        "id": "adb6085895f429a6",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "30..180?",
+        "func": "let n = msg.payload;\nif (n == \"\") n = 0;\n\nif ((n < 30) || (n > 180)) { \n    msg.payload = \"60\";\n    return [null, msg];\n}\nelse\n    return [msg, null];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 600,
+        "wires": [
+            [
+                "ec7010218631a22d"
+            ],
+            [
+                "78caed51fb5620df",
+                "9cdb1d91368354b6"
+            ]
+        ]
+    },
+    {
+        "id": "e5964d4ecd3e0a2f",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "3..30?",
+        "func": "let n = msg.payload;\nif (n == \"\") n = 0;\n\nif ((n < 3) || (n > 30)) {\n    msg.payload = \"5\";\n    return [null, msg];\n}\nelse\n    return [msg, null];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 880,
+        "wires": [
+            [
+                "f487e19abb196edc",
+                "3d702f0ad5e3389a",
+                "544581c3e67c9da5"
+            ],
+            [
+                "c3bdf8a0639b581e"
+            ]
+        ]
+    },
+    {
+        "id": "9cdb1d91368354b6",
+        "type": "delay",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 720,
+        "wires": [
+            [
+                "163dbba3527a1208"
+            ]
+        ]
+    },
+    {
+        "id": "544581c3e67c9da5",
+        "type": "delay",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 1000,
+        "wires": [
+            [
+                "eecb60f839dc5afc"
+            ]
+        ]
+    },
+    {
+        "id": "78caed51fb5620df",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "Fout",
+        "func": "msg.payload = \"<b>Tijd moet liggen tussen 30 en 180 minuten. </b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 660,
+        "wires": [
+            [
+                "991312d62b791458"
+            ]
+        ]
+    },
+    {
+        "id": "991312d62b791458",
+        "type": "ui-notification",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": false,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Sluiten",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 1220,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf67ae125d5a74d9",
+        "type": "ui-notification",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": false,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Sluiten",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 1220,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3bdf8a0639b581e",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "Fout",
+        "func": "msg.payload = \"<b>Tijd moet liggen tussen 3 en 30 minuten. </b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 940,
+        "wires": [
+            [
+                "bf67ae125d5a74d9"
             ]
         ]
     },
@@ -7196,7 +7398,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "name": "Update?",
-        "func": "var current = global.get(\"version\");\nvar requiredVersion = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", required: \" + requiredVersion });\n\nif (requiredVersion > current) {\n    var msg2 = { \n        topic: \"Product\",\n        payload: \"Update wordt geinstalleerd...\"\n        };\n    return [msg, msg2];\n}\nelse {\n    var msg2 = { \n        topic: \"Product\",\n        payload: \"Geen nieuwere versie beschikbaar.\"\n        };\n   return [null, msg2]; \n}\n",
+        "func": "var current = global.get(\"version\");\nvar requiredVersion = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", required: \" + requiredVersion });\n\nif (requiredVersion > current) {\n    msg.payload = \"Product\";\n    var msg2 = { \n        payload: \"Update wordt geinstalleerd...\"\n        };\n    return [msg, msg2];\n}\nelse {\n    msg.payload = \"Geen nieuwere versie beschikbaar.\";\n    return [null, msg2]; \n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -8737,7 +8939,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "4566824d49f71745",
         "name": "Update?",
-        "func": "var current = global.get(\"version_test\");\nvar requiredVersion = msg.payload;\n\nnode.status({ text: \"current: \" + current +\n    \", required: \" + requiredVersion    });\n\nif (requiredVersion > current) {\n    var msg2 = { \n        topic: \"Test\",\n        payload: \"Nieuwe test versie wordt geinstalleerd...\"\n        };\n    return [msg2, msg2];\n}\nelse {\n    var msg2 = { \n        topic: \"Test\",\n        payload: \"Geen nieuwere test versie beschikbaar.\"};\n   return [null, msg2]; \n}\n",
+        "func": "var current = global.get(\"version_test\");\nvar requiredVersion = msg.payload;\n\nnode.status({ text: \"current: \" + current +\n    \", required: \" + requiredVersion    });\n\nif (requiredVersion > current) {\n    msg.payload = \"Test\";\n    var msg2 = { \n        payload: \"Nieuwe test versie wordt geinstalleerd...\"\n        };\n    return [msg, msg2];\n}\nelse {\n    msg.payload = \"Geen nieuwere test versie beschikbaar.\";\n    return [null, msg2]; \n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
