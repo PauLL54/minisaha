@@ -1381,7 +1381,8 @@
             "de759ce446cd5985",
             "d3862797b5f24a38",
             "4ba08a17394359ae",
-            "5120f07f67f52f22"
+            "5120f07f67f52f22",
+            "7f8274a090f81095"
         ],
         "x": 34,
         "y": 1059,
@@ -6436,7 +6437,7 @@
         "z": "5c14e0941d341b42",
         "g": "75f6d804089580c3",
         "name": "filter tailscale",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.payload });\n\nvar ip = msg.payload ?? \"\";\n\n// ignore is IP address is via tailscale\nif (ip.startsWith(\"100\")) return;\nreturn msg;",
+        "func": "let now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nnode.status({ text: tijd_nu + \" \" + msg.payload });\n\nvar ip = msg.payload ?? \"\";\n\n// ignore is IP address is via tailscale\nif (ip.startsWith(\"100\")) return;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -8297,7 +8298,8 @@
         "y": 1120,
         "wires": [
             [
-                "8418ba93fe088f54"
+                "8418ba93fe088f54",
+                "7f8274a090f81095"
             ]
         ]
     },
@@ -8459,6 +8461,24 @@
             [],
             []
         ]
+    },
+    {
+        "id": "7f8274a090f81095",
+        "type": "debug",
+        "z": "af31bf2fe058f803",
+        "g": "27f4bc9fc8a40df5",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 1100,
+        "wires": []
     },
     {
         "id": "ac6f3d5c09bce733",
