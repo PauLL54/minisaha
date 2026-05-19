@@ -8464,7 +8464,7 @@
         "z": "af31bf2fe058f803",
         "g": "27f4bc9fc8a40df5",
         "name": "Update dependencies",
-        "func": "let dependenciesToInstall = \"\";\nlet dependenciesCurrent = global.get(\"DependenciesCurrent\") ?? [];\nlet dependenciesRequired = [];\n\nif (msg.topic == \"Test\") {\n    dependenciesRequired = global.get(\"DependenciesRequiredTest\") ?? [];\n}\nelse {\n    dependenciesRequired = global.get(\"DependenciesRequired\") ?? [];\n}\n\nfor (const value of dependenciesRequired) {\n    if (!dependenciesCurrent.includes(value)) {\n        dependenciesToInstall += \"; npm install \" + value;\n    }\n}\n\nnode.status({ text: \"dependencies: \" + dependenciesToInstall });\n\nif (dependenciesToInstall.length > 0) {\n    msg.payload = \"cd .node-red \" + dependenciesToInstall;\n    return [msg, null];\n}\nelse {\n    return [null, msg];\n}",
+        "func": "let dependenciesToInstall = \"\";\nlet dependenciesCurrent = global.get(\"DependenciesCurrent\") ?? [];\nlet dependenciesRequired = [];\n\nif (msg.payload == \"Test\") {\n    dependenciesRequired = global.get(\"DependenciesRequiredTest\") ?? [];\n}\nelse {\n    dependenciesRequired = global.get(\"DependenciesRequired\") ?? [];\n}\n\nfor (const value of dependenciesRequired) {\n    if (!dependenciesCurrent.includes(value)) {\n        dependenciesToInstall += \"; npm install \" + value;\n    }\n}\n\nnode.status({ text: \"dependencies: \" + dependenciesToInstall });\n\nif (dependenciesToInstall.length > 0) {\n    msg.payload = \"cd .node-red \" + dependenciesToInstall;\n    return [msg, null];\n}\nelse {\n    return [null, msg];\n}",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
