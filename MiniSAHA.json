@@ -4546,7 +4546,7 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "clear",
-        "func": "msg.payload = \"\";\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" clear\" });\nreturn msg;",
+        "func": "msg.payload = \"\";\n\nlet now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\nnode.status({ text: tijd_nu + \" clear\" });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
