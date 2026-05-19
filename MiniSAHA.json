@@ -203,39 +203,6 @@
         "color": "#DDAA99"
     },
     {
-        "id": "subflow1",
-        "type": "subflow",
-        "name": "Network Discovery",
-        "info": "Plaats hier de network-discovery node",
-        "category": "",
-        "in": [
-            {
-                "x": 60,
-                "y": 100,
-                "wires": [
-                    {
-                        "id": "network_discovery_node"
-                    }
-                ]
-            }
-        ],
-        "out": [
-            {
-                "x": 380,
-                "y": 100,
-                "wires": [
-                    {
-                        "id": "network_discovery_node",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
         "id": "d344da1eff713941",
         "type": "group",
         "z": "eb60a9ea21d42f29",
@@ -1414,12 +1381,11 @@
             "de759ce446cd5985",
             "d3862797b5f24a38",
             "4ba08a17394359ae",
-            "5120f07f67f52f22",
-            "62960d2a10d3a62c"
+            "5120f07f67f52f22"
         ],
         "x": 34,
         "y": 1059,
-        "w": 832,
+        "w": 872,
         "h": 162
     },
     {
@@ -2163,25 +2129,6 @@
         ]
     },
     {
-        "id": "f3ae14c2f27ba38c",
-        "type": "watch-directory",
-        "z": "7a37030e3e3276d9",
-        "folder": ".",
-        "recursive": 0,
-        "typeEvent": "update",
-        "ignoreInitial": true,
-        "ignoredFiles": "",
-        "ignoredFilesType": "re",
-        "name": "Watch file updates",
-        "x": 130,
-        "y": 100,
-        "wires": [
-            [
-                "86e654aae39d4d9a"
-            ]
-        ]
-    },
-    {
         "id": "c1f9479b2838c34c",
         "type": "function",
         "z": "7a37030e3e3276d9",
@@ -2198,6 +2145,25 @@
         "wires": [
             [
                 "6799203e85ef9a07"
+            ]
+        ]
+    },
+    {
+        "id": "f3ae14c2f27ba38c",
+        "type": "watch-directory",
+        "z": "7a37030e3e3276d9",
+        "folder": ".",
+        "recursive": 0,
+        "typeEvent": "update",
+        "ignoreInitial": true,
+        "ignoredFiles": "",
+        "ignoredFilesType": "re",
+        "name": "Watch file updates",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "86e654aae39d4d9a"
             ]
         ]
     },
@@ -2668,26 +2634,6 @@
         "x": 580,
         "y": 420,
         "wires": []
-    },
-    {
-        "id": "network_discovery_node",
-        "type": "network-discovery",
-        "z": "subflow1",
-        "name": "Network Discovery",
-        "subnet": "192.168.1.0/24",
-        "portRange": "",
-        "timeout": "",
-        "concurrent": "",
-        "includeHostnames": false,
-        "includePorts": false,
-        "includeBonjourServices": false,
-        "bonjourServiceTypes": "",
-        "bonjourTimeout": "",
-        "x": 230,
-        "y": 100,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "86a3b683d730904f",
@@ -3646,7 +3592,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Build msg",
-        "func": "// expect: payload.body en payload.recipients\n\n\nconst license = global.get(\"LicenseSMS\") ?? \"\";\nif (license == \"\") {\n    return null;\n}\n\nlet apikey = license + \"XAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNjFkYWRkMTZmMDMyNDg5ZTVmODFkMDM0ZTVhYjUyOTNhNTkxNWE5OWQ0NjBhZWFhMTJkMWJiODEwODAwMDUxOWFhY2ZmNWZmYTA3MTIwZTUiLCJpYXQiOjE3NzYyNTU2NjcuMzM2MzY1LCJuYmYiOjE3NzYyNTU2NjcuMzM2MzY3LCJleHAiOjQ5MzE5MjkyNjcuMzMxMzE0LCJzdWIiOiIxMTY1NzMiLCJzY29wZXMiOltdfQ.ev4flJiQjk05wUrcbHvdQPnoe3gIzt7lEFUb_ugA3FHv98lRDtjfc47SeVOC6xQ3CNHWexYbrAeGJceV9oE7yBmNJq_rNCJJ93Ee99Kw0kVwouSMqAJ687MriITgLTga9MlXE4UwxX4nucqpDvc-SPy41d4UkDLg9HTlgbZj4l2XL5SQkQ_kFACYOwQ4w-q07UGXIg2d3rMBNs3gQxjESqHlO59ByEwsCFwT1uH3GErZKoDmdBHI3HDSRcjdKTgallNrGvWGFuoiyKw58aUZ0wSUnmKu8Wmm-7726ZPr4HFz-ojn0RM3p8uFeeE5QRQkH25TTqo3Vf4scOsckq9siPYzEhZOc--xgDeW2H45ietGdA-mzMRtTiYVUxC_3AgRyvoqbLlzAJs91Ug2ohgzWPUM_cAX8b54t8VaxnfSj1XEnQTgXJLt6Ex47jV7zXtQwYzrEirqjnwUExHvJ_cofs0uJAXaDC0CKvSbzLDq_JwhLOO8aNprSOpJo-aXPuTmLkR_I72kIcuPmOo4QRqc37a81LHfHp6TBiXDPN3MMTz5PodsT2zeKhBvamGZizs1V4KW7cGbrYd97A9hw_NzDxn-PV8PU2LfNO8lWm6r7bpzugWtH68BhPse7NAub3ijmVZuJDJANRcx__E4zmkFnC0MexXserutaQoMHhViXVk\";\n\nmsg.method = \"POST\";\nmsg.url = \"https://rest.spryngsms.com/v1/messages\";\n\nmsg.headers = {\n    \"Content-Type\": \"application/json\",\n    \"Accept\": \"application / json\",\n    \"Authorization\": \"Bearer \" + apikey\n};\n\nmsg.payload = {\n    \"encoding\": \"auto\",\n    \"body\": msg.payload.body,\n    \"route\": \"business\",\n    \"originator\": \"MiniSAHA\",\n    \"recipients\": msg.payload.recipients\n};\n\nreturn msg;\n\n//     \"recipients\": [\"+31648729669\", \"+31613207764\", \"+31653336488\"]\n",
+        "func": "// expect: payload.body en payload.recipients\n\n\nconst license = global.get(\"LicenseSMS\") ?? \"\";\nif (license == \"\") {\n    return null;\n}\n\nlet apikey = license + \"XAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNjFkYWRkMTZmMDMyNDg5ZTVmODFkMDM0ZTVhYjUyOTNhNTkxNWE5OWQ0NjBhZWFhMTJkMWJiODEwODAwMDUxOWFhY2ZmNWZmYTA3MTIwZTUiLCJpYXQiOjE3NzYyNTU2NjcuMzM2MzY1LCJuYmYiOjE3NzYyNTU2NjcuMzM2MzY3LCJleHAiOjQ5MzE5MjkyNjcuMzMxMzE0LCJzdWIiOiIxMTY1NzMiLCJzY29wZXMiOltdfQ.ev4flJiQjk05wUrcbHvdQPnoe3gIzt7lEFUb_ugA3FHv98lRDtjfc47SeVOC6xQ3CNHWexYbrAeGJceV9oE7yBmNJq_rNCJJ93Ee99Kw0kVwouSMqAJ687MriITgLTga9MlXE4UwxX4nucqpDvc-SPy41d4UkDLg9HTlgbZj4l2XL5SQkQ_kFACYOwQ4w-q07UGXIg2d3rMBNs3gQxjESqHlO59ByEwsCFwT1uH3GErZKoDmdBHI3HDSRcjdKTgallNrGvWGFuoiyKw58aUZ0wSUnmKu8Wmm-7726ZPr4HFz-ojn0RM3p8uFeeE5QRQkH25TTqo3Vf4scOsckq9siPYzEhZOc--xgDeW2H45ietGdA-mzMRtTiYVUxC_3AgRyvoqbLlzAJs91Ug2ohgzWPUM_cAX8b54t8VaxnfSj1XEnQTgXJLt6Ex47jV7zXtQwYzrEirqjnwUExHvJ_cofs0uJAXaDC0CKvSbzLDq_JwhLOO8aNprSOpJo-aXPuTmLkR_I72kIcuPmOo4QRqc37a81LHfHp6TBiXDPN3MMTz5PodsT2zeKhBvamGZizs1V4KW7cGbrYd97A9hw_NzDxn-PV8PU2LfNO8lWm6r7bpzugWtH68BhPse7NAub3ijmVZuJDJANRcx__E4zmkFnC0MexXserutaQoMHhViXVk\";\n\nmsg.method = \"POST\";\nmsg.url = \"https://rest.spryngsms.com/v1/messages\";\n\nmsg.headers = {\n    \"Content-Type\": \"application/json\",\n    \"Accept\": \"application / json\",\n    \"Authorization\": \"Bearer \" + apikey\n};\n\nmsg.payload = {\n    \"encoding\": \"auto\",\n    \"body\": msg.payload.body,\n    \"route\": \"business\",\n    \"originator\": \"MiniSAHA\",\n    \"recipients\": msg.payload.recipients\n};\n\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -3666,13 +3612,18 @@
         "type": "http request",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Send to Spryng",
+        "name": "SMS to Spryng",
         "method": "use",
         "ret": "obj",
         "paytoqs": "ignore",
         "url": "",
+        "tls": "",
         "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
         "authType": "",
+        "senderr": false,
+        "headers": [],
         "x": 1020,
         "y": 1020,
         "wires": [
@@ -8343,10 +8294,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 1100,
+        "y": 1120,
         "wires": [
             [
-                "62960d2a10d3a62c"
+                "8418ba93fe088f54"
             ]
         ]
     },
@@ -8386,8 +8337,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
-        "y": 1120,
+        "x": 800,
+        "y": 1100,
         "wires": []
     },
     {
@@ -8508,25 +8459,6 @@
             [],
             []
         ]
-    },
-    {
-        "id": "62960d2a10d3a62c",
-        "type": "mqtt out",
-        "z": "af31bf2fe058f803",
-        "g": "27f4bc9fc8a40df5",
-        "name": "",
-        "topic": "UpdateSoftware",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0839f7b4c0cbb0a8",
-        "x": 280,
-        "y": 1100,
-        "wires": []
     },
     {
         "id": "ac6f3d5c09bce733",
@@ -12966,46 +12898,6 @@
         ]
     },
     {
-        "id": "c2ddecb04917163d",
-        "type": "watch-directory",
-        "z": "bf57a768b975c2e6",
-        "g": "e9121fbc4482804f",
-        "folder": ".node-red/projects/MiniSAHA/sounds",
-        "recursive": 0,
-        "typeEvent": "create",
-        "ignoreInitial": false,
-        "ignoredFiles": "",
-        "ignoredFilesType": "re",
-        "name": "",
-        "x": 200,
-        "y": 1320,
-        "wires": [
-            [
-                "a0f17d909e19d179"
-            ]
-        ]
-    },
-    {
-        "id": "6d21e3f54526cbb1",
-        "type": "watch-directory",
-        "z": "bf57a768b975c2e6",
-        "g": "e9121fbc4482804f",
-        "folder": ".node-red/projects/MiniSAHA/sounds",
-        "recursive": 0,
-        "typeEvent": "delete",
-        "ignoreInitial": false,
-        "ignoredFiles": "",
-        "ignoredFilesType": "re",
-        "name": "",
-        "x": 200,
-        "y": 1400,
-        "wires": [
-            [
-                "a0f17d909e19d179"
-            ]
-        ]
-    },
-    {
         "id": "a0f17d909e19d179",
         "type": "function",
         "z": "bf57a768b975c2e6",
@@ -13930,6 +13822,46 @@
             [
                 "de3f35eb8cc6cc74",
                 "4b0df9706344d251"
+            ]
+        ]
+    },
+    {
+        "id": "c2ddecb04917163d",
+        "type": "watch-directory",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "folder": ".node-red/projects/MiniSAHA/sounds",
+        "recursive": 0,
+        "typeEvent": "create",
+        "ignoreInitial": false,
+        "ignoredFiles": "",
+        "ignoredFilesType": "re",
+        "name": "",
+        "x": 200,
+        "y": 1320,
+        "wires": [
+            [
+                "a0f17d909e19d179"
+            ]
+        ]
+    },
+    {
+        "id": "6d21e3f54526cbb1",
+        "type": "watch-directory",
+        "z": "bf57a768b975c2e6",
+        "g": "e9121fbc4482804f",
+        "folder": ".node-red/projects/MiniSAHA/sounds",
+        "recursive": 0,
+        "typeEvent": "delete",
+        "ignoreInitial": false,
+        "ignoredFiles": "",
+        "ignoredFilesType": "re",
+        "name": "",
+        "x": 200,
+        "y": 1400,
+        "wires": [
+            [
+                "a0f17d909e19d179"
             ]
         ]
     },

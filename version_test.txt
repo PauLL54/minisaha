@@ -1,6 +1,5 @@
-2026-05-17
-@flowfuse/node-red-dashboard@1.30.0
+2026-05-19
+@flowfuse/node-red-dashboard@1.30.2
 node-red-contrib-cpu@0.0.4
-node-red-contrib-network-tools@2.3.5
 node-red-contrib-watchdirectory@1.0.14
-node-red-node-email@5.0.4
+node-red-node-email@5.2.3
