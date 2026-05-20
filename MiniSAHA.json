@@ -3284,7 +3284,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Email contacten",
-        "func": "var text = msg.payload;\n\nmsg = {\n    to: global.get(\"EmailSleutelbewaarder1\"),\n    cc: global.get(\"EmailSleutelbewaarder2\") + \n        \";\" + global.get(\"EmailSleutelbewaarder3\"),\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nvar text = msg.payload;\n\nlet e1 = global.get(\"EmailSleutelbewaarder1\");\nlet e2 = global.get(\"EmailSleutelbewaarder2\");\nlet e3 = global.get(\"EmailSleutelbewaarder3\");\n\nif ((e1 == \"\") && (e2 == \"\") && (e3 == \"\")) {\n    node.status({ text: \"Geen contacten: \" + tijd_nu });\n    return null;\n}\n\nmsg = {\n    to: e1,\n    cc: e2 + \";\" + e3,\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
