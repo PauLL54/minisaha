@@ -324,7 +324,8 @@
             "c4c7d04cbda74725",
             "73676674ef1cf1fa",
             "01d386f3d9240b18",
-            "499d56692d3e80d0"
+            "499d56692d3e80d0",
+            "40591a413a61cc86"
         ],
         "x": 14,
         "y": 599,
@@ -2750,8 +2751,8 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Niet afgemeld",
-        "func": "let nietAfgemeld = Number(global.get(\"UsageNietAfgemeld\") ?? \"0\");\nnietAfgemeld += 1;\nglobal.set(\"UsageNietAfgemeld\", nietAfgemeld);\n\nlet emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && \n    emailSleutelbewaarder2 == \"\" && \n    emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen contactpersonen\"});\n  return;\n}\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nvar bericht = \"Beste contactpersoon,\" + \n  \"\\n\\nNeem contact op met \" + voornaamGebruiker + \" want hij/zij heeft niet gereageerd op de dagelijkse melding.\";\n\nif (emailSleutelbewaarder2 != \"\" || emailSleutelbewaarder3 != \"\") {\n  bericht = \"Beste eerste contactpersoon,\" + \n  \"\\n\\nNeem contact op met \" + voornaamGebruiker + \" want hij/zij heeft niet gereageerd op de dagelijkse melding.\" +\n    \"\\nStuur ook (via een reply to all) een bericht naar de \" +\n    \"andere contactpersonen dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede en/of derde contactpersoon,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht \" + \n    \"hebben ontvangen van de eerste contactpersoon, neem dan zelf contact \" + \n    \"op met de gebruiker en laat dat de andere contactpersonen ook weten.\";\n}\n\nmsg.topic = \"MiniSAHA: er is niet gereageerd\";\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
-        "outputs": 1,
+        "func": "let nietAfgemeld = Number(global.get(\"UsageNietAfgemeld\") ?? \"0\");\nnietAfgemeld += 1;\nglobal.set(\"UsageNietAfgemeld\", nietAfgemeld);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet topic = \"MiniSAHA: \" + voornaamGebruiker + \" heeft vandaag niet gereageerd. Neem contact op.\";\n\nvar email = \"Beste contactpersoon,\" + \n  \"\\n\\nNeem contact op met \" + voornaamGebruiker + \" want hij/zij heeft vandaag niet gereageerd.\";\n\nlet msgSMS = { payload: topic };\n\nlet msgEmail = { topic: topic, payload: email };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn [msgSMS, msgEmail];",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
@@ -2761,8 +2762,10 @@
         "y": 900,
         "wires": [
             [
-                "c0678892a8aa9532",
                 "a9408115b9afbbf0"
+            ],
+            [
+                "c0678892a8aa9532"
             ]
         ]
     },
@@ -2844,8 +2847,8 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Overtijd melding",
-        "func": "let overTijdAfgemeld = Number(global.get(\"UsageOverTijdAfgemeld\") ?? \"0\");\noverTijdAfgemeld += 1;\nglobal.set(\"UsageOverTijdAfgemeld\", overTijdAfgemeld);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nmsg.topic = \"MiniSAHA: alsnog op \" + msg.payload + \" gedrukt\";\n\nvar bericht = \"Beste contactpersoon,\\n\\n\" + \n    voornaamGebruiker + \" heeft alsnog \" + msg.payload + \n    \" geantwoord op de vraag of hij/zij OK was.\";\n\nmsg.payload = bericht;\n\nvar tijd_nu = global.get(\"getTime\")(); \nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
-        "outputs": 1,
+        "func": "let overTijdAfgemeld = Number(global.get(\"UsageOverTijdAfgemeld\") ?? \"0\");\noverTijdAfgemeld += 1;\nglobal.set(\"UsageOverTijdAfgemeld\", overTijdAfgemeld);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nvar topic = voornaamGebruiker + \" heeft alsnog \" + msg.payload +\n    \" geantwoord op de vraag of hij/zij OK was.\";\n\nvar email = \"Beste contactpersoon,\\n\\n\" + \n    voornaamGebruiker + \" heeft alsnog \" + msg.payload + \n    \" geantwoord op de vraag of hij/zij OK was.\";\n\n\nlet msgSMS = { payload: topic };\n\nlet msgEmail = { topic: topic, payload: email };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn [msgSMS, msgEmail];",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
@@ -2855,8 +2858,10 @@
         "y": 1020,
         "wires": [
             [
-                "c0678892a8aa9532",
                 "a9408115b9afbbf0"
+            ],
+            [
+                "c0678892a8aa9532"
             ]
         ]
     },
@@ -3323,7 +3328,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Alarm/Cancel",
-        "func": "let cancel = msg.payload.topic.includes(\"Annuleer\");\nif (cancel) {\n    let alarmCanceled = Number(global.get(\"UsageAlarmCanceled\") ?? \"0\");\n    alarmCanceled += 1;\n    global.set(\"UsageAlarmCanceled\", alarmCanceled);\n}\nelse {\n    let alarm = Number(global.get(\"UsageAlarm\") ?? \"0\");\n    alarm += 1;\n    global.set(\"UsageAlarm\", alarm);\n}\n\nmsg.topic = msg.payload.topic;\nmsg.payload = msg.payload.text;\n\nvar tijd_nu = global.get(\"getTime\")(); \nnode.status({ text: \"Send: \" + tijd_nu + \", topic: \" + msg.topic});\nreturn msg;",
+        "func": "let cancel = msg.payload.topic.includes(\"Annuleer\");\nif (cancel) {\n    let alarmCanceled = Number(global.get(\"UsageAlarmCanceled\") ?? \"0\");\n    alarmCanceled += 1;\n    global.set(\"UsageAlarmCanceled\", alarmCanceled);\n}\nelse {\n    let alarm = Number(global.get(\"UsageAlarm\") ?? \"0\");\n    alarm += 1;\n    global.set(\"UsageAlarm\", alarm);\n}\n\nmsg.topic = msg.payload.topic;\nmsg.payload = msg.payload.topic;\n\nvar tijd_nu = global.get(\"getTime\")(); \nnode.status({ text: \"Send: \" + tijd_nu + \", \" + msg.topic});\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3521,8 +3526,8 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Niet OK",
-        "func": "let nietOK = Number(global.get(\"UsageNietOK\") ?? \"0\");\nnietOK += 1;\nglobal.set(\"UsageNietOK\", nietOK);\n\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nmsg.topic = \"MiniSAHA: neem contact op met \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n    voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\";\n\nif (global.get(\"NeeTest\")) {\n  let vervolgNeeVraag = global.get(\"vervolgNeeVraag\");\n  let meldingClient = global.get(\"meldingClient\");\n  let meldingContact = global.get(\"meldingContact\");\n\n  if (meldingContact == \"\") {\n    node.status({ text: \"Send: \" + tijd_nu + \", geen email naar contacten\"});\n    return; // geen email naar contacten.\n  }\n\n  msg.payload = \"Beste contactpersoon,\" + \n    \"<br><br>\" +\n    voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\" + \n    \"<br><br>\" +\n    // fout:\n    \"Daarna heeft \" + voornaamGebruiker + \" 'Ja' geantwoord op de vraag: '\" + vervolgNeeVraag + \"'.\" +\n    \"<br><br>\" +\n    voornaamGebruiker + \" ontving het advies: '\" + meldingClient + \"'.\" +\n    \"<br><br>\" +\n    \"Conclusie: \" + meldingContact +\n      \"<br><br>\" +\n    \"Verzoek: neem contact op met \" + voornaamGebruiker + \".\";\n}\n\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
-        "outputs": 1,
+        "func": "let nietOK = Number(global.get(\"UsageNietOK\") ?? \"0\");\nnietOK += 1;\nglobal.set(\"UsageNietOK\", nietOK);\n\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet topic = \"MiniSAHA: neem contact op met \" + voornaamGebruiker;\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n    voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\";\n\n\nlet vervolgNeeVraag        = global.get(\"vervolgNeeVraag\");\nlet meldingsBerichtClient  = global.get(\"meldingClient\");\nlet meldingsBerichtContact = global.get(\"meldingContact\");\n\nif (meldingsBerichtContact == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu + \", geen email naar contacten\"});\n  return; // geen bericht naar contacten nodig.\n}\n\nlet email = \"Beste contactpersoon,\" + \n  \"<br><br>\" +\n  voornaamGebruiker + \" heeft 'Nee' geantwoord op de vraag of hij/zij OK was.\" + \n  \"<br><br>\" +\n  // fout:\n  \"Daarna heeft \" + voornaamGebruiker + \" 'Ja' geantwoord op de vraag: '\" + vervolgNeeVraag + \"'.\" +\n  \"<br><br>\" +\n  voornaamGebruiker + \" ontving het advies: '\" + meldingsBerichtClient + \"'.\" +\n  \"<br><br>\" +\n  \"Conclusie: \" + meldingsBerichtContact +\n    \"<br><br>\" +\n  \"Verzoek: neem contact op met \" + voornaamGebruiker + \".\";\n\nlet msgSMS = { payload: meldingsBerichtContact };\n\nlet msgEmail = { topic: topic, payload: email };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn [msgSMS, msgEmail];\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
@@ -3532,8 +3537,10 @@
         "y": 960,
         "wires": [
             [
-                "c0678892a8aa9532",
                 "a9408115b9afbbf0"
+            ],
+            [
+                "c0678892a8aa9532"
             ]
         ]
     },
@@ -3587,8 +3594,8 @@
         "g": "2ce41e3897fb35ce",
         "name": "Indien niet urgent, stuur email (is gratis)",
         "info": "",
-        "x": 770,
-        "y": 1140,
+        "x": 1030,
+        "y": 1200,
         "wires": []
     },
     {
@@ -3756,7 +3763,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Debug info",
-        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (s1 != \"\") smsContacten++;\nif (s2 != \"\") smsContacten++;\nif (s3 != \"\") smsContacten++;\n\nlet licenseSMS = global.get(\"LicenseSMS\") ?? \"\";\n\nlet dependencies = global.get(\"DependenciesCurrent\") ?? \"\";\nlet dependenciesCurrent = \"\"\nfor (const value of dependencies) {\n  dependenciesCurrent += value + \", \";\n}\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker:    \" + global.get(\"VoornaamGebruiker\") + // TODO moet weg\n  \"\\nSoftware version:      \" + global.get(\"version\") +\n  \"\\nRaspberry Pi model:    \" + global.get(\"RaspberryPiModel\") +\n  \"\\nRaspberry Pi ID:       \" + global.get(\"SerialCRC32\") +\n  \"\\nBrowser:               \" + global.get(\"Browser\") +\n  \"\\nPingCount:             \" + global.get(\"PingCount\") +\n  \"\\nSMS license:           \" + (licenseSMS != \"\") +\n  \"\\nSMS credits:           \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nSMS contacten:         \" + smsContacten +\n  \"\\nEmail contacten:       \" + emailContacten +\n  \"\\n\" +\n  \"\\nUsageNietAfgemeld:     \" + (global.get(\"UsageNietAfgemeld\") ?? 0) +\n  \"\\nUsageNietOK:           \" + (global.get(\"UsageNietOK\") ?? 0) +\n  \"\\nUsageOverTijdAfgemeld: \" + (global.get(\"UsageOverTijdAfgemeld\") ?? 0) +\n  \"\\nUsageAlarm:            \" + (global.get(\"UsageAlarm\") ?? 0) +\n  \"\\nUsageAlarmCanceled:    \" + (global.get(\"UsageAlarmCanceled\") ?? 0) +\n  \"\\nUsageSpeakerOff:       \" + (global.get(\"UsageSpeakerOff\") ?? 0) +\n  \"\\n\" +\n  \"\\nDependenciesCurrent:    \" + dependenciesCurrent;\n\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (s1 != \"\") smsContacten++;\nif (s2 != \"\") smsContacten++;\nif (s3 != \"\") smsContacten++;\n\nlet licenseSMS = global.get(\"LicenseSMS\") ?? \"\";\n\nlet dependencies = global.get(\"DependenciesCurrent\") ?? \"\";\nlet dependenciesCurrent = \"\"\nfor (const value of dependencies) {\n  dependenciesCurrent += value + \", \";\n}\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker:      \" + global.get(\"VoornaamGebruiker\") + // TODO moet weg\n  \"\\nSoftware version:        \" + global.get(\"version\") +\n  \"\\nRaspberry Pi model:      \" + global.get(\"RaspberryPiModel\") +\n  \"\\nRaspberry Pi ID:         \" + global.get(\"SerialCRC32\") +\n  \"\\nBrowser:                 \" + global.get(\"Browser\") +\n  \"\\nPingCount:               \" + global.get(\"PingCount\") +\n  \"\\nSMS license:             \" + (licenseSMS != \"\") +\n  \"\\nSMS credits:             \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nSMS contacten:           \" + smsContacten +\n  \"\\nEmail contacten:         \" + emailContacten +\n  \"\\n\" +\n  \"\\nUsageNietAfgemeld:       \" + (global.get(\"UsageNietAfgemeld\") ?? 0) +\n  \"\\nUsageNietOK:             \" + (global.get(\"UsageNietOK\") ?? 0) +\n  \"\\nLaatste melding contact: \" + (global.get(\"meldingContact\") ?? 0) +\n  \"\\nUsageOverTijdAfgemeld:   \" + (global.get(\"UsageOverTijdAfgemeld\") ?? 0) +\n  \"\\nUsageAlarm:              \" + (global.get(\"UsageAlarm\") ?? 0) +\n  \"\\nUsageAlarmCanceled:      \" + (global.get(\"UsageAlarmCanceled\") ?? 0) +\n  \"\\nUsageSpeakerOff:         \" + (global.get(\"UsageSpeakerOff\") ?? 0) +\n  \"\\n\" +\n  \"\\nDependenciesCurrent:     \" + dependenciesCurrent;\n\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3839,7 +3846,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Welkom nieuw SMS contact",
-        "func": "if (msg.payload == \"\") return null;\n\n\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet toAddress = msg.payload;\nlet body = \"Beste contactpersoon, \" + \n  voornaamGebruiker + \" heeft je 06 nummer toegevoegd in zijn MiniSAHA app.\" + \n  \" Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een SMS bericht hiervan krijgen.\" +\n  \" Neem dan even contact op met \" + voornaamGebruiker + \" om te kijken wat er aan de hand is.\" +\n  \" Tip: configureer een apart meldingsgeluid voor je SMS zodat je onderscheid kan maken tussen SMS en WhatsApp berichten.\";\n\nlet recipients = [];\nrecipients.push(toAddress);\n\nmsg.payload = {\n    recipients: recipients,\n    body: body\n};\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "func": "if (msg.payload == \"\") return null;\n\n\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet toAddress = msg.payload;\nlet body = \"MiniSAHA: \" + voornaamGebruiker + \" heeft je 06 nummer toegevoegd. Je ontvangt een bericht als als er niet afgemeld is of op Alarm gedrukt is.\";\n\nlet recipients = [];\nrecipients.push(toAddress);\n\nmsg.payload = {\n    recipients: recipients,\n    body: body\n};\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3918,6 +3925,17 @@
                 "01d386f3d9240b18"
             ]
         ]
+    },
+    {
+        "id": "40591a413a61cc86",
+        "type": "comment",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "per 160 karakters kost de SMS 1.2 credits.",
+        "info": "",
+        "x": 1040,
+        "y": 980,
+        "wires": []
     },
     {
         "id": "86d57ce8cd9b65da",
@@ -4436,7 +4454,7 @@
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
         "name": "Alarm tekst",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nlet emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\" && emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu  + \" geen contacten\"});\n  msg.payload = \"Nog geen contacten\";\n  return [null, msg];;\n}\n\nvar bericht = \"Beste contactpersoon, \" +\n    \"\\n\\n\" +\n    global.get(\"VoornaamGebruiker\") +\n    \" heeft op de Alarm knop gedrukt.\" +\n    \"\\n\\n Neem contact op met hem/haar.\";\n\nif (emailSleutelbewaarder2 != \"\" || emailSleutelbewaarder3 != \"\") {\n  bericht = \"Beste eerste contactpersoon, \" +\n    \"\\n\\nNeem contact op met \" +\n    global.get(\"VoornaamGebruiker\") + \n    \" want hij/zij heeft op de Alarm gedrukt.\" +\n    \"\\nLaat ook de overige contactpersonen weten dat je actie onderneemt.\" +\n    \"\\n\\nBeste tweede en/of derde contactpersoon,\" +\n    \"\\n\\nMocht je binnen een half uur na dit bericht geen bericht hebben ontvangen van de eerste contactpersoon, neem dan zelf contact op met de gebruiker en laat dat de eerste contactpersoon ook weten.\"\n}\n\nmsg.topic = \"MiniSAHA: op Alarm knop gedrukt\";\nmsg.payload = { \"text\": bericht, \"topic\": msg.topic };\n\nlet now = new Date();\nflow.set(\"timeAlarmSet\", now);\n\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn [msg, null];",
+        "func": "let voornaam = global.get(\"VoornaamGebruiker\");\n\nmsg.topic = \"MiniSAHA: \" + voornaam + \" heeft op de ALARM knop gedrukt\";\nmsg.payload = msg.topic;\n\nlet now = new Date();\nflow.set(\"timeAlarmSet\", now);\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn [msg, null];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -4462,7 +4480,7 @@
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
         "name": "Cancel Alarm",
-        "func": "let now = new Date();\nvar timeAlarmSet = flow.get(\"timeAlarmSet\");\nlet diff = toSeconds(now) - toSeconds(timeAlarmSet);\nnode.status({ text: \"diff seconds: \" + diff });\n\nif (diff < 60) {\n  var msgReset = { reset: true };\n  return [null, msgReset];\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nlet emailSleutelbewaarder1 = global.get(\"EmailSleutelbewaarder1\") || \"\";\nlet emailSleutelbewaarder2 = global.get(\"EmailSleutelbewaarder2\") || \"\";\nlet emailSleutelbewaarder3 = global.get(\"EmailSleutelbewaarder3\") || \"\";\n\nif (emailSleutelbewaarder1 == \"\" && emailSleutelbewaarder2 == \"\" && emailSleutelbewaarder3 == \"\") {\n  node.status({ text: \"Send: \" + tijd_nu + \" geen contactpersonen\"});\n  return;\n}\n\nvar bericht = \"Beste contactpersoon, \" +\n    \"\\n\\n \" +\n    global.get(\"VoornaamGebruiker\") +\n    \" heeft op de Annuleer Alarm knop gedrukt.\";\n\nmsg.topic = \"MiniSAHA: op Annuleer Alarm knop gedrukt\";\nmsg.payload = { \"text\": bericht, \"topic\":  msg.topic};\n\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn [msg, null];\n\n\nfunction toSeconds(date) {\n  return 60 * (date.getHours() * 60 + date.getMinutes()) + date.getSeconds();\n}",
+        "func": "let now = new Date();\nvar timeAlarmSet = flow.get(\"timeAlarmSet\");\nlet diff = toSeconds(now) - toSeconds(timeAlarmSet);\nnode.status({ text: \"diff seconds: \" + diff });\n\nif (diff < 60) {\n  var msgReset = { reset: true };\n  return [null, msgReset];\n}\n\nlet voornaam = global.get(\"VoornaamGebruiker\");\n\nmsg.topic = \"MiniSAHA: \" + voornaam + \" heeft op de ANNULEER (Alarm) knop gedrukt\";\nmsg.payload = msg.topic;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn [msg, null];\n\n\nfunction toSeconds(date) {\n  return 60 * (date.getHours() * 60 + date.getMinutes()) + date.getSeconds();\n}",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -4530,7 +4548,7 @@
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
         "name": "clear",
-        "func": "msg.payload = \"\";\nreturn msg;",
+        "func": "msg.payload = \"\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Clear: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5309,7 +5327,7 @@
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
         "name": "Feedback",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\n\nlet meldingClient = \"\";\n\nswitch (msg.vraagNummer) {\n    case 2: \n        meldingClient = \"Contacten ingelicht, indien nodig bel 112 via app\";\n        break;\n    case 3: \n        meldingClient = \"Neem direct contact op met de huisarts.\";\n        break;\n    case 4: \n        meldingClient = \"Bel de huisarts.\";\n        break;\n    case 5: \n        meldingClient = \"Advies: raadpleeg de Thuisarts app.\";\n        break;\n    case 6: \n        meldingClient = \"Je contacten zijn geinformeerd dat jebehoeft hebt aan contact.\";\n        break;\n    case 7: \n        meldingClient = \"Je contacten zijn geinformeerd dat je hulp nodig hebt.\";\n        break;\n    case 8: \n        meldingClient = \"Open de STAP-NAAR_GEZONDER app.\";\n        break;\n    case 9: \n        meldingClient = \"We ronden af en vragen morgen opnieuw.\";\n        break;\n}\n\n\nlet meldingContact = \"\";\n\nswitch (msg.vraagNummer) {\n    case 2:\n        meldingContact = \"Client heeft met spoed hulp nodig.\";\n        break;\n    case 3:\n        meldingContact = \"Client heeft mogelijk acuut probleem.\";\n        break;\n    case 4:\n        meldingContact = \"Client voelt zich ziek en moet naar de huisarts.\";\n        break;\n    case 5:\n        meldingContact = \"Client voelt zich een beetje ziek.\";\n        break;\n    case 6:\n        meldingContact = \"Cliënt voelt zich eenzaam en wil graag contact.\";\n        break;\n    case 7:\n        meldingContact = \"Client heeft hulp nodig, maar er is geen reden opgegeven.\";\n        break;\n    case 8:\n        meldingContact = \"\";\n        break;\n}\n\nglobal.set(\"vervolgNeeVraag\", msg.vervolgNeeVraag);\nglobal.set(\"meldingClient\", meldingClient);\nglobal.set(\"meldingContact\", meldingContact);\n\nreturn msg;\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.vraagNummer });\n\nlet meldingClient = \"\";\n\nswitch (msg.vraagNummer) {\n    case 2: \n        meldingClient = \"Contacten ingelicht, indien nodig bel 112 via app\";\n        break;\n    case 3: \n        meldingClient = \"Neem direct contact op met de huisarts.\";\n        break;\n    case 4: \n        meldingClient = \"Bel de huisarts.\";\n        break;\n    case 5: \n        meldingClient = \"Advies: raadpleeg de Thuisarts app.\";\n        break;\n    case 6: \n        meldingClient = \"Je contacten zijn geinformeerd dat jebehoeft hebt aan contact.\";\n        break;\n    case 7: \n        meldingClient = \"Je contacten zijn geinformeerd dat je hulp nodig hebt.\";\n        break;\n    case 8: \n        meldingClient = \"Open de STAP-NAAR_GEZONDER app.\";\n        break;\n    case 9: \n        meldingClient = \"We ronden af en vragen morgen opnieuw.\";\n        break;\n}\n\n\nlet meldingContact = \"\";\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nswitch (msg.vraagNummer) {\n    case 2:\n        meldingContact = \"MiniSAHA: \" + voornaamGebruiker + \" heeft met spoed hulp nodig.\";\n        break;\n    case 3:\n        meldingContact = \"MiniSAHA: \" + voornaamGebruiker + \" heeft mogelijk acuut probleem.\";\n        break;\n    case 4:\n        meldingContact = \"MiniSAHA: \" + voornaamGebruiker + \" voelt zich ziek en moet naar de huisarts.\";\n        break;\n    case 5:\n        meldingContact = \"MiniSAHA: \" + voornaamGebruiker + \" voelt zich een beetje ziek.\";\n        break;\n    case 6:\n        meldingContact = \"MiniSAHA: \" + voornaamGebruiker + \" voelt zich eenzaam en wil graag contact.\";\n        break;\n    case 7:\n        meldingContact = \"MiniSAHA: \" + voornaamGebruiker + \" heeft hulp nodig, maar er is geen reden opgegeven.\";\n        break;\n    case 8:\n        meldingContact = \"\"; // geen bericht naar contacten sturen\n        break;\n}\n\nglobal.set(\"vervolgNeeVraag\", msg.vervolgNeeVraag);\nglobal.set(\"meldingClient\", meldingClient);\nglobal.set(\"meldingContact\", meldingContact);\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
