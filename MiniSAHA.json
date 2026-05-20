@@ -324,9 +324,7 @@
             "c4c7d04cbda74725",
             "73676674ef1cf1fa",
             "01d386f3d9240b18",
-            "499d56692d3e80d0",
-            "8ff2a6f10aa5ecb3",
-            "cce6b3eba6e26f87"
+            "499d56692d3e80d0"
         ],
         "x": 14,
         "y": 599,
@@ -434,7 +432,6 @@
             "226a8c5bfb54aa32",
             "38a6029999573c13",
             "7640224f513f74de",
-            "60d1d31d381e01eb",
             "e677c617d3a5d29d",
             "940e764301d9d266",
             "6f445b4448b59170",
@@ -451,12 +448,12 @@
             "dff2dbca89ccfc06",
             "d7418bbaf522fb53",
             "cfa3916d77cf712b",
-            "dbba826abffed645",
             "deddc844a320c139",
             "7bef1118bd1260f5",
             "b605c08bff5ebcc9",
-            "5616e906d55578c0",
-            "23212dfcb7f036ad"
+            "23212dfcb7f036ad",
+            "d9e88fce393f6dc1",
+            "9fa21a8444806425"
         ],
         "x": 34,
         "y": 279,
@@ -1180,13 +1177,12 @@
             "b6d0686a4823c0c2",
             "6feec1798125bcc6",
             "610799e608be3cf2",
-            "55a9d32112df52f3",
-            "16a21835a3aeb96b",
-            "75df07c6c7019aac"
+            "c0671529b34906f5",
+            "e1e6225e7dc3d16d"
         ],
         "x": 34,
         "y": 1359,
-        "w": 972,
+        "w": 1012,
         "h": 502
     },
     {
@@ -3612,8 +3608,7 @@
         "y": 1020,
         "wires": [
             [
-                "f7f2e64c9bfdf1f0",
-                "8ff2a6f10aa5ecb3"
+                "f7f2e64c9bfdf1f0"
             ]
         ]
     },
@@ -3638,8 +3633,7 @@
         "y": 1020,
         "wires": [
             [
-                "f938d14348c8ceab",
-                "cce6b3eba6e26f87"
+                "f938d14348c8ceab"
             ]
         ]
     },
@@ -3924,42 +3918,6 @@
                 "01d386f3d9240b18"
             ]
         ]
-    },
-    {
-        "id": "8ff2a6f10aa5ecb3",
-        "type": "debug",
-        "z": "a380efb730bea147",
-        "g": "2ce41e3897fb35ce",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1020,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "cce6b3eba6e26f87",
-        "type": "debug",
-        "z": "a380efb730bea147",
-        "g": "2ce41e3897fb35ce",
-        "name": "debug 4",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1200,
-        "y": 1080,
-        "wires": []
     },
     {
         "id": "86d57ce8cd9b65da",
@@ -7231,7 +7189,7 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "get version.txt",
+        "name": "wget version.txt",
         "x": 440,
         "y": 760,
         "wires": [
@@ -7243,36 +7201,11 @@
         ]
     },
     {
-        "id": "60d1d31d381e01eb",
-        "type": "function",
-        "z": "af31bf2fe058f803",
-        "g": "5bb2b589a301c7c8",
-        "name": "Get version, dependencies",
-        "func": "let version = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload);\n\nvar msg1 = { payload: version };\nvar msg2 = { payload: dependencies };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              version + \", \" + dependencies.length});\nreturn [msg1, msg2];\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\"))\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            return line;\n            /*\n            // index van de LAATSTE \"@\"\n            const idx = line.lastIndexOf(\"@\");\n            const name = line.substring(0, idx);\n            const version = line.substring(idx + 1);\n            return [name, version];\n            */\n        });\n}\n",
-        "outputs": 2,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 560,
-        "y": 540,
-        "wires": [
-            [
-                "940e764301d9d266",
-                "226a8c5bfb54aa32"
-            ],
-            [
-                "dbba826abffed645"
-            ]
-        ]
-    },
-    {
         "id": "e677c617d3a5d29d",
         "type": "file in",
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
-        "name": "current version",
+        "name": "version.txt",
         "filename": ".node-red/projects/MiniSAHA/version.txt",
         "filenameType": "str",
         "format": "utf8",
@@ -7280,11 +7213,11 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 340,
+        "x": 330,
         "y": 540,
         "wires": [
             [
-                "60d1d31d381e01eb"
+                "d9e88fce393f6dc1"
             ]
         ]
     },
@@ -7367,7 +7300,7 @@
         "type": "file in",
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
-        "name": "latest",
+        "name": "read version.txt",
         "filename": "version.txt",
         "filenameType": "str",
         "format": "utf8",
@@ -7375,11 +7308,11 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 590,
+        "x": 640,
         "y": 760,
         "wires": [
             [
-                "5616e906d55578c0"
+                "9fa21a8444806425"
             ]
         ]
     },
@@ -7436,7 +7369,7 @@
         "z": "af31bf2fe058f803",
         "g": "5bb2b589a301c7c8",
         "name": "Update?",
-        "func": "var current = global.get(\"version\");\nvar requiredVersion = msg.payload;\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", required: \" + requiredVersion });\n\nif (requiredVersion > current) {\n    msg.payload = \"Product\";\n    var msg2 = { \n        payload: \"Update wordt geinstalleerd...\"\n        };\n    return [msg, msg2];\n}\nelse {\n    msg.payload = \"Geen nieuwere versie beschikbaar.\";\n    return [null, msg2]; \n}\n",
+        "func": "var requiredVersion = msg.payload;\n\nvar current = global.get(\"version\");\n\nnode.status({ fill: \"blue\", shape: \"ring\", \n    text: \"current: \" + current +\n    \", required: \" + requiredVersion });\n\nif (requiredVersion > current) {\n    msg.payload = \"Product\";\n    var msg2 = { \n        payload: \"Update wordt geinstalleerd...\"\n        };\n    return [msg, msg2];\n}\nelse {\n    msg.payload = \"Geen nieuwere versie beschikbaar.\";\n    return [null, msg2]; \n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -8361,32 +8294,6 @@
         ]
     },
     {
-        "id": "dbba826abffed645",
-        "type": "change",
-        "z": "af31bf2fe058f803",
-        "g": "5bb2b589a301c7c8",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "DependenciesRequired",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 880,
-        "y": 560,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "deddc844a320c139",
         "type": "exec",
         "z": "af31bf2fe058f803",
@@ -8457,27 +8364,6 @@
         ]
     },
     {
-        "id": "5616e906d55578c0",
-        "type": "function",
-        "z": "af31bf2fe058f803",
-        "g": "5bb2b589a301c7c8",
-        "name": "Get version",
-        "func": "msg.payload = msg.payload.split(\"\\n\")[0];\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.payload });\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 760,
-        "wires": [
-            [
-                "8341310a2e59ed53"
-            ]
-        ]
-    },
-    {
         "id": "23212dfcb7f036ad",
         "type": "mqtt out",
         "z": "af31bf2fe058f803",
@@ -8502,7 +8388,7 @@
         "z": "af31bf2fe058f803",
         "g": "27f4bc9fc8a40df5",
         "name": "Update dependencies",
-        "func": "let dependenciesToInstall = \"\";\nlet dependenciesCurrent = global.get(\"DependenciesCurrent\") ?? [];\nlet dependenciesRequired = [];\n\nif (msg.payload == \"Test\") {\n    dependenciesRequired = global.get(\"DependenciesRequiredTest\") ?? [];\n}\nelse {\n    dependenciesRequired = global.get(\"DependenciesRequired\") ?? [];\n}\n\nfor (const value of dependenciesRequired) {\n    if (!dependenciesCurrent.includes(value)) {\n        dependenciesToInstall += \"; npm install \" + value;\n    }\n}\n\nnode.status({ text: \"dependencies: \" + dependenciesToInstall });\n\nif (dependenciesToInstall.length > 0) {\n    msg.payload = \"cd .node-red \" + dependenciesToInstall;\n    return [msg, null];\n}\nelse {\n    return [null, msg];\n}",
+        "func": "let dependenciesToInstall = \"\";\nlet dependenciesCurrent = global.get(\"DependenciesCurrent\") ?? [];\nlet dependenciesRequired = global.get(\"DependenciesRequired\") ?? [];\n\nfor (const value of dependenciesRequired) {\n    if (!dependenciesCurrent.includes(value)) {\n        dependenciesToInstall += \"; npm install \" + value;\n    }\n}\n\nnode.status({ text: \"dependencies: \" + dependenciesToInstall });\n\nif (dependenciesToInstall.length > 0) {\n    msg.payload = \"cd .node-red \" + dependenciesToInstall;\n    return [msg, null];\n}\nelse {\n    return [null, msg];\n}",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -8510,7 +8396,7 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 1160,
+        "y": 1140,
         "wires": [
             [
                 "5120f07f67f52f22"
@@ -8683,6 +8569,49 @@
         ]
     },
     {
+        "id": "9fa21a8444806425",
+        "type": "function",
+        "z": "af31bf2fe058f803",
+        "g": "5bb2b589a301c7c8",
+        "name": "Get version, set dependencies",
+        "func": "msg.payload = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload);\nglobal.set(\"DependenciesRequired\", dependencies);\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              msg.payload + \", \" + dependencies.length});\nreturn msg;\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\")) // skip version\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            return line;\n        });\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 760,
+        "wires": [
+            [
+                "8341310a2e59ed53"
+            ]
+        ]
+    },
+    {
+        "id": "d9e88fce393f6dc1",
+        "type": "function",
+        "z": "af31bf2fe058f803",
+        "g": "5bb2b589a301c7c8",
+        "name": "Get version",
+        "func": "msg.payload = msg.payload.split(\"\\n\")[0];\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.payload });\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 540,
+        "wires": [
+            [
+                "226a8c5bfb54aa32",
+                "940e764301d9d266"
+            ]
+        ]
+    },
+    {
         "id": "ac6f3d5c09bce733",
         "type": "ui-button",
         "z": "eb60a9ea21d42f29",
@@ -8759,8 +8688,8 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "get version_test.txt",
-        "x": 450,
+        "name": "wget version_test.txt",
+        "x": 460,
         "y": 1580,
         "wires": [
             [
@@ -8775,7 +8704,7 @@
         "type": "file in",
         "z": "eb60a9ea21d42f29",
         "g": "4566824d49f71745",
-        "name": "current test version",
+        "name": "version_test.txt",
         "filename": ".node-red/projects/MiniSAHA/version_test.txt",
         "filenameType": "str",
         "format": "utf8",
@@ -8783,11 +8712,11 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 330,
+        "x": 320,
         "y": 1480,
         "wires": [
             [
-                "16a21835a3aeb96b"
+                "e1e6225e7dc3d16d"
             ]
         ]
     },
@@ -8870,7 +8799,7 @@
         "type": "file in",
         "z": "eb60a9ea21d42f29",
         "g": "4566824d49f71745",
-        "name": "latest",
+        "name": "version_test.txt",
         "filename": "version_test.txt",
         "filenameType": "str",
         "format": "utf8",
@@ -8878,11 +8807,11 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 610,
+        "x": 660,
         "y": 1580,
         "wires": [
             [
-                "55a9d32112df52f3"
+                "c0671529b34906f5"
             ]
         ]
     },
@@ -8938,15 +8867,15 @@
         "type": "function",
         "z": "eb60a9ea21d42f29",
         "g": "4566824d49f71745",
-        "name": "Update?",
-        "func": "var current = global.get(\"version_test\");\nvar requiredVersion = msg.payload;\n\nnode.status({ text: \"current: \" + current +\n    \", required: \" + requiredVersion    });\n\nif (requiredVersion > current) {\n    msg.payload = \"Test\";\n    var msg2 = { \n        payload: \"Nieuwe test versie wordt geinstalleerd...\"\n        };\n    return [msg, msg2];\n}\nelse {\n    msg.payload = \"Geen nieuwere test versie beschikbaar.\";\n    return [null, msg2]; \n}\n",
+        "name": "Test update?",
+        "func": "var requiredVersion = msg.payload;\n\nvar current = global.get(\"version_test\");\n\nnode.status({ text: \"current: \" + current +\n    \", required: \" + requiredVersion    });\n\nif (requiredVersion > current) {\n    msg.payload = \"Test\";\n    var msg2 = { \n        payload: \"Nieuwe test versie wordt geinstalleerd...\"\n        };\n    return [msg, msg2];\n}\nelse {\n    msg.payload = \"Geen nieuwere test versie beschikbaar.\";\n    return [null, msg2]; \n}\n",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 160,
+        "x": 170,
         "y": 1700,
         "wires": [
             [
@@ -10707,7 +10636,28 @@
         "wires": []
     },
     {
-        "id": "55a9d32112df52f3",
+        "id": "c0671529b34906f5",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "4566824d49f71745",
+        "name": "Get version, set dependencies",
+        "func": "msg.payload = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload);\nglobal.set(\"DependenciesRequired\", dependencies);\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              msg.payload + \", \" + dependencies.length});\nreturn msg;\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\")) // skip version\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            return line;\n        });\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 1580,
+        "wires": [
+            [
+                "59d5c77dc1dc2a60"
+            ]
+        ]
+    },
+    {
+        "id": "e1e6225e7dc3d16d",
         "type": "function",
         "z": "eb60a9ea21d42f29",
         "g": "4566824d49f71745",
@@ -10719,63 +10669,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 1580,
-        "wires": [
-            [
-                "59d5c77dc1dc2a60"
-            ]
-        ]
-    },
-    {
-        "id": "16a21835a3aeb96b",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "4566824d49f71745",
-        "name": "Get version",
-        "func": "let version = msg.payload.split(\"\\n\")[0];\n\nlet dependencies = parseNpmListOutput(msg.payload);\n\nvar msg1 = { payload: version };\nvar msg2 = { payload: dependencies };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + \n              version + \", \" + dependencies.length});\nreturn [msg1, msg2];\n\n//msg.payload = msg.payload.replace(/[\\r\\n]+/g, '');\n\n\nfunction parseNpmListOutput(text) {\n    return text\n        .split(\"\\n\")\n        .map(line => line.trim())\n        .filter(line => line.includes(\"@\"))\n        .map(line => {\n            // verwijder boomstructuur ├── en └──\n            line = line.replace(/^([├└]──\\s*)/, \"\");\n\n            return line;\n            /*\n            // index van de LAATSTE \"@\"\n            const idx = line.lastIndexOf(\"@\");\n            const name = line.substring(0, idx);\n            const version = line.substring(idx + 1);\n            return [name, version];\n            */\n        });\n}\n",
-        "outputs": 2,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
+        "x": 530,
         "y": 1480,
         "wires": [
             [
                 "2d76e161b54a56ff",
                 "29faaa6a019e0e9b"
-            ],
-            [
-                "75df07c6c7019aac"
             ]
-        ]
-    },
-    {
-        "id": "75df07c6c7019aac",
-        "type": "change",
-        "z": "eb60a9ea21d42f29",
-        "g": "4566824d49f71745",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "DependenciesRequiredTest",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 830,
-        "y": 1520,
-        "wires": [
-            []
         ]
     },
     {
