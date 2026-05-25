@@ -325,7 +325,8 @@
             "73676674ef1cf1fa",
             "01d386f3d9240b18",
             "499d56692d3e80d0",
-            "40591a413a61cc86"
+            "40591a413a61cc86",
+            "f765a88d7b80a030"
         ],
         "x": 14,
         "y": 599,
@@ -1064,13 +1065,11 @@
             "79d617ce47e6a923",
             "d4af9e8f21f7f284",
             "a5ea901950421399",
-            "7f0fb4e899c8cc05",
             "ac57c9073d7a7186",
             "77d3fcb912ba7f82",
             "a571f976bb343f30",
             "9977a5cb323ba9e4",
             "bda52b79398a0a17",
-            "99895d9c11e11d07",
             "580d01a7d6d5e5a2",
             "29ac22f696846f78",
             "835e91b2e93c6054",
@@ -1080,7 +1079,9 @@
             "2a07bdd78e0a7c33",
             "70f425f4ba3b37cc",
             "1c317274d291b5b2",
-            "83daab98951c39cd"
+            "83daab98951c39cd",
+            "8f6321789f9094a0",
+            "ab4ea6546201d72a"
         ],
         "x": 24,
         "y": 59,
@@ -3724,7 +3725,9 @@
         "x": 1210,
         "y": 1020,
         "wires": [
-            []
+            [
+                "f765a88d7b80a030"
+            ]
         ]
     },
     {
@@ -3763,7 +3766,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Debug info",
-        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (s1 != \"\") smsContacten++;\nif (s2 != \"\") smsContacten++;\nif (s3 != \"\") smsContacten++;\n\nlet licenseSMS = global.get(\"LicenseSMS\") ?? \"\";\n\nlet dependencies = global.get(\"DependenciesCurrent\") ?? \"\";\nlet dependenciesCurrent = \"\"\nfor (const value of dependencies) {\n  dependenciesCurrent += value + \", \";\n}\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker:      \" + global.get(\"VoornaamGebruiker\") + // TODO moet weg\n  \"\\nSoftware version:        \" + global.get(\"version\") +\n  \"\\nRaspberry Pi model:      \" + global.get(\"RaspberryPiModel\") +\n  \"\\nRaspberry Pi ID:         \" + global.get(\"SerialCRC32\") +\n  \"\\nBrowser:                 \" + global.get(\"Browser\") +\n  \"\\nPingCount:               \" + global.get(\"PingCount\") +\n  \"\\nSMS license:             \" + (licenseSMS != \"\") +\n  \"\\nSMS credits:             \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nSMS contacten:           \" + smsContacten +\n  \"\\nEmail contacten:         \" + emailContacten +\n  \"\\n\" +\n  \"\\nUsageNietAfgemeld:       \" + (global.get(\"UsageNietAfgemeld\") ?? 0) +\n  \"\\nUsageNietOK:             \" + (global.get(\"UsageNietOK\") ?? 0) +\n  \"\\nLaatste melding contact: \" + (global.get(\"meldingContact\") ?? 0) +\n  \"\\nUsageOverTijdAfgemeld:   \" + (global.get(\"UsageOverTijdAfgemeld\") ?? 0) +\n  \"\\nUsageAlarm:              \" + (global.get(\"UsageAlarm\") ?? 0) +\n  \"\\nUsageAlarmCanceled:      \" + (global.get(\"UsageAlarmCanceled\") ?? 0) +\n  \"\\nUsageSpeakerOff:         \" + (global.get(\"UsageSpeakerOff\") ?? 0) +\n  \"\\n\" +\n  \"\\nDependenciesCurrent:     \" + dependenciesCurrent;\n\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (s1 != \"\") smsContacten++;\nif (s2 != \"\") smsContacten++;\nif (s3 != \"\") smsContacten++;\n\nlet licenseSMS = global.get(\"LicenseSMS\") ?? \"\";\n\nlet dependencies = global.get(\"DependenciesCurrent\") ?? \"\";\nlet dependenciesCurrent = \"\"\nfor (const value of dependencies) {\n  dependenciesCurrent += value + \", \";\n}\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker:      \" + global.get(\"VoornaamGebruiker\") + // TODO moet weg\n  \"\\nSoftware version:        \" + global.get(\"version\") +\n  \"\\nRaspberry Pi model:      \" + global.get(\"RaspberryPiModel\") +\n  \"\\nRaspberry Pi ID:         \" + global.get(\"SerialCRC32\") +\n  \"\\nBrowser:                 \" + global.get(\"Browser\") +\n  \"\\nPingCount:               \" + global.get(\"PingCount\") +\n  \"\\nPingFault:               \" + (global.get(\"PingFault\") ?? 0) +\n  \"\\nSMS license:             \" + (licenseSMS != \"\") +\n  \"\\nSMS credits:             \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nSMS contacten:           \" + smsContacten +\n  \"\\nEmail contacten:         \" + emailContacten +\n  \"\\n\" +\n  \"\\nUsageNietAfgemeld:       \" + (global.get(\"UsageNietAfgemeld\") ?? 0) +\n  \"\\nUsageNietOK:             \" + (global.get(\"UsageNietOK\") ?? 0) +\n  \"\\nLaatste melding contact: \" + (global.get(\"meldingContact\") ?? 0) +\n  \"\\nUsageOverTijdAfgemeld:   \" + (global.get(\"UsageOverTijdAfgemeld\") ?? 0) +\n  \"\\nUsageAlarm:              \" + (global.get(\"UsageAlarm\") ?? 0) +\n  \"\\nUsageAlarmCanceled:      \" + (global.get(\"UsageAlarmCanceled\") ?? 0) +\n  \"\\nUsageSpeakerOff:         \" + (global.get(\"UsageSpeakerOff\") ?? 0) +\n  \"\\n\" +\n  \"\\nDependenciesCurrent:     \" + dependenciesCurrent;\n\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3935,6 +3938,24 @@
         "info": "",
         "x": 1040,
         "y": 980,
+        "wires": []
+    },
+    {
+        "id": "f765a88d7b80a030",
+        "type": "debug",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 860,
         "wires": []
     },
     {
@@ -5356,31 +5377,12 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 150,
+        "x": 130,
         "y": 100,
         "wires": [
             [
                 "79d617ce47e6a923"
             ]
-        ]
-    },
-    {
-        "id": "7f0fb4e899c8cc05",
-        "type": "function",
-        "z": "e786b4f70cf0ad09",
-        "g": "f7d63b40478c7552",
-        "name": "NeeTest?",
-        "func": "if (global.get(\"NeeTest\"))\n    return msg;\nelse\n    return null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 160,
-        "wires": [
-            []
         ]
     },
     {
@@ -5498,17 +5500,6 @@
                 "0b415bb3986a229a"
             ]
         ]
-    },
-    {
-        "id": "99895d9c11e11d07",
-        "type": "comment",
-        "z": "e786b4f70cf0ad09",
-        "g": "f7d63b40478c7552",
-        "name": "moet weg",
-        "info": "",
-        "x": 300,
-        "y": 180,
-        "wires": []
     },
     {
         "id": "580d01a7d6d5e5a2",
@@ -5710,6 +5701,55 @@
         "y": 160,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "8f6321789f9094a0",
+        "type": "function",
+        "z": "e786b4f70cf0ad09",
+        "g": "f7d63b40478c7552",
+        "name": "Clear meldingContact",
+        "func": "global.set(\"meldingContact\", \"\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ab4ea6546201d72a",
+        "type": "inject",
+        "z": "e786b4f70cf0ad09",
+        "g": "f7d63b40478c7552",
+        "name": "At 00:10",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "10 00 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "8f6321789f9094a0"
+            ]
         ]
     },
     {
