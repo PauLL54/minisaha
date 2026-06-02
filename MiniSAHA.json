@@ -263,7 +263,8 @@
             "babed6e3ce5dc3ea",
             "753683c2be3ca461",
             "3bd34e7abbd1d9af",
-            "e68a026ef275a774"
+            "e68a026ef275a774",
+            "435d8dc872fa3492"
         ],
         "x": 34,
         "y": 19,
@@ -3953,6 +3954,36 @@
         "wires": [
             [
                 "72150be82696bdfc"
+            ]
+        ]
+    },
+    {
+        "id": "435d8dc872fa3492",
+        "type": "inject",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "At startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 540,
+        "y": 100,
+        "wires": [
+            [
+                "93e66aed5528479a"
             ]
         ]
     },
