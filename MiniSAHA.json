@@ -224,12 +224,14 @@
             "7ea37518e7e677d7",
             "cf1713ef3eb3df85",
             "8d1d71e905b38b07",
-            "71e9a369f74477f6"
+            "71e9a369f74477f6",
+            "d80cac96a5a5e098",
+            "98edb03d60a2cb6b"
         ],
         "x": 34,
         "y": 2111.5,
-        "w": 632,
-        "h": 269.5
+        "w": 792,
+        "h": 349.5
     },
     {
         "id": "4e4ef64c30555769",
@@ -648,7 +650,6 @@
             "27336a80e583f921",
             "e1471d5c735bd6d3",
             "d722b84b332a8bb8",
-            "7cb194b63eb56afd",
             "ced962bd1c4d22bc",
             "98511df3af0e7143",
             "795954223e100ba0",
@@ -664,12 +665,16 @@
             "d35eb0bb6ea5ccbc",
             "dba42521bfd178fb",
             "f2056ea177f36ad5",
-            "c30adb715705679b"
+            "c30adb715705679b",
+            "76f43b9c2a422276",
+            "d63a93e87172d203",
+            "7cb194b63eb56afd",
+            "42599fe93d9e7d75"
         ],
         "x": 34,
         "y": 19,
         "w": 1172,
-        "h": 762
+        "h": 822
     },
     {
         "id": "e9121fbc4482804f",
@@ -702,7 +707,7 @@
             "d68aa0b732adcd5c"
         ],
         "x": 34,
-        "y": 1511.5,
+        "y": 1311.5,
         "w": 932,
         "h": 309.5
     },
@@ -740,7 +745,7 @@
             "746b7471fda81cac"
         ],
         "x": 34,
-        "y": 819,
+        "y": 859,
         "w": 852,
         "h": 442
     },
@@ -1395,7 +1400,7 @@
             "7eda9637a81def87"
         ],
         "x": 34,
-        "y": 2399,
+        "y": 2499,
         "w": 632,
         "h": 222
     },
@@ -1757,7 +1762,7 @@
             {
                 "name": "Default",
                 "px": "0",
-                "cols": "4"
+                "cols": "6"
             },
             {
                 "name": "Tablet",
@@ -1785,7 +1790,7 @@
         "type": "ui-group",
         "name": "Meldingsgeluiden",
         "page": "bed8396ac6babffc",
-        "width": "5",
+        "width": "6",
         "height": 1,
         "order": 1,
         "showTitle": false,
@@ -9748,7 +9753,7 @@
         "timer": "",
         "oldrc": false,
         "name": "Execute shutdown",
-        "x": 550,
+        "x": 710,
         "y": 2160,
         "wires": [
             [],
@@ -9768,8 +9773,8 @@
         "timer": "",
         "oldrc": false,
         "name": "Execute restart",
-        "x": 540,
-        "y": 2280,
+        "x": 700,
+        "y": 2360,
         "wires": [
             [],
             [],
@@ -9812,8 +9817,8 @@
         "y": 2160,
         "wires": [
             [
-                "9efaa0c2fd872693",
-                "7ea37518e7e677d7"
+                "7ea37518e7e677d7",
+                "d80cac96a5a5e098"
             ]
         ]
     },
@@ -9850,11 +9855,11 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 2280,
+        "y": 2360,
         "wires": [
             [
-                "6d496dbb394b2888",
-                "7ea37518e7e677d7"
+                "7ea37518e7e677d7",
+                "98edb03d60a2cb6b"
             ]
         ]
     },
@@ -10219,7 +10224,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 2340,
+        "y": 2420,
         "wires": [
             [
                 "7ea37518e7e677d7"
@@ -10307,7 +10312,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 2340,
+        "y": 2420,
         "wires": [
             [
                 "8d1d71e905b38b07"
@@ -11120,7 +11125,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 2500,
+        "y": 2600,
         "wires": [
             [
                 "c4374053a41625c7"
@@ -11150,7 +11155,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 2500,
+        "y": 2600,
         "wires": [
             [
                 "9b85a6085d559ea2"
@@ -11171,7 +11176,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 560,
-        "y": 2500,
+        "y": 2600,
         "wires": []
     },
     {
@@ -11201,7 +11206,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 130,
-        "y": 2580,
+        "y": 2680,
         "wires": [
             [
                 "c8f37af1d1e7dc3c"
@@ -11230,7 +11235,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 550,
-        "y": 2460,
+        "y": 2560,
         "wires": []
     },
     {
@@ -11255,7 +11260,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 570,
-        "y": 2580,
+        "y": 2680,
         "wires": []
     },
     {
@@ -11272,7 +11277,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 2580,
+        "y": 2680,
         "wires": [
             [
                 "daaed1d0d0a15858"
@@ -11287,7 +11292,7 @@
         "name": "Maak een SMS gebruikers licentie aan",
         "info": "",
         "x": 210,
-        "y": 2440,
+        "y": 2540,
         "wires": []
     },
     {
@@ -11382,6 +11387,58 @@
         "x": 550,
         "y": 900,
         "wires": []
+    },
+    {
+        "id": "d80cac96a5a5e098",
+        "type": "delay",
+        "z": "eb60a9ea21d42f29",
+        "g": "d344da1eff713941",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 2160,
+        "wires": [
+            [
+                "9efaa0c2fd872693"
+            ]
+        ]
+    },
+    {
+        "id": "98edb03d60a2cb6b",
+        "type": "delay",
+        "z": "eb60a9ea21d42f29",
+        "g": "d344da1eff713941",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 2360,
+        "wires": [
+            [
+                "6d496dbb394b2888"
+            ]
+        ]
     },
     {
         "id": "0af8df52052ef366",
@@ -13054,16 +13111,16 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "group": "aae22fe947be766e",
-        "name": "",
-        "label": "Test geluid",
-        "order": 3,
-        "width": "2",
+        "name": "Ochtend",
+        "label": "Test",
+        "order": 2,
+        "width": "1",
         "height": "1",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
         "bgcolor": "",
-        "className": "StartStopButton",
+        "className": "",
         "icon": "",
         "iconPosition": "left",
         "payload": "",
@@ -13080,11 +13137,11 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 290,
-        "y": 320,
+        "x": 280,
+        "y": 280,
         "wires": [
             [
-                "7cb194b63eb56afd"
+                "42599fe93d9e7d75"
             ]
         ]
     },
@@ -13098,8 +13155,8 @@
         "label": "Meldingsgeluid ochtend:",
         "tooltip": "",
         "order": 1,
-        "width": "0",
-        "height": "0",
+        "width": "5",
+        "height": "1",
         "passthru": false,
         "multiple": false,
         "chips": false,
@@ -13112,7 +13169,7 @@
         "typeIsComboBox": false,
         "msgTrigger": "onChange",
         "x": 810,
-        "y": 500,
+        "y": 560,
         "wires": [
             [
                 "098f8c595d14aaa5"
@@ -13133,7 +13190,7 @@
         "oldrc": false,
         "name": "ls sounds",
         "x": 420,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "7d08a46ad06a9fe9",
@@ -13157,7 +13214,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 500,
+        "y": 560,
         "wires": [
             [
                 "50dd2fd4a701d53d"
@@ -13201,7 +13258,7 @@
         "finalize": "",
         "libs": [],
         "x": 1060,
-        "y": 500,
+        "y": 560,
         "wires": [
             []
         ]
@@ -13256,9 +13313,9 @@
         "group": "aae22fe947be766e",
         "name": "",
         "label": "Stop",
-        "order": 4,
-        "width": "2",
-        "height": "1",
+        "order": 5,
+        "width": "0",
+        "height": "0",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
@@ -13296,8 +13353,8 @@
         "name": "",
         "label": "Random geluid",
         "group": "aae22fe947be766e",
-        "order": 5,
-        "width": "2",
+        "order": 6,
+        "width": "3",
         "height": "1",
         "passthru": false,
         "decouple": false,
@@ -13316,7 +13373,7 @@
         "officon": "",
         "offcolor": "",
         "x": 800,
-        "y": 680,
+        "y": 740,
         "wires": [
             [
                 "e438e1a719031b77"
@@ -13344,7 +13401,7 @@
         "to": "",
         "reg": false,
         "x": 1050,
-        "y": 680,
+        "y": 740,
         "wires": [
             []
         ]
@@ -13370,7 +13427,7 @@
         "to": "",
         "reg": false,
         "x": 450,
-        "y": 680,
+        "y": 740,
         "wires": [
             [
                 "8c04f7e36a9c4acb"
@@ -13391,7 +13448,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 680,
+        "y": 740,
         "wires": [
             [
                 "034d3d2d8b8a62ca"
@@ -13445,7 +13502,7 @@
         "oldrc": false,
         "name": "ls sounds",
         "x": 200,
-        "y": 1560,
+        "y": 1360,
         "wires": [
             [
                 "411d40273f5f425f"
@@ -13462,7 +13519,7 @@
         "group": "aae22fe947be766e",
         "name": "Device Table",
         "label": "",
-        "order": 11,
+        "order": 12,
         "width": "0",
         "height": "0",
         "maxrows": "",
@@ -13499,7 +13556,7 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "x": 670,
-        "y": 1560,
+        "y": 1360,
         "wires": [
             [
                 "4991f7f568969713"
@@ -13520,7 +13577,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 1560,
+        "y": 1360,
         "wires": [
             [
                 "d886cc1affb2bca7"
@@ -13533,7 +13590,7 @@
         "z": "bf57a768b975c2e6",
         "g": "852f70d81ad10832",
         "group": "aae22fe947be766e",
-        "order": 10,
+        "order": 11,
         "width": 0,
         "height": 0,
         "name": "Voortgang",
@@ -13549,7 +13606,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 790,
-        "y": 860,
+        "y": 900,
         "wires": []
     },
     {
@@ -13560,7 +13617,7 @@
         "group": "aae22fe947be766e",
         "name": "",
         "label": "Kopieer alle MP3 bestanden van USB stick",
-        "order": 8,
+        "order": 9,
         "width": "0",
         "height": "0",
         "emulateClick": false,
@@ -13585,7 +13642,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 230,
-        "y": 1040,
+        "y": 1080,
         "wires": [
             [
                 "ec36fc960434517b"
@@ -13606,7 +13663,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 1660,
+        "y": 1460,
         "wires": [
             [
                 "217d3c58acae81bd"
@@ -13630,7 +13687,7 @@
         "oldrc": false,
         "name": "exec rm",
         "x": 880,
-        "y": 1760,
+        "y": 1560,
         "wires": [
             [],
             [],
@@ -13651,7 +13708,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 1100,
+        "y": 1140,
         "wires": [
             [
                 "2f60b40d268db108"
@@ -13672,7 +13729,7 @@
         "oldrc": false,
         "name": "exec",
         "x": 690,
-        "y": 1100,
+        "y": 1140,
         "wires": [
             [
                 "19674a84640dbeb7"
@@ -13695,7 +13752,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 1040,
+        "y": 1080,
         "wires": [
             [
                 "7b381f39c3109c7b"
@@ -13716,7 +13773,7 @@
         "oldrc": false,
         "name": "exec",
         "x": 690,
-        "y": 1040,
+        "y": 1080,
         "wires": [
             [
                 "ff4b91c6f803a3cb"
@@ -13739,7 +13796,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 1760,
+        "y": 1560,
         "wires": [
             [
                 "2912eea2927befa7"
@@ -13759,7 +13816,7 @@
             "4ce40f669f564d3c"
         ],
         "x": 565,
-        "y": 1760,
+        "y": 1560,
         "wires": []
     },
     {
@@ -13772,7 +13829,7 @@
             "2912eea2927befa7"
         ],
         "x": 95,
-        "y": 1560,
+        "y": 1360,
         "wires": [
             [
                 "ac3df9612f272925"
@@ -13789,7 +13846,7 @@
             "2912eea2927befa7"
         ],
         "x": 205,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "fb00403833140d8b"
@@ -13806,7 +13863,7 @@
             "2912eea2927befa7"
         ],
         "x": 105,
-        "y": 860,
+        "y": 900,
         "wires": [
             [
                 "e8dcf9dab51432cf"
@@ -13827,7 +13884,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 860,
+        "y": 900,
         "wires": [
             [
                 "9f7d3fb78648fc41"
@@ -13848,7 +13905,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
                 "9f7d3fb78648fc41"
@@ -13874,7 +13931,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 640,
-        "y": 920,
+        "y": 960,
         "wires": [
             [
                 "c7a079d11845588a"
@@ -13895,7 +13952,7 @@
         "finalize": "",
         "libs": [],
         "x": 770,
-        "y": 920,
+        "y": 960,
         "wires": [
             [
                 "4a80936a1117d160"
@@ -13916,7 +13973,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 860,
+        "y": 900,
         "wires": [
             [
                 "4a80936a1117d160",
@@ -13930,7 +13987,7 @@
         "z": "bf57a768b975c2e6",
         "g": "852f70d81ad10832",
         "group": "aae22fe947be766e",
-        "order": 7,
+        "order": 8,
         "width": 0,
         "height": 0,
         "name": "leeg",
@@ -13946,7 +14003,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 110,
-        "y": 1220,
+        "y": 1260,
         "wires": []
     },
     {
@@ -13957,7 +14014,7 @@
         "group": "aae22fe947be766e",
         "name": "",
         "label": "Hoe kopieer ik MP3 bestanden vanaf mijn PC?",
-        "order": 9,
+        "order": 10,
         "width": "0",
         "height": "0",
         "emulateClick": false,
@@ -13982,7 +14039,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 240,
-        "y": 1160,
+        "y": 1200,
         "wires": [
             [
                 "746b7471fda81cac"
@@ -14009,7 +14066,7 @@
         "className": "",
         "name": "",
         "x": 690,
-        "y": 1220,
+        "y": 1260,
         "wires": [
             []
         ]
@@ -14028,7 +14085,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 1220,
+        "y": 1260,
         "wires": [
             [
                 "c0dfb882e72c4bd7"
@@ -14049,7 +14106,7 @@
         "finalize": "",
         "libs": [],
         "x": 700,
-        "y": 1160,
+        "y": 1200,
         "wires": [
             [
                 "c5dbb4558df77bc6"
@@ -14070,7 +14127,7 @@
         "oldrc": false,
         "name": "hostname -I  ",
         "x": 530,
-        "y": 1160,
+        "y": 1200,
         "wires": [
             [
                 "25d743058464db66"
@@ -14087,8 +14144,8 @@
         "name": "",
         "label": "Stop na JA/NEE",
         "group": "aae22fe947be766e",
-        "order": 6,
-        "width": "2",
+        "order": 7,
+        "width": "3",
         "height": "1",
         "passthru": false,
         "decouple": false,
@@ -14107,7 +14164,7 @@
         "officon": "",
         "offcolor": "",
         "x": 800,
-        "y": 740,
+        "y": 800,
         "wires": [
             [
                 "3fe4ddc223bcbaeb"
@@ -14135,7 +14192,7 @@
         "to": "",
         "reg": false,
         "x": 1030,
-        "y": 740,
+        "y": 800,
         "wires": [
             []
         ]
@@ -14161,7 +14218,7 @@
         "to": "",
         "reg": false,
         "x": 450,
-        "y": 740,
+        "y": 800,
         "wires": [
             [
                 "27336a80e583f921"
@@ -14182,7 +14239,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 740,
+        "y": 800,
         "wires": [
             [
                 "ad3cf096050d54e2"
@@ -14233,28 +14290,6 @@
         ]
     },
     {
-        "id": "7cb194b63eb56afd",
-        "type": "function",
-        "z": "bf57a768b975c2e6",
-        "g": "3856d925f2c69025",
-        "name": "Selected sound",
-        "func": "msg.payload = global.get(\"BluetoothSound\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 480,
-        "y": 320,
-        "wires": [
-            [
-                "121eeb47240d2a87",
-                "cd17b3773f335e9b"
-            ]
-        ]
-    },
-    {
         "id": "ced962bd1c4d22bc",
         "type": "mqtt in",
         "z": "bf57a768b975c2e6",
@@ -14269,7 +14304,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
                 "98511df3af0e7143"
@@ -14290,7 +14325,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
                 "d35eb0bb6ea5ccbc"
@@ -14336,7 +14371,7 @@
         "finalize": "",
         "libs": [],
         "x": 960,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "d0e532abff31a2ad"
@@ -14415,7 +14450,7 @@
             "5a41d7518d03c12d"
         ],
         "x": 675,
-        "y": 1620,
+        "y": 1420,
         "wires": []
     },
     {
@@ -14452,7 +14487,7 @@
         "name": "Play",
         "info": "",
         "x": 790,
-        "y": 1620,
+        "y": 1420,
         "wires": []
     },
     {
@@ -14469,7 +14504,7 @@
         "finalize": "",
         "libs": [],
         "x": 730,
-        "y": 1680,
+        "y": 1480,
         "wires": [
             [
                 "9f3dd4c4d056882c"
@@ -14496,7 +14531,7 @@
         "className": "",
         "name": "Show",
         "x": 870,
-        "y": 1680,
+        "y": 1480,
         "wires": [
             [
                 "d68aa0b732adcd5c"
@@ -14517,7 +14552,7 @@
         "finalize": "",
         "libs": [],
         "x": 730,
-        "y": 1760,
+        "y": 1560,
         "wires": [
             [
                 "776ed147123b92b8"
@@ -14533,8 +14568,8 @@
         "links": [
             "217d3c58acae81bd"
         ],
-        "x": 645,
-        "y": 340,
+        "x": 695,
+        "y": 420,
         "wires": [
             [
                 "31476e27da90a60b"
@@ -14559,8 +14594,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 770,
-        "y": 340,
+        "x": 830,
+        "y": 420,
         "wires": [
             [
                 "cd17b3773f335e9b"
@@ -14582,7 +14617,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 680,
+        "y": 740,
         "wires": [
             [
                 "fb00403833140d8b",
@@ -14624,10 +14659,10 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 270,
-        "y": 360,
+        "y": 400,
         "wires": [
             [
-                "7cb194b63eb56afd"
+                "d63a93e87172d203"
             ]
         ]
     },
@@ -14649,7 +14684,8 @@
         "wires": [
             [
                 "de3f35eb8cc6cc74",
-                "4b0df9706344d251"
+                "4b0df9706344d251",
+                "76f43b9c2a422276"
             ]
         ]
     },
@@ -14666,7 +14702,7 @@
         "ignoredFilesType": "re",
         "name": "",
         "x": 200,
-        "y": 1700,
+        "y": 1500,
         "wires": [
             [
                 "a0f17d909e19d179"
@@ -14686,7 +14722,7 @@
         "ignoredFilesType": "re",
         "name": "",
         "x": 200,
-        "y": 1780,
+        "y": 1580,
         "wires": [
             [
                 "a0f17d909e19d179"
@@ -14702,9 +14738,9 @@
         "name": "",
         "label": "Meldingsgeluid avond:",
         "tooltip": "",
-        "order": 2,
-        "width": "0",
-        "height": "0",
+        "order": 3,
+        "width": "5",
+        "height": "1",
         "passthru": false,
         "multiple": false,
         "chips": false,
@@ -14717,7 +14753,7 @@
         "typeIsComboBox": false,
         "msgTrigger": "onChange",
         "x": 800,
-        "y": 580,
+        "y": 640,
         "wires": [
             [
                 "f2056ea177f36ad5"
@@ -14738,7 +14774,7 @@
         "finalize": "",
         "libs": [],
         "x": 1050,
-        "y": 580,
+        "y": 640,
         "wires": [
             []
         ]
@@ -14749,7 +14785,7 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "split",
-        "func": "let now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nmsg.options = msg.payload.split(/\\n/);\nif (msg.options.length > 1) {\n   msg.options.pop();\n}\n\nlet selected = global.get(\"BluetoothSoundAvond\");\nif (selected == undefined) {\n    selected = \"MiniSAHA.mp3\";\n    global.set(\"BluetoothSoundAvond\", selected);\n}\n\nif (msg.options.includes(selected)) {\n    node.status({ text: tijd_nu + \", \" + msg.options });\n    msg.payload = selected;\n}\nelse {\n    if (msg.options.length > 0) {\n        node.status({ text: tijd_nu + \", first: \" + msg.payload });\n        msg.payload = msg.options[0];\n        global.set(\"BluetoothSoundAvond\", msg.payload);\n    }\n    else {\n        node.status({ text: tijd_nu + \", empty\" });\n        msg.payload = \"\";\n    }\n}\nreturn msg;",
+        "func": "let now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nmsg.options = msg.payload.split(/\\n/);\nif (msg.options.length > 1) {\n   msg.options.pop();\n}\n\n//global.set(\"BluetoothSoundAvond\", \"MiniSAHA.mp3\");\n\nlet selected = global.get(\"BluetoothSoundAvond\");\nif (selected == undefined) {\n    selected = \"MiniSAHA.mp3\";\n    global.set(\"BluetoothSoundAvond\", selected);\n}\n\nif (msg.options.includes(selected)) {\n    node.status({ text: tijd_nu + \", \" + msg.options });\n    msg.payload = selected;\n}\nelse {\n    if (msg.options.length > 0) {\n        node.status({ text: tijd_nu + \", first: \" + msg.payload });\n        msg.payload = msg.options[0];\n        global.set(\"BluetoothSoundAvond\", msg.payload);\n    }\n    else {\n        node.status({ text: tijd_nu + \", empty\" });\n        msg.payload = \"\";\n    }\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -14757,10 +14793,116 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 580,
+        "y": 640,
         "wires": [
             [
                 "dba42521bfd178fb"
+            ]
+        ]
+    },
+    {
+        "id": "76f43b9c2a422276",
+        "type": "ui-button",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "group": "aae22fe947be766e",
+        "name": "Avond",
+        "label": "Test",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 270,
+        "y": 340,
+        "wires": [
+            [
+                "7cb194b63eb56afd"
+            ]
+        ]
+    },
+    {
+        "id": "d63a93e87172d203",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "Selected sound",
+        "func": "msg.payload = global.get(\"BluetoothSound\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 400,
+        "wires": [
+            [
+                "121eeb47240d2a87",
+                "cd17b3773f335e9b"
+            ]
+        ]
+    },
+    {
+        "id": "7cb194b63eb56afd",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "Selected sound",
+        "func": "msg.payload = global.get(\"BluetoothSoundAvond\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "121eeb47240d2a87",
+                "cd17b3773f335e9b"
+            ]
+        ]
+    },
+    {
+        "id": "42599fe93d9e7d75",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "Selected sound",
+        "func": "msg.payload = global.get(\"BluetoothSoundOchtend\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \" \" + msg.payload});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 280,
+        "wires": [
+            [
+                "121eeb47240d2a87",
+                "cd17b3773f335e9b"
             ]
         ]
     },
