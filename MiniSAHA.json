@@ -9224,7 +9224,7 @@
         "type": "exec",
         "z": "af31bf2fe058f803",
         "g": "a49df4f119bb186e",
-        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/ouns/MiniSAHA.mp3",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/sounds/MiniSAHA.mp3",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
