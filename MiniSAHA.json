@@ -249,27 +249,26 @@
             "dc25463a90653c93",
             "2fe001daedc674d9",
             "94fd03500445951f",
-            "0aaa14729a8e7b05",
             "72150be82696bdfc",
-            "e95199098a8ec21d",
             "93e66aed5528479a",
             "cd2ccbcdab9e2474",
             "a60b56107555d543",
             "e43aa1add6eab915",
             "3d3ed8f6ab85a6cb",
-            "517dbde196f99a20",
             "b5fa993c16ba139a",
             "13e5cd2c4ebfb95d",
             "9abc1caa0b9f46c9",
             "40fe3f4a575a69de",
             "c4d886939c466e32",
             "babed6e3ce5dc3ea",
-            "753683c2be3ca461"
+            "753683c2be3ca461",
+            "3bd34e7abbd1d9af",
+            "e68a026ef275a774"
         ],
-        "x": 14,
+        "x": 34,
         "y": 19,
-        "w": 912,
-        "h": 562
+        "w": 1112,
+        "h": 502
     },
     {
         "id": "2ce41e3897fb35ce",
@@ -329,7 +328,7 @@
             "f765a88d7b80a030"
         ],
         "x": 14,
-        "y": 599,
+        "y": 559,
         "w": 1312,
         "h": 962
     },
@@ -661,12 +660,15 @@
             "31476e27da90a60b",
             "2ef32435fc1f616f",
             "4b0df9706344d251",
-            "d35eb0bb6ea5ccbc"
+            "d35eb0bb6ea5ccbc",
+            "dba42521bfd178fb",
+            "f2056ea177f36ad5",
+            "c30adb715705679b"
         ],
-        "x": 14,
+        "x": 34,
         "y": 19,
-        "w": 1132,
-        "h": 642
+        "w": 1172,
+        "h": 762
     },
     {
         "id": "e9121fbc4482804f",
@@ -699,7 +701,7 @@
             "d68aa0b732adcd5c"
         ],
         "x": 34,
-        "y": 1131.5,
+        "y": 1511.5,
         "w": 932,
         "h": 309.5
     },
@@ -737,7 +739,7 @@
             "746b7471fda81cac"
         ],
         "x": 34,
-        "y": 679,
+        "y": 819,
         "w": 852,
         "h": 442
     },
@@ -829,12 +831,15 @@
             "76ecef5aa3ea71c9",
             "cb0ebccbf541c91e",
             "5fb9a1a6fecd52b9",
-            "ef8f414221384c89"
+            "ef8f414221384c89",
+            "c8c27038539629ab",
+            "e3d582f5b3ec8066",
+            "4ded78b65af095e4"
         ],
         "x": 34,
         "y": 1259,
         "w": 992,
-        "h": 629.5
+        "h": 729.5
     },
     {
         "id": "75f6d804089580c3",
@@ -859,7 +864,7 @@
             "748f55ba24c9c9bd"
         ],
         "x": 34,
-        "y": 1119,
+        "y": 1339,
         "w": 1032,
         "h": 182
     },
@@ -930,12 +935,27 @@
             "a5d5f0113e8754b4",
             "634d2a803fbc82cc",
             "6dcb0f9d9f036fd6",
-            "90fb81a6d69e0a90"
+            "74594809f8889502",
+            "67ea5c30afee53ab",
+            "0527fd36d651e625",
+            "1e26ddc4dc6ed8b0",
+            "4fc65f5a4166cc32",
+            "9173fdd312e7f77a",
+            "393a2d613ffade33",
+            "3fa72a5e93cf3ca3",
+            "446c2f0a98e7455a",
+            "5e67f481686b4dc4",
+            "279ea6d5a913bf20",
+            "732f6b03df425bed",
+            "dd75cb1bc1ca972d",
+            "1b825f73e398e366",
+            "a24bde423b198fbc",
+            "d1021f321016f2b4"
         ],
         "x": 34,
         "y": 39,
         "w": 1412,
-        "h": 1042
+        "h": 1262
     },
     {
         "id": "9e903c2c09c4282e",
@@ -1323,7 +1343,7 @@
             "ebac05316c6a1263"
         ],
         "x": 34,
-        "y": 1919,
+        "y": 2039,
         "w": 632,
         "h": 182
     },
@@ -2670,12 +2690,11 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 160,
+        "x": 150,
+        "y": 180,
         "wires": [
             [
-                "dc25463a90653c93",
-                "b5fa993c16ba139a"
+                "3bd34e7abbd1d9af"
             ]
         ]
     },
@@ -2685,15 +2704,15 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "Tijd triggers",
-        "func": "// Controlleer of Initialize is geweest:\nvar tijd_nu = global.get(\"getTime\");\nif (tijd_nu == undefined)\n    return null;\n\n\n// hoe laat is het nu?\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet beginToonVraag_ms = meldingstijdGebruiker_ms - 120 * 60000;\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\n\n// Wanneer is het tijd om een vraag te stellen (2 uur voor de aangegeven tijd)?\nif ((tijd_nu_ms >= beginToonVraag_ms) &&\n    (tijd_nu_ms <  meldingstijdGebruiker_ms)) {\n    msg.payload = \"startToonVraag\";\n    node.status({ text: tijd_nu + \": startToonVraag\" });\n    return msg;\n}\n\n// Wanneer is het tijd om een meldingen te sturen naar de gebruiker?\nif ((tijd_nu_ms >= meldingstijdGebruiker_ms) &&\n    (tijd_nu_ms < overtijd_ms) ) {\n    msg.payload = \"meldingsPeriodeGebruiker\";\n    node.status({ text: tijd_nu + \": meldingsPeriodeGebruiker\" });\n    return msg;\n}\n\n// Wanneer is het tijd om ook een email te sturen naar de contactpersonen?\nif (tijd_nu_ms >= overtijd_ms) {\n    msg.payload = \"meldingsPeriodeVoorbij\";\n    node.status({ text: tijd_nu + \": meldingsPeriodeVoorbij\" });\n    return msg;\n}\n\nif (tijd_nu_ms == 0) {\n    //global.set(\"TijdOK\", global.get(\"TijdOK1\"));\n    msg.payload = \"resetState\";\n    node.status({ text: tijd_nu + \": resetState\" });\n    return msg;\n}\n\nreturn;\n",
+        "func": "// Controlleer of Initialize is geweest:\nvar getTime = global.get(\"getTime\");\nif (getTime == undefined)\n    return null;\n\n// hoe laat is het nu?\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\n\n// Reset state om 00:00\nif (tijd_nu_ms == 0) {\n    msg.payload = \"resetState\";\n    node.status({ text: tijd_nu + \": resetState\" });\n    return msg;\n}\n\nlet tijdOKAvondEnabled = global.get(\"TijdOKAvondEnabled\") ?? false;\nif (tijdOKAvondEnabled) {\n    // Reset state om 15:00\n    let middag_ms = 15 * 60 * 60 * 1000;\n    if (tijd_nu_ms == middag_ms) {\n        msg.payload = \"resetState\";\n        node.status({ text: tijd_nu + \": resetState\" });\n        return msg;\n    }\n}\n\nlet toonVraagVanTeVoren = 120; // minuten\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet beginToonVraag_ms = meldingstijdGebruiker_ms - toonVraagVanTeVoren * 60000;\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\n\n// Wanneer is het tijd om een vraag te stellen (2 uur voor de aangegeven tijd)?\nif ((tijd_nu_ms >= beginToonVraag_ms) &&\n    (tijd_nu_ms <  meldingstijdGebruiker_ms)) {\n    msg.payload = \"startToonVraag\";\n    node.status({ text: tijd_nu + \": startToonVraag\" });\n    return msg;\n}\n\n// Wanneer is het tijd om een meldingen te sturen naar de gebruiker?\nif ((tijd_nu_ms >= meldingstijdGebruiker_ms) &&\n    (tijd_nu_ms < overtijd_ms) ) {\n    msg.payload = \"meldingsPeriodeGebruiker\";\n    node.status({ text: tijd_nu + \": meldingsPeriodeGebruiker\" });\n    return msg;\n}\n\n// Wanneer is het tijd om ook een email te sturen naar de contactpersonen?\nif (tijd_nu_ms >= overtijd_ms) {\n    msg.payload = \"meldingsPeriodeVoorbij\";\n    node.status({ text: tijd_nu + \": meldingsPeriodeVoorbij\" });\n    return msg;\n}\n\nnode.status({ text: tijd_nu + \": \" + global.get(\"TijdOK\") });\n\nreturn;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 300,
+        "x": 550,
+        "y": 240,
         "wires": [
             [
                 "72150be82696bdfc"
@@ -2737,7 +2756,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 820,
+        "x": 1040,
         "y": 360,
         "wires": []
     },
@@ -2749,7 +2768,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 230,
-        "y": 1520,
+        "y": 1480,
         "wires": []
     },
     {
@@ -2766,7 +2785,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 900,
+        "y": 860,
         "wires": [
             [
                 "a9408115b9afbbf0"
@@ -2777,41 +2796,20 @@
         ]
     },
     {
-        "id": "0aaa14729a8e7b05",
-        "type": "function",
-        "z": "a380efb730bea147",
-        "g": "4e4ef64c30555769",
-        "name": "currentState=Idle",
-        "func": "global.set(\"currentState\", \"Idle\");\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" currentState=Idle\"});\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 350,
-        "y": 540,
-        "wires": [
-            [
-                "94fd03500445951f"
-            ]
-        ]
-    },
-    {
         "id": "72150be82696bdfc",
         "type": "function",
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "StateMachine",
-        "func": "let states = global.get(\"states\");\nvar tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\nglobal.set(\"previousState\", previousState);\n\n// Als iemand lang niet thuis is geweest wordt hij automatisch afgemeld:\nlet langNietThuis = 15; // minutes\nif (global.get(\"PingCount\") > 66) \n    langNietThuis = 30;\n\nlet trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger == \"startToonVraag\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        if (trigger == \"isThuis\") {\n            let nietThuisSinds = flow.get(\"nietThuisSinds\");\n            let now = new Date();\n            if (toMinutes(now) - toMinutes(nietThuisSinds) > langNietThuis) {\n                currentState = states.ISOKAUTO;\n            }\n            else {\n                currentState = states.TOONOKVRAAG;\n            }\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.TOONOKVRAAG: {\n        if (trigger == \"isNietThuis\") {\n            currentState = states.TOONOKVRAAGNIETTHUIS; \n            let now = new Date();\n            flow.set(\"nietThuisSinds\", now);\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\")   currentState = states.ISOK;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        if (trigger == \"meldingsPeriodeVoorbij\")   currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        if (trigger == \"isThuis\") {\n            let nietThuisSinds = flow.get(\"nietThuisSinds\");\n            let now = new Date();\n            if (toMinutes(now) - toMinutes(nietThuisSinds) > langNietThuis) {\n                currentState = states.ISOKAUTO; \n            }\n            else {\n                currentState = states.MELDGEBRUIKER; \n            }\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"isNietThuis\") {\n            currentState = states.MELDGEBRUIKERNIETTHUIS; \n            let now = new Date();\n            flow.set(\"nietThuisSinds\", now);\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\")   currentState = states.ISOK;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOKAUTO: \n    case states.ISOK: \n    case states.ISNOTOK: {\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger == \"resetState\") currentState = states.IDLE;\n        if (trigger == \"jaPressed\")   currentState = states.ISOK_OVERTIJD;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\nif (currentState != previousState) {\n    msg.payload = currentState;\n    return msg;\n}\nelse\n    return;\n\nfunction toMinutes(date) {\n    return date.getHours() * 60 + date.getMinutes();\n}",
+        "func": "let states = global.get(\"states\");\nvar tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\nglobal.set(\"previousState\", previousState);\n\n// Als iemand lang niet thuis is geweest wordt hij automatisch afgemeld:\nlet langNietThuis = 15; // minutes\nif (global.get(\"PingCount\") > 66) \n    langNietThuis = 30;\n\nlet trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger == \"startToonVraag\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        if (trigger == \"isThuis\") {\n            let nietThuisSinds = flow.get(\"nietThuisSinds\");\n            let now = new Date();\n            if (toMinutes(now) - toMinutes(nietThuisSinds) > langNietThuis) {\n                currentState = states.ISOKAUTO;\n            }\n            else {\n                currentState = states.TOONOKVRAAG;\n            }\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.TOONOKVRAAG: {\n        if (trigger == \"isNietThuis\") {\n            currentState = states.TOONOKVRAAGNIETTHUIS; \n            let now = new Date();\n            flow.set(\"nietThuisSinds\", now);\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\")   currentState = states.ISOK;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        if (trigger == \"meldingsPeriodeVoorbij\")   currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        if (trigger == \"isThuis\") {\n            let nietThuisSinds = flow.get(\"nietThuisSinds\");\n            let now = new Date();\n            if (toMinutes(now) - toMinutes(nietThuisSinds) > langNietThuis) {\n                currentState = states.ISOKAUTO; \n            }\n            else {\n                currentState = states.MELDGEBRUIKER; \n            }\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"isNietThuis\") {\n            currentState = states.MELDGEBRUIKERNIETTHUIS; \n            let now = new Date();\n            flow.set(\"nietThuisSinds\", now);\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\")   currentState = states.ISOK;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOKAUTO: \n    case states.ISOK: \n    case states.ISNOTOK: {\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger == \"resetState\") currentState = states.IDLE;\n        if (trigger == \"jaPressed\")   currentState = states.ISOK_OVERTIJD;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\nif ((currentState != previousState) || (trigger == \"resetState\")) {\n    msg.payload = currentState;\n    return msg;\n}\nelse\n    return;\n\n\n\n\nfunction toMinutes(date) {\n    return date.getHours() * 60 + date.getMinutes();\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
-        "y": 400,
+        "x": 800,
+        "y": 360,
         "wires": [
             [
                 "94fd03500445951f"
@@ -2832,7 +2830,7 @@
         "finalize": "",
         "libs": [],
         "x": 190,
-        "y": 960,
+        "y": 920,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2862,7 +2860,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 1020,
+        "y": 980,
         "wires": [
             [
                 "a9408115b9afbbf0"
@@ -2887,30 +2885,8 @@
         "name": "",
         "dname": "",
         "x": 990,
-        "y": 1240,
+        "y": 1200,
         "wires": []
-    },
-    {
-        "id": "e95199098a8ec21d",
-        "type": "mqtt in",
-        "z": "a380efb730bea147",
-        "g": "4e4ef64c30555769",
-        "name": "",
-        "topic": "TijdOKChanged",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "0839f7b4c0cbb0a8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 140,
-        "y": 540,
-        "wires": [
-            [
-                "0aaa14729a8e7b05"
-            ]
-        ]
     },
     {
         "id": "7406ab9d8567cc25",
@@ -2931,7 +2907,7 @@
         "topic": "topic",
         "outputs": 2,
         "x": 400,
-        "y": 780,
+        "y": 740,
         "wires": [
             [
                 "0362a76e4f7b1fd0"
@@ -2955,7 +2931,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 840,
+        "y": 800,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2971,7 +2947,7 @@
         "scope": null,
         "uncaught": false,
         "x": 980,
-        "y": 1520,
+        "y": 1480,
         "wires": [
             [
                 "8322868abe70e928"
@@ -2993,7 +2969,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1130,
-        "y": 1520,
+        "y": 1480,
         "wires": []
     },
     {
@@ -3002,14 +2978,14 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "Initialize",
-        "func": "global.set(\"tijdNaarMs\", function (tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n});\n\nglobal.set(\"getTime\", function () {\n    let now = new Date();\n    return ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n});\n\nglobal.set(\"states\", {\n    IDLE: \"Idle\",\n    TOONOKVRAAG: \"ToonOkVraag\",\n    TOONOKVRAAGNIETTHUIS: \"ToonOkVraagNietThuis\",\n    MELDGEBRUIKER: \"MeldGebruiker\",\n    MELDGEBRUIKERNIETTHUIS: \"MeldGebruikerNietThuis\",\n    ISOKAUTO: \"IsOkAuto\",\n    ISOK: \"IsOk\",\n    ISNOTOK: \"IsNotOk\",\n    ISOK_OVERTIJD: \"IsOk_OverTijd\",\n    ISNOTOK_OVERTIJD: \"IsNotOk_OverTijd\",\n    OVERTIJD: \"OverTijd\"\n});\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" global functions created\"});\n\nglobal.set(\"currentState\", global.get(\"currentState\") ?? \"Idle\");\nglobal.set(\"TijdOK\", global.get(\"TijdOK\") ?? \" \");\nglobal.set(\"VoornaamGebruiker\", global.get(\"VoornaamGebruiker\") ?? \"\");\nglobal.set(\"EmailGebruiker\", global.get(\"EmailGebruiker\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder1\", global.get(\"EmailSleutelbewaarder1\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder2\", global.get(\"EmailSleutelbewaarder2\") ?? \"\");\n\nglobal.set(\"currentState\", \"Idle\");\nglobal.set(\"previousState\", \"OverTijd\");\n\nmsg.payload = \"Initialized\";\nreturn msg;\n",
+        "func": "global.set(\"tijdNaarMs\", function (tijd) { // e.g. \"09:15\"\n    let [h, m] = tijd.split(\":\").map(Number);\n    return (h * 60 + m) * 60000;\n});\n\nglobal.set(\"getTime\", function () {\n    let now = new Date();\n    return ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n});\n\nglobal.set(\"states\", {\n    IDLE: \"Idle\",\n    TOONOKVRAAG: \"ToonOkVraag\",\n    TOONOKVRAAGNIETTHUIS: \"ToonOkVraagNietThuis\",\n    MELDGEBRUIKER: \"MeldGebruiker\",\n    MELDGEBRUIKERNIETTHUIS: \"MeldGebruikerNietThuis\",\n    ISOKAUTO: \"IsOkAuto\",\n    ISOK: \"IsOk\",\n    ISNOTOK: \"IsNotOk\",\n    ISOK_OVERTIJD: \"IsOk_OverTijd\",\n    ISNOTOK_OVERTIJD: \"IsNotOk_OverTijd\",\n    OVERTIJD: \"OverTijd\"\n});\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" global functions created\"});\n\nglobal.set(\"currentState\", global.get(\"currentState\") ?? \"Idle\");\nglobal.set(\"VoornaamGebruiker\", global.get(\"VoornaamGebruiker\") ?? \"\");\nglobal.set(\"EmailGebruiker\", global.get(\"EmailGebruiker\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder1\", global.get(\"EmailSleutelbewaarder1\") ?? \"\");\nglobal.set(\"EmailSleutelbewaarder2\", global.get(\"EmailSleutelbewaarder2\") ?? \"\");\n\nglobal.set(\"currentState\", \"Idle\");\nglobal.set(\"previousState\", \"OverTijd\");\n\nmsg.payload = \"Initialized\";\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
+        "x": 740,
         "y": 160,
         "wires": [
             [
@@ -3034,7 +3010,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 800,
+        "y": 760,
         "wires": [
             [
                 "97cd5aa2eb055baf"
@@ -3064,7 +3040,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 1200,
+        "y": 1160,
         "wires": [
             [
                 "cfa6b22427e3edc3"
@@ -3085,7 +3061,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1200,
+        "y": 1160,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3106,7 +3082,7 @@
         "finalize": "",
         "libs": [],
         "x": 600,
-        "y": 780,
+        "y": 740,
         "wires": [
             [
                 "d5df2f8a93d16c6a"
@@ -3127,7 +3103,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 700,
+        "y": 660,
         "wires": [
             [
                 "494c0e1626e74b03"
@@ -3151,7 +3127,7 @@
         "oldrc": false,
         "name": "ls sounds",
         "x": 740,
-        "y": 660,
+        "y": 620,
         "wires": [
             [
                 "6e3e1642880f5295"
@@ -3174,7 +3150,7 @@
         "finalize": "",
         "libs": [],
         "x": 900,
-        "y": 660,
+        "y": 620,
         "wires": [
             [
                 "9a6d5159979437b8"
@@ -3195,7 +3171,7 @@
         "finalize": "",
         "libs": [],
         "x": 1050,
-        "y": 700,
+        "y": 660,
         "wires": [
             [
                 "a9d22c1ccafb666e"
@@ -3218,7 +3194,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 1190,
-        "y": 700,
+        "y": 660,
         "wires": []
     },
     {
@@ -3256,7 +3232,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
+        "x": 540,
         "y": 480,
         "wires": [
             [
@@ -3279,7 +3255,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 860,
+        "y": 820,
         "wires": [
             [
                 "97cd5aa2eb055baf"
@@ -3300,7 +3276,7 @@
         "finalize": "",
         "libs": [],
         "x": 700,
-        "y": 1180,
+        "y": 1140,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3322,7 +3298,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 1080,
+        "y": 1040,
         "wires": [
             [
                 "b7b67d2a822e82d9"
@@ -3343,7 +3319,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 1080,
+        "y": 1040,
         "wires": [
             [
                 "c0678892a8aa9532",
@@ -3359,7 +3335,7 @@
         "name": "Emails en SMS",
         "info": "",
         "x": 120,
-        "y": 640,
+        "y": 600,
         "wires": []
     },
     {
@@ -3379,7 +3355,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Meldperiode gewijzigd",
-        "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"MiniSAHA: tijdmelding gewijzigd bij \" + voornaamGebruiker;\n\nvar tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n  voornaamGebruiker + \" heeft de tijdmelding gewijzigd.\\n\" + \n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een melding hiervan krijgen.\";\n\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "func": "let voornaamGebruiker = global.get(\"VoornaamGebruiker\");\nmsg.topic = \"MiniSAHA: tijdmelding gewijzigd bij \" + voornaamGebruiker;\n\nlet overtijd = getOvertijd(global.get(\"TijdOKOchtend\"));\nlet tijdOKAvondEnabled = global.get(\"TijdOKAvondEnabled\") ?? false;\nif (tijdOKAvondEnabled) {\n    overtijd += \" of om \" + getOvertijd(global.get(\"TijdOKAvond\"));\n}\n\nmsg.payload = \"Beste contactpersoon,\\n\\n\" + \n  voornaamGebruiker + \" heeft de tijdmelding gewijzigd.\\n\" + \n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een melding hiervan krijgen.\";\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n\nfunction getOvertijd(tijdOK) {\n  let meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(tijdOK);\n  let meldPeriodeInMinuten = global.get(\"MeldPeriodeInMinuten\") * 60000;\n  let overtijd_ms = meldingstijdGebruiker_ms + meldPeriodeInMinuten;\n  let overtijd = msToHM(overtijd_ms);\n  return overtijd;\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3387,7 +3363,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 1260,
+        "y": 1220,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3409,7 +3385,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 120,
-        "y": 1260,
+        "y": 1220,
         "wires": [
             [
                 "6c19355dfbaa9427"
@@ -3431,7 +3407,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1380,
+        "y": 1340,
         "wires": [
             [
                 "7df2d7d7906671f7"
@@ -3452,7 +3428,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1380,
+        "y": 1340,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3474,37 +3450,9 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 820,
+        "x": 1040,
         "y": 160,
         "wires": []
-    },
-    {
-        "id": "517dbde196f99a20",
-        "type": "inject",
-        "z": "a380efb730bea147",
-        "g": "4e4ef64c30555769",
-        "name": "Trigger 60 s after startup",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "60",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 390,
-        "y": 220,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "b5fa993c16ba139a",
@@ -3519,7 +3467,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 570,
         "y": 160,
         "wires": [
             [
@@ -3541,7 +3489,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 960,
+        "y": 920,
         "wires": [
             [
                 "a9408115b9afbbf0"
@@ -3587,7 +3535,7 @@
         "finalize": "",
         "libs": [],
         "x": 700,
-        "y": 960,
+        "y": 920,
         "wires": [
             [
                 "b6f1cd01ee1848ea"
@@ -3602,7 +3550,7 @@
         "name": "Indien niet urgent, stuur email (is gratis)",
         "info": "",
         "x": 1030,
-        "y": 1200,
+        "y": 1160,
         "wires": []
     },
     {
@@ -3619,7 +3567,7 @@
         "finalize": "",
         "libs": [],
         "x": 860,
-        "y": 1020,
+        "y": 980,
         "wires": [
             [
                 "f7f2e64c9bfdf1f0"
@@ -3644,7 +3592,7 @@
         "senderr": false,
         "headers": [],
         "x": 1020,
-        "y": 1020,
+        "y": 980,
         "wires": [
             [
                 "f938d14348c8ceab"
@@ -3664,7 +3612,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 530,
         "y": 360,
         "wires": [
             [
@@ -3685,7 +3633,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 530,
         "y": 420,
         "wires": [
             [
@@ -3711,7 +3659,8 @@
         "y": 300,
         "wires": [
             [
-                "dc25463a90653c93"
+                "3bd34e7abbd1d9af",
+                "e68a026ef275a774"
             ]
         ]
     },
@@ -3729,7 +3678,7 @@
         "finalize": "",
         "libs": [],
         "x": 1210,
-        "y": 1020,
+        "y": 980,
         "wires": [
             [
                 "f765a88d7b80a030"
@@ -3759,7 +3708,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1440,
+        "y": 1400,
         "wires": [
             [
                 "7d7d5d76c7d50c52"
@@ -3780,7 +3729,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1440,
+        "y": 1400,
         "wires": [
             [
                 "103b4311b12747c4"
@@ -3801,7 +3750,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 1440,
+        "y": 1400,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3823,7 +3772,7 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 820,
+        "x": 1040,
         "y": 100,
         "wires": []
     },
@@ -3863,7 +3812,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1140,
+        "y": 1100,
         "wires": [
             [
                 "b6f1cd01ee1848ea"
@@ -3885,7 +3834,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1140,
+        "y": 1100,
         "wires": [
             [
                 "c4c7d04cbda74725"
@@ -3906,7 +3855,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1320,
+        "y": 1280,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3928,7 +3877,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 1320,
+        "y": 1280,
         "wires": [
             [
                 "01d386f3d9240b18"
@@ -3943,7 +3892,7 @@
         "name": "per 160 karakters kost de SMS 1.2 credits.",
         "info": "",
         "x": 1040,
-        "y": 980,
+        "y": 940,
         "wires": []
     },
     {
@@ -3961,8 +3910,51 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1220,
-        "y": 860,
+        "y": 820,
         "wires": []
+    },
+    {
+        "id": "3bd34e7abbd1d9af",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "select TijdOK",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\n\nlet tijdOKAvondEnabled = global.get(\"TijdOKAvondEnabled\") ?? false;\nlet middag_ms = 15 * 60 * 60 * 1000;\n// middag_ms = (13 * 60 + 27) * 60 * 1000;\n\nif (!tijdOKAvondEnabled || (tijd_nu_ms < middag_ms)) {\n    let tijdOchtend = global.get(\"TijdOKOchtend\");\n    if (tijdOchtend != null) {\n        global.set(\"TijdOK\", tijdOchtend);\n    }\n    let bluetoothSoundOchtend = global.get(\"BluetoothSoundOchtend\");\n    if (bluetoothSoundOchtend != null) {\n        global.set(\"BluetoothSound\", bluetoothSoundOchtend);\n    }\n\n    node.status({ text: tijd_nu + \": TijdOKOchtend\" });\n    return msg;\n}\n\nif (tijdOKAvondEnabled) {\n    if (tijd_nu_ms >= middag_ms) {\n        let tijdAvond = global.get(\"TijdOKAvond\");\n        if (tijdAvond != null) {\n            global.set(\"TijdOK\", tijdAvond);\n        }\n        let bluetoothSoundAvond = global.get(\"BluetoothSoundAvond\");\n        if (bluetoothSoundAvond != null) {\n            global.set(\"BluetoothSound\", bluetoothSoundAvond);\n        }\n\n        node.status({ text: tijd_nu + \": TijdOKAvond\" });\n        return msg;\n    }\n}\n\nnode.status({ text: tijd_nu + \": onverwacht\" });\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 200,
+        "wires": [
+            [
+                "b5fa993c16ba139a",
+                "dc25463a90653c93"
+            ]
+        ]
+    },
+    {
+        "id": "e68a026ef275a774",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "resetState",
+        "func": "msg.payload = \"resetState\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 300,
+        "wires": [
+            [
+                "72150be82696bdfc"
+            ]
+        ]
     },
     {
         "id": "86d57ce8cd9b65da",
@@ -5767,7 +5759,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "TijdOK",
+                "p": "TijdOKOchtend",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -5778,7 +5770,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1230,
+        "x": 1250,
         "y": 420,
         "wires": [
             []
@@ -5883,13 +5875,13 @@
         "type": "change",
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
-        "name": "TijdOK",
+        "name": "TijdOKOchtend",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "TijdOK",
+                "to": "TijdOKOchtend",
                 "tot": "global"
             }
         ],
@@ -5898,7 +5890,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 170,
+        "x": 200,
         "y": 400,
         "wires": [
             [
@@ -5927,7 +5919,7 @@
         "to": "",
         "reg": false,
         "x": 940,
-        "y": 1260,
+        "y": 1480,
         "wires": [
             []
         ]
@@ -5953,7 +5945,7 @@
         "to": "",
         "reg": false,
         "x": 1280,
-        "y": 640,
+        "y": 900,
         "wires": [
             []
         ]
@@ -5979,7 +5971,7 @@
         "to": "",
         "reg": false,
         "x": 220,
-        "y": 640,
+        "y": 900,
         "wires": [
             [
                 "8432a47ba220719a"
@@ -5997,7 +5989,8 @@
             "c9ec5160388cc29c",
             "ba5f9de83ae33543",
             "26417c5cfef73e15",
-            "bdebfa0f1e99fc2e"
+            "bdebfa0f1e99fc2e",
+            "0527fd36d651e625"
         ],
         "x": 265,
         "y": 120,
@@ -6013,7 +6006,7 @@
             "4abb19d96b88ba67"
         ],
         "x": 85,
-        "y": 640,
+        "y": 900,
         "wires": [
             [
                 "da27f195c199f6ae"
@@ -6120,8 +6113,7 @@
         "y": 400,
         "wires": [
             [
-                "e38a9634cc906c7f",
-                "90fb81a6d69e0a90"
+                "e38a9634cc906c7f"
             ]
         ]
     },
@@ -6133,7 +6125,7 @@
         "group": "a50d14b208aa0231",
         "name": "Alarm sturen na  (in min.)",
         "label": "Alarm sturen na  (in min.)",
-        "order": 10,
+        "order": 11,
         "width": "4",
         "height": "1",
         "topic": "topic",
@@ -6152,7 +6144,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 590,
-        "y": 640,
+        "y": 900,
         "wires": [
             [
                 "adb6085895f429a6"
@@ -6163,9 +6155,10 @@
         "id": "aa21372c06ac99e6",
         "type": "ui-text",
         "z": "5c14e0941d341b42",
+        "d": true,
         "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
-        "order": 6,
+        "order": 7,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -6181,7 +6174,7 @@
         "value": "payloads",
         "valueType": "msg",
         "x": 540,
-        "y": 280,
+        "y": 860,
         "wires": []
     },
     {
@@ -6200,7 +6193,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 920,
-        "y": 1200,
+        "y": 1420,
         "wires": []
     },
     {
@@ -6224,7 +6217,7 @@
         "to": "",
         "reg": false,
         "x": 1240,
-        "y": 820,
+        "y": 1080,
         "wires": [
             []
         ]
@@ -6250,7 +6243,7 @@
         "to": "",
         "reg": false,
         "x": 190,
-        "y": 880,
+        "y": 1140,
         "wires": [
             [
                 "590a24117a7d6877"
@@ -6267,7 +6260,7 @@
             "4abb19d96b88ba67"
         ],
         "x": 85,
-        "y": 880,
+        "y": 1140,
         "wires": [
             [
                 "2825429d7e218b9b"
@@ -6282,7 +6275,7 @@
         "group": "a50d14b208aa0231",
         "name": "Herhalen na (in min.)",
         "label": "Herhalen na (in min)",
-        "order": 7,
+        "order": 8,
         "width": "4",
         "height": "1",
         "topic": "topic",
@@ -6301,7 +6294,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 580,
-        "y": 880,
+        "y": 1140,
         "wires": [
             [
                 "e5964d4ecd3e0a2f"
@@ -6322,7 +6315,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 880,
+        "y": 1140,
         "wires": [
             [
                 "eecb60f839dc5afc"
@@ -6355,7 +6348,7 @@
         "g": "e1f1da7ac74705a8",
         "name": "Weergave is altijd AM/PM",
         "info": "",
-        "x": 590,
+        "x": 790,
         "y": 360,
         "wires": []
     },
@@ -6373,7 +6366,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 640,
+        "y": 900,
         "wires": [
             [
                 "163dbba3527a1208"
@@ -6386,14 +6379,14 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "name": "09:00",
-        "func": "if (msg.payload == null || msg.payload.trim() == \"\") { \n    msg.payload = \"09:00\";\n    global.set(\"TijdOK\", msg.payload);\n    node.status({ text: '\"was empty: ' + msg.payload + '\"' });\n}\nnode.status({ text: '\"' + msg.payload + '\"'});\nreturn msg;",
+        "func": "if (msg.payload == null || msg.payload.trim() == \"\") { \n    msg.payload = \"09:00\";\n    global.set(\"TijdOKOchtend\", msg.payload);\n    node.status({ text: '\"was empty: ' + msg.payload + '\"' });\n}\nnode.status({ text: '\"' + msg.payload + '\"'});\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
+        "x": 370,
         "y": 400,
         "wires": [
             [
@@ -6407,7 +6400,7 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "name": "Changed?",
-        "func": "if (msg.payload != global.get(\"TijdOK\")) {\n    node.status({ text: \"'\"+ msg.payload + \"'\"});\n    return msg;\n}\nelse\n    return;",
+        "func": "if (msg.payload != global.get(\"TijdOKOchtend\")) {\n    node.status({ text: \"'\"+ msg.payload + \"'\"});\n    return msg;\n}\nelse\n    return;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6440,7 +6433,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 1240,
-        "y": 880,
+        "y": 1140,
         "wires": []
     },
     {
@@ -6476,7 +6469,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 1220,
+        "y": 1440,
         "wires": [
             [
                 "a18148e4e8946b3b"
@@ -6492,7 +6485,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "change",
         "x": 120,
-        "y": 1220,
+        "y": 1440,
         "wires": [
             [
                 "f7e8d9c0b1a2"
@@ -6513,7 +6506,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 1220,
+        "y": 1440,
         "wires": [
             [
                 "748f55ba24c9c9bd"
@@ -6534,7 +6527,7 @@
         "finalize": "",
         "libs": [],
         "x": 950,
-        "y": 640,
+        "y": 900,
         "wires": [
             [
                 "f39bf68dcea766f2",
@@ -6561,7 +6554,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 880,
-        "y": 540,
+        "y": 800,
         "wires": [
             [
                 "32d4144c043af885"
@@ -6584,7 +6577,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 1230,
-        "y": 540,
+        "y": 800,
         "wires": []
     },
     {
@@ -6606,7 +6599,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 1050,
-        "y": 540,
+        "y": 800,
         "wires": [
             [
                 "2611f5f157ea5d54"
@@ -6643,7 +6636,7 @@
         "name": "Vraag automatisch het IP adres op van het mobieltje",
         "info": "",
         "x": 250,
-        "y": 1160,
+        "y": 1380,
         "wires": []
     },
     {
@@ -6661,9 +6654,10 @@
         "id": "642adcc8765de30e",
         "type": "ui-text",
         "z": "5c14e0941d341b42",
+        "d": true,
         "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
-        "order": 9,
+        "order": 10,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -6678,8 +6672,8 @@
         "className": "",
         "value": "payloads",
         "valueType": "msg",
-        "x": 540,
-        "y": 560,
+        "x": 340,
+        "y": 1060,
         "wires": []
     },
     {
@@ -6688,7 +6682,7 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "group": "a50d14b208aa0231",
-        "order": 12,
+        "order": 13,
         "width": 0,
         "height": 0,
         "name": "lege regel",
@@ -6704,7 +6698,7 @@
         "value": "payloads",
         "valueType": "msg",
         "x": 540,
-        "y": 800,
+        "y": 1100,
         "wires": []
     },
     {
@@ -6729,7 +6723,7 @@
         "value": "payloads",
         "valueType": "msg",
         "x": 540,
-        "y": 1040,
+        "y": 360,
         "wires": []
     },
     {
@@ -6740,7 +6734,7 @@
         "group": "a50d14b208aa0231",
         "name": "",
         "label": "OK",
-        "order": 11,
+        "order": 12,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -6803,7 +6797,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 630,
-        "y": 920,
+        "y": 1180,
         "wires": [
             []
         ]
@@ -6816,7 +6810,7 @@
         "group": "a50d14b208aa0231",
         "name": "",
         "label": "OK",
-        "order": 8,
+        "order": 9,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -6841,7 +6835,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 650,
-        "y": 680,
+        "y": 940,
         "wires": [
             []
         ]
@@ -6885,7 +6879,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 1220,
+        "y": 1440,
         "wires": [
             [
                 "996abe576c2cecb2",
@@ -6898,8 +6892,8 @@
         "type": "function",
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
-        "name": "30..120?",
-        "func": "let n = msg.payload;\nif (n == \"\") n = 0;\n\nif ((n < 30) || (n > 120)) { \n    msg.payload = global.get(\"MeldPeriodeInMinuten\");\n    return [null, msg];\n}\nelse\n    return [msg, null];",
+        "name": "30..90?",
+        "func": "let n = msg.payload;\nif (n == \"\") n = 0;\n\nif ((n < 30) || (n > 90)) { \n    msg.payload = global.get(\"MeldPeriodeInMinuten\");\n    return [null, msg];\n}\nelse\n    return [msg, null];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -6907,7 +6901,7 @@
         "finalize": "",
         "libs": [],
         "x": 780,
-        "y": 640,
+        "y": 900,
         "wires": [
             [
                 "ec7010218631a22d"
@@ -6932,7 +6926,7 @@
         "finalize": "",
         "libs": [],
         "x": 770,
-        "y": 880,
+        "y": 1140,
         "wires": [
             [
                 "f487e19abb196edc",
@@ -6963,7 +6957,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 600,
-        "y": 760,
+        "y": 1020,
         "wires": [
             [
                 "163dbba3527a1208"
@@ -6989,7 +6983,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 560,
-        "y": 1000,
+        "y": 1260,
         "wires": [
             [
                 "eecb60f839dc5afc"
@@ -7010,7 +7004,7 @@
         "finalize": "",
         "libs": [],
         "x": 930,
-        "y": 700,
+        "y": 960,
         "wires": [
             [
                 "991312d62b791458"
@@ -7037,7 +7031,7 @@
         "className": "",
         "name": "",
         "x": 1220,
-        "y": 700,
+        "y": 960,
         "wires": [
             []
         ]
@@ -7062,7 +7056,7 @@
         "className": "",
         "name": "",
         "x": 1220,
-        "y": 940,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -7081,7 +7075,7 @@
         "finalize": "",
         "libs": [],
         "x": 930,
-        "y": 940,
+        "y": 1200,
         "wires": [
             [
                 "bf67ae125d5a74d9"
@@ -7093,8 +7087,8 @@
         "type": "function",
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
-        "name": "7:00-11:00?",
-        "func": "let tijd = msg.payload;\n\nif ((tijd < \"07:00\") || (tijd > \"11:00\")) { \n    msg.payload = global.get(\"TijdOK\");\n    return [null, msg];\n}\nelse\n    return [msg, null];",
+        "name": "7:00-10:30?",
+        "func": "let tijd = msg.payload;\n\nif ((tijd < \"07:00\") || (tijd > \"10:30\")) { \n    msg.payload = global.get(\"TijdOK\");\n    return [null, msg];\n}\nelse\n    return [msg, null];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -7145,7 +7139,7 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "name": "Fout",
-        "func": "msg.payload = \"<b>Tijd moet liggen tussen 07:00 en 11:00. </b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \"<b>Tijd moet liggen tussen 07:00 en 10:30. </b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7186,20 +7180,392 @@
         ]
     },
     {
-        "id": "90fb81a6d69e0a90",
-        "type": "debug",
+        "id": "74594809f8889502",
+        "type": "change",
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
-        "name": "debug 4",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 360,
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "TijdOKAvond",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1250,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "67ea5c30afee53ab",
+        "type": "change",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "TijdOKAvond",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "TijdOKAvond",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 210,
+        "y": 600,
+        "wires": [
+            [
+                "9173fdd312e7f77a"
+            ]
+        ]
+    },
+    {
+        "id": "0527fd36d651e625",
+        "type": "link in",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "OnStartup",
+        "links": [
+            "4abb19d96b88ba67"
+        ],
+        "x": 85,
+        "y": 600,
+        "wires": [
+            [
+                "67ea5c30afee53ab",
+                "dd75cb1bc1ca972d"
+            ]
+        ]
+    },
+    {
+        "id": "1e26ddc4dc6ed8b0",
+        "type": "ui-text-input",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "group": "a50d14b208aa0231",
+        "name": "Geluidsmelding avond",
+        "label": "Geluidsmelding avond",
+        "order": 5,
+        "width": "4",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "time",
+        "tooltip": "",
+        "delay": "500",
+        "passthru": false,
+        "sendOnDelay": true,
+        "sendOnBlur": false,
+        "sendOnEnter": false,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 580,
+        "y": 600,
+        "wires": [
+            [
+                "3fa72a5e93cf3ca3"
+            ]
+        ]
+    },
+    {
+        "id": "4fc65f5a4166cc32",
+        "type": "mqtt out",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "",
+        "topic": "TijdOKChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 1220,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "9173fdd312e7f77a",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "19:00",
+        "func": "if (msg.payload == null || msg.payload.trim() == \"\") { \n    msg.payload = \"19:00\";\n    global.set(\"TijdOKAvond\", msg.payload);\n    node.status({ text: '\"was empty: ' + msg.payload + '\"' });\n}\nnode.status({ text: '\"' + msg.payload + '\"'});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 600,
+        "wires": [
+            [
+                "1e26ddc4dc6ed8b0"
+            ]
+        ]
+    },
+    {
+        "id": "393a2d613ffade33",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "Changed?",
+        "func": "if (msg.payload != global.get(\"TijdOKAvond\")) {\n    node.status({ text: \"'\"+ msg.payload + \"'\"});\n    return msg;\n}\nelse\n    return;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 600,
+        "wires": [
+            [
+                "74594809f8889502",
+                "4fc65f5a4166cc32",
+                "9149cd1eac222f06"
+            ]
+        ]
+    },
+    {
+        "id": "3fa72a5e93cf3ca3",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "18:00-20:00?",
+        "func": "let tijd = msg.payload;\n\nif ((tijd < \"18:00\") || (tijd > \"20:00\")) { \n    msg.payload = global.get(\"TijdOKAvond\");\n    return [null, msg];\n}\nelse\n    return [msg, null];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 600,
+        "wires": [
+            [
+                "393a2d613ffade33"
+            ],
+            [
+                "446c2f0a98e7455a",
+                "5e67f481686b4dc4"
+            ]
+        ]
+    },
+    {
+        "id": "446c2f0a98e7455a",
+        "type": "delay",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 620,
+        "y": 680,
+        "wires": [
+            [
+                "1e26ddc4dc6ed8b0"
+            ]
+        ]
+    },
+    {
+        "id": "5e67f481686b4dc4",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "Fout",
+        "func": "msg.payload = \"<b>Tijd moet liggen tussen 18:00 en 20:00. </b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 660,
+        "wires": [
+            [
+                "279ea6d5a913bf20"
+            ]
+        ]
+    },
+    {
+        "id": "279ea6d5a913bf20",
+        "type": "ui-notification",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "ui": "6c1d30b5f16932dd",
+        "position": "top right",
+        "colorDefault": false,
+        "color": "#000000",
+        "displayTime": "60",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Sluiten",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "",
+        "x": 1220,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "732f6b03df425bed",
+        "type": "ui-switch",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "Enable",
+        "label": "    ",
+        "group": "a50d14b208aa0231",
+        "order": 6,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 220,
+        "y": 740,
+        "wires": [
+            [
+                "1b825f73e398e366",
+                "dd75cb1bc1ca972d",
+                "a24bde423b198fbc",
+                "d1021f321016f2b4"
+            ]
+        ]
+    },
+    {
+        "id": "dd75cb1bc1ca972d",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "Enabled?",
+        "func": "var msg;\n\nlet tijdOKAvondEnabled = global.get(\"TijdOKAvondEnabled\") ?? false;\n\nif (tijdOKAvondEnabled) { \n    msg = { enabled: true,\n            ui_update: { textColor: \"white\" } \n    };\n}\nelse {\n    msg = {\n        enabled: false,\n        ui_update: { textColor: \"gray\" }\n    };\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 660,
+        "wires": [
+            [
+                "9173fdd312e7f77a"
+            ]
+        ]
+    },
+    {
+        "id": "1b825f73e398e366",
+        "type": "change",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "TijdOKAvondEnabled",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a24bde423b198fbc",
+        "type": "mqtt out",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "",
+        "topic": "TijdOKChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 420,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "d1021f321016f2b4",
+        "type": "mqtt out",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "",
+        "topic": "OvertijdChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 430,
+        "y": 760,
         "wires": []
     },
     {
@@ -8064,7 +8430,7 @@
         "y": 1840,
         "wires": [
             [
-                "3dc33bd26ddfd0cd"
+                "c8c27038539629ab"
             ],
             [],
             []
@@ -8095,7 +8461,7 @@
         "oldrc": false,
         "name": "Restart node-red",
         "x": 910,
-        "y": 1840,
+        "y": 1880,
         "wires": [
             [],
             [],
@@ -8258,7 +8624,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 1960,
+        "y": 2080,
         "wires": [
             [
                 "b1fed896a6f955dc"
@@ -8285,7 +8651,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 2000,
+        "y": 2120,
         "wires": [
             []
         ]
@@ -8304,7 +8670,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 1960,
+        "y": 2080,
         "wires": [
             [
                 "eaa241811439e3af"
@@ -8320,7 +8686,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "all",
         "x": 580,
-        "y": 1960,
+        "y": 2080,
         "wires": [
             []
         ]
@@ -8334,7 +8700,7 @@
         "ui": "6c1d30b5f16932dd",
         "events": "change",
         "x": 120,
-        "y": 2060,
+        "y": 2180,
         "wires": [
             [
                 "8d958d40801e5e3b"
@@ -8347,7 +8713,7 @@
         "z": "af31bf2fe058f803",
         "g": "a0c77c5ce87569c4",
         "name": "help tekst",
-        "func": "if (msg.name != \"Handleiding\") return;\n\nlet overtijd = voegTijdToe(global.get(\"TijdOK\"), global.get(\"MeldPeriodeInMinuten\"));\n\nmsg.payload =\n    \"Om \" + global.get(\"TijdOK\") + \" hoort u via de Bluetooth speaker een stem die vraagt om deze app te openen en aan te geven of u OK bent.\" +\n    \"<br><br>\" +\n    \"Reageert u niet direct, dan hoort u na \" + global.get(\"Herinnering\") + \" minuten opnieuw deze vraag. Dit herhaalt zich totdat u reageert.\" +\n    \"<br><br>\" +\n    \"Reageert u niet vóór \" + overtijd +  \", dan worden uw contactpersonen geïnformeerd via email en optioneel via SMS.\" +\n    \"<br><br>\" +\n    \"Al 2 uur vóór \" + global.get(\"TijdOK\") + \" kunt u in de app aangeven of u OK bent. U krijgt dan ook geen vraag meer via de Bluetooth speaker.\" +\n    \"<br><br>\" +\n    \"Verlaat u vóór \" + global.get(\"TijdOK\") + \" uur het huis, dan wordt dat gezien als een teken van leven en wordt u automatisch afgemeld. Neem daarom altijd uw telefoon mee wanneer u het huis verlaat, in ieder geval in de ochtend.\" +\n    \"<br><br>\" +\n    \"Bent u op vakantie, dan hoeft u niets te doen. Het systeem ziet dat u niet thuis bent.\" +\n    \"<br><br>\" +\n    \"In huis kunt u altijd op de “Alarm”-knop drukken. Er gaat dan direct een melding naar uw contactpersonen. U kunt het alarm binnen 1 minuut nog annuleren.\" +\n    \"<br><br>\" +\n    \"Ga na of het emailadres en het 06-nummer van de contacten correct zijn. Voer een test uit: informeer uw contacten dat u op een specifieke tijd op de Alarmknop drukt.\" +\n    \" Vraag hen of ze de Alarmmelding hebben ontvangen.\" +\n    \"<br><br>\" +\n    \"Uw contactpersonen ontvangen elke zondag een email met de herinnering dat ze een contactpersoon van u zijn.\" +\n    \"<br><br>\" +\n    \"De app werkt alleen in huis. Als u buitenshuis de app opent ziet u een foutmelding (dit is normaal).\" +\n    \"<br>\" +\n    \"Als u binnenshuis deze foutmelding ook ziet: controleer dan of de WiFi van uw mobiel wel aan staat.\" +\n    \"<br><br>\" +\n    \"AVG: acties (b.v. Alarm, overtijd) en instellingen (b.v. aantal contacten, SMS gebruik) worden gelogd ter verbetering van deze app.\";\n\nmsg.template = msg.payload;\nreturn msg;\n\nfunction voegTijdToe(tijd, minuten) {\n    const [uren, mins] = tijd.split(':').map(Number);\n    const totaalMinuten = uren * 60 + mins + Number(minuten);\n\n    const nieuweUren = Math.floor(totaalMinuten / 60) % 24;\n    const nieuweMinuten = totaalMinuten % 60;\n\n    return `${String(nieuweUren).padStart(2, '0')}:${String(nieuweMinuten).padStart(2, '0')}`;\n}",
+        "func": "if (msg.name != \"Handleiding\") return;\n\nlet overtijd = voegTijdToe(global.get(\"TijdOK\"), global.get(\"MeldPeriodeInMinuten\"));\n\nmsg.payload =\n    \"Vanaf\" + global.get(\"TijdOK\") + \" hoort u via de Bluetooth speaker een stem die vraagt om deze app te openen en aan te geven of u OK bent.\" +\n    \"<br><br>\" +\n    \"Reageert u niet direct, dan hoort u na \" + global.get(\"Herinnering\") + \" minuten opnieuw deze vraag. Dit herhaalt zich totdat u reageert.\" +\n    \"<br><br>\" +\n    \"Reageert u niet vóór \" + overtijd +  \", dan worden uw contactpersonen geïnformeerd via email en optioneel via SMS.\" +\n    \"<br><br>\" +\n    \"Al 2 uur vóór \" + global.get(\"TijdOK\") + \" kunt u in de app aangeven of u OK bent. U krijgt dan ook geen vraag meer via de Bluetooth speaker.\" +\n    \"<br><br>\" +\n    \"Verlaat u vóór \" + global.get(\"TijdOK\") + \" uur het huis, dan wordt dat gezien als een teken van leven en wordt u automatisch afgemeld. Neem daarom altijd uw telefoon mee wanneer u het huis verlaat, in ieder geval in de ochtend.\" +\n    \"<br><br>\" +\n    \"Bent u op vakantie, dan hoeft u niets te doen. Het systeem ziet dat u niet thuis bent.\" +\n    \"<br><br>\" +\n    \"In huis kunt u altijd op de “Alarm”-knop drukken. Er gaat dan direct een melding naar uw contactpersonen. U kunt het alarm binnen 1 minuut nog annuleren.\" +\n    \"<br><br>\" +\n    \"Ga na of het emailadres en het 06-nummer van de contacten correct zijn. Voer een test uit: informeer uw contacten dat u op een specifieke tijd op de Alarmknop drukt.\" +\n    \" Vraag hen of ze de Alarmmelding hebben ontvangen.\" +\n    \"<br><br>\" +\n    \"Uw contactpersonen ontvangen elke zondag een email met de herinnering dat ze een contactpersoon van u zijn.\" +\n    \"<br><br>\" +\n    \"De app werkt alleen in huis. Als u buitenshuis de app opent ziet u een foutmelding (dit is normaal).\" +\n    \"<br>\" +\n    \"Als u binnenshuis deze foutmelding ook ziet: controleer dan of de WiFi van uw mobiel wel aan staat.\" +\n    \"<br><br>\" +\n    \"AVG: acties (b.v. Alarm, overtijd) en instellingen (b.v. aantal contacten, SMS gebruik) worden gelogd ter verbetering van deze app.\";\n\nmsg.template = msg.payload;\nreturn msg;\n\nfunction voegTijdToe(tijd, minuten) {\n    const [uren, mins] = tijd.split(':').map(Number);\n    const totaalMinuten = uren * 60 + mins + Number(minuten);\n\n    const nieuweUren = Math.floor(totaalMinuten / 60) % 24;\n    const nieuweMinuten = totaalMinuten % 60;\n\n    return `${String(nieuweUren).padStart(2, '0')}:${String(nieuweMinuten).padStart(2, '0')}`;\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -8355,7 +8721,7 @@
         "finalize": "",
         "libs": [],
         "x": 320,
-        "y": 2060,
+        "y": 2180,
         "wires": [
             [
                 "ebac05316c6a1263"
@@ -8384,7 +8750,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 570,
-        "y": 2060,
+        "y": 2180,
         "wires": []
     },
     {
@@ -8749,6 +9115,75 @@
                 "226a8c5bfb54aa32",
                 "940e764301d9d266"
             ]
+        ]
+    },
+    {
+        "id": "c8c27038539629ab",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "rm MiniSAHA.mp3",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "rm MiniSAHA.mp3",
+        "x": 210,
+        "y": 1940,
+        "wires": [
+            [
+                "e3d582f5b3ec8066"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e3d582f5b3ec8066",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "wget https://raw.githubusercontent.com/PauLL54/minisaha/main/ouns/MiniSAHA.mp3",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "get MiniSAHA.mp3",
+        "x": 430,
+        "y": 1940,
+        "wires": [
+            [
+                "4ded78b65af095e4"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4ded78b65af095e4",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "cp -f MiniSAHA.mp3 node-red/projects/MiniSAHA/sounds",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Install sound file",
+        "x": 640,
+        "y": 1940,
+        "wires": [
+            [
+                "3dc33bd26ddfd0cd"
+            ],
+            [],
+            []
         ]
     },
     {
@@ -12542,7 +12977,7 @@
         "group": "aae22fe947be766e",
         "name": "",
         "label": "Test geluid",
-        "order": 2,
+        "order": 3,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -12566,7 +13001,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 270,
+        "x": 290,
         "y": 320,
         "wires": [
             [
@@ -12581,7 +13016,7 @@
         "g": "3856d925f2c69025",
         "group": "aae22fe947be766e",
         "name": "",
-        "label": "Kies meldingsgeluid:",
+        "label": "Meldingsgeluid ochtend:",
         "tooltip": "",
         "order": 1,
         "width": "0",
@@ -12597,7 +13032,7 @@
         "className": "",
         "typeIsComboBox": false,
         "msgTrigger": "onChange",
-        "x": 780,
+        "x": 810,
         "y": 500,
         "wires": [
             [
@@ -12618,11 +13053,12 @@
         "winHide": false,
         "oldrc": false,
         "name": "ls sounds",
-        "x": 400,
-        "y": 500,
+        "x": 420,
+        "y": 540,
         "wires": [
             [
-                "7d08a46ad06a9fe9"
+                "7d08a46ad06a9fe9",
+                "c30adb715705679b"
             ],
             [],
             []
@@ -12634,7 +13070,7 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "split",
-        "func": "let now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nmsg.options = msg.payload.split(/\\n/);\nif (msg.options.length > 1) {\n   msg.options.pop();\n}\n\nlet selected = global.get(\"BluetoothSound\"); \n\nif (msg.options.includes(selected)) {\n    node.status({ text: tijd_nu + \", default: \" + msg.options });\n    msg.payload = global.get(\"BluetoothSound\");\n}\nelse {\n    if (msg.options.length > 0) {\n        node.status({ text: tijd_nu + \", first: \" + msg.payload });\n        msg.payload = msg.options[0];\n        global.set(\"BluetoothSound\", msg.payload);\n    }\n    else {\n        node.status({ text: tijd_nu + \", empty\" });\n        msg.payload = \"\";\n    }\n}\nreturn msg;",
+        "func": "let now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nmsg.options = msg.payload.split(/\\n/);\nif (msg.options.length > 1) {\n   msg.options.pop();\n}\n\nlet selected = global.get(\"BluetoothSoundOchtend\"); \nif (selected == undefined) {\n    selected = \"MiniSAHA, Goedemorgen.mp3\";\n    global.set(\"BluetoothSoundOchtend\", selected);\n}\n\nif (msg.options.includes(selected)) {\n    node.status({ text: tijd_nu + \", \" + msg.options });\n    msg.payload = selected;\n}\nelse {\n    if (msg.options.length > 0) {\n        node.status({ text: tijd_nu + \", first: \" + msg.payload });\n        msg.payload = msg.options[0];\n        global.set(\"BluetoothSoundOchtend\", msg.payload);\n    }\n    else {\n        node.status({ text: tijd_nu + \", empty\" });\n        msg.payload = \"\";\n    }\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -12662,7 +13098,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "play sound",
-        "x": 790,
+        "x": 810,
         "y": 180,
         "wires": [
             [
@@ -12677,15 +13113,15 @@
         "type": "function",
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
-        "name": "set BluetoothSound",
-        "func": "global.set(\"BluetoothSound\", msg.payload);\nreturn msg;",
+        "name": "set BluetoothSoundOchtend",
+        "func": "global.set(\"BluetoothSoundOchtend\", msg.payload);\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 990,
+        "x": 1060,
         "y": 500,
         "wires": [
             []
@@ -12704,7 +13140,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
+        "x": 620,
         "y": 200,
         "wires": [
             [
@@ -12725,7 +13161,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 590,
         "y": 120,
         "wires": [
             [
@@ -12741,7 +13177,7 @@
         "group": "aae22fe947be766e",
         "name": "",
         "label": "Stop",
-        "order": 3,
+        "order": 4,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -12765,7 +13201,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 90,
+        "x": 110,
         "y": 120,
         "wires": [
             [
@@ -12781,7 +13217,7 @@
         "name": "",
         "label": "Random geluid",
         "group": "aae22fe947be766e",
-        "order": 4,
+        "order": 5,
         "width": "2",
         "height": "1",
         "passthru": false,
@@ -12800,8 +13236,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 760,
-        "y": 560,
+        "x": 800,
+        "y": 680,
         "wires": [
             [
                 "e438e1a719031b77"
@@ -12828,8 +13264,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1010,
-        "y": 560,
+        "x": 1050,
+        "y": 680,
         "wires": [
             []
         ]
@@ -12854,8 +13290,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 560,
+        "x": 450,
+        "y": 680,
         "wires": [
             [
                 "8c04f7e36a9c4acb"
@@ -12875,8 +13311,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 560,
+        "x": 630,
+        "y": 680,
         "wires": [
             [
                 "034d3d2d8b8a62ca"
@@ -12890,7 +13326,7 @@
         "g": "3856d925f2c69025",
         "name": "https://pixabay.com/nl/music/search/ringtones/",
         "info": "",
-        "x": 870,
+        "x": 890,
         "y": 60,
         "wires": []
     },
@@ -12908,7 +13344,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 420,
+        "x": 440,
         "y": 200,
         "wires": [
             [
@@ -12930,7 +13366,7 @@
         "oldrc": false,
         "name": "ls sounds",
         "x": 200,
-        "y": 1180,
+        "y": 1560,
         "wires": [
             [
                 "411d40273f5f425f"
@@ -12947,7 +13383,7 @@
         "group": "aae22fe947be766e",
         "name": "Device Table",
         "label": "",
-        "order": 10,
+        "order": 11,
         "width": "0",
         "height": "0",
         "maxrows": "",
@@ -12984,7 +13420,7 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "x": 670,
-        "y": 1180,
+        "y": 1560,
         "wires": [
             [
                 "4991f7f568969713"
@@ -13005,7 +13441,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 1180,
+        "y": 1560,
         "wires": [
             [
                 "d886cc1affb2bca7"
@@ -13018,7 +13454,7 @@
         "z": "bf57a768b975c2e6",
         "g": "852f70d81ad10832",
         "group": "aae22fe947be766e",
-        "order": 9,
+        "order": 10,
         "width": 0,
         "height": 0,
         "name": "Voortgang",
@@ -13034,7 +13470,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 790,
-        "y": 720,
+        "y": 860,
         "wires": []
     },
     {
@@ -13045,7 +13481,7 @@
         "group": "aae22fe947be766e",
         "name": "",
         "label": "Kopieer alle MP3 bestanden van USB stick",
-        "order": 7,
+        "order": 8,
         "width": "0",
         "height": "0",
         "emulateClick": false,
@@ -13070,7 +13506,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 230,
-        "y": 900,
+        "y": 1040,
         "wires": [
             [
                 "ec36fc960434517b"
@@ -13091,7 +13527,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 1280,
+        "y": 1660,
         "wires": [
             [
                 "217d3c58acae81bd"
@@ -13115,7 +13551,7 @@
         "oldrc": false,
         "name": "exec rm",
         "x": 880,
-        "y": 1380,
+        "y": 1760,
         "wires": [
             [],
             [],
@@ -13136,7 +13572,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 960,
+        "y": 1100,
         "wires": [
             [
                 "2f60b40d268db108"
@@ -13157,7 +13593,7 @@
         "oldrc": false,
         "name": "exec",
         "x": 690,
-        "y": 960,
+        "y": 1100,
         "wires": [
             [
                 "19674a84640dbeb7"
@@ -13180,7 +13616,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 900,
+        "y": 1040,
         "wires": [
             [
                 "7b381f39c3109c7b"
@@ -13201,7 +13637,7 @@
         "oldrc": false,
         "name": "exec",
         "x": 690,
-        "y": 900,
+        "y": 1040,
         "wires": [
             [
                 "ff4b91c6f803a3cb"
@@ -13224,7 +13660,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 1380,
+        "y": 1760,
         "wires": [
             [
                 "2912eea2927befa7"
@@ -13244,7 +13680,7 @@
             "4ce40f669f564d3c"
         ],
         "x": 565,
-        "y": 1380,
+        "y": 1760,
         "wires": []
     },
     {
@@ -13257,7 +13693,7 @@
             "2912eea2927befa7"
         ],
         "x": 95,
-        "y": 1180,
+        "y": 1560,
         "wires": [
             [
                 "ac3df9612f272925"
@@ -13273,8 +13709,8 @@
         "links": [
             "2912eea2927befa7"
         ],
-        "x": 195,
-        "y": 500,
+        "x": 205,
+        "y": 540,
         "wires": [
             [
                 "fb00403833140d8b"
@@ -13291,7 +13727,7 @@
             "2912eea2927befa7"
         ],
         "x": 105,
-        "y": 720,
+        "y": 860,
         "wires": [
             [
                 "e8dcf9dab51432cf"
@@ -13312,7 +13748,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 720,
+        "y": 860,
         "wires": [
             [
                 "9f7d3fb78648fc41"
@@ -13333,7 +13769,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 760,
+        "y": 900,
         "wires": [
             [
                 "9f7d3fb78648fc41"
@@ -13359,7 +13795,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 640,
-        "y": 780,
+        "y": 920,
         "wires": [
             [
                 "c7a079d11845588a"
@@ -13380,7 +13816,7 @@
         "finalize": "",
         "libs": [],
         "x": 770,
-        "y": 780,
+        "y": 920,
         "wires": [
             [
                 "4a80936a1117d160"
@@ -13401,7 +13837,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 720,
+        "y": 860,
         "wires": [
             [
                 "4a80936a1117d160",
@@ -13415,7 +13851,7 @@
         "z": "bf57a768b975c2e6",
         "g": "852f70d81ad10832",
         "group": "aae22fe947be766e",
-        "order": 6,
+        "order": 7,
         "width": 0,
         "height": 0,
         "name": "leeg",
@@ -13431,7 +13867,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 110,
-        "y": 1080,
+        "y": 1220,
         "wires": []
     },
     {
@@ -13442,7 +13878,7 @@
         "group": "aae22fe947be766e",
         "name": "",
         "label": "Hoe kopieer ik MP3 bestanden vanaf mijn PC?",
-        "order": 8,
+        "order": 9,
         "width": "0",
         "height": "0",
         "emulateClick": false,
@@ -13467,7 +13903,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 240,
-        "y": 1020,
+        "y": 1160,
         "wires": [
             [
                 "746b7471fda81cac"
@@ -13494,7 +13930,7 @@
         "className": "",
         "name": "",
         "x": 690,
-        "y": 1080,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -13513,7 +13949,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 1080,
+        "y": 1220,
         "wires": [
             [
                 "c0dfb882e72c4bd7"
@@ -13534,7 +13970,7 @@
         "finalize": "",
         "libs": [],
         "x": 700,
-        "y": 1020,
+        "y": 1160,
         "wires": [
             [
                 "c5dbb4558df77bc6"
@@ -13555,7 +13991,7 @@
         "oldrc": false,
         "name": "hostname -I  ",
         "x": 530,
-        "y": 1020,
+        "y": 1160,
         "wires": [
             [
                 "25d743058464db66"
@@ -13572,7 +14008,7 @@
         "name": "",
         "label": "Stop na JA/NEE",
         "group": "aae22fe947be766e",
-        "order": 5,
+        "order": 6,
         "width": "2",
         "height": "1",
         "passthru": false,
@@ -13591,8 +14027,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 760,
-        "y": 620,
+        "x": 800,
+        "y": 740,
         "wires": [
             [
                 "3fe4ddc223bcbaeb"
@@ -13619,8 +14055,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 990,
-        "y": 620,
+        "x": 1030,
+        "y": 740,
         "wires": [
             []
         ]
@@ -13645,8 +14081,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 620,
+        "x": 450,
+        "y": 740,
         "wires": [
             [
                 "27336a80e583f921"
@@ -13666,8 +14102,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 620,
+        "x": 630,
+        "y": 740,
         "wires": [
             [
                 "ad3cf096050d54e2"
@@ -13688,7 +14124,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 110,
+        "x": 130,
         "y": 60,
         "wires": [
             [
@@ -13709,7 +14145,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
+        "x": 390,
         "y": 60,
         "wires": [
             [
@@ -13730,7 +14166,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
+        "x": 480,
         "y": 320,
         "wires": [
             [
@@ -13753,7 +14189,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 130,
+        "x": 150,
         "y": 440,
         "wires": [
             [
@@ -13774,7 +14210,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
+        "x": 420,
         "y": 440,
         "wires": [
             [
@@ -13801,7 +14237,7 @@
         "resendOnRefresh": true,
         "templateScope": "page:style",
         "className": "",
-        "x": 220,
+        "x": 240,
         "y": 200,
         "wires": [
             []
@@ -13820,7 +14256,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 940,
+        "x": 960,
         "y": 280,
         "wires": [
             [
@@ -13841,7 +14277,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 940,
+        "x": 960,
         "y": 180,
         "wires": [
             [
@@ -13862,7 +14298,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1070,
+        "x": 1090,
         "y": 220,
         "wires": [
             [
@@ -13879,7 +14315,7 @@
         "links": [
             "217d3c58acae81bd"
         ],
-        "x": 295,
+        "x": 315,
         "y": 140,
         "wires": [
             [
@@ -13900,7 +14336,7 @@
             "5a41d7518d03c12d"
         ],
         "x": 675,
-        "y": 1240,
+        "y": 1620,
         "wires": []
     },
     {
@@ -13921,7 +14357,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 410,
+        "x": 430,
         "y": 160,
         "wires": [
             [
@@ -13937,7 +14373,7 @@
         "name": "Play",
         "info": "",
         "x": 790,
-        "y": 1240,
+        "y": 1620,
         "wires": []
     },
     {
@@ -13954,7 +14390,7 @@
         "finalize": "",
         "libs": [],
         "x": 730,
-        "y": 1300,
+        "y": 1680,
         "wires": [
             [
                 "9f3dd4c4d056882c"
@@ -13981,7 +14417,7 @@
         "className": "",
         "name": "Show",
         "x": 870,
-        "y": 1300,
+        "y": 1680,
         "wires": [
             [
                 "d68aa0b732adcd5c"
@@ -14002,7 +14438,7 @@
         "finalize": "",
         "libs": [],
         "x": 730,
-        "y": 1380,
+        "y": 1760,
         "wires": [
             [
                 "776ed147123b92b8"
@@ -14018,7 +14454,7 @@
         "links": [
             "217d3c58acae81bd"
         ],
-        "x": 625,
+        "x": 645,
         "y": 340,
         "wires": [
             [
@@ -14044,7 +14480,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 750,
+        "x": 770,
         "y": 340,
         "wires": [
             [
@@ -14066,8 +14502,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 120,
-        "y": 560,
+        "x": 160,
+        "y": 680,
         "wires": [
             [
                 "fb00403833140d8b",
@@ -14108,7 +14544,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 250,
+        "x": 270,
         "y": 360,
         "wires": [
             [
@@ -14129,7 +14565,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 110,
+        "x": 130,
         "y": 340,
         "wires": [
             [
@@ -14151,7 +14587,7 @@
         "ignoredFilesType": "re",
         "name": "",
         "x": 200,
-        "y": 1320,
+        "y": 1700,
         "wires": [
             [
                 "a0f17d909e19d179"
@@ -14171,10 +14607,81 @@
         "ignoredFilesType": "re",
         "name": "",
         "x": 200,
-        "y": 1400,
+        "y": 1780,
         "wires": [
             [
                 "a0f17d909e19d179"
+            ]
+        ]
+    },
+    {
+        "id": "dba42521bfd178fb",
+        "type": "ui-dropdown",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "group": "aae22fe947be766e",
+        "name": "",
+        "label": "Meldingsgeluid avond:",
+        "tooltip": "",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "multiple": false,
+        "chips": false,
+        "clearable": false,
+        "options": [],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "typeIsComboBox": false,
+        "msgTrigger": "onChange",
+        "x": 800,
+        "y": 580,
+        "wires": [
+            [
+                "f2056ea177f36ad5"
+            ]
+        ]
+    },
+    {
+        "id": "f2056ea177f36ad5",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "set BluetoothSoundAvond",
+        "func": "global.set(\"BluetoothSoundAvond\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c30adb715705679b",
+        "type": "function",
+        "z": "bf57a768b975c2e6",
+        "g": "3856d925f2c69025",
+        "name": "split",
+        "func": "let now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nmsg.options = msg.payload.split(/\\n/);\nif (msg.options.length > 1) {\n   msg.options.pop();\n}\n\nlet selected = global.get(\"BluetoothSoundAvond\");\nif (selected == undefined) {\n    selected = \"MiniSAHA.mp3\";\n    global.set(\"BluetoothSoundAvond\", selected);\n}\n\nif (msg.options.includes(selected)) {\n    node.status({ text: tijd_nu + \", \" + msg.options });\n    msg.payload = selected;\n}\nelse {\n    if (msg.options.length > 0) {\n        node.status({ text: tijd_nu + \", first: \" + msg.payload });\n        msg.payload = msg.options[0];\n        global.set(\"BluetoothSoundAvond\", msg.payload);\n    }\n    else {\n        node.status({ text: tijd_nu + \", empty\" });\n        msg.payload = \"\";\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 580,
+        "wires": [
+            [
+                "dba42521bfd178fb"
             ]
         ]
     },
