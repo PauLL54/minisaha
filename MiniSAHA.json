@@ -13111,8 +13111,8 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "group": "aae22fe947be766e",
-        "name": "Ochtend",
-        "label": "Test",
+        "name": "Ochtend 🔊",
+        "label": "🔊",
         "order": 2,
         "width": "1",
         "height": "1",
@@ -13137,7 +13137,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 280,
+        "x": 290,
         "y": 280,
         "wires": [
             [
@@ -14633,7 +14633,7 @@
         "g": "3856d925f2c69025",
         "group": "549f1fa0e59e6a04",
         "name": "",
-        "label": "Test",
+        "label": "Test 🔊",
         "order": 9,
         "width": "3",
         "height": "1",
@@ -14658,7 +14658,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 270,
+        "x": 280,
         "y": 400,
         "wires": [
             [
@@ -14806,8 +14806,8 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "group": "aae22fe947be766e",
-        "name": "Avond",
-        "label": "Test",
+        "name": "Avond 🔊",
+        "label": "🔊",
         "order": 4,
         "width": "1",
         "height": "1",
@@ -14832,7 +14832,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 270,
+        "x": 280,
         "y": 340,
         "wires": [
             [
