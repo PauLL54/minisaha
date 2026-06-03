@@ -2702,7 +2702,8 @@
         "y": 180,
         "wires": [
             [
-                "3bd34e7abbd1d9af"
+                "3bd34e7abbd1d9af",
+                "b5fa993c16ba139a"
             ]
         ]
     },
@@ -3468,7 +3469,7 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "Trigger after reboot",
-        "func": "\n\n// @ts-nocheck\n// Maak een static variabele op de functie node\nif (typeof myStatic === \"undefined\") {\n    myStatic = { count: 0 };\n}\n\nlet now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nif (msg.payload == \"Initialized\") {\n    myStatic.count = 100;\n    node.status({ text: tijd_nu + \" Initialized\" });\n}\n\nmyStatic.count++;\n\n// Op een Rasp 4 is de eerste zichtbare waarde 3.\n// Op een Rasp 3B is de eerste zichtbare waarde 4.\nif (myStatic.count > 7)\n    return null;    // Stop met initializeren:\n\nnode.status({ text: tijd_nu + \" - \" + myStatic.count });\n\nmsg.payload = \"Static teller: \" + myStatic.count;\nreturn msg;\n\n\n/*\nWat gebeurt hier?\nmyStatic wordt niet gedeclareerd met let/var/const\n\nDaardoor wordt het een persistent variabele binnen de function node\n\nHij blijft bestaan zolang Node‑RED draait\n\nBij een deploy blijft hij bestaan\n\nBij een reboot wordt hij opnieuw aangemaakt (dus reset)\n*/",
+        "func": "// @ts-nocheck\n// Maak een static variabele op de functie node\nif (typeof myStatic === \"undefined\") {\n    myStatic = { count: 0 };\n}\n\nlet now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nif (msg.payload == \"Initialized\") {\n    myStatic.count = 100;\n    node.status({ text: tijd_nu + \" MQTT: Initialized\" });\n}\n\nmyStatic.count++;\n\n// Op een Rasp 4 is de eerste zichtbare waarde 3.\n// Op een Rasp 3B is de eerste zichtbare waarde 4.\nif (myStatic.count > 7)\n    return null;    // Stop met initializeren:\n\nvar getTime = global.get(\"getTime\");\nnode.status({ text: tijd_nu + \" - \" + myStatic.count + \", \" + (getTime == undefined)});\n\nmsg.payload = \"Static teller: \" + myStatic.count;\nreturn msg;\n\n\n/*\nWat gebeurt hier?\nmyStatic wordt niet gedeclareerd met let/var/const\n\nDaardoor wordt het een persistent variabele binnen de function node\n\nHij blijft bestaan zolang Node‑RED draait\n\nBij een deploy blijft hij bestaan\n\nBij een reboot wordt hij opnieuw aangemaakt (dus reset)\n*/",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3935,10 +3936,9 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
-                "b5fa993c16ba139a",
                 "dc25463a90653c93"
             ]
         ]
