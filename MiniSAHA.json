@@ -229,7 +229,7 @@
             "98edb03d60a2cb6b"
         ],
         "x": 34,
-        "y": 2111.5,
+        "y": 2251.5,
         "w": 792,
         "h": 349.5
     },
@@ -331,12 +331,14 @@
             "f765a88d7b80a030",
             "6bd9a97fa1e23a2a",
             "2df192b0186a80f7",
-            "018afce4893e9f26"
+            "018afce4893e9f26",
+            "7d1c8485d333d384",
+            "e9274133aa8f3475"
         ],
         "x": 14,
         "y": 539,
         "w": 1312,
-        "h": 1042
+        "h": 1102
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -1224,7 +1226,7 @@
             "e1e6225e7dc3d16d"
         ],
         "x": 34,
-        "y": 1419,
+        "y": 1379,
         "w": 1012,
         "h": 502
     },
@@ -1251,7 +1253,7 @@
             "1d2673de725c8dcc"
         ],
         "x": 34,
-        "y": 1939,
+        "y": 1919,
         "w": 972,
         "h": 142
     },
@@ -1274,7 +1276,7 @@
             "7bd46b965253598e"
         ],
         "x": 34,
-        "y": 1319,
+        "y": 1259,
         "w": 752,
         "h": 82
     },
@@ -1407,7 +1409,7 @@
             "7eda9637a81def87"
         ],
         "x": 34,
-        "y": 2499,
+        "y": 2619,
         "w": 632,
         "h": 222
     },
@@ -1435,6 +1437,30 @@
         "y": 1071.5,
         "w": 852,
         "h": 149.5
+    },
+    {
+        "id": "1d085d36448ed4a3",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "f665457c238cf9d6",
+            "90fe83e43e031225",
+            "f4fd7eb23f9c3dd7",
+            "9b9590918b68f77d"
+        ],
+        "x": 34,
+        "y": 2111.5,
+        "w": 892,
+        "h": 97
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -2764,7 +2790,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 230,
-        "y": 1540,
+        "y": 1600,
         "wires": []
     },
     {
@@ -3403,7 +3429,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1380,
+        "y": 1440,
         "wires": [
             [
                 "7df2d7d7906671f7"
@@ -3416,7 +3442,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Welkom nieuw email contact",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet emailTopic = \"MiniSAHA: welkom contactpersoon van \" + voornaamGebruiker;\nlet toAddress = msg.payload;\nlet text = \"Beste contactpersoon,\" + \n  \"<br><br>\" +\n  voornaamGebruiker + \" heeft je e-mailadres toegevoegd als contactpersoon voor zijn MiniSAHA app.\" + \n  \"<br>\" +\n  \"In deze app meldt \" + voornaamGebruiker + \" iedere dag dat hij/zij OK is.\" + \n  \"<br>\" +\n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een melding hiervan krijgen.\" +\n  \"<br>\" +\n  \"Neem dan even contact op met \" + voornaamGebruiker + \" om te kijken wat er aan de hand is.\";\n\ntext +=\n  \"<br><br>\" +\n  \"Als \" + voornaamGebruiker + \" alleen je email heeft geconfigureerd en niet je 06 nummer voor SMS, \" +\n  \"dan is het handig als er een apart meldingsgeluid voor dit email bericht geconfigureerd wordt.\" +\n  \"<br><br>\" +\n  \"Je zou dit als volgt kunnen instellen (moet je wel een beetje technisch voor zijn):<br>\" +\n  \"1. Maak een nieuw email account aan.<br>\" +\n  \"2. Installeer een andere email app op je telefoon die je nog niet hebt.<br>\" +\n  \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n  \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n  \"<br><br>\" +\n  \"Vraag Google hoe dit allemaal moet voor jouw telefoon.\" +\n  \"<br><br>\" +\n  \"Voorbeeld om een nieuw Google account aan te maken:<br>\" +\n  \"- Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n  \"- Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n  \"- Nu kan je wel zelf bepalen wat het email adres wordt.<br>\" +\n  \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nmsg = {\n  to: toAddress,\n  from: \"safeathomealone@gmail.com\",\n  topic: emailTopic,\n  payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\nlet tijd_nu_ms = global.get(\"tijdNaarMs\")(tijd_nu);\nlet meldingstijdGebruiker_ms = global.get(\"tijdNaarMs\")(global.get(\"TijdOK\"));\nlet overtijd_ms = meldingstijdGebruiker_ms + global.get(\"MeldPeriodeInMinuten\") * 60000;\nlet overtijd = msToHM(overtijd_ms);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet emailTopic = \"MiniSAHA: welkom contactpersoon van \" + voornaamGebruiker;\nlet toAddress = msg.payload;\nlet text = \"Beste contactpersoon,\" +\n  \"<br><br>\" +\n  voornaamGebruiker + \" heeft je e-mailadres toegevoegd als contactpersoon voor zijn MiniSAHA app.\" +\n  \"<br>\" +\n  \"In deze app meldt \" + voornaamGebruiker + \" iedere dag dat hij/zij OK is.\" +\n  \"<br>\" +\n  \"Wanneer \" + voornaamGebruiker + \" zich niet bijtijds afmeldt, zal je om \" + overtijd +\n  \" een melding hiervan krijgen.\" +\n  \"<br>\" +\n  \"Neem dan even contact op met \" + voornaamGebruiker + \" om te kijken wat er aan de hand is.\";\n\ntext +=\n  \"<br><br>\" +\n  \"Als \" + voornaamGebruiker + \" alleen je email heeft geconfigureerd en niet je 06 nummer voor SMS, \" +\n  \"dan is het handig als er een apart meldingsgeluid voor dit email bericht geconfigureerd wordt.\" +\n  \"<br><br>\" +\n  \"Je zou dit als volgt kunnen instellen (moet je wel een beetje technisch voor zijn):<br>\" +\n  \"1. Maak een nieuw email account aan.<br>\" +\n  \"2. Installeer een andere email app op je telefoon die je nog niet hebt.<br>\" +\n  \"3. Configureer het meldingsgeluid voor die nieuwe email app.<br>\" +\n  \"4. Stuur je nieuwe email adres naar \" + global.get(\"VoornaamGebruiker\") + \".\" +\n  \"<br><br>\" +\n  \"Vraag Google hoe dit allemaal moet voor jouw telefoon.\" +\n  \"<br><br>\" +\n  \"Voorbeeld om een nieuw Google account aan te maken:<br>\" +\n  \"- Bij veld: “Een e-mailadres of telefoonnummer gebruiken” voer dan niets in!<br>\" +\n  \"- Klik dan op: 'Heb je geen e-mailadres of telefoonnummer?'.<br>\" +\n  \"- Nu kan je wel zelf bepalen wat het email adres wordt.<br>\" +\n  \"Bijvoorbeeld: Voornaam.Achternaam.MiniSAHA@gmail.com<br>\";\n\n\nmsg = {\n  to: toAddress,\n  from: \"safeathomealone@gmail.com\",\n  topic: emailTopic,\n  payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + toAddress });\nreturn msg;\n\n\nfunction msToHM(ms) {\n  const totalSeconds = Math.floor(ms / 1000);\n  const minutes = Math.floor(totalSeconds / 60) % 60;\n  const hours = Math.floor(totalSeconds / 3600);\n\n  const pad = n => String(n).padStart(2, '0');\n  return `${pad(hours)}:${pad(minutes)}`;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3424,7 +3450,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1380,
+        "y": 1440,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3704,7 +3730,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1440,
+        "y": 1500,
         "wires": [
             [
                 "7d7d5d76c7d50c52"
@@ -3725,7 +3751,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1440,
+        "y": 1500,
         "wires": [
             [
                 "103b4311b12747c4"
@@ -3746,7 +3772,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 1440,
+        "y": 1500,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3997,8 +4023,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 1280,
+        "x": 740,
+        "y": 1300,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -4050,6 +4076,49 @@
         "libs": [],
         "x": 470,
         "y": 1320,
+        "wires": [
+            [
+                "6bd9a97fa1e23a2a"
+            ]
+        ]
+    },
+    {
+        "id": "7d1c8485d333d384",
+        "type": "mqtt in",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "",
+        "topic": "IpAddressChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1380,
+        "wires": [
+            [
+                "e9274133aa8f3475"
+            ]
+        ]
+    },
+    {
+        "id": "e9274133aa8f3475",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "IP adres is gewijzigd",
+        "func": "let emailGebruiker = global.get(\"EmailGebruiker\") ?? \"\";\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet ipAddress = global.get(\"IP_host\");\n\nlet emailTopic = \"MiniSAHA: het IP adres van MiniSAHA is veranderd\";\n\nlet text = \"Beste \" + voornaamGebruiker + \",\" +\n    \"<br><br>\" +\n    \"Het IP (Internet) adres van de MiniSAHA computer is veranderd.\" +\n    \"<br>\" +\n    \"Dat kan gebeuren als bijvoorbeeld de router gereset is.\" +\n    \"<br><br>\" +\n    \"Als je in huis de MiniSAHA app niet meer kan openen, vraag dan aan een deskundige het volgende:\" +\n    \"<br>\" +\n    \"1. Verwijder de oude MiniSAHA app van het scherm.\" +\n    \"<br>\" +\n    \"2. Open een browser (b.v. Chrome, Safari) op je mobiel.\" +\n    \"<br>\" +\n    \"3. Vul in bij 'Zoeken': \" + ipAddress + \":1880/dashboard\" +\n    \"<br>\" +\n    \"Nu verschijnt de MiniSAHA app weer.\" +\n    \"<br>\" +\n    \"4. Nu moet je de app toevoegen aan het startscherm:\" +\n    \"<br>\" +\n    \"Android: klik op de drie puntjes rechstboven en tik op: 'Toevoegen aan startscherm'.\" +\n    \"<br>\" +\n    \"iPhone: Open het menu (…): 'Deel', '…Meer' en tik op 'Zet op beginscherm'.\" +\n    \"<br>\" +\n    \"Vul als naam in: MiniSAHA.\";\n\nmsg = {\n    to: emailGebruiker,\n    from: \"safeathomealone@gmail.com\",\n    topic: emailTopic,\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu + \", \" + emailGebruiker });\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1380,
         "wires": [
             [
                 "6bd9a97fa1e23a2a"
@@ -5201,7 +5270,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
+        "x": 740,
         "y": 820,
         "wires": [
             [
@@ -9576,7 +9645,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 130,
-        "y": 1640,
+        "y": 1600,
         "wires": [
             [
                 "148566cf72b33e1a"
@@ -9605,7 +9674,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 750,
-        "y": 1460,
+        "y": 1420,
         "wires": []
     },
     {
@@ -9622,7 +9691,7 @@
         "oldrc": false,
         "name": "wget version_test.txt",
         "x": 460,
-        "y": 1640,
+        "y": 1600,
         "wires": [
             [
                 "98ddd266a3e4c998"
@@ -9645,7 +9714,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 320,
-        "y": 1540,
+        "y": 1500,
         "wires": [
             [
                 "e1e6225e7dc3d16d"
@@ -9673,7 +9742,7 @@
         "to": "",
         "reg": false,
         "x": 780,
-        "y": 1520,
+        "y": 1480,
         "wires": [
             []
         ]
@@ -9700,7 +9769,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 750,
-        "y": 1780,
+        "y": 1740,
         "wires": []
     },
     {
@@ -9717,7 +9786,7 @@
         "oldrc": false,
         "name": "rm old",
         "x": 290,
-        "y": 1640,
+        "y": 1600,
         "wires": [
             [
                 "6f0b74ba5a27cc3e"
@@ -9740,7 +9809,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 660,
-        "y": 1640,
+        "y": 1600,
         "wires": [
             [
                 "c0671529b34906f5"
@@ -9766,7 +9835,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 340,
-        "y": 1820,
+        "y": 1780,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -9787,7 +9856,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 1820,
+        "y": 1780,
         "wires": [
             [
                 "8d171fe450c7a81f"
@@ -9808,7 +9877,7 @@
         "finalize": "",
         "libs": [],
         "x": 170,
-        "y": 1760,
+        "y": 1720,
         "wires": [
             [
                 "b6d0686a4823c0c2"
@@ -9828,7 +9897,7 @@
         "scope": null,
         "uncaught": false,
         "x": 140,
-        "y": 1460,
+        "y": 1420,
         "wires": [
             [
                 "5fe7d4a09964b635"
@@ -9849,7 +9918,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 1460,
+        "y": 1420,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -9877,7 +9946,7 @@
         "templateScope": "page:style",
         "className": "buttonupdate",
         "x": 130,
-        "y": 1680,
+        "y": 1640,
         "wires": [
             []
         ]
@@ -9898,7 +9967,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 420,
-        "y": 1740,
+        "y": 1700,
         "wires": []
     },
     {
@@ -10027,7 +10096,7 @@
         "oldrc": false,
         "name": "Execute shutdown",
         "x": 710,
-        "y": 2160,
+        "y": 2300,
         "wires": [
             [],
             [],
@@ -10047,7 +10116,7 @@
         "oldrc": false,
         "name": "Execute restart",
         "x": 700,
-        "y": 2360,
+        "y": 2500,
         "wires": [
             [],
             [],
@@ -10087,7 +10156,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 160,
-        "y": 2160,
+        "y": 2300,
         "wires": [
             [
                 "7ea37518e7e677d7",
@@ -10128,7 +10197,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 150,
-        "y": 2360,
+        "y": 2500,
         "wires": [
             [
                 "7ea37518e7e677d7",
@@ -10156,7 +10225,7 @@
         "templateScope": "page:style",
         "className": "",
         "x": 130,
-        "y": 2220,
+        "y": 2360,
         "wires": [
             []
         ]
@@ -10183,7 +10252,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 890,
-        "y": 1980,
+        "y": 1960,
         "wires": []
     },
     {
@@ -10199,8 +10268,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 360,
-        "y": 2020,
+        "x": 340,
+        "y": 2000,
         "wires": [
             [
                 "e21cc1583323afc0",
@@ -10224,7 +10293,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 1980,
+        "y": 1960,
         "wires": [
             [
                 "7b981f6f76e5f9f4"
@@ -10348,7 +10417,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 510,
-        "y": 2220,
+        "y": 2380,
         "wires": []
     },
     {
@@ -10395,7 +10464,7 @@
         "type": "function",
         "z": "eb60a9ea21d42f29",
         "g": "47a831c5dfef8563",
-        "name": "State",
+        "name": "State van StateMachine",
         "func": "msg.payload = global.get(\"currentState\");\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -10403,8 +10472,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 1360,
+        "x": 390,
+        "y": 1300,
         "wires": [
             [
                 "219feef2e9854abf"
@@ -10433,7 +10502,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 710,
-        "y": 1360,
+        "y": 1300,
         "wires": []
     },
     {
@@ -10451,7 +10520,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 1360,
+        "y": 1300,
         "wires": [
             [
                 "318cd6b22f5d427b"
@@ -10480,7 +10549,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 270,
-        "y": 2220,
+        "y": 2360,
         "wires": []
     },
     {
@@ -10497,7 +10566,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 2420,
+        "y": 2560,
         "wires": [
             [
                 "7ea37518e7e677d7"
@@ -10519,7 +10588,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 2020,
+        "y": 2000,
         "wires": [
             [
                 "b214b552d64a9c10"
@@ -10541,7 +10610,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1540,
+        "y": 1500,
         "wires": [
             [
                 "97382ae72dc98a86"
@@ -10585,7 +10654,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 2420,
+        "y": 2560,
         "wires": [
             [
                 "8d1d71e905b38b07"
@@ -10607,7 +10676,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 300,
-        "y": 1880,
+        "y": 1840,
         "wires": [
             [
                 "aefcaf0124832705"
@@ -11081,7 +11150,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 2040,
+        "y": 2020,
         "wires": [
             [
                 "a9d8011ae30a8d2c"
@@ -11102,7 +11171,7 @@
         "finalize": "",
         "libs": [],
         "x": 730,
-        "y": 2040,
+        "y": 2020,
         "wires": [
             [
                 "1d2673de725c8dcc"
@@ -11330,7 +11399,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 910,
-        "y": 2040,
+        "y": 2020,
         "wires": []
     },
     {
@@ -11398,7 +11467,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 2600,
+        "y": 2720,
         "wires": [
             [
                 "c4374053a41625c7"
@@ -11428,7 +11497,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 2600,
+        "y": 2720,
         "wires": [
             [
                 "9b85a6085d559ea2"
@@ -11449,7 +11518,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 560,
-        "y": 2600,
+        "y": 2720,
         "wires": []
     },
     {
@@ -11479,7 +11548,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "x": 130,
-        "y": 2680,
+        "y": 2800,
         "wires": [
             [
                 "c8f37af1d1e7dc3c"
@@ -11508,7 +11577,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 550,
-        "y": 2560,
+        "y": 2680,
         "wires": []
     },
     {
@@ -11533,7 +11602,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 570,
-        "y": 2680,
+        "y": 2800,
         "wires": []
     },
     {
@@ -11550,7 +11619,7 @@
         "finalize": "",
         "libs": [],
         "x": 310,
-        "y": 2680,
+        "y": 2800,
         "wires": [
             [
                 "daaed1d0d0a15858"
@@ -11565,7 +11634,7 @@
         "name": "Maak een SMS gebruikers licentie aan",
         "info": "",
         "x": 210,
-        "y": 2540,
+        "y": 2660,
         "wires": []
     },
     {
@@ -11582,7 +11651,7 @@
         "finalize": "",
         "libs": [],
         "x": 890,
-        "y": 1640,
+        "y": 1600,
         "wires": [
             [
                 "59d5c77dc1dc2a60"
@@ -11603,7 +11672,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 1540,
+        "y": 1500,
         "wires": [
             [
                 "2d76e161b54a56ff",
@@ -11680,7 +11749,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 520,
-        "y": 2160,
+        "y": 2300,
         "wires": [
             [
                 "9efaa0c2fd872693"
@@ -11706,12 +11775,97 @@
         "allowrate": false,
         "outputs": 1,
         "x": 520,
-        "y": 2360,
+        "y": 2500,
         "wires": [
             [
                 "6d496dbb394b2888"
             ]
         ]
+    },
+    {
+        "id": "f665457c238cf9d6",
+        "type": "mqtt in",
+        "z": "eb60a9ea21d42f29",
+        "g": "1d085d36448ed4a3",
+        "name": "",
+        "topic": "SystemStarted",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 2160,
+        "wires": [
+            [
+                "90fe83e43e031225"
+            ]
+        ]
+    },
+    {
+        "id": "90fe83e43e031225",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "g": "1d085d36448ed4a3",
+        "command": "hostname -I",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Execute shutdown",
+        "x": 350,
+        "y": 2160,
+        "wires": [
+            [
+                "f4fd7eb23f9c3dd7"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f4fd7eb23f9c3dd7",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "1d085d36448ed4a3",
+        "name": "IP changed?",
+        "func": "let newIP = msg.payload.split(\" \")[0];\nlet oldIP = global.get(\"IP_hostPrevious\") ?? \"\";\nnode.status({ text: \"old: \" + oldIP + \", new: \" + newIP});\n\nif (oldIP == \"\") {\n    global.set(\"IP_host\", newIP);  // first time\n    global.set(\"IP_hostPrevious\", newIP);\n    return null;\n}\nelse {\n    if (newIP != oldIP) {  // IP changed?\n        global.set(\"IP_host\", newIP);\n        global.set(\"IP_hostPrevious\", newIP);\n\n        msg.payload = newIP;\n        return msg;\n    }\n    return null;\n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 2160,
+        "wires": [
+            [
+                "9b9590918b68f77d"
+            ]
+        ]
+    },
+    {
+        "id": "9b9590918b68f77d",
+        "type": "mqtt out",
+        "z": "eb60a9ea21d42f29",
+        "g": "1d085d36448ed4a3",
+        "name": "",
+        "topic": "IpAddressChanged",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 810,
+        "y": 2160,
+        "wires": []
     },
     {
         "id": "0af8df52052ef366",
@@ -15058,7 +15212,7 @@
         "z": "bf57a768b975c2e6",
         "g": "3856d925f2c69025",
         "name": "split",
-        "func": "let now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nmsg.options = msg.payload.split(/\\n/);\nif (msg.options.length > 1) {\n   msg.options.pop();\n}\n\n//global.set(\"BluetoothSoundAvond\", \"MiniSAHA.mp3\");\n\nlet selected = global.get(\"BluetoothSoundAvond\");\nif (selected == undefined) {\n    selected = \"MiniSAHA.mp3\";\n    global.set(\"BluetoothSoundAvond\", selected);\n}\n\nif (msg.options.includes(selected)) {\n    node.status({ text: tijd_nu + \", \" + msg.options });\n    msg.payload = selected;\n}\nelse {\n    if (msg.options.length > 0) {\n        node.status({ text: tijd_nu + \", first: \" + msg.payload });\n        msg.payload = msg.options[0];\n        global.set(\"BluetoothSoundAvond\", msg.payload);\n    }\n    else {\n        node.status({ text: tijd_nu + \", empty\" });\n        msg.payload = \"\";\n    }\n}\nreturn msg;",
+        "func": "let now = new Date();\nlet tijd_nu = ('0' + now.getHours()).slice(-2) + \":\" + ('0' + now.getMinutes()).slice(-2);\n\nmsg.options = msg.payload.split(/\\n/);\nif (msg.options.length > 1) {\n   msg.options.pop();\n}\n\n// Forceer tijdelijk dit geluid:\nglobal.set(\"BluetoothSoundAvond\", \"MiniSAHA.mp3\");\n\nlet selected = global.get(\"BluetoothSoundAvond\");\nif (selected == undefined) {\n    selected = \"MiniSAHA.mp3\";\n    global.set(\"BluetoothSoundAvond\", selected);\n}\n\nif (msg.options.includes(selected)) {\n    node.status({ text: tijd_nu + \", \" + msg.options });\n    msg.payload = selected;\n}\nelse {\n    if (msg.options.length > 0) {\n        node.status({ text: tijd_nu + \", first: \" + msg.payload });\n        msg.payload = msg.options[0];\n        global.set(\"BluetoothSoundAvond\", msg.payload);\n    }\n    else {\n        node.status({ text: tijd_nu + \", empty\" });\n        msg.payload = \"\";\n    }\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
