@@ -944,7 +944,6 @@
             "c3bdf8a0639b581e",
             "e38a9634cc906c7f",
             "a5d5f0113e8754b4",
-            "634d2a803fbc82cc",
             "6dcb0f9d9f036fd6",
             "74594809f8889502",
             "67ea5c30afee53ab",
@@ -967,7 +966,8 @@
             "e3154ddca628d3fd",
             "ac83ce41c602c398",
             "a47823f9c0bc3ba9",
-            "c92648c21cedfe6f"
+            "c92648c21cedfe6f",
+            "634d2a803fbc82cc"
         ],
         "x": 34,
         "y": 39,
@@ -1455,12 +1455,13 @@
             "f665457c238cf9d6",
             "90fe83e43e031225",
             "f4fd7eb23f9c3dd7",
-            "9b9590918b68f77d"
+            "9b9590918b68f77d",
+            "a24686b7d9216482"
         ],
         "x": 34,
-        "y": 2111.5,
-        "w": 892,
-        "h": 97
+        "y": 2099,
+        "w": 972,
+        "h": 109.5
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -7306,33 +7307,12 @@
         ]
     },
     {
-        "id": "634d2a803fbc82cc",
-        "type": "function",
-        "z": "5c14e0941d341b42",
-        "g": "e1f1da7ac74705a8",
-        "name": "Fout",
-        "func": "msg.payload = \"<b>Tijd moet liggen tussen 07:00 en 10:30. </b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 930,
-        "y": 660,
-        "wires": [
-            [
-                "6dcb0f9d9f036fd6"
-            ]
-        ]
-    },
-    {
         "id": "6dcb0f9d9f036fd6",
         "type": "ui-notification",
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "ui": "6c1d30b5f16932dd",
-        "position": "top right",
+        "position": "center center",
         "colorDefault": false,
         "color": "#000000",
         "displayTime": "60",
@@ -7577,7 +7557,7 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "name": "Fout",
-        "func": "msg.payload = \"<b>Tijd moet liggen tussen 18:00 en 20:00. </b>\";\n\nmsg.ui_update = {\n    raw: true,\n    position: \"top right\",\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "func": "msg.payload = \"<b>Tijd moet liggen tussen 18:00 en 20:00. </b>\";\n\nmsg.ui_update = {\n    raw: true,\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7598,7 +7578,7 @@
         "z": "5c14e0941d341b42",
         "g": "e1f1da7ac74705a8",
         "ui": "6c1d30b5f16932dd",
-        "position": "top right",
+        "position": "center center",
         "colorDefault": false,
         "color": "#000000",
         "displayTime": "60",
@@ -7992,6 +7972,27 @@
         "y": 400,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "634d2a803fbc82cc",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "e1f1da7ac74705a8",
+        "name": "Fout",
+        "func": "msg.payload = \"<b>Tijd moet liggen tussen 07:00 en 10:30. </b>\";\n\nmsg.ui_update = {\n    raw: true,\n    displayTime: 60,\n    allowDismiss: true,\n    color: \"green\",\n    showCountdown: true\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 660,
+        "wires": [
+            [
+                "6dcb0f9d9f036fd6"
+            ]
         ]
     },
     {
@@ -11800,7 +11801,7 @@
         "y": 2160,
         "wires": [
             [
-                "90fe83e43e031225"
+                "a24686b7d9216482"
             ]
         ]
     },
@@ -11816,8 +11817,8 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "Execute shutdown",
-        "x": 350,
+        "name": "hostname -I",
+        "x": 510,
         "y": 2160,
         "wires": [
             [
@@ -11840,8 +11841,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 2160,
+        "x": 690,
+        "y": 2140,
         "wires": [
             [
                 "9b9590918b68f77d"
@@ -11863,9 +11864,35 @@
         "correl": "",
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
-        "x": 810,
-        "y": 2160,
+        "x": 890,
+        "y": 2140,
         "wires": []
+    },
+    {
+        "id": "a24686b7d9216482",
+        "type": "delay",
+        "z": "eb60a9ea21d42f29",
+        "g": "1d085d36448ed4a3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 320,
+        "y": 2160,
+        "wires": [
+            [
+                "90fe83e43e031225"
+            ]
+        ]
     },
     {
         "id": "0af8df52052ef366",
