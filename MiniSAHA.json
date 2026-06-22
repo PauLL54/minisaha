@@ -1456,12 +1456,12 @@
             "90fe83e43e031225",
             "f4fd7eb23f9c3dd7",
             "9b9590918b68f77d",
-            "a24686b7d9216482"
+            "483c64d47f2c1c8f"
         ],
         "x": 34,
-        "y": 2099,
+        "y": 2111.5,
         "w": 972,
-        "h": 109.5
+        "h": 97
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -11801,7 +11801,7 @@
         "y": 2160,
         "wires": [
             [
-                "a24686b7d9216482"
+                "483c64d47f2c1c8f"
             ]
         ]
     },
@@ -11818,7 +11818,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "hostname -I",
-        "x": 510,
+        "x": 470,
         "y": 2160,
         "wires": [
             [
@@ -11841,8 +11841,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
-        "y": 2140,
+        "x": 670,
+        "y": 2160,
         "wires": [
             [
                 "9b9590918b68f77d"
@@ -11865,28 +11865,28 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 890,
-        "y": 2140,
+        "y": 2160,
         "wires": []
     },
     {
-        "id": "a24686b7d9216482",
-        "type": "delay",
+        "id": "483c64d47f2c1c8f",
+        "type": "trigger",
         "z": "eb60a9ea21d42f29",
         "g": "1d085d36448ed4a3",
         "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "30",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
         "outputs": 1,
-        "x": 320,
+        "x": 310,
         "y": 2160,
         "wires": [
             [
