@@ -5674,7 +5674,7 @@
         "type": "function",
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
-        "name": "Laatste vraag nee",
+        "name": "Laatste vraag Nee bevestigd",
         "func": "var tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -5682,7 +5682,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
+        "x": 900,
         "y": 200,
         "wires": [
             [
@@ -5696,14 +5696,14 @@
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
         "name": "Vraag bevestiging",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n//node.status({ text: tijd_nu + \" \" + msg.vraagNummer })\nnode.status({ text: tijd_nu})\n\nlet bericht = \"Dit was de laatste vraag. Je wordt nu OK afgemeld.\"\nmsg.payload = \"<br>BEVESTIG:<br><br>\" + bericht + \"<br><br><br>\";\nreturn msg;\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n//node.status({ text: tijd_nu + \" \" + msg.vraagNummer })\nnode.status({ text: tijd_nu})\n\nlet bericht = \"Dit was de laatste vraag. Morgen vragen we morgen weer.\"\nmsg.payload = \"<br>BEVESTIG:<br><br>\" + bericht + \"<br><br><br>\";\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
+        "x": 750,
         "y": 260,
         "wires": [
             [
@@ -5730,7 +5730,7 @@
         "raw": true,
         "className": "",
         "name": "",
-        "x": 960,
+        "x": 940,
         "y": 260,
         "wires": [
             [
@@ -5744,7 +5744,7 @@
         "z": "e786b4f70cf0ad09",
         "g": "f7d63b40478c7552",
         "name": "confirm?",
-        "func": "if (msg.payload == \"confirm_clicked\") {\n    node.status({ text: \"Nee\" });\n    return [msg, null]\n}\n\nif (msg.payload == \"dismiss_clicked\") {\n    node.status({ text: \"Terug\" });\n    msg.vraagNummer == 9;\n    return [null, msg];\n}",
+        "func": "if (msg.payload == \"confirm_clicked\") {\n    node.status({ text: \"OK\" });\n    return [msg, null]\n}\n\nif (msg.payload == \"dismiss_clicked\") {\n    node.status({ text: \"Terug\" });\n    msg.vraagNummer == 9;\n    return [null, msg];\n}",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
