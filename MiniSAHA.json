@@ -872,12 +872,14 @@
             "9260659255156c8a",
             "a18148e4e8946b3b",
             "8129738cd4f4fe2c",
-            "748f55ba24c9c9bd"
+            "748f55ba24c9c9bd",
+            "999b6636d18fdb12",
+            "6903830ed9c64ce4"
         ],
         "x": 34,
         "y": 1599,
         "w": 1032,
-        "h": 182
+        "h": 202
     },
     {
         "id": "e1f1da7ac74705a8",
@@ -3744,7 +3746,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Debug info",
-        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (s1 != \"\") smsContacten++;\nif (s2 != \"\") smsContacten++;\nif (s3 != \"\") smsContacten++;\n\nlet licenseSMS = global.get(\"LicenseSMS\") ?? \"\";\n\nlet dependencies = global.get(\"DependenciesCurrent\") ?? \"\";\nlet dependenciesCurrent = \"\"\nfor (const value of dependencies) {\n  dependenciesCurrent += value + \", \";\n}\n\nlet instellingen = global.get(\"TijdOKOchtend\") + \", \" + global.get(\"TijdOKAvond\") + \", \"  + global.get(\"Herinnering\") + \", \" + global.get(\"MeldPeriodeInMinuten\");\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker:       \" + global.get(\"VoornaamGebruiker\") +\n  \"\\nEmail gebruiker:          \" + (global.get(\"EmailGebruiker\") ?? \"\") +\n  \"\\nSoftware version:         \" + global.get(\"version\") +\n  \"\\nRaspberry Pi model:       \" + global.get(\"RaspberryPiModel\") +\n  \"\\nRaspberry Pi ID:          \" + global.get(\"SerialCRC32\") +\n  \"\\nRaspberry Pi IP adres:    \" + global.get(\"IP_host\") +\n  \"\\nInstellingen:             \" + instellingen +\n  \"\\nTijdOKAvondEnabled:       \" + (global.get(\"TijdOKAvondEnabled\") ?? false)  +\n  \"\\nBluetoothSoundOchtend:    \" + (global.get(\"BluetoothSoundOchtend\") ?? false) +\n  \"\\nBluetoothSoundAvond:      \" + (global.get(\"BluetoothSoundAvond\") ?? false) +\n  \"\\nBrowser:                  \" + global.get(\"Browser\") +\n  \"\\nPingCount:                \" + global.get(\"PingCount\") +\n  \"\\nPingFault:                \" + (global.get(\"PingFault\") ?? 0) +\n  \"\\nSMS license:              \" + (licenseSMS != \"\") +\n  \"\\nSMS credits:              \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nSMS contacten:            \" + smsContacten +\n  \"\\nEmail contacten:          \" + emailContacten +\n  \"\\nOvertijdBerichtVerstuurd: \" + (global.get(\"OvertijdBerichtVerstuurd\") ?? false) +\n  \"\\n\" +\n  \"\\nUsageNietAfgemeld:        \" + (global.get(\"UsageNietAfgemeld\") ?? 0) +\n  \"\\nUsageNietOK:              \" + (global.get(\"UsageNietOK\") ?? 0) +\n  \"\\nLaatste melding contact:  \" + (global.get(\"meldingContact\") ?? 0) +\n  \"\\nUsageOverTijdAfgemeld:    \" + (global.get(\"UsageOverTijdAfgemeld\") ?? 0) +\n  \"\\nUsageAlarm:               \" + (global.get(\"UsageAlarm\") ?? 0) +\n  \"\\nUsageAlarmCanceled:       \" + (global.get(\"UsageAlarmCanceled\") ?? 0) +\n  \"\\nUsageSpeakerOff:          \" + (global.get(\"UsageSpeakerOff\") ?? 0) +\n  \"\\n\" +\n  \"\\nDependenciesCurrent:     \" + dependenciesCurrent;\n\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (s1 != \"\") smsContacten++;\nif (s2 != \"\") smsContacten++;\nif (s3 != \"\") smsContacten++;\n\nlet licenseSMS = global.get(\"LicenseSMS\") ?? \"\";\n\nlet dependencies = global.get(\"DependenciesCurrent\") ?? \"\";\nlet dependenciesCurrent = \"\"\nfor (const value of dependencies) {\n  dependenciesCurrent += value + \", \";\n}\n\nlet instellingen = global.get(\"TijdOKOchtend\") + \", \" + global.get(\"TijdOKAvond\") + \", \"  + global.get(\"Herinnering\") + \", \" + global.get(\"MeldPeriodeInMinuten\");\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker:       \" + global.get(\"VoornaamGebruiker\") +\n  \"\\nEmail gebruiker:          \" + (global.get(\"EmailGebruiker\") ?? \"\") +\n  \"\\nSoftware version:         \" + global.get(\"version\") +\n  \"\\nRaspberry Pi model:       \" + global.get(\"RaspberryPiModel\") +\n  \"\\nRaspberry Pi ID:          \" + global.get(\"SerialCRC32\") +\n  \"\\nRaspberry Pi IP adres:    \" + global.get(\"IP_host\") +\n  \"\\nTijdOpenApp:              \" + (global.get(\"TijdOpenApp\") ?? \"\") +\n  \"\\nInstellingen:             \" + instellingen +\n  \"\\nTijdOKAvondEnabled:       \" + (global.get(\"TijdOKAvondEnabled\") ?? false)  +\n  \"\\nBluetoothSoundOchtend:    \" + (global.get(\"BluetoothSoundOchtend\") ?? false) +\n  \"\\nBluetoothSoundAvond:      \" + (global.get(\"BluetoothSoundAvond\") ?? false) +\n  \"\\nBrowser:                  \" + global.get(\"Browser\") +\n  \"\\nPingCount:                \" + global.get(\"PingCount\") +\n  \"\\nPingFault:                \" + (global.get(\"PingFault\") ?? 0) +\n  \"\\nSMS license:              \" + (licenseSMS != \"\") +\n  \"\\nSMS credits:              \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nSMS contacten:            \" + smsContacten +\n  \"\\nEmail contacten:          \" + emailContacten +\n  \"\\nOvertijdBerichtVerstuurd: \" + (global.get(\"OvertijdBerichtVerstuurd\") ?? false) +\n  \"\\n\" +\n  \"\\nUsageNietAfgemeld:        \" + (global.get(\"UsageNietAfgemeld\") ?? 0) +\n  \"\\nUsageNietOK:              \" + (global.get(\"UsageNietOK\") ?? 0) +\n  \"\\nLaatste melding contact:  \" + (global.get(\"meldingContact\") ?? 0) +\n  \"\\nUsageOverTijdAfgemeld:    \" + (global.get(\"UsageOverTijdAfgemeld\") ?? 0) +\n  \"\\nUsageAlarm:               \" + (global.get(\"UsageAlarm\") ?? 0) +\n  \"\\nUsageAlarmCanceled:       \" + (global.get(\"UsageAlarmCanceled\") ?? 0) +\n  \"\\nUsageSpeakerOff:          \" + (global.get(\"UsageSpeakerOff\") ?? 0) +\n  \"\\n\" +\n  \"\\nDependenciesCurrent:     \" + dependenciesCurrent;\n\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6660,7 +6662,8 @@
         "y": 1700,
         "wires": [
             [
-                "f7e8d9c0b1a2"
+                "f7e8d9c0b1a2",
+                "999b6636d18fdb12"
             ]
         ]
     },
@@ -7996,6 +7999,53 @@
         ]
     },
     {
+        "id": "999b6636d18fdb12",
+        "type": "function",
+        "z": "5c14e0941d341b42",
+        "g": "75f6d804089580c3",
+        "name": "Date",
+        "func": "let now = new Date();\nmsg.payload = now.toLocaleString(\"nl-NL\");\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 1760,
+        "wires": [
+            [
+                "6903830ed9c64ce4"
+            ]
+        ]
+    },
+    {
+        "id": "6903830ed9c64ce4",
+        "type": "change",
+        "z": "5c14e0941d341b42",
+        "g": "75f6d804089580c3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "TijdOpenApp",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "efef419a3cac5a8b",
         "type": "ui-button",
         "z": "af31bf2fe058f803",
@@ -9140,7 +9190,7 @@
         "z": "af31bf2fe058f803",
         "g": "a0c77c5ce87569c4",
         "name": "help tekst",
-        "func": "if (msg.name != \"Handleiding\") return;\n\nlet overtijd = voegTijdToe(global.get(\"TijdOKOchtend\"), global.get(\"MeldPeriodeInMinuten\"));\n\nmsg.payload =\n    \"Vanaf \" + global.get(\"TijdOKOchtend\") + \" hoort u via de Bluetooth speaker een stem die vraagt om deze app te openen en aan te geven of u OK bent.\" +\n    \"<br><br>\" +\n    \"Reageert u niet direct, dan hoort u na \" + global.get(\"Herinnering\") + \" minuten opnieuw deze vraag. Dit herhaalt zich totdat u reageert.\" +\n    \"<br><br>\" +\n    \"Reageert u niet vóór \" + overtijd +  \", dan worden uw contactpersonen geïnformeerd via email en optioneel via SMS.\" +\n    \"<br><br>\" +\n    \"Al twee uur vóór \" + global.get(\"TijdOKOchtend\") + \" kunt u in de app aangeven of u OK bent. U krijgt dan ook geen vraag meer via de Bluetooth speaker.\" +\n    \"<br><br>\" +\n    \"Verlaat u vóór \" + global.get(\"TijdOKOchtend\") + \" uur het huis, dan wordt dat gezien als een teken van leven en wordt u automatisch afgemeld. Neem daarom altijd uw telefoon mee wanneer u het huis verlaat, in ieder geval in de ochtend.\" +\n    \"<br><br>\" +\n    \"U kunt ook instellen dat u in de avond een geluidsmelding krijgt.\" +\n    \"<br><br>\" +\n    \"Bent u op vakantie, dan hoeft u niets te doen. Het systeem ziet dat u niet thuis bent.\" +\n    \"<br><br>\" +\n    \"In huis kunt u altijd op de “Alarm”-knop drukken. Er gaat dan direct een melding naar uw contactpersonen. U kunt het alarm binnen 1 minuut nog annuleren.\" +\n    \"<br><br>\" +\n    \"Op de vraag 'Bent u OK' kunt u ook op de 'Nee' knop drukken. Dan krijgt u een aantal vragen waarop u 'Ja', 'Nee' of 'Terug' kunt antwoorden.\" +\n    \"<br>\" +\n    \"U kunt dit veilig een keer uitproberen zolang u niet op de 'Ja' knopt drukt (want dan krijgen de contactpersonen een melding).\" +\n    \"<br><br>\" +\n    \"Wanneer u het emailadres en 06 nummer invult van een contactpersoon, krijgt de contactpersoon gelijk een welkoms email en SMS. \" +\n    \"Controleer of ze deze berichten ook gehad hebben! Want dan weet je zeker dat de goede gegevens zijn ingevuld.\" +\n    \"<br>\" +\n    \"Als alternatieve test zou je een keer op de 'Alarm' knop kunnen drukken nadat je hen hiervan op de hoogte hebt gebracht.\" +\n    \"<br><br>\" +\n    \"Uw contactpersonen ontvangen elke zondag om 12:00 een email met de herinnering dat ze een contactpersoon van u zijn (anders zouden ze dit vergeten na verloop van tijd).\" +\n    \"<br><br>\" +\n    \"De app werkt alleen in huis. Als u buitenshuis de app opent ziet u een foutmelding (dit is normaal).\" +\n    \"<br>\" +\n    \"Als u binnenshuis deze foutmelding ook ziet: controleer dan of de WiFi van uw mobiel wel aan staat.\" +\n    \"<br><br>\" +\n    \"AVG: acties (b.v. Alarm, overtijd) en instellingen (b.v. aantal contacten, SMS gebruik) worden gelogd ter verbetering van deze app.\" +\n    \"<br><br>\" +\n    \"<br><br>\" +\n    \"TECHNISCHE PROBLEMEN OPLOSSEN\" +\n    \"<br>\" +\n    \"(voor technici)\" +\n    \"<br><br>\" +\n    \"Probleem: Configuratie van Bluetooth speaker lukt niet (kan nodig zijn na b.v. een blikseminslag).\" +\n    \"<br>\" +\n    \"- Herstart computertje: haal de voeding los, wacht even, en sluit deze weer aan.\" +\n    \"<br>\" +\n    \"- HEMA Bluetooth speaker terugbrengen naar fabrieksinstellingen: houd de Power en Volume- knoppen tegelijk ingedrukt voor 10..15 seconden.\" +\n    \"<br><br>\" +\n    \"Probleem: De MiniSAHA app opent niet terwijl de mobiel wel via WiFi verbonden is in huis.\" +\n    \"<br>\" +\n    \"Dit probleem kan worden veroorzaakt als de mobiel wisselend gebruikt maakt van de 2.4 en 5 GHz WiFi banden.\" +\n    \"<br>\" +\n    \"- Maak in de router een apart SSID (netwerknaam) aan voor de 5 GHz band. Deze SSID moet dan altijd gebruikt worden door de mobiel.\" +\n    \"<br><br>\";\n\nmsg.template = msg.payload;\nreturn msg;\n\nfunction voegTijdToe(tijd, minuten) {\n    const [uren, mins] = tijd.split(':').map(Number);\n    const totaalMinuten = uren * 60 + mins + Number(minuten);\n\n    const nieuweUren = Math.floor(totaalMinuten / 60) % 24;\n    const nieuweMinuten = totaalMinuten % 60;\n\n    return `${String(nieuweUren).padStart(2, '0')}:${String(nieuweMinuten).padStart(2, '0')}`;\n}",
+        "func": "if (msg.name != \"Handleiding\") return;\n\nlet overtijd = voegTijdToe(global.get(\"TijdOKOchtend\"), global.get(\"MeldPeriodeInMinuten\"));\n\nmsg.payload =\n    \"Vanaf \" + global.get(\"TijdOKOchtend\") + \" hoort u via de Bluetooth speaker een stem die vraagt om deze app te openen en aan te geven of u OK bent.\" +\n    \"<br><br>\" +\n    \"Reageert u niet direct, dan hoort u na \" + global.get(\"Herinnering\") + \" minuten opnieuw deze vraag. Dit herhaalt zich totdat u reageert.\" +\n    \"<br><br>\" +\n    \"Reageert u niet vóór \" + overtijd +  \", dan worden uw contactpersonen geïnformeerd via email en optioneel via SMS.\" +\n    \"<br><br>\" +\n    \"Al twee uur vóór \" + global.get(\"TijdOKOchtend\") + \" kunt u in de app aangeven of u OK bent. U krijgt dan ook geen vraag meer via de Bluetooth speaker.\" +\n    \"<br><br>\" +\n    \"Verlaat u vóór \" + global.get(\"TijdOKOchtend\") + \" uur het huis, dan wordt dat gezien als een teken van leven en wordt u automatisch afgemeld. Neem daarom altijd uw telefoon mee wanneer u het huis verlaat, in ieder geval in de ochtend.\" +\n    \"<br><br>\" +\n    \"U kunt ook instellen dat u in de avond een geluidsmelding krijgt.\" +\n    \"<br><br>\" +\n    \"Bent u op vakantie, dan hoeft u niets te doen. Het systeem ziet dat u niet thuis bent.\" +\n    \"<br><br>\" +\n    \"In huis kunt u altijd op de “Alarm”-knop drukken. Er gaat dan direct een melding naar uw contactpersonen. U kunt het alarm binnen 1 minuut nog annuleren.\" +\n    \"<br><br>\" +\n    \"Op de vraag 'Bent u OK' kunt u ook op de 'Nee' knop drukken. Dan krijgt u een aantal vragen waarop u 'Ja', 'Nee' of 'Terug' kunt antwoorden.\" +\n    \"<br>\" +\n    \"U kunt dit veilig een keer uitproberen zolang u niet op de 'Ja' knopt drukt (want dan krijgen de contactpersonen een melding).\" +\n    \"<br><br>\" +\n    \"Wanneer u het emailadres en 06 nummer invult van een contactpersoon, krijgt de contactpersoon gelijk een welkoms email en SMS. \" +\n    \"Controleer of ze deze berichten ook gehad hebben! Want dan weet je zeker dat de goede gegevens zijn ingevuld.\" +\n    \"<br>\" +\n    \"Als alternatieve test zou je een keer op de 'Alarm' knop kunnen drukken nadat je hen hiervan op de hoogte hebt gebracht.\" +\n    \"<br><br>\" +\n    \"Uw contactpersonen ontvangen elke zondag om 12:00 een email met de herinnering dat ze een contactpersoon van u zijn (anders zouden ze dit vergeten na verloop van tijd).\" +\n    \"<br><br>\" +\n    \"De app werkt alleen in huis. Als u buitenshuis de app opent ziet u een foutmelding (dit is normaal).\" +\n    \"<br>\" +\n    \"Als u binnenshuis deze foutmelding ook ziet: controleer dan of de WiFi van uw mobiel wel aan staat.\" +\n    \"<br><br>\" +\n    \"AVG: acties (b.v. Alarm, overtijd) en instellingen (b.v. aantal contacten, SMS gebruik) worden gelogd ter verbetering van deze app.\" +\n    \"<br><br>\" +\n    \"<br><br>\" +\n    \"TECHNISCHE PROBLEMEN OPLOSSEN\" +\n    \"<br>\" +\n    \"(voor technici)\" +\n    \"<br><br>\" +\n    \"Probleem: Configuratie van Bluetooth speaker lukt niet (kan nodig zijn na b.v. een blikseminslag).\" +\n    \"<br>\" +\n    \"- Herstart computertje: haal de voeding los, wacht even, en sluit deze weer aan.\" +\n    \"<br>\" +\n    \"- HEMA Bluetooth speaker terugbrengen naar fabrieksinstellingen: houd de Power en Volume- knoppen tegelijk ingedrukt voor 10..15 seconden.\" +\n    \"<br><br>\" +\n    \"Probleem: De MiniSAHA app opent niet terwijl de mobiel wel via WiFi verbonden is in huis.\" +\n    \"<br>\" +\n    \"- Schakel WiFi even uit en weer aan.\" +\n    \"<br>\" +\n    \"- Bij een iPhone: gebruik de Chrome browser ipv Safari.\" +\n    \"<br>\" +\n    \"- Bij een iPhone: Instellingen → Wi-Fi → [jouw netwerk] → Privé-WiFi-adres → uit.\" +\n    \"<br>\" +\n    \"- Dit probleem kan mogelijk worden veroorzaakt als de mobiel wisselend gebruikt maakt van de 2.4 en 5 GHz WiFi banden. \" +\n    \"Maak in de router een apart SSID (netwerknaam) aan voor de 5 GHz band. Deze SSID moet dan altijd gebruikt worden door de mobiel.\" +\n    \"<br><br>\";\n\nmsg.template = msg.payload;\nreturn msg;\n\nfunction voegTijdToe(tijd, minuten) {\n    const [uren, mins] = tijd.split(':').map(Number);\n    const totaalMinuten = uren * 60 + mins + Number(minuten);\n\n    const nieuweUren = Math.floor(totaalMinuten / 60) % 24;\n    const nieuweMinuten = totaalMinuten % 60;\n\n    return `${String(nieuweUren).padStart(2, '0')}:${String(nieuweMinuten).padStart(2, '0')}`;\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
