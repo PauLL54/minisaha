@@ -1,4 +1,4 @@
-2026-06-30
+2026-07-01
 @flowfuse/node-red-dashboard@1.30.2
 node-red-contrib-cpu@0.0.4
 node-red-contrib-watchdirectory@1.0.14
