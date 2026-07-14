@@ -294,8 +294,6 @@
             "df1878820d0f62c5",
             "7406ab9d8567cc25",
             "c9f88ef493593187",
-            "f07ba5eecb0df09e",
-            "8322868abe70e928",
             "1cbae632c31ff2b0",
             "da8fec47862aa2f5",
             "cfa6b22427e3edc3",
@@ -333,12 +331,16 @@
             "2df192b0186a80f7",
             "018afce4893e9f26",
             "7d1c8485d333d384",
-            "e9274133aa8f3475"
+            "e9274133aa8f3475",
+            "f976a6960ea52b90",
+            "3dbdf3d7af0ee058",
+            "ad767359c26fb4b7",
+            "8dadd8a97e3e9159"
         ],
         "x": 14,
-        "y": 539,
+        "y": 559,
         "w": 1312,
-        "h": 1102
+        "h": 1182
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -2793,7 +2795,7 @@
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
         "x": 230,
-        "y": 1600,
+        "y": 1700,
         "wires": []
     },
     {
@@ -2810,7 +2812,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 840,
+        "y": 860,
         "wires": [
             [
                 "a9408115b9afbbf0"
@@ -2855,7 +2857,7 @@
         "finalize": "",
         "libs": [],
         "x": 190,
-        "y": 900,
+        "y": 920,
         "wires": [
             [
                 "7406ab9d8567cc25"
@@ -2885,7 +2887,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 960,
+        "y": 980,
         "wires": [
             [
                 "a9408115b9afbbf0"
@@ -2910,7 +2912,7 @@
         "name": "",
         "dname": "",
         "x": 990,
-        "y": 1280,
+        "y": 1300,
         "wires": []
     },
     {
@@ -2932,7 +2934,7 @@
         "topic": "topic",
         "outputs": 2,
         "x": 400,
-        "y": 780,
+        "y": 800,
         "wires": [
             [
                 "0362a76e4f7b1fd0"
@@ -2956,46 +2958,12 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 720,
+        "y": 740,
         "wires": [
             [
                 "7406ab9d8567cc25"
             ]
         ]
-    },
-    {
-        "id": "f07ba5eecb0df09e",
-        "type": "catch",
-        "z": "a380efb730bea147",
-        "g": "2ce41e3897fb35ce",
-        "name": "",
-        "scope": null,
-        "uncaught": false,
-        "x": 1020,
-        "y": 1500,
-        "wires": [
-            [
-                "8322868abe70e928"
-            ]
-        ]
-    },
-    {
-        "id": "8322868abe70e928",
-        "type": "debug",
-        "z": "a380efb730bea147",
-        "g": "2ce41e3897fb35ce",
-        "name": "Error",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1170,
-        "y": 1500,
-        "wires": []
     },
     {
         "id": "93e66aed5528479a",
@@ -3035,7 +3003,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 740,
+        "y": 760,
         "wires": [
             [
                 "97cd5aa2eb055baf"
@@ -3065,7 +3033,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 1140,
+        "y": 1160,
         "wires": [
             [
                 "cfa6b22427e3edc3"
@@ -3086,7 +3054,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1140,
+        "y": 1160,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3107,7 +3075,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 760,
+        "y": 780,
         "wires": [
             [
                 "d5df2f8a93d16c6a"
@@ -3128,7 +3096,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 640,
+        "y": 660,
         "wires": [
             [
                 "494c0e1626e74b03"
@@ -3152,7 +3120,7 @@
         "oldrc": false,
         "name": "ls sounds",
         "x": 740,
-        "y": 600,
+        "y": 620,
         "wires": [
             [
                 "6e3e1642880f5295"
@@ -3175,7 +3143,7 @@
         "finalize": "",
         "libs": [],
         "x": 900,
-        "y": 600,
+        "y": 620,
         "wires": [
             [
                 "9a6d5159979437b8"
@@ -3196,7 +3164,7 @@
         "finalize": "",
         "libs": [],
         "x": 1050,
-        "y": 640,
+        "y": 660,
         "wires": [
             [
                 "a9d22c1ccafb666e"
@@ -3219,7 +3187,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 1190,
-        "y": 640,
+        "y": 660,
         "wires": []
     },
     {
@@ -3280,7 +3248,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 800,
+        "y": 820,
         "wires": [
             [
                 "97cd5aa2eb055baf"
@@ -3301,7 +3269,7 @@
         "finalize": "",
         "libs": [],
         "x": 720,
-        "y": 1120,
+        "y": 1140,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3323,7 +3291,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 1020,
+        "y": 1040,
         "wires": [
             [
                 "b7b67d2a822e82d9"
@@ -3344,7 +3312,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 1020,
+        "y": 1040,
         "wires": [
             [
                 "c0678892a8aa9532",
@@ -3360,7 +3328,7 @@
         "name": "Emails en SMS",
         "info": "",
         "x": 120,
-        "y": 580,
+        "y": 600,
         "wires": []
     },
     {
@@ -3388,7 +3356,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 1200,
+        "y": 1220,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3410,7 +3378,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 120,
-        "y": 1200,
+        "y": 1220,
         "wires": [
             [
                 "6c19355dfbaa9427"
@@ -3432,7 +3400,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1440,
+        "y": 1460,
         "wires": [
             [
                 "7df2d7d7906671f7"
@@ -3453,7 +3421,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1440,
+        "y": 1460,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3514,7 +3482,7 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 900,
+        "y": 920,
         "wires": [
             [
                 "a9408115b9afbbf0"
@@ -3560,7 +3528,7 @@
         "finalize": "",
         "libs": [],
         "x": 720,
-        "y": 900,
+        "y": 920,
         "wires": [
             [
                 "b6f1cd01ee1848ea"
@@ -3575,7 +3543,7 @@
         "name": "Indien niet urgent, stuur email (is gratis)",
         "info": "",
         "x": 1030,
-        "y": 1140,
+        "y": 1160,
         "wires": []
     },
     {
@@ -3592,7 +3560,7 @@
         "finalize": "",
         "libs": [],
         "x": 860,
-        "y": 980,
+        "y": 1000,
         "wires": [
             [
                 "f7f2e64c9bfdf1f0"
@@ -3617,7 +3585,7 @@
         "senderr": false,
         "headers": [],
         "x": 1020,
-        "y": 980,
+        "y": 1000,
         "wires": [
             [
                 "f938d14348c8ceab"
@@ -3703,7 +3671,7 @@
         "finalize": "",
         "libs": [],
         "x": 1210,
-        "y": 980,
+        "y": 1000,
         "wires": [
             [
                 "f765a88d7b80a030"
@@ -3733,7 +3701,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1500,
+        "y": 1520,
         "wires": [
             [
                 "7d7d5d76c7d50c52"
@@ -3754,7 +3722,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1500,
+        "y": 1520,
         "wires": [
             [
                 "103b4311b12747c4"
@@ -3775,7 +3743,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 1500,
+        "y": 1520,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3837,7 +3805,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1080,
+        "y": 1100,
         "wires": [
             [
                 "b6f1cd01ee1848ea"
@@ -3859,7 +3827,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1080,
+        "y": 1100,
         "wires": [
             [
                 "c4c7d04cbda74725"
@@ -3880,7 +3848,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1260,
+        "y": 1280,
         "wires": [
             [
                 "c0678892a8aa9532"
@@ -3905,7 +3873,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 1260,
+        "y": 1280,
         "wires": [
             [
                 "01d386f3d9240b18"
@@ -3920,7 +3888,7 @@
         "name": "per 160 karakters kost de SMS 1.2 credits.",
         "info": "",
         "x": 1040,
-        "y": 920,
+        "y": 940,
         "wires": []
     },
     {
@@ -3938,7 +3906,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1220,
-        "y": 800,
+        "y": 820,
         "wires": []
     },
     {
@@ -4027,7 +3995,7 @@
         "finalize": "",
         "libs": [],
         "x": 740,
-        "y": 1300,
+        "y": 1320,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -4057,7 +4025,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 1320,
+        "y": 1340,
         "wires": [
             [
                 "018afce4893e9f26"
@@ -4078,7 +4046,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 1320,
+        "y": 1340,
         "wires": [
             [
                 "6bd9a97fa1e23a2a"
@@ -4100,7 +4068,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 1380,
+        "y": 1400,
         "wires": [
             [
                 "e9274133aa8f3475"
@@ -4121,10 +4089,88 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 1380,
+        "y": 1400,
         "wires": [
             [
                 "6bd9a97fa1e23a2a"
+            ]
+        ]
+    },
+    {
+        "id": "f976a6960ea52b90",
+        "type": "catch",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "",
+        "scope": [
+            "df1878820d0f62c5"
+        ],
+        "uncaught": false,
+        "x": 90,
+        "y": 1580,
+        "wires": [
+            [
+                "3dbdf3d7af0ee058"
+            ]
+        ]
+    },
+    {
+        "id": "3dbdf3d7af0ee058",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "Error email",
+        "func": "msg.payload = \"Error in sending email to: \" + msg.to +\n\", topic: \" + msg.topic;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 1580,
+        "wires": [
+            [
+                "103b4311b12747c4"
+            ]
+        ]
+    },
+    {
+        "id": "ad767359c26fb4b7",
+        "type": "catch",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "",
+        "scope": [
+            "f7f2e64c9bfdf1f0"
+        ],
+        "uncaught": false,
+        "x": 90,
+        "y": 1640,
+        "wires": [
+            [
+                "8dadd8a97e3e9159"
+            ]
+        ]
+    },
+    {
+        "id": "8dadd8a97e3e9159",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "Error SMS",
+        "func": "msg.payload = \"Error in sending SMS: \" + msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 1640,
+        "wires": [
+            [
+                "103b4311b12747c4"
             ]
         ]
     },
