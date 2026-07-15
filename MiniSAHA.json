@@ -340,7 +340,7 @@
         "x": 14,
         "y": 559,
         "w": 1312,
-        "h": 1182
+        "h": 1262
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -2794,8 +2794,8 @@
         "g": "2ce41e3897fb35ce",
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
-        "x": 230,
-        "y": 1700,
+        "x": 250,
+        "y": 1780,
         "wires": []
     },
     {
@@ -2911,8 +2911,8 @@
         "tls": true,
         "name": "",
         "dname": "",
-        "x": 990,
-        "y": 1300,
+        "x": 1010,
+        "y": 1360,
         "wires": []
     },
     {
@@ -3260,7 +3260,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Email contacten",
+        "name": "Contacten",
         "func": "var tijd_nu = global.get(\"getTime\")();\n\nvar text = msg.payload;\n\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\n\nif ((e1 == \"\") && (e2 == \"\") && (e3 == \"\")) {\n    node.status({ text: \"Geen contacten: \" + tijd_nu });\n    return null;\n}\n\nmsg = {\n    to: e1,\n    cc: e2 + \";\" + e3,\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -3268,7 +3268,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
+        "x": 750,
         "y": 1140,
         "wires": [
             [
@@ -3400,7 +3400,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1460,
+        "y": 1640,
         "wires": [
             [
                 "7df2d7d7906671f7"
@@ -3421,7 +3421,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1460,
+        "y": 1640,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3701,7 +3701,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1520,
+        "y": 1580,
         "wires": [
             [
                 "7d7d5d76c7d50c52"
@@ -3722,7 +3722,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1520,
+        "y": 1580,
         "wires": [
             [
                 "103b4311b12747c4"
@@ -3734,7 +3734,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Email SafeAtHomeAlone",
+        "name": "SafeAtHomeAlone",
         "func": "var text = msg.payload;\n\nmsg = {\n    to:   \"safeathomealone@gmail.com\",\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -3743,7 +3743,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 1520,
+        "y": 1500,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3986,7 +3986,7 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Email gebruiker",
+        "name": "Gebruiker",
         "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet email = global.get(\"EmailGebruiker\") ?? \"\";\nif (email == \"\") {\n    node.status({ text: tijd_nu + \" geen EmailGebruiker\"});\n    return;\n}\n\nmsg = {\n    to: email,\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: msg.payload\n}\n\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -3995,7 +3995,7 @@
         "finalize": "",
         "libs": [],
         "x": 740,
-        "y": 1320,
+        "y": 1340,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -4107,7 +4107,7 @@
         ],
         "uncaught": false,
         "x": 90,
-        "y": 1580,
+        "y": 1460,
         "wires": [
             [
                 "3dbdf3d7af0ee058"
@@ -4120,7 +4120,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Error email",
-        "func": "msg.payload = \"Error in sending email to: \" + msg.to +\n\", topic: \" + msg.topic;\nreturn msg;",
+        "func": "msg.payload = \"Fout in het versturen van een email naar: \" + msg.to +\n\", subject: \" + msg.topic;\nmsg.topic = \"MiniSAHA: Fout in het versturen van een email\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4128,10 +4128,11 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1580,
+        "y": 1460,
         "wires": [
             [
-                "103b4311b12747c4"
+                "103b4311b12747c4",
+                "6bd9a97fa1e23a2a"
             ]
         ]
     },
@@ -4146,7 +4147,7 @@
         ],
         "uncaught": false,
         "x": 90,
-        "y": 1640,
+        "y": 1520,
         "wires": [
             [
                 "8dadd8a97e3e9159"
@@ -4159,7 +4160,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Error SMS",
-        "func": "msg.payload = \"Error in sending SMS: \" + msg.payload;\nreturn msg;",
+        "func": "msg.payload = \"Fout bij het versturen van een SMS: \" + msg.payload;\nmsg.topic = \"MiniSAHA: Fout bij het versturen van een SMS\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4167,10 +4168,11 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1640,
+        "y": 1520,
         "wires": [
             [
-                "103b4311b12747c4"
+                "103b4311b12747c4",
+                "6bd9a97fa1e23a2a"
             ]
         ]
     },
