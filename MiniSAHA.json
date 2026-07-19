@@ -335,7 +335,8 @@
             "f976a6960ea52b90",
             "3dbdf3d7af0ee058",
             "ad767359c26fb4b7",
-            "8dadd8a97e3e9159"
+            "8dadd8a97e3e9159",
+            "d019635d0caabb60"
         ],
         "x": 14,
         "y": 559,
@@ -3015,7 +3016,7 @@
         "type": "inject",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Sunday 12:00",
+        "name": "Sunday",
         "props": [
             {
                 "p": "payload"
@@ -3032,11 +3033,11 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
+        "x": 120,
         "y": 1160,
         "wires": [
             [
-                "cfa6b22427e3edc3"
+                "d019635d0caabb60"
             ]
         ]
     },
@@ -4173,6 +4174,32 @@
             [
                 "103b4311b12747c4",
                 "6bd9a97fa1e23a2a"
+            ]
+        ]
+    },
+    {
+        "id": "d019635d0caabb60",
+        "type": "delay",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "",
+        "pauseType": "random",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "100",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 1160,
+        "wires": [
+            [
+                "cfa6b22427e3edc3"
             ]
         ]
     },
