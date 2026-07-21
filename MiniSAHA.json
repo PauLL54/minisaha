@@ -4121,7 +4121,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Error email",
-        "func": "msg.topic = \"MiniSAHA: Fout in het versturen van een email\";\n\nmsg.payload = \"Fout in het versturen van een email naar: \" + msg.to +\n\"\\n\\n<br><br>Error: \" + msg.error.message;\n\nreturn msg;",
+        "func": "msg.topic = \"MiniSAHA: Fout in bericht: \" + msg.topic;\n\nmsg.payload = \"Fout in het versturen van een email naar: \" + msg.to +\n\"\\n\\n<br><br>Error: \" + msg.error.message;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
