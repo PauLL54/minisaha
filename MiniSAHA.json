@@ -337,7 +337,8 @@
             "ad767359c26fb4b7",
             "8dadd8a97e3e9159",
             "d019635d0caabb60",
-            "ea326d9d9057dbf3"
+            "ea326d9d9057dbf3",
+            "f7da57ded4f6481e"
         ],
         "x": 14,
         "y": 559,
@@ -4134,7 +4135,7 @@
         "wires": [
             [
                 "103b4311b12747c4",
-                "6bd9a97fa1e23a2a"
+                "f7da57ded4f6481e"
             ]
         ]
     },
@@ -4227,6 +4228,27 @@
         "wires": [
             [
                 "7d7d5d76c7d50c52"
+            ]
+        ]
+    },
+    {
+        "id": "f7da57ded4f6481e",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "filter",
+        "func": "if (msg.payload.contains(\"temporarily\"))\n    return;\n    \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1460,
+        "wires": [
+            [
+                "6bd9a97fa1e23a2a"
             ]
         ]
     },
