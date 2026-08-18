@@ -266,11 +266,12 @@
             "753683c2be3ca461",
             "3bd34e7abbd1d9af",
             "e68a026ef275a774",
-            "435d8dc872fa3492"
+            "435d8dc872fa3492",
+            "a3fe6e17184f326a"
         ],
         "x": 14,
         "y": 19,
-        "w": 1112,
+        "w": 1172,
         "h": 502
     },
     {
@@ -2845,7 +2846,8 @@
         "y": 360,
         "wires": [
             [
-                "94fd03500445951f"
+                "94fd03500445951f",
+                "a3fe6e17184f326a"
             ]
         ]
     },
@@ -3720,7 +3722,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Debug info",
-        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (s1 != \"\") smsContacten++;\nif (s2 != \"\") smsContacten++;\nif (s3 != \"\") smsContacten++;\n\nlet licenseSMS = global.get(\"LicenseSMS\") ?? \"\";\n\nlet dependencies = global.get(\"DependenciesCurrent\") ?? \"\";\nlet dependenciesCurrent = \"\"\nfor (const value of dependencies) {\n  dependenciesCurrent += value + \", \";\n}\n\nlet instellingen = global.get(\"TijdOKOchtend\") + \", \" + global.get(\"TijdOKAvond\") + \", \"  + global.get(\"Herinnering\") + \", \" + global.get(\"MeldPeriodeInMinuten\");\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker:       \" + global.get(\"VoornaamGebruiker\") +\n  \"\\nEmail gebruiker:          \" + (global.get(\"EmailGebruiker\") ?? \"\") +\n  \"\\nSoftware version:         \" + global.get(\"version\") +\n  \"\\nRaspberry Pi model:       \" + global.get(\"RaspberryPiModel\") +\n  \"\\nRaspberry Pi ID:          \" + global.get(\"SerialCRC32\") +\n  \"\\nRaspberry Pi IP adres:    \" + global.get(\"IP_host\") +\n  \"\\nTijdOpenApp:              \" + (global.get(\"TijdOpenApp\") ?? \"\") +\n  \"\\nInstellingen:             \" + instellingen +\n  \"\\nTijdOKAvondEnabled:       \" + (global.get(\"TijdOKAvondEnabled\") ?? false)  +\n  \"\\nBluetoothSoundOchtend:    \" + (global.get(\"BluetoothSoundOchtend\") ?? false) +\n  \"\\nBluetoothSoundAvond:      \" + (global.get(\"BluetoothSoundAvond\") ?? false) +\n  \"\\nBrowser:                  \" + global.get(\"Browser\") +\n  \"\\nPingCount:                \" + global.get(\"PingCount\") +\n  \"\\nPingFault:                \" + (global.get(\"PingFault\") ?? 0) +\n  \"\\nSMS license:              \" + (licenseSMS != \"\") +\n  \"\\nSMS credits:              \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nSMS contacten:            \" + smsContacten +\n  \"\\nEmail contacten:          \" + emailContacten +\n  \"\\nOvertijdBerichtVerstuurd: \" + (global.get(\"OvertijdBerichtVerstuurd\") ?? false) +\n  \"\\n\" +\n  \"\\nUsageNietAfgemeld:        \" + (global.get(\"UsageNietAfgemeld\") ?? 0) +\n  \"\\nUsageNietOK:              \" + (global.get(\"UsageNietOK\") ?? 0) +\n  \"\\nLaatste melding contact:  \" + (global.get(\"meldingContact\") ?? 0) +\n  \"\\nUsageOverTijdAfgemeld:    \" + (global.get(\"UsageOverTijdAfgemeld\") ?? 0) +\n  \"\\nUsageAlarm:               \" + (global.get(\"UsageAlarm\") ?? 0) +\n  \"\\nUsageAlarmCanceled:       \" + (global.get(\"UsageAlarmCanceled\") ?? 0) +\n  \"\\nUsageSpeakerOff:          \" + (global.get(\"UsageSpeakerOff\") ?? 0) +\n  \"\\n\" +\n  \"\\nDependenciesCurrent:     \" + dependenciesCurrent;\n\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (s1 != \"\") smsContacten++;\nif (s2 != \"\") smsContacten++;\nif (s3 != \"\") smsContacten++;\n\nlet licenseSMS = global.get(\"LicenseSMS\") ?? \"\";\n\nlet dependencies = global.get(\"DependenciesCurrent\") ?? \"\";\nlet dependenciesCurrent = \"\"\nfor (const value of dependencies) {\n  dependenciesCurrent += value + \", \";\n}\n\nlet instellingen = global.get(\"TijdOKOchtend\") + \", \" + global.get(\"TijdOKAvond\") + \", \"  + global.get(\"Herinnering\") + \", \" + global.get(\"MeldPeriodeInMinuten\");\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker:       \" + global.get(\"VoornaamGebruiker\") +\n  \"\\nEmail gebruiker:          \" + (global.get(\"EmailGebruiker\") ?? \"\") +\n  \"\\nSoftware version:         \" + global.get(\"version\") +\n  \"\\nRaspberry Pi model:       \" + global.get(\"RaspberryPiModel\") +\n  \"\\nRaspberry Pi ID:          \" + global.get(\"SerialCRC32\") +\n  \"\\nRaspberry Pi IP adres:    \" + global.get(\"IP_host\") +\n  \"\\nTijdOpenApp:              \" + (global.get(\"TijdOpenApp\") ?? \"\") +\n  \"\\nInstellingen:             \" + instellingen +\n  \"\\nTijdOKAvondEnabled:       \" + (global.get(\"TijdOKAvondEnabled\") ?? false)  +\n  \"\\nBluetoothSoundOchtend:    \" + (global.get(\"BluetoothSoundOchtend\") ?? false) +\n  \"\\nBluetoothSoundAvond:      \" + (global.get(\"BluetoothSoundAvond\") ?? false) +\n  \"\\nBrowser:                  \" + global.get(\"Browser\") +\n  \"\\nPingCount:                \" + global.get(\"PingCount\") +\n  \"\\nPingFault:                \" + (global.get(\"PingFault\") ?? 0) +\n  \"\\nSMS license:              \" + (licenseSMS != \"\") +\n  \"\\nSMS credits:              \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nSMS contacten:            \" + smsContacten +\n  \"\\nEmail contacten:          \" + emailContacten +\n  \"\\nOvertijdBerichtVerstuurd: \" + (global.get(\"OvertijdBerichtVerstuurd\") ?? false) +\n  \"\\n\" +\n  \"\\nLaatste melding contact:  \" + (global.get(\"meldingContact\") ?? 0) +\n  \"\\nUsageNietAfgemeld:        \" + (global.get(\"UsageNietAfgemeld\") ?? 0) +\n  \"\\nUsageNietOK:              \" + (global.get(\"UsageNietOK\") ?? 0) +\n  \"\\nUsageOverTijdAfgemeld:    \" + (global.get(\"UsageOverTijdAfgemeld\") ?? 0) +\n  \"\\nUsageAlarm:               \" + (global.get(\"UsageAlarm\") ?? 0) +\n  \"\\nUsageAlarmCanceled:       \" + (global.get(\"UsageAlarmCanceled\") ?? 0) +\n  \"\\nUsageSpeakerOff:          \" + (global.get(\"UsageSpeakerOff\") ?? 0) +\n  \"\\nUsageIsOkAuto:            \" + (global.get(\"UsageIsOkAuto\") ?? 0) +\n  \"\\n\" +\n  \"\\nDependenciesCurrent:     \" + dependenciesCurrent;\n\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4324,6 +4326,25 @@
             [
                 "8dadd8a97e3e9159"
             ]
+        ]
+    },
+    {
+        "id": "a3fe6e17184f326a",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "update UsageIsOkAuto",
+        "func": "let states = global.get(\"states\");\nlet usageIsOkAuto = global.get(\"UsageIsOkAuto\") ?? 0;\n\nif (msg.payload == states.ISOKAUTO) {\n    usageIsOkAuto++;\n    global.set(\"UsageIsOkAuto\", usageIsOkAuto);\n}\n\nnode.status({ text: \" State: \" + msg.payload + \", usageIsOkAuto: \" + usageIsOkAuto});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 420,
+        "wires": [
+            []
         ]
     },
     {
