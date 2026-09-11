@@ -4015,7 +4015,7 @@
         "type": "inject",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Every hour",
+        "name": "regularly",
         "props": [
             {
                 "p": "payload"
@@ -4025,14 +4025,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "3600",
+        "repeat": "600",
         "crontab": "",
         "once": false,
         "onceDelay": "6",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
+        "x": 120,
         "y": 1340,
         "wires": [
             [
