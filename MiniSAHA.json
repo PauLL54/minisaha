@@ -72,6 +72,14 @@
         "env": []
     },
     {
+        "id": "059fe884c7d05fa9",
+        "type": "tab",
+        "label": "Wifi",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "7a37030e3e3276d9",
         "type": "subflow",
         "name": "CheckIsAtHome",
@@ -1958,6 +1966,56 @@
         "type": "ui-group",
         "name": "Handleiding",
         "page": "abdd3ff5bffa5da1",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "5ed34ac937f6e894",
+        "type": "ui-page",
+        "name": "Wifi",
+        "ui": "6c1d30b5f16932dd",
+        "path": "/page11",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "72011230335eaee3",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "6"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "4"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "4"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "4"
+            }
+        ],
+        "order": 9,
+        "className": "",
+        "visible": "false",
+        "disabled": "false"
+    },
+    {
+        "id": "c0f0452a0fec8659",
+        "type": "ui-group",
+        "name": "Wifi",
+        "page": "5ed34ac937f6e894",
         "width": 6,
         "height": 1,
         "order": 1,
@@ -8821,6 +8879,7 @@
         "id": "dff2dbca89ccfc06",
         "type": "ui-text",
         "z": "af31bf2fe058f803",
+        "d": true,
         "g": "5bb2b589a301c7c8",
         "group": "adc719ee09b9438b",
         "order": 8,
@@ -8841,45 +8900,6 @@
         "x": 800,
         "y": 380,
         "wires": []
-    },
-    {
-        "id": "inject1",
-        "type": "inject",
-        "z": "af31bf2fe058f803",
-        "name": "Stuur testbericht",
-        "props": [],
-        "repeat": "",
-        "once": false,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 2320,
-        "wires": [
-            [
-                "fn1"
-            ]
-        ]
-    },
-    {
-        "id": "fn1",
-        "type": "function",
-        "z": "af31bf2fe058f803",
-        "name": "Maak WhatsApp payload",
-        "func": "//msg.phone = \"+31648729669\";   // jouw nummer\n//msg.apikey = \"3930698\";\n//msg.payload = \"Hallo Paul, dit is een test vanuit Node‑RED!\";\n\nmsg.url = \"https://api.callmebot.com/whatsapp.php?phone=+31648729669&text=test+minisaha&apikey=3930698\"\nmsg.url = \"https://api.callmebot.com/phone.php?phone=+31648729669&text=phone+test+minisaha&apikey=3930698\"\nmsg.url = \"https://api.callmebot.com/whatsapp.php?phone=+31613207764&text=Kees+test+minisaha&apikey=3283377\"\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 370,
-        "y": 2320,
-        "wires": [
-            [
-                "7be1e3e3c5ead2f4"
-            ]
-        ]
     },
     {
         "id": "07af420f98d0e89a",
@@ -9193,54 +9213,6 @@
                 "5fb9a1a6fecd52b9"
             ]
         ]
-    },
-    {
-        "id": "316126531d74a6fc",
-        "type": "comment",
-        "z": "af31bf2fe058f803",
-        "name": "https://api.callmebot.com/whatsapp.php?phone=[phone_number]&text=[message]&apikey=[your_apikey]",
-        "info": "",
-        "x": 390,
-        "y": 2280,
-        "wires": []
-    },
-    {
-        "id": "7be1e3e3c5ead2f4",
-        "type": "http request",
-        "z": "af31bf2fe058f803",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": false,
-        "url": "",
-        "persist": false,
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 590,
-        "y": 2320,
-        "wires": [
-            [
-                "338d050289d11eeb"
-            ]
-        ]
-    },
-    {
-        "id": "338d050289d11eeb",
-        "type": "debug",
-        "z": "af31bf2fe058f803",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 2320,
-        "wires": []
     },
     {
         "id": "d7418bbaf522fb53",
@@ -9879,6 +9851,78 @@
                 "3dc33bd26ddfd0cd"
             ],
             [],
+            []
+        ]
+    },
+    {
+        "id": "83338092296e8efb",
+        "type": "ui-button",
+        "z": "af31bf2fe058f803",
+        "group": "adc719ee09b9438b",
+        "name": "Configureer Wifi",
+        "label": "Configureer Wifi",
+        "order": 9,
+        "width": "0",
+        "height": "0",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "theButton",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 140,
+        "y": 2280,
+        "wires": [
+            [
+                "a15dafc65439bd18"
+            ]
+        ]
+    },
+    {
+        "id": "a15dafc65439bd18",
+        "type": "function",
+        "z": "af31bf2fe058f803",
+        "name": "set page Wifi",
+        "func": "msg.payload = \"Wifi\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 2280,
+        "wires": [
+            [
+                "f21c887536bbcfdf"
+            ]
+        ]
+    },
+    {
+        "id": "f21c887536bbcfdf",
+        "type": "ui-control",
+        "z": "af31bf2fe058f803",
+        "name": "",
+        "ui": "6c1d30b5f16932dd",
+        "events": "all",
+        "x": 540,
+        "y": 2280,
+        "wires": [
             []
         ]
     },
@@ -16112,6 +16156,882 @@
         "y": 420,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "f0362f1057d831cc",
+        "type": "exec",
+        "z": "059fe884c7d05fa9",
+        "command": "nmcli dev wifi",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "d47591b57adcbe18"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d47591b57adcbe18",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "get SSID list",
+        "func": "msg.options = getSSIDs(msg.payload);\n\nlet ssid = global.get(\"WifiSSID\") ?? \"\";\n\nif (ssid == \"\") {\n    msg.payload = msg.options[0];\n    global.set(\"WifiSSID\", msg.payload);\n}\nelse {\n    msg.payload = ssid;\n}\n\nreturn msg;\n\n// example:\nconst input = `IN-USE  BSSID              SSID              MODE   CHAN  RATE        SIGNAL  BARS  SECURITY\n        48:29:52:64:FB:06  VGV7519006832     Infra  11    130 Mbit/s  100     ▂▄▆█  WPA2\n        48:29:52:64:FB:0A  VGV7519006832     Infra  108   540 Mbit/s  100     ▂▄▆█  WPA2\n        36:31:C4:80:51:F9  VANDERSTEEN_GAST  Infra  6     195 Mbit/s  79      ▂▄▆_  WPA2\n        34:31:C4:80:51:F9  VANDERSTEEN       Infra  6     195 Mbit/s  77      ▂▄▆_  WPA2\n        AC:64:62:6B:A0:20  H369A6BA01F       Infra  1     195 Mbit/s  57      ▂▄▆_  WPA2\n        34:31:C4:80:51:FA  VANDERSTEEN_5G    Infra  140   195 Mbit/s  54      ▂▄__  WPA2\n        36:31:C4:80:51:FA  VANDERSTEEN_GAST  Infra  140   195 Mbit/s  54      ▂▄__  WPA2\n        AC:64:62:6B:A0:1F  H369A6BA01F       Infra  108   405 Mbit/s  29      ▂___  WPA2`;\n\n\nfunction getSSIDs(text) {\n    const ssids = new Set();\n\n    text.split('\\n').forEach(line => {\n        const match = line.match(/([^\\s]+)\\s+Infra\\s+\\d+/);\n        if (match) {\n            ssids.add(match[1]);\n        }\n    });\n\n    return [...ssids];\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 160,
+        "wires": [
+            [
+                "27f6fb94042dc5ec"
+            ]
+        ]
+    },
+    {
+        "id": "2adf7785957cbbf4",
+        "type": "ui-text",
+        "z": "059fe884c7d05fa9",
+        "group": "c0f0452a0fec8659",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Introduction",
+        "label": "Gebruik bij voorkeur een netwerkkabel omdat dan geen configuratie nodig is. Maar er kan een reden zijn om Wifi te configureren. Bijvoorbeeld als de Bluetooth speaker te ver weg staat van het computertje. Want dan hoef je het computertje niet bij de router te plaatsen.",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 370,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "27f6fb94042dc5ec",
+        "type": "ui-dropdown",
+        "z": "059fe884c7d05fa9",
+        "group": "c0f0452a0fec8659",
+        "name": "Lijst",
+        "label": "Selecteer een Wifi netwerk uit de lijst",
+        "tooltip": "",
+        "order": 3,
+        "width": "5",
+        "height": "1",
+        "passthru": false,
+        "multiple": false,
+        "chips": false,
+        "clearable": false,
+        "options": [],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "typeIsComboBox": false,
+        "msgTrigger": "onChange",
+        "x": 350,
+        "y": 220,
+        "wires": [
+            [
+                "33d80bea19c52e76"
+            ]
+        ]
+    },
+    {
+        "id": "4b5b0bbf7881e4ad",
+        "type": "ui-text-input",
+        "z": "059fe884c7d05fa9",
+        "group": "c0f0452a0fec8659",
+        "name": "",
+        "label": "Wachtwoord",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "ebb5ac462c309ba8"
+            ]
+        ]
+    },
+    {
+        "id": "afca1ceb4d5e1001",
+        "type": "ui-button",
+        "z": "059fe884c7d05fa9",
+        "group": "c0f0452a0fec8659",
+        "name": "",
+        "label": "OK",
+        "order": 6,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "9d394f46a2b7ae72",
+                "2dc687e03a13f60c",
+                "b4b24624081bfb10"
+            ]
+        ]
+    },
+    {
+        "id": "c01a7bf26b70d0bc",
+        "type": "exec",
+        "z": "059fe884c7d05fa9",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Configure new",
+        "x": 480,
+        "y": 540,
+        "wires": [
+            [],
+            [],
+            [
+                "e3adc972ece52903"
+            ]
+        ]
+    },
+    {
+        "id": "c787ba4ab62e2d88",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "cmd args",
+        "func": "//nmcli device wifi connect \"JouwWifiNaam\" password \"JouwWachtwoord\"\nmsg.payload = \"sudo nmcli device wifi connect \" + \nglobal.get(\"WifiSSID\") + \" password \" + global.get(\"WifiWachtwoord\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 540,
+        "wires": [
+            [
+                "c01a7bf26b70d0bc"
+            ]
+        ]
+    },
+    {
+        "id": "61160de94c695305",
+        "type": "exec",
+        "z": "059fe884c7d05fa9",
+        "command": "nmcli connection show",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 340,
+        "y": 920,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "89a786cd8223287c",
+        "type": "exec",
+        "z": "059fe884c7d05fa9",
+        "command": "ip addr show wlan0",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get IP",
+        "x": 290,
+        "y": 780,
+        "wires": [
+            [
+                "b68f7f4aacf169c8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "22246bb409ccf280",
+        "type": "exec",
+        "z": "059fe884c7d05fa9",
+        "command": "iwgetid",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Check",
+        "x": 290,
+        "y": 980,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "80bb2441abcfbd54",
+        "type": "inject",
+        "z": "059fe884c7d05fa9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 980,
+        "wires": [
+            [
+                "22246bb409ccf280"
+            ]
+        ]
+    },
+    {
+        "id": "33d80bea19c52e76",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "set WifiSSID",
+        "func": "global.set(\"WifiSSID\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ebb5ac462c309ba8",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "set WifiWachtwoord",
+        "func": "global.set(\"WifiWachtwoord\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "82f2463571e44878",
+        "type": "inject",
+        "z": "059fe884c7d05fa9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 920,
+        "wires": [
+            [
+                "61160de94c695305"
+            ]
+        ]
+    },
+    {
+        "id": "8e53e4c8f48db592",
+        "type": "ui-text",
+        "z": "059fe884c7d05fa9",
+        "group": "c0f0452a0fec8659",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "Status",
+        "label": "Status:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 890,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d0bc9246fa93e7c9",
+        "type": "ui-text",
+        "z": "059fe884c7d05fa9",
+        "d": true,
+        "group": "c0f0452a0fec8659",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "lege regel",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 360,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9d394f46a2b7ae72",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "WifiSSID",
+        "func": "msg.payload = \"sudo nmcli connection delete \" + global.get(\"WifiSSID\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "b3c322307c127a43"
+            ]
+        ]
+    },
+    {
+        "id": "b3c322307c127a43",
+        "type": "exec",
+        "z": "059fe884c7d05fa9",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Delete existing first",
+        "x": 490,
+        "y": 420,
+        "wires": [
+            [
+                "c787ba4ab62e2d88"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e3adc972ece52903",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "Result?",
+        "func": "if (msg.payload.code == \"0\") {\n    node.status({ text: \"OK\" });\n    msg.payload = \"Verbonden\";\n}\nelse {\n    node.status({ text: \"Faied\" });\n    msg.payload = \"Mislukt. Is wachtwoord correct?\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 540,
+        "wires": [
+            [
+                "8e53e4c8f48db592",
+                "8d4f5baa9948a5ed"
+            ]
+        ]
+    },
+    {
+        "id": "2dc687e03a13f60c",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "bezig...",
+        "func": "msg.payload = \"Bezig met verbinden...\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 480,
+        "wires": [
+            [
+                "8e53e4c8f48db592"
+            ]
+        ]
+    },
+    {
+        "id": "b4b24624081bfb10",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "Disable",
+        "func": "flow.set(\"TestGeluidEnabled\", false);\n\nvar msg = {\n    enabled: false,\n    ui_update: { textColor: \"gray\" }\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 640,
+        "wires": [
+            [
+                "e10c60bfaa19b6c6"
+            ]
+        ]
+    },
+    {
+        "id": "8d4f5baa9948a5ed",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "Enable",
+        "func": "flow.set(\"TestGeluidEnabled\", true);\n\nvar msg = {\n    enabled: true,\n    ui_update: { textColor: \"white\" }\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 700,
+        "wires": [
+            [
+                "e10c60bfaa19b6c6",
+                "89a786cd8223287c"
+            ]
+        ]
+    },
+    {
+        "id": "e10c60bfaa19b6c6",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "join",
+        "func": "flow.get(\"TestGeluidEnabled\");\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 680,
+        "wires": [
+            [
+                "afca1ceb4d5e1001"
+            ]
+        ]
+    },
+    {
+        "id": "d48ed487afe0dcca",
+        "type": "mqtt in",
+        "z": "059fe884c7d05fa9",
+        "name": "",
+        "topic": "SystemStarted",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "f0362f1057d831cc",
+                "d586de7c7a2c9652",
+                "48005e8a4cf528d7"
+            ]
+        ]
+    },
+    {
+        "id": "d586de7c7a2c9652",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "Wachtwoord?",
+        "func": "let wachtwoord = global.get(\"WifiWachtwoord\") ?? \"\";\n\nmsg.payload = wachtwoord;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "4b5b0bbf7881e4ad"
+            ]
+        ]
+    },
+    {
+        "id": "b68f7f4aacf169c8",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "Parse IP",
+        "func": "const text = msg.payload;\n\nconst match = text.match(\n    /wlan0:[\\s\\S]*?inet\\s+(\\d+\\.\\d+\\.\\d+\\.\\d+)\\//\n);\n\nmsg.payload = match ? match[1] : null;\n\nif (msg.payload != null)\n    msg.payload += \"/1880/dashboard\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 780,
+        "wires": [
+            [
+                "3b444333baedb80e",
+                "ecb09978bbeaa4ab"
+            ]
+        ]
+    },
+    {
+        "id": "3b444333baedb80e",
+        "type": "ui-text-input",
+        "z": "059fe884c7d05fa9",
+        "group": "c0f0452a0fec8659",
+        "name": "App URL",
+        "label": "App URL",
+        "order": 8,
+        "width": "5",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 900,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "48005e8a4cf528d7",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "leeg",
+        "func": "msg.payload = \"\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 120,
+        "wires": [
+            [
+                "8e53e4c8f48db592"
+            ]
+        ]
+    },
+    {
+        "id": "18b1d8be60c0e4a2",
+        "type": "mqtt in",
+        "z": "059fe884c7d05fa9",
+        "name": "",
+        "topic": "SystemStarted",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 780,
+        "wires": [
+            [
+                "89a786cd8223287c"
+            ]
+        ]
+    },
+    {
+        "id": "4359f115064e0977",
+        "type": "ui-button",
+        "z": "059fe884c7d05fa9",
+        "group": "c0f0452a0fec8659",
+        "name": "",
+        "label": "Del",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "5099793be78070c7"
+            ]
+        ]
+    },
+    {
+        "id": "5099793be78070c7",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "WifiSSID",
+        "func": "msg.payload = \"sudo nmcli connection delete \" + global.get(\"WifiSSID\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "cf21c2cbc57cec80"
+            ]
+        ]
+    },
+    {
+        "id": "cf21c2cbc57cec80",
+        "type": "exec",
+        "z": "059fe884c7d05fa9",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Delete existing first",
+        "x": 490,
+        "y": 340,
+        "wires": [
+            [
+                "6b04703af7a03b6f"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0b565acbb89f4a2a",
+        "type": "inject",
+        "z": "059fe884c7d05fa9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 840,
+        "wires": [
+            [
+                "89a786cd8223287c"
+            ]
+        ]
+    },
+    {
+        "id": "ecb09978bbeaa4ab",
+        "type": "function",
+        "z": "059fe884c7d05fa9",
+        "name": "Result?",
+        "func": "if (msg.payload == null) {\n    msg.payload = \"Niet verbonden\";\n}\nelse {\n    msg.payload = \"Verbonden\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 720,
+        "wires": [
+            [
+                "8e53e4c8f48db592"
+            ]
+        ]
+    },
+    {
+        "id": "a5308887d3d474bb",
+        "type": "ui-text",
+        "z": "059fe884c7d05fa9",
+        "group": "c0f0452a0fec8659",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "Hoe?",
+        "label": "Start een browser met deze URL en voeg toe aan startscherm.",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 890,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "6b04703af7a03b6f",
+        "type": "delay",
+        "z": "059fe884c7d05fa9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "89a786cd8223287c"
+            ]
         ]
     }
 ]
