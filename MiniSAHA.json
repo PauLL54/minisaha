@@ -16170,8 +16170,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 370,
-        "y": 160,
+        "x": 390,
+        "y": 220,
         "wires": [
             [
                 "d47591b57adcbe18"
@@ -16192,8 +16192,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 160,
+        "x": 570,
+        "y": 220,
         "wires": [
             [
                 "27f6fb94042dc5ec"
@@ -16246,8 +16246,8 @@
         "className": "",
         "typeIsComboBox": false,
         "msgTrigger": "onChange",
-        "x": 350,
-        "y": 220,
+        "x": 370,
+        "y": 280,
         "wires": [
             [
                 "33d80bea19c52e76"
@@ -16279,8 +16279,8 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 370,
-        "y": 280,
+        "x": 390,
+        "y": 340,
         "wires": [
             [
                 "ebb5ac462c309ba8"
@@ -16318,8 +16318,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 130,
-        "y": 480,
+        "x": 150,
+        "y": 540,
         "wires": [
             [
                 "9d394f46a2b7ae72",
@@ -16340,8 +16340,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Configure new",
-        "x": 480,
-        "y": 540,
+        "x": 500,
+        "y": 600,
         "wires": [
             [],
             [],
@@ -16362,8 +16362,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 540,
+        "x": 320,
+        "y": 600,
         "wires": [
             [
                 "c01a7bf26b70d0bc"
@@ -16382,8 +16382,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 340,
-        "y": 920,
+        "x": 360,
+        "y": 980,
         "wires": [
             [],
             [],
@@ -16402,8 +16402,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Get IP",
-        "x": 290,
-        "y": 780,
+        "x": 310,
+        "y": 840,
         "wires": [
             [
                 "b68f7f4aacf169c8"
@@ -16424,8 +16424,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Check",
-        "x": 290,
-        "y": 980,
+        "x": 310,
+        "y": 1040,
         "wires": [
             [],
             [],
@@ -16453,8 +16453,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
-        "y": 980,
+        "x": 120,
+        "y": 1040,
         "wires": [
             [
                 "22246bb409ccf280"
@@ -16473,8 +16473,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 220,
+        "x": 570,
+        "y": 280,
         "wires": [
             []
         ]
@@ -16491,8 +16491,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
-        "y": 280,
+        "x": 590,
+        "y": 340,
         "wires": [
             []
         ]
@@ -16518,8 +16518,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
-        "y": 920,
+        "x": 120,
+        "y": 980,
         "wires": [
             [
                 "61160de94c695305"
@@ -16546,8 +16546,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 890,
-        "y": 520,
+        "x": 910,
+        "y": 580,
         "wires": []
     },
     {
@@ -16587,8 +16587,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 420,
+        "x": 320,
+        "y": 480,
         "wires": [
             [
                 "b3c322307c127a43"
@@ -16607,8 +16607,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Delete existing first",
-        "x": 490,
-        "y": 420,
+        "x": 510,
+        "y": 480,
         "wires": [
             [
                 "c787ba4ab62e2d88"
@@ -16629,8 +16629,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 540,
+        "x": 720,
+        "y": 600,
         "wires": [
             [
                 "8e53e4c8f48db592",
@@ -16650,8 +16650,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 480,
+        "x": 720,
+        "y": 540,
         "wires": [
             [
                 "8e53e4c8f48db592"
@@ -16670,8 +16670,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 640,
+        "x": 320,
+        "y": 700,
         "wires": [
             [
                 "e10c60bfaa19b6c6"
@@ -16690,8 +16690,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 700,
+        "x": 320,
+        "y": 760,
         "wires": [
             [
                 "e10c60bfaa19b6c6",
@@ -16711,8 +16711,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 680,
+        "x": 470,
+        "y": 740,
         "wires": [
             [
                 "afca1ceb4d5e1001"
@@ -16736,9 +16736,9 @@
         "y": 120,
         "wires": [
             [
-                "f0362f1057d831cc",
                 "d586de7c7a2c9652",
-                "48005e8a4cf528d7"
+                "48005e8a4cf528d7",
+                "50563b361e73ca0e"
             ]
         ]
     },
@@ -16754,8 +16754,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 160,
-        "y": 280,
+        "x": 180,
+        "y": 340,
         "wires": [
             [
                 "4b5b0bbf7881e4ad"
@@ -16774,8 +16774,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 780,
+        "x": 460,
+        "y": 840,
         "wires": [
             [
                 "3b444333baedb80e",
@@ -16808,8 +16808,8 @@
         "icon": "",
         "iconPosition": "left",
         "iconInnerPosition": "inside",
-        "x": 900,
-        "y": 780,
+        "x": 920,
+        "y": 840,
         "wires": [
             []
         ]
@@ -16847,8 +16847,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 100,
-        "y": 780,
+        "x": 120,
+        "y": 840,
         "wires": [
             [
                 "89a786cd8223287c"
@@ -16886,8 +16886,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 130,
-        "y": 340,
+        "x": 150,
+        "y": 400,
         "wires": [
             [
                 "5099793be78070c7"
@@ -16906,8 +16906,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 340,
+        "x": 320,
+        "y": 400,
         "wires": [
             [
                 "cf21c2cbc57cec80"
@@ -16926,8 +16926,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Delete existing first",
-        "x": 490,
-        "y": 340,
+        "x": 510,
+        "y": 400,
         "wires": [
             [
                 "6b04703af7a03b6f"
@@ -16957,8 +16957,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
-        "y": 840,
+        "x": 120,
+        "y": 900,
         "wires": [
             [
                 "89a786cd8223287c"
@@ -16977,8 +16977,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 720,
+        "x": 720,
+        "y": 780,
         "wires": [
             [
                 "8e53e4c8f48db592"
@@ -17005,8 +17005,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 890,
-        "y": 720,
+        "x": 910,
+        "y": 780,
         "wires": []
     },
     {
@@ -17026,12 +17026,44 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 680,
-        "y": 340,
+        "x": 700,
+        "y": 400,
         "wires": [
             [
                 "89a786cd8223287c"
             ]
+        ]
+    },
+    {
+        "id": "6dfa5f443b8a3373",
+        "type": "comment",
+        "z": "059fe884c7d05fa9",
+        "name": "sudo rfkill unblock wifi",
+        "info": "",
+        "x": 920,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "50563b361e73ca0e",
+        "type": "exec",
+        "z": "059fe884c7d05fa9",
+        "command": "sudo nmcli radio wifi on",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 430,
+        "y": 160,
+        "wires": [
+            [
+                "f0362f1057d831cc"
+            ],
+            [],
+            []
         ]
     }
 ]
