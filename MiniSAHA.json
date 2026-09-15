@@ -17035,16 +17035,6 @@
         ]
     },
     {
-        "id": "6dfa5f443b8a3373",
-        "type": "comment",
-        "z": "059fe884c7d05fa9",
-        "name": "sudo rfkill unblock wifi",
-        "info": "",
-        "x": 920,
-        "y": 80,
-        "wires": []
-    },
-    {
         "id": "50563b361e73ca0e",
         "type": "exec",
         "z": "059fe884c7d05fa9",
@@ -17085,6 +17075,21 @@
         "outputs": 1,
         "x": 640,
         "y": 160,
+        "wires": [
+            [
+                "f0362f1057d831cc"
+            ]
+        ]
+    },
+    {
+        "id": "7ed3b24ad6d8c6e4",
+        "type": "ui-control",
+        "z": "059fe884c7d05fa9",
+        "name": "",
+        "ui": "6c1d30b5f16932dd",
+        "events": "change",
+        "x": 140,
+        "y": 220,
         "wires": [
             [
                 "f0362f1057d831cc"
