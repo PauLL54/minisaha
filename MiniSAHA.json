@@ -862,7 +862,8 @@
             "ef8f414221384c89",
             "c8c27038539629ab",
             "e3d582f5b3ec8066",
-            "4ded78b65af095e4"
+            "4ded78b65af095e4",
+            "19dd827bc1e04ff3"
         ],
         "x": 34,
         "y": 1259,
@@ -9159,7 +9160,7 @@
         "g": "a49df4f119bb186e",
         "name": "Update procedure voor de gebruiker en tester",
         "info": "",
-        "x": 450,
+        "x": 730,
         "y": 1300,
         "wires": []
     },
@@ -9620,7 +9621,8 @@
         "y": 1360,
         "wires": [
             [
-                "5fb9a1a6fecd52b9"
+                "5fb9a1a6fecd52b9",
+                "19dd827bc1e04ff3"
             ]
         ]
     },
@@ -9922,6 +9924,25 @@
         "events": "all",
         "x": 540,
         "y": 2280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "19dd827bc1e04ff3",
+        "type": "function",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "name": "Clear Usage",
+        "func": "if (isVandaag()) {\n    global.set(\"UsageNietAfgemeld\", 0);\n    global.set(\"UsageNietOK\", 0);\n    global.set(\"UsageOverTijdAfgemeld\", 0);\n    global.set(\"UsageAlarm\", 0);\n    global.set(\"UsageAlarmCanceled\", 0);\n    global.set(\"UsageSpeakerOff\", 0);\n    global.set(\"UsageIsOkAuto\", 0);\n    global.set(\"UsageIsOkVoorMelding\", 0);\n}\nreturn msg;\n\n\nfunction isVandaag() {\n    const vandaag = new Date();\n\n    return (\n        vandaag.getFullYear() === 2026 &&\n        vandaag.getMonth() === 8 && // September = 8 (januari = 0)\n        vandaag.getDate() === 24\n    );\n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 1300,
         "wires": [
             []
         ]
