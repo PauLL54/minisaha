@@ -862,8 +862,7 @@
             "ef8f414221384c89",
             "c8c27038539629ab",
             "e3d582f5b3ec8066",
-            "4ded78b65af095e4",
-            "19dd827bc1e04ff3"
+            "4ded78b65af095e4"
         ],
         "x": 34,
         "y": 1259,
@@ -9621,8 +9620,7 @@
         "y": 1360,
         "wires": [
             [
-                "5fb9a1a6fecd52b9",
-                "19dd827bc1e04ff3"
+                "5fb9a1a6fecd52b9"
             ]
         ]
     },
@@ -9929,22 +9927,42 @@
         ]
     },
     {
-        "id": "19dd827bc1e04ff3",
+        "id": "b41bc9693ad738d4",
         "type": "function",
         "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "name": "Clear Usage",
-        "func": "if (isVandaag()) {\n    global.set(\"UsageNietAfgemeld\", 0);\n    global.set(\"UsageNietOK\", 0);\n    global.set(\"UsageOverTijdAfgemeld\", 0);\n    global.set(\"UsageAlarm\", 0);\n    global.set(\"UsageAlarmCanceled\", 0);\n    global.set(\"UsageSpeakerOff\", 0);\n    global.set(\"UsageIsOkAuto\", 0);\n    global.set(\"UsageIsOkVoorMelding\", 0);\n}\nreturn msg;\n\n\nfunction isVandaag() {\n    const vandaag = new Date();\n\n    return (\n        vandaag.getFullYear() === 2026 &&\n        vandaag.getMonth() === 8 && // September = 8 (januari = 0)\n        vandaag.getDate() === 24\n    );\n}\n\n",
+        "name": "Clear Usage on 25 september 2026",
+        "func": "if (isVandaag()) {\n    global.set(\"UsageNietAfgemeld\", 0);\n    global.set(\"UsageNietOK\", 0);\n    global.set(\"UsageOverTijdAfgemeld\", 0);\n    global.set(\"UsageAlarm\", 0);\n    global.set(\"UsageAlarmCanceled\", 0);\n    global.set(\"UsageSpeakerOff\", 0);\n    global.set(\"UsageIsOkAuto\", 0);\n    global.set(\"UsageIsOkVoorMelding\", 0);\n}\nreturn msg;\n\n\nfunction isVandaag() {\n    const vandaag = new Date();\n\n    return (\n        vandaag.getFullYear() === 2026 &&\n        vandaag.getMonth() === 8 && // September = 8 (januari = 0)\n        vandaag.getDate() === 25\n    );\n}\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 1300,
+        "x": 400,
+        "y": 2360,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "429033da93da30bf",
+        "type": "mqtt in",
+        "z": "af31bf2fe058f803",
+        "name": "",
+        "topic": "SystemStarted",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 2360,
+        "wires": [
+            [
+                "b41bc9693ad738d4"
+            ]
         ]
     },
     {
