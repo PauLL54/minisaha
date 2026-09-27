@@ -12289,7 +12289,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "426742dc229bcbe2",
         "name": "Create /mnt/ramdisk",
-        "func": "msg.payload = \"sudo umount /mnt/ramdisk; sudo mkdir /mnt/ramdisk; sudo mount -t tmpfs -o size=15M tmpfs /mnt/ramdisk\";\nreturn msg;",
+        "func": "msg.payload = \"rm check*; sudo umount -q /mnt/ramdisk; sudo mkdir -p /mnt/ramdisk; sudo mount -t tmpfs -o size=15M tmpfs /mnt/ramdisk\";\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
