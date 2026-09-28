@@ -862,12 +862,14 @@
             "ef8f414221384c89",
             "c8c27038539629ab",
             "e3d582f5b3ec8066",
-            "4ded78b65af095e4"
+            "4ded78b65af095e4",
+            "03da7ee7cd0e754a",
+            "1fb70568baf8eeb4"
         ],
         "x": 34,
-        "y": 1259,
+        "y": 1239,
         "w": 972,
-        "h": 729.5
+        "h": 789.5
     },
     {
         "id": "75f6d804089580c3",
@@ -1077,14 +1079,13 @@
             "f3bdcfd4767ae3c5",
             "8e92a30a78e11e87",
             "f55abb38394cca6b",
-            "266c3c3d4689cb89",
             "bc585e61722ebaeb",
-            "b8929954c8e145f6"
+            "1767da5053fb11a6"
         ],
         "x": 34,
         "y": 199,
         "w": 1032,
-        "h": 462
+        "h": 422
     },
     {
         "id": "047e71f7f9c2956b",
@@ -8931,7 +8932,7 @@
         "oldrc": false,
         "name": "Reboot",
         "x": 880,
-        "y": 1740,
+        "y": 1780,
         "wires": [
             [],
             [],
@@ -8952,7 +8953,7 @@
         "oldrc": false,
         "name": "rm MiniSAHA.json",
         "x": 370,
-        "y": 1440,
+        "y": 1480,
         "wires": [
             [
                 "7a258c3a06322d6a"
@@ -8975,7 +8976,7 @@
         "oldrc": false,
         "name": "get MiniSAHA.json",
         "x": 650,
-        "y": 1440,
+        "y": 1480,
         "wires": [
             [
                 "28228f40169db06d"
@@ -8998,7 +8999,7 @@
         "oldrc": false,
         "name": "Install all files",
         "x": 350,
-        "y": 1840,
+        "y": 1880,
         "wires": [
             [
                 "c4571cfee0924b57"
@@ -9021,7 +9022,7 @@
         "oldrc": false,
         "name": "get Logo.png",
         "x": 630,
-        "y": 1600,
+        "y": 1640,
         "wires": [
             [
                 "b119fd4598e51e41"
@@ -9044,7 +9045,7 @@
         "oldrc": false,
         "name": "rm Logo.png",
         "x": 350,
-        "y": 1600,
+        "y": 1640,
         "wires": [
             [
                 "477a82641741c1d2"
@@ -9067,7 +9068,7 @@
         "oldrc": false,
         "name": "rm MiniSAHA_cred.json",
         "x": 390,
-        "y": 1520,
+        "y": 1560,
         "wires": [
             [
                 "62cf14493c558309"
@@ -9090,7 +9091,7 @@
         "oldrc": false,
         "name": "get MiniSAHA_cred.json",
         "x": 670,
-        "y": 1520,
+        "y": 1560,
         "wires": [
             [
                 "6ba99393e4c393d8"
@@ -9113,7 +9114,7 @@
         "oldrc": false,
         "name": "rm bluetooth.py",
         "x": 360,
-        "y": 1680,
+        "y": 1720,
         "wires": [
             [
                 "05d5a950f617317c"
@@ -9136,7 +9137,7 @@
         "oldrc": false,
         "name": "get bluetooth.py",
         "x": 640,
-        "y": 1680,
+        "y": 1720,
         "wires": [
             [
                 "d2b8147b353e2f29"
@@ -9159,7 +9160,7 @@
         "oldrc": false,
         "name": "chmod +x",
         "x": 620,
-        "y": 1840,
+        "y": 1880,
         "wires": [
             [
                 "c8c27038539629ab"
@@ -9193,7 +9194,7 @@
         "oldrc": false,
         "name": "Restart node-red",
         "x": 890,
-        "y": 1920,
+        "y": 1960,
         "wires": [
             [],
             [],
@@ -9223,10 +9224,11 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 1320,
+        "y": 1280,
         "wires": [
             [
-                "5fb9a1a6fecd52b9"
+                "03da7ee7cd0e754a",
+                "1fb70568baf8eeb4"
             ]
         ]
     },
@@ -9451,7 +9453,7 @@
         "oldrc": false,
         "name": "rm ble-tag.py",
         "x": 350,
-        "y": 1760,
+        "y": 1800,
         "wires": [
             [
                 "76ecef5aa3ea71c9"
@@ -9474,7 +9476,7 @@
         "oldrc": false,
         "name": "get ble-tag.py",
         "x": 640,
-        "y": 1760,
+        "y": 1800,
         "wires": [
             [
                 "02d2ac26c698a195"
@@ -9633,10 +9635,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1360,
+        "y": 1340,
         "wires": [
             [
-                "5fb9a1a6fecd52b9"
+                "03da7ee7cd0e754a",
+                "1fb70568baf8eeb4"
             ]
         ]
     },
@@ -9673,7 +9676,7 @@
         "oldrc": false,
         "name": "sudo pkill -9 -f checkIsAtHome",
         "x": 410,
-        "y": 1360,
+        "y": 1400,
         "wires": [
             [
                 "ef8f414221384c89"
@@ -9696,7 +9699,7 @@
         "oldrc": false,
         "name": "",
         "x": 660,
-        "y": 1360,
+        "y": 1400,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -9815,7 +9818,7 @@
         "oldrc": false,
         "name": "rm MiniSAHA.mp3",
         "x": 210,
-        "y": 1940,
+        "y": 1980,
         "wires": [
             [
                 "e3d582f5b3ec8066"
@@ -9838,7 +9841,7 @@
         "oldrc": false,
         "name": "get MiniSAHA.mp3",
         "x": 430,
-        "y": 1940,
+        "y": 1980,
         "wires": [
             [
                 "4ded78b65af095e4"
@@ -9861,7 +9864,7 @@
         "oldrc": false,
         "name": "Install sound file",
         "x": 640,
-        "y": 1940,
+        "y": 1980,
         "wires": [
             [
                 "3dc33bd26ddfd0cd"
@@ -9978,6 +9981,53 @@
         "wires": [
             [
                 "b41bc9693ad738d4"
+            ]
+        ]
+    },
+    {
+        "id": "03da7ee7cd0e754a",
+        "type": "exec",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "command": "sudo mkdir -p /mnt/ramdisk",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "/mnt/ramdisk",
+        "x": 350,
+        "y": 1300,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1fb70568baf8eeb4",
+        "type": "delay",
+        "z": "af31bf2fe058f803",
+        "g": "a49df4f119bb186e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 160,
+        "y": 1400,
+        "wires": [
+            [
+                "5fb9a1a6fecd52b9"
             ]
         ]
     },
@@ -10347,7 +10397,7 @@
         "name": "",
         "env": [],
         "x": 700,
-        "y": 520,
+        "y": 480,
         "wires": [
             [
                 "849129e5cd170f06"
@@ -10371,7 +10421,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
                 "9c9d4e18a631cc15"
@@ -10392,7 +10442,7 @@
         "finalize": "",
         "libs": [],
         "x": 910,
-        "y": 500,
+        "y": 460,
         "wires": [
             [
                 "61806882e2c16761",
@@ -10426,7 +10476,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 480,
+        "y": 440,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -10449,7 +10499,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 960,
-        "y": 620,
+        "y": 580,
         "wires": []
     },
     {
@@ -10803,7 +10853,7 @@
         "finalize": "",
         "libs": [],
         "x": 940,
-        "y": 360,
+        "y": 320,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -11045,7 +11095,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 560,
+        "y": 520,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -11763,7 +11813,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 500,
+        "y": 460,
         "wires": [
             [
                 "9c9d4e18a631cc15"
@@ -11793,7 +11843,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 620,
+        "y": 580,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -12255,10 +12305,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 380,
+        "y": 340,
         "wires": [
             [
-                "f55abb38394cca6b"
+                "bc585e61722ebaeb"
             ]
         ]
     },
@@ -12275,40 +12325,12 @@
         "winHide": false,
         "oldrc": false,
         "name": "umount",
-        "x": 300,
-        "y": 380,
+        "x": 580,
+        "y": 340,
         "wires": [
-            [
-                "266c3c3d4689cb89"
-            ],
+            [],
             [],
             []
-        ]
-    },
-    {
-        "id": "266c3c3d4689cb89",
-        "type": "delay",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 440,
-        "y": 380,
-        "wires": [
-            [
-                "bc585e61722ebaeb"
-            ]
         ]
     },
     {
@@ -12324,37 +12346,45 @@
         "winHide": false,
         "oldrc": false,
         "name": "mount",
-        "x": 570,
-        "y": 380,
+        "x": 370,
+        "y": 340,
         "wires": [
             [
-                "b8929954c8e145f6",
                 "c8995ead35814c9c"
             ],
-            [
-                "b8929954c8e145f6"
-            ],
-            [
-                "b8929954c8e145f6"
-            ]
+            [],
+            []
         ]
     },
     {
-        "id": "b8929954c8e145f6",
-        "type": "debug",
+        "id": "1767da5053fb11a6",
+        "type": "inject",
         "z": "eb60a9ea21d42f29",
         "g": "426742dc229bcbe2",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 740,
-        "y": 380,
-        "wires": []
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "bc585e61722ebaeb"
+            ]
+        ]
     },
     {
         "id": "0af8df52052ef366",
