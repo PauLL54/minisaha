@@ -1076,14 +1076,15 @@
             "c8995ead35814c9c",
             "f3bdcfd4767ae3c5",
             "8e92a30a78e11e87",
-            "f496d7f7b5701f25",
-            "bc4dcdbfb5412dd2",
-            "28a23c9a36a3f5e2"
+            "f55abb38394cca6b",
+            "266c3c3d4689cb89",
+            "bc585e61722ebaeb",
+            "b8929954c8e145f6"
         ],
         "x": 34,
-        "y": 219,
+        "y": 199,
         "w": 1032,
-        "h": 402
+        "h": 462
     },
     {
         "id": "047e71f7f9c2956b",
@@ -10346,7 +10347,7 @@
         "name": "",
         "env": [],
         "x": 700,
-        "y": 480,
+        "y": 520,
         "wires": [
             [
                 "849129e5cd170f06"
@@ -10370,7 +10371,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "9c9d4e18a631cc15"
@@ -10391,7 +10392,7 @@
         "finalize": "",
         "libs": [],
         "x": 910,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "61806882e2c16761",
@@ -10407,7 +10408,7 @@
         "name": "Arping presence detection; Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
         "info": "",
         "x": 330,
-        "y": 260,
+        "y": 240,
         "wires": []
     },
     {
@@ -10425,7 +10426,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 440,
+        "y": 480,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -10448,7 +10449,7 @@
         "expiry": "",
         "broker": "0839f7b4c0cbb0a8",
         "x": 960,
-        "y": 580,
+        "y": 620,
         "wires": []
     },
     {
@@ -10802,7 +10803,7 @@
         "finalize": "",
         "libs": [],
         "x": 940,
-        "y": 320,
+        "y": 360,
         "wires": [
             [
                 "b0067e5db1bb638b"
@@ -11044,7 +11045,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -11762,7 +11763,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "9c9d4e18a631cc15"
@@ -11792,7 +11793,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "ebd1eb7739312b3d"
@@ -12254,64 +12255,92 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
-                "bc4dcdbfb5412dd2"
+                "f55abb38394cca6b"
             ]
         ]
     },
     {
-        "id": "f496d7f7b5701f25",
+        "id": "f55abb38394cca6b",
         "type": "exec",
         "z": "eb60a9ea21d42f29",
         "g": "426742dc229bcbe2",
-        "command": "",
-        "addpay": "payload",
+        "command": "sudo umount -q /mnt/ramdisk; sudo mkdir -p /mnt/ramdisk;",
+        "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "",
-        "x": 550,
-        "y": 340,
+        "name": "umount",
+        "x": 300,
+        "y": 380,
         "wires": [
             [
-                "c8995ead35814c9c",
-                "28a23c9a36a3f5e2"
+                "266c3c3d4689cb89"
             ],
-            [
-                "28a23c9a36a3f5e2"
-            ],
-            [
-                "28a23c9a36a3f5e2"
-            ]
+            [],
+            []
         ]
     },
     {
-        "id": "bc4dcdbfb5412dd2",
-        "type": "function",
+        "id": "266c3c3d4689cb89",
+        "type": "delay",
         "z": "eb60a9ea21d42f29",
         "g": "426742dc229bcbe2",
-        "name": "Create /mnt/ramdisk",
-        "func": "msg.payload = \"sudo umount -q /mnt/ramdisk; sudo mkdir -p /mnt/ramdisk; sudo mount -t tmpfs -o size=15M tmpfs /mnt/ramdisk\";\nreturn msg;",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
         "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 340,
+        "x": 440,
+        "y": 380,
         "wires": [
             [
-                "f496d7f7b5701f25"
+                "bc585e61722ebaeb"
             ]
         ]
     },
     {
-        "id": "28a23c9a36a3f5e2",
+        "id": "bc585e61722ebaeb",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "g": "426742dc229bcbe2",
+        "command": "sudo mount -t tmpfs -o size=15M tmpfs /mnt/ramdisk",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "mount",
+        "x": 570,
+        "y": 380,
+        "wires": [
+            [
+                "b8929954c8e145f6",
+                "c8995ead35814c9c"
+            ],
+            [
+                "b8929954c8e145f6"
+            ],
+            [
+                "b8929954c8e145f6"
+            ]
+        ]
+    },
+    {
+        "id": "b8929954c8e145f6",
         "type": "debug",
         "z": "eb60a9ea21d42f29",
         "g": "426742dc229bcbe2",
@@ -12324,7 +12353,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 740,
-        "y": 340,
+        "y": 380,
         "wires": []
     },
     {
