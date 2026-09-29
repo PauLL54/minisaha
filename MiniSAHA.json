@@ -862,14 +862,12 @@
             "ef8f414221384c89",
             "c8c27038539629ab",
             "e3d582f5b3ec8066",
-            "4ded78b65af095e4",
-            "03da7ee7cd0e754a",
-            "1fb70568baf8eeb4"
+            "4ded78b65af095e4"
         ],
         "x": 34,
         "y": 1239,
         "w": 972,
-        "h": 789.5
+        "h": 769.5
     },
     {
         "id": "75f6d804089580c3",
@@ -1052,40 +1050,6 @@
         "y": 679,
         "w": 1072,
         "h": 142
-    },
-    {
-        "id": "426742dc229bcbe2",
-        "type": "group",
-        "z": "eb60a9ea21d42f29",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "9c9d4e18a631cc15",
-            "ebd1eb7739312b3d",
-            "849129e5cd170f06",
-            "30a234133bcbd597",
-            "3758cdea9d5d1d01",
-            "61806882e2c16761",
-            "6ddc11d490af5fe8",
-            "c655b3afa92e4917",
-            "c8995ead35814c9c",
-            "f3bdcfd4767ae3c5",
-            "8e92a30a78e11e87",
-            "f55abb38394cca6b",
-            "bc585e61722ebaeb",
-            "1767da5053fb11a6"
-        ],
-        "x": 34,
-        "y": 199,
-        "w": 1032,
-        "h": 422
     },
     {
         "id": "047e71f7f9c2956b",
@@ -1486,6 +1450,43 @@
         "y": 2251.5,
         "w": 972,
         "h": 97
+    },
+    {
+        "id": "07154b9d51e879ee",
+        "type": "group",
+        "z": "eb60a9ea21d42f29",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "ad4e6f7e98733ed7",
+            "20efdfd79e236152",
+            "e3cbca153550e49c",
+            "afdb79920ec6ca39",
+            "c93bd335b9f843e4",
+            "f82eac35282561cf",
+            "bbc0977f29374228",
+            "117dd862a1046045",
+            "987e106f920c8671",
+            "f87fec7513f28629",
+            "48d960dd0fac795a",
+            "74b65c168bdad758",
+            "6835790e82c90b86",
+            "f72f4b4ffb3218ba",
+            "230e55e7ef5912dd",
+            "6f629645fbe4fc3b",
+            "0961f63fbfa7f7d8"
+        ],
+        "x": 34,
+        "y": 219,
+        "w": 1032,
+        "h": 422
     },
     {
         "id": "0839f7b4c0cbb0a8",
@@ -4490,14 +4491,14 @@
         "z": "1e372cb3d08d9182",
         "g": "4a425ad2d30f78bc",
         "name": "Enable/Disable",
-        "func": "var msg = { enabled: false, \n    ui_update: { textColor: \"gray\" } };\n            \nlet states = global.get(\"states\");\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG:\n    case states.MELDGEBRUIKER: \n    case states.OVERTIJD: {\n        var msg = {\n            enabled: true,\n            ui_update: { textColor: \"white\" } };\n        break;\n    }\n    default: {\n        break;\n    }\n}\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n\n/*\n\"red\"\n\"blue\"\n\"green\"\n\"yellow\"\n\"orange\"\n\"purple\"\n\"pink\"\n\"brown\"\n\"black\"\n\"white\"\n\"gray\"\n\n🌈 Extra veelgebruikte tinten\n\"cyan\" (lichtblauw)\n\"magenta\" (fel roze/paars)\n\"lime\" (felgroen)\n\"navy\" (donkerblauw)\n\"teal\" (blauwgroen)\n\"olive\" (olijfgroen)\n\"maroon\" (donkerrood)\n\"silver\" (lichtgrijs)\n\"gold\" (goudkleurig)\n\"indigo\" (diep paars/blauw)\n*/",
+        "func": "var msg = { enabled: false, \n    ui_update: { textColor: \"brown\" } };\n            \nlet states = global.get(\"states\");\nswitch (global.get(\"currentState\")) {\n    case states.TOONOKVRAAG:\n    case states.MELDGEBRUIKER: \n    case states.OVERTIJD: {\n        var msg = {\n            enabled: true,\n            ui_update: { textColor: \"white\" } };\n        break;\n    }\n    default: {\n        break;\n    }\n}\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n\n/*\n\"red\"\n\"blue\"\n\"green\"\n\"yellow\"\n\"orange\"\n\"purple\"\n\"pink\"\n\"brown\"\n\"black\"\n\"white\"\n\"gray\"\n\n🌈 Extra veelgebruikte tinten\n\"cyan\" (lichtblauw)\n\"magenta\" (fel roze/paars)\n\"lime\" (felgroen)\n\"navy\" (donkerblauw)\n\"teal\" (blauwgroen)\n\"olive\" (olijfgroen)\n\"maroon\" (donkerrood)\n\"silver\" (lichtgrijs)\n\"gold\" (goudkleurig)\n\"indigo\" (diep paars/blauw)\n*/",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
+        "x": 340,
         "y": 180,
         "wires": [
             [
@@ -5182,7 +5183,7 @@
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
         "name": "Disable",
-        "func": "var msg = {\n    enabled: false,\n    ui_update: { textColor: \"gray\" }\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
+        "func": "var msg = {\n    enabled: false,\n    ui_update: { textColor: \"brown\" }\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5235,7 +5236,7 @@
         "z": "1e372cb3d08d9182",
         "g": "bb314d79eca0c3fd",
         "name": "Disable",
-        "func": "var msg = {\n    enabled: false,\n    ui_update: { textColor: \"gray\" }\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
+        "func": "var msg = {\n    enabled: false,\n    ui_update: { textColor: \"brown\" }\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \" \" + msg.enabled });\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -8932,7 +8933,7 @@
         "oldrc": false,
         "name": "Reboot",
         "x": 880,
-        "y": 1780,
+        "y": 1760,
         "wires": [
             [],
             [],
@@ -8953,7 +8954,7 @@
         "oldrc": false,
         "name": "rm MiniSAHA.json",
         "x": 370,
-        "y": 1480,
+        "y": 1460,
         "wires": [
             [
                 "7a258c3a06322d6a"
@@ -8976,7 +8977,7 @@
         "oldrc": false,
         "name": "get MiniSAHA.json",
         "x": 650,
-        "y": 1480,
+        "y": 1460,
         "wires": [
             [
                 "28228f40169db06d"
@@ -8999,7 +9000,7 @@
         "oldrc": false,
         "name": "Install all files",
         "x": 350,
-        "y": 1880,
+        "y": 1860,
         "wires": [
             [
                 "c4571cfee0924b57"
@@ -9022,7 +9023,7 @@
         "oldrc": false,
         "name": "get Logo.png",
         "x": 630,
-        "y": 1640,
+        "y": 1620,
         "wires": [
             [
                 "b119fd4598e51e41"
@@ -9045,7 +9046,7 @@
         "oldrc": false,
         "name": "rm Logo.png",
         "x": 350,
-        "y": 1640,
+        "y": 1620,
         "wires": [
             [
                 "477a82641741c1d2"
@@ -9068,7 +9069,7 @@
         "oldrc": false,
         "name": "rm MiniSAHA_cred.json",
         "x": 390,
-        "y": 1560,
+        "y": 1540,
         "wires": [
             [
                 "62cf14493c558309"
@@ -9091,7 +9092,7 @@
         "oldrc": false,
         "name": "get MiniSAHA_cred.json",
         "x": 670,
-        "y": 1560,
+        "y": 1540,
         "wires": [
             [
                 "6ba99393e4c393d8"
@@ -9114,7 +9115,7 @@
         "oldrc": false,
         "name": "rm bluetooth.py",
         "x": 360,
-        "y": 1720,
+        "y": 1700,
         "wires": [
             [
                 "05d5a950f617317c"
@@ -9137,7 +9138,7 @@
         "oldrc": false,
         "name": "get bluetooth.py",
         "x": 640,
-        "y": 1720,
+        "y": 1700,
         "wires": [
             [
                 "d2b8147b353e2f29"
@@ -9160,7 +9161,7 @@
         "oldrc": false,
         "name": "chmod +x",
         "x": 620,
-        "y": 1880,
+        "y": 1860,
         "wires": [
             [
                 "c8c27038539629ab"
@@ -9176,8 +9177,8 @@
         "g": "a49df4f119bb186e",
         "name": "Update procedure voor de gebruiker en tester",
         "info": "",
-        "x": 730,
-        "y": 1300,
+        "x": 450,
+        "y": 1280,
         "wires": []
     },
     {
@@ -9194,7 +9195,7 @@
         "oldrc": false,
         "name": "Restart node-red",
         "x": 890,
-        "y": 1960,
+        "y": 1940,
         "wires": [
             [],
             [],
@@ -9224,11 +9225,10 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 1280,
+        "y": 1320,
         "wires": [
             [
-                "03da7ee7cd0e754a",
-                "1fb70568baf8eeb4"
+                "5fb9a1a6fecd52b9"
             ]
         ]
     },
@@ -9453,7 +9453,7 @@
         "oldrc": false,
         "name": "rm ble-tag.py",
         "x": 350,
-        "y": 1800,
+        "y": 1780,
         "wires": [
             [
                 "76ecef5aa3ea71c9"
@@ -9476,7 +9476,7 @@
         "oldrc": false,
         "name": "get ble-tag.py",
         "x": 640,
-        "y": 1800,
+        "y": 1780,
         "wires": [
             [
                 "02d2ac26c698a195"
@@ -9635,11 +9635,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1340,
+        "y": 1380,
         "wires": [
             [
-                "03da7ee7cd0e754a",
-                "1fb70568baf8eeb4"
+                "5fb9a1a6fecd52b9"
             ]
         ]
     },
@@ -9676,7 +9675,7 @@
         "oldrc": false,
         "name": "sudo pkill -9 -f checkIsAtHome",
         "x": 410,
-        "y": 1400,
+        "y": 1380,
         "wires": [
             [
                 "ef8f414221384c89"
@@ -9699,7 +9698,7 @@
         "oldrc": false,
         "name": "",
         "x": 660,
-        "y": 1400,
+        "y": 1380,
         "wires": [
             [
                 "d7ff5ad4b1b79918"
@@ -9818,7 +9817,7 @@
         "oldrc": false,
         "name": "rm MiniSAHA.mp3",
         "x": 210,
-        "y": 1980,
+        "y": 1960,
         "wires": [
             [
                 "e3d582f5b3ec8066"
@@ -9841,7 +9840,7 @@
         "oldrc": false,
         "name": "get MiniSAHA.mp3",
         "x": 430,
-        "y": 1980,
+        "y": 1960,
         "wires": [
             [
                 "4ded78b65af095e4"
@@ -9864,7 +9863,7 @@
         "oldrc": false,
         "name": "Install sound file",
         "x": 640,
-        "y": 1980,
+        "y": 1960,
         "wires": [
             [
                 "3dc33bd26ddfd0cd"
@@ -9981,53 +9980,6 @@
         "wires": [
             [
                 "b41bc9693ad738d4"
-            ]
-        ]
-    },
-    {
-        "id": "03da7ee7cd0e754a",
-        "type": "exec",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "command": "sudo mkdir -p /mnt/ramdisk",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "/mnt/ramdisk",
-        "x": 350,
-        "y": 1300,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "1fb70568baf8eeb4",
-        "type": "delay",
-        "z": "af31bf2fe058f803",
-        "g": "a49df4f119bb186e",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 160,
-        "y": 1400,
-        "wires": [
-            [
-                "5fb9a1a6fecd52b9"
             ]
         ]
     },
@@ -10390,119 +10342,6 @@
         "wires": []
     },
     {
-        "id": "9c9d4e18a631cc15",
-        "type": "subflow:7a37030e3e3276d9",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "",
-        "env": [],
-        "x": 700,
-        "y": 480,
-        "wires": [
-            [
-                "849129e5cd170f06"
-            ],
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "ebd1eb7739312b3d",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "IP adres & PingCount",
-        "func": "var ipAddress = global.get(\"IP_Mobiel\") ?? \"\";\nvar pingCount = global.get(\"PingCount\");\n\nif (ipAddress == \"\") global.set(\"GebruikerIsAtHome\", \"\");\n\nmsg.payload = { IPAddress: ipAddress, PingCount: pingCount };\n\nnode.status({text: msg.topic + \"; \" +\n    ipAddress + \", pingCount: \" + pingCount });\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 520,
-        "wires": [
-            [
-                "9c9d4e18a631cc15"
-            ]
-        ]
-    },
-    {
-        "id": "849129e5cd170f06",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "GebruikerIsAtHome",
-        "func": "let now = Date.now();\n\nif (msg.payload == 1) {\n    global.set(\"GebruikerIsAtHome\", now);\n    global.set(\"GebruikerIsNotAtHome\", \"\");\n}\nelse {\n    global.set(\"GebruikerIsAtHome\", \"\");\n    if (global.get(\"GebruikerIsNotAtHome\") == \"\")\n        global.set(\"GebruikerIsNotAtHome\", now);\n}\n\n\nnode.status({ fill: \"blue\", shape: \"ring\", text: msg.payload });\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 910,
-        "y": 460,
-        "wires": [
-            [
-                "61806882e2c16761",
-                "6ddc11d490af5fe8"
-            ]
-        ]
-    },
-    {
-        "id": "30a234133bcbd597",
-        "type": "comment",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "Arping presence detection; Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
-        "info": "",
-        "x": 330,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "3758cdea9d5d1d01",
-        "type": "mqtt in",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "",
-        "topic": "IPAdressUser",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "0839f7b4c0cbb0a8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 440,
-        "wires": [
-            [
-                "ebd1eb7739312b3d"
-            ]
-        ]
-    },
-    {
-        "id": "61806882e2c16761",
-        "type": "mqtt out",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "",
-        "topic": "PersoonThuis",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0839f7b4c0cbb0a8",
-        "x": 960,
-        "y": 580,
-        "wires": []
-    },
-    {
         "id": "9efaa0c2fd872693",
         "type": "exec",
         "z": "eb60a9ea21d42f29",
@@ -10840,27 +10679,6 @@
         "wires": []
     },
     {
-        "id": "6ddc11d490af5fe8",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "1 --> 80",
-        "func": "msg.topic = global.get(\"IP_Mobiel\");\nif (msg.payload ==  1) msg.payload = 80;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 940,
-        "y": 320,
-        "wires": [
-            [
-                "b0067e5db1bb638b"
-            ]
-        ]
-    },
-    {
         "id": "d4dee740ac379f10",
         "type": "cpu",
         "z": "eb60a9ea21d42f29",
@@ -11077,28 +10895,6 @@
         "wires": [
             [
                 "aefcaf0124832705"
-            ]
-        ]
-    },
-    {
-        "id": "c655b3afa92e4917",
-        "type": "mqtt in",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "",
-        "topic": "PingCountChanged",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "0839f7b4c0cbb0a8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 520,
-        "wires": [
-            [
-                "ebd1eb7739312b3d"
             ]
         ]
     },
@@ -11800,57 +11596,6 @@
         "wires": []
     },
     {
-        "id": "c8995ead35814c9c",
-        "type": "function",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "PingCount=10",
-        "func": "var ipAddress = global.get(\"IP_Mobiel\") ?? \"\";\nvar pingCount = 10;\n\nif (ipAddress == \"\") global.set(\"GebruikerIsAtHome\", \"\");\n\nmsg.payload = { IPAddress: ipAddress, PingCount: pingCount };\n\nnode.status({text: msg.topic + \"; \" +\n    ipAddress + \", pingCount: \" + pingCount });\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 460,
-        "wires": [
-            [
-                "9c9d4e18a631cc15"
-            ]
-        ]
-    },
-    {
-        "id": "f3bdcfd4767ae3c5",
-        "type": "inject",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "name": "After 2 min",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "120",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 580,
-        "wires": [
-            [
-                "ebd1eb7739312b3d"
-            ]
-        ]
-    },
-    {
         "id": "9b85a6085d559ea2",
         "type": "function",
         "z": "eb60a9ea21d42f29",
@@ -12291,10 +12036,217 @@
         ]
     },
     {
-        "id": "8e92a30a78e11e87",
+        "id": "ad4e6f7e98733ed7",
+        "type": "subflow:7a37030e3e3276d9",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "name": "",
+        "env": [],
+        "x": 700,
+        "y": 500,
+        "wires": [
+            [
+                "e3cbca153550e49c"
+            ],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "20efdfd79e236152",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "name": "IP adres & PingCount",
+        "func": "var ipAddress = global.get(\"IP_Mobiel\") ?? \"\";\nvar pingCount = global.get(\"PingCount\");\n\nif (ipAddress == \"\") global.set(\"GebruikerIsAtHome\", \"\");\n\nmsg.payload = { IPAddress: ipAddress, PingCount: pingCount };\n\nnode.status({text: msg.topic + \"; \" +\n    ipAddress + \", pingCount: \" + pingCount });\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 540,
+        "wires": [
+            [
+                "ad4e6f7e98733ed7"
+            ]
+        ]
+    },
+    {
+        "id": "e3cbca153550e49c",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "name": "GebruikerIsAtHome",
+        "func": "let now = Date.now();\n\nif (msg.payload == 1) {\n    global.set(\"GebruikerIsAtHome\", now);\n    global.set(\"GebruikerIsNotAtHome\", \"\");\n}\nelse {\n    global.set(\"GebruikerIsAtHome\", \"\");\n    if (global.get(\"GebruikerIsNotAtHome\") == \"\")\n        global.set(\"GebruikerIsNotAtHome\", now);\n}\n\n\nnode.status({ fill: \"blue\", shape: \"ring\", text: msg.payload });\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 480,
+        "wires": [
+            [
+                "f82eac35282561cf",
+                "bbc0977f29374228"
+            ]
+        ]
+    },
+    {
+        "id": "afdb79920ec6ca39",
+        "type": "comment",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "name": "Arping presence detection; Precondition: sudo apt-get install arping !!!!!!!!!!!!!!!!!",
+        "info": "",
+        "x": 330,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c93bd335b9f843e4",
         "type": "mqtt in",
         "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
+        "g": "07154b9d51e879ee",
+        "name": "",
+        "topic": "IPAdressUser",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "20efdfd79e236152"
+            ]
+        ]
+    },
+    {
+        "id": "f82eac35282561cf",
+        "type": "mqtt out",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "name": "",
+        "topic": "PersoonThuis",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0839f7b4c0cbb0a8",
+        "x": 960,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "bbc0977f29374228",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "name": "1 --> 80",
+        "func": "msg.topic = global.get(\"IP_Mobiel\");\nif (msg.payload ==  1) msg.payload = 80;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 380,
+        "wires": [
+            [
+                "b0067e5db1bb638b"
+            ]
+        ]
+    },
+    {
+        "id": "117dd862a1046045",
+        "type": "mqtt in",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "name": "",
+        "topic": "PingCountChanged",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0839f7b4c0cbb0a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 540,
+        "wires": [
+            [
+                "20efdfd79e236152"
+            ]
+        ]
+    },
+    {
+        "id": "987e106f920c8671",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "name": "PingCount=10",
+        "func": "var ipAddress = global.get(\"IP_Mobiel\") ?? \"\";\nvar pingCount = 10;\n\nif (ipAddress == \"\") global.set(\"GebruikerIsAtHome\", \"\");\n\nmsg.payload = { IPAddress: ipAddress, PingCount: pingCount };\n\nnode.status({text: msg.topic + \"; \" +\n    ipAddress + \", pingCount: \" + pingCount });\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 480,
+        "wires": [
+            [
+                "ad4e6f7e98733ed7"
+            ]
+        ]
+    },
+    {
+        "id": "f87fec7513f28629",
+        "type": "inject",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "name": "After 2 min",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "120",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 600,
+        "wires": [
+            [
+                "20efdfd79e236152"
+            ]
+        ]
+    },
+    {
+        "id": "48d960dd0fac795a",
+        "type": "mqtt in",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
         "name": "",
         "topic": "SystemStarted",
         "qos": "2",
@@ -12305,39 +12257,18 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 340,
+        "y": 360,
         "wires": [
             [
-                "bc585e61722ebaeb"
+                "f72f4b4ffb3218ba"
             ]
         ]
     },
     {
-        "id": "f55abb38394cca6b",
+        "id": "74b65c168bdad758",
         "type": "exec",
         "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
-        "command": "sudo umount -q /mnt/ramdisk; sudo mkdir -p /mnt/ramdisk;",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "umount",
-        "x": 580,
-        "y": 340,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "bc585e61722ebaeb",
-        "type": "exec",
-        "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
+        "g": "07154b9d51e879ee",
         "command": "sudo mount -t tmpfs -o size=15M tmpfs /mnt/ramdisk",
         "addpay": "",
         "append": "",
@@ -12345,22 +12276,22 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "mount",
-        "x": 370,
-        "y": 340,
+        "name": "mount /mnt/ramdisk",
+        "x": 390,
+        "y": 400,
         "wires": [
             [
-                "c8995ead35814c9c"
+                "987e106f920c8671"
             ],
             [],
             []
         ]
     },
     {
-        "id": "1767da5053fb11a6",
+        "id": "6835790e82c90b86",
         "type": "inject",
         "z": "eb60a9ea21d42f29",
-        "g": "426742dc229bcbe2",
+        "g": "07154b9d51e879ee",
         "name": "",
         "props": [
             {
@@ -12379,11 +12310,102 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 300,
+        "y": 320,
         "wires": [
             [
-                "bc585e61722ebaeb"
+                "f72f4b4ffb3218ba"
             ]
+        ]
+    },
+    {
+        "id": "f72f4b4ffb3218ba",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "command": "test -d /mnt/ramdisk && echo EXISTS || echo NOT_EXISTS",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "exist ramdisk",
+        "x": 330,
+        "y": 320,
+        "wires": [
+            [
+                "230e55e7ef5912dd"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "230e55e7ef5912dd",
+        "type": "function",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "name": "not exist?",
+        "func": "if (msg.payload.includes(\"NOT_EXIST\")) {\n    return [msg, null];\n}\nelse {\n    return [null, msg];\n}\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "6f629645fbe4fc3b"
+            ],
+            [
+                "74b65c168bdad758"
+            ]
+        ]
+    },
+    {
+        "id": "6f629645fbe4fc3b",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "command": "sudo mkdir -p /mnt/ramdisk",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "mkdir /mnt/ramdisk",
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [
+                "0961f63fbfa7f7d8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0961f63fbfa7f7d8",
+        "type": "exec",
+        "z": "eb60a9ea21d42f29",
+        "g": "07154b9d51e879ee",
+        "command": "sudo systemctl restart nodered.service",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Restart node-red",
+        "x": 910,
+        "y": 320,
+        "wires": [
+            [],
+            [],
+            []
         ]
     },
     {
