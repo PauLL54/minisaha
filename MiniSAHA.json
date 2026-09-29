@@ -1145,12 +1145,14 @@
             "193f11e5bbcd25be",
             "cba56ffd489bbc0d",
             "7d3bc98a3ce945e1",
-            "88d487d60ad5e9b4"
+            "88d487d60ad5e9b4",
+            "d48d2e3aaad4ee31",
+            "c4c7ef6b64769e02"
         ],
         "x": 34,
         "y": 259,
         "w": 1172,
-        "h": 202
+        "h": 262
     },
     {
         "id": "cf35846ffd0f4838",
@@ -3345,7 +3347,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Contacten",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nvar text = msg.payload;\n\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\n\nif ((e1 == \"\") && (e2 == \"\") && (e3 == \"\")) {\n    node.status({ text: \"Geen contacten: \" + tijd_nu });\n    return null;\n}\n\nmsg = {\n    to: e1,\n    cc: e2 + \";\" + e3,\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nvar text = msg.payload;\n\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nlet e4 = global.get(\"EmailSleutelbewaarder4\") ?? \"\";\n\nif ((e1 == \"\") && (e2 == \"\") && (e3 == \"\") && (e4 == \"\")) {\n    node.status({ text: \"Geen contacten: \" + tijd_nu });\n    return null;\n}\n\nmsg = {\n    to: e1,\n    cc: e2 + \";\" + e3 + \";\" + e4,\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: text\n}\n\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3604,7 +3606,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "SMS contacten",
-        "func": "// build recipients:\nlet sms1 = global.get(\"MobielContact1\") ?? \"\";\nlet sms2 = global.get(\"MobielContact2\") ?? \"\";\nlet sms3 = global.get(\"MobielContact3\") ?? \"\";\n\nlet recipients = [];\nif (sms1 != \"\") recipients.push(sms1);\nif (sms2 != \"\") recipients.push(sms2);\nif (sms3 != \"\") recipients.push(sms3);\n\nif (recipients.length == 0) {\n    node.status({ text: \"No recipients: \" + tijd_nu });\n    return null;\n}\n\nvar body = msg.payload.replaceAll(\"<br>\", \" \");\n\nmsg.payload = {\n    recipients: recipients,\n    body: body\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \": \" + body });\n\nreturn msg;\n\n",
+        "func": "// build recipients:\nlet sms1 = global.get(\"MobielContact1\") ?? \"\";\nlet sms2 = global.get(\"MobielContact2\") ?? \"\";\nlet sms3 = global.get(\"MobielContact3\") ?? \"\";\nlet sms4 = global.get(\"MobielContact4\") ?? \"\";\n\nlet recipients = [];\nif (sms1 != \"\") recipients.push(sms1);\nif (sms2 != \"\") recipients.push(sms2);\nif (sms3 != \"\") recipients.push(sms3);\nif (sms4 != \"\") recipients.push(sms4);\n\nif (recipients.length == 0) {\n    node.status({ text: \"No recipients: \" + tijd_nu });\n    return null;\n}\n\nvar body = msg.payload.replaceAll(\"<br>\", \" \");\n\nmsg.payload = {\n    recipients: recipients,\n    body: body\n};\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: tijd_nu + \": \" + body });\n\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -16031,7 +16033,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
+        "x": 390,
         "y": 300,
         "wires": [
             [
@@ -16069,7 +16071,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
+        "x": 390,
         "y": 360,
         "wires": [
             [
@@ -16107,7 +16109,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
+        "x": 390,
         "y": 420,
         "wires": [
             [
@@ -16175,7 +16177,8 @@
             [
                 "ce6b05a4f9f6883d",
                 "367100a55e27d2f5",
-                "7641a1ccc251797f"
+                "7641a1ccc251797f",
+                "d48d2e3aaad4ee31"
             ]
         ]
     },
@@ -16354,9 +16357,47 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 420,
+        "y": 460,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "d48d2e3aaad4ee31",
+        "type": "function",
+        "z": "b9094bb8c5d7ac80",
+        "g": "10ee2ccaed3d7b0a",
+        "name": "4",
+        "func": "msg.payload = \"4\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 480,
+        "wires": [
+            [
+                "c4c7ef6b64769e02"
+            ]
+        ]
+    },
+    {
+        "id": "c4c7ef6b64769e02",
+        "type": "subflow:cf9fd0d5cf32c35e",
+        "z": "b9094bb8c5d7ac80",
+        "g": "10ee2ccaed3d7b0a",
+        "name": "",
+        "x": 560,
+        "y": 480,
+        "wires": [
+            [
+                "73abccd137d87e45"
+            ],
+            [
+                "cba56ffd489bbc0d"
+            ]
         ]
     },
     {
