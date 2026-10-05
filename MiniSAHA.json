@@ -275,7 +275,9 @@
             "3bd34e7abbd1d9af",
             "e68a026ef275a774",
             "435d8dc872fa3492",
-            "a3fe6e17184f326a"
+            "a3fe6e17184f326a",
+            "56892507e0f787bf",
+            "dc64af24b442ec0a"
         ],
         "x": 14,
         "y": 19,
@@ -3070,7 +3072,8 @@
             [
                 "94fd03500445951f",
                 "3d3ed8f6ab85a6cb",
-                "babed6e3ce5dc3ea"
+                "babed6e3ce5dc3ea",
+                "56892507e0f787bf"
             ]
         ]
     },
@@ -3390,7 +3393,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Alarm/Cancel",
-        "func": "let cancel = msg.payload.topic.includes(\"Annuleer\");\nif (cancel) {\n    let alarmCanceled = Number(global.get(\"UsageAlarmCanceled\") ?? \"0\");\n    alarmCanceled += 1;\n    global.set(\"UsageAlarmCanceled\", alarmCanceled);\n}\nelse {\n    let alarm = Number(global.get(\"UsageAlarm\") ?? \"0\");\n    alarm += 1;\n    global.set(\"UsageAlarm\", alarm);\n}\n\nmsg.topic = msg.payload.topic;\nmsg.payload = msg.payload.topic;\n\nvar tijd_nu = global.get(\"getTime\")(); \nnode.status({ text: \"Send: \" + tijd_nu + \", \" + msg.topic});\nreturn msg;",
+        "func": "let cancel = msg.topic.includes(\"ANNULEER\");\nif (cancel) {\n    let alarmCanceled = Number(global.get(\"UsageAlarmCanceled\") ?? \"0\");\n    alarmCanceled += 1;\n    global.set(\"UsageAlarmCanceled\", alarmCanceled);\n}\nelse {\n    let alarm = Number(global.get(\"UsageAlarm\") ?? \"0\");\n    alarm += 1;\n    global.set(\"UsageAlarm\", alarm);\n}\n\nmsg.payload = msg.topic;\n\nvar tijd_nu = global.get(\"getTime\")(); \nnode.status({ text: \"Send: \" + tijd_nu + \", \" + msg.topic});\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4424,6 +4427,36 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "56892507e0f787bf",
+        "type": "function",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "set LicenseSMS",
+        "func": "global.set(\"LicenseSMS\", \"eyJ0e\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc64af24b442ec0a",
+        "type": "comment",
+        "z": "a380efb730bea147",
+        "g": "4e4ef64c30555769",
+        "name": "tijdelijk",
+        "info": "",
+        "x": 990,
+        "y": 280,
+        "wires": []
     },
     {
         "id": "86d57ce8cd9b65da",
