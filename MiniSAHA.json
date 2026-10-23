@@ -10921,7 +10921,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "9e903c2c09c4282e",
         "name": "PingFault=0",
-        "func": "var isThuis = global.get(\"GebruikerIsAtHome\") != \"\";\nif (!isThuis) {\n    global.set(\"PingTestPeriode\", false);\n    node.status({ text: tijd_nu + \"; niet thuis\" });\n    return;\n}\n\nglobal.set(\"PingTestPeriode\", true);\nglobal.set(\"PingFault\", 0);\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \"; PingTestPeriode started\"});\n\nglobal.set(\"LastPingTest\", tijd_nu);\n\nreturn msg;",
+        "func": "var isThuis = global.get(\"GebruikerIsAtHome\") != \"\";\nif (!isThuis) {\n    global.set(\"PingTestPeriode\", false);\n    node.status({ text: tijd_nu + \"; niet thuis\" });\n    return;\n}\n\nglobal.set(\"PingTestPeriode\", true);\nglobal.set(\"PingFault\", 0);\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \"; PingTestPeriode started\"});\n\nlet now = new Date();\nglobal.set(\"LastPingTest\", now.toLocaleString('nl-NL'));\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
