@@ -11022,7 +11022,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "9e903c2c09c4282e",
         "name": "check PingFault",
-        "func": "// De pingcount mag nooit veel minder worden dan 20\nlet pingCount = global.get(\"PingCount\");\nif (pingCount < 20) {\n    global.set(\"PingCount\", 20);\n}\n\nlet pingTestPeriode = global.get(\"PingTestPeriode\") ?? false;\nif (pingTestPeriode == false) {\n    node.status({text: tijd_nu + \"; niet in test periode\"});\n     return null;\n}\n\nglobal.set(\"PingTestPeriode\", false);\nlet pingFault = global.get(\"PingFault\");\n\n// find optimum\nif (pingFault == 0) {\n    pingCount -= 1;\n    global.set(\"PingCount\", pingCount);\n}\n\nmsg.payload = pingFault;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \"; pingCount: \" + pingCount});\n\nreturn msg;\n",
+        "func": "// De pingcount mag nooit veel minder worden dan 20\nlet pingCount = global.get(\"PingCount\");\nif (pingCount < 20) {\n    pingCount = 20;\n    global.set(\"PingCount\", 20);\n}\n\nlet pingTestPeriode = global.get(\"PingTestPeriode\") ?? false;\nif (pingTestPeriode == false) {\n    node.status({text: tijd_nu + \"; niet in test periode\"});\n     return null;\n}\n\nglobal.set(\"PingTestPeriode\", false);\nlet pingFault = global.get(\"PingFault\");\n\n// find optimum\nif (pingFault == 0) {\n    pingCount -= 1;\n    global.set(\"PingCount\", pingCount);\n}\n\nmsg.payload = pingFault;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \"; pingCount: \" + pingCount});\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
