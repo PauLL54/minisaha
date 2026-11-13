@@ -351,12 +351,14 @@
             "f7da57ded4f6481e",
             "2aa807fc2505456e",
             "927f06d4fc17c7c8",
-            "482b01a57ffa51bb"
+            "482b01a57ffa51bb",
+            "8100b946aa3dff66",
+            "bc5f17bf84e93622"
         ],
         "x": 14,
         "y": 559,
         "w": 1312,
-        "h": 1262
+        "h": 1222
     },
     {
         "id": "bb314d79eca0c3fd",
@@ -2883,8 +2885,8 @@
         "g": "2ce41e3897fb35ce",
         "name": "https://www.w3schools.com/js/js_date_reference.asp",
         "info": "",
-        "x": 250,
-        "y": 1780,
+        "x": 230,
+        "y": 1740,
         "wires": []
     },
     {
@@ -2893,7 +2895,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Niet afgemeld",
-        "func": "let nietAfgemeld = Number(global.get(\"UsageNietAfgemeld\") ?? \"0\");\nnietAfgemeld += 1;\nglobal.set(\"UsageNietAfgemeld\", nietAfgemeld);\n\nlet voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nlet topic = \"MiniSAHA: \" + voornaamGebruiker + \" heeft niet gereageerd. Neem contact op.\";\n\nvar email = \"Beste contactpersoon,\" + \n  \"\\n\\nNeem contact op met \" + voornaamGebruiker + \" want hij/zij heeft niet gereageerd.\";\n\nlet msgSMS = { payload: topic };\n\nlet msgEmail = { topic: topic, payload: email };\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn [msgSMS, msgEmail];",
+        "func": "let nietAfgemeld = Number(global.get(\"UsageNietAfgemeld\") ?? \"0\");\nnietAfgemeld += 1;\nglobal.set(\"UsageNietAfgemeld\", nietAfgemeld);\n\nconst voornaamGebruiker = global.get(\"VoornaamGebruiker\");\n\nconst topic = \"MiniSAHA: \" + voornaamGebruiker + \" heeft niet gereageerd. Neem contact op.\";\n\nconst email = \"Beste contactpersoon,\" + \n  \"\\n\\nNeem contact op met \" + voornaamGebruiker + \" omdat er niet is gereageerd op een controlebericht.\";\n\nlet msgSMS = { payload: topic };\n\nlet msgEmail = { topic: topic, payload: email };\n\nconst tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn [msgSMS, msgEmail];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -2917,7 +2919,7 @@
         "z": "a380efb730bea147",
         "g": "4e4ef64c30555769",
         "name": "StateMachine",
-        "func": "let states = global.get(\"states\");\nvar tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\n\n// Als iemand lang niet thuis is geweest wordt hij automatisch afgemeld:\n// We weten niet zeker hoe betrouwbaar het pingen werkt.\n// Hiermee verlengen we de tijd ietsje:\nlet langNietThuis = 5; // minutes\nif (global.get(\"PingCount\") > 66) \n    langNietThuis = 10;\n\nlet trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger == \"startToonVraag\") currentState = states.TOONOKVRAAG;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        if (trigger == \"isThuis\") {\n            let nietThuisSinds = flow.get(\"NietThuisSinds\") ?? \"\";\n            let now = new Date();\n            if (toMinutes(now) - toMinutes(nietThuisSinds) > langNietThuis) {\n                currentState = states.ISOKAUTO;\n            }\n            else {\n                currentState = states.TOONOKVRAAG;\n            }\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.TOONOKVRAAG: {\n        if (trigger == \"isNietThuis\") {\n            currentState = states.TOONOKVRAAGNIETTHUIS; \n            let now = new Date();\n            flow.set(\"NietThuisSinds\", now);\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\") {\n            currentState = states.ISOK;\n            let usageIsOkVoorMelding = global.get(\"UsageIsOkVoorMelding\") ?? 0;\n            usageIsOkVoorMelding++;\n            global.set(\"UsageIsOkVoorMelding\", usageIsOkVoorMelding);\n        }\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        if (trigger == \"meldingsPeriodeVoorbij\")   currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        if (trigger == \"isThuis\") {\n            let nietThuisSinds = flow.get(\"NietThuisSinds\");\n            let now = new Date();\n            if (toMinutes(now) - toMinutes(nietThuisSinds) > langNietThuis) {\n                currentState = states.ISOKAUTO; \n            }\n            else {\n                currentState = states.MELDGEBRUIKER; \n            }\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"isNietThuis\") {\n            currentState = states.MELDGEBRUIKERNIETTHUIS; \n            let now = new Date();\n            flow.set(\"NietThuisSinds\", now);\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"jaPressed\")   currentState = states.ISOK;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOKAUTO: \n    case states.ISOK: \n    case states.ISNOTOK: {\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger == \"resetState\") currentState = states.IDLE;\n        if (trigger == \"jaPressed\")   currentState = states.ISOK_OVERTIJD;\n        if (trigger == \"neePressed\")  currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\n// alleen return msg bij status changes:\nif ((currentState != previousState) || (trigger == \"resetState\")) {\n    msg.payload = currentState;\n    global.set(\"previousState\", previousState); // handig voor het te debuggen\n    return msg;\n}\nelse\n    return;\n\n\n\n\nfunction toMinutes(date) {\n    return date.getHours() * 60 + date.getMinutes();\n}",
+        "func": "const states = global.get(\"states\");\nconst tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\nlet previousState = currentState;\n\n// Als iemand lang niet thuis is geweest wordt hij automatisch afgemeld:\n// We weten niet zeker hoe betrouwbaar het pingen werkt.\n// Hiermee verlengen we de tijd ietsje:\nlet langNietThuis = 5; // minutes\nif (global.get(\"PingCount\") > 66) \n    langNietThuis = 10;\n\nconst trigger = msg.payload;\n\nswitch (currentState) {\n    case states.IDLE: {\n        if (trigger === \"startToonVraag\") currentState = states.TOONOKVRAAG;\n        if (trigger === \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        break;\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        if (trigger === \"isThuis\") {\n            if (langGenoegNietThuis()) {\n                currentState = states.ISOKAUTO;\n            }\n            else {\n                currentState = states.TOONOKVRAAG;\n            }\n        }\n        if (trigger == \"resetState\") currentState = states.IDLE; \n        if (trigger == \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.TOONOKVRAAG: {\n        if (trigger === \"isNietThuis\") {\n            currentState = states.TOONOKVRAAGNIETTHUIS; \n            let now = new Date();\n            flow.set(\"NietThuisSinds\", now);\n        }\n        if (trigger === \"resetState\") currentState = states.IDLE; \n        if (trigger === \"jaPressed\") {\n            currentState = states.ISOK;\n            let usageIsOkVoorMelding = global.get(\"UsageIsOkVoorMelding\") ?? 0;\n            usageIsOkVoorMelding++;\n            global.set(\"UsageIsOkVoorMelding\", usageIsOkVoorMelding);\n        }\n        if (trigger === \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger === \"meldingsPeriodeGebruiker\") currentState = states.MELDGEBRUIKER;\n        if (trigger === \"meldingsPeriodeVoorbij\")   currentState = states.OVERTIJD;\n        break;\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        if (trigger === \"isThuis\") {\n            if (langGenoegNietThuis()) {\n\n                currentState = states.ISOKAUTO; \n            }\n            else {\n                currentState = states.MELDGEBRUIKER; \n            }\n        }\n        if (trigger === \"resetState\") currentState = states.IDLE; \n        if (trigger === \"meldingsPeriodeVoorbij\") currentState = states.ISOKAUTO;\n        break;\n    }\n    case states.MELDGEBRUIKER: {\n        if (trigger == \"isNietThuis\") {\n            currentState = states.MELDGEBRUIKERNIETTHUIS; \n            let now = new Date();\n            flow.set(\"NietThuisSinds\", now);\n        }\n        if (trigger === \"resetState\") currentState = states.IDLE; \n        if (trigger === \"jaPressed\")   currentState = states.ISOK;\n        if (trigger === \"neePressed\")  currentState = states.ISNOTOK;\n        if (trigger === \"meldingsPeriodeVoorbij\") currentState = states.OVERTIJD;\n        break;\n    }\n    case states.ISOKAUTO: \n    case states.ISOK: \n    case states.ISNOTOK: {\n        if (trigger === \"resetState\") currentState = states.IDLE; \n        break;\n    }\n    case states.OVERTIJD: {\n        if (trigger === \"resetState\") currentState = states.IDLE;\n        if (trigger === \"jaPressed\")   currentState = states.ISOK_OVERTIJD;\n        if (trigger === \"neePressed\")  currentState = states.ISNOTOK_OVERTIJD;\n        break;\n    }\n    case states.ISOK_OVERTIJD: {\n        if (trigger === \"resetState\") currentState = states.IDLE; \n        break;\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        if (trigger === \"resetState\") currentState = states.IDLE; \n        break;\n    }\n}\n\nglobal.set(\"currentState\", currentState);\n\nnode.status({ text: tijd_nu + \" State: \" + currentState });\n\n// alleen return msg bij status changes:\nif ((currentState !== previousState) || (trigger === \"resetState\")) {\n    msg.payload = currentState;\n    global.set(\"previousState\", previousState); // handig voor het te debuggen\n    return msg;\n}\nelse\n    return null;\n\n\nfunction langGenoegNietThuis() {\n    let sinds = flow.get(\"NietThuisSinds\");\n\n    if (!sinds) return false;\n\n    // now() en getTime() retourneert het aantal milliseconden dat is verstreken \n    // sinds de Unix-epoch (1 januari 1970 om 00:00:00 UTC) tot het huidige moment\n    return ((Date.now() - sinds.getTime()) / 60000) > langNietThuis;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2939,7 +2941,7 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Action",
-        "func": "var tijd_nu = global.get(\"getTime\")();\nlet currentState = global.get(\"currentState\");\n\nlet states = global.get(\"states\");\nswitch (currentState) {\n    case states.IDLE: {\n        msg.reset = true;\n        node.status({ text: tijd_nu + \", IDLE\" });\n        return [msg, null, null, null]; // stop met het sturen van berichten naar gebruiker\n    }\n    case states.TOONOKVRAAG: {\n        node.status({ text: tijd_nu + \", TOONOKVRAAG\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        node.status({ text: tijd_nu + \", TOONOKVRAAGNIETTHUIS\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        node.status({ text: tijd_nu + \", MELDGEBRUIKERNIETTHUIS\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.MELDGEBRUIKER: {\n        node.status({ text: tijd_nu + \", MELDGEBRUIKER, delay (min): \" + global.get(\"Herinnering\") });\n        msg.delay = global.get(\"Herinnering\") * 60000;\n        return [msg, null, null, null];\n    }\n    case states.ISOKAUTO:\n    case states.ISOK: {\n        node.status({ text: tijd_nu + \", reset timer, ISOK\" });\n        msg.reset = true;\n        global.set(\"OvertijdBerichtVerstuurd\", false);\n        return [msg, null, null, null];\n    }\n    case states.ISNOTOK: {\n        node.status({ text: tijd_nu + \", ISNOTOK\" });\n        msg.reset = true;\n        global.set(\"OvertijdBerichtVerstuurd\", false);\n        return [msg, null, msg, null];\n    }\n    case states.OVERTIJD: {\n        let overtijdBerichtVerstuurd = global.get(\"OvertijdBerichtVerstuurd\") ?? false;\n        if (!overtijdBerichtVerstuurd) { // stuur alleen de eerste dag bij overtijd\n            global.set(\"OvertijdBerichtVerstuurd\", true);\n            node.status({ text: tijd_nu + \", OVERTIJD\" });\n            return [null, msg, null, null]; // Informeer contactpersonen\n        }\n    }\n    case states.ISOK_OVERTIJD: {\n        node.status({ text: tijd_nu + \", ISOK_OVERTIJD\" });\n        msg.reset = true;\n        msg.payload = \"JA\";\n        global.set(\"OvertijdBerichtVerstuurd\", false);\n        return [msg, null, null, msg];\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        node.status({ text: tijd_nu + \", ISNOTOK_OVERTIJD\" });\n        msg.reset = true;\n        msg.payload = \"NEE\";\n        global.set(\"OvertijdBerichtVerstuurd\", false);\n        return [msg, null, null, msg];\n    }\n}\nreturn;\n",
+        "func": "const tijd_nu = global.get(\"getTime\")();\nconst currentState = global.get(\"currentState\");\n\nconst states = global.get(\"states\");\nswitch (currentState) {\n    case states.IDLE: {\n        msg.reset = true;\n        node.status({ text: tijd_nu + \", IDLE\" });\n        return [msg, null, null, null]; // stop met het sturen van berichten naar gebruiker\n    }\n    case states.TOONOKVRAAG: {\n        node.status({ text: tijd_nu + \", TOONOKVRAAG\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.TOONOKVRAAGNIETTHUIS: {\n        node.status({ text: tijd_nu + \", TOONOKVRAAGNIETTHUIS\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.MELDGEBRUIKERNIETTHUIS: {\n        node.status({ text: tijd_nu + \", MELDGEBRUIKERNIETTHUIS\" });\n        msg.reset = true;\n        return [msg, null, null, null];\n    }\n    case states.MELDGEBRUIKER: {\n        node.status({ text: tijd_nu + \", MELDGEBRUIKER, delay (min): \" + global.get(\"Herinnering\") });\n        msg.delay = global.get(\"Herinnering\") * 60000;\n        return [msg, null, null, null];\n    }\n    case states.ISOKAUTO:\n    case states.ISOK: {\n        node.status({ text: tijd_nu + \", reset timer, ISOK\" });\n        msg.reset = true;\n        global.set(\"OvertijdBerichtVerstuurd\", false);\n        return [msg, null, null, null];\n    }\n    case states.ISNOTOK: {\n        node.status({ text: tijd_nu + \", ISNOTOK\" });\n        msg.reset = true;\n        global.set(\"OvertijdBerichtVerstuurd\", false);\n        return [msg, null, msg, null];\n    }\n    case states.OVERTIJD: {\n        let overtijdBerichtVerstuurd = global.get(\"OvertijdBerichtVerstuurd\") ?? false;\n        if (!overtijdBerichtVerstuurd) { // stuur alleen de eerste dag bij overtijd\n            global.set(\"OvertijdBerichtVerstuurd\", true);\n            node.status({ text: tijd_nu + \", OVERTIJD\" });\n            return [null, msg, null, null]; // Informeer contactpersonen\n        }\n        return null;\n    }\n    case states.ISOK_OVERTIJD: {\n        node.status({ text: tijd_nu + \", ISOK_OVERTIJD\" });\n        msg.reset = true;\n        msg.payload = \"JA\";\n        global.set(\"OvertijdBerichtVerstuurd\", false);\n        return [msg, null, null, msg];\n    }\n    case states.ISNOTOK_OVERTIJD: {\n        node.status({ text: tijd_nu + \", ISNOTOK_OVERTIJD\" });\n        msg.reset = true;\n        msg.payload = \"NEE\";\n        global.set(\"OvertijdBerichtVerstuurd\", false);\n        return [msg, null, null, msg];\n    }\n}\nreturn null;\n",
         "outputs": 4,
         "timeout": 0,
         "noerr": 0,
@@ -3001,8 +3003,8 @@
         "tls": true,
         "name": "",
         "dname": "",
-        "x": 1010,
-        "y": 1360,
+        "x": 1050,
+        "y": 1380,
         "wires": []
     },
     {
@@ -3490,7 +3492,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 1640,
+        "y": 1340,
         "wires": [
             [
                 "7df2d7d7906671f7"
@@ -3511,7 +3513,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 1640,
+        "y": 1340,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -3791,7 +3793,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1580,
+        "y": 1640,
         "wires": [
             [
                 "ea326d9d9057dbf3"
@@ -3804,15 +3806,15 @@
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
         "name": "Debug info",
-        "func": "let emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (s1 != \"\") smsContacten++;\nif (s2 != \"\") smsContacten++;\nif (s3 != \"\") smsContacten++;\n\nlet licenseSMS = global.get(\"LicenseSMS\") ?? \"\";\n\nlet dependencies = global.get(\"DependenciesCurrent\") ?? \"\";\nlet dependenciesCurrent = \"\"\nfor (const value of dependencies) {\n  dependenciesCurrent += value + \", \";\n}\n\nlet instellingen = global.get(\"TijdOKOchtend\") + \", \" + global.get(\"TijdOKAvond\") + \", \"  + global.get(\"Herinnering\") + \", \" + global.get(\"MeldPeriodeInMinuten\");\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker:       \" + global.get(\"VoornaamGebruiker\") +\n  \"\\nEmail gebruiker:          \" + (global.get(\"EmailGebruiker\") ?? \"\") +\n  \"\\nSoftware version:         \" + global.get(\"version\") +\n  \"\\nRaspberry Pi model:       \" + global.get(\"RaspberryPiModel\") +\n  \"\\nRaspberry Pi ID:          \" + global.get(\"SerialCRC32\") +\n  \"\\nRaspberry Pi IP adres:    \" + global.get(\"IP_host\") +\n  \"\\nTijdOpenApp:              \" + (global.get(\"TijdOpenApp\") ?? \"\") +\n  \"\\nInstellingen:             \" + instellingen +\n  \"\\nTijdOKAvondEnabled:       \" + (global.get(\"TijdOKAvondEnabled\") ?? false)  +\n  \"\\nBluetoothSoundOchtend:    \" + (global.get(\"BluetoothSoundOchtend\") ?? false) +\n  \"\\nBluetoothSoundAvond:      \" + (global.get(\"BluetoothSoundAvond\") ?? false) +\n  \"\\nBrowser:                  \" + global.get(\"Browser\") +\n  \"\\nPingCount:                \" + global.get(\"PingCount\") +\n  \"\\nPingFault:                \" + (global.get(\"PingFault\") ?? 0) +\n  \"\\nLastPingTest:             \" + (global.get(\"LastPingTest\") ?? \"\") +\n  \"\\nSMS license:              \" + (licenseSMS != \"\") +\n  \"\\nSMS credits:              \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nSMS contacten:            \" + smsContacten +\n  \"\\nEmail contacten:          \" + emailContacten +\n  \"\\nOvertijdBerichtVerstuurd: \" + (global.get(\"OvertijdBerichtVerstuurd\") ?? false) +\n  \"\\n\" +\n  \"\\nLaatste melding contact:  \" + (global.get(\"meldingContact\") ?? 0) +\n  \"\\nUsageNietAfgemeld:        \" + (global.get(\"UsageNietAfgemeld\") ?? 0) +\n  \"\\nUsageNietOK:              \" + (global.get(\"UsageNietOK\") ?? 0) +\n  \"\\nUsageOverTijdAfgemeld:    \" + (global.get(\"UsageOverTijdAfgemeld\") ?? 0) +\n  \"\\nUsageAlarm:               \" + (global.get(\"UsageAlarm\") ?? 0) +\n  \"\\nUsageAlarmCanceled:       \" + (global.get(\"UsageAlarmCanceled\") ?? 0) +\n  \"\\nUsageSpeakerOff:          \" + (global.get(\"UsageSpeakerOff\") ?? 0) +\n  \"\\nUsageIsOkAuto:            \" + (global.get(\"UsageIsOkAuto\") ?? 0) +\n  \"\\nUsageIsOkVoorMelding:     \" + (global.get(\"UsageIsOkVoorMelding\") ?? 0) +\n  \"\\n\" +\n  \"\\nDependenciesCurrent:     \" + dependenciesCurrent;\n\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
+        "func": "// Een enkele keer komt het voor dat de telefoon wisselt tussen 2 wifi netwerken in huis.\n// Het gevolg kan zijn dat de telefoon 2 verschillende IP adressen heeft.\nconst ssidList = msg.payload.split('\\n').slice(0, 6).join('\\n'); // alleen de eerste 5 ssids\n\nlet emailContacten = 0;\nlet e1 = global.get(\"EmailSleutelbewaarder1\") ?? \"\";\nlet e2 = global.get(\"EmailSleutelbewaarder2\") ?? \"\";\nlet e3 = global.get(\"EmailSleutelbewaarder3\") ?? \"\";\nif (e1 != \"\") emailContacten++;\nif (e2 != \"\") emailContacten++;\nif (e3 != \"\") emailContacten++;\n\nlet smsContacten = 0;\nlet s1 = global.get(\"MobielContact1\") ?? \"\";\nlet s2 = global.get(\"MobielContact2\") ?? \"\";\nlet s3 = global.get(\"MobielContact3\") ?? \"\";\nif (s1 != \"\") smsContacten++;\nif (s2 != \"\") smsContacten++;\nif (s3 != \"\") smsContacten++;\n\nlet licenseSMS = global.get(\"LicenseSMS\") ?? \"\";\n\nlet dependencies = global.get(\"DependenciesCurrent\") ?? \"\";\nlet dependenciesCurrent = \"\"\nfor (const value of dependencies) {\n  dependenciesCurrent += value + \", \";\n}\n\nlet instellingen = global.get(\"TijdOKOchtend\") + \", \" + global.get(\"TijdOKAvond\") + \", \"  + global.get(\"Herinnering\") + \", \" + global.get(\"MeldPeriodeInMinuten\");\n\nmsg.topic = \"Debug info: MiniSAHA \" + global.get(\"SerialCRC32\");\n\nmsg.payload = \n  \"\\nVoornaam gebruiker:       \" + global.get(\"VoornaamGebruiker\") +\n  \"\\nEmail gebruiker:          \" + (global.get(\"EmailGebruiker\") ?? \"\") +\n  \"\\nSoftware version:         \" + global.get(\"version\") +\n  \"\\nRaspberry Pi model:       \" + global.get(\"RaspberryPiModel\") +\n  \"\\nRaspberry Pi ID:          \" + global.get(\"SerialCRC32\") +\n  \"\\nRaspberry Pi IP adres:    \" + global.get(\"IP_host\") +\n  \"\\nTijdOpenApp:              \" + (global.get(\"TijdOpenApp\") ?? \"\") +\n  \"\\nInstellingen:             \" + instellingen +\n  \"\\nTijdOKAvondEnabled:       \" + (global.get(\"TijdOKAvondEnabled\") ?? false)  +\n  \"\\nBluetoothSoundOchtend:    \" + (global.get(\"BluetoothSoundOchtend\") ?? false) +\n  \"\\nBluetoothSoundAvond:      \" + (global.get(\"BluetoothSoundAvond\") ?? false) +\n  \"\\nBrowser:                  \" + global.get(\"Browser\") +\n  \"\\nPingCount:                \" + global.get(\"PingCount\") +\n  \"\\nPingFault:                \" + (global.get(\"PingFault\") ?? 0) +\n  \"\\nLastPingTest:             \" + (global.get(\"LastPingTest\") ?? \"\") +\n  \"\\nSMS license:              \" + (licenseSMS != \"\") +\n  \"\\nSMS credits:              \" + (global.get(\"SmsCredits\") ?? \"\") +\n  \"\\nSMS contacten:            \" + smsContacten +\n  \"\\nEmail contacten:          \" + emailContacten +\n  \"\\nOvertijdBerichtVerstuurd: \" + (global.get(\"OvertijdBerichtVerstuurd\") ?? false) +\n  \"\\n\" +\n  \"\\nLaatste melding contact:  \" + (global.get(\"meldingContact\") ?? 0) +\n  \"\\nUsageNietAfgemeld:        \" + (global.get(\"UsageNietAfgemeld\") ?? 0) +\n  \"\\nUsageNietOK:              \" + (global.get(\"UsageNietOK\") ?? 0) +\n  \"\\nUsageOverTijdAfgemeld:    \" + (global.get(\"UsageOverTijdAfgemeld\") ?? 0) +\n  \"\\nUsageAlarm:               \" + (global.get(\"UsageAlarm\") ?? 0) +\n  \"\\nUsageAlarmCanceled:       \" + (global.get(\"UsageAlarmCanceled\") ?? 0) +\n  \"\\nUsageSpeakerOff:          \" + (global.get(\"UsageSpeakerOff\") ?? 0) +\n  \"\\nUsageIsOkAuto:            \" + (global.get(\"UsageIsOkAuto\") ?? 0) +\n  \"\\nUsageIsOkVoorMelding:     \" + (global.get(\"UsageIsOkVoorMelding\") ?? 0) +\n  \"\\n\" +\n  \"\\nDependenciesCurrent:     \" + dependenciesCurrent +\n  \"\\n\\n\" +\n  ssidList;\n\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({ text: \"Send: \" + tijd_nu });\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 1580,
+        "x": 590,
+        "y": 1640,
         "wires": [
             [
                 "103b4311b12747c4"
@@ -3833,7 +3835,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 1500,
+        "y": 1560,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -4076,16 +4078,16 @@
         "type": "function",
         "z": "a380efb730bea147",
         "g": "2ce41e3897fb35ce",
-        "name": "Gebruiker",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet email = global.get(\"EmailGebruiker\") ?? \"\";\nif (email == \"\") {\n    node.status({ text: tijd_nu + \" geen EmailGebruiker\"});\n    return;\n}\n\nmsg = {\n    to: email,\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: msg.payload\n}\n\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
+        "name": "Gebruiker;SafeAtHomeAlone",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet email = global.get(\"EmailGebruiker\") ?? \"\";\nif (email == \"\") {\n    node.status({ text: tijd_nu + \" geen EmailGebruiker\"});\n    return;\n}\n\nmsg = {\n    to: email,\n    bcc: \"safeathomealone@gmail.com\",\n    from: \"safeathomealone@gmail.com\",\n    topic: msg.topic,\n    payload: msg.payload\n}\n\nnode.status({ text: \"Send: \" + tijd_nu });\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 740,
-        "y": 1340,
+        "x": 800,
+        "y": 1400,
         "wires": [
             [
                 "df1878820d0f62c5"
@@ -4115,7 +4117,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             [
                 "018afce4893e9f26"
@@ -4136,7 +4138,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             [
                 "6bd9a97fa1e23a2a"
@@ -4158,7 +4160,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 1400,
+        "y": 1460,
         "wires": [
             [
                 "e9274133aa8f3475"
@@ -4179,7 +4181,7 @@
         "finalize": "",
         "libs": [],
         "x": 440,
-        "y": 1400,
+        "y": 1460,
         "wires": [
             [
                 "6bd9a97fa1e23a2a"
@@ -4197,7 +4199,7 @@
         ],
         "uncaught": false,
         "x": 90,
-        "y": 1460,
+        "y": 1520,
         "wires": [
             [
                 "927f06d4fc17c7c8"
@@ -4218,7 +4220,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1460,
+        "y": 1520,
         "wires": [
             [
                 "103b4311b12747c4",
@@ -4237,7 +4239,7 @@
         ],
         "uncaught": false,
         "x": 90,
-        "y": 1520,
+        "y": 1580,
         "wires": [
             [
                 "482b01a57ffa51bb"
@@ -4258,7 +4260,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 1520,
+        "y": 1580,
         "wires": [
             [
                 "103b4311b12747c4",
@@ -4311,10 +4313,10 @@
         "allowrate": false,
         "outputs": 1,
         "x": 260,
-        "y": 1580,
+        "y": 1640,
         "wires": [
             [
-                "7d7d5d76c7d50c52"
+                "8100b946aa3dff66"
             ]
         ]
     },
@@ -4332,7 +4334,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 1460,
+        "y": 1520,
         "wires": [
             [
                 "6bd9a97fa1e23a2a"
@@ -4354,7 +4356,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 740,
-        "y": 1420,
+        "y": 1480,
         "wires": []
     },
     {
@@ -4376,7 +4378,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 250,
-        "y": 1460,
+        "y": 1520,
         "wires": [
             [
                 "3dbdf3d7af0ee058",
@@ -4403,7 +4405,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 250,
-        "y": 1520,
+        "y": 1580,
         "wires": [
             [
                 "8dadd8a97e3e9159"
@@ -4439,6 +4441,59 @@
         "x": 990,
         "y": 280,
         "wires": []
+    },
+    {
+        "id": "8100b946aa3dff66",
+        "type": "exec",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "command": "nmcli dev wifi",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 410,
+        "y": 1640,
+        "wires": [
+            [
+                "7d7d5d76c7d50c52"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "bc5f17bf84e93622",
+        "type": "inject",
+        "z": "a380efb730bea147",
+        "g": "2ce41e3897fb35ce",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 1700,
+        "wires": [
+            [
+                "8100b946aa3dff66"
+            ]
+        ]
     },
     {
         "id": "86d57ce8cd9b65da",
@@ -10921,7 +10976,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "9e903c2c09c4282e",
         "name": "PingFault=0",
-        "func": "var isThuis = global.get(\"GebruikerIsAtHome\") != \"\";\nif (!isThuis) {\n    global.set(\"PingTestPeriode\", false);\n    node.status({ text: tijd_nu + \"; niet thuis\" });\n    return;\n}\n\nglobal.set(\"PingTestPeriode\", true);\nglobal.set(\"PingFault\", 0);\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \"; PingTestPeriode started\"});\n\nlet now = new Date();\nglobal.set(\"LastPingTest\", now.toLocaleString('nl-NL'));\n\nreturn msg;",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nvar isThuis = global.get(\"GebruikerIsAtHome\") != \"\";\nif (!isThuis) {\n    global.set(\"PingTestPeriode\", false);\n    node.status({ text: tijd_nu + \"; niet thuis\" });\n    return;\n}\n\nglobal.set(\"PingTestPeriode\", true);\nglobal.set(\"PingFault\", 0);\n\nnode.status({text: tijd_nu + \"; PingTestPeriode started\"});\n\nlet now = new Date();\nglobal.set(\"LastPingTest\", now.toLocaleString('nl-NL'));\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -11022,7 +11077,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "9e903c2c09c4282e",
         "name": "check PingFault",
-        "func": "// De pingcount mag nooit veel minder worden dan 20\nlet pingCount = global.get(\"PingCount\");\nif (pingCount < 20) {\n    pingCount = 20;\n    global.set(\"PingCount\", 20);\n}\n\nlet pingTestPeriode = global.get(\"PingTestPeriode\") ?? false;\nif (pingTestPeriode == false) {\n    node.status({text: tijd_nu + \"; niet in test periode\"});\n     return null;\n}\n\nglobal.set(\"PingTestPeriode\", false);\nlet pingFault = global.get(\"PingFault\");\n\n// find optimum\nif (pingFault == 0) {\n    pingCount -= 1;\n    global.set(\"PingCount\", pingCount);\n}\n\nmsg.payload = pingFault;\n\nvar tijd_nu = global.get(\"getTime\")();\nnode.status({text: tijd_nu + \"; pingCount: \" + pingCount});\n\nreturn msg;\n",
+        "func": "// De pingcount mag nooit veel minder worden dan 20\nlet pingCount = global.get(\"PingCount\");\nif (pingCount < 20) {\n    pingCount = 20;\n    global.set(\"PingCount\", 20);\n}\n\nlet pingTestPeriode = global.get(\"PingTestPeriode\") ?? false;\nvar tijd_nu = global.get(\"getTime\")();\nif (pingTestPeriode == false) {\n    node.status({text: tijd_nu + \"; niet in test periode\"});\n     return null;\n}\n\nglobal.set(\"PingTestPeriode\", false);\nlet pingFault = global.get(\"PingFault\");\n\n// find optimum\nif (pingFault == 0) {\n    pingCount -= 1;\n    global.set(\"PingCount\", pingCount);\n}\n\nmsg.payload = pingFault;\n\nnode.status({text: tijd_nu + \"; pingCount: \" + pingCount});\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -11044,7 +11099,7 @@
         "z": "eb60a9ea21d42f29",
         "g": "9e903c2c09c4282e",
         "name": "PingFault++",
-        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet pingTestPeriode = global.get(\"PingTestPeriode\") ?? false;\nif (pingTestPeriode == false) {\n    node.status({text: tijd_nu + \"; niet in test periode\"});\n     return null;\n}\n\nvar isThuis = msg.payload;\nif (isThuis == 0) {\n    let pingFault = Number(global.get(\"PingFault\"));\n    pingFault++;\n    global.set(\"PingFault\", pingFault);\n\n    let pingCount = Number(global.get(\"PingCount\"));\n    pingCount += 5;\n    let maxPingCount = 150;\n    if (pingCount > maxPingCount) pingCount = maxPingCount;\n    global.set(\"PingCount\", pingCount);\n\n    node.status({\n        text: tijd_nu + \"; pingCount: \" + pingCount +\n            \"; pingFault: \" + pingFault\n    });\n    return msg;\n}\n\nreturn null;\n\n",
+        "func": "var tijd_nu = global.get(\"getTime\")();\n\nlet pingTestPeriode = global.get(\"PingTestPeriode\") ?? false;\nif (pingTestPeriode === false) {\n    node.status({text: tijd_nu + \"; niet in test periode\"});\n     return null;\n}\n\nvar isThuis = msg.payload;\nif (isThuis === 0) {\n    let pingFault = Number(global.get(\"PingFault\"));\n    pingFault++;\n    global.set(\"PingFault\", pingFault);\n\n    let pingCount = Number(global.get(\"PingCount\"));\n    pingCount += 5;\n    let maxPingCount = 150;\n    if (pingCount > maxPingCount) pingCount = maxPingCount;\n    global.set(\"PingCount\", pingCount);\n\n    node.status({\n        text: tijd_nu + \"; pingCount: \" + pingCount +\n            \"; pingFault: \" + pingFault\n    });\n    return msg;\n}\n\nreturn null;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
